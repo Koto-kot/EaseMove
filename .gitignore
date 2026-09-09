@@ -52,7 +52,6 @@ CHAT_SUMMARY_*.md
 build/
 pubspec.lock
 
-# Extra local-only platform targets (regenerate with:
-#   flutter create . --platforms=web,windows --project-name ease_move)
-/web/
+# Local-only desktop target (regenerate with:
+#   flutter create . --platforms=windows --project-name ease_move)
 /windows/

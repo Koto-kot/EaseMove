@@ -1,0 +1,65 @@
+name: Deploy web demo
+
+# Публічне demo для перегляду UI та флоу.
+# Збирається з ENV=development, бо всі вправи мають clinical.status:
+# pending_review — у production-збірці каталог був би порожній
+# (docs/SAFETY_AND_CLINICAL_REVIEW.md). Це demo, не реліз.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Один деплой за раз; черга не скасовує вже початий.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install -r tools/requirements.txt
+
+      # The bundle is committed, but rebuilding keeps the demo honest.
+      - run: python scripts/build_content.py
+
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+      - run: flutter pub get
+
+      # base-href must match the Pages sub-path for asset URLs to resolve.
+      - name: Build web
+        run: >-
+          flutter build web
+          --release
+          --base-href /EaseMove/
+          --dart-define=ENV=development
+          --no-tree-shake-icons
+          --no-wasm-dry-run
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: build/web
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
