@@ -1,0 +1,28 @@
+schema_version: '1.0'
+profiles:
+- id: exercise_visual_v1
+  purpose: exercise_frames
+  style: clean_neutral_instructional
+  background: clean_neutral
+  embedded_text_allowed: false
+  arrows_allowed: false
+  watermarks_allowed: false
+  default_master:
+    width_px: 1024
+    height_px: 1024
+    format: png
+  consistency:
+  - subject
+  - clothing
+  - camera
+  - crop
+  - environment
+- id: body_map_v1
+  purpose: interactive_body_map
+  style: simplified_neutral_non_athletic
+  views:
+  - front
+  - back
+  hotspots_embedded: false
+  labels_embedded: false
+  preferred_format: svg

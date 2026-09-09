@@ -1,0 +1,828 @@
+schema_version: '1.3'
+content_version: 0.1.0
+exercise:
+  id: KNEE_003
+  slug: supine_heel_slide
+  internal_name: Supine heel slide
+  status: draft
+  availability:
+    tier: free
+    visible_to_free_users: true
+    pro_personalization_eligible: true
+  classification:
+    primary_zone: knees
+    secondary_zones:
+    - hips
+    body_map_hotspot_ids:
+    - left_knee
+    - right_knee
+    - left_hip
+    - right_hip
+    collections:
+    - body_knees
+    - bed_basic
+    - bed_legs
+    - gentle_mobility
+    collection_candidates:
+    - morning_in_bed
+    - evening_gentle
+    tags:
+      anatomy:
+      - knees
+      - hips
+      context:
+      - bed
+      - lying
+      - gentle_mobility
+      position:
+      - supine
+      movement:
+      - heel_slide
+      - knee_flexion
+      - knee_extension
+      - hip_flexion
+      - bilateral
+      - surface_slide
+      level:
+      - beginner
+      - gentle
+      equipment:
+      - bed_or_mat
+  exercise_properties:
+    difficulty: easy
+    laterality: bilateral
+    movement_pattern: supine_heel_slide
+    preferred_position: supine
+    alternative_positions: []
+    equipment_required:
+    - stable_lying_surface
+    equipment_optional: []
+    space_requirement: full_leg_length_on_surface
+    functional_task: false
+  anatomy:
+    primary_joints:
+    - knee
+    secondary_joints:
+    - hip
+    primary_muscle_groups: []
+    secondary_muscle_groups: []
+    movement_plane: sagittal
+    joint_actions:
+    - knee_flexion_during_slide_in
+    - knee_extension_during_slide_out
+    - hip_flexion_during_slide_in
+    - hip_extension_during_slide_out
+clinical:
+  status: pending_review
+  publish_rule: production_requires_approved
+  source_basis:
+    primary_source_id: UHSUSSEX_BED_KNEE_BEND
+    secondary_source_ids:
+    - CUH_EARLY_KNEE_HEEL_SLIDES
+    - FRIMLEY_HEEL_SLIDES
+    - NBT_HEEL_SLIDES
+    - WCHC_KNEE_INJURY_HEEL_SLIDES
+    - OUH_HEEL_SLIDES
+    source_summary_uk: 'Перевірені NHS-матеріали описують heel slide як вправу лежачи на спині: почати з випрямленої
+      ноги, повільно ковзати п’ятою до сідниць, згинаючи коліно до комфортної межі, а потім повільно ковзати назад
+      до випрямлення. П’ята залишається в контакті з поверхнею, а коліно під час згинання спрямоване вгору.'
+  source_prescriptions:
+  - source_id: UHSUSSEX_BED_KNEE_BEND
+    repetitions_per_side: null
+    sets: null
+    hold_seconds: 0
+    notes_uk: Дозування залишене для індивідуального призначення; описано повільний рух до комфортної межі та повтор
+      іншою ногою.
+  - source_id: NBT_HEEL_SLIDES
+    repetitions_min: 5
+    repetitions_max: 10
+    sets: 1
+    hold_seconds: 0
+    notes_uk: Описано ковзання стопи до тіла й назад у положенні лежачи.
+  - source_id: WCHC_KNEE_INJURY_HEEL_SLIDES
+    repetitions_min: 5
+    repetitions_max: 10
+    sets: 1
+    hold_seconds: 0
+    notes_uk: Рекомендується згинати коліно настільки, наскільки можливо/комфортно.
+  - source_id: OUH_HEEL_SLIDES
+    repetitions_min: 5
+    repetitions_max: 10
+    sets: 1
+    hold_seconds: 0
+    notes_uk: Повільно зігнути коліно ковзанням п’яти до сідниць і повільно повернутися.
+  app_prototype_prescription:
+    status: pending_review
+    mode: repetitions
+    sets: 1
+    repetitions_per_side: 5
+    side_order: left_then_right
+    hold_seconds: 0
+    range_rule: as_far_as_comfortable
+    movement_speed_rule: slow_controlled
+    note_uk: Для тесту застосунку використовується 5 повторів на кожну ногу. Перед production фізіотерапевт повинен
+      затвердити кількість повторів, темп, діапазон руху та допустимі поверхні.
+  positioning:
+    base_position: supine
+    surface:
+      required_type: stable_lying_surface
+      allowed_prototype_values:
+      - bed
+      - exercise_mat
+      production_values_pending_review: true
+    head_support:
+      required: false
+      allowed: true
+      specification: comfort_only_pending_review
+    non_working_leg:
+      prototype_position: straight_or_comfortably_supported
+      production_rule_pending_review: true
+    pelvis:
+      target: stable_neutral
+      must_not_rotate_with_working_leg: true
+  surface_contact:
+    working_heel:
+      contact_required: true
+      contact_surface: bed_or_mat
+      must_slide_not_lift: true
+    working_foot:
+      path: toward_buttocks_then_away
+      friction_sensitive: true
+    working_knee:
+      direction_rule: points_upward_during_flexion
+  movement_quality:
+    required_cues_uk:
+    - Лежати зручно на спині.
+    - П’ята робочої ноги залишається на поверхні.
+    - Ковзати п’ятою до себе повільно.
+    - Коліно під час згинання спрямоване вгору.
+    - Не відривати таз і не перекручувати корпус.
+    - Повільно випрямляти ногу назад.
+  safety:
+    environment_requirements_uk:
+    - Поверхня повинна бути стійкою та достатньо довгою для повного випрямлення ніг.
+    - Навколо ніг не повинно бути предметів, які заважають ковзанню п’яти.
+    general_rule_uk: Рухайте п’яту повільно, без ривків і лише в комфортному діапазоні.
+    stop_conditions_uk:
+    - різкий або незвичний біль
+    - раптове погіршення самопочуття
+    - інший новий або незвичний симптом під час виконання
+    in_app_stop_message_uk: Зупиніть вправу, якщо з’явився різкий біль або інший незвичний симптом.
+    requires_professional_review:
+      prescription: true
+      safety_text: true
+      contraindications: true
+      surface_requirements: true
+      head_support_rule: true
+      animation_accuracy: true
+      voice_cues: true
+  variants:
+  - id: VARIANT_BED
+    label_uk: На ліжку
+    difficulty: standard
+    status: pending_review
+    surface: bed
+    description_uk: П’ята ковзає по поверхні ліжка. Поверхня повинна бути стійкою та не заважати плавному руху.
+  - id: VARIANT_MAT
+    label_uk: На килимку
+    difficulty: standard
+    status: pending_review
+    surface: exercise_mat
+    description_uk: Варіант на рівній поверхні/килимку; допустимість для production потребує клінічного затвердження.
+  review:
+    reviewer_role: physiotherapist_or_equivalent
+    reviewer_name: null
+    reviewed_at: null
+    review_notes: null
+    approval_version: null
+locale:
+  default: uk
+  uk:
+    title: Підтягування п’яти лежачи
+    short_title: П’ята до себе
+    card_description: Ковзайте п’ятою до себе, згинаючи коліно, а потім повільно випряміть ногу.
+    category_label: Коліна
+    purpose_text: Легка вправа лежачи для рухливості коліна та контрольованого згинання ноги.
+    start_position_title: Початкове положення
+    start_position_text: Ляжте на спину. Випряміть ноги та розслабтеся. П’ята робочої ноги лежить на поверхні.
+    instructions_title: Як виконувати
+    instructions:
+    - step: 1
+      text: Ляжте зручно на спину, ноги випрямлені.
+    - step: 2
+      text: Повільно ковзайте лівою п’ятою до себе.
+    - step: 3
+      text: Згинайте коліно настільки, наскільки комфортно.
+    - step: 4
+      text: Тримайте коліно спрямованим угору.
+    - step: 5
+      text: Повільно ковзайте п’ятою назад, випрямляючи ногу.
+    - step: 6
+      text: Виконайте задану кількість повторів.
+    - step: 7
+      text: Після сигналу застосунку повторіть іншою ногою.
+    technique_tips_title: Зверніть увагу
+    technique_tips:
+    - П’ята не відривається від поверхні.
+    - Коліно не завалюється вбік.
+    - Таз залишається спокійним.
+    - Рухайтеся плавно, без ривків.
+    safety_label: Безпека
+    safety_text: Рухайтеся тільки в комфортному діапазоні. Якщо з’явився різкий біль або інший незвичний симптом,
+      натисніть «Стоп».
+    completion_text: Готово.
+    halfway_text: Половину виконано.
+    switch_side_text: Тепер інша нога.
+    last_repetition_text: Останній повтор.
+ui:
+  card:
+    title_key: exercise.KNEE_003.title
+    description_key: exercise.KNEE_003.card_description
+    preview_asset: assets/exercises/KNEE_003/preview.png
+    primary_action:
+      key: common.exercise.start
+      resolved_uk: Почати
+    badges:
+      show_difficulty: false
+      show_duration: true
+      show_pro_badge: false
+      show_position: true
+  exercise_screen:
+    title_key: exercise.KNEE_003.title
+    labels:
+      elapsed_time:
+        key: common.exercise.elapsed_time
+        resolved_uk: Час
+      progress:
+        key: common.exercise.progress
+        resolved_uk: Виконано
+      repetition:
+        key: common.exercise.repetition
+        resolved_uk: Повтор
+      side:
+        key: common.exercise.side
+        resolved_uk: Нога
+      position:
+        key: common.exercise.position
+        resolved_uk: Положення
+    controls:
+      previous:
+        key: common.control.previous
+        resolved_uk: Попередня
+        icon: arrow_left
+      start:
+        key: common.control.start
+        resolved_uk: Старт
+        icon: play
+      pause:
+        key: common.control.pause
+        resolved_uk: Пауза
+        icon: pause
+      continue:
+        key: common.control.continue
+        resolved_uk: Продовжити
+        icon: play
+      stop:
+        key: common.control.stop
+        resolved_uk: Стоп
+        icon: stop
+      next:
+        key: common.control.next
+        resolved_uk: Наступна
+        icon: arrow_right
+    prep:
+      label_key: common.exercise.starts_in
+      resolved_uk: Починаємо через
+    rest:
+      label_key: common.exercise.rest
+      resolved_uk: Відпочинок
+      next_label_key: common.exercise.next_exercise
+      next_label_resolved_uk: Наступна вправа
+timing:
+  prep_countdown_seconds: 5
+  rest_after_seconds: 10
+  completion_mode: prescribed_repetitions
+  prescription:
+    sets: 1
+    repetitions_per_side: 5
+    side_order:
+    - left
+    - right
+  playback:
+    slide_in_ms: 2200
+    end_position_pause_ms: 500
+    slide_out_ms: 2200
+    start_position_pause_ms: 500
+  estimated_active_duration_seconds: 54
+  progress:
+    basis: completed_repetitions
+    show_elapsed_time: true
+    show_progress_bar: true
+    show_repetition_counter: true
+    show_side_label: true
+    show_set_counter: false
+repetition_model:
+  type: side_blocks
+  block_order:
+  - left
+  - right
+  repetitions_per_block: 5
+  sets: 1
+  switch_side_automatically: true
+  user_action_required_to_switch_side: false
+  reset_repetition_counter_on_side_change: true
+  cycle_start_state: leg_straight
+  cycle_end_state: leg_straight
+movement_phases:
+- id: PHASE_SUPINE_START
+  name_uk: Нога випрямлена
+  phase_type: start_end
+- id: PHASE_SLIDE_IN
+  name_uk: П’ята до себе
+  phase_type: dynamic_surface_slide
+- id: PHASE_KNEE_BENT
+  name_uk: Коліно зігнуте
+  phase_type: checkpoint
+- id: PHASE_SLIDE_OUT
+  name_uk: Випрямлення ноги
+  phase_type: dynamic_surface_slide
+sequence:
+  side_blocks:
+  - side: left
+    repeat: 5
+    steps:
+    - id: left_start
+      phase: PHASE_SUPINE_START
+      frame_id: FRAME_START
+      duration_ms: 500
+      voice_event: null
+    - id: left_slide_in
+      phase: PHASE_SLIDE_IN
+      frame_transition:
+        from: FRAME_START
+        via: FRAME_LEFT_MID
+        to: FRAME_LEFT_BENT
+      duration_ms: 2200
+      voice_event: VOICE_SLIDE_IN
+    - id: left_bent_checkpoint
+      phase: PHASE_KNEE_BENT
+      frame_id: FRAME_LEFT_BENT
+      duration_ms: 500
+      voice_event: VOICE_KNEE_UP
+    - id: left_slide_out
+      phase: PHASE_SLIDE_OUT
+      frame_transition:
+        from: FRAME_LEFT_BENT
+        via: FRAME_LEFT_MID
+        to: FRAME_START
+      duration_ms: 2200
+      voice_event: VOICE_SLIDE_OUT
+  - side: right
+    repeat: 5
+    steps:
+    - id: right_start
+      phase: PHASE_SUPINE_START
+      frame_id: FRAME_START
+      duration_ms: 500
+      voice_event: null
+    - id: right_slide_in
+      phase: PHASE_SLIDE_IN
+      frame_transition:
+        from: FRAME_START
+        via: FRAME_RIGHT_MID
+        to: FRAME_RIGHT_BENT
+      duration_ms: 2200
+      voice_event: VOICE_SLIDE_IN
+    - id: right_bent_checkpoint
+      phase: PHASE_KNEE_BENT
+      frame_id: FRAME_RIGHT_BENT
+      duration_ms: 500
+      voice_event: VOICE_KNEE_UP
+    - id: right_slide_out
+      phase: PHASE_SLIDE_OUT
+      frame_transition:
+        from: FRAME_RIGHT_BENT
+        via: FRAME_RIGHT_MID
+        to: FRAME_START
+      duration_ms: 2200
+      voice_event: VOICE_SLIDE_OUT
+animation:
+  engine: frame_sequence
+  style_profile_id: exercise_visual_v1
+  loop_mode: repetition_driven
+  interpolation: motion_interpolation
+  reduced_motion_fallback: static_step_frames
+  subject:
+    subject_profile_id: adult_neutral_01
+    consistency_required_across_frames: true
+  environment:
+    surface_profile_id: lying_surface_neutral_01
+    surface_must_not_change_between_frames: true
+    surface_contact_visible: true
+    pillow_visibility: optional_if_same_all_frames
+    bed_or_mat_edges_consistent: true
+  framing:
+    view: full_body_supine
+    camera: elevated_three_quarter
+    crop: head_to_feet
+    background: clean_neutral
+    surface_visible: true
+    working_heel_visible: true
+    working_knee_visible: true
+    arrows_in_production_asset: false
+    text_inside_asset: false
+  asset_spec:
+    master_format: png
+    width_px: 1024
+    height_px: 1024
+    transparent_background_preferred: false
+    production_assets_must_be_original: true
+  frames:
+  - id: FRAME_START
+    file: assets/exercises/KNEE_003/frame_start.png
+    pose_description_uk: Людина лежить на спині на стабільній поверхні. Обидві ноги випрямлені, таз нейтральний.
+    alt_text_uk: Початкове положення лежачи на спині з випрямленими ногами.
+    validation_points:
+    - supine_position
+    - both_legs_extended
+    - pelvis_neutral
+    - surface_stable
+  - id: FRAME_LEFT_MID
+    file: assets/exercises/KNEE_003/frame_left_mid.png
+    pose_description_uk: Ліва п’ята ковзає до тіла. Ліве коліно частково зігнуте і спрямоване вгору. Таз не повертається.
+    alt_text_uk: Ліва п’ята ковзає до тіла, коліно частково зігнуте.
+    validation_points:
+    - left_heel_in_contact
+    - left_knee_partially_flexed
+    - left_knee_points_up
+    - pelvis_not_rotated
+  - id: FRAME_LEFT_BENT
+    file: assets/exercises/KNEE_003/frame_left_bent.png
+    pose_description_uk: Ліва п’ята підтягнута до комфортної межі. Ліве коліно зігнуте і спрямоване вгору. П’ята
+      залишається на поверхні.
+    alt_text_uk: Ліве коліно зігнуте, п’ята залишається на поверхні.
+    validation_points:
+    - left_heel_in_contact
+    - left_knee_flexed
+    - left_knee_points_up
+    - pelvis_not_rotated
+  - id: FRAME_RIGHT_MID
+    file: assets/exercises/KNEE_003/frame_right_mid.png
+    pose_description_uk: Права п’ята ковзає до тіла. Праве коліно частково зігнуте і спрямоване вгору. Таз не повертається.
+    alt_text_uk: Права п’ята ковзає до тіла, коліно частково зігнуте.
+    validation_points:
+    - right_heel_in_contact
+    - right_knee_partially_flexed
+    - right_knee_points_up
+    - pelvis_not_rotated
+  - id: FRAME_RIGHT_BENT
+    file: assets/exercises/KNEE_003/frame_right_bent.png
+    pose_description_uk: Права п’ята підтягнута до комфортної межі. Праве коліно зігнуте і спрямоване вгору. П’ята
+      залишається на поверхні.
+    alt_text_uk: Праве коліно зігнуте, п’ята залишається на поверхні.
+    validation_points:
+    - right_heel_in_contact
+    - right_knee_flexed
+    - right_knee_points_up
+    - pelvis_not_rotated
+  preview:
+    file: assets/exercises/KNEE_003/preview.png
+    source_frame_id: FRAME_LEFT_BENT
+    overlay_text: false
+audio:
+  default_language: uk
+  mix:
+    voice_level: 1.0
+    music_level_relative_to_voice: 0.5
+    dynamic_ducking: false
+  countdown:
+    use_global_audio_pack: true
+    seconds:
+    - 5
+    - 4
+    - 3
+    - 2
+    - 1
+  events:
+  - id: VOICE_PREPARE
+    type: instruction
+    trigger:
+      event: prep_countdown_started
+      offset_ms: 0
+    text_key: exercise.KNEE_003.voice.prepare
+    text_uk: Приготуйтеся. Ляжте на спину та випряміть ноги.
+    asset_key: exercise.KNEE_003.voice.prepare
+    target_file: audio/uk/exercises/KNEE_003/prepare.m4a
+    priority: 80
+    interruptible: true
+  - id: VOICE_SLIDE_IN
+    type: movement
+    trigger:
+      event: sequence_phase_started
+      phase: PHASE_SLIDE_IN
+    text_key: exercise.KNEE_003.voice.slide_in
+    text_uk: Повільно ковзайте п’ятою до себе.
+    asset_key: exercise.KNEE_003.voice.slide_in
+    target_file: audio/uk/exercises/KNEE_003/slide_in.m4a
+    priority: 100
+    interruptible: false
+  - id: VOICE_KNEE_UP
+    type: technique
+    trigger:
+      event: sequence_phase_started
+      phase: PHASE_KNEE_BENT
+    text_key: exercise.KNEE_003.voice.knee_up
+    text_uk: Коліно тримайте спрямованим угору.
+    asset_key: exercise.KNEE_003.voice.knee_up
+    target_file: audio/uk/exercises/KNEE_003/knee_up.m4a
+    priority: 70
+    interruptible: true
+    play_once_per_side: true
+  - id: VOICE_SLIDE_OUT
+    type: movement
+    trigger:
+      event: sequence_phase_started
+      phase: PHASE_SLIDE_OUT
+    text_key: exercise.KNEE_003.voice.slide_out
+    text_uk: Тепер повільно випряміть ногу.
+    asset_key: exercise.KNEE_003.voice.slide_out
+    target_file: audio/uk/exercises/KNEE_003/slide_out.m4a
+    priority: 100
+    interruptible: false
+  - id: VOICE_SWITCH_SIDE
+    type: transition
+    trigger:
+      event: side_block_completed
+      side: left
+    text_key: common.voice.switch_leg
+    text_uk: Тепер інша нога.
+    asset_key: common.voice.switch_leg
+    target_file: audio/uk/common/switch_leg.m4a
+    priority: 120
+    interruptible: false
+  - id: VOICE_HALFWAY
+    type: progress
+    trigger:
+      event: progress_crossed
+      percent: 50
+    text_key: common.voice.halfway
+    text_uk: Половину виконано.
+    asset_key: common.voice.halfway
+    target_file: audio/uk/common/halfway.m4a
+    priority: 50
+    interruptible: true
+    collision_policy: delay_until_primary_cue_finishes
+  - id: VOICE_LAST_REP
+    type: progress
+    trigger:
+      event: repetition_started
+      relative_position: last
+    text_key: common.voice.last_repetition
+    text_uk: Останній повтор.
+    asset_key: common.voice.last_repetition
+    target_file: audio/uk/common/last_repetition.m4a
+    priority: 60
+    interruptible: true
+    collision_policy: delay_until_primary_cue_finishes
+  - id: VOICE_COMPLETED
+    type: completion
+    trigger:
+      event: exercise_completed
+    text_key: common.voice.completed
+    text_uk: Готово.
+    asset_key: common.voice.completed
+    target_file: audio/uk/common/completed.m4a
+    priority: 120
+    interruptible: false
+  recording_spec:
+    current_status: not_recorded
+    source_master_format: wav
+    app_delivery_format: m4a
+    voice_style_uk: спокійний, доброзичливий, чіткий, без поспіху
+    normalization_required: true
+    silence_trim_required: true
+music:
+  enabled_by_default: true
+  default_track_profile: gentle_rhythm_01
+  loop: true
+  vocals_allowed: false
+  fixed_relative_volume: 0.5
+  duck_on_voice: false
+flow:
+  use_global_start_countdown: true
+  start_countdown_seconds: 5
+  pause:
+    freeze_timer: true
+    freeze_animation: true
+    pause_music: true
+    resume_from_same_phase: true
+    resume_from_same_repetition: true
+  stop:
+    allowed_any_time: true
+    show_failure_state: false
+    save_actual_elapsed_time: true
+    save_completed_repetitions: true
+    save_completed_side: true
+    completion_classification: early_stop
+  completion:
+    increment_lifetime_exercise_counter: true
+    show_plus_one_animation: true
+    proceed_to_auto_rest: true
+  auto_next:
+    enabled: true
+    rest_seconds: 10
+    show_next_exercise_preview: true
+    start_next_automatically_at_zero: true
+    manual_previous_or_next:
+      cancel_auto_mode: true
+      cancel_rest_countdown: true
+      selected_exercise_requires_manual_start: true
+      manual_start_uses_prep_countdown: true
+accessibility:
+  screen_reader:
+    exercise_summary_uk: Підтягування п’яти лежачи. Ляжте на спину. Повільно ковзайте п’ятою до себе, згинаючи коліно,
+      потім ковзайте назад до випрямлення.
+    announce_countdown: true
+    announce_repetition: false
+    announce_side_change: true
+    announce_pause_resume: true
+    announce_completion: true
+  visual:
+    minimum_touch_target_dp: 44
+    supports_large_text: true
+    essential_information_not_color_only: true
+  reduced_motion:
+    supported: true
+    behavior: show_static_pose_steps_without_smooth_interpolation
+tracking:
+  enabled: true
+  metrics:
+    actual_active_seconds: true
+    prescribed_completion: true
+    completed_repetitions: true
+    completed_repetitions_by_side: true
+    early_stop: true
+    pause_count: true
+    selected_from_collection: true
+    selected_variant: true
+  analytics_dimensions:
+    exercise_id: KNEE_003
+    primary_zone: knees
+    tags:
+    - knees
+    - hips
+    - bed
+    - supine
+    - heel_slide
+    - gentle_mobility
+  lifetime_counter:
+    use_global_policy: true
+pro:
+  include_in_personal_plan_pool: true
+  allow_favorite: true
+  allow_custom_voice: true
+  allow_custom_music: true
+  adaptive_parameters:
+    repetitions:
+      enabled: false
+      reason: requires_clinical_review_before_personalized_dosing
+    range_of_motion:
+      enabled: false
+      reason: app_does_not_measure_or_prescribe_joint_angle_in_v1
+    tempo:
+      enabled: false
+      reason: requires_clinical_review_before_personalized_tempo
+    surface_variant:
+      enabled: false
+      reason: requires_clinical_review_before_automatic_surface_selection
+    rest_after:
+      enabled: true
+      allowed_values_seconds:
+      - 10
+      - 15
+      - 20
+  ai_selection:
+    allowed: true
+    rule: AI may select only an approved variant of this verified exercise. AI may not prescribe a joint angle,
+      add resistance, change the surface-contact rule or invent a new progression.
+    production_requires_clinical_status: approved
+assets:
+  folder: assets/exercises/KNEE_003
+  required:
+  - preview.png
+  - frame_start.png
+  - frame_left_mid.png
+  - frame_left_bent.png
+  - frame_right_mid.png
+  - frame_right_bent.png
+  optional:
+  - thumbnail.png
+  validation:
+    same_subject_all_frames: true
+    same_camera_all_frames: true
+    same_crop_all_frames: true
+    same_surface_all_frames: true
+    pelvis_position_consistent: true
+    working_heel_contact_visible: true
+    working_knee_direction_visible: true
+    no_embedded_text: true
+    no_watermarks: true
+    original_or_properly_licensed_only: true
+    clinical_pose_review_required: true
+qa:
+  content_checks:
+  - Назва й опис відповідають руху на всіх кадрах.
+  - Усі кадри показують одну й ту саму людину, поверхню й ракурс.
+  - П’ята робочої ноги не відривається від поверхні.
+  - Коліно під час згинання залишається спрямованим угору.
+  - Таз не повертається слідом за ногою.
+  - Є проміжний кадр ковзання п’яти.
+  - Повтор зараховується лише після повернення ноги у випрямлене положення.
+  - Вправа присутня у collection body_knees.
+  - Вправа присутня у collection bed_basic.
+  - Вправа присутня у collection bed_legs.
+  - Автоматична зміна ноги не потребує кнопки від користувача.
+  - Surface variant не обирається автоматично без clinical approval.
+  - Усі користувацькі написи беруться через localization keys.
+  - Stop працює у будь-який момент.
+  - Після штатного завершення запускається 10-секундний auto-rest.
+  - Manual Previous/Next під час auto-rest скасовує autoplay.
+  - Production build не показує вправу, поки clinical.status != approved.
+  automated_tests:
+  - id: KNEE_003_VISIBLE_BODY_KNEES
+    expected: exercise_is_returned_for_collection_body_knees
+  - id: KNEE_003_VISIBLE_BED_BASIC
+    expected: exercise_is_returned_for_collection_bed_basic
+  - id: KNEE_003_HEEL_CONTACT_RULE
+    expected: exercise_schema_requires_working_heel_surface_contact
+  - id: KNEE_003_FULL_REP_COUNT
+    expected: repetition_increments_only_after_return_to_leg_straight_state
+  - id: KNEE_003_AUTO_SIDE_CHANGE
+    expected: left_block_completion_switches_to_right_without_user_action
+  - id: KNEE_003_SURFACE_VARIANT_GATE
+    expected: unapproved_surface_variant_is_not_auto_selected
+  - id: KNEE_003_LOCALIZATION
+    expected: no_user_visible_hardcoded_text_outside_locale_or_resolved_preview
+  - id: KNEE_003_PRODUCTION_GATE
+    expected: pending_review_content_is_hidden_in_production
+references:
+  source_ids:
+  - id: UHSUSSEX_BED_KNEE_BEND
+    organization: University Hospitals Sussex NHS Foundation Trust
+    title: Bed exercises — Knee Bend
+    url: https://www.uhsussex.nhs.uk/resources/bed-exercises/
+    evidence_used:
+    - start lying with legs straight
+    - slowly slide heel toward bottom
+    - bend as far as comfortably possible
+    - slowly straighten to start
+    - repeat with other leg
+  - id: CUH_EARLY_KNEE_HEEL_SLIDES
+    organization: Cambridge University Hospitals NHS Foundation Trust
+    title: Early knee exercises — Heel slides
+    url: https://www.cuh.nhs.uk/patient-information/early-knee-exercises/
+    evidence_used:
+    - lie on back in comfortable position
+    - bend knee keeping heel close to bed
+  - id: FRIMLEY_HEEL_SLIDES
+    organization: Frimley Health NHS Foundation Trust
+    title: Knee Injury Advice Sheet — Heel slides
+    url: https://www.fhft.nhs.uk/patients-and-visitors/patient-information-library/knee-injury-advice-sheet/submit/7561
+    evidence_used:
+    - lie on back with legs straight
+    - slide heel toward buttocks
+    - keep knee pointing to ceiling
+  - id: NBT_HEEL_SLIDES
+    organization: North Bristol NHS Trust
+    title: Preparation for your short stay hip replacement — Heel slides
+    url: https://www.nbt.nhs.uk/our-services/a-z-services/orthopaedic-planned-elective/orthopaedic-planned-patient-information-leaflets/preparation-your-short-stay-hip-replacement
+    evidence_used:
+    - lying on back with legs straight
+    - bend and straighten hip and knee by sliding foot
+    - repeat 5 to 10 times
+  - id: WCHC_KNEE_INJURY_HEEL_SLIDES
+    organization: Wirral Community Health and Care NHS Foundation Trust
+    title: Knee injury — heel slide
+    url: https://www.wchc.nhs.uk/resources/knee-injury/
+    evidence_used:
+    - lying down
+    - gently slide heel toward bottom
+    - repeat 5 to 10 times
+  - id: OUH_HEEL_SLIDES
+    organization: Oxford University Hospitals NHS Foundation Trust
+    title: Physiotherapy Exercises — heel slide
+    url: https://www.ouh.nhs.uk/patient-guide/leaflets/files/104655exercises.pdf
+    evidence_used:
+    - gently bend knee by sliding heel toward bottom
+    - slowly return to starting position
+    - repeat 5 to 10 times
+metadata:
+  created_for: exercise_library_schema_validation
+  authoring_language: uk
+  created_at: '2026-09-09'
+  last_modified_at: '2026-09-09'
+  schema_notes_uk: Цей файл тестує Exercise Schema v1.3 на вправі лежачи з ковзанням кінцівки по опорній поверхні.
+    Порівняно з v1.2 додано clinical.positioning, surface_contact, surface variants, вимоги до видимості контакту
+    п’яти, лежаче framing/environment та правила стабільності таза.
+  migrated_from_schema_version: null
+  repository_pack_version: '0.1'

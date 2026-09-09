@@ -1,0 +1,630 @@
+schema_version: '1.3'
+content_version: 0.1.0
+exercise:
+  id: NECK_001
+  slug: neck_rotation
+  internal_name: Neck rotation
+  status: draft
+  availability:
+    tier: free
+    visible_to_free_users: true
+    pro_personalization_eligible: true
+  classification:
+    primary_zone: neck
+    secondary_zones: []
+    body_map_hotspot_ids:
+    - neck
+    collections:
+    - body_neck
+    - computer_break
+    - after_sitting
+    tags:
+      anatomy:
+      - neck
+      context:
+      - computer
+      - after_sitting
+      position:
+      - sitting
+      - standing
+      movement:
+      - mobility
+      - rotation
+      - bilateral
+      level:
+      - beginner
+      - gentle
+      equipment:
+      - none
+      - chair_optional
+    collection_candidates: []
+  exercise_properties:
+    difficulty: easy
+    laterality: bilateral_alternating
+    movement_pattern: cervical_rotation
+    preferred_position: sitting
+    alternative_positions:
+    - standing
+    equipment_required: []
+    equipment_optional:
+    - stable_chair
+clinical:
+  status: pending_review
+  publish_rule: production_requires_approved
+  source_basis:
+    primary_source_id: NHS_FLEXIBILITY_NECK_ROTATION
+    secondary_source_ids:
+    - NHS_SITTING_NECK_ROTATION
+    - CUH_NECK_MOBILITY_ROTATION
+    source_summary_uk: 'Базовий рух: сидіти рівно, плечі опущені, дивитися вперед; повільно повернути голову до
+      лівого плеча настільки, наскільки комфортно, утримувати 5 секунд, повернутися у вихідне положення, повторити
+      праворуч. У матеріалах NHS рекомендовано 3 повороти на кожен бік.
+
+      '
+  source_prescription:
+    repetitions_per_side: 3
+    hold_seconds: 5
+    range_rule: as_far_as_comfortable
+    movement_speed_rule: slow_controlled
+  adaptation_notes_uk:
+  - Застосунок чергує лівий і правий бік, але не змінює сам рух.
+  - Час переходу між положеннями є технічним таймінгом анімації, а не окремою клінічною рекомендацією.
+  - Зображення, тексти та аудіо створюються спеціально для застосунку і не копіюють ілюстрації джерел.
+  safety:
+    general_rule_uk: 'Виконуйте рух повільно і лише в комфортному діапазоні. Не робіть різких рухів і не змушуйте
+      голову повертатися далі через силу.
+
+      '
+    stop_conditions_uk:
+    - запаморочення
+    - різкий або незвичний біль
+    - інший новий або незвичний симптом під час виконання
+    in_app_stop_message_uk: 'Зупиніть вправу, якщо вона викликає запаморочення, різкий біль або інший незвичний
+      симптом.
+
+      '
+    requires_professional_review:
+      prescription: true
+      safety_text: true
+      contraindications: true
+      animation_accuracy: true
+      voice_cues: true
+  review:
+    reviewer_role: physiotherapist_or_equivalent
+    reviewer_name: null
+    reviewed_at: null
+    review_notes: null
+    approval_version: null
+  variants: []
+locale:
+  default: uk
+  uk:
+    title: Повороти голови
+    short_title: Повороти
+    card_description: Повільно повертайте голову ліворуч і праворуч.
+    category_label: Шия
+    purpose_text: Легка вправа на рухливість шиї.
+    start_position_title: Початкове положення
+    start_position_text: 'Сядьте рівно на стійкий стілець. Поставте стопи на підлогу. Опустіть і розслабте плечі.
+      Дивіться прямо перед собою.
+
+      '
+    instructions_title: Як виконувати
+    instructions:
+    - step: 1
+      text: Повільно поверніть голову ліворуч настільки, наскільки комфортно.
+    - step: 2
+      text: Утримуйте положення 5 секунд.
+    - step: 3
+      text: Повільно поверніться в центр.
+    - step: 4
+      text: Повільно поверніть голову праворуч настільки, наскільки комфортно.
+    - step: 5
+      text: Утримуйте положення 5 секунд.
+    - step: 6
+      text: Повільно поверніться в центр.
+    - step: 7
+      text: Повторіть 3 рази на кожен бік.
+    technique_tips_title: Зверніть увагу
+    technique_tips:
+    - Плечі залишаються розслабленими.
+    - Не повертайте разом із головою корпус.
+    - Не закидайте і не опускайте підборіддя під час повороту.
+    - Рухайтеся плавно, без ривків.
+    safety_label: Безпека
+    safety_text: 'Рухайтеся тільки в комфортному діапазоні. Якщо з''явилося запаморочення, різкий біль або інший
+      незвичний симптом, натисніть «Стоп».
+
+      '
+    completion_text: Готово.
+    halfway_text: Половину виконано.
+    almost_done_text: Останній цикл.
+ui:
+  card:
+    title_key: exercise.NECK_001.title
+    description_key: exercise.NECK_001.card_description
+    preview_asset: assets/exercises/NECK_001/preview.png
+    primary_action:
+      key: common.exercise.start
+      resolved_uk: Почати
+    badges:
+      show_difficulty: false
+      show_duration: true
+      show_pro_badge: false
+  exercise_screen:
+    title_key: exercise.NECK_001.title
+    labels:
+      elapsed_time:
+        key: common.exercise.elapsed_time
+        resolved_uk: Час
+      progress:
+        key: common.exercise.progress
+        resolved_uk: Виконано
+      repetition:
+        key: common.exercise.repetition
+        resolved_uk: Повтор
+      side:
+        key: common.exercise.side
+        resolved_uk: Бік
+    controls:
+      previous:
+        key: common.control.previous
+        resolved_uk: Попередня
+        icon: arrow_left
+      start:
+        key: common.control.start
+        resolved_uk: Старт
+        icon: play
+      pause:
+        key: common.control.pause
+        resolved_uk: Пауза
+        icon: pause
+      continue:
+        key: common.control.continue
+        resolved_uk: Продовжити
+        icon: play
+      stop:
+        key: common.control.stop
+        resolved_uk: Стоп
+        icon: stop
+      next:
+        key: common.control.next
+        resolved_uk: Наступна
+        icon: arrow_right
+    prep:
+      label_key: common.exercise.starts_in
+      resolved_uk: Починаємо через
+    rest:
+      label_key: common.exercise.rest
+      resolved_uk: Відпочинок
+      next_label_key: common.exercise.next_exercise
+      next_label_resolved_uk: Наступна вправа
+timing:
+  prep_countdown_seconds: 5
+  rest_after_seconds: 10
+  completion_mode: prescribed_repetitions
+  prescription:
+    cycles: 3
+    sides_per_cycle:
+    - left
+    - right
+    hold_seconds_each_side: 5
+  playback:
+    move_to_side_ms: 1800
+    hold_side_ms: 5000
+    return_to_center_ms: 1200
+    pause_in_center_ms: 500
+  estimated_active_duration_seconds: 51
+  progress:
+    basis: sequence_time
+    show_elapsed_time: true
+    show_progress_bar: true
+    show_repetition_counter: false
+    show_side_label: false
+sequence:
+  repeat_cycles: 3
+  steps:
+  - id: center_before_left
+    order: 1
+    phase: neutral
+    side: null
+    frame_id: FRAME_CENTER
+    duration_ms: 500
+    voice_event: null
+  - id: move_left
+    order: 2
+    phase: movement
+    side: left
+    frame_transition:
+      from: FRAME_CENTER
+      to: FRAME_LEFT
+    duration_ms: 1800
+    voice_event: VOICE_TURN_LEFT
+  - id: hold_left
+    order: 3
+    phase: hold
+    side: left
+    frame_id: FRAME_LEFT
+    duration_ms: 5000
+    voice_event: VOICE_HOLD
+  - id: return_center_from_left
+    order: 4
+    phase: movement
+    side: left
+    frame_transition:
+      from: FRAME_LEFT
+      to: FRAME_CENTER
+    duration_ms: 1200
+    voice_event: VOICE_CENTER
+  - id: center_before_right
+    order: 5
+    phase: neutral
+    side: null
+    frame_id: FRAME_CENTER
+    duration_ms: 500
+    voice_event: null
+  - id: move_right
+    order: 6
+    phase: movement
+    side: right
+    frame_transition:
+      from: FRAME_CENTER
+      to: FRAME_RIGHT
+    duration_ms: 1800
+    voice_event: VOICE_TURN_RIGHT
+  - id: hold_right
+    order: 7
+    phase: hold
+    side: right
+    frame_id: FRAME_RIGHT
+    duration_ms: 5000
+    voice_event: VOICE_HOLD
+  - id: return_center_from_right
+    order: 8
+    phase: movement
+    side: right
+    frame_transition:
+      from: FRAME_RIGHT
+      to: FRAME_CENTER
+    duration_ms: 1200
+    voice_event: VOICE_CENTER
+animation:
+  engine: frame_sequence
+  style_profile_id: exercise_visual_v1
+  loop_mode: sequence_driven
+  interpolation: crossfade_or_motion_interpolation
+  reduced_motion_fallback: static_step_frames
+  subject:
+    subject_profile_id: adult_neutral_01
+    consistency_required_across_frames: true
+  framing:
+    view: upper_body
+    camera: front
+    crop: head_shoulders_upper_torso
+    background: clean_neutral
+    arrows_in_production_asset: false
+    text_inside_asset: false
+  asset_spec:
+    master_format: png
+    width_px: 1024
+    height_px: 1024
+    transparent_background_preferred: true
+    production_assets_must_be_original: true
+  frames:
+  - id: FRAME_CENTER
+    file: assets/exercises/NECK_001/frame_center.png
+    pose_description_uk: Людина сидить рівно. Голова в нейтральному положенні, погляд прямо. Плечі опущені й розслаблені.
+    alt_text_uk: 'Початкове положення: голова прямо, плечі розслаблені.'
+    validation_points:
+    - head_neutral
+    - eyes_forward
+    - shoulders_level
+    - torso_not_rotated
+  - id: FRAME_LEFT
+    file: assets/exercises/NECK_001/frame_left.png
+    pose_description_uk: Корпус залишається прямо. Голова повернута ліворуч у комфортному діапазоні. Підборіддя
+      приблизно на тій самій висоті.
+    alt_text_uk: Голова повернута ліворуч, корпус залишається прямо.
+    validation_points:
+    - head_rotated_left
+    - chin_height_stable
+    - shoulders_level
+    - torso_not_rotated
+  - id: FRAME_RIGHT
+    file: assets/exercises/NECK_001/frame_right.png
+    pose_description_uk: Корпус залишається прямо. Голова повернута праворуч у комфортному діапазоні. Підборіддя
+      приблизно на тій самій висоті.
+    alt_text_uk: Голова повернута праворуч, корпус залишається прямо.
+    validation_points:
+    - head_rotated_right
+    - chin_height_stable
+    - shoulders_level
+    - torso_not_rotated
+  preview:
+    file: assets/exercises/NECK_001/preview.png
+    source_frame_id: FRAME_LEFT
+    overlay_text: false
+audio:
+  default_language: uk
+  mix:
+    voice_level: 1.0
+    music_level_relative_to_voice: 0.5
+    dynamic_ducking: false
+  countdown:
+    use_global_audio_pack: true
+    seconds:
+    - 5
+    - 4
+    - 3
+    - 2
+    - 1
+  events:
+  - id: VOICE_PREPARE
+    type: instruction
+    trigger:
+      event: prep_countdown_started
+      offset_ms: 0
+    text_key: exercise.NECK_001.voice.prepare
+    text_uk: Приготуйтеся. Сядьте рівно і розслабте плечі.
+    asset_key: exercise.NECK_001.voice.prepare
+    target_file: audio/uk/exercises/NECK_001/prepare.m4a
+    priority: 80
+    interruptible: true
+  - id: VOICE_TURN_LEFT
+    type: movement
+    trigger:
+      event: sequence_step_started
+      step_id: move_left
+    text_key: exercise.NECK_001.voice.turn_left
+    text_uk: Повільно поверніть голову ліворуч.
+    asset_key: exercise.NECK_001.voice.turn_left
+    target_file: audio/uk/exercises/NECK_001/turn_left.m4a
+    priority: 100
+    interruptible: false
+  - id: VOICE_HOLD
+    type: movement
+    trigger:
+      event: sequence_step_started
+      phase: hold
+    text_key: common.voice.hold
+    text_uk: Тримайте.
+    asset_key: common.voice.hold
+    target_file: audio/uk/common/hold.m4a
+    priority: 90
+    interruptible: true
+  - id: VOICE_CENTER
+    type: movement
+    trigger:
+      event: sequence_step_started
+      step_id_any:
+      - return_center_from_left
+      - return_center_from_right
+    text_key: common.voice.return_center
+    text_uk: Поверніться в центр.
+    asset_key: common.voice.return_center
+    target_file: audio/uk/common/return_center.m4a
+    priority: 100
+    interruptible: false
+  - id: VOICE_TURN_RIGHT
+    type: movement
+    trigger:
+      event: sequence_step_started
+      step_id: move_right
+    text_key: exercise.NECK_001.voice.turn_right
+    text_uk: Тепер праворуч.
+    asset_key: exercise.NECK_001.voice.turn_right
+    target_file: audio/uk/exercises/NECK_001/turn_right.m4a
+    priority: 100
+    interruptible: false
+  - id: VOICE_HALFWAY
+    type: progress
+    trigger:
+      event: progress_crossed
+      percent: 50
+    text_key: common.voice.halfway
+    text_uk: Половину виконано.
+    asset_key: common.voice.halfway
+    target_file: audio/uk/common/halfway.m4a
+    priority: 50
+    interruptible: true
+    collision_policy: delay_until_primary_cue_finishes
+  - id: VOICE_LAST_CYCLE
+    type: progress
+    trigger:
+      event: cycle_started
+      cycle_number: 3
+    text_key: exercise.NECK_001.voice.last_cycle
+    text_uk: Останній цикл.
+    asset_key: exercise.NECK_001.voice.last_cycle
+    target_file: audio/uk/exercises/NECK_001/last_cycle.m4a
+    priority: 60
+    interruptible: true
+    collision_policy: delay_until_primary_cue_finishes
+  - id: VOICE_COMPLETED
+    type: completion
+    trigger:
+      event: exercise_completed
+    text_key: common.voice.completed
+    text_uk: Готово.
+    asset_key: common.voice.completed
+    target_file: audio/uk/common/completed.m4a
+    priority: 120
+    interruptible: false
+  recording_spec:
+    current_status: not_recorded
+    source_master_format: wav
+    app_delivery_format: m4a
+    voice_style_uk: спокійний, доброзичливий, чіткий, без поспіху
+    normalization_required: true
+    silence_trim_required: true
+music:
+  enabled_by_default: true
+  default_track_profile: gentle_rhythm_01
+  loop: true
+  vocals_allowed: false
+  fixed_relative_volume: 0.5
+  duck_on_voice: false
+flow:
+  use_global_start_countdown: true
+  start_countdown_seconds: 5
+  pause:
+    freeze_timer: true
+    freeze_animation: true
+    pause_music: true
+    resume_from_same_step: true
+  stop:
+    allowed_any_time: true
+    show_failure_state: false
+    save_actual_elapsed_time: true
+    completion_classification: early_stop
+  completion:
+    increment_lifetime_exercise_counter: true
+    show_plus_one_animation: true
+    proceed_to_auto_rest: true
+  auto_next:
+    enabled: true
+    rest_seconds: 10
+    show_next_exercise_preview: true
+    start_next_automatically_at_zero: true
+    manual_previous_or_next:
+      cancel_auto_mode: true
+      cancel_rest_countdown: true
+      selected_exercise_requires_manual_start: true
+      manual_start_uses_prep_countdown: true
+accessibility:
+  screen_reader:
+    exercise_summary_uk: Повороти голови. Вправа виконується сидячи або стоячи. Повільно повертайте голову ліворуч
+      і праворуч у комфортному діапазоні.
+    announce_countdown: true
+    announce_pause_resume: true
+    announce_completion: true
+  visual:
+    minimum_touch_target_dp: 44
+    supports_large_text: true
+    essential_information_not_color_only: true
+  reduced_motion:
+    supported: true
+    behavior: show_static_pose_steps_without_smooth_interpolation
+tracking:
+  enabled: true
+  metrics:
+    actual_active_seconds: true
+    prescribed_completion: true
+    early_stop: true
+    pause_count: true
+    selected_from_collection: true
+  analytics_dimensions:
+    exercise_id: NECK_001
+    primary_zone: neck
+    tags:
+    - neck
+    - computer
+    - after_sitting
+    - sitting
+    - mobility
+    - rotation
+  lifetime_counter:
+    use_global_policy: true
+pro:
+  include_in_personal_plan_pool: true
+  allow_favorite: true
+  allow_custom_voice: true
+  allow_custom_music: true
+  adaptive_parameters:
+    duration:
+      enabled: false
+      reason: requires_clinical_review_before_personalized_dosing
+    tempo:
+      enabled: false
+      reason: requires_clinical_review_before_personalized_tempo
+    rest_after:
+      enabled: true
+      allowed_values_seconds:
+      - 10
+      - 15
+      - 20
+  ai_selection:
+    allowed: true
+    rule: AI may select this approved exercise from the verified library, but may not alter the movement or invent
+      a new exercise.
+    production_requires_clinical_status: approved
+assets:
+  folder: assets/exercises/NECK_001
+  required:
+  - preview.png
+  - frame_center.png
+  - frame_left.png
+  - frame_right.png
+  optional:
+  - thumbnail.png
+  validation:
+    same_subject_all_frames: true
+    same_camera_all_frames: true
+    same_crop_all_frames: true
+    no_embedded_text: true
+    no_watermarks: true
+    original_or_properly_licensed_only: true
+    clinical_pose_review_required: true
+qa:
+  content_checks:
+  - Назва і опис відповідають руху на зображеннях.
+  - Усі три кадри показують одну й ту саму людину та однаковий ракурс.
+  - На лівому і правому кадрах корпус не повертається разом із головою.
+  - Підборіддя не змінює висоту суттєво під час повороту.
+  - Вправа присутня у collection body_neck.
+  - Вправа присутня у collection computer_break.
+  - Вправа присутня у collection after_sitting.
+  - Усі користувацькі написи беруться через localization keys.
+  - Аудіо не перекриває пріоритетні команди руху.
+  - Музика не змінює гучність під час голосової команди.
+  - Stop працює у будь-який момент.
+  - Після штатного завершення запускається 10-секундний auto-rest.
+  - Manual Previous/Next під час auto-rest скасовує autoplay.
+  - Production build не показує вправу, поки clinical.status != approved.
+  automated_tests:
+  - id: NECK_001_VISIBLE_BODY_NECK
+    expected: exercise_is_returned_for_collection_body_neck
+  - id: NECK_001_VISIBLE_COMPUTER
+    expected: exercise_is_returned_for_collection_computer_break
+  - id: NECK_001_THREE_CYCLES
+    expected: sequence_executes_three_left_right_cycles
+  - id: NECK_001_FIVE_SECOND_HOLD
+    expected: each_side_hold_is_5000_ms
+  - id: NECK_001_LOCALIZATION
+    expected: no_user_visible_hardcoded_text_outside_locale_or_resolved_preview
+  - id: NECK_001_PRODUCTION_GATE
+    expected: pending_review_content_is_hidden_in_production
+references:
+  source_ids:
+  - id: NHS_FLEXIBILITY_NECK_ROTATION
+    organization: NHS
+    title: Flexibility exercises — Neck rotation
+    evidence_used:
+    - sit upright with shoulders down
+    - turn left as far as comfortable
+    - hold 5 seconds
+    - repeat on right
+    - 3 rotations on each side
+  - id: NHS_SITTING_NECK_ROTATION
+    organization: NHS
+    title: Sitting exercises — Neck rotation
+    evidence_used:
+    - same basic movement and 5-second hold
+    - 3 rotations on each side
+  - id: CUH_NECK_MOBILITY_ROTATION
+    organization: Cambridge University Hospitals NHS Foundation Trust
+    title: Neck exercises and advice — Mobility exercises
+    evidence_used:
+    - turn head to one side until a stretch is felt
+    - repeat to the other side
+metadata:
+  created_for: exercise_library_reference_template
+  authoring_language: uk
+  created_at: '2026-09-09'
+  last_modified_at: '2026-09-09'
+  notes_uk: 'Це еталонний запис. Наступні вправи повинні використовувати ту саму схему. Якщо конкретній вправі поле
+    не потрібне, воно може бути null або порожнім, але структура верхнього рівня повинна залишатися стабільною.
+
+    '
+  migrated_from_schema_version: '1.0'
+  repository_pack_version: '0.1'

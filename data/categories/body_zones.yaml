@@ -1,0 +1,35 @@
+schema_version: '1.0'
+zones:
+- id: neck
+  title_uk: Шия
+  order: 10
+- id: shoulders
+  title_uk: Плечі
+  order: 20
+- id: upper_back
+  title_uk: Верхня частина спини
+  order: 30
+- id: elbows
+  title_uk: Лікті
+  order: 40
+- id: wrists_hands
+  title_uk: Кисті та зап’ястя
+  order: 50
+- id: lower_back
+  title_uk: Поперек
+  order: 60
+- id: hips
+  title_uk: Таз і стегна
+  order: 70
+- id: knees
+  title_uk: Коліна
+  order: 80
+- id: calves
+  title_uk: Гомілки
+  order: 90
+- id: ankles
+  title_uk: Гомілковостопні суглоби
+  order: 100
+- id: feet
+  title_uk: Стопи
+  order: 110

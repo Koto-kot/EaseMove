@@ -1,0 +1,42 @@
+schema_version: '1.0'
+exercises:
+- id: NECK_001
+  file: neck/NECK_001.yaml
+  title_uk: Повороти голови
+  primary_zone: neck
+  clinical_status: pending_review
+  collections:
+  - body_neck
+  - computer_break
+  - after_sitting
+- id: KNEE_001
+  file: knees/KNEE_001.yaml
+  title_uk: Розгинання ноги сидячи
+  primary_zone: knees
+  clinical_status: pending_review
+  collections:
+  - body_knees
+  - computer_break
+  - after_sitting
+  - seated_gentle
+- id: KNEE_002
+  file: knees/KNEE_002_sit_to_stand.yaml
+  title_uk: Встати — сісти зі стільця
+  primary_zone: knees
+  clinical_status: pending_review
+  collections:
+  - body_knees
+  - body_hips
+  - after_sitting
+  - functional_strength
+  - chair_exercises
+- id: KNEE_003
+  file: knees/KNEE_003_supine_heel_slide.yaml
+  title_uk: Підтягування п’яти лежачи
+  primary_zone: knees
+  clinical_status: pending_review
+  collections:
+  - body_knees
+  - bed_basic
+  - bed_legs
+  - gentle_mobility

@@ -1,0 +1,93 @@
+schema_version: '1.0'
+collections:
+- id: body_neck
+  title_uk: Шия
+  type: body_zone
+  primary_zone: neck
+  sort: editorial
+- id: body_knees
+  title_uk: Коліна
+  type: body_zone
+  primary_zone: knees
+  sort: editorial
+- id: body_hips
+  title_uk: Таз і стегна
+  type: body_zone
+  primary_zone: hips
+  sort: editorial
+- id: computer_break
+  title_uk: За комп’ютером
+  type: situation
+  sort: editorial
+- id: computer_break_active
+  title_uk: Активна перерва за комп’ютером
+  type: situation_candidate
+  sort: editorial
+- id: after_sitting
+  title_uk: Після довгого сидіння
+  type: situation
+  sort: editorial
+- id: bed_basic
+  title_uk: У ліжку
+  type: situation
+  sort: editorial
+- id: bed_legs
+  title_uk: Ноги у ліжку
+  type: situation
+  sort: editorial
+- id: gentle_mobility
+  title_uk: Легка рухливість
+  type: theme
+  sort: editorial
+- id: functional_strength
+  title_uk: Повсякденна сила
+  type: theme
+  sort: editorial
+- id: chair_exercises
+  title_uk: Вправи зі стільцем
+  type: theme
+  sort: editorial
+- id: seated_gentle
+  title_uk: Легкі вправи сидячи
+  type: theme
+  sort: editorial
+- id: body_shoulders
+  title_uk: Плечі
+  type: body_zone
+  primary_zone: shoulders
+  sort: editorial
+- id: body_upper_back
+  title_uk: Верхня частина спини
+  type: body_zone
+  primary_zone: upper_back
+  sort: editorial
+- id: body_elbows
+  title_uk: Лікті
+  type: body_zone
+  primary_zone: elbows
+  sort: editorial
+- id: body_wrists_hands
+  title_uk: Кисті та зап’ястя
+  type: body_zone
+  primary_zone: wrists_hands
+  sort: editorial
+- id: body_lower_back
+  title_uk: Поперек
+  type: body_zone
+  primary_zone: lower_back
+  sort: editorial
+- id: body_calves
+  title_uk: Гомілки
+  type: body_zone
+  primary_zone: calves
+  sort: editorial
+- id: body_ankles
+  title_uk: Гомілковостопні суглоби
+  type: body_zone
+  primary_zone: ankles
+  sort: editorial
+- id: body_feet
+  title_uk: Стопи
+  type: body_zone
+  primary_zone: feet
+  sort: editorial

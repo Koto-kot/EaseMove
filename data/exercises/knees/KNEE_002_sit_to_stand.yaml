@@ -1,0 +1,800 @@
+schema_version: '1.3'
+content_version: 0.1.0
+exercise:
+  id: KNEE_002
+  slug: sit_to_stand
+  internal_name: Sit to stand
+  status: draft
+  availability:
+    tier: free
+    visible_to_free_users: true
+    pro_personalization_eligible: true
+  classification:
+    primary_zone: knees
+    secondary_zones:
+    - hips
+    - thighs
+    body_map_hotspot_ids:
+    - left_knee
+    - right_knee
+    - left_hip
+    - right_hip
+    - left_thigh
+    - right_thigh
+    collections:
+    - body_knees
+    - body_hips
+    - after_sitting
+    - functional_strength
+    - chair_exercises
+    collection_candidates:
+    - computer_break_active
+    - morning_mobility
+    tags:
+      anatomy:
+      - knees
+      - hips
+      - quadriceps
+      - gluteals
+      context:
+      - after_sitting
+      - chair
+      - daily_function
+      position:
+      - sitting
+      - standing
+      - sit_to_stand_transition
+      movement:
+      - functional_strength
+      - sit_to_stand
+      - bilateral
+      - closed_chain
+      - balance_component
+      level:
+      - beginner
+      - gentle
+      equipment:
+      - chair
+  exercise_properties:
+    difficulty: easy_to_moderate
+    laterality: bilateral_simultaneous
+    movement_pattern: sit_to_stand
+    preferred_position: sitting_to_standing
+    alternative_positions: []
+    equipment_required:
+    - stable_chair
+    equipment_optional: []
+    space_requirement: standing_space_in_front_of_chair
+    functional_task: true
+  anatomy:
+    primary_joints:
+    - knee
+    - hip
+    secondary_joints:
+    - ankle
+    primary_muscle_groups:
+    - quadriceps
+    - gluteals
+    secondary_muscle_groups:
+    - calves
+    - trunk_stabilizers
+    movement_plane: sagittal
+    joint_actions:
+    - hip_flexion_during_forward_lean
+    - hip_extension_during_stand
+    - knee_extension_during_stand
+    - controlled_hip_and_knee_flexion_during_sit
+clinical:
+  status: pending_review
+  publish_rule: production_requires_approved
+  source_basis:
+    primary_source_id: NHS_STRENGTH_SIT_TO_STAND
+    secondary_source_ids:
+    - UCLH_HOME_EXERCISES_SIT_TO_STAND
+    - CUH_BALANCE_SIT_TO_STAND
+    - SOUTH_TEES_SIT_TO_STAND
+    - KINGSTON_FALLS_SIT_TO_STAND
+    source_summary_uk: Перевірені NHS-матеріали описують вставання зі стільця з положення біля переднього краю сидіння,
+      стопами на підлозі та невеликим нахилом корпусу вперед. Вставати слід повільно, переважно за рахунок ніг,
+      повністю випростатися, а потім контрольовано сісти назад.
+  source_prescriptions:
+  - source_id: NHS_STRENGTH_SIT_TO_STAND
+    repetitions: 5
+    sets: 1
+    tempo: slow
+    arm_use: legs_primary_hands_or_arms_for_guidance_if_possible
+    notes_uk: NHS радить 5 повторів; повільні повтори вважаються кращими.
+  - source_id: UCLH_HOME_EXERCISES_SIT_TO_STAND
+    repetitions: 10
+    sets: 1
+    arm_use: do_not_use_arms_to_push_if_able
+    notes_uk: Сісти ближче до краю стільця, стопи на ширині таза, трохи нахилитися вперед, повільно встати ногами
+      та повторити 10 разів.
+  - source_id: KINGSTON_FALLS_SIT_TO_STAND
+    repetitions: 10
+    sets: 1
+    arm_use: minimal_use_of_arms
+    progression: without_using_arms
+    notes_uk: Вказано мінімальну допомогу руками; варіант без рук використовується як ускладнення.
+  - source_id: SOUTH_TEES_SIT_TO_STAND
+    repetitions: null
+    sets: null
+    arm_use: null
+    notes_uk: Описано перенесення плечей над стопами, випрямлення ніг до стояння та зворотний контрольований рух
+      при сіданні.
+  app_prototype_prescription:
+    status: pending_review
+    mode: repetitions
+    sets: 1
+    repetitions: 5
+    rest_between_repetitions_seconds: 1
+    tempo_rule: slow_controlled
+    arm_assistance_variant: minimal_if_needed
+    note_uk: Для тестової версії використовується 5 повторів відповідно до базового NHS Strength Exercise. Перед
+      production фізіотерапевт повинен підтвердити кількість повторів, допустиму допомогу руками, темп і критерії
+      зупинки.
+  movement_quality:
+    required_cues_uk:
+    - Сісти ближче до переднього краю стільця.
+    - Стопи впевнено стоять на підлозі.
+    - Перед вставанням трохи нахилитися вперед.
+    - Вставати плавно, переважно за рахунок ніг.
+    - Повністю випростатися перед початком сідання.
+    - Сідати повільно й контрольовано.
+    - Дивитися вперед, а не вниз.
+    balance_checkpoint:
+      required: true
+      sensor_verified: false
+      user_instruction_only: true
+      text_uk: Повністю випростайтеся і переконайтеся, що стоїте стійко, перш ніж починати сідання.
+  safety:
+    environment_requirements_uk:
+    - Використовуйте міцний стійкий стілець.
+    - Стілець не повинен мати коліс і не повинен ковзати.
+    - Перед стільцем має бути достатньо вільного місця для безпечного вставання.
+    - Стопи повинні повністю спиратися на підлогу.
+    general_rule_uk: Вставайте і сідайте повільно та контрольовано. За потреби використовуйте дозволений варіант
+      допомоги руками.
+    stop_conditions_uk:
+    - різкий або незвичний біль
+    - виражене запаморочення
+    - відчуття втрати рівноваги
+    - раптове погіршення самопочуття
+    - інший новий або незвичний симптом під час виконання
+    in_app_stop_message_uk: Зупиніть вправу, якщо з'явився різкий біль, виражене запаморочення, відчуття втрати
+      рівноваги або інший незвичний симптом.
+    requires_professional_review:
+      prescription: true
+      safety_text: true
+      contraindications: true
+      chair_requirements: true
+      arm_assistance_variants: true
+      animation_accuracy: true
+      voice_cues: true
+  variants:
+  - id: VARIANT_MINIMAL_ARM_ASSIST
+    label_uk: З легкою допомогою руками
+    difficulty: easier
+    status: pending_review
+    arm_assistance: minimal_if_needed
+    description_uk: За потреби руки можуть допомагати або направляти рух. Точний спосіб допомоги повинен бути затверджений
+      фізіотерапевтом.
+  - id: VARIANT_NO_ARM_PUSH
+    label_uk: Без відштовхування руками
+    difficulty: standard_or_progression
+    status: pending_review
+    arm_assistance: none
+    description_uk: Вставання виконується переважно за рахунок ніг без відштовхування руками.
+  review:
+    reviewer_role: physiotherapist_or_equivalent
+    reviewer_name: null
+    reviewed_at: null
+    review_notes: null
+    approval_version: null
+locale:
+  default: uk
+  uk:
+    title: Встати — сісти зі стільця
+    short_title: Встати — сісти
+    card_description: Повільно встаньте зі стільця та контрольовано сядьте назад.
+    category_label: Коліна
+    purpose_text: Функціональна вправа для м'язів ніг і контрольованого переходу між сидінням та стоянням.
+    start_position_title: Початкове положення
+    start_position_text: Сядьте ближче до переднього краю стійкого стільця. Поставте стопи на підлогу приблизно
+      на ширині таза. Дивіться вперед.
+    instructions_title: Як виконувати
+    instructions:
+    - step: 1
+      text: Сядьте ближче до переднього краю стільця.
+    - step: 2
+      text: Поставте стопи впевнено на підлогу.
+    - step: 3
+      text: Трохи нахиліть корпус уперед.
+    - step: 4
+      text: Плавно встаньте, випрямляючи ноги.
+    - step: 5
+      text: Повністю випростайтеся і відчуйте стійке положення.
+    - step: 6
+      text: Повільно зігніть коліна й стегна та сядьте назад.
+    - step: 7
+      text: Повторіть задану кількість разів.
+    technique_tips_title: Зверніть увагу
+    technique_tips:
+    - Дивіться вперед, а не в підлогу.
+    - Не падайте на стілець — сідайте контрольовано.
+    - Стопи залишаються на підлозі.
+    - Перед сіданням повністю випростайтеся.
+    - Використовуйте руки лише відповідно до обраного безпечного варіанта.
+    safety_label: Безпека
+    safety_text: Використовуйте тільки стійкий стілець без коліс. Якщо з'явилося запаморочення, втрата рівноваги,
+      різкий біль або інший незвичний симптом, натисніть «Стоп».
+    completion_text: Готово.
+    halfway_text: Половину виконано.
+    last_repetition_text: Останній повтор.
+    stand_stable_text: Випростайтеся. Стійте стійко.
+ui:
+  card:
+    title_key: exercise.KNEE_002.title
+    description_key: exercise.KNEE_002.card_description
+    preview_asset: assets/exercises/KNEE_002/preview.png
+    primary_action:
+      key: common.exercise.start
+      resolved_uk: Почати
+    badges:
+      show_difficulty: false
+      show_duration: true
+      show_pro_badge: false
+      show_equipment: true
+  exercise_screen:
+    title_key: exercise.KNEE_002.title
+    labels:
+      elapsed_time:
+        key: common.exercise.elapsed_time
+        resolved_uk: Час
+      progress:
+        key: common.exercise.progress
+        resolved_uk: Виконано
+      repetition:
+        key: common.exercise.repetition
+        resolved_uk: Повтор
+      variant:
+        key: common.exercise.variant
+        resolved_uk: Варіант
+    controls:
+      previous:
+        key: common.control.previous
+        resolved_uk: Попередня
+        icon: arrow_left
+      start:
+        key: common.control.start
+        resolved_uk: Старт
+        icon: play
+      pause:
+        key: common.control.pause
+        resolved_uk: Пауза
+        icon: pause
+      continue:
+        key: common.control.continue
+        resolved_uk: Продовжити
+        icon: play
+      stop:
+        key: common.control.stop
+        resolved_uk: Стоп
+        icon: stop
+      next:
+        key: common.control.next
+        resolved_uk: Наступна
+        icon: arrow_right
+    prep:
+      label_key: common.exercise.starts_in
+      resolved_uk: Починаємо через
+    rest:
+      label_key: common.exercise.rest
+      resolved_uk: Відпочинок
+      next_label_key: common.exercise.next_exercise
+      next_label_resolved_uk: Наступна вправа
+timing:
+  prep_countdown_seconds: 5
+  rest_after_seconds: 10
+  completion_mode: prescribed_repetitions
+  prescription:
+    sets: 1
+    repetitions: 5
+  playback:
+    prepare_lean_ms: 1200
+    rise_ms: 2200
+    stand_stable_ms: 1500
+    lower_to_chair_ms: 2600
+    seated_pause_ms: 800
+  estimated_active_duration_seconds: 42
+  progress:
+    basis: completed_repetitions
+    show_elapsed_time: true
+    show_progress_bar: true
+    show_repetition_counter: true
+    show_side_label: false
+    show_set_counter: false
+repetition_model:
+  type: full_cycle
+  repetitions: 5
+  sets: 1
+  cycle_start_state: seated
+  cycle_end_state: seated
+  requires_balance_checkpoint: true
+movement_phases:
+- id: PHASE_SEATED
+  name_uk: Сидячи
+  phase_type: start_end
+- id: PHASE_FORWARD_LEAN
+  name_uk: Нахил уперед
+  phase_type: transition
+- id: PHASE_RISE
+  name_uk: Вставання
+  phase_type: dynamic
+- id: PHASE_STAND
+  name_uk: Стояння
+  phase_type: checkpoint
+- id: PHASE_DESCEND
+  name_uk: Контрольоване сідання
+  phase_type: dynamic
+sequence:
+  repeat: 5
+  steps:
+  - id: seated_start
+    order: 1
+    phase: PHASE_SEATED
+    frame_id: FRAME_SEATED
+    duration_ms: 800
+    voice_event: null
+  - id: forward_lean
+    order: 2
+    phase: PHASE_FORWARD_LEAN
+    frame_transition:
+      from: FRAME_SEATED
+      to: FRAME_FORWARD_LEAN
+    duration_ms: 1200
+    voice_event: VOICE_LEAN_FORWARD
+  - id: rise
+    order: 3
+    phase: PHASE_RISE
+    frame_transition:
+      from: FRAME_FORWARD_LEAN
+      via: FRAME_RISING
+      to: FRAME_STANDING
+    duration_ms: 2200
+    voice_event: VOICE_STAND_UP
+  - id: stand_checkpoint
+    order: 4
+    phase: PHASE_STAND
+    frame_id: FRAME_STANDING
+    duration_ms: 1500
+    voice_event: VOICE_STAND_STABLE
+  - id: descend
+    order: 5
+    phase: PHASE_DESCEND
+    frame_transition:
+      from: FRAME_STANDING
+      via: FRAME_DESCENDING
+      to: FRAME_SEATED
+    duration_ms: 2600
+    voice_event: VOICE_SIT_SLOWLY
+animation:
+  engine: frame_sequence
+  style_profile_id: exercise_visual_v1
+  loop_mode: repetition_driven
+  interpolation: motion_interpolation
+  reduced_motion_fallback: static_step_frames
+  subject:
+    subject_profile_id: adult_neutral_01
+    consistency_required_across_frames: true
+  environment:
+    chair_profile_id: stable_armless_chair_01
+    chair_must_not_move_between_frames: true
+    floor_plane_consistent: true
+    standing_clearance_visible: true
+  framing:
+    view: full_body
+    camera: side_or_three_quarter_side
+    crop: full_body_and_chair
+    background: clean_neutral
+    chair_visible: true
+    feet_visible: true
+    arrows_in_production_asset: false
+    text_inside_asset: false
+  asset_spec:
+    master_format: png
+    width_px: 1024
+    height_px: 1024
+    transparent_background_preferred: true
+    production_assets_must_be_original: true
+  frames:
+  - id: FRAME_SEATED
+    file: assets/exercises/KNEE_002/frame_seated.png
+    pose_description_uk: Людина сидить ближче до переднього краю стільця. Стопи повністю на підлозі, погляд вперед.
+    alt_text_uk: Початкове положення сидячи біля переднього краю стільця.
+    validation_points:
+    - feet_flat
+    - feet_hip_width
+    - eyes_forward
+    - chair_stable
+  - id: FRAME_FORWARD_LEAN
+    file: assets/exercises/KNEE_002/frame_forward_lean.png
+    pose_description_uk: Корпус трохи нахилений уперед, плечі переміщуються вперед над стопами. Стопи залишаються
+      на підлозі.
+    alt_text_uk: Легкий нахил корпусу вперед перед вставанням.
+    validation_points:
+    - forward_lean_present
+    - feet_flat
+    - hips_still_near_chair
+    - eyes_forward
+  - id: FRAME_RISING
+    file: assets/exercises/KNEE_002/frame_rising.png
+    pose_description_uk: Таз відірваний від стільця. Коліна та стегна розгинаються. Стопи залишаються на підлозі.
+    alt_text_uk: Проміжна фаза вставання зі стільця.
+    validation_points:
+    - pelvis_off_chair
+    - feet_flat
+    - knees_extending
+    - hips_extending
+  - id: FRAME_STANDING
+    file: assets/exercises/KNEE_002/frame_standing.png
+    pose_description_uk: Людина стоїть повністю випроставшись перед стільцем, стопи на підлозі, погляд вперед.
+    alt_text_uk: Повністю випростане положення стоячи.
+    validation_points:
+    - fully_upright
+    - balanced_stance
+    - feet_supported
+    - eyes_forward
+  - id: FRAME_DESCENDING
+    file: assets/exercises/KNEE_002/frame_descending.png
+    pose_description_uk: Людина контрольовано згинає стегна й коліна та опускається до стільця. Корпус трохи нахилений
+      уперед.
+    alt_text_uk: Контрольоване опускання назад на стілець.
+    validation_points:
+    - controlled_descent
+    - hip_and_knee_flexion
+    - feet_flat
+    - chair_position_unchanged
+  preview:
+    file: assets/exercises/KNEE_002/preview.png
+    source_frame_id: FRAME_RISING
+    overlay_text: false
+audio:
+  default_language: uk
+  mix:
+    voice_level: 1.0
+    music_level_relative_to_voice: 0.5
+    dynamic_ducking: false
+  countdown:
+    use_global_audio_pack: true
+    seconds:
+    - 5
+    - 4
+    - 3
+    - 2
+    - 1
+  events:
+  - id: VOICE_PREPARE
+    type: instruction
+    trigger:
+      event: prep_countdown_started
+      offset_ms: 0
+    text_key: exercise.KNEE_002.voice.prepare
+    text_uk: Приготуйтеся. Сядьте ближче до краю стільця. Стопи на підлозі.
+    asset_key: exercise.KNEE_002.voice.prepare
+    target_file: audio/uk/exercises/KNEE_002/prepare.m4a
+    priority: 80
+    interruptible: true
+  - id: VOICE_LEAN_FORWARD
+    type: movement
+    trigger:
+      event: sequence_phase_started
+      phase: PHASE_FORWARD_LEAN
+    text_key: exercise.KNEE_002.voice.lean_forward
+    text_uk: Трохи нахиліться вперед.
+    asset_key: exercise.KNEE_002.voice.lean_forward
+    target_file: audio/uk/exercises/KNEE_002/lean_forward.m4a
+    priority: 100
+    interruptible: false
+  - id: VOICE_STAND_UP
+    type: movement
+    trigger:
+      event: sequence_phase_started
+      phase: PHASE_RISE
+    text_key: exercise.KNEE_002.voice.stand_up
+    text_uk: Плавно вставайте.
+    asset_key: exercise.KNEE_002.voice.stand_up
+    target_file: audio/uk/exercises/KNEE_002/stand_up.m4a
+    priority: 110
+    interruptible: false
+  - id: VOICE_STAND_STABLE
+    type: checkpoint
+    trigger:
+      event: sequence_phase_started
+      phase: PHASE_STAND
+    text_key: exercise.KNEE_002.voice.stand_stable
+    text_uk: Випростайтеся. Стійте стійко.
+    asset_key: exercise.KNEE_002.voice.stand_stable
+    target_file: audio/uk/exercises/KNEE_002/stand_stable.m4a
+    priority: 110
+    interruptible: false
+  - id: VOICE_SIT_SLOWLY
+    type: movement
+    trigger:
+      event: sequence_phase_started
+      phase: PHASE_DESCEND
+    text_key: exercise.KNEE_002.voice.sit_slowly
+    text_uk: Тепер повільно сідайте.
+    asset_key: exercise.KNEE_002.voice.sit_slowly
+    target_file: audio/uk/exercises/KNEE_002/sit_slowly.m4a
+    priority: 110
+    interruptible: false
+  - id: VOICE_HALFWAY
+    type: progress
+    trigger:
+      event: repetition_completed
+      repetition_number: 3
+    text_key: common.voice.halfway
+    text_uk: Половину виконано.
+    asset_key: common.voice.halfway
+    target_file: audio/uk/common/halfway.m4a
+    priority: 50
+    interruptible: true
+    collision_policy: delay_until_primary_cue_finishes
+  - id: VOICE_LAST_REP
+    type: progress
+    trigger:
+      event: repetition_started
+      relative_position: last
+    text_key: common.voice.last_repetition
+    text_uk: Останній повтор.
+    asset_key: common.voice.last_repetition
+    target_file: audio/uk/common/last_repetition.m4a
+    priority: 60
+    interruptible: true
+    collision_policy: delay_until_primary_cue_finishes
+  - id: VOICE_COMPLETED
+    type: completion
+    trigger:
+      event: exercise_completed
+    text_key: common.voice.completed
+    text_uk: Готово.
+    asset_key: common.voice.completed
+    target_file: audio/uk/common/completed.m4a
+    priority: 120
+    interruptible: false
+  recording_spec:
+    current_status: not_recorded
+    source_master_format: wav
+    app_delivery_format: m4a
+    voice_style_uk: спокійний, доброзичливий, чіткий, без поспіху
+    normalization_required: true
+    silence_trim_required: true
+music:
+  enabled_by_default: true
+  default_track_profile: gentle_rhythm_01
+  loop: true
+  vocals_allowed: false
+  fixed_relative_volume: 0.5
+  duck_on_voice: false
+flow:
+  use_global_start_countdown: true
+  start_countdown_seconds: 5
+  pause:
+    freeze_timer: true
+    freeze_animation: true
+    pause_music: true
+    resume_from_same_phase: true
+    resume_from_same_repetition: true
+  stop:
+    allowed_any_time: true
+    show_failure_state: false
+    save_actual_elapsed_time: true
+    save_completed_repetitions: true
+    completion_classification: early_stop
+  completion:
+    increment_lifetime_exercise_counter: true
+    show_plus_one_animation: true
+    proceed_to_auto_rest: true
+  auto_next:
+    enabled: true
+    rest_seconds: 10
+    show_next_exercise_preview: true
+    start_next_automatically_at_zero: true
+    manual_previous_or_next:
+      cancel_auto_mode: true
+      cancel_rest_countdown: true
+      selected_exercise_requires_manual_start: true
+      manual_start_uses_prep_countdown: true
+accessibility:
+  screen_reader:
+    exercise_summary_uk: Встати — сісти зі стільця. Сядьте ближче до краю стійкого стільця, трохи нахиліться вперед,
+      плавно встаньте, випростайтеся, потім контрольовано сядьте назад.
+    announce_countdown: true
+    announce_repetition: false
+    announce_checkpoint: true
+    announce_pause_resume: true
+    announce_completion: true
+  visual:
+    minimum_touch_target_dp: 44
+    supports_large_text: true
+    essential_information_not_color_only: true
+  reduced_motion:
+    supported: true
+    behavior: show_static_pose_steps_without_smooth_interpolation
+tracking:
+  enabled: true
+  metrics:
+    actual_active_seconds: true
+    prescribed_completion: true
+    completed_repetitions: true
+    early_stop: true
+    pause_count: true
+    selected_from_collection: true
+    selected_variant: true
+  analytics_dimensions:
+    exercise_id: KNEE_002
+    primary_zone: knees
+    tags:
+    - knees
+    - hips
+    - quadriceps
+    - gluteals
+    - after_sitting
+    - functional_strength
+    - chair
+  lifetime_counter:
+    use_global_policy: true
+pro:
+  include_in_personal_plan_pool: true
+  allow_favorite: true
+  allow_custom_voice: true
+  allow_custom_music: true
+  adaptive_parameters:
+    repetitions:
+      enabled: false
+      reason: requires_clinical_review_before_personalized_dosing
+    tempo:
+      enabled: false
+      reason: requires_clinical_review_before_personalized_tempo
+    assistance_variant:
+      enabled: false
+      reason: requires_clinical_review_before_automatic_variant_selection
+    rest_after:
+      enabled: true
+      allowed_values_seconds:
+      - 10
+      - 15
+      - 20
+  ai_selection:
+    allowed: true
+    rule: AI may select only an approved variant of this verified exercise. AI may not remove required chair conditions,
+      change the movement, or invent a more difficult progression.
+    production_requires_clinical_status: approved
+assets:
+  folder: assets/exercises/KNEE_002
+  required:
+  - preview.png
+  - frame_seated.png
+  - frame_forward_lean.png
+  - frame_rising.png
+  - frame_standing.png
+  - frame_descending.png
+  optional:
+  - thumbnail.png
+  - frame_assisted_variant.png
+  validation:
+    same_subject_all_frames: true
+    same_camera_all_frames: true
+    same_crop_all_frames: true
+    same_chair_all_frames: true
+    chair_does_not_move: true
+    feet_visible_all_relevant_frames: true
+    no_embedded_text: true
+    no_watermarks: true
+    original_or_properly_licensed_only: true
+    clinical_pose_review_required: true
+qa:
+  content_checks:
+  - Назва і опис відповідають руху на всіх кадрах.
+  - Стілець однаковий і нерухомий на всіх кадрах.
+  - Початковий кадр показує стопи на підлозі.
+  - Є окремий кадр нахилу вперед до початку вставання.
+  - Є проміжний кадр підйому зі стільця.
+  - Є повністю випростане положення стоячи.
+  - Сідання показане як контрольоване опускання, а не падіння на стілець.
+  - Вправа присутня у collection body_knees.
+  - Вправа присутня у collection body_hips.
+  - Вправа присутня у collection after_sitting.
+  - Варіанти допомоги руками не активуються автоматично без clinical approval.
+  - Лічильник повторів збільшується лише після повного циклу сидячи → стоячи → сидячи.
+  - Stop працює у будь-який момент.
+  - Після штатного завершення запускається 10-секундний auto-rest.
+  - Manual Previous/Next під час auto-rest скасовує autoplay.
+  - Production build не показує вправу, поки clinical.status != approved.
+  automated_tests:
+  - id: KNEE_002_VISIBLE_BODY_KNEES
+    expected: exercise_is_returned_for_collection_body_knees
+  - id: KNEE_002_VISIBLE_BODY_HIPS
+    expected: exercise_is_returned_for_collection_body_hips
+  - id: KNEE_002_FULL_CYCLE_COUNT
+    expected: repetition_increments_only_after_return_to_seated_state
+  - id: KNEE_002_BALANCE_CHECKPOINT
+    expected: standing_checkpoint_occurs_before_descend_phase
+  - id: KNEE_002_CHAIR_REQUIRED
+    expected: exercise_requires_stable_chair_environment
+  - id: KNEE_002_VARIANT_GATE
+    expected: unapproved_assistance_variant_is_not_auto_selected
+  - id: KNEE_002_LOCALIZATION
+    expected: no_user_visible_hardcoded_text_outside_locale_or_resolved_preview
+  - id: KNEE_002_PRODUCTION_GATE
+    expected: pending_review_content_is_hidden_in_production
+references:
+  source_ids:
+  - id: NHS_STRENGTH_SIT_TO_STAND
+    organization: NHS
+    title: Strength exercises — Sit-to-stand
+    url: https://www.nhs.uk/live-well/exercise/strength-exercises/
+    evidence_used:
+    - stable chair without wheels
+    - sit on edge of chair
+    - feet hip-width apart
+    - lean slightly forward
+    - stand slowly using legs
+    - look forward
+    - sit down slowly
+    - aim for 5 repetitions
+  - id: UCLH_HOME_EXERCISES_SIT_TO_STAND
+    organization: University College London Hospitals NHS Foundation Trust
+    title: Home exercises to improve strength and balance following hospital admission — Sit to stand
+    url: https://www.uclh.nhs.uk/patients-and-visitors/patient-information-pages/home-exercises-improve-strength-and-balance-following-hospital-admission
+    evidence_used:
+    - sit on edge of chair
+    - feet hip-width apart
+    - lean forward a little
+    - stand slowly using leg muscles
+    - look forward
+    - repeat 10 times
+  - id: CUH_BALANCE_SIT_TO_STAND
+    organization: Cambridge University Hospitals NHS Foundation Trust
+    title: Balance exercises for cardiac rehabilitation — Sit to Stand
+    url: https://www.cuh.nhs.uk/patient-information/balance-exercises-for-cardiac-rehabilitation/
+    evidence_used:
+    - start seated toward front of chair
+    - stand without pushing off with arms
+    - stand fully and establish balance before sitting
+    - slowly lower back to chair
+    - keep feet flat
+    - look straight ahead
+  - id: SOUTH_TEES_SIT_TO_STAND
+    organization: South Tees Hospitals NHS Foundation Trust
+    title: Sit to stand from chair — combined
+    url: https://www.southtees.nhs.uk/resources/sit-to-stand-from-chair-combined/
+    evidence_used:
+    - lean forward to bring shoulders over feet
+    - lift bottom from chair
+    - straighten legs to stand
+    - reverse movement with hip and knee flexion
+    - lower to chair in a controlled way
+  - id: KINGSTON_FALLS_SIT_TO_STAND
+    organization: Kingston and Richmond NHS Foundation Trust
+    title: 'Home Exercise Programme: Falls Prevention — Sit to stand'
+    url: https://www.kingstonandrichmond.nhs.uk/patients-and-families/patient-leaflets/home-exercise-programme-falls-prevention
+    evidence_used:
+    - sit near front of chair
+    - feet slightly behind knees
+    - lean forward
+    - stand tall with minimal arm use
+    - sit slowly
+    - aim for 10 repetitions
+    - progress by not using arms
+metadata:
+  created_for: exercise_library_schema_validation
+  authoring_language: uk
+  created_at: '2026-09-09'
+  last_modified_at: '2026-09-09'
+  schema_notes_uk: Цей файл тестує Exercise Schema v1.2 на функціональній вправі, що містить перехід між сидінням
+    і стоянням, компонент рівноваги, обов'язкове обладнання та варіанти допомоги. Порівняно з v1.1 додано variants,
+    environment requirements, balance_checkpoint, transition phases, collection_candidates і правила валідації оточення.
+  migrated_from_schema_version: '1.2'
+  repository_pack_version: '0.1'

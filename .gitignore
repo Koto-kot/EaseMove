@@ -1,0 +1,48 @@
+# OS / editors
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.iml
+
+# Dart / Flutter
+.dart_tool/
+.packages
+.pub/
+.pub-cache/
+build/
+coverage/
+.flutter-plugins
+.flutter-plugins-dependencies
+.metadata
+
+# Generated platform/build files
+android/.gradle/
+android/local.properties
+android/key.properties
+ios/Pods/
+ios/.symlinks/
+macos/Pods/
+
+# Local environment / secrets
+.env
+.env.*
+!.env.example
+*.jks
+*.keystore
+*.p12
+*.mobileprovision
+
+# Logs / temp
+*.log
+*.tmp
+*.bak
+
+# Python validation tooling
+__pycache__/
+*.pyc
+.venv/
+
+# Local packs / notes
+*.zip
+CHAT_SUMMARY_*.md

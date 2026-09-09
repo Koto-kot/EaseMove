@@ -1,0 +1,36 @@
+locale: uk
+strings:
+  common.control.previous: Попередня
+  common.control.start: Старт
+  common.control.pause: Пауза
+  common.control.continue: Продовжити
+  common.control.stop: Стоп
+  common.control.next: Наступна
+  common.exercise.start: Почати
+  common.exercise.elapsed_time: Час
+  common.exercise.progress: Виконано
+  common.exercise.repetition: Повтор
+  common.exercise.side: Бік
+  common.exercise.set: Підхід
+  common.exercise.position: Положення
+  common.exercise.variant: Варіант
+  common.exercise.starts_in: Починаємо через
+  common.exercise.rest: Відпочинок
+  common.exercise.next_exercise: Наступна вправа
+  common.voice.hold: Тримайте.
+  common.voice.return_center: Поверніться в центр.
+  common.voice.switch_leg: Тепер інша нога.
+  common.voice.halfway: Половину виконано.
+  common.voice.last_repetition: Останній повтор.
+  common.voice.completed: Готово.
+  body_zone.neck: Шия
+  body_zone.shoulders: Плечі
+  body_zone.upper_back: Верхня частина спини
+  body_zone.elbows: Лікті
+  body_zone.wrists_hands: Кисті та зап’ястя
+  body_zone.lower_back: Поперек
+  body_zone.hips: Таз і стегна
+  body_zone.knees: Коліна
+  body_zone.calves: Гомілки
+  body_zone.ankles: Гомілковостопні суглоби
+  body_zone.feet: Стопи

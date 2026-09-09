@@ -1,0 +1,105 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Body Hotspots Schema v1.0",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "coordinate_system",
+    "hotspots"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "coordinate_system": {
+      "type": "object"
+    },
+    "hotspots": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "zone_id",
+          "view",
+          "label_key",
+          "rect",
+          "action"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "zone_id": {
+            "type": "string"
+          },
+          "view": {
+            "enum": [
+              "front",
+              "back"
+            ]
+          },
+          "label_key": {
+            "type": "string"
+          },
+          "priority": {
+            "type": "integer"
+          },
+          "rect": {
+            "type": "object",
+            "required": [
+              "x",
+              "y",
+              "width",
+              "height"
+            ],
+            "properties": {
+              "x": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "y": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "width": {
+                "type": "number",
+                "exclusiveMinimum": 0,
+                "maximum": 1
+              },
+              "height": {
+                "type": "number",
+                "exclusiveMinimum": 0,
+                "maximum": 1
+              }
+            },
+            "additionalProperties": false
+          },
+          "action": {
+            "type": "object",
+            "required": [
+              "type",
+              "collection_id"
+            ],
+            "properties": {
+              "type": {
+                "const": "open_collection"
+              },
+              "collection_id": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": true
+}

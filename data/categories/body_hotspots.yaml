@@ -1,0 +1,295 @@
+schema_version: '1.0'
+coordinate_system:
+  type: normalized_rect
+  origin: top_left
+  range:
+  - 0.0
+  - 1.0
+  note: Prototype coordinates. Final values must be tuned against approved front/back artwork.
+hotspots:
+- id: neck_front
+  zone_id: neck
+  view: front
+  label_key: body_zone.neck
+  priority: 100
+  rect:
+    x: 0.43
+    y: 0.1
+    width: 0.14
+    height: 0.08
+  action:
+    type: open_collection
+    collection_id: body_neck
+- id: neck_back
+  zone_id: neck
+  view: back
+  label_key: body_zone.neck
+  priority: 100
+  rect:
+    x: 0.43
+    y: 0.1
+    width: 0.14
+    height: 0.08
+  action:
+    type: open_collection
+    collection_id: body_neck
+- id: left_shoulder_front
+  zone_id: shoulders
+  view: front
+  label_key: body_zone.shoulders
+  priority: 90
+  rect:
+    x: 0.28
+    y: 0.16
+    width: 0.2
+    height: 0.11
+  action:
+    type: open_collection
+    collection_id: body_shoulders
+- id: right_shoulder_front
+  zone_id: shoulders
+  view: front
+  label_key: body_zone.shoulders
+  priority: 90
+  rect:
+    x: 0.52
+    y: 0.16
+    width: 0.2
+    height: 0.11
+  action:
+    type: open_collection
+    collection_id: body_shoulders
+- id: upper_back
+  zone_id: upper_back
+  view: back
+  label_key: body_zone.upper_back
+  priority: 80
+  rect:
+    x: 0.34
+    y: 0.2
+    width: 0.32
+    height: 0.18
+  action:
+    type: open_collection
+    collection_id: body_upper_back
+- id: left_elbow_front
+  zone_id: elbows
+  view: front
+  label_key: body_zone.elbows
+  priority: 70
+  rect:
+    x: 0.2
+    y: 0.36
+    width: 0.15
+    height: 0.12
+  action:
+    type: open_collection
+    collection_id: body_elbows
+- id: right_elbow_front
+  zone_id: elbows
+  view: front
+  label_key: body_zone.elbows
+  priority: 70
+  rect:
+    x: 0.65
+    y: 0.36
+    width: 0.15
+    height: 0.12
+  action:
+    type: open_collection
+    collection_id: body_elbows
+- id: left_wrist_hand_front
+  zone_id: wrists_hands
+  view: front
+  label_key: body_zone.wrists_hands
+  priority: 60
+  rect:
+    x: 0.12
+    y: 0.48
+    width: 0.18
+    height: 0.15
+  action:
+    type: open_collection
+    collection_id: body_wrists_hands
+- id: right_wrist_hand_front
+  zone_id: wrists_hands
+  view: front
+  label_key: body_zone.wrists_hands
+  priority: 60
+  rect:
+    x: 0.7
+    y: 0.48
+    width: 0.18
+    height: 0.15
+  action:
+    type: open_collection
+    collection_id: body_wrists_hands
+- id: lower_back
+  zone_id: lower_back
+  view: back
+  label_key: body_zone.lower_back
+  priority: 85
+  rect:
+    x: 0.35
+    y: 0.38
+    width: 0.3
+    height: 0.15
+  action:
+    type: open_collection
+    collection_id: body_lower_back
+- id: hips_front
+  zone_id: hips
+  view: front
+  label_key: body_zone.hips
+  priority: 80
+  rect:
+    x: 0.34
+    y: 0.46
+    width: 0.32
+    height: 0.16
+  action:
+    type: open_collection
+    collection_id: body_hips
+- id: hips_back
+  zone_id: hips
+  view: back
+  label_key: body_zone.hips
+  priority: 80
+  rect:
+    x: 0.34
+    y: 0.46
+    width: 0.32
+    height: 0.16
+  action:
+    type: open_collection
+    collection_id: body_hips
+- id: left_knee_front
+  zone_id: knees
+  view: front
+  label_key: body_zone.knees
+  priority: 100
+  rect:
+    x: 0.34
+    y: 0.67
+    width: 0.14
+    height: 0.12
+  action:
+    type: open_collection
+    collection_id: body_knees
+- id: right_knee_front
+  zone_id: knees
+  view: front
+  label_key: body_zone.knees
+  priority: 100
+  rect:
+    x: 0.52
+    y: 0.67
+    width: 0.14
+    height: 0.12
+  action:
+    type: open_collection
+    collection_id: body_knees
+- id: left_knee_back
+  zone_id: knees
+  view: back
+  label_key: body_zone.knees
+  priority: 100
+  rect:
+    x: 0.34
+    y: 0.67
+    width: 0.14
+    height: 0.12
+  action:
+    type: open_collection
+    collection_id: body_knees
+- id: right_knee_back
+  zone_id: knees
+  view: back
+  label_key: body_zone.knees
+  priority: 100
+  rect:
+    x: 0.52
+    y: 0.67
+    width: 0.14
+    height: 0.12
+  action:
+    type: open_collection
+    collection_id: body_knees
+- id: left_calf_back
+  zone_id: calves
+  view: back
+  label_key: body_zone.calves
+  priority: 70
+  rect:
+    x: 0.32
+    y: 0.76
+    width: 0.16
+    height: 0.14
+  action:
+    type: open_collection
+    collection_id: body_calves
+- id: right_calf_back
+  zone_id: calves
+  view: back
+  label_key: body_zone.calves
+  priority: 70
+  rect:
+    x: 0.52
+    y: 0.76
+    width: 0.16
+    height: 0.14
+  action:
+    type: open_collection
+    collection_id: body_calves
+- id: left_ankle_front
+  zone_id: ankles
+  view: front
+  label_key: body_zone.ankles
+  priority: 75
+  rect:
+    x: 0.33
+    y: 0.87
+    width: 0.15
+    height: 0.08
+  action:
+    type: open_collection
+    collection_id: body_ankles
+- id: right_ankle_front
+  zone_id: ankles
+  view: front
+  label_key: body_zone.ankles
+  priority: 75
+  rect:
+    x: 0.52
+    y: 0.87
+    width: 0.15
+    height: 0.08
+  action:
+    type: open_collection
+    collection_id: body_ankles
+- id: left_foot_front
+  zone_id: feet
+  view: front
+  label_key: body_zone.feet
+  priority: 80
+  rect:
+    x: 0.29
+    y: 0.92
+    width: 0.2
+    height: 0.08
+  action:
+    type: open_collection
+    collection_id: body_feet
+- id: right_foot_front
+  zone_id: feet
+  view: front
+  label_key: body_zone.feet
+  priority: 80
+  rect:
+    x: 0.51
+    y: 0.92
+    width: 0.2
+    height: 0.08
+  action:
+    type: open_collection
+    collection_id: body_feet

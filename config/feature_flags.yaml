@@ -1,0 +1,41 @@
+schema_version: '1.0'
+environment_defaults:
+  development:
+    pro:
+      visible_to_free: true
+      access_mode: unlocked
+    clinical:
+      show_pending_review: true
+      approved_only: false
+    developer_menu: true
+    timing_multiplier: 1.0
+  test:
+    pro:
+      visible_to_free: true
+      access_mode: unlocked
+    clinical:
+      show_pending_review: true
+      approved_only: false
+    developer_menu: true
+    timing_multiplier: 1.0
+  production:
+    pro:
+      visible_to_free: true
+      access_mode: paywall
+    clinical:
+      show_pending_review: false
+      approved_only: true
+    developer_menu: false
+    timing_multiplier: 1.0
+features:
+  pro_today_plan: true
+  pro_profile: true
+  pro_favorites: true
+  pro_advanced_stats: true
+  pro_audio_customization: true
+  pro_smart_reminders: true
+  pro_ai_assistant: false
+  pro_human_curator: false
+  eyes_module: true
+  bed_module: true
+  computer_module: true

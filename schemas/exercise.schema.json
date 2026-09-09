@@ -1,0 +1,202 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/schemas/exercise.schema.json",
+  "title": "Movement App Exercise Schema v1.3",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "exercise",
+    "clinical",
+    "locale",
+    "ui",
+    "timing",
+    "animation",
+    "audio",
+    "flow",
+    "tracking",
+    "references",
+    "metadata"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "content_version": {
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "exercise": {
+      "type": "object",
+      "required": [
+        "id",
+        "slug",
+        "classification"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[A-Z]+_[0-9]{3}$"
+        },
+        "slug": {
+          "type": "string",
+          "pattern": "^[a-z0-9_]+$"
+        },
+        "classification": {
+          "type": "object",
+          "required": [
+            "primary_zone",
+            "collections"
+          ],
+          "properties": {
+            "primary_zone": {
+              "type": "string"
+            },
+            "collections": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "collection_candidates": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": true
+    },
+    "clinical": {
+      "type": "object",
+      "required": [
+        "status"
+      ],
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": [
+            "draft",
+            "pending_review",
+            "approved",
+            "retired"
+          ]
+        }
+      },
+      "additionalProperties": true
+    },
+    "locale": {
+      "type": "object",
+      "required": [
+        "default",
+        "uk"
+      ],
+      "properties": {
+        "default": {
+          "type": "string"
+        },
+        "uk": {
+          "type": "object",
+          "required": [
+            "title",
+            "card_description"
+          ],
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": true
+    },
+    "ui": {
+      "type": "object"
+    },
+    "timing": {
+      "type": "object",
+      "required": [
+        "prep_countdown_seconds",
+        "rest_after_seconds"
+      ],
+      "properties": {
+        "prep_countdown_seconds": {
+          "type": "number",
+          "minimum": 0
+        },
+        "rest_after_seconds": {
+          "type": "number",
+          "minimum": 0
+        },
+        "estimated_active_duration_seconds": {
+          "type": "number",
+          "minimum": 0
+        }
+      },
+      "additionalProperties": true
+    },
+    "animation": {
+      "type": "object",
+      "required": [
+        "frames"
+      ],
+      "properties": {
+        "frames": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "file"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "file": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": true
+          }
+        }
+      },
+      "additionalProperties": true
+    },
+    "audio": {
+      "type": "object"
+    },
+    "music": {
+      "type": "object"
+    },
+    "flow": {
+      "type": "object"
+    },
+    "accessibility": {
+      "type": "object"
+    },
+    "tracking": {
+      "type": "object"
+    },
+    "pro": {
+      "type": "object"
+    },
+    "assets": {
+      "type": "object"
+    },
+    "qa": {
+      "type": "object"
+    },
+    "references": {
+      "type": "object"
+    },
+    "metadata": {
+      "type": "object"
+    }
+  },
+  "additionalProperties": true
+}
