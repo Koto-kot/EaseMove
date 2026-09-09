@@ -14,10 +14,13 @@ List<SessionEffect> advance(SessionMachine machine, int seconds) {
   return effects;
 }
 
+/// `hasNextExercise` defaults to true: most cases here are about autoplay,
+/// which only exists when something follows.
 SessionMachine machineFor(
   String id, {
   bool skipCountdowns = false,
   String? collectionId,
+  bool hasNextExercise = true,
 }) {
   final Exercise exercise = loadExerciseFromDisk(id);
   return SessionMachine(
@@ -25,6 +28,7 @@ SessionMachine machineFor(
     timeline: ExerciseTimeline.build(exercise),
     collectionId: collectionId,
     skipCountdowns: skipCountdowns,
+    hasNextExercise: hasNextExercise,
   );
 }
 
@@ -340,6 +344,20 @@ void main() {
       final List<SessionEffect> effects = advance(machine, 80);
       expect(effects.whereType<SaveResult>().length, 1);
       expect(effects.whereType<IncrementLifetimeCounter>().length, 1);
+    });
+
+    test('the last exercise of a collection completes instead of resting', () {
+      // Resting towards an auto-start that can never happen left the session
+      // parked on a rest screen with the countdown at zero.
+      final SessionMachine machine = machineFor(
+        'KNEE_001',
+        skipCountdowns: true,
+        hasNextExercise: false,
+      );
+      machine.handle(SessionEventType.start);
+      advance(machine, machine.timeline.totalDurationMs ~/ 1000 + 1);
+      expect(machine.state, SessionState.completed);
+      expect(machine.snapshot.autoModeEnabled, isFalse);
     });
 
     test('an auto-started exercise still gets its prep countdown', () {

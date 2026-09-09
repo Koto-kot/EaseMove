@@ -65,6 +65,9 @@ strings:
   app.exercise.stopped_note: This is not a failure. Your time was saved.
   app.exercise.no_next: No next exercise.
   app.exercise.phase: Phase
+  app.exercise.working_zone: Working
+  app.exercise.more_in_zone: More exercises
+  app.exercise.back_to_body: Back to body
   app.activity.title: My activity
   app.activity.lifetime: Exercises in total
   app.activity.history: Recent sessions

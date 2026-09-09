@@ -6,9 +6,12 @@ library;
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../app/design_tokens.dart';
 import '../../app/providers.dart';
 import '../../core/localization/app_strings.dart';
 import '../../core/storage/local_store.dart';
+import '../../data/exercise_repository.dart';
+import '../../data/tracking_repository.dart';
 import '../../domain/exercise/exercise.dart';
 import '../../domain/exercise/exercise_timeline.dart';
 import '../../domain/exercise/session_machine.dart';
@@ -87,10 +90,11 @@ class _PlayerScreenState extends ConsumerState<PlayerScreen> {
               state: state,
               controller: controller,
             ),
-            SessionState.autoRest || SessionState.completed => _RestView(
+            SessionState.autoRest => _RestView(
               state: state,
               controller: controller,
             ),
+            SessionState.completed => _CompletedView(state: state),
             SessionState.prepCountdown ||
             SessionState.active ||
             SessionState.paused ||
@@ -239,43 +243,73 @@ class _ActiveView extends StatelessWidget {
         ? null
         : exercise.frames[frameId];
 
+    final Color zoneTint = Tokens.zoneColor(
+      exercise.primaryZone,
+      theme.colorScheme,
+    );
+
     return Column(
       children: <Widget>[
         Expanded(
-          child: Stack(
-            alignment: Alignment.center,
-            children: <Widget>[
-              Positioned.fill(
-                child: AssetImageOrPlaceholder(
-                  assetPath: frame?.file,
-                  placeholderLabel: t('app.exercise.frame_missing'),
-                  semanticLabel: frame?.altText,
-                  caption: frame?.altText,
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(Tokens.cardRadius),
+            child: Stack(
+              alignment: Alignment.center,
+              children: <Widget>[
+                Positioned.fill(
+                  child: AssetImageOrPlaceholder(
+                    assetPath: frame?.file,
+                    placeholderLabel: t('app.exercise.frame_missing'),
+                    semanticLabel: frame?.altText,
+                    caption: frame?.altText,
+                  ),
                 ),
-              ),
-              if (counting)
-                _CountdownOverlay(
-                  label: t(StringKeys.startsIn),
-                  seconds: snapshot.prepSecondsLeft,
+                // Which part is doing the work, in that zone's colour — the
+                // same colour its dot had on the body map.
+                Positioned(
+                  top: Tokens.gap,
+                  left: Tokens.gap,
+                  child: _ZoneChip(
+                    label:
+                        '${t('app.exercise.working_zone')} · '
+                        '${t(StringKeys.bodyZone(exercise.primaryZone))}',
+                    color: zoneTint,
+                  ),
                 ),
-              if (snapshot.state == SessionState.paused)
-                _CountdownOverlay(label: t(StringKeys.pause), seconds: null),
-            ],
+                if (counting)
+                  _CountdownOverlay(
+                    label: t(StringKeys.startsIn),
+                    seconds: snapshot.prepSecondsLeft,
+                  ),
+                if (snapshot.state == SessionState.paused)
+                  _CountdownOverlay(label: t(StringKeys.pause), seconds: null),
+              ],
+            ),
           ),
         ),
-        const SizedBox(height: 12),
-        _MetricsRow(state: state),
+        const SizedBox(height: Tokens.gap),
+        // The clock is the one number you glance at while moving, so it is
+        // the largest thing on the screen and no longer one metric among
+        // four.
+        if (exercise.progress.showElapsedTime)
+          _BigTimer(
+            label: exercise.labels['elapsed_time'] ?? t(StringKeys.elapsedTime),
+            value: _MetricsRow._formatDuration(snapshot.elapsedMs),
+          ),
         if (exercise.progress.showProgressBar) ...<Widget>[
-          const SizedBox(height: 12),
+          const SizedBox(height: Tokens.gap),
           ClipRRect(
-            borderRadius: BorderRadius.circular(999),
+            borderRadius: BorderRadius.circular(Tokens.chipRadius),
             child: LinearProgressIndicator(
               value: state.progress,
               minHeight: 10,
               backgroundColor: theme.colorScheme.surfaceContainerHighest,
+              color: zoneTint,
             ),
           ),
         ],
+        const SizedBox(height: Tokens.gap),
+        _MetricsRow(state: state),
         const SizedBox(height: 16),
         _Controls(state: state, controller: controller),
         const SizedBox(height: 16),
@@ -422,11 +456,6 @@ class _MetricsRow extends StatelessWidget {
     String label(String name, String key) => exercise.labels[name] ?? t(key);
 
     final List<Widget> metrics = <Widget>[
-      if (settings.showElapsedTime)
-        _Metric(
-          label: label('elapsed_time', StringKeys.elapsedTime),
-          value: _formatDuration(state.snapshot.elapsedMs),
-        ),
       if (settings.showRepetitionCounter)
         _Metric(
           label: label('repetition', StringKeys.repetition),
@@ -506,46 +535,35 @@ class _Controls extends StatelessWidget {
     final bool resting = sessionState == SessionState.autoRest;
 
     return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: <Widget>[
-        Expanded(
-          child: OutlinedButton(
-            onPressed: controller.previous,
-            child: FittedBox(child: Text(t(StringKeys.previous))),
-          ),
+        _RoundControl(
+          icon: Icons.skip_previous,
+          label: t(StringKeys.previous),
+          onPressed: controller.previous,
         ),
-        const SizedBox(width: 8),
-        Expanded(
-          flex: 2,
-          child: FilledButton.icon(
-            onPressed: running || paused
-                ? controller.pauseOrResume
-                : controller.start,
-            icon: Icon(running ? Icons.pause : Icons.play_arrow),
-            label: FittedBox(
-              child: Text(
-                running
-                    ? t(StringKeys.pause)
-                    : paused
-                    ? t(StringKeys.resume)
-                    : t(StringKeys.start),
-              ),
-            ),
-          ),
+        _RoundControl(
+          icon: running ? Icons.pause : Icons.play_arrow,
+          label: running
+              ? t(StringKeys.pause)
+              : paused
+              ? t(StringKeys.resume)
+              : t(StringKeys.start),
+          onPressed: running || paused
+              ? controller.pauseOrResume
+              : controller.start,
+          primary: true,
         ),
-        const SizedBox(width: 8),
         // STOP is accepted in any active state (invariant 1).
-        Expanded(
-          child: OutlinedButton(
-            onPressed: running || paused || resting ? controller.stop : null,
-            child: FittedBox(child: Text(t(StringKeys.stop))),
-          ),
+        _RoundControl(
+          icon: Icons.stop,
+          label: t(StringKeys.stop),
+          onPressed: running || paused || resting ? controller.stop : null,
         ),
-        const SizedBox(width: 8),
-        Expanded(
-          child: OutlinedButton(
-            onPressed: controller.next,
-            child: FittedBox(child: Text(t(StringKeys.next))),
-          ),
+        _RoundControl(
+          icon: Icons.skip_next,
+          label: t(StringKeys.next),
+          onPressed: controller.next,
         ),
       ],
     );
@@ -643,6 +661,329 @@ class _Notice extends StatelessWidget {
                 color: theme.colorScheme.onTertiaryContainer,
               ),
             ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+/// A circular control with its name underneath. The name is also the tooltip,
+/// so the button stays identifiable to a screen reader and in tests.
+class _RoundControl extends StatelessWidget {
+  const _RoundControl({
+    required this.icon,
+    required this.label,
+    required this.onPressed,
+    this.primary = false,
+  });
+
+  final IconData icon;
+  final String label;
+  final VoidCallback? onPressed;
+
+  /// Start/Pause is the one control you press without looking, so it is
+  /// filled and half again as large as the others.
+  final bool primary;
+
+  @override
+  Widget build(BuildContext context) {
+    final ThemeData theme = Theme.of(context);
+    final double diameter = primary ? 72 : Tokens.touchTarget;
+    final ButtonStyle style = ButtonStyle(
+      shape: const WidgetStatePropertyAll<OutlinedBorder>(CircleBorder()),
+      padding: const WidgetStatePropertyAll<EdgeInsets>(EdgeInsets.zero),
+      minimumSize: WidgetStatePropertyAll<Size>(Size(diameter, diameter)),
+      fixedSize: WidgetStatePropertyAll<Size>(Size(diameter, diameter)),
+    );
+
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: <Widget>[
+        Tooltip(
+          message: label,
+          child: primary
+              ? FilledButton(
+                  onPressed: onPressed,
+                  style: style,
+                  child: Icon(icon, size: 32),
+                )
+              : OutlinedButton(
+                  onPressed: onPressed,
+                  style: style,
+                  child: Icon(icon, size: 22),
+                ),
+        ),
+        const SizedBox(height: 6),
+        Text(
+          label,
+          style: theme.textTheme.labelSmall?.copyWith(
+            color: theme.colorScheme.outline,
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+/// The elapsed clock, sized to be read at arm's length mid-exercise.
+class _BigTimer extends StatelessWidget {
+  const _BigTimer({required this.label, required this.value});
+
+  final String label;
+  final String value;
+
+  @override
+  Widget build(BuildContext context) {
+    final ThemeData theme = Theme.of(context);
+    return Column(
+      children: <Widget>[
+        Text(
+          label,
+          style: theme.textTheme.labelMedium?.copyWith(
+            color: theme.colorScheme.outline,
+          ),
+        ),
+        Text(
+          value,
+          style: theme.textTheme.displayMedium?.copyWith(
+            fontWeight: FontWeight.w300,
+            // Fixed-width digits: the clock must not jitter as it ticks.
+            fontFeatures: const <FontFeature>[FontFeature.tabularFigures()],
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class _ZoneChip extends StatelessWidget {
+  const _ZoneChip({required this.label, required this.color});
+
+  final String label;
+  final Color color;
+
+  @override
+  Widget build(BuildContext context) {
+    final ThemeData theme = Theme.of(context);
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+      decoration: BoxDecoration(
+        color: theme.colorScheme.surface.withValues(alpha: 0.82),
+        borderRadius: BorderRadius.circular(Tokens.chipRadius),
+      ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          Container(
+            width: 10,
+            height: 10,
+            decoration: BoxDecoration(color: color, shape: BoxShape.circle),
+          ),
+          const SizedBox(width: 8),
+          Text(label, style: theme.textTheme.labelLarge),
+        ],
+      ),
+    );
+  }
+}
+
+/// COMPLETED with nothing queued behind it: the end of the flow, so it earns
+/// a screen of its own rather than a rest countdown (docs/UX_FLOW.md F).
+class _CompletedView extends ConsumerWidget {
+  const _CompletedView({required this.state});
+
+  final PlayerState state;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final AppStrings t = AppStrings.of(context);
+    final ThemeData theme = Theme.of(context);
+    final Exercise exercise = state.exercise!;
+    final String zoneId = exercise.primaryZone;
+    final Color zoneTint = Tokens.zoneColor(zoneId, theme.colorScheme);
+    final ActivityStats stats = ref.watch(activityStatsProvider);
+    final ExerciseRepository? repository = ref
+        .watch(exerciseRepositoryProvider)
+        .valueOrNull;
+
+    // What else this zone offers. byZone already applies the clinical gate,
+    // so a pending exercise cannot appear here in production.
+    final List<ExerciseSummary> siblings = <ExerciseSummary>[
+      if (repository != null)
+        for (final ExerciseSummary summary in repository.byZone(zoneId))
+          if (summary.id != exercise.id) summary,
+    ];
+
+    return ListView(
+      padding: const EdgeInsets.only(top: 24, bottom: 24),
+      children: <Widget>[
+        Center(
+          child: Container(
+            width: 96,
+            height: 96,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              color: zoneTint.withValues(alpha: 0.16),
+            ),
+            child: Icon(Icons.check_rounded, size: 52, color: zoneTint),
+          ),
+        ),
+        const SizedBox(height: Tokens.gap),
+        Text(
+          exercise.text.completion ?? t('app.exercise.completed_title'),
+          textAlign: TextAlign.center,
+          style: theme.textTheme.headlineSmall?.copyWith(
+            fontWeight: FontWeight.w600,
+          ),
+        ),
+        const SizedBox(height: 24),
+        Row(
+          children: <Widget>[
+            Expanded(
+              child: _StatCard(
+                label: t(StringKeys.elapsedTime),
+                value: _MetricsRow._formatDuration(state.snapshot.elapsedMs),
+              ),
+            ),
+            const SizedBox(width: Tokens.gap),
+            Expanded(
+              child: _StatCard(
+                label: t('app.activity.lifetime'),
+                value: '${stats.lifetimeCount}',
+                delta: '+1',
+              ),
+            ),
+          ],
+        ),
+        if (siblings.isNotEmpty) ...<Widget>[
+          const SizedBox(height: 28),
+          Text(
+            '${t('app.exercise.more_in_zone')} · '
+            '${t(StringKeys.bodyZone(zoneId))}',
+            style: theme.textTheme.titleMedium?.copyWith(
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+          const SizedBox(height: Tokens.gap),
+          GridView.count(
+            crossAxisCount: 2,
+            shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
+            mainAxisSpacing: Tokens.gap,
+            crossAxisSpacing: Tokens.gap,
+            childAspectRatio: 0.82,
+            children: <Widget>[
+              for (final ExerciseSummary summary in siblings)
+                _SiblingCard(summary: summary),
+            ],
+          ),
+        ],
+        const SizedBox(height: 28),
+        FilledButton(
+          // Back to where the flow began, not one screen back: the exercise
+          // is finished and there is nothing to return to.
+          onPressed: () =>
+              Navigator.of(context).popUntil((Route<void> r) => r.isFirst),
+          child: Text(t('app.exercise.back_to_body')),
+        ),
+      ],
+    );
+  }
+}
+
+class _StatCard extends StatelessWidget {
+  const _StatCard({required this.label, required this.value, this.delta});
+
+  final String label;
+  final String value;
+
+  /// What this session added, shown next to the running total.
+  final String? delta;
+
+  @override
+  Widget build(BuildContext context) {
+    final ThemeData theme = Theme.of(context);
+    return Container(
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: theme.colorScheme.surfaceContainerHighest,
+        borderRadius: BorderRadius.circular(Tokens.cardRadius),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Text(
+            label,
+            style: theme.textTheme.labelMedium?.copyWith(
+              color: theme.colorScheme.onSurfaceVariant,
+            ),
+          ),
+          const SizedBox(height: 6),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.baseline,
+            textBaseline: TextBaseline.alphabetic,
+            children: <Widget>[
+              Text(
+                value,
+                style: theme.textTheme.headlineMedium?.copyWith(
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+              if (delta != null) ...<Widget>[
+                const SizedBox(width: 6),
+                Text(
+                  delta!,
+                  style: theme.textTheme.titleMedium?.copyWith(
+                    color: theme.colorScheme.primary,
+                  ),
+                ),
+              ],
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _SiblingCard extends StatelessWidget {
+  const _SiblingCard({required this.summary});
+
+  final ExerciseSummary summary;
+
+  @override
+  Widget build(BuildContext context) {
+    final AppStrings t = AppStrings.of(context);
+    final ThemeData theme = Theme.of(context);
+    return InkWell(
+      borderRadius: BorderRadius.circular(Tokens.cardRadius),
+      // Replaces the finished exercise instead of stacking on it, so Back
+      // never walks through completed sessions.
+      onTap: () => Navigator.of(context).pushReplacement(
+        MaterialPageRoute<void>(
+          builder: (BuildContext context) =>
+              PlayerScreen(exerciseId: summary.id),
+        ),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Expanded(
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(Tokens.cardRadius),
+              child: AssetImageOrPlaceholder(
+                assetPath: summary.previewAsset,
+                placeholderLabel: t('app.exercise.frame_missing'),
+              ),
+            ),
+          ),
+          const SizedBox(height: 8),
+          Text(
+            summary.title,
+            maxLines: 2,
+            overflow: TextOverflow.ellipsis,
+            style: theme.textTheme.bodyMedium,
           ),
         ],
       ),

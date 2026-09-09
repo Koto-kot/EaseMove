@@ -148,7 +148,7 @@ void main() {
 
     // --- Pause freezes the timeline; Continue resumes from the same position.
     await tester.pump(const Duration(seconds: 2));
-    await tester.tap(find.widgetWithText(FilledButton, 'Пауза'));
+    await tester.tap(find.byTooltip('Пауза'));
     await settle(tester);
     expect(playerState().state, SessionState.paused);
     expect(audio.log, contains('pause'));
@@ -162,7 +162,7 @@ void main() {
       reason: 'a paused session must not advance',
     );
 
-    await tester.tap(find.widgetWithText(FilledButton, 'Продовжити'));
+    await tester.tap(find.byTooltip('Продовжити'));
     await settle(tester);
     expect(playerState().state, SessionState.active);
     expect(audio.log, contains('resume'));
@@ -213,7 +213,7 @@ void main() {
     await tester.tap(find.widgetWithText(FilledButton, 'Старт'));
     await tester.pump(const Duration(seconds: 3));
 
-    await tester.tap(find.widgetWithText(OutlinedButton, 'Стоп'));
+    await tester.tap(find.byTooltip('Стоп'));
     await settle(tester);
 
     expect(find.text('Зупинено'), findsOneWidget);
@@ -254,5 +254,43 @@ void main() {
       findsOneWidget,
       reason: 'pending_review content must not reach a production build',
     );
+  });
+  testWidgets('the last exercise in a collection ends on a completion screen', (
+    WidgetTester tester,
+  ) async {
+    store = await seededStore(skipCountdowns: true, timingMultiplier: _speedUp);
+    audio = LoggingAudioService();
+    usePhoneScreen(tester);
+
+    await tester.pumpWidget(wrap(AppEnvironment.development));
+    await settle(tester);
+
+    await openKneeZone(tester);
+    // The third card is the last exercise in body_knees, so nothing can
+    // auto-start behind it and the session ends in COMPLETED, not AUTO_REST.
+    await tester.tap(find.text('Почати').last);
+    await settle(tester);
+    await tester.tap(find.widgetWithText(FilledButton, 'Старт'));
+    await tester.pump(const Duration(seconds: 10));
+    await settle(tester);
+
+    final PlayerState state = container.read(
+      playerControllerProvider((
+        exerciseId: 'KNEE_003',
+        collectionId: 'body_knees',
+      )),
+    );
+    expect(state.state, SessionState.completed);
+    expect(state.nextSummary, isNull);
+
+    // What the session earned, then where else to go in the same zone.
+    expect(find.text('Усього вправ'), findsOneWidget);
+    expect(find.text('+1'), findsOneWidget);
+    expect(find.textContaining('Інші вправи'), findsOneWidget);
+    expect(find.text('Розгинання ноги сидячи'), findsOneWidget);
+
+    await tester.tap(find.text('До тіла'));
+    await settle(tester);
+    expect(find.text('Де турбує?'), findsOneWidget);
   });
 }

@@ -174,6 +174,7 @@ class SessionMachine {
     required this.timeline,
     this.collectionId,
     this.skipCountdowns = false,
+    this.hasNextExercise = false,
     this.countEarlyStopInLifetime = false,
     DateTime Function()? clock,
   }) : _clock = clock ?? DateTime.now,
@@ -186,6 +187,11 @@ class SessionMachine {
   final ExerciseTimeline timeline;
   final String? collectionId;
   final bool skipCountdowns;
+
+  /// Whether the collection has anything queued behind this exercise. Rest
+  /// exists to bridge two exercises, so the last one in a collection ends in
+  /// COMPLETED instead of resting towards an auto-start that never comes.
+  final bool hasNextExercise;
 
   /// Global policy, not per-exercise (docs/UX_FLOW.md E).
   final bool countEarlyStopInLifetime;
@@ -426,7 +432,7 @@ class SessionMachine {
         );
       }
       _state = SessionState.completed;
-      if (exercise.flow.autoNextEnabled) {
+      if (exercise.flow.autoNextEnabled && hasNextExercise) {
         _autoModeEnabled = true;
         _state = SessionState.autoRest;
         _restRemainingMs = _restDurationMs;

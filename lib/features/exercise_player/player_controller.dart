@@ -149,11 +149,16 @@ class PlayerController extends StateNotifier<PlayerState> {
       timingMultiplier: multiplier,
     );
 
+    // Resolved before the machine exists: whether anything follows decides
+    // whether completion rests or ends the flow.
+    final ExerciseSummary? next = _resolveNext(exerciseId);
+
     final SessionMachine machine = SessionMachine(
       exercise: exercise,
       timeline: timeline,
       collectionId: _collectionId,
       skipCountdowns: settings.devSkipCountdowns,
+      hasNextExercise: next != null,
     );
 
     _machine = machine;
@@ -165,7 +170,6 @@ class PlayerController extends StateNotifier<PlayerState> {
       musicEnabled: settings.musicEnabled,
     );
 
-    final ExerciseSummary? next = _resolveNext(exerciseId);
     state = state.copyWith(
       loading: false,
       exercise: exercise,
