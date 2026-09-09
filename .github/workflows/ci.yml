@@ -1,0 +1,56 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  content:
+    name: Content validation
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install -r tools/requirements.txt
+
+      # Schema + identity validation of the authoring YAML.
+      - name: Validate exercise library
+        run: python scripts/validate_library.py
+
+      # Rebuild the runtime bundle and fail if the committed one is stale:
+      # the app ships the generated JSON, so it must match data/.
+      - name: Rebuild content bundle
+        run: python scripts/build_content.py
+      - name: Bundle must be in sync with data/
+        run: |
+          if ! git diff --quiet -- assets/content; then
+            echo "assets/content is out of date — run: python scripts/build_content.py"
+            git --no-pager diff --stat -- assets/content
+            exit 1
+          fi
+
+  flutter:
+    name: Analyze and test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+      - run: flutter --version
+      - run: flutter pub get
+
+      # The test suite reads the generated bundle from disk.
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install -r tools/requirements.txt
+      - run: python scripts/build_content.py
+
+      - run: dart format --output=none --set-exit-if-changed lib test
+      - run: flutter analyze
+      - run: flutter test

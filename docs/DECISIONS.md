@@ -27,3 +27,41 @@
 23. Body Map artwork і hotspot interaction layer зберігаються окремо.
 24. Exercise production images не містять тексту, стрілок або UI.
 25. Exercise frames використовують централізовані visual/subject profiles.
+
+## Code kickoff decisions (v0.2, MVP slice)
+
+26. **State management: Riverpod.** Обрано за критеріями `FLUTTER_ARCHITECTURE.md`
+    (testability, deterministic transitions, мінімум boilerplate, підтримка
+    feature flags / entitlement state). Один стандарт на весь проєкт; BLoC
+    не використовується паралельно.
+27. **Content pipeline: `scripts/build_content.py`.** YAML → validate →
+    `assets/content/*.json`. Застосунок не парсить YAML у runtime. Згенерований
+    bundle комітиться, а CI перевіряє, що він синхронний із `data/`.
+28. **Localization через той самий bundle, а не ARB.** `data/localization/<locale>/common.yaml`
+    компілюється в `assets/content/localization/<locale>.json`; UI звертається
+    по ключах (`AppStrings`). Причина: один authoring pipeline для UI-рядків і
+    контенту вправ, без дублювання перекладів у двох форматах.
+    `flutter_localizations` підключено для системних Material/Cupertino рядків.
+29. **`en` pack створено одразу** як fallback-мова (`LOCALIZATION.md`), authoring
+    мова залишається `uk`.
+30. **Sequence normalization.** Три authoring-форми (`side_blocks`,
+    `steps + repeat`, `steps + repeat_cycles`) зводяться build-кроком до однієї
+    runtime-форми `blocks[]`. Exercise Engine не має гілок під конкретну вправу.
+31. **Voice cues розв'язуються заздалегідь у timeline.** Тригери
+    (`sequence_phase_started`, `repetition_started`, `side_block_completed`,
+    `progress_crossed`) перетворюються на `ScheduledCue` з абсолютним offset.
+    Немає окремих таймерів для аудіо — виконується правило single timeline.
+32. **Environment — compile-time** (`--dart-define=ENV=production`). Release-збірка
+    не може отримати development-флаги в runtime.
+33. **Early stop не збільшує lifetime counter** за замовчуванням; політика
+    централізована (`SessionMachine.countEarlyStopInLifetime`), не per-exercise.
+34. **Billing і voice packs — заглушки.** `EntitlementsService` працює локально,
+    `AudioService` логує cue замість відтворення (voice packs ще не записані,
+    `recording_spec.current_status: not_recorded`).
+35. **Assets ще немає → плейсхолдери.** Кадри вправ і body-map artwork
+    рендеряться через `AssetImageOrPlaceholder` / нейтральний силует; поява
+    реальних PNG не потребує змін у коді.
+36. **`body_map_hotspot_ids` у вправах — редакторська підказка, не навігація.**
+    Навігація йде через `collections` і `hotspot.action.collection_id`.
+    Build-крок попереджає про неспівпадіння id (напр. `left_knee` vs
+    `left_knee_front`), але не падає.

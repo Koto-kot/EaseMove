@@ -1,0 +1,500 @@
+{
+  "id": "KNEE_001",
+  "slug": "seated_knee_extension",
+  "schemaVersion": "1.3",
+  "contentVersion": "0.1.0",
+  "clinicalStatus": "pending_review",
+  "editorialStatus": "draft",
+  "primaryZone": "knees",
+  "secondaryZones": [
+    "thighs"
+  ],
+  "hotspotIds": [
+    "left_knee",
+    "right_knee"
+  ],
+  "tags": [
+    "knee",
+    "quadriceps",
+    "computer",
+    "after_sitting",
+    "sitting",
+    "mobility",
+    "strength",
+    "knee_extension",
+    "bilateral",
+    "open_chain",
+    "beginner",
+    "gentle",
+    "chair"
+  ],
+  "tagGroups": {
+    "anatomy": [
+      "knee",
+      "quadriceps"
+    ],
+    "context": [
+      "computer",
+      "after_sitting"
+    ],
+    "position": [
+      "sitting"
+    ],
+    "movement": [
+      "mobility",
+      "strength",
+      "knee_extension",
+      "bilateral",
+      "open_chain"
+    ],
+    "level": [
+      "beginner",
+      "gentle"
+    ],
+    "equipment": [
+      "chair"
+    ]
+  },
+  "collections": [
+    "body_knees",
+    "computer_break",
+    "after_sitting",
+    "seated_gentle"
+  ],
+  "collectionCandidates": [],
+  "text": {
+    "title": "Розгинання ноги сидячи",
+    "shortTitle": "Розгинання коліна",
+    "cardDescription": "Повільно випряміть ногу в коліні та контрольовано опустіть.",
+    "categoryLabel": "Коліна",
+    "purpose": "Проста сидяча вправа для руху в коліні та роботи м'язів передньої поверхні стегна.",
+    "startPositionTitle": "Початкове положення",
+    "startPosition": "Сядьте рівно на стійкий стілець. Стопи поставте на підлогу. Коліна зігнуті. Залиште достатньо місця перед собою, щоб вільно випрямити ногу.",
+    "instructionsTitle": "Як виконувати",
+    "instructions": [
+      {
+        "step": 1,
+        "text": "Сядьте рівно, стопи поставте на підлогу."
+      },
+      {
+        "step": 2,
+        "text": "Повільно випряміть ліву ногу в коліні."
+      },
+      {
+        "step": 3,
+        "text": "Підтягніть носок у напрямку до себе."
+      },
+      {
+        "step": 4,
+        "text": "Утримуйте ногу у випрямленому положенні 5 секунд."
+      },
+      {
+        "step": 5,
+        "text": "Повільно й контрольовано опустіть стопу на підлогу."
+      },
+      {
+        "step": 6,
+        "text": "Виконайте задану кількість повторів."
+      },
+      {
+        "step": 7,
+        "text": "Після сигналу застосунку повторіть вправу іншою ногою."
+      }
+    ],
+    "techniqueTipsTitle": "Зверніть увагу",
+    "techniqueTips": [
+      "Не відхиляйте корпус назад, щоб підняти ногу.",
+      "Стегно залишається на сидінні.",
+      "Не робіть різкого маху ногою.",
+      "Опускайте ногу так само плавно, як і піднімаєте."
+    ],
+    "safetyLabel": "Безпека",
+    "safety": "Рухайтеся в комфортному діапазоні. Якщо з'явився різкий біль або інший незвичний симптом, натисніть «Стоп».",
+    "completion": "Готово."
+  },
+  "labels": {
+    "elapsed_time": "Час",
+    "progress": "Виконано",
+    "repetition": "Повтор",
+    "side": "Нога",
+    "set": "Підхід"
+  },
+  "timing": {
+    "prepCountdownSeconds": 5,
+    "restAfterSeconds": 10,
+    "completionMode": "prescribed_repetitions",
+    "estimatedActiveSeconds": 182
+  },
+  "progress": {
+    "basis": "completed_repetitions",
+    "showElapsedTime": true,
+    "showProgressBar": true,
+    "showRepetitionCounter": true,
+    "showSideLabel": true,
+    "showSetCounter": false
+  },
+  "repetitionModel": {
+    "type": "side_blocks",
+    "sets": 1,
+    "repetitionsPerBlock": 10,
+    "blockOrder": [
+      "left",
+      "right"
+    ],
+    "switchSideAutomatically": true,
+    "resetCounterOnSideChange": true
+  },
+  "movementPhases": [
+    {
+      "id": "PHASE_START",
+      "name": "Початкове положення",
+      "type": null
+    },
+    {
+      "id": "PHASE_EXTEND",
+      "name": "Розгинання",
+      "type": null
+    },
+    {
+      "id": "PHASE_HOLD",
+      "name": "Утримання",
+      "type": null
+    },
+    {
+      "id": "PHASE_LOWER",
+      "name": "Опускання",
+      "type": null
+    }
+  ],
+  "sequence": {
+    "blocks": [
+      {
+        "side": "left",
+        "repeat": 10,
+        "steps": [
+          {
+            "id": "left_start",
+            "phase": "PHASE_START",
+            "side": null,
+            "frameId": "FRAME_START",
+            "frameTransition": null,
+            "durationMs": 500,
+            "voiceEvent": null
+          },
+          {
+            "id": "left_extend",
+            "phase": "PHASE_EXTEND",
+            "side": null,
+            "frameId": null,
+            "frameTransition": {
+              "from": "FRAME_START",
+              "via": "FRAME_LEFT_MID",
+              "to": "FRAME_LEFT_EXTENDED"
+            },
+            "durationMs": 1800,
+            "voiceEvent": "VOICE_EXTEND"
+          },
+          {
+            "id": "left_hold",
+            "phase": "PHASE_HOLD",
+            "side": null,
+            "frameId": "FRAME_LEFT_EXTENDED",
+            "frameTransition": null,
+            "durationMs": 5000,
+            "voiceEvent": "VOICE_HOLD"
+          },
+          {
+            "id": "left_lower",
+            "phase": "PHASE_LOWER",
+            "side": null,
+            "frameId": null,
+            "frameTransition": {
+              "from": "FRAME_LEFT_EXTENDED",
+              "via": "FRAME_LEFT_MID",
+              "to": "FRAME_START"
+            },
+            "durationMs": 1800,
+            "voiceEvent": "VOICE_LOWER"
+          }
+        ]
+      },
+      {
+        "side": "right",
+        "repeat": 10,
+        "steps": [
+          {
+            "id": "right_start",
+            "phase": "PHASE_START",
+            "side": null,
+            "frameId": "FRAME_START",
+            "frameTransition": null,
+            "durationMs": 500,
+            "voiceEvent": null
+          },
+          {
+            "id": "right_extend",
+            "phase": "PHASE_EXTEND",
+            "side": null,
+            "frameId": null,
+            "frameTransition": {
+              "from": "FRAME_START",
+              "via": "FRAME_RIGHT_MID",
+              "to": "FRAME_RIGHT_EXTENDED"
+            },
+            "durationMs": 1800,
+            "voiceEvent": "VOICE_EXTEND"
+          },
+          {
+            "id": "right_hold",
+            "phase": "PHASE_HOLD",
+            "side": null,
+            "frameId": "FRAME_RIGHT_EXTENDED",
+            "frameTransition": null,
+            "durationMs": 5000,
+            "voiceEvent": "VOICE_HOLD"
+          },
+          {
+            "id": "right_lower",
+            "phase": "PHASE_LOWER",
+            "side": null,
+            "frameId": null,
+            "frameTransition": {
+              "from": "FRAME_RIGHT_EXTENDED",
+              "via": "FRAME_RIGHT_MID",
+              "to": "FRAME_START"
+            },
+            "durationMs": 1800,
+            "voiceEvent": "VOICE_LOWER"
+          }
+        ]
+      }
+    ]
+  },
+  "animation": {
+    "reducedMotionFallback": "static_step_frames",
+    "frames": [
+      {
+        "id": "FRAME_START",
+        "file": "assets/exercises/KNEE_001/frame_start.png",
+        "altText": "Початкове положення сидячи, обидві стопи на підлозі."
+      },
+      {
+        "id": "FRAME_LEFT_MID",
+        "file": "assets/exercises/KNEE_001/frame_left_mid.png",
+        "altText": "Ліва нога частково розігнута в коліні."
+      },
+      {
+        "id": "FRAME_LEFT_EXTENDED",
+        "file": "assets/exercises/KNEE_001/frame_left_extended.png",
+        "altText": "Ліва нога розігнута вперед, права стопа на підлозі."
+      },
+      {
+        "id": "FRAME_RIGHT_MID",
+        "file": "assets/exercises/KNEE_001/frame_right_mid.png",
+        "altText": "Права нога частково розігнута в коліні."
+      },
+      {
+        "id": "FRAME_RIGHT_EXTENDED",
+        "file": "assets/exercises/KNEE_001/frame_right_extended.png",
+        "altText": "Права нога розігнута вперед, ліва стопа на підлозі."
+      }
+    ],
+    "preview": "assets/exercises/KNEE_001/preview.png"
+  },
+  "audio": {
+    "events": [
+      {
+        "id": "VOICE_PREPARE",
+        "type": "instruction",
+        "priority": 80,
+        "interruptible": true,
+        "playOncePerSide": false,
+        "text": "Приготуйтеся. Сядьте рівно, стопи поставте на підлогу.",
+        "assetKey": "exercise.KNEE_001.voice.prepare",
+        "assetFile": "audio/uk/exercises/KNEE_001/prepare.m4a",
+        "trigger": {
+          "event": "prep_countdown_started",
+          "phase": null,
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": 0
+        }
+      },
+      {
+        "id": "VOICE_EXTEND",
+        "type": "movement",
+        "priority": 100,
+        "interruptible": false,
+        "playOncePerSide": false,
+        "text": "Повільно випряміть ногу.",
+        "assetKey": "exercise.KNEE_001.voice.extend",
+        "assetFile": "audio/uk/exercises/KNEE_001/extend.m4a",
+        "trigger": {
+          "event": "sequence_phase_started",
+          "phase": "PHASE_EXTEND",
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      },
+      {
+        "id": "VOICE_TOES",
+        "type": "technique",
+        "priority": 70,
+        "interruptible": true,
+        "playOncePerSide": true,
+        "text": "Підтягніть носок до себе.",
+        "assetKey": "exercise.KNEE_001.voice.toes",
+        "assetFile": "audio/uk/exercises/KNEE_001/toes.m4a",
+        "trigger": {
+          "event": "repetition_started",
+          "phase": null,
+          "side": null,
+          "percent": null,
+          "repetitionNumber": 1,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      },
+      {
+        "id": "VOICE_HOLD",
+        "type": "movement",
+        "priority": 90,
+        "interruptible": true,
+        "playOncePerSide": false,
+        "text": "Тримайте.",
+        "assetKey": "common.voice.hold",
+        "assetFile": "audio/uk/common/hold.m4a",
+        "trigger": {
+          "event": "sequence_phase_started",
+          "phase": "PHASE_HOLD",
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      },
+      {
+        "id": "VOICE_LOWER",
+        "type": "movement",
+        "priority": 100,
+        "interruptible": false,
+        "playOncePerSide": false,
+        "text": "Повільно опустіть ногу.",
+        "assetKey": "exercise.KNEE_001.voice.lower",
+        "assetFile": "audio/uk/exercises/KNEE_001/lower.m4a",
+        "trigger": {
+          "event": "sequence_phase_started",
+          "phase": "PHASE_LOWER",
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      },
+      {
+        "id": "VOICE_SWITCH_SIDE",
+        "type": "transition",
+        "priority": 120,
+        "interruptible": false,
+        "playOncePerSide": false,
+        "text": "Тепер інша нога.",
+        "assetKey": "common.voice.switch_leg",
+        "assetFile": "audio/uk/common/switch_leg.m4a",
+        "trigger": {
+          "event": "side_block_completed",
+          "phase": null,
+          "side": "left",
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      },
+      {
+        "id": "VOICE_HALFWAY",
+        "type": "progress",
+        "priority": 50,
+        "interruptible": true,
+        "playOncePerSide": false,
+        "text": "Половину виконано.",
+        "assetKey": "common.voice.halfway",
+        "assetFile": "audio/uk/common/halfway.m4a",
+        "trigger": {
+          "event": "progress_crossed",
+          "phase": null,
+          "side": null,
+          "percent": 50,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      },
+      {
+        "id": "VOICE_LAST_REP",
+        "type": "progress",
+        "priority": 60,
+        "interruptible": true,
+        "playOncePerSide": false,
+        "text": "Останній повтор.",
+        "assetKey": "common.voice.last_repetition",
+        "assetFile": "audio/uk/common/last_repetition.m4a",
+        "trigger": {
+          "event": "repetition_started",
+          "phase": null,
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": "last",
+          "offsetMs": null
+        }
+      },
+      {
+        "id": "VOICE_COMPLETED",
+        "type": "completion",
+        "priority": 120,
+        "interruptible": false,
+        "playOncePerSide": false,
+        "text": "Готово.",
+        "assetKey": "common.voice.completed",
+        "assetFile": "audio/uk/common/completed.m4a",
+        "trigger": {
+          "event": "exercise_completed",
+          "phase": null,
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      }
+    ],
+    "mix": {
+      "voiceLevel": 1.0,
+      "musicLevel": 0.5,
+      "dynamicDucking": false
+    }
+  },
+  "flow": {
+    "autoNextEnabled": true,
+    "restSeconds": 10,
+    "incrementCounterOnCompletion": true
+  },
+  "accessibility": {
+    "summary": "Розгинання ноги сидячи. Сядьте рівно на стілець, повільно випрямляйте одну ногу в коліні, утримуйте, потім контрольовано опускайте.",
+    "reducedMotionSupported": true
+  },
+  "pro": {
+    "tier": "free",
+    "requiresPro": false,
+    "visibleToFree": true,
+    "allowFavorite": true,
+    "includeInPersonalPlanPool": true
+  }
+}

@@ -1,0 +1,105 @@
+locale: en
+strings:
+  common.control.previous: Previous
+  common.control.start: Start
+  common.control.pause: Pause
+  common.control.continue: Continue
+  common.control.stop: Stop
+  common.control.next: Next
+  common.exercise.start: Begin
+  common.exercise.elapsed_time: Time
+  common.exercise.progress: Done
+  common.exercise.repetition: Repetition
+  common.exercise.side: Side
+  common.exercise.side_left: Left
+  common.exercise.side_right: Right
+  common.exercise.set: Set
+  common.exercise.position: Position
+  common.exercise.variant: Variant
+  common.exercise.starts_in: Starting in
+  common.exercise.rest: Rest
+  common.exercise.next_exercise: Next exercise
+  common.voice.hold: Hold.
+  common.voice.return_center: Return to centre.
+  common.voice.switch_leg: Now the other leg.
+  common.voice.halfway: Halfway done.
+  common.voice.last_repetition: Last repetition.
+  common.voice.completed: Done.
+  body_zone.neck: Neck
+  body_zone.shoulders: Shoulders
+  body_zone.upper_back: Upper back
+  body_zone.elbows: Elbows
+  body_zone.wrists_hands: Wrists and hands
+  body_zone.lower_back: Lower back
+  body_zone.hips: Hips
+  body_zone.knees: Knees
+  body_zone.calves: Calves
+  body_zone.ankles: Ankles
+  body_zone.feet: Feet
+  app.name: Movement
+  app.nav.body: Body
+  app.nav.computer: At the computer
+  app.nav.bed: In bed
+  app.nav.eyes: Eyes
+  app.body_map.title: Choose an area
+  app.body_map.hint: Tap the part of the body that bothers you.
+  app.body_map.view_front: Front
+  app.body_map.view_back: Back
+  app.body_map.artwork_missing: Body illustration not added yet
+  app.catalog.empty: No exercises for this area yet.
+  app.catalog.count_one: exercise
+  app.catalog.count_few: exercises
+  app.catalog.count_many: exercises
+  app.catalog.duration_minutes: min
+  app.catalog.duration_seconds: s
+  app.exercise.pending_review_notice: This exercise has not passed clinical review. Shown in test builds only.
+  app.exercise.frame_missing: Exercise frame not added yet
+  app.exercise.of_total: of
+  app.exercise.completed_title: Done
+  app.exercise.stopped_title: Stopped
+  app.exercise.stopped_note: This is not a failure. Your time was saved.
+  app.exercise.no_next: No next exercise.
+  app.exercise.phase: Phase
+  app.activity.title: My activity
+  app.activity.lifetime: Exercises in total
+  app.activity.history: Recent sessions
+  app.activity.empty: No completed exercises yet.
+  app.activity.early_stop: stopped early
+  app.activity.completed: completed
+  app.settings.title: Settings
+  app.settings.language: Language
+  app.settings.language_system: Same as system
+  app.settings.audio: Sound and music
+  app.settings.voice: Voice cues
+  app.settings.music: Background music
+  app.settings.reduced_motion: Reduce motion
+  app.settings.reminders: Reminders
+  app.settings.about: About
+  app.settings.safety: Safety
+  app.settings.privacy: Privacy
+  app.settings.developer: Developer menu
+  app.developer.pro_mode: Pro mode
+  app.developer.show_pending: Show exercises without review
+  app.developer.skip_countdown: Skip countdowns
+  app.developer.timing_multiplier: Timing multiplier
+  app.developer.show_ids: Show IDs
+  app.developer.reset_stats: Reset stats
+  app.developer.environment: Environment
+  app.pro.badge: PRO
+  app.pro.title: My PRO plan
+  app.pro.today: For you today
+  app.pro.profile: My profile
+  app.pro.zones: My priority areas
+  app.pro.programs: My programmes
+  app.pro.progress: My progress
+  app.pro.favorites: Favourites
+  app.paywall.title: This is a PRO feature
+  app.paywall.subscribe: Get PRO
+  app.paywall.restore: Restore purchases
+  app.paywall.close: Close
+  app.paywall.not_available: Payments are not wired up in this build yet.
+  app.common.close: Close
+  app.common.back: Back
+  app.common.retry: Try again
+  app.common.error: Could not load the data.
+  app.disclaimer: This app is not a medical protocol. If you have pain or symptoms, consult a professional.

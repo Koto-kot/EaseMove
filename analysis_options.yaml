@@ -1,0 +1,18 @@
+include: package:flutter_lints/flutter.yaml
+
+analyzer:
+  language:
+    strict-casts: true
+    strict-raw-types: true
+  errors:
+    # Visible strings must come from the localization bundle, never from source.
+    prefer_const_constructors: warning
+  exclude:
+    - build/**
+
+linter:
+  rules:
+    always_declare_return_types: true
+    avoid_print: true
+    prefer_final_locals: true
+    unawaited_futures: true

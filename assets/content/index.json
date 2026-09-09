@@ -1,0 +1,713 @@
+{
+  "generatedFrom": "data/",
+  "defaultLocale": "uk",
+  "exercises": [
+    {
+      "id": "NECK_001",
+      "title": "Повороти голови",
+      "cardDescription": "Повільно повертайте голову ліворуч і праворуч.",
+      "primaryZone": "neck",
+      "clinicalStatus": "pending_review",
+      "collections": [
+        "body_neck",
+        "computer_break",
+        "after_sitting"
+      ],
+      "tags": [
+        "neck",
+        "computer",
+        "after_sitting",
+        "sitting",
+        "standing",
+        "mobility",
+        "rotation",
+        "bilateral",
+        "beginner",
+        "gentle",
+        "none",
+        "chair_optional"
+      ],
+      "preview": "assets/exercises/NECK_001/preview.png",
+      "estimatedActiveSeconds": 51,
+      "requiresPro": false
+    },
+    {
+      "id": "KNEE_001",
+      "title": "Розгинання ноги сидячи",
+      "cardDescription": "Повільно випряміть ногу в коліні та контрольовано опустіть.",
+      "primaryZone": "knees",
+      "clinicalStatus": "pending_review",
+      "collections": [
+        "body_knees",
+        "computer_break",
+        "after_sitting",
+        "seated_gentle"
+      ],
+      "tags": [
+        "knee",
+        "quadriceps",
+        "computer",
+        "after_sitting",
+        "sitting",
+        "mobility",
+        "strength",
+        "knee_extension",
+        "bilateral",
+        "open_chain",
+        "beginner",
+        "gentle",
+        "chair"
+      ],
+      "preview": "assets/exercises/KNEE_001/preview.png",
+      "estimatedActiveSeconds": 182,
+      "requiresPro": false
+    },
+    {
+      "id": "KNEE_002",
+      "title": "Встати — сісти зі стільця",
+      "cardDescription": "Повільно встаньте зі стільця та контрольовано сядьте назад.",
+      "primaryZone": "knees",
+      "clinicalStatus": "pending_review",
+      "collections": [
+        "body_knees",
+        "body_hips",
+        "after_sitting",
+        "functional_strength",
+        "chair_exercises"
+      ],
+      "tags": [
+        "knees",
+        "hips",
+        "quadriceps",
+        "gluteals",
+        "after_sitting",
+        "chair",
+        "daily_function",
+        "sitting",
+        "standing",
+        "sit_to_stand_transition",
+        "functional_strength",
+        "sit_to_stand",
+        "bilateral",
+        "closed_chain",
+        "balance_component",
+        "beginner",
+        "gentle"
+      ],
+      "preview": "assets/exercises/KNEE_002/preview.png",
+      "estimatedActiveSeconds": 42,
+      "requiresPro": false
+    },
+    {
+      "id": "KNEE_003",
+      "title": "Підтягування п’яти лежачи",
+      "cardDescription": "Ковзайте п’ятою до себе, згинаючи коліно, а потім повільно випряміть ногу.",
+      "primaryZone": "knees",
+      "clinicalStatus": "pending_review",
+      "collections": [
+        "body_knees",
+        "bed_basic",
+        "bed_legs",
+        "gentle_mobility"
+      ],
+      "tags": [
+        "knees",
+        "hips",
+        "bed",
+        "lying",
+        "gentle_mobility",
+        "supine",
+        "heel_slide",
+        "knee_flexion",
+        "knee_extension",
+        "hip_flexion",
+        "bilateral",
+        "surface_slide",
+        "beginner",
+        "gentle",
+        "bed_or_mat"
+      ],
+      "preview": "assets/exercises/KNEE_003/preview.png",
+      "estimatedActiveSeconds": 54,
+      "requiresPro": false
+    }
+  ],
+  "collections": [
+    {
+      "id": "body_neck",
+      "title": "Шия",
+      "type": "body_zone",
+      "primaryZone": "neck",
+      "sort": "editorial"
+    },
+    {
+      "id": "body_knees",
+      "title": "Коліна",
+      "type": "body_zone",
+      "primaryZone": "knees",
+      "sort": "editorial"
+    },
+    {
+      "id": "body_hips",
+      "title": "Таз і стегна",
+      "type": "body_zone",
+      "primaryZone": "hips",
+      "sort": "editorial"
+    },
+    {
+      "id": "computer_break",
+      "title": "За комп’ютером",
+      "type": "situation",
+      "primaryZone": null,
+      "sort": "editorial"
+    },
+    {
+      "id": "computer_break_active",
+      "title": "Активна перерва за комп’ютером",
+      "type": "situation_candidate",
+      "primaryZone": null,
+      "sort": "editorial"
+    },
+    {
+      "id": "after_sitting",
+      "title": "Після довгого сидіння",
+      "type": "situation",
+      "primaryZone": null,
+      "sort": "editorial"
+    },
+    {
+      "id": "bed_basic",
+      "title": "У ліжку",
+      "type": "situation",
+      "primaryZone": null,
+      "sort": "editorial"
+    },
+    {
+      "id": "bed_legs",
+      "title": "Ноги у ліжку",
+      "type": "situation",
+      "primaryZone": null,
+      "sort": "editorial"
+    },
+    {
+      "id": "gentle_mobility",
+      "title": "Легка рухливість",
+      "type": "theme",
+      "primaryZone": null,
+      "sort": "editorial"
+    },
+    {
+      "id": "functional_strength",
+      "title": "Повсякденна сила",
+      "type": "theme",
+      "primaryZone": null,
+      "sort": "editorial"
+    },
+    {
+      "id": "chair_exercises",
+      "title": "Вправи зі стільцем",
+      "type": "theme",
+      "primaryZone": null,
+      "sort": "editorial"
+    },
+    {
+      "id": "seated_gentle",
+      "title": "Легкі вправи сидячи",
+      "type": "theme",
+      "primaryZone": null,
+      "sort": "editorial"
+    },
+    {
+      "id": "body_shoulders",
+      "title": "Плечі",
+      "type": "body_zone",
+      "primaryZone": "shoulders",
+      "sort": "editorial"
+    },
+    {
+      "id": "body_upper_back",
+      "title": "Верхня частина спини",
+      "type": "body_zone",
+      "primaryZone": "upper_back",
+      "sort": "editorial"
+    },
+    {
+      "id": "body_elbows",
+      "title": "Лікті",
+      "type": "body_zone",
+      "primaryZone": "elbows",
+      "sort": "editorial"
+    },
+    {
+      "id": "body_wrists_hands",
+      "title": "Кисті та зап’ястя",
+      "type": "body_zone",
+      "primaryZone": "wrists_hands",
+      "sort": "editorial"
+    },
+    {
+      "id": "body_lower_back",
+      "title": "Поперек",
+      "type": "body_zone",
+      "primaryZone": "lower_back",
+      "sort": "editorial"
+    },
+    {
+      "id": "body_calves",
+      "title": "Гомілки",
+      "type": "body_zone",
+      "primaryZone": "calves",
+      "sort": "editorial"
+    },
+    {
+      "id": "body_ankles",
+      "title": "Гомілковостопні суглоби",
+      "type": "body_zone",
+      "primaryZone": "ankles",
+      "sort": "editorial"
+    },
+    {
+      "id": "body_feet",
+      "title": "Стопи",
+      "type": "body_zone",
+      "primaryZone": "feet",
+      "sort": "editorial"
+    }
+  ],
+  "zones": [
+    {
+      "id": "neck",
+      "title": "Шия",
+      "order": 10
+    },
+    {
+      "id": "shoulders",
+      "title": "Плечі",
+      "order": 20
+    },
+    {
+      "id": "upper_back",
+      "title": "Верхня частина спини",
+      "order": 30
+    },
+    {
+      "id": "elbows",
+      "title": "Лікті",
+      "order": 40
+    },
+    {
+      "id": "wrists_hands",
+      "title": "Кисті та зап’ястя",
+      "order": 50
+    },
+    {
+      "id": "lower_back",
+      "title": "Поперек",
+      "order": 60
+    },
+    {
+      "id": "hips",
+      "title": "Таз і стегна",
+      "order": 70
+    },
+    {
+      "id": "knees",
+      "title": "Коліна",
+      "order": 80
+    },
+    {
+      "id": "calves",
+      "title": "Гомілки",
+      "order": 90
+    },
+    {
+      "id": "ankles",
+      "title": "Гомілковостопні суглоби",
+      "order": 100
+    },
+    {
+      "id": "feet",
+      "title": "Стопи",
+      "order": 110
+    }
+  ],
+  "bodyMap": {
+    "coordinateSystem": "normalized_rect",
+    "hotspots": [
+      {
+        "id": "neck_front",
+        "zoneId": "neck",
+        "view": "front",
+        "labelKey": "body_zone.neck",
+        "priority": 100,
+        "rect": {
+          "x": 0.43,
+          "y": 0.1,
+          "width": 0.14,
+          "height": 0.08
+        },
+        "action": {
+          "type": "open_collection",
+          "collectionId": "body_neck"
+        }
+      },
+      {
+        "id": "neck_back",
+        "zoneId": "neck",
+        "view": "back",
+        "labelKey": "body_zone.neck",
+        "priority": 100,
+        "rect": {
+          "x": 0.43,
+          "y": 0.1,
+          "width": 0.14,
+          "height": 0.08
+        },
+        "action": {
+          "type": "open_collection",
+          "collectionId": "body_neck"
+        }
+      },
+      {
+        "id": "left_shoulder_front",
+        "zoneId": "shoulders",
+        "view": "front",
+        "labelKey": "body_zone.shoulders",
+        "priority": 90,
+        "rect": {
+          "x": 0.28,
+          "y": 0.16,
+          "width": 0.2,
+          "height": 0.11
+        },
+        "action": {
+          "type": "open_collection",
+          "collectionId": "body_shoulders"
+        }
+      },
+      {
+        "id": "right_shoulder_front",
+        "zoneId": "shoulders",
+        "view": "front",
+        "labelKey": "body_zone.shoulders",
+        "priority": 90,
+        "rect": {
+          "x": 0.52,
+          "y": 0.16,
+          "width": 0.2,
+          "height": 0.11
+        },
+        "action": {
+          "type": "open_collection",
+          "collectionId": "body_shoulders"
+        }
+      },
+      {
+        "id": "upper_back",
+        "zoneId": "upper_back",
+        "view": "back",
+        "labelKey": "body_zone.upper_back",
+        "priority": 80,
+        "rect": {
+          "x": 0.34,
+          "y": 0.2,
+          "width": 0.32,
+          "height": 0.18
+        },
+        "action": {
+          "type": "open_collection",
+          "collectionId": "body_upper_back"
+        }
+      },
+      {
+        "id": "left_elbow_front",
+        "zoneId": "elbows",
+        "view": "front",
+        "labelKey": "body_zone.elbows",
+        "priority": 70,
+        "rect": {
+          "x": 0.2,
+          "y": 0.36,
+          "width": 0.15,
+          "height": 0.12
+        },
+        "action": {
+          "type": "open_collection",
+          "collectionId": "body_elbows"
+        }
+      },
+      {
+        "id": "right_elbow_front",
+        "zoneId": "elbows",
+        "view": "front",
+        "labelKey": "body_zone.elbows",
+        "priority": 70,
+        "rect": {
+          "x": 0.65,
+          "y": 0.36,
+          "width": 0.15,
+          "height": 0.12
+        },
+        "action": {
+          "type": "open_collection",
+          "collectionId": "body_elbows"
+        }
+      },
+      {
+        "id": "left_wrist_hand_front",
+        "zoneId": "wrists_hands",
+        "view": "front",
+        "labelKey": "body_zone.wrists_hands",
+        "priority": 60,
+        "rect": {
+          "x": 0.12,
+          "y": 0.48,
+          "width": 0.18,
+          "height": 0.15
+        },
+        "action": {
+          "type": "open_collection",
+          "collectionId": "body_wrists_hands"
+        }
+      },
+      {
+        "id": "right_wrist_hand_front",
+        "zoneId": "wrists_hands",
+        "view": "front",
+        "labelKey": "body_zone.wrists_hands",
+        "priority": 60,
+        "rect": {
+          "x": 0.7,
+          "y": 0.48,
+          "width": 0.18,
+          "height": 0.15
+        },
+        "action": {
+          "type": "open_collection",
+          "collectionId": "body_wrists_hands"
+        }
+      },
+      {
+        "id": "lower_back",
+        "zoneId": "lower_back",
+        "view": "back",
+        "labelKey": "body_zone.lower_back",
+        "priority": 85,
+        "rect": {
+          "x": 0.35,
+          "y": 0.38,
+          "width": 0.3,
+          "height": 0.15
+        },
+        "action": {
+          "type": "open_collection",
+          "collectionId": "body_lower_back"
+        }
+      },
+      {
+        "id": "hips_front",
+        "zoneId": "hips",
+        "view": "front",
+        "labelKey": "body_zone.hips",
+        "priority": 80,
+        "rect": {
+          "x": 0.34,
+          "y": 0.46,
+          "width": 0.32,
+          "height": 0.16
+        },
+        "action": {
+          "type": "open_collection",
+          "collectionId": "body_hips"
+        }
+      },
+      {
+        "id": "hips_back",
+        "zoneId": "hips",
+        "view": "back",
+        "labelKey": "body_zone.hips",
+        "priority": 80,
+        "rect": {
+          "x": 0.34,
+          "y": 0.46,
+          "width": 0.32,
+          "height": 0.16
+        },
+        "action": {
+          "type": "open_collection",
+          "collectionId": "body_hips"
+        }
+      },
+      {
+        "id": "left_knee_front",
+        "zoneId": "knees",
+        "view": "front",
+        "labelKey": "body_zone.knees",
+        "priority": 100,
+        "rect": {
+          "x": 0.34,
+          "y": 0.67,
+          "width": 0.14,
+          "height": 0.12
+        },
+        "action": {
+          "type": "open_collection",
+          "collectionId": "body_knees"
+        }
+      },
+      {
+        "id": "right_knee_front",
+        "zoneId": "knees",
+        "view": "front",
+        "labelKey": "body_zone.knees",
+        "priority": 100,
+        "rect": {
+          "x": 0.52,
+          "y": 0.67,
+          "width": 0.14,
+          "height": 0.12
+        },
+        "action": {
+          "type": "open_collection",
+          "collectionId": "body_knees"
+        }
+      },
+      {
+        "id": "left_knee_back",
+        "zoneId": "knees",
+        "view": "back",
+        "labelKey": "body_zone.knees",
+        "priority": 100,
+        "rect": {
+          "x": 0.34,
+          "y": 0.67,
+          "width": 0.14,
+          "height": 0.12
+        },
+        "action": {
+          "type": "open_collection",
+          "collectionId": "body_knees"
+        }
+      },
+      {
+        "id": "right_knee_back",
+        "zoneId": "knees",
+        "view": "back",
+        "labelKey": "body_zone.knees",
+        "priority": 100,
+        "rect": {
+          "x": 0.52,
+          "y": 0.67,
+          "width": 0.14,
+          "height": 0.12
+        },
+        "action": {
+          "type": "open_collection",
+          "collectionId": "body_knees"
+        }
+      },
+      {
+        "id": "left_calf_back",
+        "zoneId": "calves",
+        "view": "back",
+        "labelKey": "body_zone.calves",
+        "priority": 70,
+        "rect": {
+          "x": 0.32,
+          "y": 0.76,
+          "width": 0.16,
+          "height": 0.14
+        },
+        "action": {
+          "type": "open_collection",
+          "collectionId": "body_calves"
+        }
+      },
+      {
+        "id": "right_calf_back",
+        "zoneId": "calves",
+        "view": "back",
+        "labelKey": "body_zone.calves",
+        "priority": 70,
+        "rect": {
+          "x": 0.52,
+          "y": 0.76,
+          "width": 0.16,
+          "height": 0.14
+        },
+        "action": {
+          "type": "open_collection",
+          "collectionId": "body_calves"
+        }
+      },
+      {
+        "id": "left_ankle_front",
+        "zoneId": "ankles",
+        "view": "front",
+        "labelKey": "body_zone.ankles",
+        "priority": 75,
+        "rect": {
+          "x": 0.33,
+          "y": 0.87,
+          "width": 0.15,
+          "height": 0.08
+        },
+        "action": {
+          "type": "open_collection",
+          "collectionId": "body_ankles"
+        }
+      },
+      {
+        "id": "right_ankle_front",
+        "zoneId": "ankles",
+        "view": "front",
+        "labelKey": "body_zone.ankles",
+        "priority": 75,
+        "rect": {
+          "x": 0.52,
+          "y": 0.87,
+          "width": 0.15,
+          "height": 0.08
+        },
+        "action": {
+          "type": "open_collection",
+          "collectionId": "body_ankles"
+        }
+      },
+      {
+        "id": "left_foot_front",
+        "zoneId": "feet",
+        "view": "front",
+        "labelKey": "body_zone.feet",
+        "priority": 80,
+        "rect": {
+          "x": 0.29,
+          "y": 0.92,
+          "width": 0.2,
+          "height": 0.08
+        },
+        "action": {
+          "type": "open_collection",
+          "collectionId": "body_feet"
+        }
+      },
+      {
+        "id": "right_foot_front",
+        "zoneId": "feet",
+        "view": "front",
+        "labelKey": "body_zone.feet",
+        "priority": 80,
+        "rect": {
+          "x": 0.51,
+          "y": 0.92,
+          "width": 0.2,
+          "height": 0.08
+        },
+        "action": {
+          "type": "open_collection",
+          "collectionId": "body_feet"
+        }
+      }
+    ]
+  }
+}

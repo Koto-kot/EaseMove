@@ -16,13 +16,27 @@ Flutter/Dart є зафіксованим стеком проєкту.
 
 ## Статус
 
-Це **Repository Pack v0.1**: продуктова й технічна специфікація, структура контенту,
-Exercise Engine, локалізація, аудіо, Free/Pro-логіка, тестові feature flags і перші
-структуровані вправи.
+**v0.2 — вертикальний MVP slice реалізований.**
 
-Застосунок ще не містить production-коду. Наступний етап — вертикальний MVP slice:
+Працює наскрізний флоу з `TECHNICAL_SPEC.md` 21:
 
-`Тіло → Коліна → список вправ → KNEE_001 → 5 с підготовки → виконання → 10 с відпочинку → auto-next`.
+`Тіло → Коліна → список вправ → KNEE_001 → Старт → 5 с підготовки → виконання →
+Пауза/Продовжити → завершення → +1 → 10 с відпочинку → auto-start наступної`
+
+Реалізовано:
+
+- Exercise Engine на нормалізованому timeline (анімація, голос і прогрес з одного джерела);
+- детермінований state machine з усіма інваріантами `APP_STATE_MACHINE.md`;
+- content pipeline `YAML → validate → JSON bundle` (застосунок не парсить YAML у runtime);
+- body map з normalized hotspot-ами, каталог, плеєр, активність, налаштування, developer menu;
+- clinical gate, feature flags, Free/Pro entitlements, contextual paywall;
+- локалізація `uk` + `en` fallback з одного authoring-джерела;
+- 66 тестів (state machine, timeline, контент, локалізація, entitlements, acceptance-флоу).
+
+Ще не зроблено: production-кадри вправ і body-map artwork, запис voice packs,
+billing, планування нагадувань. Див. `docs/DEV_SETUP.md` → «Відомі обмеження».
+
+Швидкий старт: **`docs/DEV_SETUP.md`**.
 
 ## Ключові принципи
 
@@ -49,8 +63,10 @@ Exercise Engine, локалізація, аудіо, Free/Pro-логіка, те
 - `assets/` — майбутні production-кадри вправ і UI assets.
 - `audio/` — майбутні voice packs.
 - `music/` — фонова музика.
-- `scripts/` — валідація бібліотеки.
-- `src/` — майбутній код застосунку.
+- `scripts/` — валідація бібліотеки та build контенту.
+- `lib/` — код застосунку (Flutter).
+- `test/` — тести.
+- `assets/content/` — згенерований runtime-bundle (не редагувати вручну).
 
 ## Перші вправи
 

@@ -1,0 +1,436 @@
+{
+  "id": "NECK_001",
+  "slug": "neck_rotation",
+  "schemaVersion": "1.3",
+  "contentVersion": "0.1.0",
+  "clinicalStatus": "pending_review",
+  "editorialStatus": "draft",
+  "primaryZone": "neck",
+  "secondaryZones": [],
+  "hotspotIds": [
+    "neck"
+  ],
+  "tags": [
+    "neck",
+    "computer",
+    "after_sitting",
+    "sitting",
+    "standing",
+    "mobility",
+    "rotation",
+    "bilateral",
+    "beginner",
+    "gentle",
+    "none",
+    "chair_optional"
+  ],
+  "tagGroups": {
+    "anatomy": [
+      "neck"
+    ],
+    "context": [
+      "computer",
+      "after_sitting"
+    ],
+    "position": [
+      "sitting",
+      "standing"
+    ],
+    "movement": [
+      "mobility",
+      "rotation",
+      "bilateral"
+    ],
+    "level": [
+      "beginner",
+      "gentle"
+    ],
+    "equipment": [
+      "none",
+      "chair_optional"
+    ]
+  },
+  "collections": [
+    "body_neck",
+    "computer_break",
+    "after_sitting"
+  ],
+  "collectionCandidates": [],
+  "text": {
+    "title": "Повороти голови",
+    "shortTitle": "Повороти",
+    "cardDescription": "Повільно повертайте голову ліворуч і праворуч.",
+    "categoryLabel": "Шия",
+    "purpose": "Легка вправа на рухливість шиї.",
+    "startPositionTitle": "Початкове положення",
+    "startPosition": "Сядьте рівно на стійкий стілець. Поставте стопи на підлогу. Опустіть і розслабте плечі. Дивіться прямо перед собою.\n",
+    "instructionsTitle": "Як виконувати",
+    "instructions": [
+      {
+        "step": 1,
+        "text": "Повільно поверніть голову ліворуч настільки, наскільки комфортно."
+      },
+      {
+        "step": 2,
+        "text": "Утримуйте положення 5 секунд."
+      },
+      {
+        "step": 3,
+        "text": "Повільно поверніться в центр."
+      },
+      {
+        "step": 4,
+        "text": "Повільно поверніть голову праворуч настільки, наскільки комфортно."
+      },
+      {
+        "step": 5,
+        "text": "Утримуйте положення 5 секунд."
+      },
+      {
+        "step": 6,
+        "text": "Повільно поверніться в центр."
+      },
+      {
+        "step": 7,
+        "text": "Повторіть 3 рази на кожен бік."
+      }
+    ],
+    "techniqueTipsTitle": "Зверніть увагу",
+    "techniqueTips": [
+      "Плечі залишаються розслабленими.",
+      "Не повертайте разом із головою корпус.",
+      "Не закидайте і не опускайте підборіддя під час повороту.",
+      "Рухайтеся плавно, без ривків."
+    ],
+    "safetyLabel": "Безпека",
+    "safety": "Рухайтеся тільки в комфортному діапазоні. Якщо з'явилося запаморочення, різкий біль або інший незвичний симптом, натисніть «Стоп».\n",
+    "completion": "Готово."
+  },
+  "labels": {
+    "elapsed_time": "Час",
+    "progress": "Виконано",
+    "repetition": "Повтор",
+    "side": "Бік"
+  },
+  "timing": {
+    "prepCountdownSeconds": 5,
+    "restAfterSeconds": 10,
+    "completionMode": "prescribed_repetitions",
+    "estimatedActiveSeconds": 51
+  },
+  "progress": {
+    "basis": "sequence_time",
+    "showElapsedTime": true,
+    "showProgressBar": true,
+    "showRepetitionCounter": false,
+    "showSideLabel": false,
+    "showSetCounter": false
+  },
+  "repetitionModel": {
+    "type": "sequence_time",
+    "sets": 1,
+    "repetitionsPerBlock": 3,
+    "blockOrder": [
+      null
+    ],
+    "switchSideAutomatically": true,
+    "resetCounterOnSideChange": false
+  },
+  "movementPhases": [],
+  "sequence": {
+    "blocks": [
+      {
+        "side": null,
+        "repeat": 3,
+        "steps": [
+          {
+            "id": "center_before_left",
+            "phase": "neutral",
+            "side": null,
+            "frameId": "FRAME_CENTER",
+            "frameTransition": null,
+            "durationMs": 500,
+            "voiceEvent": null
+          },
+          {
+            "id": "move_left",
+            "phase": "movement",
+            "side": "left",
+            "frameId": null,
+            "frameTransition": {
+              "from": "FRAME_CENTER",
+              "via": null,
+              "to": "FRAME_LEFT"
+            },
+            "durationMs": 1800,
+            "voiceEvent": "VOICE_TURN_LEFT"
+          },
+          {
+            "id": "hold_left",
+            "phase": "hold",
+            "side": "left",
+            "frameId": "FRAME_LEFT",
+            "frameTransition": null,
+            "durationMs": 5000,
+            "voiceEvent": "VOICE_HOLD"
+          },
+          {
+            "id": "return_center_from_left",
+            "phase": "movement",
+            "side": "left",
+            "frameId": null,
+            "frameTransition": {
+              "from": "FRAME_LEFT",
+              "via": null,
+              "to": "FRAME_CENTER"
+            },
+            "durationMs": 1200,
+            "voiceEvent": "VOICE_CENTER"
+          },
+          {
+            "id": "center_before_right",
+            "phase": "neutral",
+            "side": null,
+            "frameId": "FRAME_CENTER",
+            "frameTransition": null,
+            "durationMs": 500,
+            "voiceEvent": null
+          },
+          {
+            "id": "move_right",
+            "phase": "movement",
+            "side": "right",
+            "frameId": null,
+            "frameTransition": {
+              "from": "FRAME_CENTER",
+              "via": null,
+              "to": "FRAME_RIGHT"
+            },
+            "durationMs": 1800,
+            "voiceEvent": "VOICE_TURN_RIGHT"
+          },
+          {
+            "id": "hold_right",
+            "phase": "hold",
+            "side": "right",
+            "frameId": "FRAME_RIGHT",
+            "frameTransition": null,
+            "durationMs": 5000,
+            "voiceEvent": "VOICE_HOLD"
+          },
+          {
+            "id": "return_center_from_right",
+            "phase": "movement",
+            "side": "right",
+            "frameId": null,
+            "frameTransition": {
+              "from": "FRAME_RIGHT",
+              "via": null,
+              "to": "FRAME_CENTER"
+            },
+            "durationMs": 1200,
+            "voiceEvent": "VOICE_CENTER"
+          }
+        ]
+      }
+    ]
+  },
+  "animation": {
+    "reducedMotionFallback": "static_step_frames",
+    "frames": [
+      {
+        "id": "FRAME_CENTER",
+        "file": "assets/exercises/NECK_001/frame_center.png",
+        "altText": "Початкове положення: голова прямо, плечі розслаблені."
+      },
+      {
+        "id": "FRAME_LEFT",
+        "file": "assets/exercises/NECK_001/frame_left.png",
+        "altText": "Голова повернута ліворуч, корпус залишається прямо."
+      },
+      {
+        "id": "FRAME_RIGHT",
+        "file": "assets/exercises/NECK_001/frame_right.png",
+        "altText": "Голова повернута праворуч, корпус залишається прямо."
+      }
+    ],
+    "preview": "assets/exercises/NECK_001/preview.png"
+  },
+  "audio": {
+    "events": [
+      {
+        "id": "VOICE_PREPARE",
+        "type": "instruction",
+        "priority": 80,
+        "interruptible": true,
+        "playOncePerSide": false,
+        "text": "Приготуйтеся. Сядьте рівно і розслабте плечі.",
+        "assetKey": "exercise.NECK_001.voice.prepare",
+        "assetFile": "audio/uk/exercises/NECK_001/prepare.m4a",
+        "trigger": {
+          "event": "prep_countdown_started",
+          "phase": null,
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": 0
+        }
+      },
+      {
+        "id": "VOICE_TURN_LEFT",
+        "type": "movement",
+        "priority": 100,
+        "interruptible": false,
+        "playOncePerSide": false,
+        "text": "Повільно поверніть голову ліворуч.",
+        "assetKey": "exercise.NECK_001.voice.turn_left",
+        "assetFile": "audio/uk/exercises/NECK_001/turn_left.m4a",
+        "trigger": {
+          "event": "sequence_step_started",
+          "phase": null,
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      },
+      {
+        "id": "VOICE_HOLD",
+        "type": "movement",
+        "priority": 90,
+        "interruptible": true,
+        "playOncePerSide": false,
+        "text": "Тримайте.",
+        "assetKey": "common.voice.hold",
+        "assetFile": "audio/uk/common/hold.m4a",
+        "trigger": {
+          "event": "sequence_step_started",
+          "phase": "hold",
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      },
+      {
+        "id": "VOICE_CENTER",
+        "type": "movement",
+        "priority": 100,
+        "interruptible": false,
+        "playOncePerSide": false,
+        "text": "Поверніться в центр.",
+        "assetKey": "common.voice.return_center",
+        "assetFile": "audio/uk/common/return_center.m4a",
+        "trigger": {
+          "event": "sequence_step_started",
+          "phase": null,
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      },
+      {
+        "id": "VOICE_TURN_RIGHT",
+        "type": "movement",
+        "priority": 100,
+        "interruptible": false,
+        "playOncePerSide": false,
+        "text": "Тепер праворуч.",
+        "assetKey": "exercise.NECK_001.voice.turn_right",
+        "assetFile": "audio/uk/exercises/NECK_001/turn_right.m4a",
+        "trigger": {
+          "event": "sequence_step_started",
+          "phase": null,
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      },
+      {
+        "id": "VOICE_HALFWAY",
+        "type": "progress",
+        "priority": 50,
+        "interruptible": true,
+        "playOncePerSide": false,
+        "text": "Половину виконано.",
+        "assetKey": "common.voice.halfway",
+        "assetFile": "audio/uk/common/halfway.m4a",
+        "trigger": {
+          "event": "progress_crossed",
+          "phase": null,
+          "side": null,
+          "percent": 50,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      },
+      {
+        "id": "VOICE_LAST_CYCLE",
+        "type": "progress",
+        "priority": 60,
+        "interruptible": true,
+        "playOncePerSide": false,
+        "text": "Останній цикл.",
+        "assetKey": "exercise.NECK_001.voice.last_cycle",
+        "assetFile": "audio/uk/exercises/NECK_001/last_cycle.m4a",
+        "trigger": {
+          "event": "cycle_started",
+          "phase": null,
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      },
+      {
+        "id": "VOICE_COMPLETED",
+        "type": "completion",
+        "priority": 120,
+        "interruptible": false,
+        "playOncePerSide": false,
+        "text": "Готово.",
+        "assetKey": "common.voice.completed",
+        "assetFile": "audio/uk/common/completed.m4a",
+        "trigger": {
+          "event": "exercise_completed",
+          "phase": null,
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      }
+    ],
+    "mix": {
+      "voiceLevel": 1.0,
+      "musicLevel": 0.5,
+      "dynamicDucking": false
+    }
+  },
+  "flow": {
+    "autoNextEnabled": true,
+    "restSeconds": 10,
+    "incrementCounterOnCompletion": true
+  },
+  "accessibility": {
+    "summary": "Повороти голови. Вправа виконується сидячи або стоячи. Повільно повертайте голову ліворуч і праворуч у комфортному діапазоні.",
+    "reducedMotionSupported": true
+  },
+  "pro": {
+    "tier": "free",
+    "requiresPro": false,
+    "visibleToFree": true,
+    "allowFavorite": true,
+    "includeInPersonalPlanPool": true
+  }
+}

@@ -1,0 +1,466 @@
+{
+  "id": "KNEE_002",
+  "slug": "sit_to_stand",
+  "schemaVersion": "1.3",
+  "contentVersion": "0.1.0",
+  "clinicalStatus": "pending_review",
+  "editorialStatus": "draft",
+  "primaryZone": "knees",
+  "secondaryZones": [
+    "hips",
+    "thighs"
+  ],
+  "hotspotIds": [
+    "left_knee",
+    "right_knee",
+    "left_hip",
+    "right_hip",
+    "left_thigh",
+    "right_thigh"
+  ],
+  "tags": [
+    "knees",
+    "hips",
+    "quadriceps",
+    "gluteals",
+    "after_sitting",
+    "chair",
+    "daily_function",
+    "sitting",
+    "standing",
+    "sit_to_stand_transition",
+    "functional_strength",
+    "sit_to_stand",
+    "bilateral",
+    "closed_chain",
+    "balance_component",
+    "beginner",
+    "gentle"
+  ],
+  "tagGroups": {
+    "anatomy": [
+      "knees",
+      "hips",
+      "quadriceps",
+      "gluteals"
+    ],
+    "context": [
+      "after_sitting",
+      "chair",
+      "daily_function"
+    ],
+    "position": [
+      "sitting",
+      "standing",
+      "sit_to_stand_transition"
+    ],
+    "movement": [
+      "functional_strength",
+      "sit_to_stand",
+      "bilateral",
+      "closed_chain",
+      "balance_component"
+    ],
+    "level": [
+      "beginner",
+      "gentle"
+    ],
+    "equipment": [
+      "chair"
+    ]
+  },
+  "collections": [
+    "body_knees",
+    "body_hips",
+    "after_sitting",
+    "functional_strength",
+    "chair_exercises"
+  ],
+  "collectionCandidates": [
+    "computer_break_active",
+    "morning_mobility"
+  ],
+  "text": {
+    "title": "Встати — сісти зі стільця",
+    "shortTitle": "Встати — сісти",
+    "cardDescription": "Повільно встаньте зі стільця та контрольовано сядьте назад.",
+    "categoryLabel": "Коліна",
+    "purpose": "Функціональна вправа для м'язів ніг і контрольованого переходу між сидінням та стоянням.",
+    "startPositionTitle": "Початкове положення",
+    "startPosition": "Сядьте ближче до переднього краю стійкого стільця. Поставте стопи на підлогу приблизно на ширині таза. Дивіться вперед.",
+    "instructionsTitle": "Як виконувати",
+    "instructions": [
+      {
+        "step": 1,
+        "text": "Сядьте ближче до переднього краю стільця."
+      },
+      {
+        "step": 2,
+        "text": "Поставте стопи впевнено на підлогу."
+      },
+      {
+        "step": 3,
+        "text": "Трохи нахиліть корпус уперед."
+      },
+      {
+        "step": 4,
+        "text": "Плавно встаньте, випрямляючи ноги."
+      },
+      {
+        "step": 5,
+        "text": "Повністю випростайтеся і відчуйте стійке положення."
+      },
+      {
+        "step": 6,
+        "text": "Повільно зігніть коліна й стегна та сядьте назад."
+      },
+      {
+        "step": 7,
+        "text": "Повторіть задану кількість разів."
+      }
+    ],
+    "techniqueTipsTitle": "Зверніть увагу",
+    "techniqueTips": [
+      "Дивіться вперед, а не в підлогу.",
+      "Не падайте на стілець — сідайте контрольовано.",
+      "Стопи залишаються на підлозі.",
+      "Перед сіданням повністю випростайтеся.",
+      "Використовуйте руки лише відповідно до обраного безпечного варіанта."
+    ],
+    "safetyLabel": "Безпека",
+    "safety": "Використовуйте тільки стійкий стілець без коліс. Якщо з'явилося запаморочення, втрата рівноваги, різкий біль або інший незвичний симптом, натисніть «Стоп».",
+    "completion": "Готово."
+  },
+  "labels": {
+    "elapsed_time": "Час",
+    "progress": "Виконано",
+    "repetition": "Повтор",
+    "variant": "Варіант"
+  },
+  "timing": {
+    "prepCountdownSeconds": 5,
+    "restAfterSeconds": 10,
+    "completionMode": "prescribed_repetitions",
+    "estimatedActiveSeconds": 42
+  },
+  "progress": {
+    "basis": "completed_repetitions",
+    "showElapsedTime": true,
+    "showProgressBar": true,
+    "showRepetitionCounter": true,
+    "showSideLabel": false,
+    "showSetCounter": false
+  },
+  "repetitionModel": {
+    "type": "full_cycle",
+    "sets": 1,
+    "repetitionsPerBlock": 5,
+    "blockOrder": [
+      null
+    ],
+    "switchSideAutomatically": true,
+    "resetCounterOnSideChange": false
+  },
+  "movementPhases": [
+    {
+      "id": "PHASE_SEATED",
+      "name": "Сидячи",
+      "type": "start_end"
+    },
+    {
+      "id": "PHASE_FORWARD_LEAN",
+      "name": "Нахил уперед",
+      "type": "transition"
+    },
+    {
+      "id": "PHASE_RISE",
+      "name": "Вставання",
+      "type": "dynamic"
+    },
+    {
+      "id": "PHASE_STAND",
+      "name": "Стояння",
+      "type": "checkpoint"
+    },
+    {
+      "id": "PHASE_DESCEND",
+      "name": "Контрольоване сідання",
+      "type": "dynamic"
+    }
+  ],
+  "sequence": {
+    "blocks": [
+      {
+        "side": null,
+        "repeat": 5,
+        "steps": [
+          {
+            "id": "seated_start",
+            "phase": "PHASE_SEATED",
+            "side": null,
+            "frameId": "FRAME_SEATED",
+            "frameTransition": null,
+            "durationMs": 800,
+            "voiceEvent": null
+          },
+          {
+            "id": "forward_lean",
+            "phase": "PHASE_FORWARD_LEAN",
+            "side": null,
+            "frameId": null,
+            "frameTransition": {
+              "from": "FRAME_SEATED",
+              "via": null,
+              "to": "FRAME_FORWARD_LEAN"
+            },
+            "durationMs": 1200,
+            "voiceEvent": "VOICE_LEAN_FORWARD"
+          },
+          {
+            "id": "rise",
+            "phase": "PHASE_RISE",
+            "side": null,
+            "frameId": null,
+            "frameTransition": {
+              "from": "FRAME_FORWARD_LEAN",
+              "via": "FRAME_RISING",
+              "to": "FRAME_STANDING"
+            },
+            "durationMs": 2200,
+            "voiceEvent": "VOICE_STAND_UP"
+          },
+          {
+            "id": "stand_checkpoint",
+            "phase": "PHASE_STAND",
+            "side": null,
+            "frameId": "FRAME_STANDING",
+            "frameTransition": null,
+            "durationMs": 1500,
+            "voiceEvent": "VOICE_STAND_STABLE"
+          },
+          {
+            "id": "descend",
+            "phase": "PHASE_DESCEND",
+            "side": null,
+            "frameId": null,
+            "frameTransition": {
+              "from": "FRAME_STANDING",
+              "via": "FRAME_DESCENDING",
+              "to": "FRAME_SEATED"
+            },
+            "durationMs": 2600,
+            "voiceEvent": "VOICE_SIT_SLOWLY"
+          }
+        ]
+      }
+    ]
+  },
+  "animation": {
+    "reducedMotionFallback": "static_step_frames",
+    "frames": [
+      {
+        "id": "FRAME_SEATED",
+        "file": "assets/exercises/KNEE_002/frame_seated.png",
+        "altText": "Початкове положення сидячи біля переднього краю стільця."
+      },
+      {
+        "id": "FRAME_FORWARD_LEAN",
+        "file": "assets/exercises/KNEE_002/frame_forward_lean.png",
+        "altText": "Легкий нахил корпусу вперед перед вставанням."
+      },
+      {
+        "id": "FRAME_RISING",
+        "file": "assets/exercises/KNEE_002/frame_rising.png",
+        "altText": "Проміжна фаза вставання зі стільця."
+      },
+      {
+        "id": "FRAME_STANDING",
+        "file": "assets/exercises/KNEE_002/frame_standing.png",
+        "altText": "Повністю випростане положення стоячи."
+      },
+      {
+        "id": "FRAME_DESCENDING",
+        "file": "assets/exercises/KNEE_002/frame_descending.png",
+        "altText": "Контрольоване опускання назад на стілець."
+      }
+    ],
+    "preview": "assets/exercises/KNEE_002/preview.png"
+  },
+  "audio": {
+    "events": [
+      {
+        "id": "VOICE_PREPARE",
+        "type": "instruction",
+        "priority": 80,
+        "interruptible": true,
+        "playOncePerSide": false,
+        "text": "Приготуйтеся. Сядьте ближче до краю стільця. Стопи на підлозі.",
+        "assetKey": "exercise.KNEE_002.voice.prepare",
+        "assetFile": "audio/uk/exercises/KNEE_002/prepare.m4a",
+        "trigger": {
+          "event": "prep_countdown_started",
+          "phase": null,
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": 0
+        }
+      },
+      {
+        "id": "VOICE_LEAN_FORWARD",
+        "type": "movement",
+        "priority": 100,
+        "interruptible": false,
+        "playOncePerSide": false,
+        "text": "Трохи нахиліться вперед.",
+        "assetKey": "exercise.KNEE_002.voice.lean_forward",
+        "assetFile": "audio/uk/exercises/KNEE_002/lean_forward.m4a",
+        "trigger": {
+          "event": "sequence_phase_started",
+          "phase": "PHASE_FORWARD_LEAN",
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      },
+      {
+        "id": "VOICE_STAND_UP",
+        "type": "movement",
+        "priority": 110,
+        "interruptible": false,
+        "playOncePerSide": false,
+        "text": "Плавно вставайте.",
+        "assetKey": "exercise.KNEE_002.voice.stand_up",
+        "assetFile": "audio/uk/exercises/KNEE_002/stand_up.m4a",
+        "trigger": {
+          "event": "sequence_phase_started",
+          "phase": "PHASE_RISE",
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      },
+      {
+        "id": "VOICE_STAND_STABLE",
+        "type": "checkpoint",
+        "priority": 110,
+        "interruptible": false,
+        "playOncePerSide": false,
+        "text": "Випростайтеся. Стійте стійко.",
+        "assetKey": "exercise.KNEE_002.voice.stand_stable",
+        "assetFile": "audio/uk/exercises/KNEE_002/stand_stable.m4a",
+        "trigger": {
+          "event": "sequence_phase_started",
+          "phase": "PHASE_STAND",
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      },
+      {
+        "id": "VOICE_SIT_SLOWLY",
+        "type": "movement",
+        "priority": 110,
+        "interruptible": false,
+        "playOncePerSide": false,
+        "text": "Тепер повільно сідайте.",
+        "assetKey": "exercise.KNEE_002.voice.sit_slowly",
+        "assetFile": "audio/uk/exercises/KNEE_002/sit_slowly.m4a",
+        "trigger": {
+          "event": "sequence_phase_started",
+          "phase": "PHASE_DESCEND",
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      },
+      {
+        "id": "VOICE_HALFWAY",
+        "type": "progress",
+        "priority": 50,
+        "interruptible": true,
+        "playOncePerSide": false,
+        "text": "Половину виконано.",
+        "assetKey": "common.voice.halfway",
+        "assetFile": "audio/uk/common/halfway.m4a",
+        "trigger": {
+          "event": "repetition_completed",
+          "phase": null,
+          "side": null,
+          "percent": null,
+          "repetitionNumber": 3,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      },
+      {
+        "id": "VOICE_LAST_REP",
+        "type": "progress",
+        "priority": 60,
+        "interruptible": true,
+        "playOncePerSide": false,
+        "text": "Останній повтор.",
+        "assetKey": "common.voice.last_repetition",
+        "assetFile": "audio/uk/common/last_repetition.m4a",
+        "trigger": {
+          "event": "repetition_started",
+          "phase": null,
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": "last",
+          "offsetMs": null
+        }
+      },
+      {
+        "id": "VOICE_COMPLETED",
+        "type": "completion",
+        "priority": 120,
+        "interruptible": false,
+        "playOncePerSide": false,
+        "text": "Готово.",
+        "assetKey": "common.voice.completed",
+        "assetFile": "audio/uk/common/completed.m4a",
+        "trigger": {
+          "event": "exercise_completed",
+          "phase": null,
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      }
+    ],
+    "mix": {
+      "voiceLevel": 1.0,
+      "musicLevel": 0.5,
+      "dynamicDucking": false
+    }
+  },
+  "flow": {
+    "autoNextEnabled": true,
+    "restSeconds": 10,
+    "incrementCounterOnCompletion": true
+  },
+  "accessibility": {
+    "summary": "Встати — сісти зі стільця. Сядьте ближче до краю стійкого стільця, трохи нахиліться вперед, плавно встаньте, випростайтеся, потім контрольовано сядьте назад.",
+    "reducedMotionSupported": true
+  },
+  "pro": {
+    "tier": "free",
+    "requiresPro": false,
+    "visibleToFree": true,
+    "allowFavorite": true,
+    "includeInPersonalPlanPool": true
+  }
+}

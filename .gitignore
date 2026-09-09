@@ -46,3 +46,8 @@ __pycache__/
 # Local packs / notes
 *.zip
 CHAT_SUMMARY_*.md
+
+# Flutter build output / generated platform files
+.dart_tool/
+build/
+pubspec.lock
