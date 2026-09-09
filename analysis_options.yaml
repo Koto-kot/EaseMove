@@ -9,6 +9,10 @@ analyzer:
     prefer_const_constructors: warning
   exclude:
     - build/**
+    - android/**
+    - ios/**
+    - windows/**
+    - web/**
 
 linter:
   rules:

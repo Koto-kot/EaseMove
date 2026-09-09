@@ -17,14 +17,20 @@ flutter test
 
 ## Платформи
 
-`android/`, `ios/` та інші платформні теки в репозиторії відсутні —
-згенеруйте їх локально одноразово:
+`android/` та `ios/` є в репозиторії.
+
+Для локального перегляду в браузері або на Windows-десктопі згенеруйте
+додаткові таргети (вони в `.gitignore`):
 
 ```bash
-flutter create . --platforms=android,ios --project-name ease_move
+flutter create . --platforms=web,windows --project-name ease_move
+flutter run -d chrome
 ```
 
-`lib/`, `test/`, `pubspec.yaml` при цьому не перезаписуються.
+`flutter create` не перезаписує `lib/`, `pubspec.yaml` чи тести, але створює
+шаблонний `test/widget_test.dart` — його треба видалити.
+
+Windows-десктоп додатково вимагає Developer Mode у Windows (symlink support).
 
 ## Запуск
 
@@ -96,6 +102,10 @@ flutter test test/vertical_slice_test.dart    # acceptance-флоу TECHNICAL_SP
 ## Відомі обмеження цього slice
 
 - Кадри вправ і body-map artwork ще не створені — рендеряться плейсхолдери.
+- Контент вправ і назви колекцій існують лише українською (authoring-мова).
+  Якщо мова застосунку `en`, UI-рядки будуть англійськими, а назви вправ і зон —
+  українськими. Це очікуваний fallback до authoring-локалі; переклад контенту —
+  окремий крок за чеклістом `LOCALIZATION.md`.
 - Voice packs не записані — `AudioService` логує cue замість відтворення.
 - Billing не підключений — paywall показує повідомлення-заглушку.
 - Нагадування: перемикач зберігається, планування нотифікацій не реалізоване.

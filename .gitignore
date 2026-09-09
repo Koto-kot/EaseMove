@@ -51,3 +51,8 @@ CHAT_SUMMARY_*.md
 .dart_tool/
 build/
 pubspec.lock
+
+# Extra local-only platform targets (regenerate with:
+#   flutter create . --platforms=web,windows --project-name ease_move)
+/web/
+/windows/
