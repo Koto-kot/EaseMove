@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <rect width="1024" height="1024" fill="#F5F7F6"/>
+  <rect y="0" width="1024" height="640" fill="#EEF2F0"/>
+  <rect y="640" width="1024" height="384" fill="#E4E8E6"/>
+  <g transform="translate(0,0)">
+    
+  <!-- chair shadow -->
+  <ellipse cx="500" cy="780" rx="170" ry="18" fill="#000000" opacity="0.06"/>
+  <!-- legs -->
+  <rect x="368" y="598" width="16" height="170" rx="4" fill="#7A8086"/>
+  <rect x="596" y="598" width="16" height="170" rx="4" fill="#7A8086"/>
+  <!-- seat -->
+  <rect x="350" y="560" width="280" height="42" rx="14" fill="#3F7F76"/>
+  <rect x="350" y="560" width="280" height="14" rx="8" fill="#2F625B" opacity="0.25"/>
+  <!-- back -->
+  <rect x="604" y="330" width="40" height="272" rx="16" fill="#3F7F76"/>
+  <rect x="612" y="350" width="12" height="200" rx="6" fill="#ffffff" opacity="0.18"/>
+
+    
+  <!-- torso -->
+  <path d="M448 545 C430 500 445 380 470 340 L520 335 C535 380 545 500 520 545 Z" fill="#F7F7F5" stroke="#2A3336" stroke-width="2.5"/>
+  <!-- collar -->
+  <path d="M475 340 C485 355 505 355 515 340" fill="none" stroke="#2A3336" stroke-width="2"/>
+  <!-- head -->
+  <circle cx="478" cy="268" r="48" fill="#E2B89A" stroke="#2A3336" stroke-width="2.5"/>
+  <!-- hair bob -->
+  <path d="M430 260 C432 220 460 215 478 218 C500 215 528 225 528 265 C528 250 515 235 495 232 C475 228 448 235 438 255 Z" fill="#2C2A28"/>
+  <path d="M430 268 C428 290 445 305 460 300" fill="#2C2A28"/>
+  <!-- simple calm eye / nose hint -->
+  <circle cx="458" cy="268" r="2.5" fill="#2A3336"/>
+  <path d="M448 280 Q452 286 460 282" fill="none" stroke="#C99578" stroke-width="2" stroke-linecap="round"/>
+  <!-- near arm resting on thigh -->
+  
+  <line x1="500" y1="380" x2="430" y2="470" stroke="#E2B89A" stroke-width="28" stroke-linecap="round"/>
+  <line x1="500" y1="380" x2="430" y2="470" stroke="#2A3336" stroke-width="2.5" stroke-linecap="round" fill="none" opacity="0.35"/>
+
+  
+  <line x1="430" y1="470" x2="370" y2="545" stroke="#E2B89A" stroke-width="24" stroke-linecap="round"/>
+  <line x1="430" y1="470" x2="370" y2="545" stroke="#2A3336" stroke-width="2.5" stroke-linecap="round" fill="none" opacity="0.35"/>
+
+  <circle cx="430" cy="470" r="12" fill="#E2B89A" stroke="#2A3336" stroke-width="2"/>
+  <circle cx="370" cy="545" r="10" fill="#E2B89A" stroke="#2A3336" stroke-width="2"/>
+
+    
+  
+  <line x1="500" y1="555" x2="360" y2="645" stroke="#6E8490" stroke-width="44" stroke-linecap="round"/>
+  <line x1="500" y1="555" x2="360" y2="645" stroke="#2A3336" stroke-width="2.5" stroke-linecap="round" fill="none" opacity="0.35"/>
+
+  
+  <line x1="360" y1="645" x2="355" y2="765" stroke="#6E8490" stroke-width="36" stroke-linecap="round"/>
+  <line x1="360" y1="645" x2="355" y2="765" stroke="#2A3336" stroke-width="2.5" stroke-linecap="round" fill="none" opacity="0.35"/>
+
+  <circle cx="360" cy="645" r="14" fill="#6E8490" stroke="#2A3336" stroke-width="2"/>
+  
+  <ellipse cx="349" cy="771" rx="28" ry="11" fill="#D7B29A" stroke="#2A3336" stroke-width="2"/>
+  <ellipse cx="333" cy="767" rx="10" ry="8" fill="#E2B89A" stroke="#2A3336" stroke-width="1.5"/>
+
+
+  
+  <line x1="475" y1="548" x2="275" y2="525" stroke="#6E8490" stroke-width="44" stroke-linecap="round"/>
+  <line x1="475" y1="548" x2="275" y2="525" stroke="#2A3336" stroke-width="2.5" stroke-linecap="round" fill="none" opacity="0.35"/>
+
+  
+  <line x1="275" y1="525" x2="130" y2="505" stroke="#6E8490" stroke-width="36" stroke-linecap="round"/>
+  <line x1="275" y1="525" x2="130" y2="505" stroke="#2A3336" stroke-width="2.5" stroke-linecap="round" fill="none" opacity="0.35"/>
+
+  <circle cx="275" cy="525" r="14" fill="#6E8490" stroke="#2A3336" stroke-width="2"/>
+  <circle cx="130" cy="505" r="12" fill="#6E8490" stroke="#2A3336" stroke-width="2"/>
+  
+  <ellipse cx="126" cy="503" rx="26" ry="12" transform="rotate(-25 130 505)" fill="#D7B29A" stroke="#2A3336" stroke-width="2"/>
+  <ellipse cx="140" cy="491" rx="9" ry="7" fill="#E2B89A" stroke="#2A3336" stroke-width="1.5"/>
+
+
+  </g>
+  <!-- soft vignette -->
+  <rect width="1024" height="1024" fill="url(#vig)" />
+  <defs>
+    <radialGradient id="vig" cx="50%" cy="45%" r="70%">
+      <stop offset="70%" stop-color="#000000" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0.05"/>
+    </radialGradient>
+  </defs>
+  <!-- review chip (brief only; strip later for production copy if needed) -->
+  <rect x="36" y="36" width="140" height="40" rx="20" fill="#3F7F76"/>
+  <text x="106" y="62" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="16" font-weight="600" fill="#ffffff">L · HOLD</text>
+  <text x="36" y="980" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="18" fill="#5A6569">FRAME_LEFT_EXTENDED — ліва нога утримується, носок до себе</text>
+</svg>
