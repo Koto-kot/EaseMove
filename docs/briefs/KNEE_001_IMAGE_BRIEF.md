@@ -2,6 +2,23 @@
 
 Filled from `docs/IMAGE_BRIEF_TEMPLATE.md` + `data/exercises/knees/KNEE_001.yaml`.
 
+## Draft instructional frames
+
+> Схематичні instructional-кадри для брифа (не production photo). Пози збігаються з YAML: start → mid → extended (L/R). Стиль: calm flat, seed teal `#3F7F76`.
+
+| Frame | File | Preview |
+|---|---|---|
+| `FRAME_START` | `knee_001_frames/frame_start.svg` | ![](knee_001_frames/frame_start.svg) |
+| `FRAME_LEFT_MID` | `knee_001_frames/frame_left_mid.svg` | ![](knee_001_frames/frame_left_mid.svg) |
+| `FRAME_LEFT_EXTENDED` | `knee_001_frames/frame_left_extended.svg` | ![](knee_001_frames/frame_left_extended.svg) |
+| `FRAME_RIGHT_MID` | `knee_001_frames/frame_right_mid.svg` | ![](knee_001_frames/frame_right_mid.svg) |
+| `FRAME_RIGHT_EXTENDED` | `knee_001_frames/frame_right_extended.svg` | ![](knee_001_frames/frame_right_extended.svg) |
+| Preview | `knee_001_frames/preview.png` | (crop з LEFT_EXTENDED) |
+
+PNG-копії 1024×1024 лежать поряд у тій самій папці для зручного перегляду.
+
+---
+
 ## Exercise
 
 - ID: `KNEE_001`
