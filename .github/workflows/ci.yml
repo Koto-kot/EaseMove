@@ -33,6 +33,12 @@ jobs:
             exit 1
           fi
 
+      # Artwork that exists must be technically valid. Not-yet-drawn frames
+      # are reported, not failed, so this runs from day one; it becomes a hard
+      # gate with --require-complete once the images are in.
+      - name: Check image assets
+        run: python scripts/check_assets.py
+
       # Image briefs are generated from the same poses, so a changed pose with
       # a stale brief would send the wrong prompt to whoever draws the frame.
       - name: Rebuild image briefs
