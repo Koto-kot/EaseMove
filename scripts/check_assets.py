@@ -101,7 +101,7 @@ def check_image(
         return
 
     if bbox is None:
-        error(label + ": the image is blank — nothing but background")
+        error(label + ": the image is blank - nothing but background")
         return
 
     overflow = safe_area_overflow(bbox, size)
@@ -123,14 +123,14 @@ def check_image(
 
 
 def check_exercise(exercise: ExerciseAssets, declared: list[str], inspect: bool) -> None:
-    print("\n{0} — {1}  [{2}]".format(exercise.id, exercise.title, exercise.source))
+    print("\n{0} - {1}  [{2}]".format(exercise.id, exercise.title, exercise.source))
 
     if not exercise.folder:
         error(exercise.id + ": assets.folder is not set")
         return
     if not is_bundled(exercise.folder + "/x.png", declared):
         error(
-            "{0}: {1}/ is not listed under `flutter: assets:` in pubspec.yaml — "
+            "{0}: {1}/ is not listed under `flutter: assets:` in pubspec.yaml - "
             "its images would never load".format(exercise.id, exercise.folder)
         )
 
@@ -167,7 +167,7 @@ def check_exercise(exercise: ExerciseAssets, declared: list[str], inspect: bool)
         path = ROOT / asset
         label = "{0}/{1}".format(exercise.id, Path(asset).name)
         if not path.exists():
-            absent(label + " — not drawn yet")
+            absent(label + " - not drawn yet")
             continue
         # A preview is a crop of a frame, so only frames carry the master size.
         is_frame = asset != exercise.preview_file
@@ -209,13 +209,13 @@ def check_body_map(declared: list[str], inspect: bool) -> None:
         if not png.exists():
             if svg.exists():
                 warn(
-                    "{0}.svg exists but the app loads {1} — either export a PNG "
+                    "{0}.svg exists but the app loads {1} - either export a PNG "
                     "or add flutter_svg and change body_map_screen.dart".format(
                         view, label
                     )
                 )
             else:
-                absent(label + " — not drawn yet")
+                absent(label + " - not drawn yet")
             continue
         if not inspect:
             ok(label + " (present, not inspected)")
@@ -255,7 +255,7 @@ def check_body_map(declared: list[str], inspect: bool) -> None:
         with Image.open(front) as a, Image.open(back) as b:
             if a.size != b.size:
                 error(
-                    "front.png is {0}x{1} but back.png is {2}x{3} — the shared "
+                    "front.png is {0}x{1} but back.png is {2}x{3} - the shared "
                     "hotspot coordinates cannot fit both".format(*a.size, *b.size)
                 )
 

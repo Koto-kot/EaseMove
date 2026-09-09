@@ -74,7 +74,7 @@ def build_one(exercise, size: int, force: bool, dry_run: bool) -> str:
     source = frame.path
     target = ROOT / exercise.preview_file
     if not source.exists():
-        return "wait: {0} — {1} is not drawn yet".format(exercise.id, frame.name)
+        return "wait: {0} - {1} is not drawn yet".format(exercise.id, frame.name)
     if (
         target.exists()
         and not force

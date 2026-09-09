@@ -11,11 +11,18 @@ machine without Pillow can still run the parts that only read YAML.
 """
 from __future__ import annotations
 
+import sys
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
 
 import yaml
+
+# These scripts are CLI-only and print exercise titles and file paths. A
+# Windows console in a legacy code page cannot encode every character in the
+# data, and a report must not die on one arrow: replace instead of raising.
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(errors="replace")
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
