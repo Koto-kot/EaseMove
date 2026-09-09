@@ -1,0 +1,140 @@
+# English pose text for image generation.
+#
+# The exercise files author poses in Ukrainian (`pose_description_uk`), but
+# image generators follow English far more reliably. These are translations of
+# that same text — never a different pose. If the Ukrainian changes, change it
+# here too; scripts/build_image_briefs.py fails when a frame has no entry.
+#
+# Also reusable as `alt_text_en` when the English content pack is authored
+# (docs/LOCALIZATION.md, new language checklist).
+schema_version: '1.0'
+
+exercises:
+  KNEE_001:
+    FRAME_START:
+      pose: >-
+        Sitting upright on a stable chair, both feet flat on the floor about hip
+        width apart, both knees bent to roughly ninety degrees, both thighs
+        fully supported by the seat, hands resting quietly on the thighs.
+      alt: Seated start position, both feet flat on the floor.
+    FRAME_LEFT_MID:
+      pose: >-
+        Same seated position. The left lower leg is lifting forward and the left
+        knee is about half straightened. The left thigh stays flat on the seat,
+        the torso stays upright and does not lean back, the right foot stays
+        flat on the floor.
+      alt: Left leg partly straightened at the knee.
+    FRAME_LEFT_EXTENDED:
+      pose: >-
+        Same seated position. The left leg is straightened forward to a
+        comfortable end range, roughly level with the seat, with the toes pulled
+        back toward the shin. The left thigh stays on the seat, the torso stays
+        upright, the right foot stays flat on the floor.
+      alt: Left leg straightened forward, right foot flat on the floor.
+    FRAME_RIGHT_MID:
+      pose: >-
+        Mirror of the left mid frame. The right lower leg is lifting forward and
+        the right knee is about half straightened. The right thigh stays flat on
+        the seat, the torso stays upright, the left foot stays flat on the floor.
+      alt: Right leg partly straightened at the knee.
+    FRAME_RIGHT_EXTENDED:
+      pose: >-
+        Mirror of the left extended frame. The right leg is straightened forward
+        to a comfortable end range with the toes pulled back toward the shin.
+        The right thigh stays on the seat, the torso stays upright, the left
+        foot stays flat on the floor.
+      alt: Right leg straightened forward, left foot flat on the floor.
+
+  KNEE_002:
+    FRAME_SEATED:
+      pose: >-
+        Sitting near the front edge of a stable chair, upright, feet flat on the
+        floor about hip width apart, shins vertical, looking straight ahead,
+        hands resting on the thighs.
+      alt: Seated start position near the front edge of the chair.
+    FRAME_FORWARD_LEAN:
+      pose: >-
+        Still seated on the same chair, torso tipped slightly forward from the
+        hips so the shoulders travel forward over the feet. The hips are still
+        on the seat, the feet stay flat, the gaze stays forward, the back stays
+        long rather than rounded.
+      alt: Slight forward lean of the torso before standing up.
+    FRAME_RISING:
+      pose: >-
+        Mid-way through standing up: the pelvis has just left the seat, the
+        knees and hips are extending, the torso is still tipped slightly
+        forward, both feet stay flat on the floor. The chair is in exactly the
+        same position as in the other frames.
+      alt: Intermediate phase of standing up from the chair.
+    FRAME_STANDING:
+      pose: >-
+        Standing fully upright in front of the same chair, weight balanced
+        evenly on both feet, feet flat and about hip width apart, arms relaxed
+        at the sides, looking straight ahead.
+      alt: Fully upright standing position.
+    FRAME_DESCENDING:
+      pose: >-
+        Lowering back toward the seat under control: hips and knees bending, the
+        torso tipped slightly forward, hips travelling back toward the chair,
+        both feet flat on the floor. The chair has not moved.
+      alt: Controlled lowering back down onto the chair.
+
+  KNEE_003:
+    FRAME_START:
+      pose: >-
+        Lying on the back on a firm flat surface, both legs straight and
+        relaxed, heels resting on the surface, pelvis level and neutral, arms
+        relaxed alongside the body, head resting on the surface.
+      alt: Supine start position with both legs straight.
+    FRAME_LEFT_MID:
+      pose: >-
+        Same supine position. The left heel is sliding along the surface toward
+        the body and the left knee is about half bent, pointing straight up at
+        the ceiling. The left heel stays in contact with the surface, the pelvis
+        stays level and does not rotate, the right leg stays straight.
+      alt: Left heel sliding toward the body, knee partly bent.
+    FRAME_LEFT_BENT:
+      pose: >-
+        Same supine position. The left heel has slid to a comfortable limit and
+        the left knee is bent, pointing straight up at the ceiling. The left
+        heel is still touching the surface, the pelvis stays level, the right
+        leg stays straight.
+      alt: Left knee bent, heel still resting on the surface.
+    FRAME_RIGHT_MID:
+      pose: >-
+        Mirror of the left mid frame. The right heel is sliding along the
+        surface toward the body, the right knee about half bent and pointing
+        straight up. The right heel stays in contact with the surface, the
+        pelvis does not rotate, the left leg stays straight.
+      alt: Right heel sliding toward the body, knee partly bent.
+    FRAME_RIGHT_BENT:
+      pose: >-
+        Mirror of the left bent frame. The right heel has slid to a comfortable
+        limit and the right knee is bent, pointing straight up. The right heel
+        is still touching the surface, the pelvis stays level, the left leg
+        stays straight.
+      alt: Right knee bent, heel still resting on the surface.
+
+  NECK_001:
+    FRAME_CENTER:
+      pose: >-
+        Sitting upright, seen from the front. The head is in a neutral position
+        looking straight ahead, the shoulders are level and relaxed and clearly
+        down, the torso faces the camera squarely and is not rotated.
+      alt: 'Start position: head facing forward, shoulders relaxed.'
+    FRAME_LEFT:
+      pose: >-
+        Same seated position seen from the front, with the torso still square to
+        the camera. The head is turned to the subject's own left within a
+        comfortable range, roughly forty-five degrees. The chin stays at the
+        same height as in the centre frame, the shoulders stay level and
+        relaxed, the torso does not rotate with the head.
+      alt: Head turned to the left, torso still facing forward.
+    FRAME_RIGHT:
+      pose: >-
+        Same seated position seen from the front, with the torso still square to
+        the camera. The head is turned to the subject's own right within a
+        comfortable range, roughly forty-five degrees. The chin stays at the
+        same height, the shoulders stay level and relaxed, the torso does not
+        rotate with the head.
+      alt: Head turned to the right, torso still facing forward.

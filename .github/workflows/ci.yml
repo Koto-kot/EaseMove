@@ -33,6 +33,18 @@ jobs:
             exit 1
           fi
 
+      # Image briefs are generated from the same poses, so a changed pose with
+      # a stale brief would send the wrong prompt to whoever draws the frame.
+      - name: Rebuild image briefs
+        run: python scripts/build_image_briefs.py
+      - name: Briefs must be in sync with the exercise library
+        run: |
+          if ! git diff --quiet -- docs/generated; then
+            echo "docs/generated is out of date — run: python scripts/build_image_briefs.py"
+            git --no-pager diff --stat -- docs/generated
+            exit 1
+          fi
+
   flutter:
     name: Analyze and test
     runs-on: ubuntu-latest
