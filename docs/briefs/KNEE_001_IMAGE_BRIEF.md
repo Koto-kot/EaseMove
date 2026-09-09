@@ -1,0 +1,131 @@
+# KNEE_001 — Image Brief
+
+Filled from `docs/IMAGE_BRIEF_TEMPLATE.md` + `data/exercises/knees/KNEE_001.yaml`.
+
+## Draft instructional frames
+
+> Схематичні instructional-кадри для брифа (не production photo). Пози збігаються з YAML: start → mid → extended (L/R). Стиль: calm flat, seed teal `#3F7F76`.
+
+| Frame | File | Preview |
+|---|---|---|
+| `FRAME_START` | `knee_001_frames/frame_start.svg` | ![](knee_001_frames/frame_start.svg) |
+| `FRAME_LEFT_MID` | `knee_001_frames/frame_left_mid.svg` | ![](knee_001_frames/frame_left_mid.svg) |
+| `FRAME_LEFT_EXTENDED` | `knee_001_frames/frame_left_extended.svg` | ![](knee_001_frames/frame_left_extended.svg) |
+| `FRAME_RIGHT_MID` | `knee_001_frames/frame_right_mid.svg` | ![](knee_001_frames/frame_right_mid.svg) |
+| `FRAME_RIGHT_EXTENDED` | `knee_001_frames/frame_right_extended.svg` | ![](knee_001_frames/frame_right_extended.svg) |
+| Preview | `knee_001_frames/preview.png` | (crop з LEFT_EXTENDED) |
+
+PNG-копії 1024×1024 лежать поряд у тій самій папці для зручного перегляду.
+
+---
+
+## Exercise
+
+- ID: `KNEE_001`
+- Ukrainian title: Розгинання ноги сидячи
+- Short title: Розгинання коліна
+- Primary zone: knees
+- Clinical status: `pending_review`
+- YAML file: `data/exercises/knees/KNEE_001.yaml`
+- Card description: Повільно випряміть ногу в коліні та контрольовано опустіть.
+- Asset folder: `assets/exercises/KNEE_001/`
+
+## Visual profile
+
+- style_profile_id: `exercise_visual_v1`
+- subject_profile_id: `adult_neutral_01`
+- camera: three_quarter_side
+- crop: head_to_feet_with_chair
+- view: full_seated_body
+- background: clean_neutral
+- required equipment/surface: stable chair (no wheels), chair fully visible
+- master: PNG 1024×1024; transparent background preferred
+- production_assets_must_be_original: true
+- arrows_in_production_asset: false
+- text_inside_asset: false
+
+## What must remain constant
+
+- subject: same adult_neutral_01 person across all frames
+- clothing: simple plain comfortable, no logos, no medical uniform
+- camera: fixed three_quarter_side, same crop
+- furniture: same stable chair, same position and geometry
+- surface: same floor
+- body scale: same visual scale / proportions
+- torso: upright (must not lean back to lift the leg)
+- working thigh: remains supported on the seat
+
+## Required frames
+
+### FRAME_START
+- filename: `frame_start.png`
+- phase: PHASE_START
+- exact pose: Людина сидить рівно на стійкому стільці. Обидві стопи на підлозі, коліна зігнуті приблизно під прямим кутом.
+- body parts visible: head to feet with chair
+- must remain still: torso upright, both thighs supported, both feet supported
+- contact points: both feet on floor; thighs on seat; back not slumped
+- forbidden errors: leaning back; one foot already raised; cropped feet/head; embedded text/arrows
+
+### FRAME_LEFT_MID
+- filename: `frame_left_mid.png`
+- phase: PHASE_EXTEND (mid)
+- exact pose: Ліва гомілка піднімається вперед у процесі розгинання коліна. Стегно залишається на сидінні, корпус не відхиляється.
+- body parts visible: full seated body; left knee partially extended
+- must remain still: torso upright; left thigh on seat; right foot on floor
+- contact points: left thigh on seat; right foot supported
+- forbidden errors: left thigh lifting off seat; torso lean; wrong side raised; camera/chair drift
+
+### FRAME_LEFT_EXTENDED
+- filename: `frame_left_extended.png`
+- phase: PHASE_HOLD
+- exact pose: Ліва нога розігнута вперед у комфортному діапазоні, носок підтягнутий у напрямку до себе. Праву стопу залишено на підлозі.
+- body parts visible: left knee extended; left ankle dorsiflexed; right foot on floor
+- must remain still: torso upright; left thigh supported; right foot supported
+- contact points: left thigh on seat; right foot on floor
+- forbidden errors: hyperextension for “beauty”; swinging pose; right foot also raised; text/arrows
+
+### FRAME_RIGHT_MID
+- filename: `frame_right_mid.png`
+- phase: PHASE_EXTEND (mid, right)
+- exact pose: Права гомілка піднімається вперед у процесі розгинання коліна. Стегно залишається на сидінні, корпус не відхиляється.
+- body parts visible: right knee partially extended
+- must remain still: torso upright; right thigh on seat; left foot on floor
+- contact points: right thigh on seat; left foot supported
+- forbidden errors: not a true mirror of left mid; camera change; chair shift
+
+### FRAME_RIGHT_EXTENDED
+- filename: `frame_right_extended.png`
+- phase: PHASE_HOLD (right)
+- exact pose: Права нога розігнута вперед у комфортному діапазоні, носок підтягнутий у напрямку до себе. Ліву стопу залишено на підлозі.
+- body parts visible: right knee extended; right ankle dorsiflexed; left foot on floor
+- must remain still: torso upright; right thigh supported; left foot supported
+- contact points: right thigh on seat; left foot on floor
+- forbidden errors: swapped sides; torso lean; embedded UI
+
+## Preview
+
+- filename: `preview.png`
+- source frame: `FRAME_LEFT_EXTENDED` (`frame_left_extended.png`)
+- crop: square crop toward figure (generated by `scripts/make_previews.py` → 512×512)
+- no overlay text: true
+
+## Animation note (for reviewers)
+
+Repetition cycle: start → mid → extended (1800 ms) → hold 5000 ms → mid → start (1800 ms).
+Side order: left ×10, then right ×10.
+
+## QA
+
+- [ ] same person
+- [ ] same clothing
+- [ ] same camera
+- [ ] same furniture/surface
+- [ ] no text
+- [ ] no arrows
+- [ ] no watermark
+- [ ] movement matches YAML
+- [ ] left/right are correct
+- [ ] required contact points visible
+- [ ] clinical pose review completed
+- [ ] `scripts/check_assets.py` passes for KNEE_001
+- [ ] review sheet checked (`scripts/build_review_sheet.py`)
