@@ -285,56 +285,67 @@
     {
       "id": "neck",
       "title": "Шия",
+      "shortTitle": "Шия",
       "order": 10
     },
     {
       "id": "shoulders",
       "title": "Плечі",
+      "shortTitle": "Плечі",
       "order": 20
     },
     {
       "id": "upper_back",
       "title": "Верхня частина спини",
+      "shortTitle": "Верх спини",
       "order": 30
     },
     {
       "id": "elbows",
       "title": "Лікті",
+      "shortTitle": "Лікті",
       "order": 40
     },
     {
       "id": "wrists_hands",
       "title": "Кисті та зап’ястя",
+      "shortTitle": "Кисті",
       "order": 50
     },
     {
       "id": "lower_back",
       "title": "Поперек",
+      "shortTitle": "Поперек",
       "order": 60
     },
     {
       "id": "hips",
       "title": "Таз і стегна",
+      "shortTitle": "Стегна",
       "order": 70
     },
     {
       "id": "knees",
       "title": "Коліна",
+      "shortTitle": "Коліна",
       "order": 80
     },
     {
       "id": "calves",
       "title": "Гомілки",
+      "shortTitle": "Гомілки",
       "order": 90
     },
     {
       "id": "ankles",
       "title": "Гомілковостопні суглоби",
+      "shortTitle": "Щиколотки",
       "order": 100
     },
     {
       "id": "feet",
       "title": "Стопи",
+      "shortTitle": "Стопи",
       "order": 110
     }
   ],

@@ -89,16 +89,10 @@ void main() {
     addTearDown(tester.view.reset);
   }
 
-  /// The body map fills most of the first screen; the zone list sits below it.
+  /// Knees are labelled on both the front and the back figure; either chip
+  /// opens the same collection.
   Future<void> openKneeZone(WidgetTester tester) async {
-    final Finder tile = find.widgetWithText(ListTile, 'Коліна');
-    await tester.scrollUntilVisible(
-      tile,
-      200,
-      scrollable: find.byType(Scrollable).first,
-    );
-    await settle(tester);
-    await tester.tap(tile);
+    await tester.tap(find.text('Коліна').first);
     await settle(tester);
   }
 
@@ -115,9 +109,10 @@ void main() {
     await tester.pumpWidget(wrap(AppEnvironment.development));
     await settle(tester);
 
-    // --- Тіло: the body map and its zone list are on screen.
+    // --- Тіло: the body map asks its question and labels the zones.
     expect(find.text('Тіло'), findsWidgets);
-    expect(find.text('Оберіть зону'), findsOneWidget);
+    expect(find.text('Де турбує?'), findsOneWidget);
+    expect(find.text('Коліна'), findsWidgets);
 
     // --- Коліна: three large cards.
     await openKneeZone(tester);
@@ -246,9 +241,18 @@ void main() {
     await tester.pumpWidget(wrap(AppEnvironment.production));
     await settle(tester);
 
-    // All four exercises are still pending_review, so no zone is offered.
-    expect(find.text('Оберіть зону'), findsOneWidget);
-    expect(find.widgetWithText(ListTile, 'Коліна'), findsNothing);
-    expect(find.widgetWithText(ListTile, 'Шия'), findsNothing);
+    expect(find.text('Де турбує?'), findsOneWidget);
+
+    // The map still labels every zone, but the gate lets nothing through:
+    // tapping a zone explains itself instead of opening an empty catalog.
+    await tester.tap(find.text('Коліна').first);
+    await settle(tester);
+
+    expect(find.byType(ExerciseCard), findsNothing);
+    expect(
+      find.textContaining('вправи ще готуються'),
+      findsOneWidget,
+      reason: 'pending_review content must not reach a production build',
+    );
   });
 }

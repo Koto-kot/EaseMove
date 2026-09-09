@@ -56,8 +56,14 @@ void main() {
       await tester.pumpWidget(wrap());
       await settle(tester);
 
-      // Очі ships before its exercises do.
-      await tester.tap(find.text('Очі'));
+      // Очі ships before its exercises do. The body map also offers it as a
+      // quick-start tile, so address the navigation bar explicitly.
+      await tester.tap(
+        find.descendant(
+          of: find.byType(NavigationBar),
+          matching: find.text('Очі'),
+        ),
+      );
       await settle(tester);
 
       expect(find.text('Для цієї зони ще немає вправ.'), findsOneWidget);
@@ -80,7 +86,12 @@ void main() {
     await tester.pumpWidget(wrap());
     await settle(tester);
 
-    await tester.tap(find.text("За комп'ютером"));
+    await tester.tap(
+      find.descendant(
+        of: find.byType(NavigationBar),
+        matching: find.text("За комп'ютером"),
+      ),
+    );
     await settle(tester);
 
     // NECK_001 and KNEE_001 both belong to computer_break.

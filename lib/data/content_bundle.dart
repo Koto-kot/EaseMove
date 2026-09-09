@@ -11,16 +11,29 @@ import 'package:flutter/services.dart';
 import '../domain/exercise/exercise.dart';
 
 class BodyZone {
-  const BodyZone({required this.id, required this.title, required this.order});
+  const BodyZone({
+    required this.id,
+    required this.title,
+    required this.shortTitle,
+    required this.order,
+  });
 
-  factory BodyZone.fromJson(Map<String, dynamic> json) => BodyZone(
-    id: json['id'] as String,
-    title: json['title'] as String? ?? json['id'] as String,
-    order: (json['order'] as num?)?.toInt() ?? 0,
-  );
+  factory BodyZone.fromJson(Map<String, dynamic> json) {
+    final String title = json['title'] as String? ?? json['id'] as String;
+    return BodyZone(
+      id: json['id'] as String,
+      title: title,
+      shortTitle: json['shortTitle'] as String? ?? title,
+      order: (json['order'] as num?)?.toInt() ?? 0,
+    );
+  }
 
   final String id;
   final String title;
+
+  /// Label used beside the body map, where a full title like
+  /// "Гомілковостопні суглоби" does not fit on a phone.
+  final String shortTitle;
   final int order;
 }
 

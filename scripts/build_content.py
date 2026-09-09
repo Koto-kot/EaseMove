@@ -482,7 +482,13 @@ def main() -> int:
                 for c in collections["collections"]
             ],
             "zones": [
-                {"id": z["id"], "title": z.get("title_" + locale), "order": int(z.get("order", 0))}
+                {
+                    "id": z["id"],
+                    "title": z.get("title_" + locale),
+                    # Falls back to the full title so a new zone still renders.
+                    "shortTitle": z.get("short_title_" + locale) or z.get("title_" + locale),
+                    "order": int(z.get("order", 0)),
+                }
                 for z in zones["zones"]
             ],
             "bodyMap": {

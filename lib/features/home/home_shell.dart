@@ -11,10 +11,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../app/providers.dart';
 import '../../core/config/feature_flags.dart';
 import '../../core/localization/app_strings.dart';
-import '../activity/activity_screen.dart';
 import '../body_map/body_map_screen.dart';
 import '../exercise_catalog/catalog_screen.dart';
-import '../settings/settings_screen.dart';
 
 class HomeShell extends ConsumerStatefulWidget {
   const HomeShell({super.key});
@@ -61,48 +59,12 @@ class _HomeShellState extends ConsumerState<HomeShell> {
     final _Tab tab = tabs[index];
 
     return Scaffold(
-      body: Stack(
-        children: <Widget>[
-          Positioned.fill(
-            child: tab.builder != null
-                ? tab.builder!(context)
-                : SituationScreen(
-                    collectionId: tab.collectionId!,
-                    titleKey: tab.labelKey,
-                  ),
-          ),
-          Positioned(
-            top: 0,
-            right: 0,
-            child: SafeArea(
-              child: Row(
-                children: <Widget>[
-                  IconButton(
-                    tooltip: t('app.activity.title'),
-                    icon: const Icon(Icons.insights_outlined),
-                    onPressed: () => Navigator.of(context).push(
-                      MaterialPageRoute<void>(
-                        builder: (BuildContext context) =>
-                            const ActivityScreen(),
-                      ),
-                    ),
-                  ),
-                  IconButton(
-                    tooltip: t('app.settings.title'),
-                    icon: const Icon(Icons.settings_outlined),
-                    onPressed: () => Navigator.of(context).push(
-                      MaterialPageRoute<void>(
-                        builder: (BuildContext context) =>
-                            const SettingsScreen(),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
+      body: tab.builder != null
+          ? tab.builder!(context)
+          : SituationScreen(
+              collectionId: tab.collectionId!,
+              titleKey: tab.labelKey,
             ),
-          ),
-        ],
-      ),
       bottomNavigationBar: NavigationBar(
         selectedIndex: index,
         onDestinationSelected: (int value) => setState(() => _index = value),

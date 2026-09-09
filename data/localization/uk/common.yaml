@@ -45,6 +45,11 @@ strings:
   app.body_map.hint: Торкніться частини тіла, яка вас турбує.
   app.body_map.view_front: Спереду
   app.body_map.view_back: Ззаду
+  app.body_map.question: Де турбує?
+  app.body_map.subtitle: Оберіть зону на тілі, щоб знайти вправи та почуватися краще
+  app.body_map.footer: Рух — це турбота про себе
+  app.body_map.situations: Швидкий вхід
+  app.body_map.zone_empty: Для цієї зони вправи ще готуються
   app.body_map.artwork_missing: Ілюстрація тіла ще не додана
   app.catalog.empty: Для цієї зони ще немає вправ.
   app.catalog.count_one: вправа

@@ -13,6 +13,7 @@ import '../../data/exercise_repository.dart';
 import '../../domain/exercise/exercise.dart';
 import '../../shared/widgets/exercise_card.dart';
 import '../exercise_player/player_screen.dart';
+import '../home/home_actions.dart';
 
 class CatalogScreen extends ConsumerWidget {
   const CatalogScreen({required this.collectionId, super.key});
@@ -105,7 +106,7 @@ class SituationScreen extends ConsumerWidget {
     final bool showIds = ref.watch(settingsProvider).devShowIds;
 
     return Scaffold(
-      appBar: AppBar(title: Text(t(titleKey))),
+      appBar: AppBar(title: Text(t(titleKey)), actions: homeActions(context)),
       body: repository.when(
         loading: () => const Center(child: CircularProgressIndicator()),
         error: (Object error, StackTrace stack) =>
