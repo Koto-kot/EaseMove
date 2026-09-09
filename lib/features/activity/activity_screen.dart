@@ -9,7 +9,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../app/providers.dart';
 import '../../core/localization/app_strings.dart';
+import '../../data/content_bundle.dart';
 import '../../data/tracking_repository.dart';
+import '../../domain/exercise/exercise.dart';
 import '../../domain/exercise/session_machine.dart';
 
 class ActivityScreen extends ConsumerWidget {
@@ -20,6 +22,18 @@ class ActivityScreen extends ConsumerWidget {
     final AppStrings t = AppStrings.of(context);
     final ThemeData theme = Theme.of(context);
     final ActivityStats stats = ref.watch(activityStatsProvider);
+
+    // History stores exercise ids; titles come from the catalog. A retired or
+    // renamed exercise falls back to its id rather than vanishing.
+    final Map<String, String> titles = ref
+        .watch(contentBundleProvider)
+        .maybeWhen(
+          data: (ContentBundle bundle) => <String, String>{
+            for (final ExerciseSummary summary in bundle.exercises)
+              summary.id: summary.title,
+          },
+          orElse: () => const <String, String>{},
+        );
 
     return Scaffold(
       appBar: AppBar(title: Text(t('app.activity.title'))),
@@ -68,7 +82,7 @@ class ActivityScreen extends ConsumerWidget {
                       ? theme.colorScheme.primary
                       : theme.colorScheme.outline,
                 ),
-                title: Text(result.exerciseId),
+                title: Text(titles[result.exerciseId] ?? result.exerciseId),
                 subtitle: Text(
                   '${_formatDate(result.startedAt)} · '
                   '${result.actualActiveSeconds} ${t('app.catalog.duration_seconds')} · '

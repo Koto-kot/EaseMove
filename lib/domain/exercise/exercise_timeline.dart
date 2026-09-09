@@ -48,8 +48,13 @@ class TimelineStep {
     return value.clamp(0.0, 1.0);
   }
 
-  /// Frame to show at [elapsedMs]. A transition walks its frames evenly, which
-  /// gives the reduced-motion fallback for free: discrete key poses.
+  /// The step's single key pose — the frame a reduced-motion viewer sees for
+  /// the whole step, instead of the transition's frames swapping under them
+  /// (docs/VISUAL_STYLE_GUIDE.md 11, TECHNICAL_SPEC.md 18).
+  String? get keyFrameId =>
+      step.frameId ?? step.frameTransition?.to ?? step.frameTransition?.from;
+
+  /// Frame to show at [elapsedMs]. A transition walks its frames evenly.
   String? frameAt(int elapsedMs) {
     if (step.frameId != null) return step.frameId;
     final List<String> frames =

@@ -106,6 +106,19 @@ void main() {
     }
   });
 
+  test('every navigation entry point resolves to a collection', () {
+    // docs/MENU_AND_NAVIGATION.md: Тіло / За комп'ютером / У ліжку / Очі.
+    for (final String id in <String>[
+      'computer_break',
+      'bed_basic',
+      'eyes_basic',
+    ]) {
+      final ExerciseCollection? collection = bundle.collectionById(id);
+      expect(collection, isNotNull, reason: id);
+      expect(collection!.title, isNotEmpty, reason: id);
+    }
+  });
+
   group('clinical gate', () {
     test('production shows approved content only', () {
       final ClinicalGate gate = ClinicalGate(

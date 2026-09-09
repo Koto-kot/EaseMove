@@ -114,20 +114,30 @@ class SituationScreen extends ConsumerWidget {
           final List<ExerciseSummary> exercises = repo.byCollection(
             collectionId,
           );
+          final ExerciseCollection? collection = repo.bundle.collectionById(
+            collectionId,
+          );
           if (exercises.isEmpty) {
+            // A situation can ship before its content does (Очі today), so the
+            // collection still names itself rather than showing a bare notice.
             return Center(
               child: Padding(
                 padding: const EdgeInsets.all(32),
-                child: Text(
-                  t('app.catalog.empty'),
-                  textAlign: TextAlign.center,
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    if (collection != null)
+                      Text(
+                        collection.title,
+                        style: Theme.of(context).textTheme.titleLarge,
+                      ),
+                    const SizedBox(height: 8),
+                    Text(t('app.catalog.empty'), textAlign: TextAlign.center),
+                  ],
                 ),
               ),
             );
           }
-          final ExerciseCollection? collection = repo.bundle.collectionById(
-            collectionId,
-          );
           return ListView.separated(
             padding: const EdgeInsets.all(16),
             itemCount: exercises.length + 1,

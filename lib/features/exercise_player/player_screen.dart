@@ -8,6 +8,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../app/providers.dart';
 import '../../core/localization/app_strings.dart';
+import '../../core/storage/local_store.dart';
 import '../../domain/exercise/exercise.dart';
 import '../../domain/exercise/exercise_timeline.dart';
 import '../../domain/exercise/session_machine.dart';
@@ -47,7 +48,8 @@ class _PlayerScreenState extends ConsumerState<PlayerScreen> {
     final PlayerState state = ref.watch(playerControllerProvider(args));
     final PlayerController controller = _controller;
     final AppStrings t = AppStrings.of(context);
-    final bool showIds = ref.watch(settingsProvider).devShowIds;
+    final AppSettings settings = ref.watch(settingsProvider);
+    final bool showIds = settings.devShowIds;
 
     if (state.loading) {
       return const Scaffold(body: Center(child: CircularProgressIndicator()));
@@ -95,6 +97,7 @@ class _PlayerScreenState extends ConsumerState<PlayerScreen> {
             SessionState.exited => _ActiveView(
               state: state,
               controller: controller,
+              reducedMotion: settings.reducedMotion,
             ),
           },
         ),
@@ -205,10 +208,18 @@ class _SelectedView extends StatelessWidget {
 
 /// PREP_COUNTDOWN / ACTIVE / PAUSED.
 class _ActiveView extends StatelessWidget {
-  const _ActiveView({required this.state, required this.controller});
+  const _ActiveView({
+    required this.state,
+    required this.controller,
+    required this.reducedMotion,
+  });
 
   final PlayerState state;
   final PlayerController controller;
+
+  /// When on, each step shows one static key pose instead of walking through
+  /// the transition's frames.
+  final bool reducedMotion;
 
   @override
   Widget build(BuildContext context) {
@@ -220,7 +231,9 @@ class _ActiveView extends StatelessWidget {
     final bool counting = snapshot.isCountingDown;
 
     final String? frameId = counting
-        ? state.timeline?.first.step.frameId ?? state.timeline?.first.frameAt(0)
+        ? state.timeline?.first.keyFrameId
+        : reducedMotion
+        ? step?.keyFrameId
         : step?.frameAt(snapshot.elapsedMs);
     final ExerciseFrame? frame = frameId == null
         ? null

@@ -183,6 +183,13 @@
       "sort": "editorial"
     },
     {
+      "id": "eyes_basic",
+      "title": "Очі",
+      "type": "situation",
+      "primaryZone": null,
+      "sort": "editorial"
+    },
+    {
       "id": "bed_legs",
       "title": "Ноги у ліжку",
       "type": "situation",

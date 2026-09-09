@@ -106,6 +106,9 @@ flutter test test/vertical_slice_test.dart    # acceptance-флоу TECHNICAL_SP
   Якщо мова застосунку `en`, UI-рядки будуть англійськими, а назви вправ і зон —
   українськими. Це очікуваний fallback до authoring-локалі; переклад контенту —
   окремий крок за чеклістом `LOCALIZATION.md`.
-- Voice packs не записані — `AudioService` логує cue замість відтворення.
+- Voice packs не записані — голос іде через системний TTS (`flutter_tts`),
+  який озвучує `text_uk` з audio events. Записане аудіо замінить лише
+  `TtsAudioService`.
+- Фонової музики немає — у `music/` лише README, тому `playMusic` no-op.
 - Billing не підключений — paywall показує повідомлення-заглушку.
 - Нагадування: перемикач зберігається, планування нотифікацій не реалізоване.

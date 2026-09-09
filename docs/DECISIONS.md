@@ -65,3 +65,18 @@
     Навігація йде через `collections` і `hotspot.action.collection_id`.
     Build-крок попереджає про неспівпадіння id (напр. `left_knee` vs
     `left_knee_front`), але не падає.
+
+37. **Голос вправ — TTS до появи voice packs.** `TtsAudioService` озвучує
+    `text_uk` з audio events через `flutter_tts`. `LOCALIZATION.md` прямо
+    допускає «voice pack або TTS fallback». Записане аудіо потім замінює лише
+    цей клас: `AudioService` і `SessionAudioController` не змінюються.
+    Швидкість мовлення 0.45 — відповідає `voice_style_uk`
+    («спокійний, без поспіху»).
+38. **Музика лишається no-op**, доки в `music/` немає треків: TTS не може дати
+    фон, а тиша краще за помилку відтворення.
+39. **Reduced motion використовує `TimelineStep.keyFrameId`** — один статичний
+    кадр на крок замість проходу кадрів переходу
+    (`VISUAL_STYLE_GUIDE.md` 11, `TECHNICAL_SPEC.md` 18).
+40. **Situation-колекції навігації валідуються build-кроком.** `eyes_basic`
+    існував у навігації, але не в даних; тепер `NAVIGATION_COLLECTIONS`
+    у `build_content.py` не дає таб з'явитися без колекції.

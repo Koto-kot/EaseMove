@@ -31,6 +31,10 @@ collections:
   title_uk: У ліжку
   type: situation
   sort: editorial
+- id: eyes_basic
+  title_uk: Очі
+  type: situation
+  sort: editorial
 - id: bed_legs
   title_uk: Ноги у ліжку
   type: situation

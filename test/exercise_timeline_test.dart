@@ -76,6 +76,32 @@ void main() {
       expect(extend.frameAt(extend.endMs - 1), 'FRAME_LEFT_EXTENDED');
     });
 
+    test('reduced motion pins each step to one key pose', () {
+      final TimelineStep extend = timeline.steps[1];
+      expect(extend.step.frameTransition, isNotNull);
+
+      // Normal playback walks the transition...
+      expect(extend.frameAt(extend.startMs), 'FRAME_START');
+      expect(extend.frameAt(extend.endMs - 1), 'FRAME_LEFT_EXTENDED');
+
+      // ...while reduced motion shows the settled pose for the whole step.
+      expect(extend.keyFrameId, 'FRAME_LEFT_EXTENDED');
+
+      // A hold step has a single frame either way.
+      final TimelineStep hold = timeline.steps[2];
+      expect(hold.step.frameId, 'FRAME_LEFT_EXTENDED');
+      expect(hold.keyFrameId, 'FRAME_LEFT_EXTENDED');
+
+      // Every step must resolve to a real frame in this mode too.
+      for (final TimelineStep step in timeline.steps) {
+        expect(
+          exercise.frames.containsKey(step.keyFrameId),
+          isTrue,
+          reason: step.step.id,
+        );
+      }
+    });
+
     test('phase cues are scheduled at every phase start', () {
       final List<ScheduledCue> holds = timeline.cues
           .where((ScheduledCue cue) => cue.eventId == 'VOICE_HOLD')

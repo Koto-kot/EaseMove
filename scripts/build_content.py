@@ -24,6 +24,11 @@ OUT = ROOT / "assets" / "content"
 
 CLINICAL_STATUSES = {"draft", "pending_review", "approved", "retired"}
 
+# Situation entry points in the app's main navigation
+# (docs/MENU_AND_NAVIGATION.md). They must exist even while still unfilled,
+# otherwise a tab renders with no collection behind it.
+NAVIGATION_COLLECTIONS = ("computer_break", "bed_basic", "eyes_basic")
+
 
 def load_yaml(path: Path) -> Any:
     return yaml.safe_load(path.read_text(encoding="utf-8"))
@@ -410,6 +415,13 @@ def main() -> int:
         )
 
     known_collections = {c["id"] for c in collections["collections"]}
+    for nav_id in NAVIGATION_COLLECTIONS:
+        if nav_id not in known_collections:
+            errors.append(
+                "navigation collection {0} is missing from "
+                "data/collections/collections.yaml".format(nav_id)
+            )
+
     for summary in summaries:
         for collection_id in summary["collections"]:
             if collection_id not in known_collections:
