@@ -85,6 +85,31 @@ void main() {
     expect(find.text('Коліна'), findsNothing);
   });
 
+  testWidgets('a large system font does not break the home layout', (
+    WidgetTester tester,
+  ) async {
+    // Reported from a phone with the system font turned up: the title wrapped
+    // to two lines and every card subtitle ended in an ellipsis.
+    usePhoneScreen(tester);
+    tester.platformDispatcher.textScaleFactorTestValue = 1.3;
+    addTearDown(tester.platformDispatcher.clearTextScaleFactorTestValue);
+
+    await tester.pumpWidget(wrap());
+    await settle(tester);
+
+    // The title stays on one line, and the map keeps a usable height.
+    expect(
+      tester.getSize(find.text('Рухайся легше')).height,
+      lessThan(48),
+      reason: 'the title must not wrap at a large font size',
+    );
+    expect(tester.getSize(find.byType(BodyMapView)).height, greaterThan(250));
+    expect(
+      find.byKey(const ValueKey<String>('home.card.body')),
+      findsOneWidget,
+    );
+  });
+
   testWidgets('a desktop-width window keeps the phone layout', (
     WidgetTester tester,
   ) async {

@@ -17,6 +17,7 @@ class BodyMapView extends StatefulWidget {
     required this.config,
     required this.zoneTitles,
     required this.onZoneSelected,
+    this.hint,
     super.key,
   });
 
@@ -30,6 +31,11 @@ class BodyMapView extends StatefulWidget {
   /// Called after the pulse, not on touch-down: the zone lights up first, then
   /// navigation happens (brief 5.2).
   final HotspotTap onZoneSelected;
+
+  /// The line that tells the user the figure is tappable. It sits under the
+  /// back figure, in the column the front figure leaves empty, rather than in
+  /// the header where it cost the figure its height.
+  final String? hint;
 
   /// The back figure is secondary, so it renders at this share of the front
   /// figure's height. Its dots stay full size: they are the same touch
@@ -144,6 +150,23 @@ class _BodyMapViewState extends State<BodyMapView>
                       pulse: _pulse,
                       onSelected: _select,
                       framed: true,
+                    ),
+                  ),
+                ),
+              if (back != null && widget.hint != null)
+                Positioned(
+                  right: BodyMapView.panelPadding,
+                  top:
+                      constraints.maxHeight * BodyMapView.miniTopFraction +
+                      miniHeight +
+                      12,
+                  width: miniHeight * back.aspectRatio,
+                  child: Text(
+                    widget.hint!,
+                    textAlign: TextAlign.center,
+                    style: Theme.of(context).textTheme.labelMedium?.copyWith(
+                      color: Theme.of(context).colorScheme.onSurfaceVariant,
+                      height: 1.35,
                     ),
                   ),
                 ),

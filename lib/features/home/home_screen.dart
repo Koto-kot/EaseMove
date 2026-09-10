@@ -22,6 +22,7 @@ import '../exercise_catalog/catalog_screen.dart';
 import '../settings/settings_screen.dart';
 import 'widgets/body_map_view.dart';
 import 'widgets/home_section_card.dart';
+import 'widgets/shrink_to_fit.dart';
 import 'zones_screen.dart';
 
 /// The home screen's fixed sizes, public so a layout test can assert them.
@@ -145,7 +146,9 @@ class _HomeBody extends StatelessWidget {
                     children: <Widget>[
                       _Header(
                         title: t(home.titleKey),
-                        subtitle: t(home.subtitleKey),
+                        subtitle: home.showSubtitle
+                            ? t(home.subtitleKey)
+                            : null,
                         showMenu: home.menuButton,
                         showSettings: home.settingsButton,
                       ),
@@ -157,6 +160,7 @@ class _HomeBody extends StatelessWidget {
                         child: BodyMapView(
                           config: repo.bundle.bodyMap,
                           zoneTitles: zoneTitles,
+                          hint: home.hintKey == null ? null : t(home.hintKey!),
                           onZoneSelected: (BodyHotspot spot) =>
                               _openZone(context, spot.collectionId),
                         ),
@@ -209,7 +213,10 @@ class _Header extends StatelessWidget {
   });
 
   final String title;
-  final String subtitle;
+
+  /// Null when the config draws the explanatory line under the back figure
+  /// instead of in the header.
+  final String? subtitle;
   final bool showMenu;
   final bool showSettings;
 
@@ -231,24 +238,36 @@ class _Header extends StatelessWidget {
           const SizedBox(width: Tokens.touchTarget),
         Expanded(
           child: Padding(
-            padding: const EdgeInsets.only(top: 6),
+            padding: const EdgeInsets.only(top: 8),
             child: Column(
+              mainAxisSize: MainAxisSize.min,
               children: <Widget>[
-                Text(
-                  title,
-                  textAlign: TextAlign.center,
-                  style: theme.textTheme.headlineSmall?.copyWith(
-                    fontWeight: FontWeight.w700,
+                // One line that scales down rather than wrapping: at a large
+                // system font size the title alone took two lines and pushed
+                // the figure down the screen.
+                ShrinkToFit(
+                  child: Text(
+                    title,
+                    maxLines: 1,
+                    textAlign: TextAlign.center,
+                    style: theme.textTheme.titleLarge?.copyWith(
+                      fontWeight: FontWeight.w700,
+                    ),
                   ),
                 ),
-                const SizedBox(height: 2),
-                Text(
-                  subtitle,
-                  textAlign: TextAlign.center,
-                  style: theme.textTheme.bodyMedium?.copyWith(
-                    color: theme.colorScheme.onSurfaceVariant,
+                if (subtitle != null) ...<Widget>[
+                  const SizedBox(height: 2),
+                  ShrinkToFit(
+                    child: Text(
+                      subtitle!,
+                      maxLines: 2,
+                      textAlign: TextAlign.center,
+                      style: theme.textTheme.bodyMedium?.copyWith(
+                        color: theme.colorScheme.onSurfaceVariant,
+                      ),
+                    ),
                   ),
-                ),
+                ],
               ],
             ),
           ),

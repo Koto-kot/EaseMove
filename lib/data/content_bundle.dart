@@ -284,8 +284,10 @@ class HomeConfig {
   const HomeConfig({
     required this.menuButton,
     required this.settingsButton,
+    required this.showSubtitle,
     required this.titleKey,
     required this.subtitleKey,
+    required this.hintKey,
     required this.sections,
   });
 
@@ -295,8 +297,10 @@ class HomeConfig {
     return HomeConfig(
       menuButton: header['menuButton'] as bool? ?? true,
       settingsButton: header['settingsButton'] as bool? ?? true,
+      showSubtitle: header['showSubtitle'] as bool? ?? true,
       titleKey: header['titleKey'] as String,
       subtitleKey: header['subtitleKey'] as String,
+      hintKey: json['hintKey'] as String?,
       sections: <HomeSection>[
         for (final dynamic s in json['sections'] as List<dynamic>)
           HomeSection.fromJson((s as Map).cast<String, dynamic>()),
@@ -306,8 +310,16 @@ class HomeConfig {
 
   final bool menuButton;
   final bool settingsButton;
+
+  /// The header always reserves its block (brief 3.2); this says whether the
+  /// explanatory second line is drawn in it.
+  final bool showSubtitle;
   final String titleKey;
   final String subtitleKey;
+
+  /// Shown under the back figure rather than in the header, where the
+  /// right-hand column is otherwise empty.
+  final String? hintKey;
   final List<HomeSection> sections;
 }
 

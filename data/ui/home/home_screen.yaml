@@ -17,6 +17,11 @@ header:
   settings_button: true
   reserve_title_area: true
   reserve_subtitle_area: true
+  # The area stays reserved (brief 3.2) but the line is not drawn in it: at a
+  # large system font the title and subtitle together took a fifth of a phone
+  # screen. The same string is shown under the back figure instead, where the
+  # column is empty - see body_map.hint_key.
+  show_subtitle: false
   title_key: "app.home.title"
   subtitle_key: "app.home.subtitle"
 
@@ -26,6 +31,8 @@ body_map:
   hotspots: "data/ui/body_map/body_hotspots.yaml"
   front_alignment: "center"
   back_mini_alignment: "right"
+  # Sits under the back figure, in the empty right-hand column.
+  hint_key: "app.home.subtitle"
   paired_highlight: true
   pulse_duration_ms: 300
   persistent_body_labels: false

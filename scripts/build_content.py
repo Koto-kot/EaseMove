@@ -366,9 +366,11 @@ def compile_home(spec: dict) -> dict:
     header = spec["header"]
     sections = spec["sections"]
     return {
+        "hintKey": spec["body_map"].get("hint_key"),
         "header": {
             "menuButton": bool(header["menu_button"]),
             "settingsButton": bool(header["settings_button"]),
+            "showSubtitle": bool(header.get("show_subtitle", True)),
             "titleKey": header["title_key"],
             "subtitleKey": header["subtitle_key"],
         },
@@ -574,6 +576,8 @@ def main() -> int:
     # exists, or it ships as a dead tile titled with a key.
     authoring_strings = set(locale_packs[locale])
     home_keys = [home["header"]["title_key"], home["header"]["subtitle_key"]]
+    if home["body_map"].get("hint_key"):
+        home_keys.append(home["body_map"]["hint_key"])
     for item in home["sections"]["items"]:
         home_keys += [item["title_key"], item["subtitle_key"]]
         target = item["target"]

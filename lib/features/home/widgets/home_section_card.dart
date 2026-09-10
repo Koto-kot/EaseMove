@@ -10,6 +10,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../app/design_tokens.dart';
 import '../../../data/content_bundle.dart';
+import 'shrink_to_fit.dart';
 
 class HomeSectionCard extends StatelessWidget {
   const HomeSectionCard({
@@ -68,21 +69,23 @@ class HomeSectionCard extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       mainAxisSize: MainAxisSize.min,
                       children: <Widget>[
-                        Text(
-                          title,
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
-                          style: theme.textTheme.titleSmall?.copyWith(
-                            fontWeight: FontWeight.w700,
+                        ShrinkToFit(
+                          child: Text(
+                            title,
+                            maxLines: 1,
+                            style: theme.textTheme.titleSmall?.copyWith(
+                              fontWeight: FontWeight.w700,
+                            ),
                           ),
                         ),
                         Flexible(
-                          child: Text(
-                            subtitle,
-                            maxLines: 2,
-                            overflow: TextOverflow.ellipsis,
-                            style: theme.textTheme.labelSmall?.copyWith(
-                              color: scheme.onSurfaceVariant,
+                          child: ShrinkToFit(
+                            child: Text(
+                              subtitle,
+                              maxLines: 2,
+                              style: theme.textTheme.labelSmall?.copyWith(
+                                color: scheme.onSurfaceVariant,
+                              ),
                             ),
                           ),
                         ),
