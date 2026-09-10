@@ -31,8 +31,9 @@ class EaseMoveApp extends ConsumerWidget {
     return MaterialApp(
       title: 'EaseMove',
       debugShowCheckedModeBanner: false,
+      // No darkTheme, so the system setting cannot flip the screens that
+      // carry the artwork (docs/DECISIONS.md 51).
       theme: AppTheme.light(),
-      darkTheme: AppTheme.dark(),
       locale: Locale(locale),
       supportedLocales: supported,
       localizationsDelegates: _delegates,

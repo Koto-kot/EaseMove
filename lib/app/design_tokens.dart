@@ -88,9 +88,18 @@ abstract final class Tokens {
 
   // ---------------------------------------------------------------- body map
 
-  /// The artwork ships with this near-white background baked in, so the whole
-  /// home screen uses it: anything else would show a seam around the figure.
-  static const Color bodyMapPanel = Color(0xFFFBFCFE);
+  /// The artwork ships with this near-white background baked in, so every
+  /// light screen uses it: anything else would show a seam around the figure.
+  static const Color pageWhite = Color(0xFFFBFCFE);
+
+  /// Kept under the name the body map gave it first.
+  static const Color bodyMapPanel = pageWhite;
+
+  /// A card or a frame that has to read as slightly recessed from the page.
+  static const Color surfaceQuiet = Color(0xFFF1F4F9);
+
+  /// Borders and dividers on white.
+  static const Color hairline = Color(0xFFD9E1EE);
 
   /// Titles and card labels on the white home screen: the deep navy of the
   /// approved reference, not the theme's near-black.

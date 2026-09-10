@@ -17,45 +17,50 @@ abstract final class AppTheme {
 
   static const Color _seed = Color(0xFF3F7F76);
 
+  /// Every screen is light and does not follow the system's dark mode: the
+  /// body artwork carries a near-white background baked into the PNG, and the
+  /// approved reference puts every element - cards, text, icons - on that same
+  /// white (docs/ui/home/reference/HOME_SCREEN_REFERENCE.png). Under a dark
+  /// theme the figure sat on a bright slab.
   static ThemeData light() => _build(Brightness.light);
 
+  /// Applied to the two surfaces that stay dark on purpose: the menu drawer
+  /// and Settings. They are chrome rather than content - nothing in them sits
+  /// on the artwork's white.
   static ThemeData dark() => _build(Brightness.dark);
 
-  /// The approved home screen is white from edge to edge whatever the app
-  /// theme is: the body artwork carries a near-white background baked into
-  /// the PNG, and the reference puts every element of that screen — cards,
-  /// text, icons — on that same white
-  /// (docs/ui/home/reference/HOME_SCREEN_REFERENCE.png).
-  static ThemeData homeLight() {
-    final ThemeData base = light();
-    final ColorScheme scheme = base.colorScheme.copyWith(
-      surface: Tokens.bodyMapPanel,
-      surfaceContainerLow: Tokens.bodyMapPanel,
-      surfaceContainerHighest: Tokens.bodyMapPanel,
-      onSurface: Tokens.textStrong,
-      onSurfaceVariant: Tokens.textMuted,
-      outline: Tokens.textMuted,
-    );
-    return base.copyWith(
-      colorScheme: scheme,
-      scaffoldBackgroundColor: Tokens.bodyMapPanel,
-      canvasColor: Tokens.bodyMapPanel,
-      iconTheme: const IconThemeData(color: Tokens.hotspot),
-      drawerTheme: const DrawerThemeData(backgroundColor: Tokens.bodyMapPanel),
-    );
-  }
-
   static ThemeData _build(Brightness brightness) {
-    final ColorScheme scheme = ColorScheme.fromSeed(
+    final bool isLight = brightness == Brightness.light;
+    final ColorScheme seeded = ColorScheme.fromSeed(
       seedColor: _seed,
       brightness: brightness,
     );
+    // The seed keeps the product's own accent for actions; on light the
+    // surfaces and the ink come from the reference instead, so a screen is
+    // white with deep navy text rather than tinted with the seed.
+    final ColorScheme scheme = isLight
+        ? seeded.copyWith(
+            surface: Tokens.pageWhite,
+            surfaceContainerLow: Tokens.pageWhite,
+            surfaceContainerHighest: Tokens.surfaceQuiet,
+            onSurface: Tokens.textStrong,
+            onSurfaceVariant: Tokens.textMuted,
+            outline: Tokens.textMuted,
+            outlineVariant: Tokens.hairline,
+          )
+        : seeded;
     final ThemeData base = ThemeData(colorScheme: scheme, useMaterial3: true);
 
     return base.copyWith(
       scaffoldBackgroundColor: scheme.surface,
       visualDensity: VisualDensity.comfortable,
       materialTapTargetSize: MaterialTapTargetSize.padded,
+      iconTheme: isLight
+          ? const IconThemeData(color: Tokens.hotspot)
+          : base.iconTheme,
+      dividerTheme: isLight
+          ? const DividerThemeData(color: Tokens.hairline)
+          : base.dividerTheme,
       appBarTheme: AppBarTheme(
         centerTitle: false,
         backgroundColor: scheme.surface,

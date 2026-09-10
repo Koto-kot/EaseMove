@@ -53,19 +53,14 @@ class HomeScreen extends ConsumerWidget {
       exerciseRepositoryProvider,
     );
 
-    // Every element of this screen sits on one white ground, so the theme is
-    // overridden here rather than each widget colouring itself.
-    return Theme(
-      data: AppTheme.homeLight(),
-      child: Scaffold(
-        drawer: const _HomeDrawer(),
-        body: SafeArea(
-          child: repository.when(
-            loading: () => const Center(child: CircularProgressIndicator()),
-            error: (Object error, StackTrace stack) =>
-                Center(child: Text(t('app.common.error'))),
-            data: (ExerciseRepository repo) => _HomeBody(repo: repo),
-          ),
+    return Scaffold(
+      drawer: const _HomeDrawer(),
+      body: SafeArea(
+        child: repository.when(
+          loading: () => const Center(child: CircularProgressIndicator()),
+          error: (Object error, StackTrace stack) =>
+              Center(child: Text(t('app.common.error'))),
+          data: (ExerciseRepository repo) => _HomeBody(repo: repo),
         ),
       ),
     );
@@ -297,52 +292,59 @@ class _HomeDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AppStrings t = AppStrings.of(context);
-    final ThemeData theme = Theme.of(context);
+    final ThemeData theme = AppTheme.dark();
 
-    return Drawer(
-      child: SafeArea(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.fromLTRB(20, 24, 20, 12),
-              child: Text(t('app.name'), style: theme.textTheme.headlineSmall),
-            ),
-            ListTile(
-              leading: const Icon(Icons.insights_outlined),
-              title: Text(t('app.activity.title')),
-              onTap: () {
-                Navigator.of(context).pop();
-                Navigator.of(context).push(
-                  MaterialPageRoute<void>(
-                    builder: (BuildContext context) => const ActivityScreen(),
-                  ),
-                );
-              },
-            ),
-            ListTile(
-              leading: const Icon(Icons.settings_outlined),
-              title: Text(t('app.settings.title')),
-              onTap: () {
-                Navigator.of(context).pop();
-                Navigator.of(context).push(
-                  MaterialPageRoute<void>(
-                    builder: (BuildContext context) => const SettingsScreen(),
-                  ),
-                );
-              },
-            ),
-            const Spacer(),
-            Padding(
-              padding: const EdgeInsets.all(20),
-              child: Text(
-                t('app.disclaimer'),
-                style: theme.textTheme.labelSmall?.copyWith(
-                  color: theme.colorScheme.outline,
+    // The menu stays dark: it is chrome over the white screen, not content.
+    return Theme(
+      data: theme,
+      child: Drawer(
+        child: SafeArea(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.fromLTRB(20, 24, 20, 12),
+                child: Text(
+                  t('app.name'),
+                  style: theme.textTheme.headlineSmall,
                 ),
               ),
-            ),
-          ],
+              ListTile(
+                leading: const Icon(Icons.insights_outlined),
+                title: Text(t('app.activity.title')),
+                onTap: () {
+                  Navigator.of(context).pop();
+                  Navigator.of(context).push(
+                    MaterialPageRoute<void>(
+                      builder: (BuildContext context) => const ActivityScreen(),
+                    ),
+                  );
+                },
+              ),
+              ListTile(
+                leading: const Icon(Icons.settings_outlined),
+                title: Text(t('app.settings.title')),
+                onTap: () {
+                  Navigator.of(context).pop();
+                  Navigator.of(context).push(
+                    MaterialPageRoute<void>(
+                      builder: (BuildContext context) => const SettingsScreen(),
+                    ),
+                  );
+                },
+              ),
+              const Spacer(),
+              Padding(
+                padding: const EdgeInsets.all(20),
+                child: Text(
+                  t('app.disclaimer'),
+                  style: theme.textTheme.labelSmall?.copyWith(
+                    color: theme.colorScheme.outline,
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
