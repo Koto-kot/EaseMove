@@ -8,12 +8,10 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../app/providers.dart';
 import '../../core/localization/app_strings.dart';
-import '../../data/content_bundle.dart';
 import '../../data/exercise_repository.dart';
 import '../../domain/exercise/exercise.dart';
 import '../../shared/widgets/exercise_card.dart';
 import '../exercise_player/player_screen.dart';
-import '../home/home_actions.dart';
 
 class CatalogScreen extends ConsumerWidget {
   const CatalogScreen({required this.collectionId, super.key});
@@ -80,93 +78,6 @@ class CatalogScreen extends ConsumerWidget {
       MaterialPageRoute<void>(
         builder: (BuildContext context) =>
             PlayerScreen(exerciseId: summary.id, collectionId: collectionId),
-      ),
-    );
-  }
-}
-
-/// Situation entry points (`За комп'ютером`, `У ліжку`, `Очі`) are collections
-/// too, so they reuse the catalog with an empty state when unfilled.
-class SituationScreen extends ConsumerWidget {
-  const SituationScreen({
-    required this.collectionId,
-    required this.titleKey,
-    super.key,
-  });
-
-  final String collectionId;
-  final String titleKey;
-
-  @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final AppStrings t = AppStrings.of(context);
-    final AsyncValue<ExerciseRepository> repository = ref.watch(
-      exerciseRepositoryProvider,
-    );
-    final bool showIds = ref.watch(settingsProvider).devShowIds;
-
-    return Scaffold(
-      appBar: AppBar(title: Text(t(titleKey)), actions: homeActions(context)),
-      body: repository.when(
-        loading: () => const Center(child: CircularProgressIndicator()),
-        error: (Object error, StackTrace stack) =>
-            Center(child: Text(t('app.common.error'))),
-        data: (ExerciseRepository repo) {
-          final List<ExerciseSummary> exercises = repo.byCollection(
-            collectionId,
-          );
-          final ExerciseCollection? collection = repo.bundle.collectionById(
-            collectionId,
-          );
-          if (exercises.isEmpty) {
-            // A situation can ship before its content does (Очі today), so the
-            // collection still names itself rather than showing a bare notice.
-            return Center(
-              child: Padding(
-                padding: const EdgeInsets.all(32),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: <Widget>[
-                    if (collection != null)
-                      Text(
-                        collection.title,
-                        style: Theme.of(context).textTheme.titleLarge,
-                      ),
-                    const SizedBox(height: 8),
-                    Text(t('app.catalog.empty'), textAlign: TextAlign.center),
-                  ],
-                ),
-              ),
-            );
-          }
-          return ListView.separated(
-            padding: const EdgeInsets.all(16),
-            itemCount: exercises.length + 1,
-            separatorBuilder: (BuildContext context, int index) =>
-                const SizedBox(height: 16),
-            itemBuilder: (BuildContext context, int index) {
-              if (index == 0) {
-                return Text(
-                  collection?.title ?? '',
-                  style: Theme.of(context).textTheme.titleLarge,
-                );
-              }
-              final ExerciseSummary summary = exercises[index - 1];
-              return ExerciseCard(
-                summary: summary,
-                showId: showIds,
-                onStart: () => Navigator.of(context).push(
-                  MaterialPageRoute<void>(
-                    builder: (BuildContext context) => PlayerScreen(
-                      exerciseId: summary.id,
-                      collectionId: collectionId,
-                    ),
-                  ),
-                ),
-              );
-            },
-          );
-        },
       ),
     );
   }

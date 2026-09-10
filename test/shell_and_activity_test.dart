@@ -1,4 +1,4 @@
-/// Screens around the player: the situation tabs and the activity history.
+/// Screens around the player: the home cards and the activity history.
 library;
 
 import 'package:ease_move/app/app.dart';
@@ -40,63 +40,95 @@ void main() {
     }
   }
 
+  void usePhoneScreen(WidgetTester tester) {
+    tester.view
+      ..devicePixelRatio = 1.0
+      ..physicalSize = const Size(400, 900);
+    addTearDown(tester.view.reset);
+  }
+
+  Future<void> tapCard(WidgetTester tester, String id) async {
+    await tester.tap(find.byKey(ValueKey<String>('home.card.$id')));
+    await settle(tester);
+  }
+
+  /// Activity moved out of a floating action into the drawer, since the
+  /// approved home has no bottom navigation.
+  Future<void> openActivity(WidgetTester tester) async {
+    await tester.tap(find.byTooltip('Меню'));
+    await settle(tester);
+    await tester.tap(find.text('Моя активність'));
+    await settle(tester);
+  }
+
   setUp(() async {
     store = InMemoryLocalStore();
     await store.writeSettings(const AppSettings(localeOverride: 'uk'));
   });
 
-  testWidgets(
-    'a situation without content names itself instead of showing a bare notice',
-    (WidgetTester tester) async {
-      tester.view
-        ..devicePixelRatio = 1.0
-        ..physicalSize = const Size(400, 900);
-      addTearDown(tester.view.reset);
-
-      await tester.pumpWidget(wrap());
-      await settle(tester);
-
-      // Очі ships before its exercises do. The body map also offers it as a
-      // quick-start tile, so address the navigation bar explicitly.
-      await tester.tap(
-        find.descendant(
-          of: find.byType(NavigationBar),
-          matching: find.text('Очі'),
-        ),
-      );
-      await settle(tester);
-
-      expect(find.text('Для цієї зони ще немає вправ.'), findsOneWidget);
-      expect(
-        find.text('Очі'),
-        findsNWidgets(3),
-        reason: 'nav label, app bar title and the empty-state heading',
-      );
-    },
-  );
-
-  testWidgets('a situation with content lists its exercises', (
+  testWidgets('the approved home shows four cards and no bottom navigation', (
     WidgetTester tester,
   ) async {
-    tester.view
-      ..devicePixelRatio = 1.0
-      ..physicalSize = const Size(400, 900);
-    addTearDown(tester.view.reset);
-
+    usePhoneScreen(tester);
     await tester.pumpWidget(wrap());
     await settle(tester);
 
-    await tester.tap(
-      find.descendant(
-        of: find.byType(NavigationBar),
-        matching: find.text("За комп'ютером"),
-      ),
-    );
+    // docs/ui/home/HOME_SCREEN_LAYOUT_SPEC.md 4-6.
+    expect(find.byType(NavigationBar), findsNothing);
+    expect(find.text('Рухайся легше'), findsOneWidget);
+    for (final String id in <String>['body', 'eyes', 'morning', 'sitting']) {
+      expect(find.byKey(ValueKey<String>('home.card.$id')), findsOneWidget);
+    }
+    // No permanent zone labels around the figure (brief 4.1).
+    expect(find.text('Коліна'), findsNothing);
+  });
+
+  testWidgets('a card whose section is still empty opens its empty state', (
+    WidgetTester tester,
+  ) async {
+    usePhoneScreen(tester);
+    await tester.pumpWidget(wrap());
     await settle(tester);
 
-    // NECK_001 and KNEE_001 both belong to computer_break.
+    // Очі ships before its exercises do.
+    await tapCard(tester, 'eyes');
+
+    expect(find.text('Для цієї зони ще немає вправ.'), findsOneWidget);
+    expect(
+      find.text('Очі'),
+      findsNWidgets(2),
+      reason: 'the card behind it and the app bar title',
+    );
+  });
+
+  testWidgets('a card with content lists its exercises', (
+    WidgetTester tester,
+  ) async {
+    usePhoneScreen(tester);
+    await tester.pumpWidget(wrap());
+    await settle(tester);
+
+    // NECK_001, KNEE_001 and KNEE_002 all belong to after_sitting.
+    await tapCard(tester, 'sitting');
+
     expect(find.text('Повороти голови'), findsOneWidget);
     expect(find.text('Розгинання ноги сидячи'), findsOneWidget);
+  });
+
+  testWidgets('the Body card lists the zones that have exercises', (
+    WidgetTester tester,
+  ) async {
+    usePhoneScreen(tester);
+    await tester.pumpWidget(wrap());
+    await settle(tester);
+
+    await tapCard(tester, 'body');
+
+    expect(find.text('Оберіть зону'), findsOneWidget);
+    expect(find.text('Коліна'), findsOneWidget);
+    expect(find.text('Шия'), findsOneWidget);
+    // A zone with no exercises is not offered as a dead end here.
+    expect(find.text('Стопи'), findsNothing);
   });
 
   testWidgets('activity history shows exercise titles, not ids', (
@@ -117,11 +149,11 @@ void main() {
     );
     await store.incrementLifetimeCount();
 
+    usePhoneScreen(tester);
     await tester.pumpWidget(wrap());
     await settle(tester);
 
-    await tester.tap(find.byIcon(Icons.insights_outlined));
-    await settle(tester);
+    await openActivity(tester);
 
     expect(find.text('Встати — сісти зі стільця'), findsOneWidget);
     expect(find.text('KNEE_002'), findsNothing);
@@ -148,10 +180,10 @@ void main() {
       ),
     );
 
+    usePhoneScreen(tester);
     await tester.pumpWidget(wrap());
     await settle(tester);
-    await tester.tap(find.byIcon(Icons.insights_outlined));
-    await settle(tester);
+    await openActivity(tester);
 
     expect(find.text('RETIRED_001'), findsOneWidget);
     expect(find.textContaining('зупинено раніше'), findsOneWidget);

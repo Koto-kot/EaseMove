@@ -3,7 +3,6 @@
 
     python scripts/generate_frames.py --only KNEE_001              # plan only
     python scripts/generate_frames.py --only KNEE_001 --yes        # actually call
-    python scripts/generate_frames.py --body-map --yes
     python scripts/generate_frames.py --only KNEE_001 --frame FRAME_LEFT_MID --yes --force
 
 Nothing is sent to the API without `--yes`: the default run prints the exact
@@ -41,12 +40,7 @@ import time
 from pathlib import Path
 from typing import Any
 
-from asset_tools import (
-    BODY_MAP_DIR,
-    DATA,
-    ROOT,
-    load_yaml,
-)
+from asset_tools import DATA, ROOT, load_yaml
 from build_image_briefs import FORBIDDEN, profile, style_prompt, subject_prompt
 
 CANDIDATES = ROOT / "build" / "frame-candidates"
@@ -148,38 +142,6 @@ def master_prompt(ctx: dict[str, Any], frame_id: str, transparent: bool) -> str:
 
 def edit_prompt(ctx: dict[str, Any], frame_id: str, transparent: bool) -> str:
     parts = [SAME_SCENE, pose_text(ctx, frame_id), LATERALITY, FORBIDDEN]
-    if transparent:
-        parts.append(TRANSPARENT)
-    return "\n\n".join(parts)
-
-
-def body_map_prompt(view: str, transparent: bool) -> str:
-    style_profiles = load_yaml(DATA / "visual/style_profiles.yaml")
-    style = profile(style_profiles, "body_map_v1")
-    if view == "front":
-        pose = (
-            "A simplified, non-photorealistic full-body human figure, {0}, "
-            "standing straight and facing the viewer, arms relaxed and "
-            "slightly away from the body, feet together.".format(
-                style["style"].replace("_", " ")
-            )
-        )
-    else:
-        pose = (
-            "The same figure seen from directly behind: same scale, same "
-            "stance, same clothing, standing straight, arms relaxed and "
-            "slightly away from the body, feet together."
-        )
-    parts = [
-        pose,
-        "Neutral adult of ordinary build - not athletic, not an anatomical or "
-        "muscle chart, not a medical diagram. Soft, even, friendly rendering "
-        "suitable for older users. The figure is centred and fills the frame "
-        "vertically with a small even margin.",
-        "No text, no labels, no arrows, no highlighted or coloured zones, no "
-        "dots or markers on the body: the app draws its own interactive layer "
-        "on top.",
-    ]
     if transparent:
         parts.append(TRANSPARENT)
     return "\n\n".join(parts)
@@ -301,7 +263,7 @@ def run(args: argparse.Namespace) -> int:
     prompt_for: dict[Path, str] = {}
     all_jobs: list[dict[str, Any]] = []
 
-    if not args.body_map:
+    if True:
         for entry in index["exercises"]:
             path = DATA / "exercises" / entry["file"]
             ctx = exercise_context(path)
@@ -326,30 +288,6 @@ def run(args: argparse.Namespace) -> int:
                     else edit_prompt(ctx, job["frame_id"], transparent)
                 )
                 all_jobs.append(job)
-
-    if args.body_map:
-        # The app composites the figure over its own background, so a light
-        # backdrop would render as a pale slab in the dark theme: transparent
-        # by default here, unlike the illustrator-facing brief.
-        transparent = True if args.transparent is None else args.transparent
-        front = ROOT / BODY_MAP_DIR / "front.png"
-        for view in ("front", "back"):
-            target = ROOT / BODY_MAP_DIR / (view + ".png")
-            if target.exists() and not args.force:
-                continue
-            job = {
-                "kind": "master" if view == "front" else "edit",
-                "exercise": "body-map",
-                "frame_id": view,
-                "target": target,
-                # The back view is an edit of the front so both figures share
-                # a height and scale - one set of hotspots is scaled over both.
-                "reference": None if view == "front" else front,
-                "transparent": transparent,
-            }
-            size_for[target] = args.body_map_size
-            prompt_for[target] = body_map_prompt(view, transparent)
-            all_jobs.append(job)
 
     if not all_jobs:
         print("Nothing to do: every requested image already exists (--force to redo).")
@@ -446,8 +384,6 @@ def main() -> int:
         metavar="FRAME_ID",
         help="one frame; an edit still uses the exercise's master as reference",
     )
-    parser.add_argument("--body-map", action="store_true", help="the two figures")
-    parser.add_argument("--body-map-size", default="1024x1536")
     parser.add_argument(
         "--quality", default="high", choices=("low", "medium", "high", "auto")
     )

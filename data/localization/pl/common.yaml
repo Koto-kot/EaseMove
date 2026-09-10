@@ -1,0 +1,26 @@
+# Polish pack imported from docs/ui/home/l10n/app_pl.arb (the delivered
+# handoff). It covers the home screen and the body zones only; every other
+# key falls back to the English pack at runtime.
+strings:
+  app.home.title: Ruszaj się łatwiej
+  app.home.subtitle: Wybierz obszar ciała, aby znaleźć ćwiczenia
+  app.home.menu: Menu
+  app.home.card.body.title: Ciało
+  app.home.card.body.subtitle: Ćwiczenia dla całego ciała
+  app.home.card.eyes.title: Oczy
+  app.home.card.eyes.subtitle: Krótki odpoczynek dla oczu
+  app.home.card.morning.title: Rano
+  app.home.card.morning.subtitle: Łagodny początek dnia
+  app.home.card.sitting.title: Za długo siedzisz
+  app.home.card.sitting.subtitle: Krótka przerwa na ruch
+  body_zone.neck: Szyja
+  body_zone.shoulders: Barki
+  body_zone.upper_back: Górna część pleców
+  body_zone.elbows: Łokcie
+  body_zone.wrists_hands: Dłonie i nadgarstki
+  body_zone.lower_back: Dolna część pleców
+  body_zone.hips: Biodra i uda
+  body_zone.knees: Kolana
+  body_zone.calves: Podudzia
+  body_zone.ankles: Stawy skokowe
+  body_zone.feet: Stopy

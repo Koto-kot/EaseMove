@@ -1,0 +1,287 @@
+schema_version: "1.0"
+screen_id: "home_body_map"
+status: "tuned_against_artwork_v1"
+
+# Coordinates are normalized 0.0-1.0 against the artwork file, not against the
+# rendered box. The delivered draft was measured against the real figure with
+# scripts/tune_hotspots.py (it renders the overlay this file describes over the
+# PNG) and moved onto the anatomy: the neck dot sat on the mouth, the knee dots
+# on the upper shin, and the foot dots below the feet entirely.
+#
+# `content_rect` is where the figure actually sits inside the artwork: both
+# PNGs carry wide empty margins, so the app crops to this rect before scaling,
+# and the hotspots are compiled into that same space by
+# scripts/build_content.py. scripts/check_assets.py re-measures the PNG and
+# fails if a declared rect drifts from the artwork.
+
+artwork:
+  front:
+    path: "assets/ui/home/body/body_front.png"
+    view: "front"
+    width_px: 1086
+    height_px: 1448
+    content_rect: { left: 0.2726, top: 0.0304, right: 0.7155, bottom: 0.9302 }
+  back_mini:
+    path: "assets/ui/home/body/body_back_mini.png"
+    view: "back_mini"
+    width_px: 1086
+    height_px: 1448
+    content_rect: { left: 0.2808, top: 0.0297, right: 0.7182, bottom: 0.9233 }
+
+ui_rules:
+  persistent_text_labels: false
+  hotspot_visual_style: "small_button_with_halo"
+  paired_zone_highlight: true
+  highlight_behavior: "pulse_then_navigate"
+  pulse_duration_ms: 300
+  visible_core_diameter_px: 22
+  visible_halo_diameter_px: 52
+  minimum_touch_target_px: 56
+
+# Nineteen dots on one small figure means their touch targets overlap, so a tap
+# is resolved by the nearest centre within this radius rather than by
+# hit-testing rectangles: a tap between the knee and the calf would otherwise
+# go to whichever widget happened to be on top.
+tap_resolution:
+  mode: "nearest_centre"
+  max_distance_px: 44
+
+hotspots:
+  - id: "neck"
+    view: "front"
+    group: "neck"
+    collection: "body_neck"
+    zone: "neck"
+    highlight_targets: ["neck"]
+    shape: "oval"
+    cx: 0.497
+    cy: 0.190
+    w: 0.075
+    h: 0.045
+
+  - id: "left_shoulder"
+    view: "front"
+    group: "both_shoulders"
+    collection: "body_shoulders"
+    zone: "shoulders"
+    highlight_targets: ["left_shoulder", "right_shoulder"]
+    shape: "oval"
+    cx: 0.377
+    cy: 0.232
+    w: 0.075
+    h: 0.055
+
+  - id: "right_shoulder"
+    view: "front"
+    group: "both_shoulders"
+    collection: "body_shoulders"
+    zone: "shoulders"
+    highlight_targets: ["left_shoulder", "right_shoulder"]
+    shape: "oval"
+    cx: 0.617
+    cy: 0.232
+    w: 0.075
+    h: 0.055
+
+  - id: "left_elbow"
+    view: "front"
+    group: "both_elbows"
+    collection: "body_elbows"
+    zone: "elbows"
+    highlight_targets: ["left_elbow", "right_elbow"]
+    shape: "oval"
+    cx: 0.328
+    cy: 0.400
+    w: 0.065
+    h: 0.065
+
+  - id: "right_elbow"
+    view: "front"
+    group: "both_elbows"
+    collection: "body_elbows"
+    zone: "elbows"
+    highlight_targets: ["left_elbow", "right_elbow"]
+    shape: "oval"
+    cx: 0.660
+    cy: 0.400
+    w: 0.065
+    h: 0.065
+
+  - id: "left_wrist"
+    view: "front"
+    group: "both_wrists"
+    collection: "body_wrists_hands"
+    zone: "wrists_hands"
+    highlight_targets: ["left_wrist", "right_wrist"]
+    shape: "oval"
+    cx: 0.300
+    cy: 0.495
+    w: 0.070
+    h: 0.070
+
+  - id: "right_wrist"
+    view: "front"
+    group: "both_wrists"
+    collection: "body_wrists_hands"
+    zone: "wrists_hands"
+    highlight_targets: ["left_wrist", "right_wrist"]
+    shape: "oval"
+    cx: 0.700
+    cy: 0.495
+    w: 0.070
+    h: 0.070
+
+  - id: "left_hip"
+    view: "front"
+    group: "both_hips"
+    collection: "body_hips"
+    zone: "hips"
+    highlight_targets: ["left_hip", "right_hip"]
+    shape: "oval"
+    cx: 0.428
+    cy: 0.530
+    w: 0.085
+    h: 0.070
+
+  - id: "right_hip"
+    view: "front"
+    group: "both_hips"
+    collection: "body_hips"
+    zone: "hips"
+    highlight_targets: ["left_hip", "right_hip"]
+    shape: "oval"
+    cx: 0.568
+    cy: 0.530
+    w: 0.085
+    h: 0.070
+
+  - id: "left_knee"
+    view: "front"
+    group: "both_knees"
+    collection: "body_knees"
+    zone: "knees"
+    highlight_targets: ["left_knee", "right_knee"]
+    shape: "oval"
+    cx: 0.436
+    cy: 0.675
+    w: 0.080
+    h: 0.070
+
+  - id: "right_knee"
+    view: "front"
+    group: "both_knees"
+    collection: "body_knees"
+    zone: "knees"
+    highlight_targets: ["left_knee", "right_knee"]
+    shape: "oval"
+    cx: 0.552
+    cy: 0.675
+    w: 0.080
+    h: 0.070
+
+  - id: "left_shin"
+    view: "front"
+    group: "both_shins"
+    collection: "body_calves"
+    zone: "calves"
+    highlight_targets: ["left_shin", "right_shin"]
+    shape: "oval"
+    cx: 0.428
+    cy: 0.750
+    w: 0.075
+    h: 0.080
+
+  - id: "right_shin"
+    view: "front"
+    group: "both_shins"
+    collection: "body_calves"
+    zone: "calves"
+    highlight_targets: ["left_shin", "right_shin"]
+    shape: "oval"
+    cx: 0.558
+    cy: 0.750
+    w: 0.075
+    h: 0.080
+
+  - id: "left_ankle"
+    view: "front"
+    group: "both_ankles"
+    collection: "body_ankles"
+    zone: "ankles"
+    highlight_targets: ["left_ankle", "right_ankle"]
+    shape: "oval"
+    cx: 0.424
+    cy: 0.862
+    w: 0.065
+    h: 0.050
+
+  - id: "right_ankle"
+    view: "front"
+    group: "both_ankles"
+    collection: "body_ankles"
+    zone: "ankles"
+    highlight_targets: ["left_ankle", "right_ankle"]
+    shape: "oval"
+    cx: 0.559
+    cy: 0.862
+    w: 0.065
+    h: 0.050
+
+  - id: "left_foot"
+    view: "front"
+    group: "both_feet"
+    collection: "body_feet"
+    zone: "feet"
+    highlight_targets: ["left_foot", "right_foot"]
+    shape: "oval"
+    cx: 0.412
+    cy: 0.912
+    w: 0.090
+    h: 0.050
+
+  - id: "right_foot"
+    view: "front"
+    group: "both_feet"
+    collection: "body_feet"
+    zone: "feet"
+    highlight_targets: ["left_foot", "right_foot"]
+    shape: "oval"
+    cx: 0.576
+    cy: 0.912
+    w: 0.090
+    h: 0.050
+
+  - id: "upper_back"
+    view: "back_mini"
+    group: "upper_back"
+    collection: "body_upper_back"
+    zone: "upper_back"
+    highlight_targets: ["upper_back"]
+    shape: "oval"
+    cx: 0.500
+    cy: 0.295
+    w: 0.180
+    h: 0.120
+
+  - id: "lower_back"
+    view: "back_mini"
+    group: "lower_back"
+    collection: "body_lower_back"
+    zone: "lower_back"
+    highlight_targets: ["lower_back"]
+    shape: "oval"
+    cx: 0.500
+    cy: 0.405
+    w: 0.170
+    h: 0.100
+
+notes:
+  - "Coordinates are normalized 0.0-1.0 relative to each artwork asset."
+  - >-
+    left_/right_ in a hotspot id is the viewer's side, as delivered in the
+    pack, not the subject's own side. It carries no meaning at runtime: both
+    dots of a pair highlight together and open the same collection. Exercise
+    poses use the opposite convention (the subject's own side), so never map
+    one onto the other.
+  - "Artwork and hotspot overlays stay separate: nothing is baked into the PNG."
+  - "Re-render the overlay after any artwork change: python scripts/tune_hotspots.py"

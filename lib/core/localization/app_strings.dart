@@ -17,22 +17,34 @@ class AppStrings {
   final String locale;
   final Map<String, String> strings;
 
-  static const List<String> supportedLocales = <String>['uk', 'en'];
+  static const List<String> supportedLocales = <String>['uk', 'en', 'pl'];
   static const String fallbackLocale = 'en';
 
   static Future<AppStrings> load(String locale, {AssetBundle? bundle}) async {
     final AssetBundle assets = bundle ?? rootBundle;
-    Map<String, String> loaded;
+    // The fallback pack underneath, so a partially translated language shows
+    // English for what it is missing instead of raw keys. The Polish pack
+    // covers the home screen and the zone names only.
+    final Map<String, String> strings = <String, String>{
+      if (locale != fallbackLocale) ...await _read(assets, fallbackLocale),
+      ...await _read(assets, locale),
+    };
+    return AppStrings(locale: locale, strings: strings);
+  }
+
+  static Future<Map<String, String>> _read(
+    AssetBundle assets,
+    String locale,
+  ) async {
     try {
-      loaded = _decode(
+      return _decode(
         await assets.loadString('assets/content/localization/$locale.json'),
       );
     } on Object {
-      // A language pack may not be built yet; keys then render as keys rather
-      // than crashing the screen. Fallback English is handled by localeProvider.
-      loaded = <String, String>{};
+      // A pack may not be built yet; its keys then render as keys rather than
+      // crashing the screen.
+      return <String, String>{};
     }
-    return AppStrings(locale: locale, strings: loaded);
   }
 
   static Map<String, String> _decode(String raw) {

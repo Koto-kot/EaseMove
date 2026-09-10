@@ -57,6 +57,46 @@ abstract final class Tokens {
   static Color figureColor(ColorScheme scheme) =>
       scheme.onSurfaceVariant.withValues(alpha: 0.5);
 
+  // -------------------------------------------------------------- home cards
+
+  /// Card tints, named in data/ui/home/home_screen.yaml and resolved here:
+  /// the brief keeps exact colours out of the content and in the theme (7.2).
+  static const Map<String, Color> _tints = <String, Color>{
+    'blue_soft': Color(0xFF3B82F6),
+    'lavender_soft': Color(0xFF8B7BD8),
+    'yellow_soft': Color(0xFFF0B429),
+    'mint_soft': Color(0xFF2FA97C),
+  };
+
+  /// A wash of the tint over the card surface. Light and dark need different
+  /// strengths: the same alpha that reads as a pastel on white turns muddy on
+  /// a dark ground.
+  static Color cardTint(String name, ColorScheme scheme) {
+    final Color hue = _tints[name] ?? scheme.primary;
+    final bool dark = scheme.brightness == Brightness.dark;
+    return Color.alphaBlend(
+      hue.withValues(alpha: dark ? 0.16 : 0.10),
+      scheme.surfaceContainerLow,
+    );
+  }
+
+  static Color cardBorder(String name, ColorScheme scheme) {
+    final Color hue = _tints[name] ?? scheme.primary;
+    final bool dark = scheme.brightness == Brightness.dark;
+    return hue.withValues(alpha: dark ? 0.34 : 0.22);
+  }
+
+  // ---------------------------------------------------------------- body map
+
+  /// The artwork ships with a light background baked in, so the panel behind
+  /// it is that same near-white in both themes: tinting it to a dark surface
+  /// would turn the figure into a bright slab.
+  static const Color bodyMapPanel = Color(0xFFFBFCFE);
+
+  /// Hotspot blue, from the approved reference. Fixed rather than themed,
+  /// because it sits on the light artwork panel in both themes.
+  static const Color hotspot = Color(0xFF1F6FEB);
+
   // ------------------------------------------------------------------- glow
 
   /// Soft halo behind a hotspot marker.

@@ -82,36 +82,71 @@ void main() {
     }
   });
 
-  test('body map hotspots are normalized and route to a real collection', () {
-    expect(bundle.hotspots, isNotEmpty);
+  test('body map hotspots sit on the figure and route to a collection', () {
+    expect(bundle.bodyMap.hotspots, isNotEmpty);
     final Set<String> ids = <String>{
       for (final ExerciseCollection collection in bundle.collections)
         collection.id,
     };
-    for (final BodyHotspot spot in bundle.hotspots) {
-      expect(spot.left, inInclusiveRange(0, 1), reason: spot.id);
-      expect(spot.top, inInclusiveRange(0, 1), reason: spot.id);
-      expect(
-        spot.left + spot.width,
-        lessThanOrEqualTo(1.0001),
-        reason: spot.id,
-      );
-      expect(
-        spot.top + spot.height,
-        lessThanOrEqualTo(1.0001),
-        reason: spot.id,
-      );
-      expect(spot.view, anyOf('front', 'back'));
+    final Set<String> spotIds = <String>{
+      for (final BodyHotspot spot in bundle.bodyMap.hotspots) spot.id,
+    };
+    for (final BodyHotspot spot in bundle.bodyMap.hotspots) {
+      // Compiled into the cropped figure's space, so anything outside 0..1 is
+      // a dot the user could never reach.
+      expect(spot.cx, inInclusiveRange(0, 1), reason: spot.id);
+      expect(spot.cy, inInclusiveRange(0, 1), reason: spot.id);
+      expect(spot.view, anyOf('front', 'back_mini'), reason: spot.id);
+      expect(bundle.bodyMap.artwork, contains(spot.view), reason: spot.id);
       expect(ids, contains(spot.collectionId), reason: spot.id);
+      expect(bundle.zoneById(spot.zoneId), isNotNull, reason: spot.id);
+      expect(spot.highlightTargets, contains(spot.id), reason: spot.id);
+      for (final String target in spot.highlightTargets) {
+        expect(spotIds, contains(target), reason: spot.id);
+      }
+    }
+  });
+
+  test('paired zones highlight both sides and share one collection', () {
+    // docs/ui/home/HOME_SCREEN_REPOSITORY_BRIEF.md 5.3.
+    final Map<String, List<BodyHotspot>> byGroup =
+        <String, List<BodyHotspot>>{};
+    for (final BodyHotspot spot in bundle.bodyMap.hotspots) {
+      byGroup.putIfAbsent(spot.group, () => <BodyHotspot>[]).add(spot);
+    }
+    for (final MapEntry<String, List<BodyHotspot>> entry in byGroup.entries) {
+      final Set<String> collections = <String>{
+        for (final BodyHotspot spot in entry.value) spot.collectionId,
+      };
+      expect(collections, hasLength(1), reason: entry.key);
+      for (final BodyHotspot spot in entry.value) {
+        expect(spot.highlightTargets.toSet(), <String>{
+          for (final BodyHotspot s in entry.value) s.id,
+        }, reason: spot.id);
+      }
+    }
+  });
+
+  test('every home card points somewhere that exists', () {
+    final HomeConfig home = bundle.home;
+    expect(home.sections, hasLength(4));
+    expect(home.titleKey, isNotEmpty);
+    for (final HomeSection section in home.sections) {
+      if (section.opensZones) continue;
+      expect(
+        bundle.collectionById(section.targetCollectionId!),
+        isNotNull,
+        reason: section.id,
+      );
     }
   });
 
   test('every navigation entry point resolves to a collection', () {
-    // docs/MENU_AND_NAVIGATION.md: Тіло / За комп'ютером / У ліжку / Очі.
+    // The four home cards, per docs/ui/home/HOME_SCREEN_LAYOUT_SPEC.md.
     for (final String id in <String>[
-      'computer_break',
-      'bed_basic',
       'eyes_basic',
+      'morning_energy',
+      'after_sitting',
     ]) {
       final ExerciseCollection? collection = bundle.collectionById(id);
       expect(collection, isNotNull, reason: id);

@@ -21,9 +21,10 @@ import sys
 from pathlib import Path
 
 from asset_tools import (
-    BODY_MAP_DIR,
     BODY_MAP_MIN_HEIGHT,
-    BODY_MAP_VIEWS,
+    BODY_MAP_SPEC,
+    CONTENT_RECT_TOLERANCE,
+    HOME_SCREEN_SPEC,
     ExerciseAssets,
     PILLOW_HINT,
     ROOT,
@@ -32,6 +33,7 @@ from asset_tools import (
     has_pillow,
     is_bundled,
     load_library,
+    load_yaml,
     pubspec_asset_dirs,
     safe_area_overflow,
 )
@@ -197,25 +199,30 @@ def check_exercise(exercise: ExerciseAssets, declared: list[str], inspect: bool)
 
 
 def check_body_map(declared: list[str], inspect: bool) -> None:
-    print("\nBody map  [{0}]".format(BODY_MAP_DIR))
-    if not is_bundled(BODY_MAP_DIR + "/x.png", declared):
-        error(BODY_MAP_DIR + "/ is not listed under `flutter: assets:`")
+    """The home screen's two figures, and the content rect the hotspots use.
 
-    for view in BODY_MAP_VIEWS:
-        png = ROOT / BODY_MAP_DIR / (view + ".png")
-        svg = ROOT / BODY_MAP_DIR / (view + ".svg")
-        label = "body-map/{0}.png".format(view)
+    The hotspot coordinates are compiled against `content_rect`, so a redrawn
+    figure that shifts inside its canvas silently moves every dot. Re-measuring
+    the PNG here is what catches that.
+    """
+    spec_path = ROOT / BODY_MAP_SPEC
+    print("\nBody map  [{0}]".format(BODY_MAP_SPEC))
+    if not spec_path.exists():
+        error(BODY_MAP_SPEC + ": missing")
+        return
+    spec = load_yaml(spec_path)
 
-        if not png.exists():
-            if svg.exists():
-                warn(
-                    "{0}.svg exists but the app loads {1} - either export a PNG "
-                    "or add flutter_svg and change body_map_screen.dart".format(
-                        view, label
-                    )
-                )
-            else:
-                absent(label + " - not drawn yet")
+    for view, art in spec["artwork"].items():
+        asset = art["path"]
+        label = "{0} ({1})".format(Path(asset).name, view)
+        path = ROOT / asset
+        if not is_bundled(asset, declared):
+            error(
+                "{0} is not listed under `flutter: assets:` in pubspec.yaml - "
+                "it would never load".format(asset)
+            )
+        if not path.exists():
+            absent(label + " - not drawn yet")
             continue
         if not inspect:
             ok(label + " (present, not inspected)")
@@ -224,14 +231,21 @@ def check_body_map(declared: list[str], inspect: bool) -> None:
         from PIL import Image, UnidentifiedImageError  # noqa: PLC0415
 
         try:
-            with Image.open(png) as image:
+            with Image.open(path) as image:
                 image.load()
                 width, height = image.size
+                bbox = content_bbox(image)
         except (UnidentifiedImageError, OSError) as exc:
             error("{0}: cannot be decoded ({1})".format(label, exc))
             continue
 
         problems: list[str] = []
+        if (width, height) != (int(art["width_px"]), int(art["height_px"])):
+            problems.append(
+                "it is {0}x{1}, but the spec declares {2}x{3}".format(
+                    width, height, art["width_px"], art["height_px"]
+                )
+            )
         if height <= width:
             problems.append("it is not portrait ({0}x{1})".format(width, height))
         if height < BODY_MAP_MIN_HEIGHT:
@@ -241,23 +255,57 @@ def check_body_map(declared: list[str], inspect: bool) -> None:
                 )
             )
         if problems:
-            warn(label + ": " + "; ".join(problems))
-        else:
-            ok("{0} ({1}x{2})".format(label, width, height))
+            error(label + ": " + "; ".join(problems))
+            continue
 
-    # The figures share one set of normalized hotspots, so a mismatch in scale
-    # between them puts every back-view dot in the wrong place.
-    front = ROOT / BODY_MAP_DIR / "front.png"
-    back = ROOT / BODY_MAP_DIR / "back.png"
-    if inspect and front.exists() and back.exists():
-        from PIL import Image  # noqa: PLC0415
+        if bbox is None:
+            error(label + ": the image is blank")
+            continue
 
-        with Image.open(front) as a, Image.open(back) as b:
-            if a.size != b.size:
-                error(
-                    "front.png is {0}x{1} but back.png is {2}x{3} - the shared "
-                    "hotspot coordinates cannot fit both".format(*a.size, *b.size)
+        rect = art["content_rect"]
+        measured = {
+            "left": bbox[0] / width,
+            "top": bbox[1] / height,
+            "right": bbox[2] / width,
+            "bottom": bbox[3] / height,
+        }
+        drift = {
+            edge: abs(measured[edge] - float(rect[edge]))
+            for edge in ("left", "top", "right", "bottom")
+        }
+        worst = max(drift, key=lambda edge: drift[edge])
+        if drift[worst] > CONTENT_RECT_TOLERANCE:
+            error(
+                "{0}: content_rect.{1} says {2:.4f} but the figure measures "
+                "{3:.4f}. Re-measure with: python scripts/tune_hotspots.py".format(
+                    label, worst, float(rect[worst]), measured[worst]
                 )
+            )
+        else:
+            ok("{0} ({1}x{2}, content rect within {3:.4f})".format(
+                label, width, height, drift[worst]
+            ))
+
+    # Both figures share one set of normalized hotspots, so a difference in
+    # scale between them puts every back-view dot in the wrong place.
+    sizes = {
+        view: (int(art["width_px"]), int(art["height_px"]))
+        for view, art in spec["artwork"].items()
+    }
+    if len(set(sizes.values())) > 1:
+        error("the body figures differ in size: {0}".format(sizes))
+
+    # The four card icons are the other half of the home screen's assets.
+    home_path = ROOT / HOME_SCREEN_SPEC
+    if home_path.exists():
+        for item in load_yaml(home_path)["sections"]["items"]:
+            icon = item["icon"]
+            if not is_bundled(icon, declared):
+                error(icon + " is not listed under `flutter: assets:`")
+            if not (ROOT / icon).exists():
+                absent("{0} (card {1}) - missing".format(Path(icon).name, item["id"]))
+            else:
+                ok("{0} (card {1})".format(Path(icon).name, item["id"]))
 
 
 def main() -> int:

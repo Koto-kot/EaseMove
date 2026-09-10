@@ -29,13 +29,20 @@ DATA = ROOT / "data"
 
 LOCALE = "uk"
 
-# The two files lib/features/body_map/body_map_screen.dart loads by view name.
-BODY_MAP_VIEWS: tuple[str, ...] = ("front", "back")
-BODY_MAP_DIR = "assets/body-map"
+# The home screen's body artwork, declared in this file so the checker and
+# the app cannot drift apart.
+BODY_MAP_SPEC = "data/ui/body_map/body_hotspots.yaml"
 
 # docs/IMAGE_ASSET_SPEC.md 2: a raster body map should be portrait and at
 # least this tall; SVG is preferred once the style is settled.
 BODY_MAP_MIN_HEIGHT = 1200
+
+# How far a declared content_rect may sit from the measured one before it is
+# an error, as a fraction of the artwork. A couple of pixels is rounding; more
+# than that means the artwork changed and the hotspots moved with it.
+CONTENT_RECT_TOLERANCE = 0.004
+
+HOME_SCREEN_SPEC = "data/ui/home/home_screen.yaml"
 
 # docs/IMAGE_ASSET_SPEC.md 3: key body parts stay inside the central ~90%.
 SAFE_AREA = 0.90

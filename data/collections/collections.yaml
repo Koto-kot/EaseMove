@@ -35,6 +35,10 @@ collections:
   title_uk: Очі
   type: situation
   sort: editorial
+- id: morning_energy
+  title_uk: Ранок
+  type: situation
+  sort: editorial
 - id: bed_legs
   title_uk: Ноги у ліжку
   type: situation

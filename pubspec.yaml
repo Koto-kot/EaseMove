@@ -16,6 +16,7 @@ dependencies:
   flutter_riverpod: ^2.5.1
   flutter_tts: ^4.2.0
   intl: ^0.20.3
+  flutter_svg: ^2.0.10
   just_audio: ^0.9.40
   shared_preferences: ^2.3.2
 
@@ -35,7 +36,8 @@ flutter:
     - assets/content/index.json
     - assets/content/exercises/
     - assets/content/localization/
-    - assets/body-map/
+    - assets/ui/home/body/
+    - assets/ui/home/cards/
     - assets/icons/
     - assets/exercises/KNEE_001/
     - assets/exercises/KNEE_002/

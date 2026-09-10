@@ -11,24 +11,6 @@ Each block below is one image. Paste the prompt as-is, generate, and save the re
 
 See also `docs/IMAGE_ASSET_SPEC.md`, `docs/VISUAL_STYLE_GUIDE.md` and `docs/EXERCISE_IMAGE_QA.md`.
 
-## Body map — front and back
-
-- Save as `assets/body-map/front.png` and `assets/body-map/back.png` (SVG preferred per the `body_map_v1` profile; PNG is what the app loads today).
-- The figure must be centred, at the same scale and in the same pose in both views, because the app scales one shared set of normalized hotspots over it (docs/BODY_MAP_SPEC.md).
-- Aspect ratio around 1:2.4 (tall), figure standing straight, arms slightly away from the body so the hands read separately.
-
-```text
-A simplified, non-photorealistic full-body human figure, simplified neutral non athletic, standing straight and facing the viewer, arms relaxed and slightly away from the body, feet together.
-
-Neutral adult of ordinary build — not athletic, not an anatomical or muscle chart, not a medical diagram. Soft, even, friendly rendering suitable for older users. Plain light background.
-
-No text, no labels, no arrows, no highlighted or coloured zones, no dots or markers on the body: the app draws its own interactive layer on top.
-```
-
-The back view is the same figure seen from behind, same scale, same stance, same clothing.
-
-Zones the app overlays: 14 on the front, 8 on the back, across 11 body zones.
-
 ## NECK_001 — Повороти голови
 
 - Zone: `neck`

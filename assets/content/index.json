@@ -190,6 +190,13 @@
       "sort": "editorial"
     },
     {
+      "id": "morning_energy",
+      "title": "Ранок",
+      "type": "situation",
+      "primaryZone": null,
+      "sort": "editorial"
+    },
+    {
       "id": "bed_legs",
       "title": "Ноги у ліжку",
       "type": "situation",
@@ -350,380 +357,374 @@
     }
   ],
   "bodyMap": {
-    "coordinateSystem": "normalized_rect",
+    "artwork": {
+      "front": {
+        "asset": "assets/ui/home/body/body_front.png",
+        "widthPx": 1086,
+        "heightPx": 1448,
+        "content": {
+          "left": 0.2726,
+          "top": 0.0304,
+          "width": 0.4429,
+          "height": 0.8998
+        }
+      },
+      "back_mini": {
+        "asset": "assets/ui/home/body/body_back_mini.png",
+        "widthPx": 1086,
+        "heightPx": 1448,
+        "content": {
+          "left": 0.2808,
+          "top": 0.0297,
+          "width": 0.43739999999999996,
+          "height": 0.8936000000000001
+        }
+      }
+    },
     "hotspots": [
       {
-        "id": "neck_front",
+        "id": "neck",
+        "view": "front",
+        "group": "neck",
         "zoneId": "neck",
+        "collectionId": "body_neck",
+        "highlightTargets": [
+          "neck"
+        ],
+        "cx": 0.50666,
+        "cy": 0.17737,
+        "w": 0.16934,
+        "h": 0.05001
+      },
+      {
+        "id": "left_shoulder",
         "view": "front",
-        "labelKey": "body_zone.neck",
-        "priority": 100,
-        "rect": {
-          "x": 0.43,
-          "y": 0.1,
-          "width": 0.14,
-          "height": 0.08
-        },
-        "action": {
-          "type": "open_collection",
-          "collectionId": "body_neck"
-        }
-      },
-      {
-        "id": "neck_back",
-        "zoneId": "neck",
-        "view": "back",
-        "labelKey": "body_zone.neck",
-        "priority": 100,
-        "rect": {
-          "x": 0.43,
-          "y": 0.1,
-          "width": 0.14,
-          "height": 0.08
-        },
-        "action": {
-          "type": "open_collection",
-          "collectionId": "body_neck"
-        }
-      },
-      {
-        "id": "left_shoulder_front",
+        "group": "both_shoulders",
         "zoneId": "shoulders",
-        "view": "front",
-        "labelKey": "body_zone.shoulders",
-        "priority": 90,
-        "rect": {
-          "x": 0.28,
-          "y": 0.16,
-          "width": 0.2,
-          "height": 0.11
-        },
-        "action": {
-          "type": "open_collection",
-          "collectionId": "body_shoulders"
-        }
+        "collectionId": "body_shoulders",
+        "highlightTargets": [
+          "left_shoulder",
+          "right_shoulder"
+        ],
+        "cx": 0.23572,
+        "cy": 0.22405,
+        "w": 0.16934,
+        "h": 0.06112
       },
       {
-        "id": "right_shoulder_front",
-        "zoneId": "shoulders",
+        "id": "right_shoulder",
         "view": "front",
-        "labelKey": "body_zone.shoulders",
-        "priority": 90,
-        "rect": {
-          "x": 0.52,
-          "y": 0.16,
-          "width": 0.2,
-          "height": 0.11
-        },
-        "action": {
-          "type": "open_collection",
-          "collectionId": "body_shoulders"
-        }
+        "group": "both_shoulders",
+        "zoneId": "shoulders",
+        "collectionId": "body_shoulders",
+        "highlightTargets": [
+          "left_shoulder",
+          "right_shoulder"
+        ],
+        "cx": 0.7776,
+        "cy": 0.22405,
+        "w": 0.16934,
+        "h": 0.06112
+      },
+      {
+        "id": "left_elbow",
+        "view": "front",
+        "group": "both_elbows",
+        "zoneId": "elbows",
+        "collectionId": "body_elbows",
+        "highlightTargets": [
+          "left_elbow",
+          "right_elbow"
+        ],
+        "cx": 0.12508,
+        "cy": 0.41076,
+        "w": 0.14676,
+        "h": 0.07224
+      },
+      {
+        "id": "right_elbow",
+        "view": "front",
+        "group": "both_elbows",
+        "zoneId": "elbows",
+        "collectionId": "body_elbows",
+        "highlightTargets": [
+          "left_elbow",
+          "right_elbow"
+        ],
+        "cx": 0.87469,
+        "cy": 0.41076,
+        "w": 0.14676,
+        "h": 0.07224
+      },
+      {
+        "id": "left_wrist",
+        "view": "front",
+        "group": "both_wrists",
+        "zoneId": "wrists_hands",
+        "collectionId": "body_wrists_hands",
+        "highlightTargets": [
+          "left_wrist",
+          "right_wrist"
+        ],
+        "cx": 0.06186,
+        "cy": 0.51634,
+        "w": 0.15805,
+        "h": 0.0778
+      },
+      {
+        "id": "right_wrist",
+        "view": "front",
+        "group": "both_wrists",
+        "zoneId": "wrists_hands",
+        "collectionId": "body_wrists_hands",
+        "highlightTargets": [
+          "left_wrist",
+          "right_wrist"
+        ],
+        "cx": 0.965,
+        "cy": 0.51634,
+        "w": 0.15805,
+        "h": 0.0778
+      },
+      {
+        "id": "left_hip",
+        "view": "front",
+        "group": "both_hips",
+        "zoneId": "hips",
+        "collectionId": "body_hips",
+        "highlightTargets": [
+          "left_hip",
+          "right_hip"
+        ],
+        "cx": 0.35087,
+        "cy": 0.55523,
+        "w": 0.19192,
+        "h": 0.0778
+      },
+      {
+        "id": "right_hip",
+        "view": "front",
+        "group": "both_hips",
+        "zoneId": "hips",
+        "collectionId": "body_hips",
+        "highlightTargets": [
+          "left_hip",
+          "right_hip"
+        ],
+        "cx": 0.66697,
+        "cy": 0.55523,
+        "w": 0.19192,
+        "h": 0.0778
+      },
+      {
+        "id": "left_knee",
+        "view": "front",
+        "group": "both_knees",
+        "zoneId": "knees",
+        "collectionId": "body_knees",
+        "highlightTargets": [
+          "left_knee",
+          "right_knee"
+        ],
+        "cx": 0.36893,
+        "cy": 0.71638,
+        "w": 0.18063,
+        "h": 0.0778
+      },
+      {
+        "id": "right_knee",
+        "view": "front",
+        "group": "both_knees",
+        "zoneId": "knees",
+        "collectionId": "body_knees",
+        "highlightTargets": [
+          "left_knee",
+          "right_knee"
+        ],
+        "cx": 0.63084,
+        "cy": 0.71638,
+        "w": 0.18063,
+        "h": 0.0778
+      },
+      {
+        "id": "left_shin",
+        "view": "front",
+        "group": "both_shins",
+        "zoneId": "calves",
+        "collectionId": "body_calves",
+        "highlightTargets": [
+          "left_shin",
+          "right_shin"
+        ],
+        "cx": 0.35087,
+        "cy": 0.79973,
+        "w": 0.16934,
+        "h": 0.08891
+      },
+      {
+        "id": "right_shin",
+        "view": "front",
+        "group": "both_shins",
+        "zoneId": "calves",
+        "collectionId": "body_calves",
+        "highlightTargets": [
+          "left_shin",
+          "right_shin"
+        ],
+        "cx": 0.64439,
+        "cy": 0.79973,
+        "w": 0.16934,
+        "h": 0.08891
+      },
+      {
+        "id": "left_ankle",
+        "view": "front",
+        "group": "both_ankles",
+        "zoneId": "ankles",
+        "collectionId": "body_ankles",
+        "highlightTargets": [
+          "left_ankle",
+          "right_ankle"
+        ],
+        "cx": 0.34184,
+        "cy": 0.92421,
+        "w": 0.14676,
+        "h": 0.05557
+      },
+      {
+        "id": "right_ankle",
+        "view": "front",
+        "group": "both_ankles",
+        "zoneId": "ankles",
+        "collectionId": "body_ankles",
+        "highlightTargets": [
+          "left_ankle",
+          "right_ankle"
+        ],
+        "cx": 0.64665,
+        "cy": 0.92421,
+        "w": 0.14676,
+        "h": 0.05557
+      },
+      {
+        "id": "left_foot",
+        "view": "front",
+        "group": "both_feet",
+        "zoneId": "feet",
+        "collectionId": "body_feet",
+        "highlightTargets": [
+          "left_foot",
+          "right_foot"
+        ],
+        "cx": 0.31474,
+        "cy": 0.97977,
+        "w": 0.20321,
+        "h": 0.05557
+      },
+      {
+        "id": "right_foot",
+        "view": "front",
+        "group": "both_feet",
+        "zoneId": "feet",
+        "collectionId": "body_feet",
+        "highlightTargets": [
+          "left_foot",
+          "right_foot"
+        ],
+        "cx": 0.68503,
+        "cy": 0.97977,
+        "w": 0.20321,
+        "h": 0.05557
       },
       {
         "id": "upper_back",
+        "view": "back_mini",
+        "group": "upper_back",
         "zoneId": "upper_back",
-        "view": "back",
-        "labelKey": "body_zone.upper_back",
-        "priority": 80,
-        "rect": {
-          "x": 0.34,
-          "y": 0.2,
-          "width": 0.32,
-          "height": 0.18
-        },
-        "action": {
-          "type": "open_collection",
-          "collectionId": "body_upper_back"
-        }
-      },
-      {
-        "id": "left_elbow_front",
-        "zoneId": "elbows",
-        "view": "front",
-        "labelKey": "body_zone.elbows",
-        "priority": 70,
-        "rect": {
-          "x": 0.2,
-          "y": 0.36,
-          "width": 0.15,
-          "height": 0.12
-        },
-        "action": {
-          "type": "open_collection",
-          "collectionId": "body_elbows"
-        }
-      },
-      {
-        "id": "right_elbow_front",
-        "zoneId": "elbows",
-        "view": "front",
-        "labelKey": "body_zone.elbows",
-        "priority": 70,
-        "rect": {
-          "x": 0.65,
-          "y": 0.36,
-          "width": 0.15,
-          "height": 0.12
-        },
-        "action": {
-          "type": "open_collection",
-          "collectionId": "body_elbows"
-        }
-      },
-      {
-        "id": "left_wrist_hand_front",
-        "zoneId": "wrists_hands",
-        "view": "front",
-        "labelKey": "body_zone.wrists_hands",
-        "priority": 60,
-        "rect": {
-          "x": 0.12,
-          "y": 0.48,
-          "width": 0.18,
-          "height": 0.15
-        },
-        "action": {
-          "type": "open_collection",
-          "collectionId": "body_wrists_hands"
-        }
-      },
-      {
-        "id": "right_wrist_hand_front",
-        "zoneId": "wrists_hands",
-        "view": "front",
-        "labelKey": "body_zone.wrists_hands",
-        "priority": 60,
-        "rect": {
-          "x": 0.7,
-          "y": 0.48,
-          "width": 0.18,
-          "height": 0.15
-        },
-        "action": {
-          "type": "open_collection",
-          "collectionId": "body_wrists_hands"
-        }
+        "collectionId": "body_upper_back",
+        "highlightTargets": [
+          "upper_back"
+        ],
+        "cx": 0.50114,
+        "cy": 0.29689,
+        "w": 0.41152,
+        "h": 0.13429
       },
       {
         "id": "lower_back",
+        "view": "back_mini",
+        "group": "lower_back",
         "zoneId": "lower_back",
-        "view": "back",
-        "labelKey": "body_zone.lower_back",
-        "priority": 85,
-        "rect": {
-          "x": 0.35,
-          "y": 0.38,
-          "width": 0.3,
-          "height": 0.15
-        },
-        "action": {
-          "type": "open_collection",
-          "collectionId": "body_lower_back"
+        "collectionId": "body_lower_back",
+        "highlightTargets": [
+          "lower_back"
+        ],
+        "cx": 0.50114,
+        "cy": 0.41999,
+        "w": 0.38866,
+        "h": 0.11191
+      }
+    ],
+    "uiRules": {
+      "persistentLabels": false,
+      "pairedHighlight": true,
+      "pulseDurationMs": 300,
+      "coreDiameter": 22.0,
+      "haloDiameter": 52.0,
+      "minimumTouchTarget": 56.0,
+      "tapMaxDistance": 44.0
+    }
+  },
+  "home": {
+    "header": {
+      "menuButton": true,
+      "settingsButton": true,
+      "titleKey": "app.home.title",
+      "subtitleKey": "app.home.subtitle"
+    },
+    "sections": [
+      {
+        "id": "body",
+        "icon": "assets/ui/home/cards/icon_body.svg",
+        "titleKey": "app.home.card.body.title",
+        "subtitleKey": "app.home.card.body.subtitle",
+        "tint": "blue_soft",
+        "target": {
+          "type": "zones",
+          "collectionId": null
         }
       },
       {
-        "id": "hips_front",
-        "zoneId": "hips",
-        "view": "front",
-        "labelKey": "body_zone.hips",
-        "priority": 80,
-        "rect": {
-          "x": 0.34,
-          "y": 0.46,
-          "width": 0.32,
-          "height": 0.16
-        },
-        "action": {
-          "type": "open_collection",
-          "collectionId": "body_hips"
+        "id": "eyes",
+        "icon": "assets/ui/home/cards/icon_eyes.svg",
+        "titleKey": "app.home.card.eyes.title",
+        "subtitleKey": "app.home.card.eyes.subtitle",
+        "tint": "lavender_soft",
+        "target": {
+          "type": "collection",
+          "collectionId": "eyes_basic"
         }
       },
       {
-        "id": "hips_back",
-        "zoneId": "hips",
-        "view": "back",
-        "labelKey": "body_zone.hips",
-        "priority": 80,
-        "rect": {
-          "x": 0.34,
-          "y": 0.46,
-          "width": 0.32,
-          "height": 0.16
-        },
-        "action": {
-          "type": "open_collection",
-          "collectionId": "body_hips"
+        "id": "morning",
+        "icon": "assets/ui/home/cards/icon_morning.svg",
+        "titleKey": "app.home.card.morning.title",
+        "subtitleKey": "app.home.card.morning.subtitle",
+        "tint": "yellow_soft",
+        "target": {
+          "type": "collection",
+          "collectionId": "morning_energy"
         }
       },
       {
-        "id": "left_knee_front",
-        "zoneId": "knees",
-        "view": "front",
-        "labelKey": "body_zone.knees",
-        "priority": 100,
-        "rect": {
-          "x": 0.34,
-          "y": 0.67,
-          "width": 0.14,
-          "height": 0.12
-        },
-        "action": {
-          "type": "open_collection",
-          "collectionId": "body_knees"
-        }
-      },
-      {
-        "id": "right_knee_front",
-        "zoneId": "knees",
-        "view": "front",
-        "labelKey": "body_zone.knees",
-        "priority": 100,
-        "rect": {
-          "x": 0.52,
-          "y": 0.67,
-          "width": 0.14,
-          "height": 0.12
-        },
-        "action": {
-          "type": "open_collection",
-          "collectionId": "body_knees"
-        }
-      },
-      {
-        "id": "left_knee_back",
-        "zoneId": "knees",
-        "view": "back",
-        "labelKey": "body_zone.knees",
-        "priority": 100,
-        "rect": {
-          "x": 0.34,
-          "y": 0.67,
-          "width": 0.14,
-          "height": 0.12
-        },
-        "action": {
-          "type": "open_collection",
-          "collectionId": "body_knees"
-        }
-      },
-      {
-        "id": "right_knee_back",
-        "zoneId": "knees",
-        "view": "back",
-        "labelKey": "body_zone.knees",
-        "priority": 100,
-        "rect": {
-          "x": 0.52,
-          "y": 0.67,
-          "width": 0.14,
-          "height": 0.12
-        },
-        "action": {
-          "type": "open_collection",
-          "collectionId": "body_knees"
-        }
-      },
-      {
-        "id": "left_calf_back",
-        "zoneId": "calves",
-        "view": "back",
-        "labelKey": "body_zone.calves",
-        "priority": 70,
-        "rect": {
-          "x": 0.32,
-          "y": 0.76,
-          "width": 0.16,
-          "height": 0.14
-        },
-        "action": {
-          "type": "open_collection",
-          "collectionId": "body_calves"
-        }
-      },
-      {
-        "id": "right_calf_back",
-        "zoneId": "calves",
-        "view": "back",
-        "labelKey": "body_zone.calves",
-        "priority": 70,
-        "rect": {
-          "x": 0.52,
-          "y": 0.76,
-          "width": 0.16,
-          "height": 0.14
-        },
-        "action": {
-          "type": "open_collection",
-          "collectionId": "body_calves"
-        }
-      },
-      {
-        "id": "left_ankle_front",
-        "zoneId": "ankles",
-        "view": "front",
-        "labelKey": "body_zone.ankles",
-        "priority": 75,
-        "rect": {
-          "x": 0.33,
-          "y": 0.87,
-          "width": 0.15,
-          "height": 0.08
-        },
-        "action": {
-          "type": "open_collection",
-          "collectionId": "body_ankles"
-        }
-      },
-      {
-        "id": "right_ankle_front",
-        "zoneId": "ankles",
-        "view": "front",
-        "labelKey": "body_zone.ankles",
-        "priority": 75,
-        "rect": {
-          "x": 0.52,
-          "y": 0.87,
-          "width": 0.15,
-          "height": 0.08
-        },
-        "action": {
-          "type": "open_collection",
-          "collectionId": "body_ankles"
-        }
-      },
-      {
-        "id": "left_foot_front",
-        "zoneId": "feet",
-        "view": "front",
-        "labelKey": "body_zone.feet",
-        "priority": 80,
-        "rect": {
-          "x": 0.29,
-          "y": 0.92,
-          "width": 0.2,
-          "height": 0.08
-        },
-        "action": {
-          "type": "open_collection",
-          "collectionId": "body_feet"
-        }
-      },
-      {
-        "id": "right_foot_front",
-        "zoneId": "feet",
-        "view": "front",
-        "labelKey": "body_zone.feet",
-        "priority": 80,
-        "rect": {
-          "x": 0.51,
-          "y": 0.92,
-          "width": 0.2,
-          "height": 0.08
-        },
-        "action": {
-          "type": "open_collection",
-          "collectionId": "body_feet"
+        "id": "sitting",
+        "icon": "assets/ui/home/cards/icon_sitting.svg",
+        "titleKey": "app.home.card.sitting.title",
+        "subtitleKey": "app.home.card.sitting.subtitle",
+        "tint": "mint_soft",
+        "target": {
+          "type": "collection",
+          "collectionId": "after_sitting"
         }
       }
     ]

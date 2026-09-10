@@ -89,10 +89,13 @@ void main() {
     addTearDown(tester.view.reset);
   }
 
-  /// Knees are labelled on both the front and the back figure; either chip
-  /// opens the same collection.
+  /// The approved map shows halo dots with no permanent labels, so the knee
+  /// is reached by tapping its hotspot. Both knees are one paired zone: the
+  /// pair pulses first, then navigation happens, so the pulse has to be given
+  /// time to finish.
   Future<void> openKneeZone(WidgetTester tester) async {
-    await tester.tap(find.text('Коліна').first);
+    await tester.tap(find.byKey(const ValueKey<String>('hotspot.left_knee')));
+    await tester.pump(const Duration(milliseconds: 400));
     await settle(tester);
   }
 
@@ -109,10 +112,13 @@ void main() {
     await tester.pumpWidget(wrap(AppEnvironment.development));
     await settle(tester);
 
-    // --- Тіло: the body map asks its question and labels the zones.
-    expect(find.text('Тіло'), findsWidgets);
-    expect(find.text('Де турбує?'), findsOneWidget);
-    expect(find.text('Коліна'), findsWidgets);
+    // --- Home: the reserved title block, the map and the four cards.
+    expect(find.text('Рухайся легше'), findsOneWidget);
+    expect(find.text('Тіло'), findsOneWidget, reason: 'the Body card');
+    expect(
+      find.byKey(const ValueKey<String>('hotspot.left_knee')),
+      findsOneWidget,
+    );
 
     // --- Коліна: three large cards.
     await openKneeZone(tester);
@@ -241,12 +247,11 @@ void main() {
     await tester.pumpWidget(wrap(AppEnvironment.production));
     await settle(tester);
 
-    expect(find.text('Де турбує?'), findsOneWidget);
+    expect(find.text('Рухайся легше'), findsOneWidget);
 
-    // The map still labels every zone, but the gate lets nothing through:
-    // tapping a zone explains itself instead of opening an empty catalog.
-    await tester.tap(find.text('Коліна').first);
-    await settle(tester);
+    // The map still shows every zone, but the gate lets nothing through:
+    // tapping one explains itself instead of opening an empty catalog.
+    await openKneeZone(tester);
 
     expect(find.byType(ExerciseCard), findsNothing);
     expect(
@@ -291,6 +296,6 @@ void main() {
 
     await tester.tap(find.text('До тіла'));
     await settle(tester);
-    expect(find.text('Де турбує?'), findsOneWidget);
+    expect(find.text('Рухайся легше'), findsOneWidget);
   });
 }

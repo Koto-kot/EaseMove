@@ -27,7 +27,13 @@ CLINICAL_STATUSES = {"draft", "pending_review", "approved", "retired"}
 # Situation entry points in the app's main navigation
 # (docs/MENU_AND_NAVIGATION.md). They must exist even while still unfilled,
 # otherwise a tab renders with no collection behind it.
-NAVIGATION_COLLECTIONS = ("computer_break", "bed_basic", "eyes_basic")
+NAVIGATION_COLLECTIONS = (
+    "computer_break",
+    "bed_basic",
+    "eyes_basic",
+    "morning_energy",
+    "after_sitting",
+)
 
 
 def load_yaml(path: Path) -> Any:
@@ -298,6 +304,91 @@ def compile_labels(ui, locale: str) -> dict:
     return resolved
 
 
+def compile_body_map(spec: dict) -> dict:
+    """The home screen's body map, in the space the app actually draws in.
+
+    Authoring coordinates are normalized against the artwork file, which
+    carries wide empty margins; the app crops each PNG to its `content_rect`
+    and scales that, so the hotspots are converted into content space here.
+    Doing it at build time keeps the widget free of coordinate arithmetic.
+    """
+    artwork = {}
+    for view, art in spec["artwork"].items():
+        rect = art["content_rect"]
+        artwork[view] = {
+            "asset": art["path"],
+            "widthPx": int(art["width_px"]),
+            "heightPx": int(art["height_px"]),
+            "content": {
+                "left": float(rect["left"]),
+                "top": float(rect["top"]),
+                "width": float(rect["right"]) - float(rect["left"]),
+                "height": float(rect["bottom"]) - float(rect["top"]),
+            },
+        }
+
+    hotspots = []
+    for spot in spec["hotspots"]:
+        content = artwork[spot["view"]]["content"]
+        hotspots.append(
+            {
+                "id": spot["id"],
+                "view": spot["view"],
+                "group": spot["group"],
+                "zoneId": spot["zone"],
+                "collectionId": spot["collection"],
+                "highlightTargets": list(spot["highlight_targets"]),
+                "cx": round((float(spot["cx"]) - content["left"]) / content["width"], 5),
+                "cy": round((float(spot["cy"]) - content["top"]) / content["height"], 5),
+                "w": round(float(spot["w"]) / content["width"], 5),
+                "h": round(float(spot["h"]) / content["height"], 5),
+            }
+        )
+
+    rules = spec["ui_rules"]
+    tap = spec.get("tap_resolution", {})
+    return {
+        "artwork": artwork,
+        "hotspots": hotspots,
+        "uiRules": {
+            "persistentLabels": bool(rules["persistent_text_labels"]),
+            "pairedHighlight": bool(rules["paired_zone_highlight"]),
+            "pulseDurationMs": int(rules["pulse_duration_ms"]),
+            "coreDiameter": float(rules["visible_core_diameter_px"]),
+            "haloDiameter": float(rules["visible_halo_diameter_px"]),
+            "minimumTouchTarget": float(rules["minimum_touch_target_px"]),
+            "tapMaxDistance": float(tap.get("max_distance_px", 44)),
+        },
+    }
+
+
+def compile_home(spec: dict) -> dict:
+    header = spec["header"]
+    sections = spec["sections"]
+    return {
+        "header": {
+            "menuButton": bool(header["menu_button"]),
+            "settingsButton": bool(header["settings_button"]),
+            "titleKey": header["title_key"],
+            "subtitleKey": header["subtitle_key"],
+        },
+        "sections": [
+            {
+                "id": item["id"],
+                "icon": item["icon"],
+                "titleKey": item["title_key"],
+                "subtitleKey": item["subtitle_key"],
+                "tint": item.get("tint", ""),
+                "target": {
+                    "type": item["target"]["type"],
+                    "collectionId": item["target"].get("collection"),
+                },
+            }
+            for item in sections["items"]
+        ],
+    }
+
+
 def compile_repetition_model(model, sequence: dict) -> dict:
     blocks = sequence["blocks"]
     if not model:
@@ -355,7 +446,9 @@ def main() -> int:
     index = load_yaml(DATA / "exercises/index.yaml")
     collections = load_yaml(DATA / "collections/collections.yaml")
     zones = load_yaml(DATA / "categories/body_zones.yaml")
-    hotspots = load_yaml(DATA / "categories/body_hotspots.yaml")
+    # The home screen's canonical hotspot file (docs/ui/home/...BRIEF.md 5).
+    hotspots = load_yaml(DATA / "ui/body_map/body_hotspots.yaml")
+    home = load_yaml(DATA / "ui/home/home_screen.yaml")
     locale_packs = {}
     for pack in sorted((DATA / "localization").glob("*/common.yaml")):
         locale_packs[pack.parent.name] = load_yaml(pack)["strings"]
@@ -444,12 +537,64 @@ def main() -> int:
                     )
                 )
 
+    known_spot_ids = {s["id"] for s in hotspots["hotspots"]}
     for spot in hotspots["hotspots"]:
-        if spot["zone_id"] not in known_zones:
-            errors.append("hotspot {0}: unknown zone {1}".format(spot["id"], spot["zone_id"]))
-        target = (spot.get("action") or {}).get("collection_id")
-        if target and target not in known_collections:
-            errors.append("hotspot {0}: unknown collection {1}".format(spot["id"], target))
+        if spot["zone"] not in known_zones:
+            errors.append("hotspot {0}: unknown zone {1}".format(spot["id"], spot["zone"]))
+        if spot["collection"] not in known_collections:
+            errors.append(
+                "hotspot {0}: unknown collection {1}".format(spot["id"], spot["collection"])
+            )
+        for target in spot["highlight_targets"]:
+            if target not in known_spot_ids:
+                errors.append(
+                    "hotspot {0}: highlights unknown hotspot {1}".format(spot["id"], target)
+                )
+        if spot["view"] not in hotspots["artwork"]:
+            errors.append("hotspot {0}: unknown view {1}".format(spot["id"], spot["view"]))
+            continue
+
+        # A dot off the figure is unreachable, and these coordinates are hand
+        # tuned, so the build checks they still land on the artwork.
+        rect = hotspots["artwork"][spot["view"]]["content_rect"]
+        if not rect["left"] <= spot["cx"] <= rect["right"]:
+            errors.append(
+                "hotspot {0}: cx {1} is outside the figure".format(spot["id"], spot["cx"])
+            )
+        if not rect["top"] <= spot["cy"] <= rect["bottom"]:
+            errors.append(
+                "hotspot {0}: cy {1} is outside the figure".format(spot["id"], spot["cy"])
+            )
+
+    for view, art in hotspots["artwork"].items():
+        if not (ROOT / art["path"]).exists():
+            errors.append("body map {0}: missing artwork {1}".format(view, art["path"]))
+
+    # Home screen: every card must point somewhere real and name a string that
+    # exists, or it ships as a dead tile titled with a key.
+    authoring_strings = set(locale_packs[locale])
+    home_keys = [home["header"]["title_key"], home["header"]["subtitle_key"]]
+    for item in home["sections"]["items"]:
+        home_keys += [item["title_key"], item["subtitle_key"]]
+        target = item["target"]
+        if target["type"] == "collection":
+            if target.get("collection") not in known_collections:
+                errors.append(
+                    "home card {0}: unknown collection {1}".format(
+                        item["id"], target.get("collection")
+                    )
+                )
+        elif target["type"] != "zones":
+            errors.append(
+                "home card {0}: unknown target type {1}".format(item["id"], target["type"])
+            )
+        if not (ROOT / item["icon"]).exists():
+            errors.append("home card {0}: missing icon {1}".format(item["id"], item["icon"]))
+    for key in home_keys:
+        if key not in authoring_strings:
+            errors.append(
+                "home screen: string {0} is missing from the {1} pack".format(key, locale)
+            )
 
     if errors:
         print("CONTENT BUILD FAILED")
@@ -491,29 +636,8 @@ def main() -> int:
                 }
                 for z in zones["zones"]
             ],
-            "bodyMap": {
-                "coordinateSystem": hotspots["coordinate_system"]["type"],
-                "hotspots": [
-                    {
-                        "id": s["id"],
-                        "zoneId": s["zone_id"],
-                        "view": s["view"],
-                        "labelKey": s["label_key"],
-                        "priority": int(s.get("priority", 0)),
-                        "rect": {
-                            "x": float(s["rect"]["x"]),
-                            "y": float(s["rect"]["y"]),
-                            "width": float(s["rect"]["width"]),
-                            "height": float(s["rect"]["height"]),
-                        },
-                        "action": {
-                            "type": s["action"]["type"],
-                            "collectionId": s["action"].get("collection_id"),
-                        },
-                    }
-                    for s in hotspots["hotspots"]
-                ],
-            },
+            "bodyMap": compile_body_map(hotspots),
+            "home": compile_home(home),
         },
     )
     authoring_keys = set(locale_packs[locale])
@@ -532,6 +656,7 @@ def main() -> int:
     print("- collections: {0}".format(len(collections["collections"])))
     print("- zones: {0}".format(len(zones["zones"])))
     print("- hotspots: {0}".format(len(hotspots["hotspots"])))
+    print("- home cards: {0}".format(len(home["sections"]["items"])))
     for pack_locale, strings in sorted(locale_packs.items()):
         print("- {0} common strings: {1}".format(pack_locale, len(strings)))
     return 0

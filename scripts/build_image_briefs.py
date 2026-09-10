@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Generate paste-ready image prompts from the exercise library.
 
-Reads data/exercises/**.yaml, data/visual/*.yaml and docs/BODY_MAP_SPEC.md's
-data, and writes docs/generated/IMAGE_BRIEFS.md — one brief per frame, with the
+Reads data/exercises/**.yaml and data/visual/*.yaml and writes
+docs/generated/IMAGE_BRIEFS.md — one brief per frame, with the
 exact filename the app expects and the QA checks that frame must pass.
 
 Regenerate after any change to a pose, camera or frame list:
@@ -178,67 +178,10 @@ def render_exercise(path: Path, briefs: dict, subject_profiles: dict, style_prof
     return "\n".join(lines)
 
 
-def render_body_map(style_profiles: dict, zones: dict, hotspots: dict) -> str:
-    style = profile(style_profiles, "body_map_v1")
-    lines: list[str] = []
-    lines.append("## Body map — front and back")
-    lines.append("")
-    lines.append(
-        "- Save as `assets/body-map/front.png` and `assets/body-map/back.png` "
-        "(SVG preferred per the `body_map_v1` profile; PNG is what the app "
-        "loads today)."
-    )
-    lines.append(
-        "- The figure must be centred, at the same scale and in the same pose "
-        "in both views, because the app scales one shared set of normalized "
-        "hotspots over it (docs/BODY_MAP_SPEC.md)."
-    )
-    lines.append(
-        "- Aspect ratio around 1:2.4 (tall), figure standing straight, arms "
-        "slightly away from the body so the hands read separately."
-    )
-    lines.append("")
-    lines.append("```text")
-    lines.append(
-        "A simplified, non-photorealistic full-body human figure, {0}, "
-        "standing straight and facing the viewer, arms relaxed and slightly "
-        "away from the body, feet together.".format(humanize(style["style"]))
-    )
-    lines.append("")
-    lines.append(
-        "Neutral adult of ordinary build — not athletic, not an anatomical or "
-        "muscle chart, not a medical diagram. Soft, even, friendly rendering "
-        "suitable for older users. Plain light background."
-    )
-    lines.append("")
-    lines.append(
-        "No text, no labels, no arrows, no highlighted or coloured zones, no "
-        "dots or markers on the body: the app draws its own interactive layer "
-        "on top."
-    )
-    lines.append("```")
-    lines.append("")
-    lines.append(
-        "The back view is the same figure seen from behind, same scale, same "
-        "stance, same clothing."
-    )
-    lines.append("")
-    front = [h for h in hotspots["hotspots"] if h["view"] == "front"]
-    back = [h for h in hotspots["hotspots"] if h["view"] == "back"]
-    lines.append(
-        "Zones the app overlays: {0} on the front, {1} on the back, "
-        "across {2} body zones.".format(len(front), len(back), len(zones["zones"]))
-    )
-    lines.append("")
-    return "\n".join(lines)
-
-
 def main() -> int:
     subject_profiles = load(DATA / "visual/subject_profiles.yaml")
     style_profiles = load(DATA / "visual/style_profiles.yaml")
     briefs = load(DATA / "visual/frame_briefs_en.yaml")
-    zones = load(DATA / "categories/body_zones.yaml")
-    hotspots = load(DATA / "categories/body_hotspots.yaml")
     index = load(DATA / "exercises/index.yaml")
 
     sections: list[str] = []
@@ -274,7 +217,6 @@ def main() -> int:
     sections.append("See also `docs/IMAGE_ASSET_SPEC.md`, `docs/VISUAL_STYLE_GUIDE.md` "
                     "and `docs/EXERCISE_IMAGE_QA.md`.")
     sections.append("")
-    sections.append(render_body_map(style_profiles, zones, hotspots))
 
     for entry in index["exercises"]:
         path = DATA / "exercises" / entry["file"]
@@ -287,7 +229,6 @@ def main() -> int:
     print("OK: {0}".format(OUT.relative_to(ROOT)))
     print("- exercises: {0}".format(len(index["exercises"])))
     print("- exercise frames: {0}".format(frames))
-    print("- body map views: 2")
     return 0
 
 

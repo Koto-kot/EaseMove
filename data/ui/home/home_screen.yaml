@@ -1,0 +1,84 @@
+schema_version: "1.0"
+
+# Compiled into assets/content/index.json by scripts/build_content.py; the app
+# never reads this file at runtime (docs/TECHNICAL_SPEC.md 22).
+#
+# Localization keys follow the app's own scheme (app.*) rather than the ARB
+# names in the delivered pack: strings live in data/localization/<locale>/
+# common.yaml and the build fails if a key named here is missing from the
+# authoring pack.
+
+screen:
+  id: "home"
+  status: "approved_layout_v1"
+
+header:
+  menu_button: true
+  settings_button: true
+  reserve_title_area: true
+  reserve_subtitle_area: true
+  title_key: "app.home.title"
+  subtitle_key: "app.home.subtitle"
+
+body_map:
+  front_asset: "assets/ui/home/body/body_front.png"
+  back_asset: "assets/ui/home/body/body_back_mini.png"
+  hotspots: "data/ui/body_map/body_hotspots.yaml"
+  front_alignment: "center"
+  back_mini_alignment: "right"
+  paired_highlight: true
+  pulse_duration_ms: 300
+  persistent_body_labels: false
+
+sections:
+  layout: "grid_2x2"
+
+  # `target` is what the card opens. It lives here, in the data, so that
+  # scripts/build_content.py can check the collection exists — a card that
+  # navigates nowhere is the kind of thing that only shows up in production.
+  items:
+    - id: "body"
+      icon: "assets/ui/home/cards/icon_body.svg"
+      title_key: "app.home.card.body.title"
+      subtitle_key: "app.home.card.body.subtitle"
+      route: "body"
+      tint: "blue_soft"
+      target:
+        type: "zones"
+
+    - id: "eyes"
+      icon: "assets/ui/home/cards/icon_eyes.svg"
+      title_key: "app.home.card.eyes.title"
+      subtitle_key: "app.home.card.eyes.subtitle"
+      route: "eyes"
+      tint: "lavender_soft"
+      target:
+        type: "collection"
+        collection: "eyes_basic"
+
+    - id: "morning"
+      icon: "assets/ui/home/cards/icon_morning.svg"
+      title_key: "app.home.card.morning.title"
+      subtitle_key: "app.home.card.morning.subtitle"
+      route: "morning"
+      tint: "yellow_soft"
+      target:
+        type: "collection"
+        collection: "morning_energy"
+
+    - id: "sitting"
+      icon: "assets/ui/home/cards/icon_sitting.svg"
+      title_key: "app.home.card.sitting.title"
+      subtitle_key: "app.home.card.sitting.subtitle"
+      route: "sitting"
+      tint: "mint_soft"
+      target:
+        type: "collection"
+        collection: "after_sitting"
+
+excluded_from_mvp:
+  - "relax"
+  - "bottom_navigation"
+  - "my_cycles"
+  - "history"
+  - "motivational_bottom_slogan"

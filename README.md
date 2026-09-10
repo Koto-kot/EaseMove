@@ -16,24 +16,31 @@ Flutter/Dart є зафіксованим стеком проєкту.
 
 ## Статус
 
-**v0.2 — вертикальний MVP slice реалізований.**
+**v0.3 — затверджений домашній екран + вертикальний MVP slice.**
 
 Працює наскрізний флоу з `TECHNICAL_SPEC.md` 21:
 
-`Тіло → Коліна → список вправ → KNEE_001 → Старт → 5 с підготовки → виконання →
-Пауза/Продовжити → завершення → +1 → 10 с відпочинку → auto-start наступної`
+`мапа тіла → коліно → список вправ → KNEE_001 → Старт → 5 с підготовки →
+виконання → Пауза/Продовжити → завершення → +1 → 10 с відпочинку →
+auto-start наступної`
 
 Реалізовано:
 
 - Exercise Engine на нормалізованому timeline (анімація, голос і прогрес з одного джерела);
 - детермінований state machine з усіма інваріантами `APP_STATE_MACHINE.md`;
 - content pipeline `YAML → validate → JSON bundle` (застосунок не парсить YAML у runtime);
-- body map з normalized hotspot-ами, каталог, плеєр, активність, налаштування, developer menu;
+- домашній екран за `HOME_SCREEN_REPOSITORY_PACK_v1`: інтерактивна мапа тіла
+  (доставлений артворк, 19 hotspot-ів, парне підсвічування, pulse → навігація)
+  і 2x2 картки Тіло / Очі / Ранок / Засидівся, без нижньої навігації;
+- каталог, плеєр з великим таймером, екран завершення, активність,
+  налаштування, developer menu;
 - clinical gate, feature flags, Free/Pro entitlements, contextual paywall;
-- локалізація `uk` + `en` fallback з одного authoring-джерела;
-- 66 тестів (state machine, timeline, контент, локалізація, entitlements, acceptance-флоу).
+- локалізація `uk` + `en`, частковий `pl` (домашній екран і зони) з per-key
+  fallback, усе з одного authoring-джерела;
+- 80 тестів (state machine, timeline, контент, локалізація, entitlements,
+  домашній екран, acceptance-флоу).
 
-Ще не зроблено: production-кадри вправ і body-map artwork, запис voice packs,
+Ще не зроблено: production-кадри вправ (артворк тіла вже є), запис voice packs,
 billing, планування нагадувань. Див. `docs/DEV_SETUP.md` → «Відомі обмеження».
 
 Швидкий старт: **`docs/DEV_SETUP.md`**.

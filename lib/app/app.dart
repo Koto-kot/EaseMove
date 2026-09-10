@@ -6,7 +6,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../core/localization/app_strings.dart';
-import '../features/home/home_shell.dart';
+import '../features/home/home_screen.dart';
 import 'providers.dart';
 import 'theme.dart';
 
@@ -44,7 +44,7 @@ class EaseMoveApp extends ConsumerWidget {
         data: (AppStrings t) =>
             AppStringsScope(strings: t, child: child ?? const _Splash()),
       ),
-      home: const HomeShell(),
+      home: const HomeScreen(),
     );
   }
 }
