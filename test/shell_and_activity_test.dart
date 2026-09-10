@@ -7,6 +7,8 @@ import 'package:ease_move/core/audio/audio_service.dart';
 import 'package:ease_move/core/config/feature_flags.dart';
 import 'package:ease_move/core/storage/local_store.dart';
 import 'package:ease_move/domain/exercise/session_machine.dart';
+import 'package:ease_move/features/home/home_screen.dart';
+import 'package:ease_move/features/home/widgets/body_map_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -81,6 +83,34 @@ void main() {
     }
     // No permanent zone labels around the figure (brief 4.1).
     expect(find.text('Коліна'), findsNothing);
+  });
+
+  testWidgets('a desktop-width window keeps the phone layout', (
+    WidgetTester tester,
+  ) async {
+    // A card sized from its width grew to 740px tall in a real desktop
+    // browser and squeezed the body map down to nothing.
+    tester.view
+      ..devicePixelRatio = 1.0
+      ..physicalSize = const Size(1830, 1074);
+    addTearDown(tester.view.reset);
+
+    await tester.pumpWidget(wrap());
+    await settle(tester);
+
+    final Size map = tester.getSize(find.byType(BodyMapView));
+    expect(
+      map.height,
+      greaterThan(300),
+      reason: 'the map must keep its height on a wide window',
+    );
+    expect(map.width, lessThanOrEqualTo(HomeMetrics.maxContentWidth));
+
+    final Size card = tester.getSize(
+      find.byKey(const ValueKey<String>('home.card.body')),
+    );
+    expect(card.height, closeTo(HomeMetrics.cardHeight, 0.5));
+    expect(card.width, lessThan(HomeMetrics.maxContentWidth));
   });
 
   testWidgets('a card whose section is still empty opens its empty state', (

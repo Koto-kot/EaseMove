@@ -80,10 +80,15 @@ class _BodyMapViewState extends State<BodyMapView>
 
     return LayoutBuilder(
       builder: (BuildContext context, BoxConstraints constraints) {
-        // The figure's height drives everything: it must never be cropped, and
-        // the front figure stays centred in the full width even though the
-        // mini sits to the right (brief 13).
-        final double frontHeight = constraints.maxHeight;
+        // The figure's height drives everything: it must never be cropped,
+        // and the front figure stays centred in the full width even though
+        // the mini sits to the right (brief 13). Capping its width at half
+        // the box is what keeps the two figures from overlapping when the box
+        // is tall and narrow.
+        final double frontHeight = math.min(
+          constraints.maxHeight,
+          constraints.maxWidth * 0.52 / front.aspectRatio,
+        );
         final double frontWidth = frontHeight * front.aspectRatio;
         final double miniHeight = frontHeight * BodyMapView.miniScale;
 

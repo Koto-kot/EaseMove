@@ -6,6 +6,8 @@
 /// docs/MENU_AND_NAVIGATION.md describes (docs/DECISIONS.md 46).
 library;
 
+import 'dart:math' as math;
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -20,6 +22,23 @@ import '../settings/settings_screen.dart';
 import 'widgets/body_map_view.dart';
 import 'widgets/home_section_card.dart';
 import 'zones_screen.dart';
+
+/// The home screen's fixed sizes, public so a layout test can assert them.
+abstract final class HomeMetrics {
+  /// This is a phone screen. On a wide window it is centred at phone width
+  /// rather than stretched: cards sized from their width grew to 740 px tall
+  /// in a desktop browser and squeezed the body map out of existence.
+  static const double maxContentWidth = 460;
+
+  /// A card is an icon, a title and up to three lines of subtitle. Fixing its
+  /// height rather than its aspect ratio is what keeps it that size at any
+  /// window width.
+  static const double cardHeight = 132;
+
+  /// Below this the column stops shrinking and the screen scrolls, so the
+  /// figure never collapses to a sliver.
+  static const double minHeight = 560;
+}
 
 class HomeScreen extends ConsumerWidget {
   const HomeScreen({super.key});
@@ -95,62 +114,89 @@ class _HomeBody extends StatelessWidget {
       for (final BodyZone zone in repo.bundle.zones) zone.id: zone.shortTitle,
     };
 
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: Tokens.gutter),
-      child: Column(
-        children: <Widget>[
-          _Header(
-            title: t(home.titleKey),
-            subtitle: t(home.subtitleKey),
-            showMenu: home.menuButton,
-            showSettings: home.settingsButton,
-          ),
-          const SizedBox(height: 8),
-          // The map takes what is left. When height runs short this shrinks
-          // first, before the cards or their text (layout spec, responsive
-          // priority).
-          Expanded(
-            child: BodyMapView(
-              config: repo.bundle.bodyMap,
-              zoneTitles: zoneTitles,
-              onZoneSelected: (BodyHotspot spot) =>
-                  _openZone(context, spot.collectionId),
-            ),
-          ),
-          const SizedBox(height: Tokens.gap),
-          GridView.count(
-            crossAxisCount: 2,
-            shrinkWrap: true,
-            physics: const NeverScrollableScrollPhysics(),
-            mainAxisSpacing: Tokens.gap,
-            crossAxisSpacing: Tokens.gap,
-            // An icon, a title and up to three lines of subtitle: English
-            // and Polish copy runs longer than the Ukrainian it was drawn
-            // with.
-            childAspectRatio: 1.2,
-            children: <Widget>[
-              for (final HomeSection section in home.sections)
-                HomeSectionCard(
-                  key: ValueKey<String>('home.card.${section.id}'),
-                  section: section,
-                  title: t(section.titleKey),
-                  subtitle: t(section.subtitleKey),
-                  onTap: () => _openSection(context, section),
+    return Center(
+      child: ConstrainedBox(
+        constraints: const BoxConstraints(
+          maxWidth: HomeMetrics.maxContentWidth,
+        ),
+        child: LayoutBuilder(
+          builder: (BuildContext context, BoxConstraints constraints) {
+            // A definite height, so the map can still take what is left over:
+            // the viewport when there is room, the minimum when there is not,
+            // and then the page scrolls.
+            final double height = math.max(
+              constraints.maxHeight,
+              HomeMetrics.minHeight,
+            );
+            return SingleChildScrollView(
+              child: SizedBox(
+                height: height,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: Tokens.gutter,
+                  ),
+                  child: Column(
+                    children: <Widget>[
+                      _Header(
+                        title: t(home.titleKey),
+                        subtitle: t(home.subtitleKey),
+                        showMenu: home.menuButton,
+                        showSettings: home.settingsButton,
+                      ),
+                      const SizedBox(height: 8),
+                      // The map takes what is left. When height runs short
+                      // this shrinks first, before the cards or their text
+                      // (layout spec, responsive priority).
+                      Expanded(
+                        child: BodyMapView(
+                          config: repo.bundle.bodyMap,
+                          zoneTitles: zoneTitles,
+                          onZoneSelected: (BodyHotspot spot) =>
+                              _openZone(context, spot.collectionId),
+                        ),
+                      ),
+                      const SizedBox(height: Tokens.gap),
+                      GridView.builder(
+                        shrinkWrap: true,
+                        physics: const NeverScrollableScrollPhysics(),
+                        padding: EdgeInsets.zero,
+                        gridDelegate:
+                            const SliverGridDelegateWithFixedCrossAxisCount(
+                              crossAxisCount: 2,
+                              mainAxisSpacing: Tokens.gap,
+                              crossAxisSpacing: Tokens.gap,
+                              mainAxisExtent: HomeMetrics.cardHeight,
+                            ),
+                        itemCount: home.sections.length,
+                        itemBuilder: (BuildContext context, int index) {
+                          final HomeSection section = home.sections[index];
+                          return HomeSectionCard(
+                            key: ValueKey<String>('home.card.${section.id}'),
+                            section: section,
+                            title: t(section.titleKey),
+                            subtitle: t(section.subtitleKey),
+                            onTap: () => _openSection(context, section),
+                          );
+                        },
+                      ),
+                      const SizedBox(height: 10),
+                      Text(
+                        t('app.disclaimer'),
+                        textAlign: TextAlign.center,
+                        style: theme.textTheme.labelSmall?.copyWith(
+                          color: theme.colorScheme.outline,
+                        ),
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                      const SizedBox(height: 4),
+                    ],
+                  ),
                 ),
-            ],
-          ),
-          const SizedBox(height: 10),
-          Text(
-            t('app.disclaimer'),
-            textAlign: TextAlign.center,
-            style: theme.textTheme.labelSmall?.copyWith(
-              color: theme.colorScheme.outline,
-            ),
-            maxLines: 2,
-            overflow: TextOverflow.ellipsis,
-          ),
-          const SizedBox(height: 4),
-        ],
+              ),
+            );
+          },
+        ),
       ),
     );
   }
