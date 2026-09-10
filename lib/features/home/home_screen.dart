@@ -28,12 +28,13 @@ abstract final class HomeMetrics {
   /// This is a phone screen. On a wide window it is centred at phone width
   /// rather than stretched: cards sized from their width grew to 740 px tall
   /// in a desktop browser and squeezed the body map out of existence.
-  static const double maxContentWidth = 460;
+  static const double maxContentWidth = 500;
 
-  /// A card is an icon, a title and up to three lines of subtitle. Fixing its
-  /// height rather than its aspect ratio is what keeps it that size at any
-  /// window width.
-  static const double cardHeight = 132;
+  /// A card is an icon, a title and up to two lines of subtitle, and no
+  /// taller than it needs to be: every pixel it gives up goes to the figure.
+  /// Fixing its height rather than its aspect ratio is what keeps it that
+  /// size at any window width.
+  static const double cardHeight = 72;
 
   /// Below this the column stops shrinking and the screen scrolls, so the
   /// figure never collapses to a sliver.

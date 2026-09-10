@@ -42,7 +42,7 @@ class HomeSectionCard extends StatelessWidget {
             onTap: onTap,
             borderRadius: radius,
             child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
+              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
               decoration: BoxDecoration(
                 borderRadius: radius,
                 border: Border.all(
@@ -52,8 +52,8 @@ class HomeSectionCard extends StatelessWidget {
               child: Row(
                 children: <Widget>[
                   SizedBox(
-                    width: 36,
-                    height: 36,
+                    width: 26,
+                    height: 26,
                     child: SvgPicture.asset(
                       section.icon,
                       // A missing icon must not take the card down with it.
@@ -61,7 +61,7 @@ class HomeSectionCard extends StatelessWidget {
                           const SizedBox.shrink(),
                     ),
                   ),
-                  const SizedBox(width: 10),
+                  const SizedBox(width: 6),
                   Expanded(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -70,19 +70,18 @@ class HomeSectionCard extends StatelessWidget {
                       children: <Widget>[
                         Text(
                           title,
-                          maxLines: 2,
+                          maxLines: 1,
                           overflow: TextOverflow.ellipsis,
-                          style: theme.textTheme.titleMedium?.copyWith(
+                          style: theme.textTheme.titleSmall?.copyWith(
                             fontWeight: FontWeight.w700,
                           ),
                         ),
-                        const SizedBox(height: 2),
                         Flexible(
                           child: Text(
                             subtitle,
-                            maxLines: 3,
+                            maxLines: 2,
                             overflow: TextOverflow.ellipsis,
-                            style: theme.textTheme.bodySmall?.copyWith(
+                            style: theme.textTheme.labelSmall?.copyWith(
                               color: scheme.onSurfaceVariant,
                             ),
                           ),
@@ -92,7 +91,7 @@ class HomeSectionCard extends StatelessWidget {
                   ),
                   Icon(
                     Icons.chevron_right,
-                    size: 20,
+                    size: 16,
                     color: scheme.onSurfaceVariant,
                   ),
                 ],

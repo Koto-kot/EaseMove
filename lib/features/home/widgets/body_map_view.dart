@@ -32,8 +32,19 @@ class BodyMapView extends StatefulWidget {
   final HotspotTap onZoneSelected;
 
   /// The back figure is secondary, so it renders at this share of the front
-  /// figure's height.
-  static const double miniScale = 0.46;
+  /// figure's height. Its dots stay full size: they are the same touch
+  /// targets, on a smaller drawing.
+  static const double miniScale = 0.42;
+
+  /// How far down the panel the back figure starts. Level with the front
+  /// figure's shoulders rather than with its head.
+  static const double miniTopFraction = 0.12;
+
+  /// Clear space between the front figure's hand and the back figure's card.
+  static const double figureGap = 14;
+
+  /// Breathing room between the figures and the edge of the white ground.
+  static const double panelPadding = 12;
 
   @override
   State<BodyMapView> createState() => _BodyMapViewState();
@@ -82,55 +93,67 @@ class _BodyMapViewState extends State<BodyMapView>
       builder: (BuildContext context, BoxConstraints constraints) {
         // The figure's height drives everything: it must never be cropped,
         // and the front figure stays centred in the full width even though
-        // the mini sits to the right (brief 13). Capping its width at half
-        // the box is what keeps the two figures from overlapping when the box
-        // is tall and narrow.
-        final double frontHeight = math.min(
-          constraints.maxHeight,
-          constraints.maxWidth * 0.52 / front.aspectRatio,
-        );
+        // the mini sits to the right (brief 13).
+        //
+        // Which means the two figures have to be solved together: half of the
+        // centred front figure, plus a gap, plus the back figure's width, has
+        // to fit in half the box. Both widths follow from the front figure's
+        // height, so that inequality is what caps it.
+        final double miniAspect =
+            (back?.aspectRatio ?? 0) * BodyMapView.miniScale;
+        final double widthLimit =
+            (constraints.maxWidth / 2 - BodyMapView.figureGap) /
+            (front.aspectRatio / 2 + miniAspect);
+        final double frontHeight = math.min(constraints.maxHeight, widthLimit);
         final double frontWidth = frontHeight * front.aspectRatio;
         final double miniHeight = frontHeight * BodyMapView.miniScale;
-
-        return Stack(
-          children: <Widget>[
-            Align(
-              child: SizedBox(
-                width: math.min(frontWidth, constraints.maxWidth),
-                height: frontHeight,
-                child: _Figure(
-                  artwork: front,
-                  hotspots: widget.config.forView('front'),
-                  rules: widget.config.rules,
-                  zoneTitles: widget.zoneTitles,
-                  highlighted: _highlighted,
-                  pulse: _pulse,
-                  onSelected: _select,
-                  scale: 1,
-                ),
-              ),
-            ),
-            if (back != null)
-              Positioned(
-                right: 0,
-                top: 0,
+        // One white ground under the whole map, as in the approved reference,
+        // rather than a white slab per figure. It fills the area rather than
+        // hugging the figures: hugging left the sheet floating between two
+        // dark bands, which reads worse than the air inside it.
+        return DecoratedBox(
+          decoration: BoxDecoration(
+            color: Tokens.bodyMapPanel,
+            borderRadius: BorderRadius.circular(Tokens.cardRadius),
+          ),
+          child: Stack(
+            children: <Widget>[
+              Align(
                 child: SizedBox(
-                  width: miniHeight * back.aspectRatio,
-                  height: miniHeight,
+                  width: math.min(frontWidth, constraints.maxWidth),
+                  height: frontHeight,
                   child: _Figure(
-                    artwork: back,
-                    hotspots: widget.config.forView('back_mini'),
+                    artwork: front,
+                    hotspots: widget.config.forView('front'),
                     rules: widget.config.rules,
                     zoneTitles: widget.zoneTitles,
                     highlighted: _highlighted,
                     pulse: _pulse,
                     onSelected: _select,
-                    scale: BodyMapView.miniScale,
-                    framed: true,
                   ),
                 ),
               ),
-          ],
+              if (back != null)
+                Positioned(
+                  right: BodyMapView.panelPadding,
+                  top: constraints.maxHeight * BodyMapView.miniTopFraction,
+                  child: SizedBox(
+                    width: miniHeight * back.aspectRatio,
+                    height: miniHeight,
+                    child: _Figure(
+                      artwork: back,
+                      hotspots: widget.config.forView('back_mini'),
+                      rules: widget.config.rules,
+                      zoneTitles: widget.zoneTitles,
+                      highlighted: _highlighted,
+                      pulse: _pulse,
+                      onSelected: _select,
+                      framed: true,
+                    ),
+                  ),
+                ),
+            ],
+          ),
         );
       },
     );
@@ -146,7 +169,6 @@ class _Figure extends StatelessWidget {
     required this.highlighted,
     required this.pulse,
     required this.onSelected,
-    required this.scale,
     this.framed = false,
   });
 
@@ -158,10 +180,8 @@ class _Figure extends StatelessWidget {
   final Animation<double> pulse;
   final HotspotTap onSelected;
 
-  /// Dots shrink with the figure, so the mini map does not look studded.
-  final double scale;
-
-  /// The mini figure sits in its own card in the approved layout.
+  /// The mini figure keeps a hairline frame, so it reads as its own view
+  /// rather than as part of the front figure.
   final bool framed;
 
   /// Nearest centre wins. Rect hit-testing would hand a tap between the knee
@@ -178,7 +198,7 @@ class _Figure extends StatelessWidget {
         best = spot;
       }
     }
-    if (best != null && bestDistance <= rules.tapMaxDistance * scale) {
+    if (best != null && bestDistance <= rules.tapMaxDistance) {
       onSelected(best);
     }
   }
@@ -188,10 +208,19 @@ class _Figure extends StatelessWidget {
     final BorderRadius radius = BorderRadius.circular(Tokens.cardRadius);
     return DecoratedBox(
       decoration: BoxDecoration(
-        color: Tokens.bodyMapPanel,
         borderRadius: radius,
+        color: framed ? Tokens.bodyMapPanel : null,
         border: framed
-            ? Border.all(color: Tokens.hotspot.withValues(alpha: 0.18))
+            ? Border.all(color: Tokens.hotspot.withValues(alpha: 0.22))
+            : null,
+        boxShadow: framed
+            ? <BoxShadow>[
+                BoxShadow(
+                  color: Tokens.hotspot.withValues(alpha: 0.10),
+                  blurRadius: 12,
+                  offset: const Offset(0, 4),
+                ),
+              ]
             : null,
       ),
       child: LayoutBuilder(
@@ -216,13 +245,12 @@ class _Figure extends StatelessWidget {
                 ),
                 for (final BodyHotspot spot in hotspots)
                   Positioned(
-                    left: spot.cx * size.width - rules.haloDiameter * scale / 2,
-                    top: spot.cy * size.height - rules.haloDiameter * scale / 2,
+                    left: spot.cx * size.width - rules.haloDiameter / 2,
+                    top: spot.cy * size.height - rules.haloDiameter / 2,
                     child: _Hotspot(
                       key: ValueKey<String>('hotspot.${spot.id}'),
                       label: zoneTitles[spot.zoneId] ?? spot.zoneId,
                       rules: rules,
-                      scale: scale,
                       lit: highlighted.contains(spot.id),
                       pulse: pulse,
                       onActivate: () => onSelected(spot),
@@ -284,7 +312,6 @@ class _Hotspot extends StatelessWidget {
     required this.label,
     super.key,
     required this.rules,
-    required this.scale,
     required this.lit,
     required this.pulse,
     required this.onActivate,
@@ -292,15 +319,14 @@ class _Hotspot extends StatelessWidget {
 
   final String label;
   final BodyMapRules rules;
-  final double scale;
   final bool lit;
   final Animation<double> pulse;
   final VoidCallback onActivate;
 
   @override
   Widget build(BuildContext context) {
-    final double halo = rules.haloDiameter * scale;
-    final double core = rules.coreDiameter * scale;
+    final double halo = rules.haloDiameter;
+    final double core = rules.coreDiameter;
 
     return Semantics(
       button: true,
@@ -333,7 +359,7 @@ class _Hotspot extends StatelessWidget {
                         color: Tokens.hotspot,
                         border: Border.all(
                           color: Colors.white.withValues(alpha: 0.9),
-                          width: math.max(1, 2 * scale),
+                          width: 2,
                         ),
                       ),
                     ),
