@@ -88,10 +88,16 @@ abstract final class Tokens {
 
   // ---------------------------------------------------------------- body map
 
-  /// The artwork ships with a light background baked in, so the panel behind
-  /// it is that same near-white in both themes: tinting it to a dark surface
-  /// would turn the figure into a bright slab.
+  /// The artwork ships with this near-white background baked in, so the whole
+  /// home screen uses it: anything else would show a seam around the figure.
   static const Color bodyMapPanel = Color(0xFFFBFCFE);
+
+  /// Titles and card labels on the white home screen: the deep navy of the
+  /// approved reference, not the theme's near-black.
+  static const Color textStrong = Color(0xFF102A56);
+
+  /// Subtitles and chevrons on the same white.
+  static const Color textMuted = Color(0xFF5B6B8C);
 
   /// Hotspot blue, from the approved reference. Fixed rather than themed,
   /// because it sits on the light artwork panel in both themes.

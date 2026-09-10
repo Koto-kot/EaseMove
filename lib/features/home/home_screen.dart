@@ -13,6 +13,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../app/design_tokens.dart';
 import '../../app/providers.dart';
+import '../../app/theme.dart';
 import '../../core/localization/app_strings.dart';
 import '../../data/content_bundle.dart';
 import '../../data/exercise_repository.dart';
@@ -51,14 +52,19 @@ class HomeScreen extends ConsumerWidget {
       exerciseRepositoryProvider,
     );
 
-    return Scaffold(
-      drawer: const _HomeDrawer(),
-      body: SafeArea(
-        child: repository.when(
-          loading: () => const Center(child: CircularProgressIndicator()),
-          error: (Object error, StackTrace stack) =>
-              Center(child: Text(t('app.common.error'))),
-          data: (ExerciseRepository repo) => _HomeBody(repo: repo),
+    // Every element of this screen sits on one white ground, so the theme is
+    // overridden here rather than each widget colouring itself.
+    return Theme(
+      data: AppTheme.homeLight(),
+      child: Scaffold(
+        drawer: const _HomeDrawer(),
+        body: SafeArea(
+          child: repository.when(
+            loading: () => const Center(child: CircularProgressIndicator()),
+            error: (Object error, StackTrace stack) =>
+                Center(child: Text(t('app.common.error'))),
+            data: (ExerciseRepository repo) => _HomeBody(repo: repo),
+          ),
         ),
       ),
     );
@@ -109,7 +115,6 @@ class _HomeBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AppStrings t = AppStrings.of(context);
-    final ThemeData theme = Theme.of(context);
     final HomeConfig home = repo.bundle.home;
     final Map<String, String> zoneTitles = <String, String>{
       for (final BodyZone zone in repo.bundle.zones) zone.id: zone.shortTitle,
@@ -180,17 +185,7 @@ class _HomeBody extends StatelessWidget {
                           );
                         },
                       ),
-                      const SizedBox(height: 10),
-                      Text(
-                        t('app.disclaimer'),
-                        textAlign: TextAlign.center,
-                        style: theme.textTheme.labelSmall?.copyWith(
-                          color: theme.colorScheme.outline,
-                        ),
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                      const SizedBox(height: 4),
+                      const SizedBox(height: Tokens.gap),
                     ],
                   ),
                 ),

@@ -6,6 +6,8 @@ library;
 
 import 'package:flutter/material.dart';
 
+import 'design_tokens.dart';
+
 abstract final class AppTheme {
   /// Minimum interactive size in dp.
   static const double minTouchTarget = 48;
@@ -18,6 +20,30 @@ abstract final class AppTheme {
   static ThemeData light() => _build(Brightness.light);
 
   static ThemeData dark() => _build(Brightness.dark);
+
+  /// The approved home screen is white from edge to edge whatever the app
+  /// theme is: the body artwork carries a near-white background baked into
+  /// the PNG, and the reference puts every element of that screen — cards,
+  /// text, icons — on that same white
+  /// (docs/ui/home/reference/HOME_SCREEN_REFERENCE.png).
+  static ThemeData homeLight() {
+    final ThemeData base = light();
+    final ColorScheme scheme = base.colorScheme.copyWith(
+      surface: Tokens.bodyMapPanel,
+      surfaceContainerLow: Tokens.bodyMapPanel,
+      surfaceContainerHighest: Tokens.bodyMapPanel,
+      onSurface: Tokens.textStrong,
+      onSurfaceVariant: Tokens.textMuted,
+      outline: Tokens.textMuted,
+    );
+    return base.copyWith(
+      colorScheme: scheme,
+      scaffoldBackgroundColor: Tokens.bodyMapPanel,
+      canvasColor: Tokens.bodyMapPanel,
+      iconTheme: const IconThemeData(color: Tokens.hotspot),
+      drawerTheme: const DrawerThemeData(backgroundColor: Tokens.bodyMapPanel),
+    );
+  }
 
   static ThemeData _build(Brightness brightness) {
     final ColorScheme scheme = ColorScheme.fromSeed(

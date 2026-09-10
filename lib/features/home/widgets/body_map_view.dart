@@ -107,15 +107,10 @@ class _BodyMapViewState extends State<BodyMapView>
         final double frontHeight = math.min(constraints.maxHeight, widthLimit);
         final double frontWidth = frontHeight * front.aspectRatio;
         final double miniHeight = frontHeight * BodyMapView.miniScale;
-        // One white ground under the whole map, as in the approved reference,
-        // rather than a white slab per figure. It fills the area rather than
-        // hugging the figures: hugging left the sheet floating between two
-        // dark bands, which reads worse than the air inside it.
-        return DecoratedBox(
-          decoration: BoxDecoration(
-            color: Tokens.bodyMapPanel,
-            borderRadius: BorderRadius.circular(Tokens.cardRadius),
-          ),
+        // No panel of its own: the whole home screen is that same white, so
+        // the figures sit straight on the page as they do in the approved
+        // reference.
+        return RepaintBoundary(
           child: Stack(
             children: <Widget>[
               Align(
