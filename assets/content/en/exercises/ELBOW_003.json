@@ -1,0 +1,405 @@
+{
+  "id": "ELBOW_003",
+  "slug": "seated_elbow_flexion_palms_in",
+  "schemaVersion": "1.3",
+  "contentVersion": "0.1.0",
+  "clinicalStatus": "pending_review",
+  "editorialStatus": "draft",
+  "primaryZone": "elbows",
+  "secondaryZones": [
+    "forearms",
+    "upper_arms"
+  ],
+  "hotspotIds": [
+    "left_elbow",
+    "right_elbow"
+  ],
+  "tags": [
+    "elbow",
+    "forearm",
+    "upper_arm",
+    "computer",
+    "after_sitting",
+    "sitting",
+    "mobility",
+    "elbow_flexion",
+    "bilateral",
+    "palms_in",
+    "no_resistance",
+    "beginner",
+    "gentle",
+    "stable_chair"
+  ],
+  "tagGroups": {
+    "anatomy": [
+      "elbow",
+      "forearm",
+      "upper_arm"
+    ],
+    "context": [
+      "computer",
+      "after_sitting"
+    ],
+    "position": [
+      "sitting"
+    ],
+    "movement": [
+      "mobility",
+      "elbow_flexion",
+      "bilateral",
+      "palms_in",
+      "no_resistance"
+    ],
+    "level": [
+      "beginner",
+      "gentle"
+    ],
+    "equipment": [
+      "stable_chair"
+    ]
+  },
+  "collections": [
+    "body_elbows",
+    "seated_gentle",
+    "computer_break",
+    "after_sitting"
+  ],
+  "collectionCandidates": [],
+  "text": {
+    "title": "Arm bends with palms facing in",
+    "shortTitle": "Palms facing in",
+    "cardDescription": "Seated, bend both elbows while keeping your palms facing inward.",
+    "categoryLabel": "Elbows",
+    "purpose": "A gentle version of the elbow bend, with the hand in a neutral position.",
+    "startPositionTitle": "Starting position",
+    "startPosition": "Sit up straight on a stable chair. Feet on the floor, arms beside your body, palms turned inward.",
+    "instructionsTitle": "How to do it",
+    "instructions": [
+      {
+        "step": 1,
+        "text": "Sit up straight, arms hanging beside your body."
+      },
+      {
+        "step": 2,
+        "text": "Turn your palms inward, facing each other."
+      },
+      {
+        "step": 3,
+        "text": "Bend both elbows at the same time without changing the position of your hands."
+      },
+      {
+        "step": 4,
+        "text": "Smoothly return to the start."
+      }
+    ],
+    "techniqueTipsTitle": "Watch out for",
+    "techniqueTips": [
+      "Your palms stay turned inward throughout.",
+      "Keep your elbows close to your body.",
+      "Shoulders do not rise."
+    ],
+    "safetyLabel": "Safety",
+    "safety": "Move within a comfortable range. If you feel sharp pain or any other unusual symptom, press Stop.",
+    "completion": "Done."
+  },
+  "labels": {},
+  "timing": {
+    "prepCountdownSeconds": 5,
+    "restAfterSeconds": 10,
+    "completionMode": "timed_duration",
+    "estimatedActiveSeconds": 61
+  },
+  "progress": {
+    "basis": "sequence_time",
+    "showElapsedTime": true,
+    "showProgressBar": true,
+    "showRepetitionCounter": false,
+    "showSideLabel": false,
+    "showSetCounter": false
+  },
+  "repetitionModel": {
+    "type": "sequence_time",
+    "sets": 1,
+    "repetitionsPerBlock": 1,
+    "blockOrder": [
+      null,
+      null
+    ],
+    "switchSideAutomatically": true,
+    "resetCounterOnSideChange": false
+  },
+  "movementPhases": [
+    {
+      "id": "PHASE_SETUP",
+      "name": "Starting position",
+      "type": null
+    },
+    {
+      "id": "PHASE_A",
+      "name": "Neutral position",
+      "type": null
+    },
+    {
+      "id": "PHASE_B",
+      "name": "Arms bent",
+      "type": null
+    }
+  ],
+  "sequence": {
+    "blocks": [
+      {
+        "side": null,
+        "repeat": 1,
+        "steps": [
+          {
+            "id": "setup",
+            "phase": "PHASE_SETUP",
+            "side": null,
+            "frameId": "FRAME_SETUP",
+            "frameTransition": null,
+            "durationMs": 1000,
+            "voiceEvent": null
+          }
+        ]
+      },
+      {
+        "side": null,
+        "repeat": 15,
+        "steps": [
+          {
+            "id": "flex",
+            "phase": "PHASE_B",
+            "side": null,
+            "frameId": null,
+            "frameTransition": {
+              "from": "FRAME_NEUTRAL",
+              "via": null,
+              "to": "FRAME_FLEXED"
+            },
+            "durationMs": 2000,
+            "voiceEvent": null
+          },
+          {
+            "id": "return",
+            "phase": "PHASE_A",
+            "side": null,
+            "frameId": null,
+            "frameTransition": {
+              "from": "FRAME_FLEXED",
+              "via": null,
+              "to": "FRAME_NEUTRAL"
+            },
+            "durationMs": 2000,
+            "voiceEvent": null
+          }
+        ]
+      }
+    ]
+  },
+  "animation": {
+    "reducedMotionFallback": "static_step_frames",
+    "frames": [
+      {
+        "id": "FRAME_SETUP",
+        "file": "assets/exercises/ELBOW_003/images/setup_full_safe.png",
+        "altText": "Seated start position, palms turned inward."
+      },
+      {
+        "id": "FRAME_NEUTRAL",
+        "file": "assets/exercises/ELBOW_003/images/motion_01_neutral_palms_in_mid_safe.png",
+        "altText": "Arms hanging down, palms facing inward."
+      },
+      {
+        "id": "FRAME_FLEXED",
+        "file": "assets/exercises/ELBOW_003/images/motion_02_flexed_palms_in_mid_safe.png",
+        "altText": "Both elbows bent, palms still facing inward."
+      }
+    ],
+    "preview": "assets/exercises/ELBOW_003/images/preview.png"
+  },
+  "audio": {
+    "events": [
+      {
+        "id": "VOICE_SETUP",
+        "type": "instruction",
+        "priority": 80,
+        "interruptible": true,
+        "playOncePerSide": false,
+        "voiceMode": null,
+        "text": "Sit up straight. Arms down beside your body, palms facing in.",
+        "assetKey": "exercise.ELBOW_003.voice.setup",
+        "assetFile": "audio/uk/exercises/ELBOW_003/setup.m4a",
+        "trigger": {
+          "event": "prep_countdown_started",
+          "phase": null,
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": 0
+        }
+      },
+      {
+        "id": "VOICE_START_MOVEMENT",
+        "type": "movement",
+        "priority": 100,
+        "interruptible": false,
+        "playOncePerSide": false,
+        "voiceMode": null,
+        "text": "Bend both elbows, then straighten them smoothly.",
+        "assetKey": "exercise.ELBOW_003.voice.start_movement",
+        "assetFile": "audio/uk/exercises/ELBOW_003/start_movement.m4a",
+        "trigger": {
+          "event": "sequence_phase_started",
+          "phase": "PHASE_SETUP",
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      },
+      {
+        "id": "VOICE_HALFWAY",
+        "type": "progress",
+        "priority": 50,
+        "interruptible": true,
+        "playOncePerSide": false,
+        "voiceMode": null,
+        "text": "Halfway done.",
+        "assetKey": "common.voice.halfway",
+        "assetFile": "audio/uk/common/halfway.m4a",
+        "trigger": {
+          "event": "progress_crossed",
+          "phase": null,
+          "side": null,
+          "percent": 50,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      },
+      {
+        "id": "VOICE_COMPLETED",
+        "type": "completion",
+        "priority": 120,
+        "interruptible": false,
+        "playOncePerSide": false,
+        "voiceMode": null,
+        "text": "Done.",
+        "assetKey": "common.voice.completed",
+        "assetFile": "audio/uk/common/completed.m4a",
+        "trigger": {
+          "event": "exercise_completed",
+          "phase": null,
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      },
+      {
+        "id": "VOICE_PHASE_B",
+        "type": "movement",
+        "priority": 70,
+        "interruptible": true,
+        "playOncePerSide": false,
+        "voiceMode": "phase_words",
+        "text": "Bend.",
+        "assetKey": "exercise.ELBOW_003.voice.phase_b",
+        "assetFile": "audio/uk/exercises/ELBOW_003/phase_b.m4a",
+        "trigger": {
+          "event": "sequence_phase_started",
+          "phase": "PHASE_B",
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      },
+      {
+        "id": "VOICE_PHASE_A",
+        "type": "movement",
+        "priority": 70,
+        "interruptible": true,
+        "playOncePerSide": false,
+        "voiceMode": "phase_words",
+        "text": "Straighten.",
+        "assetKey": "exercise.ELBOW_003.voice.phase_a",
+        "assetFile": "audio/uk/exercises/ELBOW_003/phase_a.m4a",
+        "trigger": {
+          "event": "sequence_phase_started",
+          "phase": "PHASE_A",
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      },
+      {
+        "id": "VOICE_COUNT_ONE",
+        "type": "movement",
+        "priority": 70,
+        "interruptible": true,
+        "playOncePerSide": false,
+        "voiceMode": "count",
+        "text": "One.",
+        "assetKey": "common.voice.count_one",
+        "assetFile": "audio/uk/common/count_one.m4a",
+        "trigger": {
+          "event": "sequence_phase_started",
+          "phase": "PHASE_B",
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      },
+      {
+        "id": "VOICE_COUNT_TWO",
+        "type": "movement",
+        "priority": 70,
+        "interruptible": true,
+        "playOncePerSide": false,
+        "voiceMode": "count",
+        "text": "Two.",
+        "assetKey": "common.voice.count_two",
+        "assetFile": "audio/uk/common/count_two.m4a",
+        "trigger": {
+          "event": "sequence_phase_started",
+          "phase": "PHASE_A",
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      }
+    ],
+    "mix": {
+      "voiceLevel": 1.0,
+      "musicLevel": 0.5,
+      "dynamicDucking": false
+    }
+  },
+  "flow": {
+    "autoNextEnabled": true,
+    "restSeconds": 10,
+    "incrementCounterOnCompletion": true
+  },
+  "accessibility": {
+    "summary": "Arm bends with palms facing in. Sitting on a chair, bend both elbows at the same time and return to the start, keeping your palms facing inward.",
+    "reducedMotionSupported": true
+  },
+  "pro": {
+    "tier": "free",
+    "requiresPro": false,
+    "visibleToFree": true,
+    "allowFavorite": true,
+    "includeInPersonalPlanPool": true
+  }
+}

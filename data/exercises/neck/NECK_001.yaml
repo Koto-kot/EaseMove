@@ -98,6 +98,43 @@ clinical:
   variants: []
 locale:
   default: uk
+  en:
+    title: Head turns
+    short_title: Turns
+    card_description: Slowly turn your head to the left and to the right.
+    category_label: Neck
+    purpose_text: A gentle exercise for neck mobility.
+    start_position_title: Starting position
+    start_position_text: Sit up straight on a stable chair. Place your feet on the floor. Drop and relax
+      your shoulders. Look straight ahead.
+    instructions_title: How to do it
+    instructions:
+    - step: 1
+      text: Slowly turn your head to the left, as far as is comfortable.
+    - step: 2
+      text: Hold the position for 5 seconds.
+    - step: 3
+      text: Slowly return to the centre.
+    - step: 4
+      text: Slowly turn your head to the right, as far as is comfortable.
+    - step: 5
+      text: Hold the position for 5 seconds.
+    - step: 6
+      text: Slowly return to the centre.
+    - step: 7
+      text: Repeat 3 times to each side.
+    technique_tips_title: Watch out for
+    technique_tips:
+    - Your shoulders stay relaxed.
+    - Do not turn your torso with your head.
+    - Do not raise or drop your chin as you turn.
+    - Move smoothly, with no jerking.
+    safety_label: Safety
+    safety_text: Move only within a comfortable range. If you feel dizzy, or have sharp pain or any other
+      unusual symptom, press Stop.
+    completion_text: Done.
+    halfway_text: Halfway done.
+    almost_done_text: Last cycle.
   uk:
     title: Повороти голови
     short_title: Повороти
@@ -147,6 +184,7 @@ ui:
     primary_action:
       key: common.exercise.start
       resolved_uk: Почати
+      resolved_en: Start
     badges:
       show_difficulty: false
       show_duration: true
@@ -157,46 +195,58 @@ ui:
       elapsed_time:
         key: common.exercise.elapsed_time
         resolved_uk: Час
+        resolved_en: Time
       progress:
         key: common.exercise.progress
         resolved_uk: Виконано
+        resolved_en: Done
       repetition:
         key: common.exercise.repetition
         resolved_uk: Повтор
+        resolved_en: Rep
       side:
         key: common.exercise.side
         resolved_uk: Бік
+        resolved_en: Side
     controls:
       previous:
         key: common.control.previous
         resolved_uk: Попередня
+        resolved_en: Previous
         icon: arrow_left
       start:
         key: common.control.start
         resolved_uk: Старт
+        resolved_en: Start
         icon: play
       pause:
         key: common.control.pause
         resolved_uk: Пауза
+        resolved_en: Pause
         icon: pause
       continue:
         key: common.control.continue
         resolved_uk: Продовжити
+        resolved_en: Continue
         icon: play
       stop:
         key: common.control.stop
         resolved_uk: Стоп
+        resolved_en: Stop
         icon: stop
       next:
         key: common.control.next
         resolved_uk: Наступна
+        resolved_en: Next
         icon: arrow_right
     prep:
       label_key: common.exercise.starts_in
       resolved_uk: Починаємо через
+      resolved_en: Starting in
     rest:
       label_key: common.exercise.rest
       resolved_uk: Відпочинок
+      resolved_en: Rest
       next_label_key: common.exercise.next_exercise
       next_label_resolved_uk: Наступна вправа
 timing:
@@ -315,6 +365,7 @@ animation:
     file: assets/exercises/NECK_001/frame_center.png
     pose_description_uk: Людина сидить рівно. Голова в нейтральному положенні, погляд прямо. Плечі опущені й розслаблені.
     alt_text_uk: 'Початкове положення: голова прямо, плечі розслаблені.'
+    alt_text_en: 'Start position: head facing forward, shoulders relaxed.'
     validation_points:
     - head_neutral
     - eyes_forward
@@ -325,6 +376,7 @@ animation:
     pose_description_uk: Корпус залишається прямо. Голова повернута ліворуч у комфортному діапазоні. Підборіддя
       приблизно на тій самій висоті.
     alt_text_uk: Голова повернута ліворуч, корпус залишається прямо.
+    alt_text_en: Head turned to the left, torso still facing forward.
     validation_points:
     - head_rotated_left
     - chin_height_stable
@@ -335,6 +387,7 @@ animation:
     pose_description_uk: Корпус залишається прямо. Голова повернута праворуч у комфортному діапазоні. Підборіддя
       приблизно на тій самій висоті.
     alt_text_uk: Голова повернута праворуч, корпус залишається прямо.
+    alt_text_en: Head turned to the right, torso still facing forward.
     validation_points:
     - head_rotated_right
     - chin_height_stable
@@ -503,6 +556,7 @@ accessibility:
   screen_reader:
     exercise_summary_uk: Повороти голови. Вправа виконується сидячи або стоячи. Повільно повертайте голову ліворуч
       і праворуч у комфортному діапазоні.
+    exercise_summary_en: Head turns. The exercise is done sitting or standing. Slowly turn your head to one side, hold, return to the centre, then turn to the other side.
     announce_countdown: true
     announce_pause_resume: true
     announce_completion: true

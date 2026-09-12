@@ -2,8 +2,8 @@
 ///
 /// The exercise files name an exact file for every cue
 /// (`audio/uk/exercises/ELBOW_001/setup.m4a`), and the pack is produced line
-/// by line — `docs/generated/AUDIO_SCRIPT.md` is literally the progress
-/// report. So the app cannot wait for a complete pack to start using it: this
+/// by line — `docs/generated/AUDIO_SCRIPT_<LANG>.md` is literally the
+/// progress report. So the app cannot wait for a complete pack to start using it: this
 /// service plays the file when it is bundled and hands the cue to
 /// text-to-speech when it is not, which means a half-recorded pack is already
 /// an improvement and never a regression.

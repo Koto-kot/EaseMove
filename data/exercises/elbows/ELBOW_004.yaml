@@ -104,6 +104,35 @@ clinical:
   variants: []
 locale:
   default: uk
+  en:
+    title: Arm bends with palms down
+    short_title: Palms down
+    card_description: Seated, bring your hands up toward your shoulders and back, keeping your palms facing down.
+    category_label: Elbows
+    purpose_text: A simple exercise for elbow movement, with no weight and no other resistance. This is not a forearm
+      rotation exercise.
+    start_position_title: Starting position
+    start_position_text: Sit up straight on a stable chair. Upper arms close to your body, elbows bent to about
+      ninety degrees, forearms pointing forward, both palms facing down.
+    instructions_title: How to do it
+    instructions:
+    - step: 1
+      text: Sit up straight and place your feet on the floor.
+    - step: 2
+      text: Bend your elbows to about ninety degrees, forearms forward, palms down.
+    - step: 3
+      text: Without rotating your forearms, bend your elbows further and bring your hands toward your shoulders.
+    - step: 4
+      text: Smoothly return to about ninety degrees.
+    technique_tips_title: Watch out for
+    technique_tips:
+    - Your palms face down the whole time.
+    - Keep your wrists straight.
+    - Shoulders do not rise and elbows do not travel far from your body.
+    safety_label: Safety
+    safety_text: Move within a comfortable range. If you feel sharp pain or any other unusual symptom, press Stop.
+    completion_text: Done.
+    halfway_text: Halfway done.
   uk:
     title: Згинання рук долонями вниз
     short_title: Долоні вниз
@@ -180,12 +209,15 @@ timing:
 movement_phases:
 - id: PHASE_SETUP
   name_uk: Початкове положення
+  name_en: Starting position
   biomechanics: start_position
 - id: PHASE_A
   name_uk: Передпліччя вперед
+  name_en: Forearms forward
   biomechanics: phase_a
 - id: PHASE_B
   name_uk: Кисті біля плечей
+  name_en: Hands at the shoulders
   biomechanics: phase_b
 sequence:
   side_blocks:
@@ -244,16 +276,19 @@ animation:
     file: assets/exercises/ELBOW_004/images/setup_full_safe.png
     pose_description_uk: Людина сидить рівно, лікті зігнуті приблизно на 90°, долоні повернуті вниз.
     alt_text_uk: Початкове положення сидячи, долоні вниз.
+    alt_text_en: Seated start position, forearms forward and palms down.
     framing: FULL_SAFE
   - id: FRAME_FOREARMS_FORWARD
     file: assets/exercises/ELBOW_004/images/motion_01_forearms_forward_palms_down_mid_safe.png
     pose_description_uk: Лікті зігнуті приблизно на 90°, передпліччя горизонтально вперед, долоні вниз.
     alt_text_uk: Передпліччя спрямовані вперед, долоні вниз.
+    alt_text_en: Forearms pointing forward, palms facing down.
     framing: MID_SAFE
   - id: FRAME_FLEXED
     file: assets/exercises/ELBOW_004/images/motion_02_flexed_palms_down_mid_safe.png
     pose_description_uk: Лікті зігнуті сильніше, кисті ближче до плечей, долоні все ще вниз.
     alt_text_uk: Кисті підведені до плечей, долоні вниз.
+    alt_text_en: Hands raised toward the shoulders, palms still facing down.
     framing: MID_SAFE
   preview:
     file: assets/exercises/ELBOW_004/images/preview.png
@@ -419,6 +454,8 @@ accessibility:
   screen_reader:
     exercise_summary_uk: Згинання рук долонями вниз. Сидячи на стільці, тримайте лікті біля тулуба, передпліччя
       вперед і долоні вниз. Підводьте кисті до плечей та плавно повертайте руки назад.
+    exercise_summary_en: Arm bends with palms down. Sitting on a chair, keep your elbows by your body, forearms
+      forward and palms down. Bring your hands up toward your shoulders and smoothly back again.
     announce_countdown: true
     announce_repetition: false
     announce_side_change: false

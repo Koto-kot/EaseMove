@@ -103,6 +103,35 @@ clinical:
   variants: []
 locale:
   default: uk
+  en:
+    title: Palms up, palms down
+    short_title: Forearm rotation
+    card_description: Seated, rotate your forearms so your palms turn up and down.
+    category_label: Elbows
+    purpose_text: A simple exercise for the elbows and forearms with no equipment. The movement comes from the forearms
+      only.
+    start_position_title: Starting position
+    start_position_text: Sit up straight on a stable chair. Upper arms by your body, elbows bent to about ninety
+      degrees, forearms pointing forward, palms facing up.
+    instructions_title: How to do it
+    instructions:
+    - step: 1
+      text: Sit up straight and keep your elbows by your body.
+    - step: 2
+      text: Start with your palms facing up.
+    - step: 3
+      text: Smoothly rotate your forearms so your palms face down.
+    - step: 4
+      text: Return to the palms-up position.
+    technique_tips_title: Watch out for
+    technique_tips:
+    - Keep your elbows by your body.
+    - Only the forearms move; the shoulders stay still.
+    - Move smoothly, within a comfortable range.
+    safety_label: Safety
+    safety_text: Move within a comfortable range. If you feel sharp pain or any other unusual symptom, press Stop.
+    completion_text: Done.
+    halfway_text: Halfway done.
   uk:
     title: Долоні вгору — вниз
     short_title: Обертання передпліч
@@ -179,12 +208,15 @@ timing:
 movement_phases:
 - id: PHASE_SETUP
   name_uk: Початкове положення
+  name_en: Starting position
   biomechanics: start_position
 - id: PHASE_A
   name_uk: Долоні вгору
+  name_en: Palms up
   biomechanics: phase_a
 - id: PHASE_B
   name_uk: Долоні вниз
+  name_en: Palms down
   biomechanics: phase_b
 sequence:
   side_blocks:
@@ -243,16 +275,19 @@ animation:
     file: assets/exercises/ELBOW_005/images/setup_full_safe.png
     pose_description_uk: Людина сидить рівно, лікті зігнуті біля тулуба, долоні дивляться вгору.
     alt_text_uk: Початкове положення сидячи, долоні вгору.
+    alt_text_en: Seated start position, palms facing up.
     framing: FULL_SAFE
   - id: FRAME_PALMS_UP
     file: assets/exercises/ELBOW_005/images/motion_01_palms_up_mid_safe.png
     pose_description_uk: Лікті біля тулуба, передпліччя вперед, долоні дивляться вгору.
     alt_text_uk: Долоні повернуті вгору.
+    alt_text_en: Palms turned up.
     framing: MID_SAFE
   - id: FRAME_PALMS_DOWN
     file: assets/exercises/ELBOW_005/images/motion_02_palms_down_mid_safe.png
     pose_description_uk: Те саме положення плечей і ліктів, передпліччя повернуті долонями вниз.
     alt_text_uk: Долоні повернуті вниз.
+    alt_text_en: Palms turned down.
     framing: MID_SAFE
   preview:
     file: assets/exercises/ELBOW_005/images/preview.png
@@ -418,6 +453,8 @@ accessibility:
   screen_reader:
     exercise_summary_uk: Долоні вгору — вниз. Сидячи на стільці, тримайте лікті біля тулуба і повертайте передпліччя
       так, щоб долоні почергово дивилися вгору і вниз.
+    exercise_summary_en: Palms up, palms down. Sitting on a chair, keep your elbows by your body and rotate your
+      forearms so your palms face up and down in turn.
     announce_countdown: true
     announce_repetition: false
     announce_side_change: false

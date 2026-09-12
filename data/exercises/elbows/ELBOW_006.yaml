@@ -104,6 +104,34 @@ clinical:
   variants: []
 locale:
   default: uk
+  en:
+    title: Hands to shoulders, then forward
+    short_title: Shoulders and forward
+    card_description: Seated, straighten both arms forward and bring your hands back to your shoulders.
+    category_label: Elbows
+    purpose_text: A simple exercise for the elbows and arms with no equipment.
+    start_position_title: Starting position
+    start_position_text: Sit up straight on a stable chair. Feet on the floor, both hands beside your shoulders,
+      elbows bent, shoulders down.
+    instructions_title: How to do it
+    instructions:
+    - step: 1
+      text: Sit up straight and bring your hands beside your shoulders.
+    - step: 2
+      text: Smoothly straighten both arms forward at chest or shoulder height.
+    - step: 3
+      text: Bring your hands back to your shoulders.
+    - step: 4
+      text: Keep repeating calmly, with no jerking.
+    technique_tips_title: Watch out for
+    technique_tips:
+    - Keep your torso upright.
+    - Do not lift your shoulders toward your ears.
+    - Elbows almost straight, but not locked.
+    safety_label: Safety
+    safety_text: Move within a comfortable range. If you feel sharp pain or any other unusual symptom, press Stop.
+    completion_text: Done.
+    halfway_text: Halfway done.
   uk:
     title: Кисті до плечей — вперед
     short_title: До плечей і вперед
@@ -180,12 +208,15 @@ timing:
 movement_phases:
 - id: PHASE_SETUP
   name_uk: Початкове положення
+  name_en: Starting position
   biomechanics: start_position
 - id: PHASE_A
   name_uk: Кисті біля плечей
+  name_en: Hands at the shoulders
   biomechanics: phase_a
 - id: PHASE_B
   name_uk: Руки вперед
+  name_en: Arms forward
   biomechanics: phase_b
 sequence:
   side_blocks:
@@ -244,16 +275,19 @@ animation:
     file: assets/exercises/ELBOW_006/images/setup_full_safe.png
     pose_description_uk: Людина сидить рівно, обидві кисті біля плечей, лікті зігнуті.
     alt_text_uk: Початкове положення сидячи, кисті біля плечей.
+    alt_text_en: Seated start position, hands beside the shoulders.
     framing: FULL_SAFE
   - id: FRAME_AT_SHOULDERS
     file: assets/exercises/ELBOW_006/images/motion_01_hands_at_shoulders_mid_safe.png
     pose_description_uk: Кисті біля плечей, лікті зігнуті, плечі опущені, корпус рівний.
     alt_text_uk: Кисті біля плечей, лікті зігнуті.
+    alt_text_en: Hands beside the shoulders, elbows bent.
     framing: MID_SAFE
   - id: FRAME_ARMS_FORWARD
     file: assets/exercises/ELBOW_006/images/motion_02_arms_forward_mid_safe.png
     pose_description_uk: Обидві руки випрямлені вперед на рівні грудей або плечей.
     alt_text_uk: Руки випрямлені вперед.
+    alt_text_en: Both arms straightened forward at chest height.
     framing: MID_SAFE
   preview:
     file: assets/exercises/ELBOW_006/images/preview.png
@@ -419,6 +453,8 @@ accessibility:
   screen_reader:
     exercise_summary_uk: Кисті до плечей — вперед. Сидячи на стільці, починайте з кистями біля плечей, плавно випрямляйте
       обидві руки вперед і повертайте їх назад.
+    exercise_summary_en: Hands to shoulders, then forward. Sitting on a chair, start with your hands beside your
+      shoulders, smoothly straighten both arms forward and bring them back.
     announce_countdown: true
     announce_repetition: false
     announce_side_change: false

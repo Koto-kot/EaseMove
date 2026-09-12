@@ -197,6 +197,44 @@ clinical:
     approval_version: null
 locale:
   default: uk
+  en:
+    title: Heel slide lying down
+    short_title: Heel to you
+    card_description: Slide your heel toward you, bending the knee, then slowly straighten the leg.
+    category_label: Knees
+    purpose_text: A gentle lying exercise for knee mobility and for bending the leg under control.
+    start_position_title: Starting position
+    start_position_text: Lie on your back. Straighten your legs and relax. The heel of the working leg rests
+      on the surface.
+    instructions_title: How to do it
+    instructions:
+    - step: 1
+      text: Lie comfortably on your back with your legs straight.
+    - step: 2
+      text: Slowly slide your left heel toward you.
+    - step: 3
+      text: Bend the knee as far as is comfortable.
+    - step: 4
+      text: Keep your knee pointing up.
+    - step: 5
+      text: Slowly slide the heel back, straightening the leg.
+    - step: 6
+      text: Do the set number of repetitions.
+    - step: 7
+      text: When the app tells you, repeat with the other leg.
+    technique_tips_title: Watch out for
+    technique_tips:
+    - The heel stays on the surface.
+    - The knee does not fall to the side.
+    - Your pelvis stays quiet.
+    - Move smoothly, with no jerking.
+    safety_label: Safety
+    safety_text: Move only within a comfortable range. If you feel sharp pain or any other unusual symptom,
+      press Stop.
+    completion_text: Done.
+    halfway_text: Halfway done.
+    switch_side_text: Now the other leg.
+    last_repetition_text: Last repetition.
   uk:
     title: Підтягування п’яти лежачи
     short_title: П’ята до себе
@@ -242,6 +280,7 @@ ui:
     primary_action:
       key: common.exercise.start
       resolved_uk: Почати
+      resolved_en: Start
     badges:
       show_difficulty: false
       show_duration: true
@@ -253,49 +292,62 @@ ui:
       elapsed_time:
         key: common.exercise.elapsed_time
         resolved_uk: Час
+        resolved_en: Time
       progress:
         key: common.exercise.progress
         resolved_uk: Виконано
+        resolved_en: Done
       repetition:
         key: common.exercise.repetition
         resolved_uk: Повтор
+        resolved_en: Rep
       side:
         key: common.exercise.side
         resolved_uk: Нога
+        resolved_en: Leg
       position:
         key: common.exercise.position
         resolved_uk: Положення
+        resolved_en: Position
     controls:
       previous:
         key: common.control.previous
         resolved_uk: Попередня
+        resolved_en: Previous
         icon: arrow_left
       start:
         key: common.control.start
         resolved_uk: Старт
+        resolved_en: Start
         icon: play
       pause:
         key: common.control.pause
         resolved_uk: Пауза
+        resolved_en: Pause
         icon: pause
       continue:
         key: common.control.continue
         resolved_uk: Продовжити
+        resolved_en: Continue
         icon: play
       stop:
         key: common.control.stop
         resolved_uk: Стоп
+        resolved_en: Stop
         icon: stop
       next:
         key: common.control.next
         resolved_uk: Наступна
+        resolved_en: Next
         icon: arrow_right
     prep:
       label_key: common.exercise.starts_in
       resolved_uk: Починаємо через
+      resolved_en: Starting in
     rest:
       label_key: common.exercise.rest
       resolved_uk: Відпочинок
+      resolved_en: Rest
       next_label_key: common.exercise.next_exercise
       next_label_resolved_uk: Наступна вправа
 timing:
@@ -336,15 +388,19 @@ repetition_model:
 movement_phases:
 - id: PHASE_SUPINE_START
   name_uk: Нога випрямлена
+  name_en: Leg straight
   phase_type: start_end
 - id: PHASE_SLIDE_IN
   name_uk: П’ята до себе
+  name_en: Heel toward you
   phase_type: dynamic_surface_slide
 - id: PHASE_KNEE_BENT
   name_uk: Коліно зігнуте
+  name_en: Knee bent
   phase_type: checkpoint
 - id: PHASE_SLIDE_OUT
   name_uk: Випрямлення ноги
+  name_en: Straightening the leg
   phase_type: dynamic_surface_slide
 sequence:
   side_blocks:
@@ -442,6 +498,7 @@ animation:
     file: assets/exercises/KNEE_003/frame_start.png
     pose_description_uk: Людина лежить на спині на стабільній поверхні. Обидві ноги випрямлені, таз нейтральний.
     alt_text_uk: Початкове положення лежачи на спині з випрямленими ногами.
+    alt_text_en: Supine start position with both legs straight.
     validation_points:
     - supine_position
     - both_legs_extended
@@ -451,6 +508,7 @@ animation:
     file: assets/exercises/KNEE_003/frame_left_mid.png
     pose_description_uk: Ліва п’ята ковзає до тіла. Ліве коліно частково зігнуте і спрямоване вгору. Таз не повертається.
     alt_text_uk: Ліва п’ята ковзає до тіла, коліно частково зігнуте.
+    alt_text_en: Left heel sliding toward the body, knee partly bent.
     validation_points:
     - left_heel_in_contact
     - left_knee_partially_flexed
@@ -461,6 +519,7 @@ animation:
     pose_description_uk: Ліва п’ята підтягнута до комфортної межі. Ліве коліно зігнуте і спрямоване вгору. П’ята
       залишається на поверхні.
     alt_text_uk: Ліве коліно зігнуте, п’ята залишається на поверхні.
+    alt_text_en: Left knee bent, heel still resting on the surface.
     validation_points:
     - left_heel_in_contact
     - left_knee_flexed
@@ -470,6 +529,7 @@ animation:
     file: assets/exercises/KNEE_003/frame_right_mid.png
     pose_description_uk: Права п’ята ковзає до тіла. Праве коліно частково зігнуте і спрямоване вгору. Таз не повертається.
     alt_text_uk: Права п’ята ковзає до тіла, коліно частково зігнуте.
+    alt_text_en: Right heel sliding toward the body, knee partly bent.
     validation_points:
     - right_heel_in_contact
     - right_knee_partially_flexed
@@ -480,6 +540,7 @@ animation:
     pose_description_uk: Права п’ята підтягнута до комфортної межі. Праве коліно зігнуте і спрямоване вгору. П’ята
       залишається на поверхні.
     alt_text_uk: Праве коліно зігнуте, п’ята залишається на поверхні.
+    alt_text_en: Right knee bent, heel still resting on the surface.
     validation_points:
     - right_heel_in_contact
     - right_knee_flexed
@@ -650,6 +711,7 @@ accessibility:
   screen_reader:
     exercise_summary_uk: Підтягування п’яти лежачи. Ляжте на спину. Повільно ковзайте п’ятою до себе, згинаючи коліно,
       потім ковзайте назад до випрямлення.
+    exercise_summary_en: Heel slide lying down. Lie on your back. Slowly slide your heel toward you, bending the knee, then slide it back and straighten the leg.
     announce_countdown: true
     announce_repetition: false
     announce_side_change: true

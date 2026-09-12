@@ -193,4 +193,54 @@ void main() {
       contains('assets/exercises/ELBOW_001/images/setup_full_safe.png'),
     );
   });
+
+  testWidgets('switching the language switches the exercise copy too', (
+    WidgetTester tester,
+  ) async {
+    final InMemoryLocalStore store = InMemoryLocalStore();
+    await store.writeSettings(const AppSettings(localeOverride: 'en'));
+
+    tester.view
+      ..devicePixelRatio = 1.0
+      ..physicalSize = const Size(400, 900);
+    addTearDown(tester.view.reset);
+
+    await tester.pumpWidget(
+      ProviderScope(
+        overrides: <Override>[
+          localStoreProvider.overrideWithValue(store),
+          assetBundleProvider.overrideWithValue(DiskAssetBundle()),
+          audioServiceProvider.overrideWithValue(LoggingAudioService()),
+        ],
+        child: const EaseMoveApp(),
+      ),
+    );
+    Future<void> settle() async {
+      for (int i = 0; i < 8; i++) {
+        await tester.pump(const Duration(milliseconds: 50));
+      }
+    }
+
+    await settle();
+    await tester.tap(find.byKey(const ValueKey<String>('hotspot.left_elbow')));
+    await tester.pump(const Duration(milliseconds: 400));
+    await settle();
+
+    // The catalog header is the zone title, the card is the exercise title —
+    // both come from the bundle rather than from the UI string pack.
+    expect(find.text('Elbows'), findsWidgets);
+    expect(find.text('Bend and straighten your arms'), findsOneWidget);
+    expect(find.text('Зігнути — розігнути руки'), findsNothing);
+
+    await tester.tap(find.text('Begin').first);
+    await settle();
+
+    // The player's own copy, above the fold on a phone.
+    expect(
+      find.textContaining('A simple starter exercise for elbow mobility'),
+      findsOneWidget,
+    );
+    expect(find.text('Starting position'), findsOneWidget);
+    expect(find.text('Listen to the steps'), findsOneWidget);
+  });
 }

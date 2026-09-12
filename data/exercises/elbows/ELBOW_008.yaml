@@ -104,6 +104,34 @@ clinical:
   variants: []
 locale:
   default: uk
+  en:
+    title: 'Both arms overhead: bend and straighten'
+    short_title: Both arms up
+    card_description: Seated, straighten and bend both arms above your head.
+    category_label: Elbows
+    purpose_text: A simple exercise for the arms and elbows with no equipment.
+    start_position_title: Starting position
+    start_position_text: 'Sit up straight on a stable chair. Both arms are bent overhead: your hands are behind
+      your head and your elbows are opened out to the sides.'
+    instructions_title: How to do it
+    instructions:
+    - step: 1
+      text: Sit up straight and place your feet on the floor.
+    - step: 2
+      text: Bend both arms overhead, hands behind your head.
+    - step: 3
+      text: Smoothly straighten both arms upward.
+    - step: 4
+      text: Return your arms to the bent starting position.
+    technique_tips_title: Watch out for
+    technique_tips:
+    - Keep your torso upright, without arching your lower back.
+    - Do not lift your shoulders toward your ears.
+    - Stay within a comfortable range.
+    safety_label: Safety
+    safety_text: Move within a comfortable range. If you feel sharp pain or any other unusual symptom, press Stop.
+    completion_text: Done.
+    halfway_text: Halfway done.
   uk:
     title: 'Дві руки над головою: зігнути — випрямити'
     short_title: Дві руки вгору
@@ -180,12 +208,15 @@ timing:
 movement_phases:
 - id: PHASE_SETUP
   name_uk: Початкове положення
+  name_en: Starting position
   biomechanics: start_position
 - id: PHASE_A
   name_uk: Руки зігнуті
+  name_en: Arms bent
   biomechanics: phase_a
 - id: PHASE_B
   name_uk: Руки випрямлені
+  name_en: Arms straight
   biomechanics: phase_b
 sequence:
   side_blocks:
@@ -244,16 +275,19 @@ animation:
     file: assets/exercises/ELBOW_008/images/setup_full_safe.png
     pose_description_uk: Людина сидить рівно, обидві руки зігнуті над головою.
     alt_text_uk: Початкове положення сидячи, обидві руки зігнуті над головою.
+    alt_text_en: Seated start position, both arms bent overhead.
     framing: FULL_SAFE
   - id: FRAME_BENT_OVERHEAD
     file: assets/exercises/ELBOW_008/images/motion_01_both_arms_bent_overhead_full_safe.png
     pose_description_uk: Обидві руки зігнуті над головою, кисті за головою, лікті розведені в сторони.
     alt_text_uk: Обидві руки зігнуті над головою.
+    alt_text_en: Both arms bent overhead, hands behind the head.
     framing: FULL_SAFE
   - id: FRAME_EXTENDED_OVERHEAD
     file: assets/exercises/ELBOW_008/images/motion_02_both_arms_extended_overhead_full_safe.png
     pose_description_uk: Обидві руки випрямлені вгору над головою.
     alt_text_uk: Обидві руки випрямлені вгору.
+    alt_text_en: Both arms straightened up above the head.
     framing: FULL_SAFE
   preview:
     file: assets/exercises/ELBOW_008/images/preview.png
@@ -419,6 +453,8 @@ accessibility:
   screen_reader:
     exercise_summary_uk: Дві руки над головою. Сидячи на стільці, плавно випрямляйте обидві руки вгору та знову
       згинайте їх над головою.
+    exercise_summary_en: Both arms overhead. Sitting on a chair, smoothly straighten both arms upward and bend them
+      again above your head.
     announce_countdown: true
     announce_repetition: false
     announce_side_change: false

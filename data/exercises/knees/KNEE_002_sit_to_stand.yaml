@@ -193,6 +193,46 @@ clinical:
     approval_version: null
 locale:
   default: uk
+  en:
+    title: Sit to stand
+    short_title: Stand and sit
+    card_description: Slowly stand up from the chair and sit back down under control.
+    category_label: Knees
+    purpose_text: A functional exercise for the leg muscles and for moving between sitting and standing
+      under control.
+    start_position_title: Starting position
+    start_position_text: Sit closer to the front edge of a stable chair. Place your feet on the floor about
+      hip width apart. Look ahead.
+    instructions_title: How to do it
+    instructions:
+    - step: 1
+      text: Sit closer to the front edge of the chair.
+    - step: 2
+      text: Plant your feet firmly on the floor.
+    - step: 3
+      text: Lean your torso forward a little.
+    - step: 4
+      text: Stand up smoothly, straightening your legs.
+    - step: 5
+      text: Straighten up fully and feel steady.
+    - step: 6
+      text: Slowly bend your knees and hips and sit back down.
+    - step: 7
+      text: Do the set number of repetitions.
+    technique_tips_title: Watch out for
+    technique_tips:
+    - Look ahead, not at the floor.
+    - Do not drop onto the chair — sit down under control.
+    - Your feet stay on the floor.
+    - Straighten up fully before sitting down.
+    - Use your hands only as the safe variant you chose allows.
+    safety_label: Safety
+    safety_text: Use only a stable chair without wheels. If you feel dizzy, lose your balance, or have sharp
+      pain or any other unusual symptom, press Stop.
+    completion_text: Done.
+    halfway_text: Halfway done.
+    last_repetition_text: Last repetition.
+    stand_stable_text: Straighten up. Stand steady.
   uk:
     title: Встати — сісти зі стільця
     short_title: Встати — сісти
@@ -240,6 +280,7 @@ ui:
     primary_action:
       key: common.exercise.start
       resolved_uk: Почати
+      resolved_en: Start
     badges:
       show_difficulty: false
       show_duration: true
@@ -251,46 +292,58 @@ ui:
       elapsed_time:
         key: common.exercise.elapsed_time
         resolved_uk: Час
+        resolved_en: Time
       progress:
         key: common.exercise.progress
         resolved_uk: Виконано
+        resolved_en: Done
       repetition:
         key: common.exercise.repetition
         resolved_uk: Повтор
+        resolved_en: Rep
       variant:
         key: common.exercise.variant
         resolved_uk: Варіант
+        resolved_en: Variant
     controls:
       previous:
         key: common.control.previous
         resolved_uk: Попередня
+        resolved_en: Previous
         icon: arrow_left
       start:
         key: common.control.start
         resolved_uk: Старт
+        resolved_en: Start
         icon: play
       pause:
         key: common.control.pause
         resolved_uk: Пауза
+        resolved_en: Pause
         icon: pause
       continue:
         key: common.control.continue
         resolved_uk: Продовжити
+        resolved_en: Continue
         icon: play
       stop:
         key: common.control.stop
         resolved_uk: Стоп
+        resolved_en: Stop
         icon: stop
       next:
         key: common.control.next
         resolved_uk: Наступна
+        resolved_en: Next
         icon: arrow_right
     prep:
       label_key: common.exercise.starts_in
       resolved_uk: Починаємо через
+      resolved_en: Starting in
     rest:
       label_key: common.exercise.rest
       resolved_uk: Відпочинок
+      resolved_en: Rest
       next_label_key: common.exercise.next_exercise
       next_label_resolved_uk: Наступна вправа
 timing:
@@ -324,18 +377,23 @@ repetition_model:
 movement_phases:
 - id: PHASE_SEATED
   name_uk: Сидячи
+  name_en: Seated
   phase_type: start_end
 - id: PHASE_FORWARD_LEAN
   name_uk: Нахил уперед
+  name_en: Leaning forward
   phase_type: transition
 - id: PHASE_RISE
   name_uk: Вставання
+  name_en: Standing up
   phase_type: dynamic
 - id: PHASE_STAND
   name_uk: Стояння
+  name_en: Standing
   phase_type: checkpoint
 - id: PHASE_DESCEND
   name_uk: Контрольоване сідання
+  name_en: Sitting down under control
   phase_type: dynamic
 sequence:
   repeat: 5
@@ -412,6 +470,7 @@ animation:
     file: assets/exercises/KNEE_002/frame_seated.png
     pose_description_uk: Людина сидить ближче до переднього краю стільця. Стопи повністю на підлозі, погляд вперед.
     alt_text_uk: Початкове положення сидячи біля переднього краю стільця.
+    alt_text_en: Seated start position near the front edge of the chair.
     validation_points:
     - feet_flat
     - feet_hip_width
@@ -422,6 +481,7 @@ animation:
     pose_description_uk: Корпус трохи нахилений уперед, плечі переміщуються вперед над стопами. Стопи залишаються
       на підлозі.
     alt_text_uk: Легкий нахил корпусу вперед перед вставанням.
+    alt_text_en: Slight forward lean of the torso before standing up.
     validation_points:
     - forward_lean_present
     - feet_flat
@@ -431,6 +491,7 @@ animation:
     file: assets/exercises/KNEE_002/frame_rising.png
     pose_description_uk: Таз відірваний від стільця. Коліна та стегна розгинаються. Стопи залишаються на підлозі.
     alt_text_uk: Проміжна фаза вставання зі стільця.
+    alt_text_en: Intermediate phase of standing up from the chair.
     validation_points:
     - pelvis_off_chair
     - feet_flat
@@ -440,6 +501,7 @@ animation:
     file: assets/exercises/KNEE_002/frame_standing.png
     pose_description_uk: Людина стоїть повністю випроставшись перед стільцем, стопи на підлозі, погляд вперед.
     alt_text_uk: Повністю випростане положення стоячи.
+    alt_text_en: Fully upright standing position.
     validation_points:
     - fully_upright
     - balanced_stance
@@ -450,6 +512,7 @@ animation:
     pose_description_uk: Людина контрольовано згинає стегна й коліна та опускається до стільця. Корпус трохи нахилений
       уперед.
     alt_text_uk: Контрольоване опускання назад на стілець.
+    alt_text_en: Controlled lowering back down onto the chair.
     validation_points:
     - controlled_descent
     - hip_and_knee_flexion
@@ -618,6 +681,7 @@ accessibility:
   screen_reader:
     exercise_summary_uk: Встати — сісти зі стільця. Сядьте ближче до краю стійкого стільця, трохи нахиліться вперед,
       плавно встаньте, випростайтеся, потім контрольовано сядьте назад.
+    exercise_summary_en: Sit to stand. Sit closer to the front of a stable chair, lean forward a little, stand up smoothly and sit back down under control.
     announce_countdown: true
     announce_repetition: false
     announce_checkpoint: true

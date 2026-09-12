@@ -2,56 +2,67 @@ schema_version: '1.0'
 zones:
 - id: neck
   title_uk: Шия
+  title_en: Neck
   short_title_uk: Шия
   short_title_en: Neck
   order: 10
 - id: shoulders
   title_uk: Плечі
+  title_en: Shoulders
   short_title_uk: Плечі
   short_title_en: Shoulders
   order: 20
 - id: upper_back
   title_uk: Верхня частина спини
+  title_en: Upper back
   short_title_uk: Верх спини
   short_title_en: Upper back
   order: 30
 - id: elbows
   title_uk: Лікті
+  title_en: Elbows
   short_title_uk: Лікті
   short_title_en: Elbows
   order: 40
 - id: wrists_hands
   title_uk: Кисті та зап’ястя
+  title_en: Hands and wrists
   short_title_uk: Кисті
   short_title_en: Hands
   order: 50
 - id: lower_back
   title_uk: Поперек
+  title_en: Lower back
   short_title_uk: Поперек
   short_title_en: Lower back
   order: 60
 - id: hips
   title_uk: Таз і стегна
+  title_en: Hips and thighs
   short_title_uk: Стегна
   short_title_en: Hips
   order: 70
 - id: knees
   title_uk: Коліна
+  title_en: Knees
   short_title_uk: Коліна
   short_title_en: Knees
   order: 80
 - id: calves
   title_uk: Гомілки
+  title_en: Calves
   short_title_uk: Гомілки
   short_title_en: Calves
   order: 90
 - id: ankles
   title_uk: Гомілковостопні суглоби
+  title_en: Ankles
   short_title_uk: Щиколотки
   short_title_en: Ankles
   order: 100
 - id: feet
   title_uk: Стопи
+  title_en: Feet
   short_title_uk: Стопи
   short_title_en: Feet
   order: 110

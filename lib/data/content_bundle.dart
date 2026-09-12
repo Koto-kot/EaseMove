@@ -325,6 +325,7 @@ class HomeConfig {
 
 class ContentBundle {
   const ContentBundle({
+    required this.locale,
     required this.defaultLocale,
     required this.exercises,
     required this.collections,
@@ -333,8 +334,18 @@ class ContentBundle {
     required this.home,
   });
 
-  static const String indexAsset = 'assets/content/index.json';
+  /// The language this bundle was compiled in. One bundle per language is
+  /// built (scripts/build_content.py), each one already complete: a field
+  /// with no translation carries the authoring language, so nothing here
+  /// has to fall back at runtime.
+  static String indexAsset(String locale) =>
+      'assets/content/$locale/index.json';
 
+  /// Language of this bundle's text.
+  final String locale;
+
+  /// Language the library is authored in, and what an untranslated field
+  /// falls back to at build time.
   final String defaultLocale;
   final List<ExerciseSummary> exercises;
   final List<ExerciseCollection> collections;
@@ -342,13 +353,18 @@ class ContentBundle {
   final BodyMapConfig bodyMap;
   final HomeConfig home;
 
-  static Future<ContentBundle> load({AssetBundle? bundle}) async {
+  static Future<ContentBundle> load({
+    AssetBundle? bundle,
+    String locale = fallbackLocale,
+  }) async {
     final AssetBundle assets = bundle ?? rootBundle;
-    final Map<String, dynamic> json =
-        jsonDecode(await assets.loadString(indexAsset)) as Map<String, dynamic>;
+    final Map<String, dynamic> json = jsonDecode(
+      await _read(assets, indexAsset(locale), indexAsset(fallbackLocale)),
+    ) as Map<String, dynamic>;
 
     return ContentBundle(
-      defaultLocale: json['defaultLocale'] as String? ?? 'uk',
+      locale: json['locale'] as String? ?? locale,
+      defaultLocale: json['defaultLocale'] as String? ?? fallbackLocale,
       exercises: <ExerciseSummary>[
         for (final dynamic e in json['exercises'] as List<dynamic>)
           ExerciseSummary.fromJson((e as Map).cast<String, dynamic>()),
@@ -368,12 +384,35 @@ class ContentBundle {
     );
   }
 
-  static Future<Exercise> loadExercise(String id, {AssetBundle? bundle}) async {
+  /// The language every bundle is guaranteed to exist in.
+  static const String fallbackLocale = 'uk';
+
+  static Future<Exercise> loadExercise(
+    String id, {
+    AssetBundle? bundle,
+    String locale = fallbackLocale,
+  }) async {
     final AssetBundle assets = bundle ?? rootBundle;
-    final String raw = await assets.loadString(
-      'assets/content/exercises/$id.json',
+    final String raw = await _read(
+      assets,
+      'assets/content/$locale/exercises/$id.json',
+      'assets/content/$fallbackLocale/exercises/$id.json',
     );
     return Exercise.fromJson(jsonDecode(raw) as Map<String, dynamic>);
+  }
+
+  /// A language the build has no bundle for reads in the authoring language,
+  /// rather than leaving the app on its error screen.
+  static Future<String> _read(
+    AssetBundle assets,
+    String asset,
+    String fallback,
+  ) async {
+    try {
+      return await assets.loadString(asset);
+    } on Object {
+      return assets.loadString(fallback);
+    }
   }
 
   ExerciseCollection? collectionById(String id) {

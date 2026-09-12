@@ -1,0 +1,1018 @@
+{
+  "generatedFrom": "data/",
+  "locale": "en",
+  "defaultLocale": "uk",
+  "exercises": [
+    {
+      "id": "NECK_001",
+      "title": "Head turns",
+      "cardDescription": "Slowly turn your head to the left and to the right.",
+      "primaryZone": "neck",
+      "clinicalStatus": "pending_review",
+      "collections": [
+        "body_neck",
+        "computer_break",
+        "after_sitting"
+      ],
+      "tags": [
+        "neck",
+        "computer",
+        "after_sitting",
+        "sitting",
+        "standing",
+        "mobility",
+        "rotation",
+        "bilateral",
+        "beginner",
+        "gentle",
+        "none",
+        "chair_optional"
+      ],
+      "preview": "assets/exercises/NECK_001/preview.png",
+      "estimatedActiveSeconds": 51,
+      "requiresPro": false
+    },
+    {
+      "id": "KNEE_001",
+      "title": "Seated knee extension",
+      "cardDescription": "Slowly straighten your leg at the knee and lower it under control.",
+      "primaryZone": "knees",
+      "clinicalStatus": "pending_review",
+      "collections": [
+        "body_knees",
+        "computer_break",
+        "after_sitting",
+        "seated_gentle"
+      ],
+      "tags": [
+        "knee",
+        "quadriceps",
+        "computer",
+        "after_sitting",
+        "sitting",
+        "mobility",
+        "strength",
+        "knee_extension",
+        "bilateral",
+        "open_chain",
+        "beginner",
+        "gentle",
+        "chair"
+      ],
+      "preview": "assets/exercises/KNEE_001/preview.png",
+      "estimatedActiveSeconds": 182,
+      "requiresPro": false
+    },
+    {
+      "id": "KNEE_002",
+      "title": "Sit to stand",
+      "cardDescription": "Slowly stand up from the chair and sit back down under control.",
+      "primaryZone": "knees",
+      "clinicalStatus": "pending_review",
+      "collections": [
+        "body_knees",
+        "body_hips",
+        "after_sitting",
+        "functional_strength",
+        "chair_exercises"
+      ],
+      "tags": [
+        "knees",
+        "hips",
+        "quadriceps",
+        "gluteals",
+        "after_sitting",
+        "chair",
+        "daily_function",
+        "sitting",
+        "standing",
+        "sit_to_stand_transition",
+        "functional_strength",
+        "sit_to_stand",
+        "bilateral",
+        "closed_chain",
+        "balance_component",
+        "beginner",
+        "gentle"
+      ],
+      "preview": "assets/exercises/KNEE_002/preview.png",
+      "estimatedActiveSeconds": 42,
+      "requiresPro": false
+    },
+    {
+      "id": "KNEE_003",
+      "title": "Heel slide lying down",
+      "cardDescription": "Slide your heel toward you, bending the knee, then slowly straighten the leg.",
+      "primaryZone": "knees",
+      "clinicalStatus": "pending_review",
+      "collections": [
+        "body_knees",
+        "bed_basic",
+        "bed_legs",
+        "gentle_mobility"
+      ],
+      "tags": [
+        "knees",
+        "hips",
+        "bed",
+        "lying",
+        "gentle_mobility",
+        "supine",
+        "heel_slide",
+        "knee_flexion",
+        "knee_extension",
+        "hip_flexion",
+        "bilateral",
+        "surface_slide",
+        "beginner",
+        "gentle",
+        "bed_or_mat"
+      ],
+      "preview": "assets/exercises/KNEE_003/preview.png",
+      "estimatedActiveSeconds": 54,
+      "requiresPro": false
+    },
+    {
+      "id": "ELBOW_001",
+      "title": "Bend and straighten your arms",
+      "cardDescription": "Seated, bend and smoothly straighten both elbows at the same time.",
+      "primaryZone": "elbows",
+      "clinicalStatus": "pending_review",
+      "collections": [
+        "body_elbows",
+        "seated_gentle",
+        "computer_break",
+        "after_sitting"
+      ],
+      "tags": [
+        "elbow",
+        "forearm",
+        "upper_arm",
+        "computer",
+        "after_sitting",
+        "sitting",
+        "mobility",
+        "elbow_flexion",
+        "bilateral",
+        "no_resistance",
+        "beginner",
+        "gentle",
+        "stable_chair"
+      ],
+      "preview": "assets/exercises/ELBOW_001/images/preview.png",
+      "estimatedActiveSeconds": 61,
+      "requiresPro": false
+    },
+    {
+      "id": "ELBOW_002",
+      "title": "Alternating arm bends",
+      "cardDescription": "Seated, bend your right and left arm at the elbow in turn.",
+      "primaryZone": "elbows",
+      "clinicalStatus": "pending_review",
+      "collections": [
+        "body_elbows",
+        "seated_gentle",
+        "computer_break",
+        "after_sitting"
+      ],
+      "tags": [
+        "elbow",
+        "forearm",
+        "upper_arm",
+        "computer",
+        "after_sitting",
+        "sitting",
+        "mobility",
+        "elbow_flexion",
+        "alternating",
+        "no_resistance",
+        "beginner",
+        "gentle",
+        "stable_chair"
+      ],
+      "preview": "assets/exercises/ELBOW_002/images/preview.png",
+      "estimatedActiveSeconds": 61,
+      "requiresPro": false
+    },
+    {
+      "id": "ELBOW_003",
+      "title": "Arm bends with palms facing in",
+      "cardDescription": "Seated, bend both elbows while keeping your palms facing inward.",
+      "primaryZone": "elbows",
+      "clinicalStatus": "pending_review",
+      "collections": [
+        "body_elbows",
+        "seated_gentle",
+        "computer_break",
+        "after_sitting"
+      ],
+      "tags": [
+        "elbow",
+        "forearm",
+        "upper_arm",
+        "computer",
+        "after_sitting",
+        "sitting",
+        "mobility",
+        "elbow_flexion",
+        "bilateral",
+        "palms_in",
+        "no_resistance",
+        "beginner",
+        "gentle",
+        "stable_chair"
+      ],
+      "preview": "assets/exercises/ELBOW_003/images/preview.png",
+      "estimatedActiveSeconds": 61,
+      "requiresPro": false
+    },
+    {
+      "id": "ELBOW_004",
+      "title": "Arm bends with palms down",
+      "cardDescription": "Seated, bring your hands up toward your shoulders and back, keeping your palms facing down.",
+      "primaryZone": "elbows",
+      "clinicalStatus": "pending_review",
+      "collections": [
+        "body_elbows",
+        "seated_gentle",
+        "computer_break",
+        "after_sitting"
+      ],
+      "tags": [
+        "elbow",
+        "forearm",
+        "upper_arm",
+        "computer",
+        "after_sitting",
+        "sitting",
+        "mobility",
+        "elbow_flexion",
+        "bilateral",
+        "palms_down",
+        "no_resistance",
+        "beginner",
+        "gentle",
+        "stable_chair"
+      ],
+      "preview": "assets/exercises/ELBOW_004/images/preview.png",
+      "estimatedActiveSeconds": 61,
+      "requiresPro": false
+    },
+    {
+      "id": "ELBOW_005",
+      "title": "Palms up, palms down",
+      "cardDescription": "Seated, rotate your forearms so your palms turn up and down.",
+      "primaryZone": "elbows",
+      "clinicalStatus": "pending_review",
+      "collections": [
+        "body_elbows",
+        "seated_gentle",
+        "computer_break",
+        "after_sitting"
+      ],
+      "tags": [
+        "elbow",
+        "forearm",
+        "upper_arm",
+        "computer",
+        "after_sitting",
+        "sitting",
+        "mobility",
+        "forearm_rotation",
+        "bilateral",
+        "no_resistance",
+        "beginner",
+        "gentle",
+        "stable_chair"
+      ],
+      "preview": "assets/exercises/ELBOW_005/images/preview.png",
+      "estimatedActiveSeconds": 61,
+      "requiresPro": false
+    },
+    {
+      "id": "ELBOW_006",
+      "title": "Hands to shoulders, then forward",
+      "cardDescription": "Seated, straighten both arms forward and bring your hands back to your shoulders.",
+      "primaryZone": "elbows",
+      "clinicalStatus": "pending_review",
+      "collections": [
+        "body_elbows",
+        "seated_gentle",
+        "computer_break",
+        "after_sitting"
+      ],
+      "tags": [
+        "elbow",
+        "forearm",
+        "upper_arm",
+        "computer",
+        "after_sitting",
+        "sitting",
+        "mobility",
+        "elbow_extension",
+        "bilateral",
+        "forward_reach",
+        "no_resistance",
+        "beginner",
+        "gentle",
+        "stable_chair"
+      ],
+      "preview": "assets/exercises/ELBOW_006/images/preview.png",
+      "estimatedActiveSeconds": 61,
+      "requiresPro": false
+    },
+    {
+      "id": "ELBOW_007",
+      "title": "One arm overhead: bend and straighten",
+      "cardDescription": "Seated, bend and straighten one arm above your head.",
+      "primaryZone": "elbows",
+      "clinicalStatus": "pending_review",
+      "collections": [
+        "body_elbows",
+        "seated_gentle",
+        "computer_break",
+        "after_sitting"
+      ],
+      "tags": [
+        "elbow",
+        "forearm",
+        "upper_arm",
+        "computer",
+        "after_sitting",
+        "sitting",
+        "mobility",
+        "elbow_extension",
+        "unilateral",
+        "overhead",
+        "no_resistance",
+        "beginner",
+        "gentle",
+        "stable_chair"
+      ],
+      "preview": "assets/exercises/ELBOW_007/images/preview.png",
+      "estimatedActiveSeconds": 61,
+      "requiresPro": false
+    },
+    {
+      "id": "ELBOW_008",
+      "title": "Both arms overhead: bend and straighten",
+      "cardDescription": "Seated, straighten and bend both arms above your head.",
+      "primaryZone": "elbows",
+      "clinicalStatus": "pending_review",
+      "collections": [
+        "body_elbows",
+        "seated_gentle",
+        "computer_break",
+        "after_sitting"
+      ],
+      "tags": [
+        "elbow",
+        "forearm",
+        "upper_arm",
+        "computer",
+        "after_sitting",
+        "sitting",
+        "mobility",
+        "elbow_extension",
+        "bilateral",
+        "overhead",
+        "no_resistance",
+        "beginner",
+        "gentle",
+        "stable_chair"
+      ],
+      "preview": "assets/exercises/ELBOW_008/images/preview.png",
+      "estimatedActiveSeconds": 61,
+      "requiresPro": false
+    },
+    {
+      "id": "ELBOW_009",
+      "title": "Wall push-up",
+      "cardDescription": "Standing at a wall, smoothly bend and straighten your arms.",
+      "primaryZone": "elbows",
+      "clinicalStatus": "pending_review",
+      "collections": [
+        "body_elbows",
+        "computer_break",
+        "after_sitting"
+      ],
+      "tags": [
+        "elbow",
+        "forearm",
+        "upper_arm",
+        "computer",
+        "after_sitting",
+        "standing",
+        "strength",
+        "elbow_flexion_extension",
+        "bilateral",
+        "closed_chain",
+        "beginner",
+        "gentle",
+        "wall"
+      ],
+      "preview": "assets/exercises/ELBOW_009/images/preview.png",
+      "estimatedActiveSeconds": 61,
+      "requiresPro": false
+    }
+  ],
+  "collections": [
+    {
+      "id": "body_neck",
+      "title": "Neck",
+      "type": "body_zone",
+      "primaryZone": "neck",
+      "sort": "editorial"
+    },
+    {
+      "id": "body_knees",
+      "title": "Knees",
+      "type": "body_zone",
+      "primaryZone": "knees",
+      "sort": "editorial"
+    },
+    {
+      "id": "body_hips",
+      "title": "Hips and thighs",
+      "type": "body_zone",
+      "primaryZone": "hips",
+      "sort": "editorial"
+    },
+    {
+      "id": "computer_break",
+      "title": "At the computer",
+      "type": "situation",
+      "primaryZone": null,
+      "sort": "editorial"
+    },
+    {
+      "id": "computer_break_active",
+      "title": "Active break at the computer",
+      "type": "situation_candidate",
+      "primaryZone": null,
+      "sort": "editorial"
+    },
+    {
+      "id": "after_sitting",
+      "title": "After sitting a long time",
+      "type": "situation",
+      "primaryZone": null,
+      "sort": "editorial"
+    },
+    {
+      "id": "bed_basic",
+      "title": "In bed",
+      "type": "situation",
+      "primaryZone": null,
+      "sort": "editorial"
+    },
+    {
+      "id": "eyes_basic",
+      "title": "Eyes",
+      "type": "situation",
+      "primaryZone": null,
+      "sort": "editorial"
+    },
+    {
+      "id": "morning_energy",
+      "title": "Morning",
+      "type": "situation",
+      "primaryZone": null,
+      "sort": "editorial"
+    },
+    {
+      "id": "bed_legs",
+      "title": "Legs in bed",
+      "type": "situation",
+      "primaryZone": null,
+      "sort": "editorial"
+    },
+    {
+      "id": "gentle_mobility",
+      "title": "Gentle mobility",
+      "type": "theme",
+      "primaryZone": null,
+      "sort": "editorial"
+    },
+    {
+      "id": "functional_strength",
+      "title": "Everyday strength",
+      "type": "theme",
+      "primaryZone": null,
+      "sort": "editorial"
+    },
+    {
+      "id": "chair_exercises",
+      "title": "Chair exercises",
+      "type": "theme",
+      "primaryZone": null,
+      "sort": "editorial"
+    },
+    {
+      "id": "seated_gentle",
+      "title": "Gentle seated exercises",
+      "type": "theme",
+      "primaryZone": null,
+      "sort": "editorial"
+    },
+    {
+      "id": "body_shoulders",
+      "title": "Shoulders",
+      "type": "body_zone",
+      "primaryZone": "shoulders",
+      "sort": "editorial"
+    },
+    {
+      "id": "body_upper_back",
+      "title": "Upper back",
+      "type": "body_zone",
+      "primaryZone": "upper_back",
+      "sort": "editorial"
+    },
+    {
+      "id": "body_elbows",
+      "title": "Elbows",
+      "type": "body_zone",
+      "primaryZone": "elbows",
+      "sort": "editorial"
+    },
+    {
+      "id": "body_wrists_hands",
+      "title": "Hands and wrists",
+      "type": "body_zone",
+      "primaryZone": "wrists_hands",
+      "sort": "editorial"
+    },
+    {
+      "id": "body_lower_back",
+      "title": "Lower back",
+      "type": "body_zone",
+      "primaryZone": "lower_back",
+      "sort": "editorial"
+    },
+    {
+      "id": "body_calves",
+      "title": "Calves",
+      "type": "body_zone",
+      "primaryZone": "calves",
+      "sort": "editorial"
+    },
+    {
+      "id": "body_ankles",
+      "title": "Ankles",
+      "type": "body_zone",
+      "primaryZone": "ankles",
+      "sort": "editorial"
+    },
+    {
+      "id": "body_feet",
+      "title": "Feet",
+      "type": "body_zone",
+      "primaryZone": "feet",
+      "sort": "editorial"
+    }
+  ],
+  "zones": [
+    {
+      "id": "neck",
+      "title": "Neck",
+      "shortTitle": "Neck",
+      "order": 10
+    },
+    {
+      "id": "shoulders",
+      "title": "Shoulders",
+      "shortTitle": "Shoulders",
+      "order": 20
+    },
+    {
+      "id": "upper_back",
+      "title": "Upper back",
+      "shortTitle": "Upper back",
+      "order": 30
+    },
+    {
+      "id": "elbows",
+      "title": "Elbows",
+      "shortTitle": "Elbows",
+      "order": 40
+    },
+    {
+      "id": "wrists_hands",
+      "title": "Hands and wrists",
+      "shortTitle": "Hands",
+      "order": 50
+    },
+    {
+      "id": "lower_back",
+      "title": "Lower back",
+      "shortTitle": "Lower back",
+      "order": 60
+    },
+    {
+      "id": "hips",
+      "title": "Hips and thighs",
+      "shortTitle": "Hips",
+      "order": 70
+    },
+    {
+      "id": "knees",
+      "title": "Knees",
+      "shortTitle": "Knees",
+      "order": 80
+    },
+    {
+      "id": "calves",
+      "title": "Calves",
+      "shortTitle": "Calves",
+      "order": 90
+    },
+    {
+      "id": "ankles",
+      "title": "Ankles",
+      "shortTitle": "Ankles",
+      "order": 100
+    },
+    {
+      "id": "feet",
+      "title": "Feet",
+      "shortTitle": "Feet",
+      "order": 110
+    }
+  ],
+  "bodyMap": {
+    "artwork": {
+      "front": {
+        "asset": "assets/ui/home/body/body_front.png",
+        "widthPx": 1086,
+        "heightPx": 1448,
+        "content": {
+          "left": 0.2726,
+          "top": 0.0304,
+          "width": 0.4429,
+          "height": 0.8998
+        }
+      },
+      "back_mini": {
+        "asset": "assets/ui/home/body/body_back_mini.png",
+        "widthPx": 1086,
+        "heightPx": 1448,
+        "content": {
+          "left": 0.2808,
+          "top": 0.0297,
+          "width": 0.43739999999999996,
+          "height": 0.8936000000000001
+        }
+      }
+    },
+    "hotspots": [
+      {
+        "id": "neck",
+        "view": "front",
+        "group": "neck",
+        "zoneId": "neck",
+        "collectionId": "body_neck",
+        "highlightTargets": [
+          "neck"
+        ],
+        "cx": 0.50666,
+        "cy": 0.17737,
+        "w": 0.16934,
+        "h": 0.05001
+      },
+      {
+        "id": "left_shoulder",
+        "view": "front",
+        "group": "both_shoulders",
+        "zoneId": "shoulders",
+        "collectionId": "body_shoulders",
+        "highlightTargets": [
+          "left_shoulder",
+          "right_shoulder"
+        ],
+        "cx": 0.23572,
+        "cy": 0.22405,
+        "w": 0.16934,
+        "h": 0.06112
+      },
+      {
+        "id": "right_shoulder",
+        "view": "front",
+        "group": "both_shoulders",
+        "zoneId": "shoulders",
+        "collectionId": "body_shoulders",
+        "highlightTargets": [
+          "left_shoulder",
+          "right_shoulder"
+        ],
+        "cx": 0.7776,
+        "cy": 0.22405,
+        "w": 0.16934,
+        "h": 0.06112
+      },
+      {
+        "id": "left_elbow",
+        "view": "front",
+        "group": "both_elbows",
+        "zoneId": "elbows",
+        "collectionId": "body_elbows",
+        "highlightTargets": [
+          "left_elbow",
+          "right_elbow"
+        ],
+        "cx": 0.12508,
+        "cy": 0.41076,
+        "w": 0.14676,
+        "h": 0.07224
+      },
+      {
+        "id": "right_elbow",
+        "view": "front",
+        "group": "both_elbows",
+        "zoneId": "elbows",
+        "collectionId": "body_elbows",
+        "highlightTargets": [
+          "left_elbow",
+          "right_elbow"
+        ],
+        "cx": 0.87469,
+        "cy": 0.41076,
+        "w": 0.14676,
+        "h": 0.07224
+      },
+      {
+        "id": "left_wrist",
+        "view": "front",
+        "group": "both_wrists",
+        "zoneId": "wrists_hands",
+        "collectionId": "body_wrists_hands",
+        "highlightTargets": [
+          "left_wrist",
+          "right_wrist"
+        ],
+        "cx": 0.06186,
+        "cy": 0.51634,
+        "w": 0.15805,
+        "h": 0.0778
+      },
+      {
+        "id": "right_wrist",
+        "view": "front",
+        "group": "both_wrists",
+        "zoneId": "wrists_hands",
+        "collectionId": "body_wrists_hands",
+        "highlightTargets": [
+          "left_wrist",
+          "right_wrist"
+        ],
+        "cx": 0.965,
+        "cy": 0.51634,
+        "w": 0.15805,
+        "h": 0.0778
+      },
+      {
+        "id": "left_hip",
+        "view": "front",
+        "group": "both_hips",
+        "zoneId": "hips",
+        "collectionId": "body_hips",
+        "highlightTargets": [
+          "left_hip",
+          "right_hip"
+        ],
+        "cx": 0.35087,
+        "cy": 0.55523,
+        "w": 0.19192,
+        "h": 0.0778
+      },
+      {
+        "id": "right_hip",
+        "view": "front",
+        "group": "both_hips",
+        "zoneId": "hips",
+        "collectionId": "body_hips",
+        "highlightTargets": [
+          "left_hip",
+          "right_hip"
+        ],
+        "cx": 0.66697,
+        "cy": 0.55523,
+        "w": 0.19192,
+        "h": 0.0778
+      },
+      {
+        "id": "left_knee",
+        "view": "front",
+        "group": "both_knees",
+        "zoneId": "knees",
+        "collectionId": "body_knees",
+        "highlightTargets": [
+          "left_knee",
+          "right_knee"
+        ],
+        "cx": 0.36893,
+        "cy": 0.71638,
+        "w": 0.18063,
+        "h": 0.0778
+      },
+      {
+        "id": "right_knee",
+        "view": "front",
+        "group": "both_knees",
+        "zoneId": "knees",
+        "collectionId": "body_knees",
+        "highlightTargets": [
+          "left_knee",
+          "right_knee"
+        ],
+        "cx": 0.63084,
+        "cy": 0.71638,
+        "w": 0.18063,
+        "h": 0.0778
+      },
+      {
+        "id": "left_shin",
+        "view": "front",
+        "group": "both_shins",
+        "zoneId": "calves",
+        "collectionId": "body_calves",
+        "highlightTargets": [
+          "left_shin",
+          "right_shin"
+        ],
+        "cx": 0.35087,
+        "cy": 0.79973,
+        "w": 0.16934,
+        "h": 0.08891
+      },
+      {
+        "id": "right_shin",
+        "view": "front",
+        "group": "both_shins",
+        "zoneId": "calves",
+        "collectionId": "body_calves",
+        "highlightTargets": [
+          "left_shin",
+          "right_shin"
+        ],
+        "cx": 0.64439,
+        "cy": 0.79973,
+        "w": 0.16934,
+        "h": 0.08891
+      },
+      {
+        "id": "left_ankle",
+        "view": "front",
+        "group": "both_ankles",
+        "zoneId": "ankles",
+        "collectionId": "body_ankles",
+        "highlightTargets": [
+          "left_ankle",
+          "right_ankle"
+        ],
+        "cx": 0.34184,
+        "cy": 0.92421,
+        "w": 0.14676,
+        "h": 0.05557
+      },
+      {
+        "id": "right_ankle",
+        "view": "front",
+        "group": "both_ankles",
+        "zoneId": "ankles",
+        "collectionId": "body_ankles",
+        "highlightTargets": [
+          "left_ankle",
+          "right_ankle"
+        ],
+        "cx": 0.64665,
+        "cy": 0.92421,
+        "w": 0.14676,
+        "h": 0.05557
+      },
+      {
+        "id": "left_foot",
+        "view": "front",
+        "group": "both_feet",
+        "zoneId": "feet",
+        "collectionId": "body_feet",
+        "highlightTargets": [
+          "left_foot",
+          "right_foot"
+        ],
+        "cx": 0.31474,
+        "cy": 0.97977,
+        "w": 0.20321,
+        "h": 0.05557
+      },
+      {
+        "id": "right_foot",
+        "view": "front",
+        "group": "both_feet",
+        "zoneId": "feet",
+        "collectionId": "body_feet",
+        "highlightTargets": [
+          "left_foot",
+          "right_foot"
+        ],
+        "cx": 0.68503,
+        "cy": 0.97977,
+        "w": 0.20321,
+        "h": 0.05557
+      },
+      {
+        "id": "upper_back",
+        "view": "back_mini",
+        "group": "upper_back",
+        "zoneId": "upper_back",
+        "collectionId": "body_upper_back",
+        "highlightTargets": [
+          "upper_back"
+        ],
+        "cx": 0.50114,
+        "cy": 0.29689,
+        "w": 0.41152,
+        "h": 0.13429
+      },
+      {
+        "id": "lower_back",
+        "view": "back_mini",
+        "group": "lower_back",
+        "zoneId": "lower_back",
+        "collectionId": "body_lower_back",
+        "highlightTargets": [
+          "lower_back"
+        ],
+        "cx": 0.50114,
+        "cy": 0.41999,
+        "w": 0.38866,
+        "h": 0.11191
+      }
+    ],
+    "uiRules": {
+      "persistentLabels": false,
+      "pairedHighlight": true,
+      "pulseDurationMs": 300,
+      "coreDiameter": 22.0,
+      "haloDiameter": 52.0,
+      "minimumTouchTarget": 56.0,
+      "tapMaxDistance": 44.0
+    }
+  },
+  "home": {
+    "hintKey": "app.home.subtitle",
+    "header": {
+      "menuButton": true,
+      "settingsButton": true,
+      "showSubtitle": false,
+      "titleKey": "app.home.title",
+      "subtitleKey": "app.home.subtitle"
+    },
+    "sections": [
+      {
+        "id": "body",
+        "icon": "assets/ui/home/cards/icon_body.svg",
+        "titleKey": "app.home.card.body.title",
+        "subtitleKey": "app.home.card.body.subtitle",
+        "tint": "blue_soft",
+        "target": {
+          "type": "zones",
+          "collectionId": null
+        }
+      },
+      {
+        "id": "eyes",
+        "icon": "assets/ui/home/cards/icon_eyes.svg",
+        "titleKey": "app.home.card.eyes.title",
+        "subtitleKey": "app.home.card.eyes.subtitle",
+        "tint": "lavender_soft",
+        "target": {
+          "type": "collection",
+          "collectionId": "eyes_basic"
+        }
+      },
+      {
+        "id": "morning",
+        "icon": "assets/ui/home/cards/icon_morning.svg",
+        "titleKey": "app.home.card.morning.title",
+        "subtitleKey": "app.home.card.morning.subtitle",
+        "tint": "yellow_soft",
+        "target": {
+          "type": "collection",
+          "collectionId": "morning_energy"
+        }
+      },
+      {
+        "id": "sitting",
+        "icon": "assets/ui/home/cards/icon_sitting.svg",
+        "titleKey": "app.home.card.sitting.title",
+        "subtitleKey": "app.home.card.sitting.subtitle",
+        "tint": "mint_soft",
+        "target": {
+          "type": "collection",
+          "collectionId": "after_sitting"
+        }
+      }
+    ]
+  }
+}

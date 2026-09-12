@@ -104,6 +104,37 @@ clinical:
   variants: []
 locale:
   default: uk
+  en:
+    title: Bend and straighten your arms
+    short_title: Elbow bends
+    card_description: Seated, bend and smoothly straighten both elbows at the same time.
+    category_label: Elbows
+    purpose_text: A simple starter exercise for elbow mobility. No dumbbells, bands or any other resistance.
+    start_position_title: Starting position
+    start_position_text: Sit up straight on a stable chair. Feet flat on the floor, knees at about a right angle.
+      Shoulders down and relaxed. Both arms hang freely beside your body, elbows close to your sides.
+    instructions_title: How to do it
+    instructions:
+    - step: 1
+      text: Sit up straight and place your feet on the floor.
+    - step: 2
+      text: Let your arms hang freely beside your body.
+    - step: 3
+      text: Bend both elbows at the same time, bringing your hands up to about shoulder height.
+    - step: 4
+      text: Smoothly straighten your arms and return to the start.
+    - step: 5
+      text: Keep repeating at a calm pace until the time is up.
+    technique_tips_title: Watch out for
+    technique_tips:
+    - Do not lift your shoulders toward your ears.
+    - Keep your elbows close to your body.
+    - Straighten without locking the elbow.
+    - Move smoothly, with no jerking.
+    safety_label: Safety
+    safety_text: Move within a comfortable range. If you feel sharp pain or any other unusual symptom, press Stop.
+    completion_text: Done.
+    halfway_text: Halfway done.
   uk:
     title: Зігнути — розігнути руки
     short_title: Згинання рук
@@ -183,12 +214,15 @@ timing:
 movement_phases:
 - id: PHASE_SETUP
   name_uk: Початкове положення
+  name_en: Starting position
   biomechanics: start_position
 - id: PHASE_A
   name_uk: Руки розігнуті
+  name_en: Arms straight
   biomechanics: phase_a
 - id: PHASE_B
   name_uk: Руки зігнуті
+  name_en: Arms bent
   biomechanics: phase_b
 sequence:
   side_blocks:
@@ -247,16 +281,19 @@ animation:
     file: assets/exercises/ELBOW_001/images/setup_full_safe.png
     pose_description_uk: Людина сидить рівно на стільці, стопи на підлозі, руки вільно опущені вздовж тулуба.
     alt_text_uk: Початкове положення сидячи, руки опущені вздовж тулуба.
+    alt_text_en: Seated start position, both arms hanging down alongside the torso.
     framing: FULL_SAFE
   - id: FRAME_EXTENDED
     file: assets/exercises/ELBOW_001/images/motion_01_extended_mid_safe.png
     pose_description_uk: Руки опущені вздовж тулуба, лікті розігнуті без силового «замикання».
     alt_text_uk: Руки опущені, лікті розігнуті.
+    alt_text_en: Arms hanging down, elbows straight.
     framing: MID_SAFE
   - id: FRAME_FLEXED
     file: assets/exercises/ELBOW_001/images/motion_02_flexed_mid_safe.png
     pose_description_uk: Обидва лікті зігнуті, кисті приблизно на рівні плечей, плечі не підняті.
     alt_text_uk: Руки зігнуті в ліктях, кисті біля плечей.
+    alt_text_en: Both elbows bent, hands at shoulder height.
     framing: MID_SAFE
   preview:
     file: assets/exercises/ELBOW_001/images/preview.png
@@ -422,6 +459,8 @@ accessibility:
   screen_reader:
     exercise_summary_uk: Зігнути — розігнути руки. Сидячи на стільці, одночасно згинайте обидві руки в ліктях і
       плавно повертайте їх у вихідне положення.
+    exercise_summary_en: Bend and straighten your arms. Sitting on a chair, bend both elbows at the same time and
+      smoothly return them to the start.
     announce_countdown: true
     announce_repetition: false
     announce_side_change: false

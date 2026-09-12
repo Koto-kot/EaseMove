@@ -162,7 +162,7 @@ void main() {
 
   test('every body zone has a label', () {
     final Map<String, dynamic> index = loadJsonFromDisk(
-      'assets/content/index.json',
+      'assets/content/uk/index.json',
     );
     for (final String locale in _fullLocales) {
       final Map<String, String> pack = _pack(locale);
@@ -173,6 +173,58 @@ void main() {
           isTrue,
           reason: '$locale/$id',
         );
+      }
+    }
+  });
+
+  test('the English bundle has no Ukrainian left in it', () {
+    // Every field falls back to the authoring language at build time, so a
+    // Cyrillic letter in the English bundle means a field nobody translated
+    // (scripts/build_content.py).
+    final RegExp cyrillic = RegExp(r'[Ѐ-ӿ]');
+    final Map<String, dynamic> index = loadJsonFromDisk(
+      'assets/content/en/index.json',
+    );
+
+    void check(Object? value, String where) {
+      if (value is String) {
+        expect(cyrillic.hasMatch(value), isFalse, reason: '$where: "$value"');
+      } else if (value is List) {
+        for (int i = 0; i < value.length; i++) {
+          check(value[i], '$where[$i]');
+        }
+      } else if (value is Map) {
+        value.forEach(
+          (Object? key, Object? item) => check(item, '$where.$key'),
+        );
+      }
+    }
+
+    for (final String key in <String>['exercises', 'collections', 'zones']) {
+      check(index[key], 'index.$key');
+    }
+    for (final dynamic summary in index['exercises'] as List<dynamic>) {
+      final String id = (summary as Map<String, dynamic>)['id'] as String;
+      final Map<String, dynamic> exercise = loadJsonFromDisk(
+        'assets/content/en/exercises/$id.json',
+      );
+      for (final String key in <String>[
+        'text',
+        'labels',
+        'movementPhases',
+        'accessibility',
+      ]) {
+        check(exercise[key], '$id.$key');
+      }
+      final Map<String, dynamic> animation =
+          exercise['animation'] as Map<String, dynamic>;
+      for (final dynamic frame in animation['frames'] as List<dynamic>) {
+        check((frame as Map<String, dynamic>)['altText'], '$id.altText');
+      }
+      for (final dynamic event
+          in (exercise['audio'] as Map<String, dynamic>)['events']
+              as List<dynamic>) {
+        check((event as Map<String, dynamic>)['text'], '$id.cue');
       }
     }
   });

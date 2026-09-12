@@ -1,0 +1,403 @@
+{
+  "id": "ELBOW_009",
+  "slug": "wall_push_up",
+  "schemaVersion": "1.3",
+  "contentVersion": "0.1.0",
+  "clinicalStatus": "pending_review",
+  "editorialStatus": "draft",
+  "primaryZone": "elbows",
+  "secondaryZones": [
+    "forearms",
+    "upper_arms"
+  ],
+  "hotspotIds": [
+    "left_elbow",
+    "right_elbow"
+  ],
+  "tags": [
+    "elbow",
+    "forearm",
+    "upper_arm",
+    "computer",
+    "after_sitting",
+    "standing",
+    "strength",
+    "elbow_flexion_extension",
+    "bilateral",
+    "closed_chain",
+    "beginner",
+    "gentle",
+    "wall"
+  ],
+  "tagGroups": {
+    "anatomy": [
+      "elbow",
+      "forearm",
+      "upper_arm"
+    ],
+    "context": [
+      "computer",
+      "after_sitting"
+    ],
+    "position": [
+      "standing"
+    ],
+    "movement": [
+      "strength",
+      "elbow_flexion_extension",
+      "bilateral",
+      "closed_chain"
+    ],
+    "level": [
+      "beginner",
+      "gentle"
+    ],
+    "equipment": [
+      "wall"
+    ]
+  },
+  "collections": [
+    "body_elbows",
+    "computer_break",
+    "after_sitting"
+  ],
+  "collectionCandidates": [],
+  "text": {
+    "title": "Wall push-up",
+    "shortTitle": "At the wall",
+    "cardDescription": "Standing at a wall, smoothly bend and straighten your arms.",
+    "categoryLabel": "Elbows",
+    "purpose": "An ordinary movement with no extra equipment: a simple elbow exercise with the wall for support.",
+    "startPositionTitle": "Starting position",
+    "startPosition": "Stand facing the wall at a comfortable distance. Place your palms on the wall at about chest or shoulder height. Arms straight but not locked at the elbows. Feet flat on the floor.",
+    "instructionsTitle": "How to do it",
+    "instructions": [
+      {
+        "step": 1,
+        "text": "Stand facing a solid wall."
+      },
+      {
+        "step": 2,
+        "text": "Place your palms on the wall at chest or shoulder height."
+      },
+      {
+        "step": 3,
+        "text": "Smoothly bend your elbows and bring your body closer to the wall."
+      },
+      {
+        "step": 4,
+        "text": "Smoothly straighten your arms and return to the start."
+      }
+    ],
+    "techniqueTipsTitle": "Watch out for",
+    "techniqueTips": [
+      "Your body moves as one piece.",
+      "Do not drop your head toward the wall on its own.",
+      "Your feet must not slip: choose a stable surface.",
+      "Pick a comfortable distance and range."
+    ],
+    "safetyLabel": "Safety",
+    "safety": "Move within a comfortable range. If you feel sharp pain or any other unusual symptom, press Stop.",
+    "completion": "Done."
+  },
+  "labels": {},
+  "timing": {
+    "prepCountdownSeconds": 5,
+    "restAfterSeconds": 10,
+    "completionMode": "timed_duration",
+    "estimatedActiveSeconds": 61
+  },
+  "progress": {
+    "basis": "sequence_time",
+    "showElapsedTime": true,
+    "showProgressBar": true,
+    "showRepetitionCounter": false,
+    "showSideLabel": false,
+    "showSetCounter": false
+  },
+  "repetitionModel": {
+    "type": "sequence_time",
+    "sets": 1,
+    "repetitionsPerBlock": 1,
+    "blockOrder": [
+      null,
+      null
+    ],
+    "switchSideAutomatically": true,
+    "resetCounterOnSideChange": false
+  },
+  "movementPhases": [
+    {
+      "id": "PHASE_SETUP",
+      "name": "Starting position",
+      "type": null
+    },
+    {
+      "id": "PHASE_A",
+      "name": "Arms straight",
+      "type": null
+    },
+    {
+      "id": "PHASE_B",
+      "name": "Elbows bent",
+      "type": null
+    }
+  ],
+  "sequence": {
+    "blocks": [
+      {
+        "side": null,
+        "repeat": 1,
+        "steps": [
+          {
+            "id": "setup",
+            "phase": "PHASE_SETUP",
+            "side": null,
+            "frameId": "FRAME_SETUP",
+            "frameTransition": null,
+            "durationMs": 1000,
+            "voiceEvent": null
+          }
+        ]
+      },
+      {
+        "side": null,
+        "repeat": 12,
+        "steps": [
+          {
+            "id": "lower_to_wall",
+            "phase": "PHASE_B",
+            "side": null,
+            "frameId": null,
+            "frameTransition": {
+              "from": "FRAME_ARMS_EXTENDED",
+              "via": null,
+              "to": "FRAME_ELBOWS_BENT"
+            },
+            "durationMs": 2500,
+            "voiceEvent": null
+          },
+          {
+            "id": "press_away",
+            "phase": "PHASE_A",
+            "side": null,
+            "frameId": null,
+            "frameTransition": {
+              "from": "FRAME_ELBOWS_BENT",
+              "via": null,
+              "to": "FRAME_ARMS_EXTENDED"
+            },
+            "durationMs": 2500,
+            "voiceEvent": null
+          }
+        ]
+      }
+    ]
+  },
+  "animation": {
+    "reducedMotionFallback": "static_step_frames",
+    "frames": [
+      {
+        "id": "FRAME_SETUP",
+        "file": "assets/exercises/ELBOW_009/images/setup_full_safe.png",
+        "altText": "Standing start position with both palms on the wall."
+      },
+      {
+        "id": "FRAME_ARMS_EXTENDED",
+        "file": "assets/exercises/ELBOW_009/images/motion_01_arms_extended_wall_full_safe.png",
+        "altText": "Arms straight, palms on the wall."
+      },
+      {
+        "id": "FRAME_ELBOWS_BENT",
+        "file": "assets/exercises/ELBOW_009/images/motion_02_elbows_bent_wall_full_safe.png",
+        "altText": "Elbows bent, body moved closer to the wall."
+      }
+    ],
+    "preview": "assets/exercises/ELBOW_009/images/preview.png"
+  },
+  "audio": {
+    "events": [
+      {
+        "id": "VOICE_SETUP",
+        "type": "instruction",
+        "priority": 80,
+        "interruptible": true,
+        "playOncePerSide": false,
+        "voiceMode": null,
+        "text": "Stand facing the wall. Put your palms on the wall and keep your body straight.",
+        "assetKey": "exercise.ELBOW_009.voice.setup",
+        "assetFile": "audio/uk/exercises/ELBOW_009/setup.m4a",
+        "trigger": {
+          "event": "prep_countdown_started",
+          "phase": null,
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": 0
+        }
+      },
+      {
+        "id": "VOICE_START_MOVEMENT",
+        "type": "movement",
+        "priority": 100,
+        "interruptible": false,
+        "playOncePerSide": false,
+        "voiceMode": null,
+        "text": "Smoothly bend your arms, come closer to the wall, then straighten them again.",
+        "assetKey": "exercise.ELBOW_009.voice.start_movement",
+        "assetFile": "audio/uk/exercises/ELBOW_009/start_movement.m4a",
+        "trigger": {
+          "event": "sequence_phase_started",
+          "phase": "PHASE_SETUP",
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      },
+      {
+        "id": "VOICE_HALFWAY",
+        "type": "progress",
+        "priority": 50,
+        "interruptible": true,
+        "playOncePerSide": false,
+        "voiceMode": null,
+        "text": "Halfway done.",
+        "assetKey": "common.voice.halfway",
+        "assetFile": "audio/uk/common/halfway.m4a",
+        "trigger": {
+          "event": "progress_crossed",
+          "phase": null,
+          "side": null,
+          "percent": 50,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      },
+      {
+        "id": "VOICE_COMPLETED",
+        "type": "completion",
+        "priority": 120,
+        "interruptible": false,
+        "playOncePerSide": false,
+        "voiceMode": null,
+        "text": "Done.",
+        "assetKey": "common.voice.completed",
+        "assetFile": "audio/uk/common/completed.m4a",
+        "trigger": {
+          "event": "exercise_completed",
+          "phase": null,
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      },
+      {
+        "id": "VOICE_PHASE_B",
+        "type": "movement",
+        "priority": 70,
+        "interruptible": true,
+        "playOncePerSide": false,
+        "voiceMode": "phase_words",
+        "text": "To the wall.",
+        "assetKey": "exercise.ELBOW_009.voice.phase_b",
+        "assetFile": "audio/uk/exercises/ELBOW_009/phase_b.m4a",
+        "trigger": {
+          "event": "sequence_phase_started",
+          "phase": "PHASE_B",
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      },
+      {
+        "id": "VOICE_PHASE_A",
+        "type": "movement",
+        "priority": 70,
+        "interruptible": true,
+        "playOncePerSide": false,
+        "voiceMode": "phase_words",
+        "text": "Press away.",
+        "assetKey": "exercise.ELBOW_009.voice.phase_a",
+        "assetFile": "audio/uk/exercises/ELBOW_009/phase_a.m4a",
+        "trigger": {
+          "event": "sequence_phase_started",
+          "phase": "PHASE_A",
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      },
+      {
+        "id": "VOICE_COUNT_ONE",
+        "type": "movement",
+        "priority": 70,
+        "interruptible": true,
+        "playOncePerSide": false,
+        "voiceMode": "count",
+        "text": "One.",
+        "assetKey": "common.voice.count_one",
+        "assetFile": "audio/uk/common/count_one.m4a",
+        "trigger": {
+          "event": "sequence_phase_started",
+          "phase": "PHASE_B",
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      },
+      {
+        "id": "VOICE_COUNT_TWO",
+        "type": "movement",
+        "priority": 70,
+        "interruptible": true,
+        "playOncePerSide": false,
+        "voiceMode": "count",
+        "text": "Two.",
+        "assetKey": "common.voice.count_two",
+        "assetFile": "audio/uk/common/count_two.m4a",
+        "trigger": {
+          "event": "sequence_phase_started",
+          "phase": "PHASE_A",
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      }
+    ],
+    "mix": {
+      "voiceLevel": 1.0,
+      "musicLevel": 0.5,
+      "dynamicDucking": false
+    }
+  },
+  "flow": {
+    "autoNextEnabled": true,
+    "restSeconds": 10,
+    "incrementCounterOnCompletion": true
+  },
+  "accessibility": {
+    "summary": "Wall push-up. Standing facing a wall with your palms on it, smoothly bend your elbows and straighten your arms.",
+    "reducedMotionSupported": true
+  },
+  "pro": {
+    "tier": "free",
+    "requiresPro": false,
+    "visibleToFree": true,
+    "allowFavorite": true,
+    "includeInPersonalPlanPool": true
+  }
+}

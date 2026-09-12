@@ -1,0 +1,405 @@
+{
+  "id": "ELBOW_006",
+  "slug": "seated_hands_to_shoulders_then_forward",
+  "schemaVersion": "1.3",
+  "contentVersion": "0.1.0",
+  "clinicalStatus": "pending_review",
+  "editorialStatus": "draft",
+  "primaryZone": "elbows",
+  "secondaryZones": [
+    "forearms",
+    "upper_arms"
+  ],
+  "hotspotIds": [
+    "left_elbow",
+    "right_elbow"
+  ],
+  "tags": [
+    "elbow",
+    "forearm",
+    "upper_arm",
+    "computer",
+    "after_sitting",
+    "sitting",
+    "mobility",
+    "elbow_extension",
+    "bilateral",
+    "forward_reach",
+    "no_resistance",
+    "beginner",
+    "gentle",
+    "stable_chair"
+  ],
+  "tagGroups": {
+    "anatomy": [
+      "elbow",
+      "forearm",
+      "upper_arm"
+    ],
+    "context": [
+      "computer",
+      "after_sitting"
+    ],
+    "position": [
+      "sitting"
+    ],
+    "movement": [
+      "mobility",
+      "elbow_extension",
+      "bilateral",
+      "forward_reach",
+      "no_resistance"
+    ],
+    "level": [
+      "beginner",
+      "gentle"
+    ],
+    "equipment": [
+      "stable_chair"
+    ]
+  },
+  "collections": [
+    "body_elbows",
+    "seated_gentle",
+    "computer_break",
+    "after_sitting"
+  ],
+  "collectionCandidates": [],
+  "text": {
+    "title": "Hands to shoulders, then forward",
+    "shortTitle": "Shoulders and forward",
+    "cardDescription": "Seated, straighten both arms forward and bring your hands back to your shoulders.",
+    "categoryLabel": "Elbows",
+    "purpose": "A simple exercise for the elbows and arms with no equipment.",
+    "startPositionTitle": "Starting position",
+    "startPosition": "Sit up straight on a stable chair. Feet on the floor, both hands beside your shoulders, elbows bent, shoulders down.",
+    "instructionsTitle": "How to do it",
+    "instructions": [
+      {
+        "step": 1,
+        "text": "Sit up straight and bring your hands beside your shoulders."
+      },
+      {
+        "step": 2,
+        "text": "Smoothly straighten both arms forward at chest or shoulder height."
+      },
+      {
+        "step": 3,
+        "text": "Bring your hands back to your shoulders."
+      },
+      {
+        "step": 4,
+        "text": "Keep repeating calmly, with no jerking."
+      }
+    ],
+    "techniqueTipsTitle": "Watch out for",
+    "techniqueTips": [
+      "Keep your torso upright.",
+      "Do not lift your shoulders toward your ears.",
+      "Elbows almost straight, but not locked."
+    ],
+    "safetyLabel": "Safety",
+    "safety": "Move within a comfortable range. If you feel sharp pain or any other unusual symptom, press Stop.",
+    "completion": "Done."
+  },
+  "labels": {},
+  "timing": {
+    "prepCountdownSeconds": 5,
+    "restAfterSeconds": 10,
+    "completionMode": "timed_duration",
+    "estimatedActiveSeconds": 61
+  },
+  "progress": {
+    "basis": "sequence_time",
+    "showElapsedTime": true,
+    "showProgressBar": true,
+    "showRepetitionCounter": false,
+    "showSideLabel": false,
+    "showSetCounter": false
+  },
+  "repetitionModel": {
+    "type": "sequence_time",
+    "sets": 1,
+    "repetitionsPerBlock": 1,
+    "blockOrder": [
+      null,
+      null
+    ],
+    "switchSideAutomatically": true,
+    "resetCounterOnSideChange": false
+  },
+  "movementPhases": [
+    {
+      "id": "PHASE_SETUP",
+      "name": "Starting position",
+      "type": null
+    },
+    {
+      "id": "PHASE_A",
+      "name": "Hands at the shoulders",
+      "type": null
+    },
+    {
+      "id": "PHASE_B",
+      "name": "Arms forward",
+      "type": null
+    }
+  ],
+  "sequence": {
+    "blocks": [
+      {
+        "side": null,
+        "repeat": 1,
+        "steps": [
+          {
+            "id": "setup",
+            "phase": "PHASE_SETUP",
+            "side": null,
+            "frameId": "FRAME_SETUP",
+            "frameTransition": null,
+            "durationMs": 1000,
+            "voiceEvent": null
+          }
+        ]
+      },
+      {
+        "side": null,
+        "repeat": 15,
+        "steps": [
+          {
+            "id": "extend_forward",
+            "phase": "PHASE_B",
+            "side": null,
+            "frameId": null,
+            "frameTransition": {
+              "from": "FRAME_AT_SHOULDERS",
+              "via": null,
+              "to": "FRAME_ARMS_FORWARD"
+            },
+            "durationMs": 2000,
+            "voiceEvent": null
+          },
+          {
+            "id": "return_to_shoulders",
+            "phase": "PHASE_A",
+            "side": null,
+            "frameId": null,
+            "frameTransition": {
+              "from": "FRAME_ARMS_FORWARD",
+              "via": null,
+              "to": "FRAME_AT_SHOULDERS"
+            },
+            "durationMs": 2000,
+            "voiceEvent": null
+          }
+        ]
+      }
+    ]
+  },
+  "animation": {
+    "reducedMotionFallback": "static_step_frames",
+    "frames": [
+      {
+        "id": "FRAME_SETUP",
+        "file": "assets/exercises/ELBOW_006/images/setup_full_safe.png",
+        "altText": "Seated start position, hands beside the shoulders."
+      },
+      {
+        "id": "FRAME_AT_SHOULDERS",
+        "file": "assets/exercises/ELBOW_006/images/motion_01_hands_at_shoulders_mid_safe.png",
+        "altText": "Hands beside the shoulders, elbows bent."
+      },
+      {
+        "id": "FRAME_ARMS_FORWARD",
+        "file": "assets/exercises/ELBOW_006/images/motion_02_arms_forward_mid_safe.png",
+        "altText": "Both arms straightened forward at chest height."
+      }
+    ],
+    "preview": "assets/exercises/ELBOW_006/images/preview.png"
+  },
+  "audio": {
+    "events": [
+      {
+        "id": "VOICE_SETUP",
+        "type": "instruction",
+        "priority": 80,
+        "interruptible": true,
+        "playOncePerSide": false,
+        "voiceMode": null,
+        "text": "Sit up straight. Hands beside your shoulders.",
+        "assetKey": "exercise.ELBOW_006.voice.setup",
+        "assetFile": "audio/uk/exercises/ELBOW_006/setup.m4a",
+        "trigger": {
+          "event": "prep_countdown_started",
+          "phase": null,
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": 0
+        }
+      },
+      {
+        "id": "VOICE_START_MOVEMENT",
+        "type": "movement",
+        "priority": 100,
+        "interruptible": false,
+        "playOncePerSide": false,
+        "voiceMode": null,
+        "text": "Smoothly straighten both arms forward, then bring them back to your shoulders.",
+        "assetKey": "exercise.ELBOW_006.voice.start_movement",
+        "assetFile": "audio/uk/exercises/ELBOW_006/start_movement.m4a",
+        "trigger": {
+          "event": "sequence_phase_started",
+          "phase": "PHASE_SETUP",
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      },
+      {
+        "id": "VOICE_HALFWAY",
+        "type": "progress",
+        "priority": 50,
+        "interruptible": true,
+        "playOncePerSide": false,
+        "voiceMode": null,
+        "text": "Halfway done.",
+        "assetKey": "common.voice.halfway",
+        "assetFile": "audio/uk/common/halfway.m4a",
+        "trigger": {
+          "event": "progress_crossed",
+          "phase": null,
+          "side": null,
+          "percent": 50,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      },
+      {
+        "id": "VOICE_COMPLETED",
+        "type": "completion",
+        "priority": 120,
+        "interruptible": false,
+        "playOncePerSide": false,
+        "voiceMode": null,
+        "text": "Done.",
+        "assetKey": "common.voice.completed",
+        "assetFile": "audio/uk/common/completed.m4a",
+        "trigger": {
+          "event": "exercise_completed",
+          "phase": null,
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      },
+      {
+        "id": "VOICE_PHASE_B",
+        "type": "movement",
+        "priority": 70,
+        "interruptible": true,
+        "playOncePerSide": false,
+        "voiceMode": "phase_words",
+        "text": "Forward.",
+        "assetKey": "exercise.ELBOW_006.voice.phase_b",
+        "assetFile": "audio/uk/exercises/ELBOW_006/phase_b.m4a",
+        "trigger": {
+          "event": "sequence_phase_started",
+          "phase": "PHASE_B",
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      },
+      {
+        "id": "VOICE_PHASE_A",
+        "type": "movement",
+        "priority": 70,
+        "interruptible": true,
+        "playOncePerSide": false,
+        "voiceMode": "phase_words",
+        "text": "To the shoulders.",
+        "assetKey": "exercise.ELBOW_006.voice.phase_a",
+        "assetFile": "audio/uk/exercises/ELBOW_006/phase_a.m4a",
+        "trigger": {
+          "event": "sequence_phase_started",
+          "phase": "PHASE_A",
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      },
+      {
+        "id": "VOICE_COUNT_ONE",
+        "type": "movement",
+        "priority": 70,
+        "interruptible": true,
+        "playOncePerSide": false,
+        "voiceMode": "count",
+        "text": "One.",
+        "assetKey": "common.voice.count_one",
+        "assetFile": "audio/uk/common/count_one.m4a",
+        "trigger": {
+          "event": "sequence_phase_started",
+          "phase": "PHASE_B",
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      },
+      {
+        "id": "VOICE_COUNT_TWO",
+        "type": "movement",
+        "priority": 70,
+        "interruptible": true,
+        "playOncePerSide": false,
+        "voiceMode": "count",
+        "text": "Two.",
+        "assetKey": "common.voice.count_two",
+        "assetFile": "audio/uk/common/count_two.m4a",
+        "trigger": {
+          "event": "sequence_phase_started",
+          "phase": "PHASE_A",
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      }
+    ],
+    "mix": {
+      "voiceLevel": 1.0,
+      "musicLevel": 0.5,
+      "dynamicDucking": false
+    }
+  },
+  "flow": {
+    "autoNextEnabled": true,
+    "restSeconds": 10,
+    "incrementCounterOnCompletion": true
+  },
+  "accessibility": {
+    "summary": "Hands to shoulders, then forward. Sitting on a chair, start with your hands beside your shoulders, smoothly straighten both arms forward and bring them back.",
+    "reducedMotionSupported": true
+  },
+  "pro": {
+    "tier": "free",
+    "requiresPro": false,
+    "visibleToFree": true,
+    "allowFavorite": true,
+    "includeInPersonalPlanPool": true
+  }
+}

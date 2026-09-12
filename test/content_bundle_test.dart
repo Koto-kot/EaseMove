@@ -18,7 +18,13 @@ void main() {
   });
 
   test('the generated bundle exists — run scripts/build_content.py first', () {
-    expect(File('assets/content/index.json').existsSync(), isTrue);
+    for (final String locale in <String>['uk', 'en']) {
+      expect(
+        File('assets/content/$locale/index.json').existsSync(),
+        isTrue,
+        reason: locale,
+      );
+    }
   });
 
   test('every catalog entry parses and has renderable text', () {

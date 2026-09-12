@@ -103,6 +103,34 @@ clinical:
   variants: []
 locale:
   default: uk
+  en:
+    title: Alternating arm bends
+    short_title: Alternating
+    card_description: Seated, bend your right and left arm at the elbow in turn.
+    category_label: Elbows
+    purpose_text: A gentle alternating exercise for the elbows and arms, with no resistance.
+    start_position_title: Starting position
+    start_position_text: Sit up straight on a stable chair. Feet flat on the floor, knees at about a right angle.
+      Both arms beside your body, shoulders relaxed.
+    instructions_title: How to do it
+    instructions:
+    - step: 1
+      text: Sit up straight, arms hanging beside your body.
+    - step: 2
+      text: Bend your right arm at the elbow, bringing the hand up to shoulder height.
+    - step: 3
+      text: Lower the right arm and bend the left one straight away.
+    - step: 4
+      text: Keep alternating, smoothly and without hurrying.
+    technique_tips_title: Watch out for
+    technique_tips:
+    - Keep your torso upright, with no swaying.
+    - Shoulders stay down and relaxed.
+    - The resting arm hangs freely beside your body.
+    safety_label: Safety
+    safety_text: Move within a comfortable range. If you feel sharp pain or any other unusual symptom, press Stop.
+    completion_text: Done.
+    halfway_text: Halfway done.
   uk:
     title: Почергове згинання рук
     short_title: Почергово
@@ -179,12 +207,15 @@ timing:
 movement_phases:
 - id: PHASE_SETUP
   name_uk: Початкове положення
+  name_en: Starting position
   biomechanics: start_position
 - id: PHASE_A
   name_uk: Права рука зігнута
+  name_en: Right arm bent
   biomechanics: phase_a
 - id: PHASE_B
   name_uk: Ліва рука зігнута
+  name_en: Left arm bent
   biomechanics: phase_b
 sequence:
   side_blocks:
@@ -243,16 +274,19 @@ animation:
     file: assets/exercises/ELBOW_002/images/setup_full_safe.png
     pose_description_uk: Людина сидить рівно на стільці, обидві руки опущені вздовж тулуба.
     alt_text_uk: Початкове положення сидячи, обидві руки опущені.
+    alt_text_en: Seated start position, both arms hanging down.
     framing: FULL_SAFE
   - id: FRAME_RIGHT_FLEXED
     file: assets/exercises/ELBOW_002/images/motion_01_right_flex_mid_safe.png
     pose_description_uk: Права рука зігнута в лікті, кисть на рівні плеча. Ліва рука опущена.
     alt_text_uk: Права рука зігнута, ліва опущена.
+    alt_text_en: Right arm bent at the elbow, left arm hanging down.
     framing: MID_SAFE
   - id: FRAME_LEFT_FLEXED
     file: assets/exercises/ELBOW_002/images/motion_02_left_flex_mid_safe.png
     pose_description_uk: Ліва рука зігнута в лікті, кисть на рівні плеча. Права рука опущена.
     alt_text_uk: Ліва рука зігнута, права опущена.
+    alt_text_en: Left arm bent at the elbow, right arm hanging down.
     framing: MID_SAFE
   preview:
     file: assets/exercises/ELBOW_002/images/preview.png
@@ -418,6 +452,8 @@ accessibility:
   screen_reader:
     exercise_summary_uk: Почергове згинання рук. Сидячи на стільці, по черзі згинайте праву та ліву руку в лікті
       в комфортному темпі.
+    exercise_summary_en: Alternating arm bends. Sitting on a chair, bend your right and left arm at the elbow in
+      turn, at a comfortable pace.
     announce_countdown: true
     announce_repetition: false
     announce_side_change: false

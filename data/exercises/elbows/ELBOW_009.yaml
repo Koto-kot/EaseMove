@@ -103,6 +103,35 @@ clinical:
   variants: []
 locale:
   default: uk
+  en:
+    title: Wall push-up
+    short_title: At the wall
+    card_description: Standing at a wall, smoothly bend and straighten your arms.
+    category_label: Elbows
+    purpose_text: 'An ordinary movement with no extra equipment: a simple elbow exercise with the wall for support.'
+    start_position_title: Starting position
+    start_position_text: Stand facing the wall at a comfortable distance. Place your palms on the wall at about
+      chest or shoulder height. Arms straight but not locked at the elbows. Feet flat on the floor.
+    instructions_title: How to do it
+    instructions:
+    - step: 1
+      text: Stand facing a solid wall.
+    - step: 2
+      text: Place your palms on the wall at chest or shoulder height.
+    - step: 3
+      text: Smoothly bend your elbows and bring your body closer to the wall.
+    - step: 4
+      text: Smoothly straighten your arms and return to the start.
+    technique_tips_title: Watch out for
+    technique_tips:
+    - Your body moves as one piece.
+    - Do not drop your head toward the wall on its own.
+    - 'Your feet must not slip: choose a stable surface.'
+    - Pick a comfortable distance and range.
+    safety_label: Safety
+    safety_text: Move within a comfortable range. If you feel sharp pain or any other unusual symptom, press Stop.
+    completion_text: Done.
+    halfway_text: Halfway done.
   uk:
     title: Віджимання від стіни
     short_title: Від стіни
@@ -179,12 +208,15 @@ timing:
 movement_phases:
 - id: PHASE_SETUP
   name_uk: Початкове положення
+  name_en: Starting position
   biomechanics: start_position
 - id: PHASE_A
   name_uk: Руки випрямлені
+  name_en: Arms straight
   biomechanics: phase_a
 - id: PHASE_B
   name_uk: Лікті зігнуті
+  name_en: Elbows bent
   biomechanics: phase_b
 sequence:
   side_blocks:
@@ -243,16 +275,19 @@ animation:
     file: assets/exercises/ELBOW_009/images/setup_full_safe.png
     pose_description_uk: Людина стоїть обличчям до стіни, долоні на стіні на рівні грудей, руки випрямлені.
     alt_text_uk: Початкове положення стоячи біля стіни.
+    alt_text_en: Standing start position with both palms on the wall.
     framing: FULL_SAFE
   - id: FRAME_ARMS_EXTENDED
     file: assets/exercises/ELBOW_009/images/motion_01_arms_extended_wall_full_safe.png
     pose_description_uk: Руки випрямлені, долоні залишаються на стіні, корпус рівний.
     alt_text_uk: Руки випрямлені, долоні на стіні.
+    alt_text_en: Arms straight, palms on the wall.
     framing: FULL_SAFE
   - id: FRAME_ELBOWS_BENT
     file: assets/exercises/ELBOW_009/images/motion_02_elbows_bent_wall_full_safe.png
     pose_description_uk: Лікті зігнуті, корпус наближається до стіни як єдине ціле.
     alt_text_uk: Лікті зігнуті, корпус ближче до стіни.
+    alt_text_en: Elbows bent, body moved closer to the wall.
     framing: FULL_SAFE
   preview:
     file: assets/exercises/ELBOW_009/images/preview.png
@@ -418,6 +453,8 @@ accessibility:
   screen_reader:
     exercise_summary_uk: Віджимання від стіни. Стоячи обличчям до стіни з долонями на ній, плавно згинайте лікті
       та випрямляйте руки.
+    exercise_summary_en: Wall push-up. Standing facing a wall with your palms on it, smoothly bend your elbows and
+      straighten your arms.
     announce_countdown: true
     announce_repetition: false
     announce_side_change: false

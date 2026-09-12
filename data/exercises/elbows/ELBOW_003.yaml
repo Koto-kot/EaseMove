@@ -104,6 +104,34 @@ clinical:
   variants: []
 locale:
   default: uk
+  en:
+    title: Arm bends with palms facing in
+    short_title: Palms facing in
+    card_description: Seated, bend both elbows while keeping your palms facing inward.
+    category_label: Elbows
+    purpose_text: A gentle version of the elbow bend, with the hand in a neutral position.
+    start_position_title: Starting position
+    start_position_text: Sit up straight on a stable chair. Feet on the floor, arms beside your body, palms turned
+      inward.
+    instructions_title: How to do it
+    instructions:
+    - step: 1
+      text: Sit up straight, arms hanging beside your body.
+    - step: 2
+      text: Turn your palms inward, facing each other.
+    - step: 3
+      text: Bend both elbows at the same time without changing the position of your hands.
+    - step: 4
+      text: Smoothly return to the start.
+    technique_tips_title: Watch out for
+    technique_tips:
+    - Your palms stay turned inward throughout.
+    - Keep your elbows close to your body.
+    - Shoulders do not rise.
+    safety_label: Safety
+    safety_text: Move within a comfortable range. If you feel sharp pain or any other unusual symptom, press Stop.
+    completion_text: Done.
+    halfway_text: Halfway done.
   uk:
     title: Згинання рук долонями всередину
     short_title: Долоні всередину
@@ -180,12 +208,15 @@ timing:
 movement_phases:
 - id: PHASE_SETUP
   name_uk: Початкове положення
+  name_en: Starting position
   biomechanics: start_position
 - id: PHASE_A
   name_uk: Нейтральне положення
+  name_en: Neutral position
   biomechanics: phase_a
 - id: PHASE_B
   name_uk: Руки зігнуті
+  name_en: Arms bent
   biomechanics: phase_b
 sequence:
   side_blocks:
@@ -244,16 +275,19 @@ animation:
     file: assets/exercises/ELBOW_003/images/setup_full_safe.png
     pose_description_uk: Людина сидить рівно, руки вздовж тулуба, долоні повернуті всередину.
     alt_text_uk: Початкове положення сидячи, долоні всередину.
+    alt_text_en: Seated start position, palms turned inward.
     framing: FULL_SAFE
   - id: FRAME_NEUTRAL
     file: assets/exercises/ELBOW_003/images/motion_01_neutral_palms_in_mid_safe.png
     pose_description_uk: Руки опущені вздовж тулуба, кисті в нейтральному положенні — долонями всередину.
     alt_text_uk: Руки опущені, долоні всередину.
+    alt_text_en: Arms hanging down, palms facing inward.
     framing: MID_SAFE
   - id: FRAME_FLEXED
     file: assets/exercises/ELBOW_003/images/motion_02_flexed_palms_in_mid_safe.png
     pose_description_uk: Обидві руки зігнуті в ліктях, долоні залишаються повернутими всередину.
     alt_text_uk: Руки зігнуті, долоні всередину.
+    alt_text_en: Both elbows bent, palms still facing inward.
     framing: MID_SAFE
   preview:
     file: assets/exercises/ELBOW_003/images/preview.png
@@ -419,6 +453,8 @@ accessibility:
   screen_reader:
     exercise_summary_uk: Згинання рук долонями всередину. Сидячи на стільці, одночасно згинайте обидві руки в ліктях
       і повертайтеся у вихідне положення, зберігаючи долоні всередину.
+    exercise_summary_en: Arm bends with palms facing in. Sitting on a chair, bend both elbows at the same time and
+      return to the start, keeping your palms facing inward.
     announce_countdown: true
     announce_repetition: false
     announce_side_change: false

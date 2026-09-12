@@ -1,0 +1,403 @@
+{
+  "id": "ELBOW_005",
+  "slug": "seated_forearm_rotation_palms_up_down",
+  "schemaVersion": "1.3",
+  "contentVersion": "0.1.0",
+  "clinicalStatus": "pending_review",
+  "editorialStatus": "draft",
+  "primaryZone": "elbows",
+  "secondaryZones": [
+    "forearms",
+    "upper_arms"
+  ],
+  "hotspotIds": [
+    "left_elbow",
+    "right_elbow"
+  ],
+  "tags": [
+    "elbow",
+    "forearm",
+    "upper_arm",
+    "computer",
+    "after_sitting",
+    "sitting",
+    "mobility",
+    "forearm_rotation",
+    "bilateral",
+    "no_resistance",
+    "beginner",
+    "gentle",
+    "stable_chair"
+  ],
+  "tagGroups": {
+    "anatomy": [
+      "elbow",
+      "forearm",
+      "upper_arm"
+    ],
+    "context": [
+      "computer",
+      "after_sitting"
+    ],
+    "position": [
+      "sitting"
+    ],
+    "movement": [
+      "mobility",
+      "forearm_rotation",
+      "bilateral",
+      "no_resistance"
+    ],
+    "level": [
+      "beginner",
+      "gentle"
+    ],
+    "equipment": [
+      "stable_chair"
+    ]
+  },
+  "collections": [
+    "body_elbows",
+    "seated_gentle",
+    "computer_break",
+    "after_sitting"
+  ],
+  "collectionCandidates": [],
+  "text": {
+    "title": "Palms up, palms down",
+    "shortTitle": "Forearm rotation",
+    "cardDescription": "Seated, rotate your forearms so your palms turn up and down.",
+    "categoryLabel": "Elbows",
+    "purpose": "A simple exercise for the elbows and forearms with no equipment. The movement comes from the forearms only.",
+    "startPositionTitle": "Starting position",
+    "startPosition": "Sit up straight on a stable chair. Upper arms by your body, elbows bent to about ninety degrees, forearms pointing forward, palms facing up.",
+    "instructionsTitle": "How to do it",
+    "instructions": [
+      {
+        "step": 1,
+        "text": "Sit up straight and keep your elbows by your body."
+      },
+      {
+        "step": 2,
+        "text": "Start with your palms facing up."
+      },
+      {
+        "step": 3,
+        "text": "Smoothly rotate your forearms so your palms face down."
+      },
+      {
+        "step": 4,
+        "text": "Return to the palms-up position."
+      }
+    ],
+    "techniqueTipsTitle": "Watch out for",
+    "techniqueTips": [
+      "Keep your elbows by your body.",
+      "Only the forearms move; the shoulders stay still.",
+      "Move smoothly, within a comfortable range."
+    ],
+    "safetyLabel": "Safety",
+    "safety": "Move within a comfortable range. If you feel sharp pain or any other unusual symptom, press Stop.",
+    "completion": "Done."
+  },
+  "labels": {},
+  "timing": {
+    "prepCountdownSeconds": 5,
+    "restAfterSeconds": 10,
+    "completionMode": "timed_duration",
+    "estimatedActiveSeconds": 61
+  },
+  "progress": {
+    "basis": "sequence_time",
+    "showElapsedTime": true,
+    "showProgressBar": true,
+    "showRepetitionCounter": false,
+    "showSideLabel": false,
+    "showSetCounter": false
+  },
+  "repetitionModel": {
+    "type": "sequence_time",
+    "sets": 1,
+    "repetitionsPerBlock": 1,
+    "blockOrder": [
+      null,
+      null
+    ],
+    "switchSideAutomatically": true,
+    "resetCounterOnSideChange": false
+  },
+  "movementPhases": [
+    {
+      "id": "PHASE_SETUP",
+      "name": "Starting position",
+      "type": null
+    },
+    {
+      "id": "PHASE_A",
+      "name": "Palms up",
+      "type": null
+    },
+    {
+      "id": "PHASE_B",
+      "name": "Palms down",
+      "type": null
+    }
+  ],
+  "sequence": {
+    "blocks": [
+      {
+        "side": null,
+        "repeat": 1,
+        "steps": [
+          {
+            "id": "setup",
+            "phase": "PHASE_SETUP",
+            "side": null,
+            "frameId": "FRAME_SETUP",
+            "frameTransition": null,
+            "durationMs": 1000,
+            "voiceEvent": null
+          }
+        ]
+      },
+      {
+        "side": null,
+        "repeat": 15,
+        "steps": [
+          {
+            "id": "pronate",
+            "phase": "PHASE_B",
+            "side": null,
+            "frameId": null,
+            "frameTransition": {
+              "from": "FRAME_PALMS_UP",
+              "via": null,
+              "to": "FRAME_PALMS_DOWN"
+            },
+            "durationMs": 2000,
+            "voiceEvent": null
+          },
+          {
+            "id": "supinate",
+            "phase": "PHASE_A",
+            "side": null,
+            "frameId": null,
+            "frameTransition": {
+              "from": "FRAME_PALMS_DOWN",
+              "via": null,
+              "to": "FRAME_PALMS_UP"
+            },
+            "durationMs": 2000,
+            "voiceEvent": null
+          }
+        ]
+      }
+    ]
+  },
+  "animation": {
+    "reducedMotionFallback": "static_step_frames",
+    "frames": [
+      {
+        "id": "FRAME_SETUP",
+        "file": "assets/exercises/ELBOW_005/images/setup_full_safe.png",
+        "altText": "Seated start position, palms facing up."
+      },
+      {
+        "id": "FRAME_PALMS_UP",
+        "file": "assets/exercises/ELBOW_005/images/motion_01_palms_up_mid_safe.png",
+        "altText": "Palms turned up."
+      },
+      {
+        "id": "FRAME_PALMS_DOWN",
+        "file": "assets/exercises/ELBOW_005/images/motion_02_palms_down_mid_safe.png",
+        "altText": "Palms turned down."
+      }
+    ],
+    "preview": "assets/exercises/ELBOW_005/images/preview.png"
+  },
+  "audio": {
+    "events": [
+      {
+        "id": "VOICE_SETUP",
+        "type": "instruction",
+        "priority": 80,
+        "interruptible": true,
+        "playOncePerSide": false,
+        "voiceMode": null,
+        "text": "Sit up straight. Elbows by your sides. Palms up.",
+        "assetKey": "exercise.ELBOW_005.voice.setup",
+        "assetFile": "audio/uk/exercises/ELBOW_005/setup.m4a",
+        "trigger": {
+          "event": "prep_countdown_started",
+          "phase": null,
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": 0
+        }
+      },
+      {
+        "id": "VOICE_START_MOVEMENT",
+        "type": "movement",
+        "priority": 100,
+        "interruptible": false,
+        "playOncePerSide": false,
+        "voiceMode": null,
+        "text": "Smoothly turn your palms down, and back up again.",
+        "assetKey": "exercise.ELBOW_005.voice.start_movement",
+        "assetFile": "audio/uk/exercises/ELBOW_005/start_movement.m4a",
+        "trigger": {
+          "event": "sequence_phase_started",
+          "phase": "PHASE_SETUP",
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      },
+      {
+        "id": "VOICE_HALFWAY",
+        "type": "progress",
+        "priority": 50,
+        "interruptible": true,
+        "playOncePerSide": false,
+        "voiceMode": null,
+        "text": "Halfway done.",
+        "assetKey": "common.voice.halfway",
+        "assetFile": "audio/uk/common/halfway.m4a",
+        "trigger": {
+          "event": "progress_crossed",
+          "phase": null,
+          "side": null,
+          "percent": 50,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      },
+      {
+        "id": "VOICE_COMPLETED",
+        "type": "completion",
+        "priority": 120,
+        "interruptible": false,
+        "playOncePerSide": false,
+        "voiceMode": null,
+        "text": "Done.",
+        "assetKey": "common.voice.completed",
+        "assetFile": "audio/uk/common/completed.m4a",
+        "trigger": {
+          "event": "exercise_completed",
+          "phase": null,
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      },
+      {
+        "id": "VOICE_PHASE_B",
+        "type": "movement",
+        "priority": 70,
+        "interruptible": true,
+        "playOncePerSide": false,
+        "voiceMode": "phase_words",
+        "text": "Palms down.",
+        "assetKey": "exercise.ELBOW_005.voice.phase_b",
+        "assetFile": "audio/uk/exercises/ELBOW_005/phase_b.m4a",
+        "trigger": {
+          "event": "sequence_phase_started",
+          "phase": "PHASE_B",
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      },
+      {
+        "id": "VOICE_PHASE_A",
+        "type": "movement",
+        "priority": 70,
+        "interruptible": true,
+        "playOncePerSide": false,
+        "voiceMode": "phase_words",
+        "text": "Palms up.",
+        "assetKey": "exercise.ELBOW_005.voice.phase_a",
+        "assetFile": "audio/uk/exercises/ELBOW_005/phase_a.m4a",
+        "trigger": {
+          "event": "sequence_phase_started",
+          "phase": "PHASE_A",
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      },
+      {
+        "id": "VOICE_COUNT_ONE",
+        "type": "movement",
+        "priority": 70,
+        "interruptible": true,
+        "playOncePerSide": false,
+        "voiceMode": "count",
+        "text": "One.",
+        "assetKey": "common.voice.count_one",
+        "assetFile": "audio/uk/common/count_one.m4a",
+        "trigger": {
+          "event": "sequence_phase_started",
+          "phase": "PHASE_B",
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      },
+      {
+        "id": "VOICE_COUNT_TWO",
+        "type": "movement",
+        "priority": 70,
+        "interruptible": true,
+        "playOncePerSide": false,
+        "voiceMode": "count",
+        "text": "Two.",
+        "assetKey": "common.voice.count_two",
+        "assetFile": "audio/uk/common/count_two.m4a",
+        "trigger": {
+          "event": "sequence_phase_started",
+          "phase": "PHASE_A",
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      }
+    ],
+    "mix": {
+      "voiceLevel": 1.0,
+      "musicLevel": 0.5,
+      "dynamicDucking": false
+    }
+  },
+  "flow": {
+    "autoNextEnabled": true,
+    "restSeconds": 10,
+    "incrementCounterOnCompletion": true
+  },
+  "accessibility": {
+    "summary": "Palms up, palms down. Sitting on a chair, keep your elbows by your body and rotate your forearms so your palms face up and down in turn.",
+    "reducedMotionSupported": true
+  },
+  "pro": {
+    "tier": "free",
+    "requiresPro": false,
+    "visibleToFree": true,
+    "allowFavorite": true,
+    "includeInPersonalPlanPool": true
+  }
+}

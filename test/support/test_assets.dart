@@ -34,8 +34,8 @@ class DiskAssetBundle extends CachingAssetBundle {
   }
 }
 
-Exercise loadExerciseFromDisk(String id) {
-  final String raw = File('assets/content/exercises/$id.json')
+Exercise loadExerciseFromDisk(String id, {String locale = 'uk'}) {
+  final String raw = File('assets/content/$locale/exercises/$id.json')
       .readAsStringSync();
   return Exercise.fromJson(jsonDecode(raw) as Map<String, dynamic>);
 }

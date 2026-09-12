@@ -11,6 +11,7 @@ class ExerciseRepository {
   ExerciseRepository({required this.bundle, required this.gate, this.assets});
 
   final ContentBundle bundle;
+
   final ClinicalGate gate;
   final AssetBundle? assets;
   final Map<String, Exercise> _cache = <String, Exercise>{};
@@ -57,6 +58,9 @@ class ExerciseRepository {
     final Exercise exercise = await ContentBundle.loadExercise(
       id,
       bundle: assets,
+      // The record has to come from the same language as the catalog row the
+      // user tapped, or the player would open in the other language.
+      locale: bundle.locale,
     );
     _cache[id] = exercise;
     return exercise;

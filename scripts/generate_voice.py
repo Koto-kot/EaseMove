@@ -9,7 +9,7 @@
 Nothing is written without `--yes`: the default run prints every line it would
 speak and the file it would write, so a wrong line costs nothing.
 
-The lines come from the same place as docs/generated/AUDIO_SCRIPT.md — the
+The lines come from the same place as docs/generated/AUDIO_SCRIPT_<LANG>.md — the
 `audio.events` blocks of the exercise files — so what is spoken is word for
 word what a person in a booth would have been handed. A file that already
 exists is left alone unless `--force` is passed, which makes the script safe

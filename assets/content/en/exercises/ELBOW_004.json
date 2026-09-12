@@ -1,0 +1,405 @@
+{
+  "id": "ELBOW_004",
+  "slug": "seated_pronated_elbow_flexion_extension",
+  "schemaVersion": "1.3",
+  "contentVersion": "0.1.0",
+  "clinicalStatus": "pending_review",
+  "editorialStatus": "draft",
+  "primaryZone": "elbows",
+  "secondaryZones": [
+    "forearms",
+    "upper_arms"
+  ],
+  "hotspotIds": [
+    "left_elbow",
+    "right_elbow"
+  ],
+  "tags": [
+    "elbow",
+    "forearm",
+    "upper_arm",
+    "computer",
+    "after_sitting",
+    "sitting",
+    "mobility",
+    "elbow_flexion",
+    "bilateral",
+    "palms_down",
+    "no_resistance",
+    "beginner",
+    "gentle",
+    "stable_chair"
+  ],
+  "tagGroups": {
+    "anatomy": [
+      "elbow",
+      "forearm",
+      "upper_arm"
+    ],
+    "context": [
+      "computer",
+      "after_sitting"
+    ],
+    "position": [
+      "sitting"
+    ],
+    "movement": [
+      "mobility",
+      "elbow_flexion",
+      "bilateral",
+      "palms_down",
+      "no_resistance"
+    ],
+    "level": [
+      "beginner",
+      "gentle"
+    ],
+    "equipment": [
+      "stable_chair"
+    ]
+  },
+  "collections": [
+    "body_elbows",
+    "seated_gentle",
+    "computer_break",
+    "after_sitting"
+  ],
+  "collectionCandidates": [],
+  "text": {
+    "title": "Arm bends with palms down",
+    "shortTitle": "Palms down",
+    "cardDescription": "Seated, bring your hands up toward your shoulders and back, keeping your palms facing down.",
+    "categoryLabel": "Elbows",
+    "purpose": "A simple exercise for elbow movement, with no weight and no other resistance. This is not a forearm rotation exercise.",
+    "startPositionTitle": "Starting position",
+    "startPosition": "Sit up straight on a stable chair. Upper arms close to your body, elbows bent to about ninety degrees, forearms pointing forward, both palms facing down.",
+    "instructionsTitle": "How to do it",
+    "instructions": [
+      {
+        "step": 1,
+        "text": "Sit up straight and place your feet on the floor."
+      },
+      {
+        "step": 2,
+        "text": "Bend your elbows to about ninety degrees, forearms forward, palms down."
+      },
+      {
+        "step": 3,
+        "text": "Without rotating your forearms, bend your elbows further and bring your hands toward your shoulders."
+      },
+      {
+        "step": 4,
+        "text": "Smoothly return to about ninety degrees."
+      }
+    ],
+    "techniqueTipsTitle": "Watch out for",
+    "techniqueTips": [
+      "Your palms face down the whole time.",
+      "Keep your wrists straight.",
+      "Shoulders do not rise and elbows do not travel far from your body."
+    ],
+    "safetyLabel": "Safety",
+    "safety": "Move within a comfortable range. If you feel sharp pain or any other unusual symptom, press Stop.",
+    "completion": "Done."
+  },
+  "labels": {},
+  "timing": {
+    "prepCountdownSeconds": 5,
+    "restAfterSeconds": 10,
+    "completionMode": "timed_duration",
+    "estimatedActiveSeconds": 61
+  },
+  "progress": {
+    "basis": "sequence_time",
+    "showElapsedTime": true,
+    "showProgressBar": true,
+    "showRepetitionCounter": false,
+    "showSideLabel": false,
+    "showSetCounter": false
+  },
+  "repetitionModel": {
+    "type": "sequence_time",
+    "sets": 1,
+    "repetitionsPerBlock": 1,
+    "blockOrder": [
+      null,
+      null
+    ],
+    "switchSideAutomatically": true,
+    "resetCounterOnSideChange": false
+  },
+  "movementPhases": [
+    {
+      "id": "PHASE_SETUP",
+      "name": "Starting position",
+      "type": null
+    },
+    {
+      "id": "PHASE_A",
+      "name": "Forearms forward",
+      "type": null
+    },
+    {
+      "id": "PHASE_B",
+      "name": "Hands at the shoulders",
+      "type": null
+    }
+  ],
+  "sequence": {
+    "blocks": [
+      {
+        "side": null,
+        "repeat": 1,
+        "steps": [
+          {
+            "id": "setup",
+            "phase": "PHASE_SETUP",
+            "side": null,
+            "frameId": "FRAME_SETUP",
+            "frameTransition": null,
+            "durationMs": 1000,
+            "voiceEvent": null
+          }
+        ]
+      },
+      {
+        "side": null,
+        "repeat": 15,
+        "steps": [
+          {
+            "id": "flex",
+            "phase": "PHASE_B",
+            "side": null,
+            "frameId": null,
+            "frameTransition": {
+              "from": "FRAME_FOREARMS_FORWARD",
+              "via": null,
+              "to": "FRAME_FLEXED"
+            },
+            "durationMs": 2000,
+            "voiceEvent": null
+          },
+          {
+            "id": "return",
+            "phase": "PHASE_A",
+            "side": null,
+            "frameId": null,
+            "frameTransition": {
+              "from": "FRAME_FLEXED",
+              "via": null,
+              "to": "FRAME_FOREARMS_FORWARD"
+            },
+            "durationMs": 2000,
+            "voiceEvent": null
+          }
+        ]
+      }
+    ]
+  },
+  "animation": {
+    "reducedMotionFallback": "static_step_frames",
+    "frames": [
+      {
+        "id": "FRAME_SETUP",
+        "file": "assets/exercises/ELBOW_004/images/setup_full_safe.png",
+        "altText": "Seated start position, forearms forward and palms down."
+      },
+      {
+        "id": "FRAME_FOREARMS_FORWARD",
+        "file": "assets/exercises/ELBOW_004/images/motion_01_forearms_forward_palms_down_mid_safe.png",
+        "altText": "Forearms pointing forward, palms facing down."
+      },
+      {
+        "id": "FRAME_FLEXED",
+        "file": "assets/exercises/ELBOW_004/images/motion_02_flexed_palms_down_mid_safe.png",
+        "altText": "Hands raised toward the shoulders, palms still facing down."
+      }
+    ],
+    "preview": "assets/exercises/ELBOW_004/images/preview.png"
+  },
+  "audio": {
+    "events": [
+      {
+        "id": "VOICE_SETUP",
+        "type": "instruction",
+        "priority": 80,
+        "interruptible": true,
+        "playOncePerSide": false,
+        "voiceMode": null,
+        "text": "Sit up straight. Bend your elbows. Forearms forward, palms down.",
+        "assetKey": "exercise.ELBOW_004.voice.setup",
+        "assetFile": "audio/uk/exercises/ELBOW_004/setup.m4a",
+        "trigger": {
+          "event": "prep_countdown_started",
+          "phase": null,
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": 0
+        }
+      },
+      {
+        "id": "VOICE_START_MOVEMENT",
+        "type": "movement",
+        "priority": 100,
+        "interruptible": false,
+        "playOncePerSide": false,
+        "voiceMode": null,
+        "text": "Bring your hands up toward your shoulders and smoothly back. Keep your palms facing down.",
+        "assetKey": "exercise.ELBOW_004.voice.start_movement",
+        "assetFile": "audio/uk/exercises/ELBOW_004/start_movement.m4a",
+        "trigger": {
+          "event": "sequence_phase_started",
+          "phase": "PHASE_SETUP",
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      },
+      {
+        "id": "VOICE_HALFWAY",
+        "type": "progress",
+        "priority": 50,
+        "interruptible": true,
+        "playOncePerSide": false,
+        "voiceMode": null,
+        "text": "Halfway done.",
+        "assetKey": "common.voice.halfway",
+        "assetFile": "audio/uk/common/halfway.m4a",
+        "trigger": {
+          "event": "progress_crossed",
+          "phase": null,
+          "side": null,
+          "percent": 50,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      },
+      {
+        "id": "VOICE_COMPLETED",
+        "type": "completion",
+        "priority": 120,
+        "interruptible": false,
+        "playOncePerSide": false,
+        "voiceMode": null,
+        "text": "Done.",
+        "assetKey": "common.voice.completed",
+        "assetFile": "audio/uk/common/completed.m4a",
+        "trigger": {
+          "event": "exercise_completed",
+          "phase": null,
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      },
+      {
+        "id": "VOICE_PHASE_B",
+        "type": "movement",
+        "priority": 70,
+        "interruptible": true,
+        "playOncePerSide": false,
+        "voiceMode": "phase_words",
+        "text": "To the shoulders.",
+        "assetKey": "exercise.ELBOW_004.voice.phase_b",
+        "assetFile": "audio/uk/exercises/ELBOW_004/phase_b.m4a",
+        "trigger": {
+          "event": "sequence_phase_started",
+          "phase": "PHASE_B",
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      },
+      {
+        "id": "VOICE_PHASE_A",
+        "type": "movement",
+        "priority": 70,
+        "interruptible": true,
+        "playOncePerSide": false,
+        "voiceMode": "phase_words",
+        "text": "Back.",
+        "assetKey": "exercise.ELBOW_004.voice.phase_a",
+        "assetFile": "audio/uk/exercises/ELBOW_004/phase_a.m4a",
+        "trigger": {
+          "event": "sequence_phase_started",
+          "phase": "PHASE_A",
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      },
+      {
+        "id": "VOICE_COUNT_ONE",
+        "type": "movement",
+        "priority": 70,
+        "interruptible": true,
+        "playOncePerSide": false,
+        "voiceMode": "count",
+        "text": "One.",
+        "assetKey": "common.voice.count_one",
+        "assetFile": "audio/uk/common/count_one.m4a",
+        "trigger": {
+          "event": "sequence_phase_started",
+          "phase": "PHASE_B",
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      },
+      {
+        "id": "VOICE_COUNT_TWO",
+        "type": "movement",
+        "priority": 70,
+        "interruptible": true,
+        "playOncePerSide": false,
+        "voiceMode": "count",
+        "text": "Two.",
+        "assetKey": "common.voice.count_two",
+        "assetFile": "audio/uk/common/count_two.m4a",
+        "trigger": {
+          "event": "sequence_phase_started",
+          "phase": "PHASE_A",
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      }
+    ],
+    "mix": {
+      "voiceLevel": 1.0,
+      "musicLevel": 0.5,
+      "dynamicDucking": false
+    }
+  },
+  "flow": {
+    "autoNextEnabled": true,
+    "restSeconds": 10,
+    "incrementCounterOnCompletion": true
+  },
+  "accessibility": {
+    "summary": "Arm bends with palms down. Sitting on a chair, keep your elbows by your body, forearms forward and palms down. Bring your hands up toward your shoulders and smoothly back again.",
+    "reducedMotionSupported": true
+  },
+  "pro": {
+    "tier": "free",
+    "requiresPro": false,
+    "visibleToFree": true,
+    "allowFavorite": true,
+    "includeInPersonalPlanPool": true
+  }
+}

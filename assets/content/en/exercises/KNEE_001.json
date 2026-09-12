@@ -1,0 +1,509 @@
+{
+  "id": "KNEE_001",
+  "slug": "seated_knee_extension",
+  "schemaVersion": "1.3",
+  "contentVersion": "0.1.0",
+  "clinicalStatus": "pending_review",
+  "editorialStatus": "draft",
+  "primaryZone": "knees",
+  "secondaryZones": [
+    "thighs"
+  ],
+  "hotspotIds": [
+    "left_knee",
+    "right_knee"
+  ],
+  "tags": [
+    "knee",
+    "quadriceps",
+    "computer",
+    "after_sitting",
+    "sitting",
+    "mobility",
+    "strength",
+    "knee_extension",
+    "bilateral",
+    "open_chain",
+    "beginner",
+    "gentle",
+    "chair"
+  ],
+  "tagGroups": {
+    "anatomy": [
+      "knee",
+      "quadriceps"
+    ],
+    "context": [
+      "computer",
+      "after_sitting"
+    ],
+    "position": [
+      "sitting"
+    ],
+    "movement": [
+      "mobility",
+      "strength",
+      "knee_extension",
+      "bilateral",
+      "open_chain"
+    ],
+    "level": [
+      "beginner",
+      "gentle"
+    ],
+    "equipment": [
+      "chair"
+    ]
+  },
+  "collections": [
+    "body_knees",
+    "computer_break",
+    "after_sitting",
+    "seated_gentle"
+  ],
+  "collectionCandidates": [],
+  "text": {
+    "title": "Seated knee extension",
+    "shortTitle": "Knee extension",
+    "cardDescription": "Slowly straighten your leg at the knee and lower it under control.",
+    "categoryLabel": "Knees",
+    "purpose": "A simple seated exercise for knee movement and for the muscles at the front of the thigh.",
+    "startPositionTitle": "Starting position",
+    "startPosition": "Sit up straight on a stable chair. Place your feet on the floor. Knees bent. Leave enough room in front of you to straighten your leg freely.",
+    "instructionsTitle": "How to do it",
+    "instructions": [
+      {
+        "step": 1,
+        "text": "Sit up straight and place your feet on the floor."
+      },
+      {
+        "step": 2,
+        "text": "Slowly straighten your left leg at the knee."
+      },
+      {
+        "step": 3,
+        "text": "Pull your toes toward you."
+      },
+      {
+        "step": 4,
+        "text": "Hold the leg straight for 5 seconds."
+      },
+      {
+        "step": 5,
+        "text": "Slowly and smoothly lower your foot to the floor."
+      },
+      {
+        "step": 6,
+        "text": "Do the set number of repetitions."
+      },
+      {
+        "step": 7,
+        "text": "When the app tells you, repeat with the other leg."
+      }
+    ],
+    "techniqueTipsTitle": "Watch out for",
+    "techniqueTips": [
+      "Do not lean back to lift the leg.",
+      "Your thigh stays on the seat.",
+      "Do not swing the leg.",
+      "Lower it as smoothly as you lift it."
+    ],
+    "safetyLabel": "Safety",
+    "safety": "Move only within a comfortable range. If you feel sharp pain or any other unusual symptom, press Stop.",
+    "completion": "Done."
+  },
+  "labels": {
+    "elapsed_time": "Time",
+    "progress": "Done",
+    "repetition": "Rep",
+    "side": "Leg",
+    "set": "Set"
+  },
+  "timing": {
+    "prepCountdownSeconds": 5,
+    "restAfterSeconds": 10,
+    "completionMode": "prescribed_repetitions",
+    "estimatedActiveSeconds": 182
+  },
+  "progress": {
+    "basis": "completed_repetitions",
+    "showElapsedTime": true,
+    "showProgressBar": true,
+    "showRepetitionCounter": true,
+    "showSideLabel": true,
+    "showSetCounter": false
+  },
+  "repetitionModel": {
+    "type": "side_blocks",
+    "sets": 1,
+    "repetitionsPerBlock": 10,
+    "blockOrder": [
+      "left",
+      "right"
+    ],
+    "switchSideAutomatically": true,
+    "resetCounterOnSideChange": true
+  },
+  "movementPhases": [
+    {
+      "id": "PHASE_START",
+      "name": "Starting position",
+      "type": null
+    },
+    {
+      "id": "PHASE_EXTEND",
+      "name": "Extension",
+      "type": null
+    },
+    {
+      "id": "PHASE_HOLD",
+      "name": "Hold",
+      "type": null
+    },
+    {
+      "id": "PHASE_LOWER",
+      "name": "Lowering",
+      "type": null
+    }
+  ],
+  "sequence": {
+    "blocks": [
+      {
+        "side": "left",
+        "repeat": 10,
+        "steps": [
+          {
+            "id": "left_start",
+            "phase": "PHASE_START",
+            "side": null,
+            "frameId": "FRAME_START",
+            "frameTransition": null,
+            "durationMs": 500,
+            "voiceEvent": null
+          },
+          {
+            "id": "left_extend",
+            "phase": "PHASE_EXTEND",
+            "side": null,
+            "frameId": null,
+            "frameTransition": {
+              "from": "FRAME_START",
+              "via": "FRAME_LEFT_MID",
+              "to": "FRAME_LEFT_EXTENDED"
+            },
+            "durationMs": 1800,
+            "voiceEvent": "VOICE_EXTEND"
+          },
+          {
+            "id": "left_hold",
+            "phase": "PHASE_HOLD",
+            "side": null,
+            "frameId": "FRAME_LEFT_EXTENDED",
+            "frameTransition": null,
+            "durationMs": 5000,
+            "voiceEvent": "VOICE_HOLD"
+          },
+          {
+            "id": "left_lower",
+            "phase": "PHASE_LOWER",
+            "side": null,
+            "frameId": null,
+            "frameTransition": {
+              "from": "FRAME_LEFT_EXTENDED",
+              "via": "FRAME_LEFT_MID",
+              "to": "FRAME_START"
+            },
+            "durationMs": 1800,
+            "voiceEvent": "VOICE_LOWER"
+          }
+        ]
+      },
+      {
+        "side": "right",
+        "repeat": 10,
+        "steps": [
+          {
+            "id": "right_start",
+            "phase": "PHASE_START",
+            "side": null,
+            "frameId": "FRAME_START",
+            "frameTransition": null,
+            "durationMs": 500,
+            "voiceEvent": null
+          },
+          {
+            "id": "right_extend",
+            "phase": "PHASE_EXTEND",
+            "side": null,
+            "frameId": null,
+            "frameTransition": {
+              "from": "FRAME_START",
+              "via": "FRAME_RIGHT_MID",
+              "to": "FRAME_RIGHT_EXTENDED"
+            },
+            "durationMs": 1800,
+            "voiceEvent": "VOICE_EXTEND"
+          },
+          {
+            "id": "right_hold",
+            "phase": "PHASE_HOLD",
+            "side": null,
+            "frameId": "FRAME_RIGHT_EXTENDED",
+            "frameTransition": null,
+            "durationMs": 5000,
+            "voiceEvent": "VOICE_HOLD"
+          },
+          {
+            "id": "right_lower",
+            "phase": "PHASE_LOWER",
+            "side": null,
+            "frameId": null,
+            "frameTransition": {
+              "from": "FRAME_RIGHT_EXTENDED",
+              "via": "FRAME_RIGHT_MID",
+              "to": "FRAME_START"
+            },
+            "durationMs": 1800,
+            "voiceEvent": "VOICE_LOWER"
+          }
+        ]
+      }
+    ]
+  },
+  "animation": {
+    "reducedMotionFallback": "static_step_frames",
+    "frames": [
+      {
+        "id": "FRAME_START",
+        "file": "assets/exercises/KNEE_001/frame_start.png",
+        "altText": "Seated start position, both feet flat on the floor."
+      },
+      {
+        "id": "FRAME_LEFT_MID",
+        "file": "assets/exercises/KNEE_001/frame_left_mid.png",
+        "altText": "Left leg partly straightened at the knee."
+      },
+      {
+        "id": "FRAME_LEFT_EXTENDED",
+        "file": "assets/exercises/KNEE_001/frame_left_extended.png",
+        "altText": "Left leg straightened forward, right foot flat on the floor."
+      },
+      {
+        "id": "FRAME_RIGHT_MID",
+        "file": "assets/exercises/KNEE_001/frame_right_mid.png",
+        "altText": "Right leg partly straightened at the knee."
+      },
+      {
+        "id": "FRAME_RIGHT_EXTENDED",
+        "file": "assets/exercises/KNEE_001/frame_right_extended.png",
+        "altText": "Right leg straightened forward, left foot flat on the floor."
+      }
+    ],
+    "preview": "assets/exercises/KNEE_001/preview.png"
+  },
+  "audio": {
+    "events": [
+      {
+        "id": "VOICE_PREPARE",
+        "type": "instruction",
+        "priority": 80,
+        "interruptible": true,
+        "playOncePerSide": false,
+        "voiceMode": null,
+        "text": "Get ready. Sit up straight and place your feet on the floor.",
+        "assetKey": "exercise.KNEE_001.voice.prepare",
+        "assetFile": "audio/uk/exercises/KNEE_001/prepare.m4a",
+        "trigger": {
+          "event": "prep_countdown_started",
+          "phase": null,
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": 0
+        }
+      },
+      {
+        "id": "VOICE_EXTEND",
+        "type": "movement",
+        "priority": 100,
+        "interruptible": false,
+        "playOncePerSide": false,
+        "voiceMode": null,
+        "text": "Slowly straighten your leg.",
+        "assetKey": "exercise.KNEE_001.voice.extend",
+        "assetFile": "audio/uk/exercises/KNEE_001/extend.m4a",
+        "trigger": {
+          "event": "sequence_phase_started",
+          "phase": "PHASE_EXTEND",
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      },
+      {
+        "id": "VOICE_TOES",
+        "type": "technique",
+        "priority": 70,
+        "interruptible": true,
+        "playOncePerSide": true,
+        "voiceMode": null,
+        "text": "Pull your toes toward you.",
+        "assetKey": "exercise.KNEE_001.voice.toes",
+        "assetFile": "audio/uk/exercises/KNEE_001/toes.m4a",
+        "trigger": {
+          "event": "repetition_started",
+          "phase": null,
+          "side": null,
+          "percent": null,
+          "repetitionNumber": 1,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      },
+      {
+        "id": "VOICE_HOLD",
+        "type": "movement",
+        "priority": 90,
+        "interruptible": true,
+        "playOncePerSide": false,
+        "voiceMode": null,
+        "text": "Hold.",
+        "assetKey": "common.voice.hold",
+        "assetFile": "audio/uk/common/hold.m4a",
+        "trigger": {
+          "event": "sequence_phase_started",
+          "phase": "PHASE_HOLD",
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      },
+      {
+        "id": "VOICE_LOWER",
+        "type": "movement",
+        "priority": 100,
+        "interruptible": false,
+        "playOncePerSide": false,
+        "voiceMode": null,
+        "text": "Slowly lower your leg.",
+        "assetKey": "exercise.KNEE_001.voice.lower",
+        "assetFile": "audio/uk/exercises/KNEE_001/lower.m4a",
+        "trigger": {
+          "event": "sequence_phase_started",
+          "phase": "PHASE_LOWER",
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      },
+      {
+        "id": "VOICE_SWITCH_SIDE",
+        "type": "transition",
+        "priority": 120,
+        "interruptible": false,
+        "playOncePerSide": false,
+        "voiceMode": null,
+        "text": "Now the other leg.",
+        "assetKey": "common.voice.switch_leg",
+        "assetFile": "audio/uk/common/switch_leg.m4a",
+        "trigger": {
+          "event": "side_block_completed",
+          "phase": null,
+          "side": "left",
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      },
+      {
+        "id": "VOICE_HALFWAY",
+        "type": "progress",
+        "priority": 50,
+        "interruptible": true,
+        "playOncePerSide": false,
+        "voiceMode": null,
+        "text": "Halfway done.",
+        "assetKey": "common.voice.halfway",
+        "assetFile": "audio/uk/common/halfway.m4a",
+        "trigger": {
+          "event": "progress_crossed",
+          "phase": null,
+          "side": null,
+          "percent": 50,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      },
+      {
+        "id": "VOICE_LAST_REP",
+        "type": "progress",
+        "priority": 60,
+        "interruptible": true,
+        "playOncePerSide": false,
+        "voiceMode": null,
+        "text": "Last repetition.",
+        "assetKey": "common.voice.last_repetition",
+        "assetFile": "audio/uk/common/last_repetition.m4a",
+        "trigger": {
+          "event": "repetition_started",
+          "phase": null,
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": "last",
+          "offsetMs": null
+        }
+      },
+      {
+        "id": "VOICE_COMPLETED",
+        "type": "completion",
+        "priority": 120,
+        "interruptible": false,
+        "playOncePerSide": false,
+        "voiceMode": null,
+        "text": "Done.",
+        "assetKey": "common.voice.completed",
+        "assetFile": "audio/uk/common/completed.m4a",
+        "trigger": {
+          "event": "exercise_completed",
+          "phase": null,
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      }
+    ],
+    "mix": {
+      "voiceLevel": 1.0,
+      "musicLevel": 0.5,
+      "dynamicDucking": false
+    }
+  },
+  "flow": {
+    "autoNextEnabled": true,
+    "restSeconds": 10,
+    "incrementCounterOnCompletion": true
+  },
+  "accessibility": {
+    "summary": "Seated knee extension. Sit up straight on a chair, slowly straighten one leg at the knee, hold, then lower it under control.",
+    "reducedMotionSupported": true
+  },
+  "pro": {
+    "tier": "free",
+    "requiresPro": false,
+    "visibleToFree": true,
+    "allowFavorite": true,
+    "includeInPersonalPlanPool": true
+  }
+}

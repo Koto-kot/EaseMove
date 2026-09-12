@@ -104,6 +104,34 @@ clinical:
   variants: []
 locale:
   default: uk
+  en:
+    title: 'One arm overhead: bend and straighten'
+    short_title: Arm overhead
+    card_description: Seated, bend and straighten one arm above your head.
+    category_label: Elbows
+    purpose_text: A simple exercise for the arm and elbow with no equipment.
+    start_position_title: Starting position
+    start_position_text: 'Sit up straight on a stable chair. Your right arm is bent overhead: the elbow is raised
+      and the hand is behind your head. Your left hand rests quietly on your thigh.'
+    instructions_title: How to do it
+    instructions:
+    - step: 1
+      text: Sit up straight and place your feet on the floor.
+    - step: 2
+      text: Raise your right arm and bend it overhead.
+    - step: 3
+      text: Smoothly straighten the arm upward.
+    - step: 4
+      text: Return to the bent starting position.
+    technique_tips_title: Watch out for
+    technique_tips:
+    - The elbow points up rather than out to the side.
+    - Keep your torso upright, with no leaning sideways.
+    - Stay within a comfortable range, with no pain in the shoulder.
+    safety_label: Safety
+    safety_text: Move within a comfortable range. If you feel sharp pain or any other unusual symptom, press Stop.
+    completion_text: Done.
+    halfway_text: Halfway done.
   uk:
     title: 'Одна рука над головою: зігнути — випрямити'
     short_title: Рука над головою
@@ -180,12 +208,15 @@ timing:
 movement_phases:
 - id: PHASE_SETUP
   name_uk: Початкове положення
+  name_en: Starting position
   biomechanics: start_position
 - id: PHASE_A
   name_uk: Рука зігнута
+  name_en: Arm bent
   biomechanics: phase_a
 - id: PHASE_B
   name_uk: Рука випрямлена
+  name_en: Arm straight
   biomechanics: phase_b
 sequence:
   side_blocks:
@@ -244,16 +275,19 @@ animation:
     file: assets/exercises/ELBOW_007/images/setup_full_safe.png
     pose_description_uk: Людина сидить рівно, права рука зігнута над головою, ліва лежить на стегні.
     alt_text_uk: Початкове положення сидячи, права рука зігнута над головою.
+    alt_text_en: Seated start position, right arm bent overhead.
     framing: FULL_SAFE
   - id: FRAME_BENT_OVERHEAD
     file: assets/exercises/ELBOW_007/images/motion_01_one_arm_bent_overhead_full_safe.png
     pose_description_uk: Права рука зігнута над головою, кисть за головою або біля верхньої частини шиї.
     alt_text_uk: Права рука зігнута над головою.
+    alt_text_en: Right arm bent overhead, hand behind the head.
     framing: FULL_SAFE
   - id: FRAME_EXTENDED_OVERHEAD
     file: assets/exercises/ELBOW_007/images/motion_02_one_arm_extended_overhead_full_safe.png
     pose_description_uk: Права рука випрямлена вгору над головою.
     alt_text_uk: Права рука випрямлена вгору.
+    alt_text_en: Right arm straightened up above the head.
     framing: FULL_SAFE
   preview:
     file: assets/exercises/ELBOW_007/images/preview.png
@@ -419,6 +453,8 @@ accessibility:
   screen_reader:
     exercise_summary_uk: Одна рука над головою. Сидячи на стільці, плавно випрямляйте праву руку вгору та знову
       згинайте її над головою.
+    exercise_summary_en: One arm overhead. Sitting on a chair, smoothly straighten your right arm upward and bend
+      it again above your head.
     announce_countdown: true
     announce_repetition: false
     announce_side_change: false

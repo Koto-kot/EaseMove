@@ -24,6 +24,39 @@ OUT = ROOT / "assets" / "content"
 
 CLINICAL_STATUSES = {"draft", "pending_review", "approved", "retired"}
 
+# The language the library is written in. Everything else is a translation of
+# it, and anything left untranslated falls back to it rather than rendering
+# empty (docs/DECISIONS.md 48 does the same for the UI strings).
+AUTHORING_LOCALE = "uk"
+
+# One compiled bundle per language the app can be switched to, under
+# assets/content/<locale>/. A language with no exercise translations still
+# gets a bundle - filled with the authoring language - because the app would
+# otherwise fail to load the catalog when someone picks it.
+LOCALES = ("uk", "en", "pl")
+
+
+def localized(raw: dict, prefix: str, locale: str):
+    """`prefix_<locale>` if it is there, otherwise the authoring language."""
+    value = raw.get(prefix + "_" + locale)
+    if value in (None, "", [], {}):
+        return raw.get(prefix + "_" + AUTHORING_LOCALE)
+    return value
+
+
+def localized_block(blocks: dict, locale: str) -> dict:
+    """A locale block with the authoring language underneath it.
+
+    A half-translated exercise then shows English where English exists and
+    Ukrainian everywhere else, instead of blank fields.
+    """
+    base = dict(blocks.get(AUTHORING_LOCALE) or {})
+    for key, value in (blocks.get(locale) or {}).items():
+        if value in (None, "", [], {}):
+            continue
+        base[key] = value
+    return base
+
 # Situation entry points in the app's main navigation
 # (docs/MENU_AND_NAVIGATION.md). They must exist even while still unfilled,
 # otherwise a tab renders with no collection behind it.
@@ -126,7 +159,7 @@ def compile_exercise(path: Path, locale: str) -> dict:
     if status not in CLINICAL_STATUSES:
         raise ValueError("{0}: unknown clinical.status {1}".format(path.name, status))
 
-    loc = raw.get("locale", {}).get(locale) or {}
+    loc = localized_block(raw.get("locale") or {}, locale)
     timing = raw.get("timing", {})
     progress = timing.get("progress", {})
     flow = raw.get("flow", {})
@@ -138,7 +171,7 @@ def compile_exercise(path: Path, locale: str) -> dict:
         frames[frame["id"]] = {
             "id": frame["id"],
             "file": frame["file"],
-            "altText": frame.get("alt_text_" + locale),
+            "altText": localized(frame, "alt_text", locale),
         }
 
     sequence = normalize_sequence(raw["sequence"])
@@ -194,7 +227,11 @@ def compile_exercise(path: Path, locale: str) -> dict:
         },
         "repetitionModel": compile_repetition_model(raw.get("repetition_model"), sequence),
         "movementPhases": [
-            {"id": p["id"], "name": p.get("name_" + locale), "type": p.get("phase_type")}
+            {
+                "id": p["id"],
+                "name": localized(p, "name", locale),
+                "type": p.get("phase_type"),
+            }
             for p in raw.get("movement_phases", [])
         ],
         "sequence": sequence,
@@ -225,8 +262,10 @@ def compile_exercise(path: Path, locale: str) -> dict:
             ),
         },
         "accessibility": {
-            "summary": (raw.get("accessibility", {}).get("screen_reader") or {}).get(
-                "exercise_summary_" + locale
+            "summary": localized(
+                raw.get("accessibility", {}).get("screen_reader") or {},
+                "exercise_summary",
+                locale,
             ),
             "reducedMotionSupported": bool(
                 (raw.get("accessibility", {}).get("reduced_motion") or {}).get("supported", True)
@@ -298,7 +337,7 @@ def compile_labels(ui, locale: str) -> dict:
     for name, value in labels.items():
         if not isinstance(value, dict):
             continue
-        text = value.get("resolved_" + locale)
+        text = localized(value, "resolved", locale)
         if text:
             resolved[name] = text
     return resolved
@@ -425,7 +464,7 @@ def compile_audio_event(event: dict, locale: str) -> dict:
         # A cue tagged with a mode is only scheduled when the listener has
         # chosen that mode (docs/AUDIO_SPEC.md, rhythm modes).
         "voiceMode": event.get("voice_mode"),
-        "text": event.get("text_" + locale),
+        "text": localized(event, "text", locale),
         "assetKey": event.get("asset_key"),
         "assetFile": event.get("target_file"),
         "trigger": {
@@ -440,11 +479,27 @@ def compile_audio_event(event: dict, locale: str) -> dict:
     }
 
 
+def summary_of(compiled: dict) -> dict:
+    """The catalog row: what a card needs without loading the whole record."""
+    return {
+        "id": compiled["id"],
+        "title": compiled["text"]["title"],
+        "cardDescription": compiled["text"]["cardDescription"],
+        "primaryZone": compiled["primaryZone"],
+        "clinicalStatus": compiled["clinicalStatus"],
+        "collections": compiled["collections"],
+        "tags": compiled["tags"],
+        "preview": compiled["animation"]["preview"],
+        "estimatedActiveSeconds": compiled["timing"]["estimatedActiveSeconds"],
+        "requiresPro": compiled["pro"]["requiresPro"],
+    }
+
+
 # ---------------------------------------------------------------- bundle
 
 
 def main() -> int:
-    locale = "uk"
+    locale = AUTHORING_LOCALE
     schema = json.loads((ROOT / "schemas/exercise.schema.json").read_text(encoding="utf-8"))
     validator = Draft202012Validator(schema)
 
@@ -467,12 +522,14 @@ def main() -> int:
     warnings = []
     summaries = []
     compiled_all = []
+    sources = []
 
     for entry in index["exercises"]:
         path = DATA / "exercises" / entry["file"]
         if not path.exists():
             errors.append("index references missing file: " + entry["file"])
             continue
+        sources.append((path, entry))
         raw = load_yaml(path)
         for err in validator.iter_errors(raw):
             where = ".".join(str(x) for x in err.absolute_path) or "<root>"
@@ -497,20 +554,7 @@ def main() -> int:
             errors.append(path.name + ": collections differ from index entry")
 
         compiled_all.append(compiled)
-        summaries.append(
-            {
-                "id": compiled["id"],
-                "title": compiled["text"]["title"],
-                "cardDescription": compiled["text"]["cardDescription"],
-                "primaryZone": compiled["primaryZone"],
-                "clinicalStatus": compiled["clinicalStatus"],
-                "collections": compiled["collections"],
-                "tags": compiled["tags"],
-                "preview": compiled["animation"]["preview"],
-                "estimatedActiveSeconds": compiled["timing"]["estimatedActiveSeconds"],
-                "requiresPro": compiled["pro"]["requiresPro"],
-            }
-        )
+        summaries.append(summary_of(compiled))
 
     known_collections = {c["id"] for c in collections["collections"]}
     for nav_id in NAVIGATION_COLLECTIONS:
@@ -614,39 +658,51 @@ def main() -> int:
 
     if OUT.exists():
         shutil.rmtree(OUT)
-    for compiled in compiled_all:
-        write_json(OUT / "exercises" / (compiled["id"] + ".json"), compiled)
 
-    write_json(
-        OUT / "index.json",
-        {
-            "generatedFrom": "data/",
-            "defaultLocale": locale,
-            "exercises": summaries,
-            "collections": [
-                {
-                    "id": c["id"],
-                    "title": c.get("title_" + locale),
-                    "type": c.get("type"),
-                    "primaryZone": c.get("primary_zone"),
-                    "sort": c.get("sort", "editorial"),
-                }
-                for c in collections["collections"]
-            ],
-            "zones": [
-                {
-                    "id": z["id"],
-                    "title": z.get("title_" + locale),
-                    # Falls back to the full title so a new zone still renders.
-                    "shortTitle": z.get("short_title_" + locale) or z.get("title_" + locale),
-                    "order": int(z.get("order", 0)),
-                }
-                for z in zones["zones"]
-            ],
-            "bodyMap": compile_body_map(hotspots),
-            "home": compile_home(home),
-        },
-    )
+    # One bundle per language. Compiling rather than translating at runtime
+    # keeps the app free of fallback logic: every field in every bundle is
+    # already filled, with the authoring language standing in where a
+    # translation is missing.
+    for bundle_locale in LOCALES:
+        bundle_dir = OUT / bundle_locale
+        localized_summaries = []
+        for path, entry in sources:
+            compiled = compile_exercise(path, bundle_locale)
+            write_json(bundle_dir / "exercises" / (compiled["id"] + ".json"), compiled)
+            localized_summaries.append(summary_of(compiled))
+
+        write_json(
+            bundle_dir / "index.json",
+            {
+                "generatedFrom": "data/",
+                "locale": bundle_locale,
+                "defaultLocale": AUTHORING_LOCALE,
+                "exercises": localized_summaries,
+                "collections": [
+                    {
+                        "id": c["id"],
+                        "title": localized(c, "title", bundle_locale),
+                        "type": c.get("type"),
+                        "primaryZone": c.get("primary_zone"),
+                        "sort": c.get("sort", "editorial"),
+                    }
+                    for c in collections["collections"]
+                ],
+                "zones": [
+                    {
+                        "id": z["id"],
+                        "title": localized(z, "title", bundle_locale),
+                        # Falls back to the full title so a new zone still renders.
+                        "shortTitle": localized(z, "short_title", bundle_locale)
+                        or localized(z, "title", bundle_locale),
+                        "order": int(z.get("order", 0)),
+                    }
+                    for z in zones["zones"]
+                ],
+                "bodyMap": compile_body_map(hotspots),
+                "home": compile_home(home),
+            },
+        )
     authoring_keys = set(locale_packs[locale])
     for pack_locale, strings in sorted(locale_packs.items()):
         write_json(OUT / "localization" / (pack_locale + ".json"), strings)
@@ -658,7 +714,8 @@ def main() -> int:
                 )
             )
 
-    print("OK: content bundle written to " + str(OUT.relative_to(ROOT)))
+    print("OK: content bundles written to " + str(OUT.relative_to(ROOT)))
+    print("- languages: {0}".format(", ".join(LOCALES)))
     print("- exercises: {0}".format(len(summaries)))
     print("- collections: {0}".format(len(collections["collections"])))
     print("- zones: {0}".format(len(zones["zones"])))

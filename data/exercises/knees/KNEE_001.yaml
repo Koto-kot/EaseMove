@@ -128,6 +128,44 @@ clinical:
   variants: []
 locale:
   default: uk
+  en:
+    title: Seated knee extension
+    short_title: Knee extension
+    card_description: Slowly straighten your leg at the knee and lower it under control.
+    category_label: Knees
+    purpose_text: A simple seated exercise for knee movement and for the muscles at the front of the thigh.
+    start_position_title: Starting position
+    start_position_text: Sit up straight on a stable chair. Place your feet on the floor. Knees bent. Leave
+      enough room in front of you to straighten your leg freely.
+    instructions_title: How to do it
+    instructions:
+    - step: 1
+      text: Sit up straight and place your feet on the floor.
+    - step: 2
+      text: Slowly straighten your left leg at the knee.
+    - step: 3
+      text: Pull your toes toward you.
+    - step: 4
+      text: Hold the leg straight for 5 seconds.
+    - step: 5
+      text: Slowly and smoothly lower your foot to the floor.
+    - step: 6
+      text: Do the set number of repetitions.
+    - step: 7
+      text: When the app tells you, repeat with the other leg.
+    technique_tips_title: Watch out for
+    technique_tips:
+    - Do not lean back to lift the leg.
+    - Your thigh stays on the seat.
+    - Do not swing the leg.
+    - Lower it as smoothly as you lift it.
+    safety_label: Safety
+    safety_text: Move only within a comfortable range. If you feel sharp pain or any other unusual symptom,
+      press Stop.
+    completion_text: Done.
+    halfway_text: Halfway done.
+    switch_side_text: Now the other leg.
+    last_repetition_text: Last repetition.
   uk:
     title: Розгинання ноги сидячи
     short_title: Розгинання коліна
@@ -174,6 +212,7 @@ ui:
     primary_action:
       key: common.exercise.start
       resolved_uk: Почати
+      resolved_en: Start
     badges:
       show_difficulty: false
       show_duration: true
@@ -184,49 +223,62 @@ ui:
       elapsed_time:
         key: common.exercise.elapsed_time
         resolved_uk: Час
+        resolved_en: Time
       progress:
         key: common.exercise.progress
         resolved_uk: Виконано
+        resolved_en: Done
       repetition:
         key: common.exercise.repetition
         resolved_uk: Повтор
+        resolved_en: Rep
       side:
         key: common.exercise.side
         resolved_uk: Нога
+        resolved_en: Leg
       set:
         key: common.exercise.set
         resolved_uk: Підхід
+        resolved_en: Set
     controls:
       previous:
         key: common.control.previous
         resolved_uk: Попередня
+        resolved_en: Previous
         icon: arrow_left
       start:
         key: common.control.start
         resolved_uk: Старт
+        resolved_en: Start
         icon: play
       pause:
         key: common.control.pause
         resolved_uk: Пауза
+        resolved_en: Pause
         icon: pause
       continue:
         key: common.control.continue
         resolved_uk: Продовжити
+        resolved_en: Continue
         icon: play
       stop:
         key: common.control.stop
         resolved_uk: Стоп
+        resolved_en: Stop
         icon: stop
       next:
         key: common.control.next
         resolved_uk: Наступна
+        resolved_en: Next
         icon: arrow_right
     prep:
       label_key: common.exercise.starts_in
       resolved_uk: Починаємо через
+      resolved_en: Starting in
     rest:
       label_key: common.exercise.rest
       resolved_uk: Відпочинок
+      resolved_en: Rest
       next_label_key: common.exercise.next_exercise
       next_label_resolved_uk: Наступна вправа
 timing:
@@ -266,15 +318,19 @@ repetition_model:
 movement_phases:
 - id: PHASE_START
   name_uk: Початкове положення
+  name_en: Starting position
   biomechanics: knee_flexed_seated
 - id: PHASE_EXTEND
   name_uk: Розгинання
+  name_en: Extension
   biomechanics: dynamic_knee_extension
 - id: PHASE_HOLD
   name_uk: Утримання
+  name_en: Hold
   biomechanics: isometric_hold_near_extension
 - id: PHASE_LOWER
   name_uk: Опускання
+  name_en: Lowering
   biomechanics: controlled_return_to_flexion
 sequence:
   side_blocks:
@@ -365,6 +421,7 @@ animation:
     pose_description_uk: Людина сидить рівно на стійкому стільці. Обидві стопи на підлозі, коліна зігнуті приблизно
       під прямим кутом.
     alt_text_uk: Початкове положення сидячи, обидві стопи на підлозі.
+    alt_text_en: Seated start position, both feet flat on the floor.
     validation_points:
     - torso_upright
     - both_feet_supported
@@ -375,6 +432,7 @@ animation:
     pose_description_uk: Ліва гомілка піднімається вперед у процесі розгинання коліна. Стегно залишається на сидінні,
       корпус не відхиляється.
     alt_text_uk: Ліва нога частково розігнута в коліні.
+    alt_text_en: Left leg partly straightened at the knee.
     validation_points:
     - left_knee_partially_extended
     - left_thigh_supported
@@ -384,6 +442,7 @@ animation:
     pose_description_uk: Ліва нога розігнута вперед у комфортному діапазоні, носок підтягнутий у напрямку до себе.
       Праву стопу залишено на підлозі.
     alt_text_uk: Ліва нога розігнута вперед, права стопа на підлозі.
+    alt_text_en: Left leg straightened forward, right foot flat on the floor.
     validation_points:
     - left_knee_extended
     - left_thigh_supported
@@ -395,6 +454,7 @@ animation:
     pose_description_uk: Права гомілка піднімається вперед у процесі розгинання коліна. Стегно залишається на сидінні,
       корпус не відхиляється.
     alt_text_uk: Права нога частково розігнута в коліні.
+    alt_text_en: Right leg partly straightened at the knee.
     validation_points:
     - right_knee_partially_extended
     - right_thigh_supported
@@ -404,6 +464,7 @@ animation:
     pose_description_uk: Права нога розігнута вперед у комфортному діапазоні, носок підтягнутий у напрямку до себе.
       Ліву стопу залишено на підлозі.
     alt_text_uk: Права нога розігнута вперед, ліва стопа на підлозі.
+    alt_text_en: Right leg straightened forward, left foot flat on the floor.
     validation_points:
     - right_knee_extended
     - right_thigh_supported
@@ -587,6 +648,7 @@ accessibility:
   screen_reader:
     exercise_summary_uk: Розгинання ноги сидячи. Сядьте рівно на стілець, повільно випрямляйте одну ногу в коліні,
       утримуйте, потім контрольовано опускайте.
+    exercise_summary_en: Seated knee extension. Sit up straight on a chair, slowly straighten one leg at the knee, hold, then lower it under control.
     announce_countdown: true
     announce_repetition: false
     announce_side_change: true

@@ -116,7 +116,10 @@ final Provider<AssetBundle?> assetBundleProvider = Provider<AssetBundle?>(
 
 final FutureProvider<ContentBundle> contentBundleProvider =
     FutureProvider<ContentBundle>(
-      (Ref ref) => ContentBundle.load(bundle: ref.watch(assetBundleProvider)),
+      (Ref ref) => ContentBundle.load(
+        bundle: ref.watch(assetBundleProvider),
+        locale: ref.watch(localeProvider),
+      ),
     );
 
 final FutureProvider<ExerciseRepository> exerciseRepositoryProvider =
