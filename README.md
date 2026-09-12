@@ -37,12 +37,12 @@ auto-start наступної`
 - clinical gate, feature flags, Free/Pro entitlements, contextual paywall;
 - локалізація `uk` + `en`, частковий `pl` (домашній екран і зони) з per-key
   fallback, усе з одного authoring-джерела;
-- 97 тестів (state machine, timeline, контент, локалізація, entitlements,
+- 98 тестів (state machine, timeline, контент, локалізація, entitlements,
   домашній екран, бібліотека ліктів, режими голосу, acceptance-флоу).
 
 Ще не зроблено: production-кадри для шиї та колін (артворк тіла й дев'яти
-ліктьових вправ уже є), український voice pack (англійський згенеровано
-повністю — 66 із 66 реплік; тексти обох мов у
+ліктьових вправ уже є), студійний запис голосу замість синтезованої
+чернетки (обидва пакети, uk і en, повні — 66 із 66 реплік:
 `docs/generated/AUDIO_SCRIPT_UK.md` / `_EN.md`), billing, планування
 нагадувань. Див. `docs/DEV_SETUP.md` → «Відомі обмеження».
 

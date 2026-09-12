@@ -9,7 +9,7 @@
 
 **Режими голосу:** «завжди» звучить у будь-якому режимі; репліки режимів «Слова руху» та «Лічба» звучать лише тоді, коли користувач обрав цей режим у Налаштуваннях, і мають бути короткими — вони мусять вкластися в половину циклу руху (близько двох секунд).
 
-Записано 0 із 66 реплік.
+Записано 66 із 66 реплік.
 
 ## Спільні репліки
 
@@ -17,134 +17,134 @@
 
 | Текст | Коли | Файл | Використовує | Стан |
 |---|---|---|---|---|
-| Готово. | завжди | `audio/uk/common/completed.m4a` | 13 вправ | потрібно записати |
-| Раз. | режим «Лічба» | `audio/uk/common/count_one.m4a` | 9 вправ | потрібно записати |
-| Два. | режим «Лічба» | `audio/uk/common/count_two.m4a` | 9 вправ | потрібно записати |
-| Один. | завжди | `audio/uk/common/countdown_1.m4a` | відлік підготовки | потрібно записати |
-| Два. | завжди | `audio/uk/common/countdown_2.m4a` | відлік підготовки | потрібно записати |
-| Три. | завжди | `audio/uk/common/countdown_3.m4a` | відлік підготовки | потрібно записати |
-| Чотири. | завжди | `audio/uk/common/countdown_4.m4a` | відлік підготовки | потрібно записати |
-| П'ять. | завжди | `audio/uk/common/countdown_5.m4a` | відлік підготовки | потрібно записати |
-| Половину виконано. | завжди | `audio/uk/common/halfway.m4a` | 13 вправ | потрібно записати |
-| Тримайте. | завжди | `audio/uk/common/hold.m4a` | 2 вправи | потрібно записати |
-| Останній повтор. | завжди | `audio/uk/common/last_repetition.m4a` | 3 вправи | потрібно записати |
-| Поверніться в центр. | завжди | `audio/uk/common/return_center.m4a` | NECK_001 | потрібно записати |
-| Тепер інша нога. | завжди | `audio/uk/common/switch_leg.m4a` | 2 вправи | потрібно записати |
+| Готово. | завжди | `audio/uk/common/completed.m4a` | 13 вправ | записано |
+| Раз. | режим «Лічба» | `audio/uk/common/count_one.m4a` | 9 вправ | записано |
+| Два. | режим «Лічба» | `audio/uk/common/count_two.m4a` | 9 вправ | записано |
+| Один. | завжди | `audio/uk/common/countdown_1.m4a` | відлік підготовки | записано |
+| Два. | завжди | `audio/uk/common/countdown_2.m4a` | відлік підготовки | записано |
+| Три. | завжди | `audio/uk/common/countdown_3.m4a` | відлік підготовки | записано |
+| Чотири. | завжди | `audio/uk/common/countdown_4.m4a` | відлік підготовки | записано |
+| П'ять. | завжди | `audio/uk/common/countdown_5.m4a` | відлік підготовки | записано |
+| Половину виконано. | завжди | `audio/uk/common/halfway.m4a` | 13 вправ | записано |
+| Тримайте. | завжди | `audio/uk/common/hold.m4a` | 2 вправи | записано |
+| Останній повтор. | завжди | `audio/uk/common/last_repetition.m4a` | 3 вправи | записано |
+| Поверніться в центр. | завжди | `audio/uk/common/return_center.m4a` | NECK_001 | записано |
+| Тепер інша нога. | завжди | `audio/uk/common/switch_leg.m4a` | 2 вправи | записано |
 
 ## NECK_001 — Повороти голови
 
 | Репліка | Коли | Текст | Файл | Стан |
 |---|---|---|---|---|
-| `VOICE_PREPARE` | завжди | Приготуйтеся. Сядьте рівно і розслабте плечі. | `audio/uk/exercises/NECK_001/prepare.m4a` | потрібно записати |
-| `VOICE_TURN_LEFT` | завжди | Повільно поверніть голову ліворуч. | `audio/uk/exercises/NECK_001/turn_left.m4a` | потрібно записати |
-| `VOICE_TURN_RIGHT` | завжди | Тепер праворуч. | `audio/uk/exercises/NECK_001/turn_right.m4a` | потрібно записати |
-| `VOICE_LAST_CYCLE` | завжди | Останній цикл. | `audio/uk/exercises/NECK_001/last_cycle.m4a` | потрібно записати |
+| `VOICE_PREPARE` | завжди | Приготуйтеся. Сядьте рівно і розслабте плечі. | `audio/uk/exercises/NECK_001/prepare.m4a` | записано |
+| `VOICE_TURN_LEFT` | завжди | Повільно поверніть голову ліворуч. | `audio/uk/exercises/NECK_001/turn_left.m4a` | записано |
+| `VOICE_TURN_RIGHT` | завжди | Тепер праворуч. | `audio/uk/exercises/NECK_001/turn_right.m4a` | записано |
+| `VOICE_LAST_CYCLE` | завжди | Останній цикл. | `audio/uk/exercises/NECK_001/last_cycle.m4a` | записано |
 
 ## KNEE_001 — Розгинання ноги сидячи
 
 | Репліка | Коли | Текст | Файл | Стан |
 |---|---|---|---|---|
-| `VOICE_PREPARE` | завжди | Приготуйтеся. Сядьте рівно, стопи поставте на підлогу. | `audio/uk/exercises/KNEE_001/prepare.m4a` | потрібно записати |
-| `VOICE_EXTEND` | завжди | Повільно випряміть ногу. | `audio/uk/exercises/KNEE_001/extend.m4a` | потрібно записати |
-| `VOICE_TOES` | завжди | Підтягніть носок до себе. | `audio/uk/exercises/KNEE_001/toes.m4a` | потрібно записати |
-| `VOICE_LOWER` | завжди | Повільно опустіть ногу. | `audio/uk/exercises/KNEE_001/lower.m4a` | потрібно записати |
+| `VOICE_PREPARE` | завжди | Приготуйтеся. Сядьте рівно, стопи поставте на підлогу. | `audio/uk/exercises/KNEE_001/prepare.m4a` | записано |
+| `VOICE_EXTEND` | завжди | Повільно випряміть ногу. | `audio/uk/exercises/KNEE_001/extend.m4a` | записано |
+| `VOICE_TOES` | завжди | Підтягніть носок до себе. | `audio/uk/exercises/KNEE_001/toes.m4a` | записано |
+| `VOICE_LOWER` | завжди | Повільно опустіть ногу. | `audio/uk/exercises/KNEE_001/lower.m4a` | записано |
 
 ## KNEE_002 — Встати — сісти зі стільця
 
 | Репліка | Коли | Текст | Файл | Стан |
 |---|---|---|---|---|
-| `VOICE_PREPARE` | завжди | Приготуйтеся. Сядьте ближче до краю стільця. Стопи на підлозі. | `audio/uk/exercises/KNEE_002/prepare.m4a` | потрібно записати |
-| `VOICE_LEAN_FORWARD` | завжди | Трохи нахиліться вперед. | `audio/uk/exercises/KNEE_002/lean_forward.m4a` | потрібно записати |
-| `VOICE_STAND_UP` | завжди | Плавно вставайте. | `audio/uk/exercises/KNEE_002/stand_up.m4a` | потрібно записати |
-| `VOICE_STAND_STABLE` | завжди | Випростайтеся. Стійте стійко. | `audio/uk/exercises/KNEE_002/stand_stable.m4a` | потрібно записати |
-| `VOICE_SIT_SLOWLY` | завжди | Тепер повільно сідайте. | `audio/uk/exercises/KNEE_002/sit_slowly.m4a` | потрібно записати |
+| `VOICE_PREPARE` | завжди | Приготуйтеся. Сядьте ближче до краю стільця. Стопи на підлозі. | `audio/uk/exercises/KNEE_002/prepare.m4a` | записано |
+| `VOICE_LEAN_FORWARD` | завжди | Трохи нахиліться вперед. | `audio/uk/exercises/KNEE_002/lean_forward.m4a` | записано |
+| `VOICE_STAND_UP` | завжди | Плавно вставайте. | `audio/uk/exercises/KNEE_002/stand_up.m4a` | записано |
+| `VOICE_STAND_STABLE` | завжди | Випростайтеся. Стійте стійко. | `audio/uk/exercises/KNEE_002/stand_stable.m4a` | записано |
+| `VOICE_SIT_SLOWLY` | завжди | Тепер повільно сідайте. | `audio/uk/exercises/KNEE_002/sit_slowly.m4a` | записано |
 
 ## KNEE_003 — Підтягування п’яти лежачи
 
 | Репліка | Коли | Текст | Файл | Стан |
 |---|---|---|---|---|
-| `VOICE_PREPARE` | завжди | Приготуйтеся. Ляжте на спину та випряміть ноги. | `audio/uk/exercises/KNEE_003/prepare.m4a` | потрібно записати |
-| `VOICE_SLIDE_IN` | завжди | Повільно ковзайте п’ятою до себе. | `audio/uk/exercises/KNEE_003/slide_in.m4a` | потрібно записати |
-| `VOICE_KNEE_UP` | завжди | Коліно тримайте спрямованим угору. | `audio/uk/exercises/KNEE_003/knee_up.m4a` | потрібно записати |
-| `VOICE_SLIDE_OUT` | завжди | Тепер повільно випряміть ногу. | `audio/uk/exercises/KNEE_003/slide_out.m4a` | потрібно записати |
+| `VOICE_PREPARE` | завжди | Приготуйтеся. Ляжте на спину та випряміть ноги. | `audio/uk/exercises/KNEE_003/prepare.m4a` | записано |
+| `VOICE_SLIDE_IN` | завжди | Повільно ковзайте п’ятою до себе. | `audio/uk/exercises/KNEE_003/slide_in.m4a` | записано |
+| `VOICE_KNEE_UP` | завжди | Коліно тримайте спрямованим угору. | `audio/uk/exercises/KNEE_003/knee_up.m4a` | записано |
+| `VOICE_SLIDE_OUT` | завжди | Тепер повільно випряміть ногу. | `audio/uk/exercises/KNEE_003/slide_out.m4a` | записано |
 
 ## ELBOW_001 — Зігнути — розігнути руки
 
 | Репліка | Коли | Текст | Файл | Стан |
 |---|---|---|---|---|
-| `VOICE_SETUP` | завжди | Сядьте рівно. Руки вільно опустіть уздовж тулуба. | `audio/uk/exercises/ELBOW_001/setup.m4a` | потрібно записати |
-| `VOICE_START_MOVEMENT` | завжди | Зігніть руки в ліктях, потім плавно розігніть. | `audio/uk/exercises/ELBOW_001/start_movement.m4a` | потрібно записати |
-| `VOICE_PHASE_B` | режим «Слова руху» | Зігніть. | `audio/uk/exercises/ELBOW_001/phase_b.m4a` | потрібно записати |
-| `VOICE_PHASE_A` | режим «Слова руху» | Розігніть. | `audio/uk/exercises/ELBOW_001/phase_a.m4a` | потрібно записати |
+| `VOICE_SETUP` | завжди | Сядьте рівно. Руки вільно опустіть уздовж тулуба. | `audio/uk/exercises/ELBOW_001/setup.m4a` | записано |
+| `VOICE_START_MOVEMENT` | завжди | Зігніть руки в ліктях, потім плавно розігніть. | `audio/uk/exercises/ELBOW_001/start_movement.m4a` | записано |
+| `VOICE_PHASE_B` | режим «Слова руху» | Зігніть. | `audio/uk/exercises/ELBOW_001/phase_b.m4a` | записано |
+| `VOICE_PHASE_A` | режим «Слова руху» | Розігніть. | `audio/uk/exercises/ELBOW_001/phase_a.m4a` | записано |
 
 ## ELBOW_002 — Почергове згинання рук
 
 | Репліка | Коли | Текст | Файл | Стан |
 |---|---|---|---|---|
-| `VOICE_SETUP` | завжди | Сядьте рівно. Руки опустіть уздовж тулуба. | `audio/uk/exercises/ELBOW_002/setup.m4a` | потрібно записати |
-| `VOICE_START_MOVEMENT` | завжди | По черзі згинайте праву і ліву руку в лікті. | `audio/uk/exercises/ELBOW_002/start_movement.m4a` | потрібно записати |
-| `VOICE_PHASE_B` | режим «Слова руху» | Ліва. | `audio/uk/exercises/ELBOW_002/phase_b.m4a` | потрібно записати |
-| `VOICE_PHASE_A` | режим «Слова руху» | Права. | `audio/uk/exercises/ELBOW_002/phase_a.m4a` | потрібно записати |
+| `VOICE_SETUP` | завжди | Сядьте рівно. Руки опустіть уздовж тулуба. | `audio/uk/exercises/ELBOW_002/setup.m4a` | записано |
+| `VOICE_START_MOVEMENT` | завжди | По черзі згинайте праву і ліву руку в лікті. | `audio/uk/exercises/ELBOW_002/start_movement.m4a` | записано |
+| `VOICE_PHASE_B` | режим «Слова руху» | Ліва. | `audio/uk/exercises/ELBOW_002/phase_b.m4a` | записано |
+| `VOICE_PHASE_A` | режим «Слова руху» | Права. | `audio/uk/exercises/ELBOW_002/phase_a.m4a` | записано |
 
 ## ELBOW_003 — Згинання рук долонями всередину
 
 | Репліка | Коли | Текст | Файл | Стан |
 |---|---|---|---|---|
-| `VOICE_SETUP` | завжди | Сядьте рівно. Руки опустіть уздовж тулуба. Долоні всередину. | `audio/uk/exercises/ELBOW_003/setup.m4a` | потрібно записати |
-| `VOICE_START_MOVEMENT` | завжди | Зігніть обидві руки в ліктях і плавно розігніть. | `audio/uk/exercises/ELBOW_003/start_movement.m4a` | потрібно записати |
-| `VOICE_PHASE_B` | режим «Слова руху» | Зігніть. | `audio/uk/exercises/ELBOW_003/phase_b.m4a` | потрібно записати |
-| `VOICE_PHASE_A` | режим «Слова руху» | Розігніть. | `audio/uk/exercises/ELBOW_003/phase_a.m4a` | потрібно записати |
+| `VOICE_SETUP` | завжди | Сядьте рівно. Руки опустіть уздовж тулуба. Долоні всередину. | `audio/uk/exercises/ELBOW_003/setup.m4a` | записано |
+| `VOICE_START_MOVEMENT` | завжди | Зігніть обидві руки в ліктях і плавно розігніть. | `audio/uk/exercises/ELBOW_003/start_movement.m4a` | записано |
+| `VOICE_PHASE_B` | режим «Слова руху» | Зігніть. | `audio/uk/exercises/ELBOW_003/phase_b.m4a` | записано |
+| `VOICE_PHASE_A` | режим «Слова руху» | Розігніть. | `audio/uk/exercises/ELBOW_003/phase_a.m4a` | записано |
 
 ## ELBOW_004 — Згинання рук долонями вниз
 
 | Репліка | Коли | Текст | Файл | Стан |
 |---|---|---|---|---|
-| `VOICE_SETUP` | завжди | Сядьте рівно. Зігніть руки в ліктях. Передпліччя вперед, долоні вниз. | `audio/uk/exercises/ELBOW_004/setup.m4a` | потрібно записати |
-| `VOICE_START_MOVEMENT` | завжди | Підводьте кисті до плечей і плавно повертайте назад. Долоні залишаються вниз. | `audio/uk/exercises/ELBOW_004/start_movement.m4a` | потрібно записати |
-| `VOICE_PHASE_B` | режим «Слова руху» | До плечей. | `audio/uk/exercises/ELBOW_004/phase_b.m4a` | потрібно записати |
-| `VOICE_PHASE_A` | режим «Слова руху» | Назад. | `audio/uk/exercises/ELBOW_004/phase_a.m4a` | потрібно записати |
+| `VOICE_SETUP` | завжди | Сядьте рівно. Зігніть руки в ліктях. Передпліччя вперед, долоні вниз. | `audio/uk/exercises/ELBOW_004/setup.m4a` | записано |
+| `VOICE_START_MOVEMENT` | завжди | Підводьте кисті до плечей і плавно повертайте назад. Долоні залишаються вниз. | `audio/uk/exercises/ELBOW_004/start_movement.m4a` | записано |
+| `VOICE_PHASE_B` | режим «Слова руху» | До плечей. | `audio/uk/exercises/ELBOW_004/phase_b.m4a` | записано |
+| `VOICE_PHASE_A` | режим «Слова руху» | Назад. | `audio/uk/exercises/ELBOW_004/phase_a.m4a` | записано |
 
 ## ELBOW_005 — Долоні вгору — вниз
 
 | Репліка | Коли | Текст | Файл | Стан |
 |---|---|---|---|---|
-| `VOICE_SETUP` | завжди | Сядьте рівно. Лікті біля тулуба. Долоні вгору. | `audio/uk/exercises/ELBOW_005/setup.m4a` | потрібно записати |
-| `VOICE_START_MOVEMENT` | завжди | Плавно поверніть долоні вниз і назад угору. | `audio/uk/exercises/ELBOW_005/start_movement.m4a` | потрібно записати |
-| `VOICE_PHASE_B` | режим «Слова руху» | Долоні вниз. | `audio/uk/exercises/ELBOW_005/phase_b.m4a` | потрібно записати |
-| `VOICE_PHASE_A` | режим «Слова руху» | Долоні вгору. | `audio/uk/exercises/ELBOW_005/phase_a.m4a` | потрібно записати |
+| `VOICE_SETUP` | завжди | Сядьте рівно. Лікті біля тулуба. Долоні вгору. | `audio/uk/exercises/ELBOW_005/setup.m4a` | записано |
+| `VOICE_START_MOVEMENT` | завжди | Плавно поверніть долоні вниз і назад угору. | `audio/uk/exercises/ELBOW_005/start_movement.m4a` | записано |
+| `VOICE_PHASE_B` | режим «Слова руху» | Долоні вниз. | `audio/uk/exercises/ELBOW_005/phase_b.m4a` | записано |
+| `VOICE_PHASE_A` | режим «Слова руху» | Долоні вгору. | `audio/uk/exercises/ELBOW_005/phase_a.m4a` | записано |
 
 ## ELBOW_006 — Кисті до плечей — вперед
 
 | Репліка | Коли | Текст | Файл | Стан |
 |---|---|---|---|---|
-| `VOICE_SETUP` | завжди | Сядьте рівно. Кисті біля плечей. | `audio/uk/exercises/ELBOW_006/setup.m4a` | потрібно записати |
-| `VOICE_START_MOVEMENT` | завжди | Плавно випряміть обидві руки вперед і поверніть назад до плечей. | `audio/uk/exercises/ELBOW_006/start_movement.m4a` | потрібно записати |
-| `VOICE_PHASE_B` | режим «Слова руху» | Вперед. | `audio/uk/exercises/ELBOW_006/phase_b.m4a` | потрібно записати |
-| `VOICE_PHASE_A` | режим «Слова руху» | До плечей. | `audio/uk/exercises/ELBOW_006/phase_a.m4a` | потрібно записати |
+| `VOICE_SETUP` | завжди | Сядьте рівно. Кисті біля плечей. | `audio/uk/exercises/ELBOW_006/setup.m4a` | записано |
+| `VOICE_START_MOVEMENT` | завжди | Плавно випряміть обидві руки вперед і поверніть назад до плечей. | `audio/uk/exercises/ELBOW_006/start_movement.m4a` | записано |
+| `VOICE_PHASE_B` | режим «Слова руху» | Вперед. | `audio/uk/exercises/ELBOW_006/phase_b.m4a` | записано |
+| `VOICE_PHASE_A` | режим «Слова руху» | До плечей. | `audio/uk/exercises/ELBOW_006/phase_a.m4a` | записано |
 
 ## ELBOW_007 — Одна рука над головою: зігнути — випрямити
 
 | Репліка | Коли | Текст | Файл | Стан |
 |---|---|---|---|---|
-| `VOICE_SETUP` | завжди | Сядьте рівно. Праву руку зігніть над головою. | `audio/uk/exercises/ELBOW_007/setup.m4a` | потрібно записати |
-| `VOICE_START_MOVEMENT` | завжди | Плавно випряміть руку вгору і поверніть назад. | `audio/uk/exercises/ELBOW_007/start_movement.m4a` | потрібно записати |
-| `VOICE_PHASE_B` | режим «Слова руху» | Випряміть. | `audio/uk/exercises/ELBOW_007/phase_b.m4a` | потрібно записати |
-| `VOICE_PHASE_A` | режим «Слова руху» | Зігніть. | `audio/uk/exercises/ELBOW_007/phase_a.m4a` | потрібно записати |
+| `VOICE_SETUP` | завжди | Сядьте рівно. Праву руку зігніть над головою. | `audio/uk/exercises/ELBOW_007/setup.m4a` | записано |
+| `VOICE_START_MOVEMENT` | завжди | Плавно випряміть руку вгору і поверніть назад. | `audio/uk/exercises/ELBOW_007/start_movement.m4a` | записано |
+| `VOICE_PHASE_B` | режим «Слова руху» | Випряміть. | `audio/uk/exercises/ELBOW_007/phase_b.m4a` | записано |
+| `VOICE_PHASE_A` | режим «Слова руху» | Зігніть. | `audio/uk/exercises/ELBOW_007/phase_a.m4a` | записано |
 
 ## ELBOW_008 — Дві руки над головою: зігнути — випрямити
 
 | Репліка | Коли | Текст | Файл | Стан |
 |---|---|---|---|---|
-| `VOICE_SETUP` | завжди | Сядьте рівно. Дві руки зігніть над головою. | `audio/uk/exercises/ELBOW_008/setup.m4a` | потрібно записати |
-| `VOICE_START_MOVEMENT` | завжди | Плавно випряміть руки вгору і поверніть назад. | `audio/uk/exercises/ELBOW_008/start_movement.m4a` | потрібно записати |
-| `VOICE_PHASE_B` | режим «Слова руху» | Випряміть. | `audio/uk/exercises/ELBOW_008/phase_b.m4a` | потрібно записати |
-| `VOICE_PHASE_A` | режим «Слова руху» | Зігніть. | `audio/uk/exercises/ELBOW_008/phase_a.m4a` | потрібно записати |
+| `VOICE_SETUP` | завжди | Сядьте рівно. Дві руки зігніть над головою. | `audio/uk/exercises/ELBOW_008/setup.m4a` | записано |
+| `VOICE_START_MOVEMENT` | завжди | Плавно випряміть руки вгору і поверніть назад. | `audio/uk/exercises/ELBOW_008/start_movement.m4a` | записано |
+| `VOICE_PHASE_B` | режим «Слова руху» | Випряміть. | `audio/uk/exercises/ELBOW_008/phase_b.m4a` | записано |
+| `VOICE_PHASE_A` | режим «Слова руху» | Зігніть. | `audio/uk/exercises/ELBOW_008/phase_a.m4a` | записано |
 
 ## ELBOW_009 — Віджимання від стіни
 
 | Репліка | Коли | Текст | Файл | Стан |
 |---|---|---|---|---|
-| `VOICE_SETUP` | завжди | Станьте обличчям до стіни. Поставте долоні на стіну й тримайте корпус рівно. | `audio/uk/exercises/ELBOW_009/setup.m4a` | потрібно записати |
-| `VOICE_START_MOVEMENT` | завжди | Плавно зігніть руки, наблизьтеся до стіни й випряміть руки назад. | `audio/uk/exercises/ELBOW_009/start_movement.m4a` | потрібно записати |
-| `VOICE_PHASE_B` | режим «Слова руху» | До стіни. | `audio/uk/exercises/ELBOW_009/phase_b.m4a` | потрібно записати |
-| `VOICE_PHASE_A` | режим «Слова руху» | Відштовхніться. | `audio/uk/exercises/ELBOW_009/phase_a.m4a` | потрібно записати |
+| `VOICE_SETUP` | завжди | Станьте обличчям до стіни. Поставте долоні на стіну й тримайте корпус рівно. | `audio/uk/exercises/ELBOW_009/setup.m4a` | записано |
+| `VOICE_START_MOVEMENT` | завжди | Плавно зігніть руки, наблизьтеся до стіни й випряміть руки назад. | `audio/uk/exercises/ELBOW_009/start_movement.m4a` | записано |
+| `VOICE_PHASE_B` | режим «Слова руху» | До стіни. | `audio/uk/exercises/ELBOW_009/phase_b.m4a` | записано |
+| `VOICE_PHASE_A` | режим «Слова руху» | Відштовхніться. | `audio/uk/exercises/ELBOW_009/phase_a.m4a` | записано |

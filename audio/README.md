@@ -38,7 +38,11 @@ python scripts/generate_voice.py --lang uk --yes                 # speech API
 ```
 
 `sapi` uses an installed Windows voice and needs ffmpeg on PATH; `openai`
-needs `OPENAI_API_KEY` in `.env`. `audio/en/` was produced this way and is
-complete; `audio/uk/` is still empty. Until a line exists the app speaks it
-with text-to-speech, so a partial pack is usable
+needs `OPENAI_API_KEY` in `.env`. Both packs were produced with `sapi` and are
+complete — Ukrainian with RHVoice Natalia, English with Microsoft Zira.
+Windows ships no Ukrainian voice, so uk needs RHVoice (or another SAPI5 voice)
+installed first: `rhvoice.org/uk-voices/`.
+
+Until a line exists the app speaks it with text-to-speech, so a partial pack —
+a new language, or a new exercise before its lines are made — is usable
 (`lib/core/audio/recorded_voice_audio_service.dart`).

@@ -153,73 +153,72 @@ void main() {
 
   group('the recorded pack', () {
     late LoggingAudioService fallback;
-    late RecordedVoiceAudioService service;
 
     setUp(() {
       fallback = LoggingAudioService();
-      // Nothing is recorded yet, so every load fails — which is exactly the
-      // state the app ships in today.
-      service = RecordedVoiceAudioService(
-        fallback: fallback,
-        languageCode: 'uk',
-        bundle: DiskAssetBundle(),
-      );
     });
 
     test('a line that is not recorded is spoken instead', () async {
+      // Both packs are complete, so the fallback is exercised with a language
+      // that has none — which is what any new language starts as.
+      final RecordedVoiceAudioService unrecorded = RecordedVoiceAudioService(
+        fallback: fallback,
+        languageCode: 'pl',
+        bundle: DiskAssetBundle(),
+      );
       final Exercise ex = loadExerciseFromDisk('ELBOW_001');
-      final AudioEvent event = ex.audioEventById('VOICE_SETUP')!;
-      expect(event.assetFile, 'audio/uk/exercises/ELBOW_001/setup.m4a');
 
-      await service.playVoice(event);
-      await service.playCountdownTick(3);
+      await unrecorded.playVoice(ex.audioEventById('VOICE_SETUP')!);
+      await unrecorded.playCountdownTick(3);
 
       expect(fallback.log, <String>['voice:VOICE_SETUP', 'tick:3']);
     });
 
-    test('the English pack is complete and bundled', () async {
-      final String pubspec = File('pubspec.yaml').readAsStringSync();
-      final RecordedVoiceAudioService english = RecordedVoiceAudioService(
-        fallback: fallback,
-        languageCode: 'en',
-        bundle: DiskAssetBundle(),
-      );
-
-      final List<String> ids = <String>[
-        'NECK_001',
-        'KNEE_001',
-        'KNEE_002',
-        'KNEE_003',
-        ...elbowIds,
-      ];
-      for (final String id in ids) {
-        final Exercise ex = loadExerciseFromDisk(id);
-        for (final AudioEvent event in ex.audioEvents) {
-          final String? path = english.localizedAssetPath(event.assetFile);
-          if (path == null) continue;
-          expect(File(path).existsSync(), isTrue, reason: '$id: $path');
-          final String folder = path.substring(0, path.lastIndexOf('/') + 1);
-          expect(pubspec, contains('- $folder'), reason: folder);
-        }
-      }
-
-      // Including the countdown, which no exercise declares by name.
-      for (int n = 1; n <= 5; n++) {
-        expect(
-          File('audio/en/common/countdown_$n.m4a').existsSync(),
-          isTrue,
-          reason: 'countdown_$n',
+    for (final String lang in <String>['uk', 'en']) {
+      test('the $lang pack is complete and bundled', () async {
+        final String pubspec = File('pubspec.yaml').readAsStringSync();
+        final RecordedVoiceAudioService pack = RecordedVoiceAudioService(
+          fallback: fallback,
+          languageCode: lang,
+          bundle: DiskAssetBundle(),
         );
-      }
 
-      // And the service resolves them to the pack rather than the fallback.
-      // (Playing one here would need a real platform audio player.)
-      expect(
-        await english.isBundled('audio/en/exercises/ELBOW_001/setup.m4a'),
-        isTrue,
-      );
-      expect(fallback.log, isEmpty);
-    });
+        final List<String> ids = <String>[
+          'NECK_001',
+          'KNEE_001',
+          'KNEE_002',
+          'KNEE_003',
+          ...elbowIds,
+        ];
+        for (final String id in ids) {
+          final Exercise ex = loadExerciseFromDisk(id);
+          for (final AudioEvent event in ex.audioEvents) {
+            final String? path = pack.localizedAssetPath(event.assetFile);
+            if (path == null) continue;
+            expect(File(path).existsSync(), isTrue, reason: '$id: $path');
+            final String folder = path.substring(0, path.lastIndexOf('/') + 1);
+            expect(pubspec, contains('- $folder'), reason: folder);
+          }
+        }
+
+        // Including the countdown, which no exercise declares by name.
+        for (int n = 1; n <= 5; n++) {
+          expect(
+            File('audio/$lang/common/countdown_$n.m4a').existsSync(),
+            isTrue,
+            reason: '$lang countdown_$n',
+          );
+        }
+
+        // And the service resolves them to the pack rather than the fallback.
+        // (Playing one here would need a real platform audio player.)
+        expect(
+          await pack.isBundled('audio/$lang/exercises/ELBOW_001/setup.m4a'),
+          isTrue,
+        );
+        expect(fallback.log, isEmpty);
+      });
+    }
 
     test('the file is looked up under the chosen language', () {
       final RecordedVoiceAudioService english = RecordedVoiceAudioService(
