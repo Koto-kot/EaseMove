@@ -13,14 +13,16 @@ Production workflow:
 Наприклад:
 
 ```text
-assets/exercises/KNEE_001/
+assets/exercises/ELBOW_001/images/
+  setup_full_safe.png
+  motion_01_extended_mid_safe.png
+  motion_02_flexed_mid_safe.png
   preview.png
-  frame_start.png
-  frame_left_mid.png
-  frame_left_extended.png
-  frame_right_mid.png
-  frame_right_extended.png
 ```
+
+Історична форма без підпапки (`assets/exercises/KNEE_001/frame_start.png`)
+лишається чинною для вправ, створених до пакета ліктів
+(docs/DECISIONS.md 53).
 
 YAML є source of truth для required filenames.
 

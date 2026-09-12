@@ -1,0 +1,319 @@
+{
+  "id": "ELBOW_009",
+  "slug": "wall_push_up",
+  "schemaVersion": "1.3",
+  "contentVersion": "0.1.0",
+  "clinicalStatus": "pending_review",
+  "editorialStatus": "draft",
+  "primaryZone": "elbows",
+  "secondaryZones": [
+    "forearms",
+    "upper_arms"
+  ],
+  "hotspotIds": [
+    "left_elbow",
+    "right_elbow"
+  ],
+  "tags": [
+    "elbow",
+    "forearm",
+    "upper_arm",
+    "computer",
+    "after_sitting",
+    "standing",
+    "strength",
+    "elbow_flexion_extension",
+    "bilateral",
+    "closed_chain",
+    "beginner",
+    "gentle",
+    "wall"
+  ],
+  "tagGroups": {
+    "anatomy": [
+      "elbow",
+      "forearm",
+      "upper_arm"
+    ],
+    "context": [
+      "computer",
+      "after_sitting"
+    ],
+    "position": [
+      "standing"
+    ],
+    "movement": [
+      "strength",
+      "elbow_flexion_extension",
+      "bilateral",
+      "closed_chain"
+    ],
+    "level": [
+      "beginner",
+      "gentle"
+    ],
+    "equipment": [
+      "wall"
+    ]
+  },
+  "collections": [
+    "body_elbows",
+    "computer_break",
+    "after_sitting"
+  ],
+  "collectionCandidates": [],
+  "text": {
+    "title": "Віджимання від стіни",
+    "shortTitle": "Від стіни",
+    "cardDescription": "Стоячи біля стіни, плавно згинайте та випрямляйте руки.",
+    "categoryLabel": "Лікті",
+    "purpose": "Звичайний рух без додаткового обладнання: проста вправа для ліктів із опорою на стіну.",
+    "startPositionTitle": "Початкове положення",
+    "startPosition": "Станьте обличчям до стіни на комфортній відстані. Долоні поставте на стіну приблизно на рівні грудей або плечей. Руки випрямлені, але без жорсткого блокування ліктів. Стопи повністю на підлозі.",
+    "instructionsTitle": "Як виконувати",
+    "instructions": [
+      {
+        "step": 1,
+        "text": "Станьте обличчям до стійкої стіни."
+      },
+      {
+        "step": 2,
+        "text": "Поставте долоні на стіну на рівні грудей або плечей."
+      },
+      {
+        "step": 3,
+        "text": "Плавно зігніть лікті та наблизьте корпус до стіни."
+      },
+      {
+        "step": 4,
+        "text": "Плавно випряміть руки і поверніться у вихідне положення."
+      }
+    ],
+    "techniqueTipsTitle": "Зверніть увагу",
+    "techniqueTips": [
+      "Корпус рухається як єдине ціле.",
+      "Не опускайте голову до стіни окремо від корпуса.",
+      "Стопи не повинні ковзати: виберіть стійку поверхню.",
+      "Оберіть комфортну відстань і амплітуду."
+    ],
+    "safetyLabel": "Безпека",
+    "safety": "Рухайтеся в комфортному діапазоні. Якщо з'явився різкий біль або інший незвичний симптом, натисніть «Стоп».",
+    "completion": "Готово."
+  },
+  "labels": {},
+  "timing": {
+    "prepCountdownSeconds": 5,
+    "restAfterSeconds": 10,
+    "completionMode": "timed_duration",
+    "estimatedActiveSeconds": 61
+  },
+  "progress": {
+    "basis": "sequence_time",
+    "showElapsedTime": true,
+    "showProgressBar": true,
+    "showRepetitionCounter": false,
+    "showSideLabel": false,
+    "showSetCounter": false
+  },
+  "repetitionModel": {
+    "type": "sequence_time",
+    "sets": 1,
+    "repetitionsPerBlock": 1,
+    "blockOrder": [
+      null,
+      null
+    ],
+    "switchSideAutomatically": true,
+    "resetCounterOnSideChange": false
+  },
+  "movementPhases": [
+    {
+      "id": "PHASE_SETUP",
+      "name": "Початкове положення",
+      "type": null
+    },
+    {
+      "id": "PHASE_A",
+      "name": "Руки випрямлені",
+      "type": null
+    },
+    {
+      "id": "PHASE_B",
+      "name": "Лікті зігнуті",
+      "type": null
+    }
+  ],
+  "sequence": {
+    "blocks": [
+      {
+        "side": null,
+        "repeat": 1,
+        "steps": [
+          {
+            "id": "setup",
+            "phase": "PHASE_SETUP",
+            "side": null,
+            "frameId": "FRAME_SETUP",
+            "frameTransition": null,
+            "durationMs": 1000,
+            "voiceEvent": null
+          }
+        ]
+      },
+      {
+        "side": null,
+        "repeat": 12,
+        "steps": [
+          {
+            "id": "lower_to_wall",
+            "phase": "PHASE_B",
+            "side": null,
+            "frameId": null,
+            "frameTransition": {
+              "from": "FRAME_ARMS_EXTENDED",
+              "via": null,
+              "to": "FRAME_ELBOWS_BENT"
+            },
+            "durationMs": 2500,
+            "voiceEvent": null
+          },
+          {
+            "id": "press_away",
+            "phase": "PHASE_A",
+            "side": null,
+            "frameId": null,
+            "frameTransition": {
+              "from": "FRAME_ELBOWS_BENT",
+              "via": null,
+              "to": "FRAME_ARMS_EXTENDED"
+            },
+            "durationMs": 2500,
+            "voiceEvent": null
+          }
+        ]
+      }
+    ]
+  },
+  "animation": {
+    "reducedMotionFallback": "static_step_frames",
+    "frames": [
+      {
+        "id": "FRAME_SETUP",
+        "file": "assets/exercises/ELBOW_009/images/setup_full_safe.png",
+        "altText": "Початкове положення стоячи біля стіни."
+      },
+      {
+        "id": "FRAME_ARMS_EXTENDED",
+        "file": "assets/exercises/ELBOW_009/images/motion_01_arms_extended_wall_full_safe.png",
+        "altText": "Руки випрямлені, долоні на стіні."
+      },
+      {
+        "id": "FRAME_ELBOWS_BENT",
+        "file": "assets/exercises/ELBOW_009/images/motion_02_elbows_bent_wall_full_safe.png",
+        "altText": "Лікті зігнуті, корпус ближче до стіни."
+      }
+    ],
+    "preview": "assets/exercises/ELBOW_009/images/preview.png"
+  },
+  "audio": {
+    "events": [
+      {
+        "id": "VOICE_SETUP",
+        "type": "instruction",
+        "priority": 80,
+        "interruptible": true,
+        "playOncePerSide": false,
+        "text": "Станьте обличчям до стіни. Поставте долоні на стіну й тримайте корпус рівно.",
+        "assetKey": "exercise.ELBOW_009.voice.setup",
+        "assetFile": "audio/uk/exercises/ELBOW_009/setup.m4a",
+        "trigger": {
+          "event": "prep_countdown_started",
+          "phase": null,
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": 0
+        }
+      },
+      {
+        "id": "VOICE_START_MOVEMENT",
+        "type": "movement",
+        "priority": 100,
+        "interruptible": false,
+        "playOncePerSide": false,
+        "text": "Плавно зігніть руки, наблизьтеся до стіни й випряміть руки назад.",
+        "assetKey": "exercise.ELBOW_009.voice.start_movement",
+        "assetFile": "audio/uk/exercises/ELBOW_009/start_movement.m4a",
+        "trigger": {
+          "event": "repetition_started",
+          "phase": null,
+          "side": null,
+          "percent": null,
+          "repetitionNumber": 1,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      },
+      {
+        "id": "VOICE_HALFWAY",
+        "type": "progress",
+        "priority": 50,
+        "interruptible": true,
+        "playOncePerSide": false,
+        "text": "Половину виконано.",
+        "assetKey": "common.voice.halfway",
+        "assetFile": "audio/uk/common/halfway.m4a",
+        "trigger": {
+          "event": "progress_crossed",
+          "phase": null,
+          "side": null,
+          "percent": 50,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      },
+      {
+        "id": "VOICE_COMPLETED",
+        "type": "completion",
+        "priority": 120,
+        "interruptible": false,
+        "playOncePerSide": false,
+        "text": "Готово.",
+        "assetKey": "common.voice.completed",
+        "assetFile": "audio/uk/common/completed.m4a",
+        "trigger": {
+          "event": "exercise_completed",
+          "phase": null,
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      }
+    ],
+    "mix": {
+      "voiceLevel": 1.0,
+      "musicLevel": 0.5,
+      "dynamicDucking": false
+    }
+  },
+  "flow": {
+    "autoNextEnabled": true,
+    "restSeconds": 10,
+    "incrementCounterOnCompletion": true
+  },
+  "accessibility": {
+    "summary": "Віджимання від стіни. Стоячи обличчям до стіни з долонями на ній, плавно згинайте лікті та випрямляйте руки.",
+    "reducedMotionSupported": true
+  },
+  "pro": {
+    "tier": "free",
+    "requiresPro": false,
+    "visibleToFree": true,
+    "allowFavorite": true,
+    "includeInPersonalPlanPool": true
+  }
+}

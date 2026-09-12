@@ -1,0 +1,319 @@
+{
+  "id": "ELBOW_002",
+  "slug": "alternating_seated_elbow_flexion",
+  "schemaVersion": "1.3",
+  "contentVersion": "0.1.0",
+  "clinicalStatus": "pending_review",
+  "editorialStatus": "draft",
+  "primaryZone": "elbows",
+  "secondaryZones": [
+    "forearms",
+    "upper_arms"
+  ],
+  "hotspotIds": [
+    "left_elbow",
+    "right_elbow"
+  ],
+  "tags": [
+    "elbow",
+    "forearm",
+    "upper_arm",
+    "computer",
+    "after_sitting",
+    "sitting",
+    "mobility",
+    "elbow_flexion",
+    "alternating",
+    "no_resistance",
+    "beginner",
+    "gentle",
+    "stable_chair"
+  ],
+  "tagGroups": {
+    "anatomy": [
+      "elbow",
+      "forearm",
+      "upper_arm"
+    ],
+    "context": [
+      "computer",
+      "after_sitting"
+    ],
+    "position": [
+      "sitting"
+    ],
+    "movement": [
+      "mobility",
+      "elbow_flexion",
+      "alternating",
+      "no_resistance"
+    ],
+    "level": [
+      "beginner",
+      "gentle"
+    ],
+    "equipment": [
+      "stable_chair"
+    ]
+  },
+  "collections": [
+    "body_elbows",
+    "seated_gentle",
+    "computer_break",
+    "after_sitting"
+  ],
+  "collectionCandidates": [],
+  "text": {
+    "title": "Почергове згинання рук",
+    "shortTitle": "Почергово",
+    "cardDescription": "Сидячи, по черзі згинайте праву та ліву руку в лікті.",
+    "categoryLabel": "Лікті",
+    "purpose": "М’яка почергова вправа для ліктів і рук без опору.",
+    "startPositionTitle": "Початкове положення",
+    "startPosition": "Сядьте рівно на стійкий стілець. Стопи повністю на підлозі, коліна приблизно під прямим кутом. Обидві руки вздовж тулуба, плечі розслаблені.",
+    "instructionsTitle": "Як виконувати",
+    "instructions": [
+      {
+        "step": 1,
+        "text": "Сядьте рівно, руки опустіть уздовж тулуба."
+      },
+      {
+        "step": 2,
+        "text": "Зігніть праву руку в лікті, підводячи кисть до рівня плеча."
+      },
+      {
+        "step": 3,
+        "text": "Опустіть праву руку й одразу зігніть ліву."
+      },
+      {
+        "step": 4,
+        "text": "Продовжуйте почергово, плавно та без поспіху."
+      }
+    ],
+    "techniqueTipsTitle": "Зверніть увагу",
+    "techniqueTips": [
+      "Корпус залишається вертикальним, без розгойдування.",
+      "Плечі опущені та розслаблені.",
+      "Рука, яка не працює, вільно висить уздовж тулуба."
+    ],
+    "safetyLabel": "Безпека",
+    "safety": "Рухайтеся в комфортному діапазоні. Якщо з'явився різкий біль або інший незвичний симптом, натисніть «Стоп».",
+    "completion": "Готово."
+  },
+  "labels": {},
+  "timing": {
+    "prepCountdownSeconds": 5,
+    "restAfterSeconds": 10,
+    "completionMode": "timed_duration",
+    "estimatedActiveSeconds": 61
+  },
+  "progress": {
+    "basis": "sequence_time",
+    "showElapsedTime": true,
+    "showProgressBar": true,
+    "showRepetitionCounter": false,
+    "showSideLabel": false,
+    "showSetCounter": false
+  },
+  "repetitionModel": {
+    "type": "sequence_time",
+    "sets": 1,
+    "repetitionsPerBlock": 1,
+    "blockOrder": [
+      null,
+      null
+    ],
+    "switchSideAutomatically": true,
+    "resetCounterOnSideChange": false
+  },
+  "movementPhases": [
+    {
+      "id": "PHASE_SETUP",
+      "name": "Початкове положення",
+      "type": null
+    },
+    {
+      "id": "PHASE_A",
+      "name": "Права рука зігнута",
+      "type": null
+    },
+    {
+      "id": "PHASE_B",
+      "name": "Ліва рука зігнута",
+      "type": null
+    }
+  ],
+  "sequence": {
+    "blocks": [
+      {
+        "side": null,
+        "repeat": 1,
+        "steps": [
+          {
+            "id": "setup",
+            "phase": "PHASE_SETUP",
+            "side": null,
+            "frameId": "FRAME_SETUP",
+            "frameTransition": null,
+            "durationMs": 1000,
+            "voiceEvent": null
+          }
+        ]
+      },
+      {
+        "side": null,
+        "repeat": 15,
+        "steps": [
+          {
+            "id": "switch_to_left",
+            "phase": "PHASE_B",
+            "side": null,
+            "frameId": null,
+            "frameTransition": {
+              "from": "FRAME_RIGHT_FLEXED",
+              "via": null,
+              "to": "FRAME_LEFT_FLEXED"
+            },
+            "durationMs": 2000,
+            "voiceEvent": null
+          },
+          {
+            "id": "switch_to_right",
+            "phase": "PHASE_A",
+            "side": null,
+            "frameId": null,
+            "frameTransition": {
+              "from": "FRAME_LEFT_FLEXED",
+              "via": null,
+              "to": "FRAME_RIGHT_FLEXED"
+            },
+            "durationMs": 2000,
+            "voiceEvent": null
+          }
+        ]
+      }
+    ]
+  },
+  "animation": {
+    "reducedMotionFallback": "static_step_frames",
+    "frames": [
+      {
+        "id": "FRAME_SETUP",
+        "file": "assets/exercises/ELBOW_002/images/setup_full_safe.png",
+        "altText": "Початкове положення сидячи, обидві руки опущені."
+      },
+      {
+        "id": "FRAME_RIGHT_FLEXED",
+        "file": "assets/exercises/ELBOW_002/images/motion_01_right_flex_mid_safe.png",
+        "altText": "Права рука зігнута, ліва опущена."
+      },
+      {
+        "id": "FRAME_LEFT_FLEXED",
+        "file": "assets/exercises/ELBOW_002/images/motion_02_left_flex_mid_safe.png",
+        "altText": "Ліва рука зігнута, права опущена."
+      }
+    ],
+    "preview": "assets/exercises/ELBOW_002/images/preview.png"
+  },
+  "audio": {
+    "events": [
+      {
+        "id": "VOICE_SETUP",
+        "type": "instruction",
+        "priority": 80,
+        "interruptible": true,
+        "playOncePerSide": false,
+        "text": "Сядьте рівно. Руки опустіть уздовж тулуба.",
+        "assetKey": "exercise.ELBOW_002.voice.setup",
+        "assetFile": "audio/uk/exercises/ELBOW_002/setup.m4a",
+        "trigger": {
+          "event": "prep_countdown_started",
+          "phase": null,
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": 0
+        }
+      },
+      {
+        "id": "VOICE_START_MOVEMENT",
+        "type": "movement",
+        "priority": 100,
+        "interruptible": false,
+        "playOncePerSide": false,
+        "text": "По черзі згинайте праву і ліву руку в лікті.",
+        "assetKey": "exercise.ELBOW_002.voice.start_movement",
+        "assetFile": "audio/uk/exercises/ELBOW_002/start_movement.m4a",
+        "trigger": {
+          "event": "repetition_started",
+          "phase": null,
+          "side": null,
+          "percent": null,
+          "repetitionNumber": 1,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      },
+      {
+        "id": "VOICE_HALFWAY",
+        "type": "progress",
+        "priority": 50,
+        "interruptible": true,
+        "playOncePerSide": false,
+        "text": "Половину виконано.",
+        "assetKey": "common.voice.halfway",
+        "assetFile": "audio/uk/common/halfway.m4a",
+        "trigger": {
+          "event": "progress_crossed",
+          "phase": null,
+          "side": null,
+          "percent": 50,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      },
+      {
+        "id": "VOICE_COMPLETED",
+        "type": "completion",
+        "priority": 120,
+        "interruptible": false,
+        "playOncePerSide": false,
+        "text": "Готово.",
+        "assetKey": "common.voice.completed",
+        "assetFile": "audio/uk/common/completed.m4a",
+        "trigger": {
+          "event": "exercise_completed",
+          "phase": null,
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      }
+    ],
+    "mix": {
+      "voiceLevel": 1.0,
+      "musicLevel": 0.5,
+      "dynamicDucking": false
+    }
+  },
+  "flow": {
+    "autoNextEnabled": true,
+    "restSeconds": 10,
+    "incrementCounterOnCompletion": true
+  },
+  "accessibility": {
+    "summary": "Почергове згинання рук. Сидячи на стільці, по черзі згинайте праву та ліву руку в лікті в комфортному темпі.",
+    "reducedMotionSupported": true
+  },
+  "pro": {
+    "tier": "free",
+    "requiresPro": false,
+    "visibleToFree": true,
+    "allowFavorite": true,
+    "includeInPersonalPlanPool": true
+  }
+}

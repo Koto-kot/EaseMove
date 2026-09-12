@@ -138,3 +138,206 @@ exercises:
         same height, the shoulders stay level and relaxed, the torso does not
         rotate with the head.
       alt: Head turned to the right, torso still facing forward.
+
+  ELBOW_001:
+    FRAME_SETUP:
+      pose: >-
+        Full body. Sitting upright on a stable light wooden chair, seen from the
+        front, both feet flat on the floor, both knees bent to roughly ninety
+        degrees. Both arms hang freely down alongside the torso, elbows close to
+        the sides, palms turned toward each other. Nothing is held in the hands.
+      alt: Seated start position, both arms hanging down alongside the torso.
+    FRAME_EXTENDED:
+      pose: >-
+        Upper body, cropped from the lower abdomen to above the head, wide
+        enough that both arms and both hands are fully visible. Sitting upright,
+        shoulders down and relaxed, upper arms close to the torso, both elbows
+        straight without locking, hands down.
+      alt: Arms hanging down, elbows straight.
+    FRAME_FLEXED:
+      pose: >-
+        Same crop, camera and seated posture as the extended frame. Both elbows
+        are bent at the same time, the forearms have risen and the hands are at
+        roughly shoulder height or a little lower. The shoulders do not rise and
+        the upper arms stay close to the torso.
+      alt: Both elbows bent, hands at shoulder height.
+
+  ELBOW_002:
+    FRAME_SETUP:
+      pose: >-
+        Full body. Sitting upright on a stable light wooden chair, seen from the
+        front, both feet flat on the floor, knees bent to roughly ninety
+        degrees, both arms hanging down alongside the torso, shoulders relaxed.
+      alt: Seated start position, both arms hanging down.
+    FRAME_RIGHT_FLEXED:
+      pose: >-
+        Upper body, cropped from the lower abdomen to above the head with both
+        hands fully visible. The subject's own right elbow is bent and that hand
+        has risen to about shoulder height; the left arm stays hanging down
+        alongside the torso. Shoulders stay level and relaxed, the torso stays
+        upright and does not sway.
+      alt: Right arm bent at the elbow, left arm hanging down.
+    FRAME_LEFT_FLEXED:
+      pose: >-
+        Mirror of the right frame, same crop and camera. The subject's own left
+        elbow is bent and that hand has risen to about shoulder height; the
+        right arm stays hanging down alongside the torso. Shoulders stay level,
+        the torso stays upright.
+      alt: Left arm bent at the elbow, right arm hanging down.
+
+  ELBOW_003:
+    FRAME_SETUP:
+      pose: >-
+        Full body. Sitting upright on a stable light wooden chair, seen from the
+        front, both feet flat on the floor, both arms hanging down alongside the
+        torso with the palms turned inward toward the thighs.
+      alt: Seated start position, palms turned inward.
+    FRAME_NEUTRAL:
+      pose: >-
+        Upper body, cropped from the lower abdomen to above the head with both
+        hands fully visible. Both arms hang down alongside the torso and the
+        hands are in a neutral grip position, palms facing inward toward each
+        other rather than forward or back.
+      alt: Arms hanging down, palms facing inward.
+    FRAME_FLEXED:
+      pose: >-
+        Same crop and camera. Both elbows bend at the same time and the forearms
+        rise, while the hands stay in the same neutral grip with the palms still
+        facing inward throughout. The wrists stay straight and the shoulders do
+        not rise.
+      alt: Both elbows bent, palms still facing inward.
+
+  ELBOW_004:
+    FRAME_SETUP:
+      pose: >-
+        Full body. Sitting upright on a stable light wooden chair, seen from the
+        front, both feet flat on the floor. The upper arms rest close to the
+        torso, both elbows are bent to roughly ninety degrees, the forearms
+        point horizontally forward and both palms face down toward the floor.
+      alt: Seated start position, forearms forward and palms down.
+    FRAME_FOREARMS_FORWARD:
+      pose: >-
+        Upper body, cropped from the lower abdomen to above the head with both
+        hands fully visible. Elbows bent to roughly ninety degrees, forearms
+        horizontal and pointing forward, palms facing down, wrists straight,
+        upper arms close to the torso.
+      alt: Forearms pointing forward, palms facing down.
+    FRAME_FLEXED:
+      pose: >-
+        Same crop and camera. Without the shoulders moving and without the
+        forearms rotating, both elbows bend further so the hands travel toward
+        the shoulders. The palms still face down and the wrists stay straight.
+      alt: Hands raised toward the shoulders, palms still facing down.
+
+  ELBOW_005:
+    FRAME_SETUP:
+      pose: >-
+        Full body. Sitting upright on a stable light wooden chair, seen from the
+        front, both feet flat on the floor. Upper arms close to the torso,
+        elbows bent to roughly ninety degrees, forearms pointing forward and
+        both palms facing up toward the ceiling.
+      alt: Seated start position, palms facing up.
+    FRAME_PALMS_UP:
+      pose: >-
+        Upper body, cropped from the lower abdomen to above the head with both
+        hands fully visible. Elbows stay close to the torso and bent to roughly
+        ninety degrees, forearms point forward, both palms face up.
+      alt: Palms turned up.
+    FRAME_PALMS_DOWN:
+      pose: >-
+        Same crop, camera, shoulder and elbow position. Only the forearms have
+        rotated, so both palms now face down toward the floor. The elbows have
+        not moved away from the torso and the arm height is unchanged.
+      alt: Palms turned down.
+
+  ELBOW_006:
+    FRAME_SETUP:
+      pose: >-
+        Full body. Sitting upright on a stable light wooden chair, seen from the
+        front, both feet flat on the floor, both hands up beside the shoulders
+        with the elbows bent and the shoulders down and relaxed.
+      alt: Seated start position, hands beside the shoulders.
+    FRAME_AT_SHOULDERS:
+      pose: >-
+        Upper body, cropped from the lower abdomen to above the head with both
+        hands fully visible. Both hands are beside the shoulders, elbows bent,
+        upper arms close to the torso, shoulders down, torso upright.
+      alt: Hands beside the shoulders, elbows bent.
+    FRAME_ARMS_FORWARD:
+      pose: >-
+        Same crop and camera. Both arms are now straightened forward at chest or
+        shoulder height, elbows almost straight but not locked, palms facing
+        each other or turned slightly down. The torso stays upright and the
+        shoulders do not rise toward the ears.
+      alt: Both arms straightened forward at chest height.
+
+  ELBOW_007:
+    FRAME_SETUP:
+      pose: >-
+        Full body, generous margin on every side. Sitting upright on a stable
+        light wooden chair in a three-quarter view, both feet flat on the floor.
+        The subject's own right arm is bent overhead with the elbow raised and
+        that hand behind the head near the top of the neck; the left hand rests
+        quietly on the thigh.
+      alt: Seated start position, right arm bent overhead.
+    FRAME_BENT_OVERHEAD:
+      pose: >-
+        Full body with the whole raised arm, both hands, both feet and clear
+        space above the head inside the frame. The right arm is bent overhead,
+        the right hand behind the head near the top of the neck, the elbow
+        pointing up rather than out to the side. The torso stays upright and
+        does not lean sideways.
+      alt: Right arm bent overhead, hand behind the head.
+    FRAME_EXTENDED_OVERHEAD:
+      pose: >-
+        Same crop, camera and scale. The right arm is now straightened upward
+        above the head, the hand fully inside the frame with space above it. The
+        left hand still rests on the thigh, the torso stays upright and the
+        shoulders stay level.
+      alt: Right arm straightened up above the head.
+
+  ELBOW_008:
+    FRAME_SETUP:
+      pose: >-
+        Full body, generous margin on every side. Sitting upright on a stable
+        light wooden chair, both feet flat on the floor. Both arms are bent
+        overhead with the hands behind the head near the back of the skull and
+        the elbows opened out to the sides.
+      alt: Seated start position, both arms bent overhead.
+    FRAME_BENT_OVERHEAD:
+      pose: >-
+        Full body with both raised arms, both hands, both feet and clear space
+        above the head inside the frame. Both elbows are bent overhead, the
+        hands behind the head, the elbows opened out to the sides, the torso
+        upright without arching the lower back.
+      alt: Both arms bent overhead, hands behind the head.
+    FRAME_EXTENDED_OVERHEAD:
+      pose: >-
+        Same crop, camera and scale. Both arms are now straightened upward above
+        the head with both hands fully inside the frame and space above them.
+        The shoulders do not rise toward the ears and the torso stays upright.
+      alt: Both arms straightened up above the head.
+
+  ELBOW_009:
+    FRAME_SETUP:
+      pose: >-
+        Full body, seen from the side, standing and facing a plain wall at a
+        comfortable distance. Both palms are flat on the wall at about chest or
+        shoulder height, the arms are straight but the elbows are not locked,
+        both feet are flat on the floor and the body is in one straight line
+        from head to heels.
+      alt: Standing start position with both palms on the wall.
+    FRAME_ARMS_EXTENDED:
+      pose: >-
+        Full body from the same side view, with both hands where they meet the
+        wall and both feet fully inside the frame. The arms are straight, the
+        palms stay on the wall, the body stays in one line and the head is in
+        line with the torso.
+      alt: Arms straight, palms on the wall.
+    FRAME_ELBOWS_BENT:
+      pose: >-
+        Same crop, camera and distance from the wall. The elbows are bent and
+        the whole body has moved closer to the wall as a single unit, still in
+        one straight line from head to heels. The head is not dropped toward the
+        wall on its own and the heels stay down.
+      alt: Elbows bent, body moved closer to the wall.

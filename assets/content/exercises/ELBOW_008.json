@@ -1,0 +1,321 @@
+{
+  "id": "ELBOW_008",
+  "slug": "seated_both_arms_overhead_bend_extend",
+  "schemaVersion": "1.3",
+  "contentVersion": "0.1.0",
+  "clinicalStatus": "pending_review",
+  "editorialStatus": "draft",
+  "primaryZone": "elbows",
+  "secondaryZones": [
+    "forearms",
+    "upper_arms"
+  ],
+  "hotspotIds": [
+    "left_elbow",
+    "right_elbow"
+  ],
+  "tags": [
+    "elbow",
+    "forearm",
+    "upper_arm",
+    "computer",
+    "after_sitting",
+    "sitting",
+    "mobility",
+    "elbow_extension",
+    "bilateral",
+    "overhead",
+    "no_resistance",
+    "beginner",
+    "gentle",
+    "stable_chair"
+  ],
+  "tagGroups": {
+    "anatomy": [
+      "elbow",
+      "forearm",
+      "upper_arm"
+    ],
+    "context": [
+      "computer",
+      "after_sitting"
+    ],
+    "position": [
+      "sitting"
+    ],
+    "movement": [
+      "mobility",
+      "elbow_extension",
+      "bilateral",
+      "overhead",
+      "no_resistance"
+    ],
+    "level": [
+      "beginner",
+      "gentle"
+    ],
+    "equipment": [
+      "stable_chair"
+    ]
+  },
+  "collections": [
+    "body_elbows",
+    "seated_gentle",
+    "computer_break",
+    "after_sitting"
+  ],
+  "collectionCandidates": [],
+  "text": {
+    "title": "Дві руки над головою: зігнути — випрямити",
+    "shortTitle": "Дві руки вгору",
+    "cardDescription": "Сидячи, випрямляйте та згинайте обидві руки над головою.",
+    "categoryLabel": "Лікті",
+    "purpose": "Проста вправа для рук і ліктів без обладнання.",
+    "startPositionTitle": "Початкове положення",
+    "startPosition": "Сядьте рівно на стійкий стілець. Обидві руки зігнуті над головою: кисті за головою, лікті розведені в сторони.",
+    "instructionsTitle": "Як виконувати",
+    "instructions": [
+      {
+        "step": 1,
+        "text": "Сядьте рівно, стопи поставте на підлогу."
+      },
+      {
+        "step": 2,
+        "text": "Зігніть обидві руки над головою, кисті за головою."
+      },
+      {
+        "step": 3,
+        "text": "Плавно випряміть обидві руки вгору."
+      },
+      {
+        "step": 4,
+        "text": "Поверніть руки у вихідне зігнуте положення."
+      }
+    ],
+    "techniqueTipsTitle": "Зверніть увагу",
+    "techniqueTips": [
+      "Корпус залишається рівним, без прогину в попереку.",
+      "Плечі не піднімаються до вух.",
+      "Рух у комфортному діапазоні."
+    ],
+    "safetyLabel": "Безпека",
+    "safety": "Рухайтеся в комфортному діапазоні. Якщо з'явився різкий біль або інший незвичний симптом, натисніть «Стоп».",
+    "completion": "Готово."
+  },
+  "labels": {},
+  "timing": {
+    "prepCountdownSeconds": 5,
+    "restAfterSeconds": 10,
+    "completionMode": "timed_duration",
+    "estimatedActiveSeconds": 61
+  },
+  "progress": {
+    "basis": "sequence_time",
+    "showElapsedTime": true,
+    "showProgressBar": true,
+    "showRepetitionCounter": false,
+    "showSideLabel": false,
+    "showSetCounter": false
+  },
+  "repetitionModel": {
+    "type": "sequence_time",
+    "sets": 1,
+    "repetitionsPerBlock": 1,
+    "blockOrder": [
+      null,
+      null
+    ],
+    "switchSideAutomatically": true,
+    "resetCounterOnSideChange": false
+  },
+  "movementPhases": [
+    {
+      "id": "PHASE_SETUP",
+      "name": "Початкове положення",
+      "type": null
+    },
+    {
+      "id": "PHASE_A",
+      "name": "Руки зігнуті",
+      "type": null
+    },
+    {
+      "id": "PHASE_B",
+      "name": "Руки випрямлені",
+      "type": null
+    }
+  ],
+  "sequence": {
+    "blocks": [
+      {
+        "side": null,
+        "repeat": 1,
+        "steps": [
+          {
+            "id": "setup",
+            "phase": "PHASE_SETUP",
+            "side": null,
+            "frameId": "FRAME_SETUP",
+            "frameTransition": null,
+            "durationMs": 1000,
+            "voiceEvent": null
+          }
+        ]
+      },
+      {
+        "side": null,
+        "repeat": 15,
+        "steps": [
+          {
+            "id": "extend_overhead",
+            "phase": "PHASE_B",
+            "side": null,
+            "frameId": null,
+            "frameTransition": {
+              "from": "FRAME_BENT_OVERHEAD",
+              "via": null,
+              "to": "FRAME_EXTENDED_OVERHEAD"
+            },
+            "durationMs": 2000,
+            "voiceEvent": null
+          },
+          {
+            "id": "bend_overhead",
+            "phase": "PHASE_A",
+            "side": null,
+            "frameId": null,
+            "frameTransition": {
+              "from": "FRAME_EXTENDED_OVERHEAD",
+              "via": null,
+              "to": "FRAME_BENT_OVERHEAD"
+            },
+            "durationMs": 2000,
+            "voiceEvent": null
+          }
+        ]
+      }
+    ]
+  },
+  "animation": {
+    "reducedMotionFallback": "static_step_frames",
+    "frames": [
+      {
+        "id": "FRAME_SETUP",
+        "file": "assets/exercises/ELBOW_008/images/setup_full_safe.png",
+        "altText": "Початкове положення сидячи, обидві руки зігнуті над головою."
+      },
+      {
+        "id": "FRAME_BENT_OVERHEAD",
+        "file": "assets/exercises/ELBOW_008/images/motion_01_both_arms_bent_overhead_full_safe.png",
+        "altText": "Обидві руки зігнуті над головою."
+      },
+      {
+        "id": "FRAME_EXTENDED_OVERHEAD",
+        "file": "assets/exercises/ELBOW_008/images/motion_02_both_arms_extended_overhead_full_safe.png",
+        "altText": "Обидві руки випрямлені вгору."
+      }
+    ],
+    "preview": "assets/exercises/ELBOW_008/images/preview.png"
+  },
+  "audio": {
+    "events": [
+      {
+        "id": "VOICE_SETUP",
+        "type": "instruction",
+        "priority": 80,
+        "interruptible": true,
+        "playOncePerSide": false,
+        "text": "Сядьте рівно. Дві руки зігніть над головою.",
+        "assetKey": "exercise.ELBOW_008.voice.setup",
+        "assetFile": "audio/uk/exercises/ELBOW_008/setup.m4a",
+        "trigger": {
+          "event": "prep_countdown_started",
+          "phase": null,
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": 0
+        }
+      },
+      {
+        "id": "VOICE_START_MOVEMENT",
+        "type": "movement",
+        "priority": 100,
+        "interruptible": false,
+        "playOncePerSide": false,
+        "text": "Плавно випряміть руки вгору і поверніть назад.",
+        "assetKey": "exercise.ELBOW_008.voice.start_movement",
+        "assetFile": "audio/uk/exercises/ELBOW_008/start_movement.m4a",
+        "trigger": {
+          "event": "repetition_started",
+          "phase": null,
+          "side": null,
+          "percent": null,
+          "repetitionNumber": 1,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      },
+      {
+        "id": "VOICE_HALFWAY",
+        "type": "progress",
+        "priority": 50,
+        "interruptible": true,
+        "playOncePerSide": false,
+        "text": "Половину виконано.",
+        "assetKey": "common.voice.halfway",
+        "assetFile": "audio/uk/common/halfway.m4a",
+        "trigger": {
+          "event": "progress_crossed",
+          "phase": null,
+          "side": null,
+          "percent": 50,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      },
+      {
+        "id": "VOICE_COMPLETED",
+        "type": "completion",
+        "priority": 120,
+        "interruptible": false,
+        "playOncePerSide": false,
+        "text": "Готово.",
+        "assetKey": "common.voice.completed",
+        "assetFile": "audio/uk/common/completed.m4a",
+        "trigger": {
+          "event": "exercise_completed",
+          "phase": null,
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      }
+    ],
+    "mix": {
+      "voiceLevel": 1.0,
+      "musicLevel": 0.5,
+      "dynamicDucking": false
+    }
+  },
+  "flow": {
+    "autoNextEnabled": true,
+    "restSeconds": 10,
+    "incrementCounterOnCompletion": true
+  },
+  "accessibility": {
+    "summary": "Дві руки над головою. Сидячи на стільці, плавно випрямляйте обидві руки вгору та знову згинайте їх над головою.",
+    "reducedMotionSupported": true
+  },
+  "pro": {
+    "tier": "free",
+    "requiresPro": false,
+    "visibleToFree": true,
+    "allowFavorite": true,
+    "includeInPersonalPlanPool": true
+  }
+}

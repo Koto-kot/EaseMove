@@ -1,0 +1,321 @@
+{
+  "id": "ELBOW_004",
+  "slug": "seated_pronated_elbow_flexion_extension",
+  "schemaVersion": "1.3",
+  "contentVersion": "0.1.0",
+  "clinicalStatus": "pending_review",
+  "editorialStatus": "draft",
+  "primaryZone": "elbows",
+  "secondaryZones": [
+    "forearms",
+    "upper_arms"
+  ],
+  "hotspotIds": [
+    "left_elbow",
+    "right_elbow"
+  ],
+  "tags": [
+    "elbow",
+    "forearm",
+    "upper_arm",
+    "computer",
+    "after_sitting",
+    "sitting",
+    "mobility",
+    "elbow_flexion",
+    "bilateral",
+    "palms_down",
+    "no_resistance",
+    "beginner",
+    "gentle",
+    "stable_chair"
+  ],
+  "tagGroups": {
+    "anatomy": [
+      "elbow",
+      "forearm",
+      "upper_arm"
+    ],
+    "context": [
+      "computer",
+      "after_sitting"
+    ],
+    "position": [
+      "sitting"
+    ],
+    "movement": [
+      "mobility",
+      "elbow_flexion",
+      "bilateral",
+      "palms_down",
+      "no_resistance"
+    ],
+    "level": [
+      "beginner",
+      "gentle"
+    ],
+    "equipment": [
+      "stable_chair"
+    ]
+  },
+  "collections": [
+    "body_elbows",
+    "seated_gentle",
+    "computer_break",
+    "after_sitting"
+  ],
+  "collectionCandidates": [],
+  "text": {
+    "title": "Згинання рук долонями вниз",
+    "shortTitle": "Долоні вниз",
+    "cardDescription": "Сидячи, підводьте кисті до плечей і повертайте назад, зберігаючи долоні вниз.",
+    "categoryLabel": "Лікті",
+    "purpose": "Проста вправа для руху в ліктях без ваги та без іншого опору. Це не вправа на обертання передпліч.",
+    "startPositionTitle": "Початкове положення",
+    "startPosition": "Сядьте рівно на стійкий стілець. Верхні частини рук біля тулуба, лікті зігнуті приблизно на 90°, передпліччя спрямовані вперед, долоні повернуті вниз.",
+    "instructionsTitle": "Як виконувати",
+    "instructions": [
+      {
+        "step": 1,
+        "text": "Сядьте рівно, стопи поставте на підлогу."
+      },
+      {
+        "step": 2,
+        "text": "Зігніть лікті приблизно на 90°, передпліччя вперед, долоні вниз."
+      },
+      {
+        "step": 3,
+        "text": "Не повертаючи передпліч, сильніше зігніть лікті та підведіть кисті до плечей."
+      },
+      {
+        "step": 4,
+        "text": "Плавно поверніться до положення 90°."
+      }
+    ],
+    "techniqueTipsTitle": "Зверніть увагу",
+    "techniqueTips": [
+      "Долоні весь час дивляться вниз.",
+      "Зап’ястя залишаються прямими.",
+      "Плечі не піднімаються, лікті не відходять далеко від тулуба."
+    ],
+    "safetyLabel": "Безпека",
+    "safety": "Рухайтеся в комфортному діапазоні. Якщо з'явився різкий біль або інший незвичний симптом, натисніть «Стоп».",
+    "completion": "Готово."
+  },
+  "labels": {},
+  "timing": {
+    "prepCountdownSeconds": 5,
+    "restAfterSeconds": 10,
+    "completionMode": "timed_duration",
+    "estimatedActiveSeconds": 61
+  },
+  "progress": {
+    "basis": "sequence_time",
+    "showElapsedTime": true,
+    "showProgressBar": true,
+    "showRepetitionCounter": false,
+    "showSideLabel": false,
+    "showSetCounter": false
+  },
+  "repetitionModel": {
+    "type": "sequence_time",
+    "sets": 1,
+    "repetitionsPerBlock": 1,
+    "blockOrder": [
+      null,
+      null
+    ],
+    "switchSideAutomatically": true,
+    "resetCounterOnSideChange": false
+  },
+  "movementPhases": [
+    {
+      "id": "PHASE_SETUP",
+      "name": "Початкове положення",
+      "type": null
+    },
+    {
+      "id": "PHASE_A",
+      "name": "Передпліччя вперед",
+      "type": null
+    },
+    {
+      "id": "PHASE_B",
+      "name": "Кисті біля плечей",
+      "type": null
+    }
+  ],
+  "sequence": {
+    "blocks": [
+      {
+        "side": null,
+        "repeat": 1,
+        "steps": [
+          {
+            "id": "setup",
+            "phase": "PHASE_SETUP",
+            "side": null,
+            "frameId": "FRAME_SETUP",
+            "frameTransition": null,
+            "durationMs": 1000,
+            "voiceEvent": null
+          }
+        ]
+      },
+      {
+        "side": null,
+        "repeat": 15,
+        "steps": [
+          {
+            "id": "flex",
+            "phase": "PHASE_B",
+            "side": null,
+            "frameId": null,
+            "frameTransition": {
+              "from": "FRAME_FOREARMS_FORWARD",
+              "via": null,
+              "to": "FRAME_FLEXED"
+            },
+            "durationMs": 2000,
+            "voiceEvent": null
+          },
+          {
+            "id": "return",
+            "phase": "PHASE_A",
+            "side": null,
+            "frameId": null,
+            "frameTransition": {
+              "from": "FRAME_FLEXED",
+              "via": null,
+              "to": "FRAME_FOREARMS_FORWARD"
+            },
+            "durationMs": 2000,
+            "voiceEvent": null
+          }
+        ]
+      }
+    ]
+  },
+  "animation": {
+    "reducedMotionFallback": "static_step_frames",
+    "frames": [
+      {
+        "id": "FRAME_SETUP",
+        "file": "assets/exercises/ELBOW_004/images/setup_full_safe.png",
+        "altText": "Початкове положення сидячи, долоні вниз."
+      },
+      {
+        "id": "FRAME_FOREARMS_FORWARD",
+        "file": "assets/exercises/ELBOW_004/images/motion_01_forearms_forward_palms_down_mid_safe.png",
+        "altText": "Передпліччя спрямовані вперед, долоні вниз."
+      },
+      {
+        "id": "FRAME_FLEXED",
+        "file": "assets/exercises/ELBOW_004/images/motion_02_flexed_palms_down_mid_safe.png",
+        "altText": "Кисті підведені до плечей, долоні вниз."
+      }
+    ],
+    "preview": "assets/exercises/ELBOW_004/images/preview.png"
+  },
+  "audio": {
+    "events": [
+      {
+        "id": "VOICE_SETUP",
+        "type": "instruction",
+        "priority": 80,
+        "interruptible": true,
+        "playOncePerSide": false,
+        "text": "Сядьте рівно. Зігніть руки в ліктях. Передпліччя вперед, долоні вниз.",
+        "assetKey": "exercise.ELBOW_004.voice.setup",
+        "assetFile": "audio/uk/exercises/ELBOW_004/setup.m4a",
+        "trigger": {
+          "event": "prep_countdown_started",
+          "phase": null,
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": 0
+        }
+      },
+      {
+        "id": "VOICE_START_MOVEMENT",
+        "type": "movement",
+        "priority": 100,
+        "interruptible": false,
+        "playOncePerSide": false,
+        "text": "Підводьте кисті до плечей і плавно повертайте назад. Долоні залишаються вниз.",
+        "assetKey": "exercise.ELBOW_004.voice.start_movement",
+        "assetFile": "audio/uk/exercises/ELBOW_004/start_movement.m4a",
+        "trigger": {
+          "event": "repetition_started",
+          "phase": null,
+          "side": null,
+          "percent": null,
+          "repetitionNumber": 1,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      },
+      {
+        "id": "VOICE_HALFWAY",
+        "type": "progress",
+        "priority": 50,
+        "interruptible": true,
+        "playOncePerSide": false,
+        "text": "Половину виконано.",
+        "assetKey": "common.voice.halfway",
+        "assetFile": "audio/uk/common/halfway.m4a",
+        "trigger": {
+          "event": "progress_crossed",
+          "phase": null,
+          "side": null,
+          "percent": 50,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      },
+      {
+        "id": "VOICE_COMPLETED",
+        "type": "completion",
+        "priority": 120,
+        "interruptible": false,
+        "playOncePerSide": false,
+        "text": "Готово.",
+        "assetKey": "common.voice.completed",
+        "assetFile": "audio/uk/common/completed.m4a",
+        "trigger": {
+          "event": "exercise_completed",
+          "phase": null,
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      }
+    ],
+    "mix": {
+      "voiceLevel": 1.0,
+      "musicLevel": 0.5,
+      "dynamicDucking": false
+    }
+  },
+  "flow": {
+    "autoNextEnabled": true,
+    "restSeconds": 10,
+    "incrementCounterOnCompletion": true
+  },
+  "accessibility": {
+    "summary": "Згинання рук долонями вниз. Сидячи на стільці, тримайте лікті біля тулуба, передпліччя вперед і долоні вниз. Підводьте кисті до плечей та плавно повертайте руки назад.",
+    "reducedMotionSupported": true
+  },
+  "pro": {
+    "tier": "free",
+    "requiresPro": false,
+    "visibleToFree": true,
+    "allowFavorite": true,
+    "includeInPersonalPlanPool": true
+  }
+}

@@ -40,3 +40,92 @@ exercises:
   - bed_basic
   - bed_legs
   - gentle_mobility
+- id: ELBOW_001
+  file: elbows/ELBOW_001.yaml
+  title_uk: Зігнути — розігнути руки
+  primary_zone: elbows
+  clinical_status: pending_review
+  collections:
+  - body_elbows
+  - seated_gentle
+  - computer_break
+  - after_sitting
+- id: ELBOW_002
+  file: elbows/ELBOW_002.yaml
+  title_uk: Почергове згинання рук
+  primary_zone: elbows
+  clinical_status: pending_review
+  collections:
+  - body_elbows
+  - seated_gentle
+  - computer_break
+  - after_sitting
+- id: ELBOW_003
+  file: elbows/ELBOW_003.yaml
+  title_uk: Згинання рук долонями всередину
+  primary_zone: elbows
+  clinical_status: pending_review
+  collections:
+  - body_elbows
+  - seated_gentle
+  - computer_break
+  - after_sitting
+- id: ELBOW_004
+  file: elbows/ELBOW_004.yaml
+  title_uk: Згинання рук долонями вниз
+  primary_zone: elbows
+  clinical_status: pending_review
+  collections:
+  - body_elbows
+  - seated_gentle
+  - computer_break
+  - after_sitting
+- id: ELBOW_005
+  file: elbows/ELBOW_005.yaml
+  title_uk: Долоні вгору — вниз
+  primary_zone: elbows
+  clinical_status: pending_review
+  collections:
+  - body_elbows
+  - seated_gentle
+  - computer_break
+  - after_sitting
+- id: ELBOW_006
+  file: elbows/ELBOW_006.yaml
+  title_uk: Кисті до плечей — вперед
+  primary_zone: elbows
+  clinical_status: pending_review
+  collections:
+  - body_elbows
+  - seated_gentle
+  - computer_break
+  - after_sitting
+- id: ELBOW_007
+  file: elbows/ELBOW_007.yaml
+  title_uk: 'Одна рука над головою: зігнути — випрямити'
+  primary_zone: elbows
+  clinical_status: pending_review
+  collections:
+  - body_elbows
+  - seated_gentle
+  - computer_break
+  - after_sitting
+- id: ELBOW_008
+  file: elbows/ELBOW_008.yaml
+  title_uk: 'Дві руки над головою: зігнути — випрямити'
+  primary_zone: elbows
+  clinical_status: pending_review
+  collections:
+  - body_elbows
+  - seated_gentle
+  - computer_break
+  - after_sitting
+- id: ELBOW_009
+  file: elbows/ELBOW_009.yaml
+  title_uk: Віджимання від стіни
+  primary_zone: elbows
+  clinical_status: pending_review
+  collections:
+  - body_elbows
+  - computer_break
+  - after_sitting

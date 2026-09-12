@@ -130,6 +130,289 @@
       "preview": "assets/exercises/KNEE_003/preview.png",
       "estimatedActiveSeconds": 54,
       "requiresPro": false
+    },
+    {
+      "id": "ELBOW_001",
+      "title": "Зігнути — розігнути руки",
+      "cardDescription": "Сидячи, одночасно згинайте та плавно розгинайте обидві руки в ліктях.",
+      "primaryZone": "elbows",
+      "clinicalStatus": "pending_review",
+      "collections": [
+        "body_elbows",
+        "seated_gentle",
+        "computer_break",
+        "after_sitting"
+      ],
+      "tags": [
+        "elbow",
+        "forearm",
+        "upper_arm",
+        "computer",
+        "after_sitting",
+        "sitting",
+        "mobility",
+        "elbow_flexion",
+        "bilateral",
+        "no_resistance",
+        "beginner",
+        "gentle",
+        "stable_chair"
+      ],
+      "preview": "assets/exercises/ELBOW_001/images/preview.png",
+      "estimatedActiveSeconds": 61,
+      "requiresPro": false
+    },
+    {
+      "id": "ELBOW_002",
+      "title": "Почергове згинання рук",
+      "cardDescription": "Сидячи, по черзі згинайте праву та ліву руку в лікті.",
+      "primaryZone": "elbows",
+      "clinicalStatus": "pending_review",
+      "collections": [
+        "body_elbows",
+        "seated_gentle",
+        "computer_break",
+        "after_sitting"
+      ],
+      "tags": [
+        "elbow",
+        "forearm",
+        "upper_arm",
+        "computer",
+        "after_sitting",
+        "sitting",
+        "mobility",
+        "elbow_flexion",
+        "alternating",
+        "no_resistance",
+        "beginner",
+        "gentle",
+        "stable_chair"
+      ],
+      "preview": "assets/exercises/ELBOW_002/images/preview.png",
+      "estimatedActiveSeconds": 61,
+      "requiresPro": false
+    },
+    {
+      "id": "ELBOW_003",
+      "title": "Згинання рук долонями всередину",
+      "cardDescription": "Сидячи, згинайте обидві руки в ліктях, зберігаючи долоні всередину.",
+      "primaryZone": "elbows",
+      "clinicalStatus": "pending_review",
+      "collections": [
+        "body_elbows",
+        "seated_gentle",
+        "computer_break",
+        "after_sitting"
+      ],
+      "tags": [
+        "elbow",
+        "forearm",
+        "upper_arm",
+        "computer",
+        "after_sitting",
+        "sitting",
+        "mobility",
+        "elbow_flexion",
+        "bilateral",
+        "palms_in",
+        "no_resistance",
+        "beginner",
+        "gentle",
+        "stable_chair"
+      ],
+      "preview": "assets/exercises/ELBOW_003/images/preview.png",
+      "estimatedActiveSeconds": 61,
+      "requiresPro": false
+    },
+    {
+      "id": "ELBOW_004",
+      "title": "Згинання рук долонями вниз",
+      "cardDescription": "Сидячи, підводьте кисті до плечей і повертайте назад, зберігаючи долоні вниз.",
+      "primaryZone": "elbows",
+      "clinicalStatus": "pending_review",
+      "collections": [
+        "body_elbows",
+        "seated_gentle",
+        "computer_break",
+        "after_sitting"
+      ],
+      "tags": [
+        "elbow",
+        "forearm",
+        "upper_arm",
+        "computer",
+        "after_sitting",
+        "sitting",
+        "mobility",
+        "elbow_flexion",
+        "bilateral",
+        "palms_down",
+        "no_resistance",
+        "beginner",
+        "gentle",
+        "stable_chair"
+      ],
+      "preview": "assets/exercises/ELBOW_004/images/preview.png",
+      "estimatedActiveSeconds": 61,
+      "requiresPro": false
+    },
+    {
+      "id": "ELBOW_005",
+      "title": "Долоні вгору — вниз",
+      "cardDescription": "Сидячи, повертайте передпліччя долонями вгору та вниз.",
+      "primaryZone": "elbows",
+      "clinicalStatus": "pending_review",
+      "collections": [
+        "body_elbows",
+        "seated_gentle",
+        "computer_break",
+        "after_sitting"
+      ],
+      "tags": [
+        "elbow",
+        "forearm",
+        "upper_arm",
+        "computer",
+        "after_sitting",
+        "sitting",
+        "mobility",
+        "forearm_rotation",
+        "bilateral",
+        "no_resistance",
+        "beginner",
+        "gentle",
+        "stable_chair"
+      ],
+      "preview": "assets/exercises/ELBOW_005/images/preview.png",
+      "estimatedActiveSeconds": 61,
+      "requiresPro": false
+    },
+    {
+      "id": "ELBOW_006",
+      "title": "Кисті до плечей — вперед",
+      "cardDescription": "Сидячи, випрямляйте обидві руки вперед і повертайте кисті до плечей.",
+      "primaryZone": "elbows",
+      "clinicalStatus": "pending_review",
+      "collections": [
+        "body_elbows",
+        "seated_gentle",
+        "computer_break",
+        "after_sitting"
+      ],
+      "tags": [
+        "elbow",
+        "forearm",
+        "upper_arm",
+        "computer",
+        "after_sitting",
+        "sitting",
+        "mobility",
+        "elbow_extension",
+        "bilateral",
+        "forward_reach",
+        "no_resistance",
+        "beginner",
+        "gentle",
+        "stable_chair"
+      ],
+      "preview": "assets/exercises/ELBOW_006/images/preview.png",
+      "estimatedActiveSeconds": 61,
+      "requiresPro": false
+    },
+    {
+      "id": "ELBOW_007",
+      "title": "Одна рука над головою: зігнути — випрямити",
+      "cardDescription": "Сидячи, згинайте та випрямляйте одну руку над головою.",
+      "primaryZone": "elbows",
+      "clinicalStatus": "pending_review",
+      "collections": [
+        "body_elbows",
+        "seated_gentle",
+        "computer_break",
+        "after_sitting"
+      ],
+      "tags": [
+        "elbow",
+        "forearm",
+        "upper_arm",
+        "computer",
+        "after_sitting",
+        "sitting",
+        "mobility",
+        "elbow_extension",
+        "unilateral",
+        "overhead",
+        "no_resistance",
+        "beginner",
+        "gentle",
+        "stable_chair"
+      ],
+      "preview": "assets/exercises/ELBOW_007/images/preview.png",
+      "estimatedActiveSeconds": 61,
+      "requiresPro": false
+    },
+    {
+      "id": "ELBOW_008",
+      "title": "Дві руки над головою: зігнути — випрямити",
+      "cardDescription": "Сидячи, випрямляйте та згинайте обидві руки над головою.",
+      "primaryZone": "elbows",
+      "clinicalStatus": "pending_review",
+      "collections": [
+        "body_elbows",
+        "seated_gentle",
+        "computer_break",
+        "after_sitting"
+      ],
+      "tags": [
+        "elbow",
+        "forearm",
+        "upper_arm",
+        "computer",
+        "after_sitting",
+        "sitting",
+        "mobility",
+        "elbow_extension",
+        "bilateral",
+        "overhead",
+        "no_resistance",
+        "beginner",
+        "gentle",
+        "stable_chair"
+      ],
+      "preview": "assets/exercises/ELBOW_008/images/preview.png",
+      "estimatedActiveSeconds": 61,
+      "requiresPro": false
+    },
+    {
+      "id": "ELBOW_009",
+      "title": "Віджимання від стіни",
+      "cardDescription": "Стоячи біля стіни, плавно згинайте та випрямляйте руки.",
+      "primaryZone": "elbows",
+      "clinicalStatus": "pending_review",
+      "collections": [
+        "body_elbows",
+        "computer_break",
+        "after_sitting"
+      ],
+      "tags": [
+        "elbow",
+        "forearm",
+        "upper_arm",
+        "computer",
+        "after_sitting",
+        "standing",
+        "strength",
+        "elbow_flexion_extension",
+        "bilateral",
+        "closed_chain",
+        "beginner",
+        "gentle",
+        "wall"
+      ],
+      "preview": "assets/exercises/ELBOW_009/images/preview.png",
+      "estimatedActiveSeconds": 61,
+      "requiresPro": false
     }
   ],
   "collections": [

@@ -32,18 +32,23 @@ Body map:
 ## 4. Naming
 
 ```text
-assets/exercises/<EXERCISE_ID>/
+assets/exercises/<EXERCISE_ID>/images/
+  setup_<framing>.png
+  motion_<NN>_<semantic_name>_<framing>.png
   preview.png
-  frame_<semantic_name>.png
 ```
 
 Приклади:
-- `frame_start.png`
-- `frame_left_mid.png`
-- `frame_left_extended.png`
-- `frame_standing.png`
+- `setup_full_safe.png`
+- `motion_01_extended_mid_safe.png`
+- `motion_02_flexed_mid_safe.png`
 
 Не використовувати `image1.png`, `final2.png`, `new.png`.
+
+Історична форма (`assets/exercises/<ID>/frame_<name>.png`, без підпапки)
+лишається чинною для KNEE_001–003 і NECK_001, доки їхній артворк не
+перемальовано; нові вправи використовують `images/` (docs/DECISIONS.md 53,
+docs/REPOSITORY_EXERCISE_STRUCTURE.md).
 
 ## 5. Source of truth
 
@@ -64,12 +69,30 @@ Flutter/runtime не повинен вгадувати назви.
 - same subject;
 - same clothing;
 - same camera;
-- same crop;
 - same background;
 - same furniture;
 - same lighting style;
-- same visual scale;
 - same floor/surface.
+
+Кроп — окреме правило (framing v2, docs/DECISIONS.md 54):
+- setup frame може бути ширшим за motion frames;
+- усі motion frames однієї послідовності мають однаковий кроп і масштаб;
+- жодна релевантна кінцівка не обрізається;
+- запас навколо активної кінцівки — щонайменше 5% канви;
+- якщо рух іде над головою або далеко вбік, беремо ширший кадр.
+
+Labels: `FULL_SAFE`, `MID_SAFE`, `LOWER_SAFE`, `DETAIL_SAFE`
+(`docs/exercise_briefs/_templates/FRAMING_RULES_v2.md`).
+
+Прапорці валідації в YAML вправи:
+
+```yaml
+setup_frame_may_use_different_crop: true
+motion_frames_same_camera: true
+motion_frames_same_crop: true
+no_relevant_limb_cropping: true
+active_limb_safe_margin_min: 0.05
+```
 
 ## 7. No baked-in UI
 

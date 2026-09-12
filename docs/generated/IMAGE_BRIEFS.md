@@ -441,3 +441,741 @@ Save as `assets/exercises/KNEE_003/preview.png` — a crop of `FRAME_LEFT_BENT`,
 - [ ] no watermarks
 - [ ] original or properly licensed only
 - [ ] clinical pose review required
+
+## ELBOW_001 — Зігнути — розігнути руки
+
+- Zone: `elbows`
+- Clinical status: `pending_review`
+- Source: `data/exercises/elbows/ELBOW_001.yaml`
+- Folder: `assets/exercises/ELBOW_001/images`
+- Master: 1024x1024 PNG
+- Equipment that must appear: stable chair
+
+**Must stay identical across all frames of this exercise:** subject, clothing, camera, crop, environment.
+
+### FRAME_SETUP
+
+Save as `assets/exercises/ELBOW_001/images/setup_full_safe.png`
+
+```text
+One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
+
+Full body. Sitting upright on a stable light wooden chair, seen from the front, both feet flat on the floor, both knees bent to roughly ninety degrees. Both arms hang freely down alongside the torso, elbows close to the sides, palms turned toward each other. Nothing is held in the hands.
+
+Clean, calm, instructional illustration on a plain neutral light background with soft even lighting and no clutter. Camera: front, identical in every frame. Framing: full body. The pose must read clearly at thumbnail size.
+
+No text, letters, numbers, captions or labels anywhere in the image. No arrows, motion lines, circles or highlights. No watermark or logo. No exaggerated range of motion — keep it comfortable and realistic.
+```
+
+Check before accepting: .
+
+<sub>Authored pose (uk): Людина сидить рівно на стільці, стопи на підлозі, руки вільно опущені вздовж тулуба.</sub>
+
+### FRAME_EXTENDED
+
+Save as `assets/exercises/ELBOW_001/images/motion_01_extended_mid_safe.png`
+
+```text
+One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
+
+Upper body, cropped from the lower abdomen to above the head, wide enough that both arms and both hands are fully visible. Sitting upright, shoulders down and relaxed, upper arms close to the torso, both elbows straight without locking, hands down.
+
+Clean, calm, instructional illustration on a plain neutral light background with soft even lighting and no clutter. Camera: front, identical in every frame. Framing: full body. The pose must read clearly at thumbnail size.
+
+No text, letters, numbers, captions or labels anywhere in the image. No arrows, motion lines, circles or highlights. No watermark or logo. No exaggerated range of motion — keep it comfortable and realistic.
+```
+
+Check before accepting: .
+
+<sub>Authored pose (uk): Руки опущені вздовж тулуба, лікті розігнуті без силового «замикання».</sub>
+
+### FRAME_FLEXED
+
+Save as `assets/exercises/ELBOW_001/images/motion_02_flexed_mid_safe.png`
+
+```text
+One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
+
+Same crop, camera and seated posture as the extended frame. Both elbows are bent at the same time, the forearms have risen and the hands are at roughly shoulder height or a little lower. The shoulders do not rise and the upper arms stay close to the torso.
+
+Clean, calm, instructional illustration on a plain neutral light background with soft even lighting and no clutter. Camera: front, identical in every frame. Framing: full body. The pose must read clearly at thumbnail size.
+
+No text, letters, numbers, captions or labels anywhere in the image. No arrows, motion lines, circles or highlights. No watermark or logo. No exaggerated range of motion — keep it comfortable and realistic.
+```
+
+Check before accepting: .
+
+<sub>Authored pose (uk): Обидва лікті зігнуті, кисті приблизно на рівні плечей, плечі не підняті.</sub>
+
+### Preview
+
+Save as `assets/exercises/ELBOW_001/images/preview.png` — a crop of `FRAME_SETUP`, no overlay text.
+
+**Acceptance checklist**
+
+- [ ] same subject all frames
+- [ ] same style all frames
+- [ ] setup frame may use different crop
+- [ ] motion frames same camera
+- [ ] motion frames same crop
+- [ ] no relevant limb cropping
+- [ ] no embedded text
+- [ ] no watermarks
+- [ ] original or properly licensed only
+- [ ] clinical pose review required
+
+## ELBOW_002 — Почергове згинання рук
+
+- Zone: `elbows`
+- Clinical status: `pending_review`
+- Source: `data/exercises/elbows/ELBOW_002.yaml`
+- Folder: `assets/exercises/ELBOW_002/images`
+- Master: 1024x1024 PNG
+- Equipment that must appear: stable chair
+
+**Must stay identical across all frames of this exercise:** subject, clothing, camera, crop, environment.
+
+### FRAME_SETUP
+
+Save as `assets/exercises/ELBOW_002/images/setup_full_safe.png`
+
+```text
+One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
+
+Full body. Sitting upright on a stable light wooden chair, seen from the front, both feet flat on the floor, knees bent to roughly ninety degrees, both arms hanging down alongside the torso, shoulders relaxed.
+
+Clean, calm, instructional illustration on a plain neutral light background with soft even lighting and no clutter. Camera: front, identical in every frame. Framing: full body. The pose must read clearly at thumbnail size.
+
+No text, letters, numbers, captions or labels anywhere in the image. No arrows, motion lines, circles or highlights. No watermark or logo. No exaggerated range of motion — keep it comfortable and realistic.
+```
+
+Check before accepting: .
+
+<sub>Authored pose (uk): Людина сидить рівно на стільці, обидві руки опущені вздовж тулуба.</sub>
+
+### FRAME_RIGHT_FLEXED
+
+Save as `assets/exercises/ELBOW_002/images/motion_01_right_flex_mid_safe.png`
+
+```text
+One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
+
+Upper body, cropped from the lower abdomen to above the head with both hands fully visible. The subject's own right elbow is bent and that hand has risen to about shoulder height; the left arm stays hanging down alongside the torso. Shoulders stay level and relaxed, the torso stays upright and does not sway.
+
+Clean, calm, instructional illustration on a plain neutral light background with soft even lighting and no clutter. Camera: front, identical in every frame. Framing: full body. The pose must read clearly at thumbnail size.
+
+No text, letters, numbers, captions or labels anywhere in the image. No arrows, motion lines, circles or highlights. No watermark or logo. No exaggerated range of motion — keep it comfortable and realistic.
+```
+
+Check before accepting: .
+
+<sub>Authored pose (uk): Права рука зігнута в лікті, кисть на рівні плеча. Ліва рука опущена.</sub>
+
+### FRAME_LEFT_FLEXED
+
+Save as `assets/exercises/ELBOW_002/images/motion_02_left_flex_mid_safe.png`
+
+```text
+One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
+
+Mirror of the right frame, same crop and camera. The subject's own left elbow is bent and that hand has risen to about shoulder height; the right arm stays hanging down alongside the torso. Shoulders stay level, the torso stays upright.
+
+Clean, calm, instructional illustration on a plain neutral light background with soft even lighting and no clutter. Camera: front, identical in every frame. Framing: full body. The pose must read clearly at thumbnail size.
+
+No text, letters, numbers, captions or labels anywhere in the image. No arrows, motion lines, circles or highlights. No watermark or logo. No exaggerated range of motion — keep it comfortable and realistic.
+```
+
+Check before accepting: .
+
+<sub>Authored pose (uk): Ліва рука зігнута в лікті, кисть на рівні плеча. Права рука опущена.</sub>
+
+### Preview
+
+Save as `assets/exercises/ELBOW_002/images/preview.png` — a crop of `FRAME_SETUP`, no overlay text.
+
+**Acceptance checklist**
+
+- [ ] same subject all frames
+- [ ] same style all frames
+- [ ] setup frame may use different crop
+- [ ] motion frames same camera
+- [ ] motion frames same crop
+- [ ] no relevant limb cropping
+- [ ] no embedded text
+- [ ] no watermarks
+- [ ] original or properly licensed only
+- [ ] clinical pose review required
+
+## ELBOW_003 — Згинання рук долонями всередину
+
+- Zone: `elbows`
+- Clinical status: `pending_review`
+- Source: `data/exercises/elbows/ELBOW_003.yaml`
+- Folder: `assets/exercises/ELBOW_003/images`
+- Master: 1024x1024 PNG
+- Equipment that must appear: stable chair
+
+**Must stay identical across all frames of this exercise:** subject, clothing, camera, crop, environment.
+
+### FRAME_SETUP
+
+Save as `assets/exercises/ELBOW_003/images/setup_full_safe.png`
+
+```text
+One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
+
+Full body. Sitting upright on a stable light wooden chair, seen from the front, both feet flat on the floor, both arms hanging down alongside the torso with the palms turned inward toward the thighs.
+
+Clean, calm, instructional illustration on a plain neutral light background with soft even lighting and no clutter. Camera: front, identical in every frame. Framing: full body. The pose must read clearly at thumbnail size.
+
+No text, letters, numbers, captions or labels anywhere in the image. No arrows, motion lines, circles or highlights. No watermark or logo. No exaggerated range of motion — keep it comfortable and realistic.
+```
+
+Check before accepting: .
+
+<sub>Authored pose (uk): Людина сидить рівно, руки вздовж тулуба, долоні повернуті всередину.</sub>
+
+### FRAME_NEUTRAL
+
+Save as `assets/exercises/ELBOW_003/images/motion_01_neutral_palms_in_mid_safe.png`
+
+```text
+One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
+
+Upper body, cropped from the lower abdomen to above the head with both hands fully visible. Both arms hang down alongside the torso and the hands are in a neutral grip position, palms facing inward toward each other rather than forward or back.
+
+Clean, calm, instructional illustration on a plain neutral light background with soft even lighting and no clutter. Camera: front, identical in every frame. Framing: full body. The pose must read clearly at thumbnail size.
+
+No text, letters, numbers, captions or labels anywhere in the image. No arrows, motion lines, circles or highlights. No watermark or logo. No exaggerated range of motion — keep it comfortable and realistic.
+```
+
+Check before accepting: .
+
+<sub>Authored pose (uk): Руки опущені вздовж тулуба, кисті в нейтральному положенні — долонями всередину.</sub>
+
+### FRAME_FLEXED
+
+Save as `assets/exercises/ELBOW_003/images/motion_02_flexed_palms_in_mid_safe.png`
+
+```text
+One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
+
+Same crop and camera. Both elbows bend at the same time and the forearms rise, while the hands stay in the same neutral grip with the palms still facing inward throughout. The wrists stay straight and the shoulders do not rise.
+
+Clean, calm, instructional illustration on a plain neutral light background with soft even lighting and no clutter. Camera: front, identical in every frame. Framing: full body. The pose must read clearly at thumbnail size.
+
+No text, letters, numbers, captions or labels anywhere in the image. No arrows, motion lines, circles or highlights. No watermark or logo. No exaggerated range of motion — keep it comfortable and realistic.
+```
+
+Check before accepting: .
+
+<sub>Authored pose (uk): Обидві руки зігнуті в ліктях, долоні залишаються повернутими всередину.</sub>
+
+### Preview
+
+Save as `assets/exercises/ELBOW_003/images/preview.png` — a crop of `FRAME_SETUP`, no overlay text.
+
+**Acceptance checklist**
+
+- [ ] same subject all frames
+- [ ] same style all frames
+- [ ] setup frame may use different crop
+- [ ] motion frames same camera
+- [ ] motion frames same crop
+- [ ] no relevant limb cropping
+- [ ] no embedded text
+- [ ] no watermarks
+- [ ] original or properly licensed only
+- [ ] clinical pose review required
+
+## ELBOW_004 — Згинання рук долонями вниз
+
+- Zone: `elbows`
+- Clinical status: `pending_review`
+- Source: `data/exercises/elbows/ELBOW_004.yaml`
+- Folder: `assets/exercises/ELBOW_004/images`
+- Master: 1024x1024 PNG
+- Equipment that must appear: stable chair
+
+**Must stay identical across all frames of this exercise:** subject, clothing, camera, crop, environment.
+
+### FRAME_SETUP
+
+Save as `assets/exercises/ELBOW_004/images/setup_full_safe.png`
+
+```text
+One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
+
+Full body. Sitting upright on a stable light wooden chair, seen from the front, both feet flat on the floor. The upper arms rest close to the torso, both elbows are bent to roughly ninety degrees, the forearms point horizontally forward and both palms face down toward the floor.
+
+Clean, calm, instructional illustration on a plain neutral light background with soft even lighting and no clutter. Camera: front, identical in every frame. Framing: full body. The pose must read clearly at thumbnail size.
+
+No text, letters, numbers, captions or labels anywhere in the image. No arrows, motion lines, circles or highlights. No watermark or logo. No exaggerated range of motion — keep it comfortable and realistic.
+```
+
+Check before accepting: .
+
+<sub>Authored pose (uk): Людина сидить рівно, лікті зігнуті приблизно на 90°, долоні повернуті вниз.</sub>
+
+### FRAME_FOREARMS_FORWARD
+
+Save as `assets/exercises/ELBOW_004/images/motion_01_forearms_forward_palms_down_mid_safe.png`
+
+```text
+One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
+
+Upper body, cropped from the lower abdomen to above the head with both hands fully visible. Elbows bent to roughly ninety degrees, forearms horizontal and pointing forward, palms facing down, wrists straight, upper arms close to the torso.
+
+Clean, calm, instructional illustration on a plain neutral light background with soft even lighting and no clutter. Camera: front, identical in every frame. Framing: full body. The pose must read clearly at thumbnail size.
+
+No text, letters, numbers, captions or labels anywhere in the image. No arrows, motion lines, circles or highlights. No watermark or logo. No exaggerated range of motion — keep it comfortable and realistic.
+```
+
+Check before accepting: .
+
+<sub>Authored pose (uk): Лікті зігнуті приблизно на 90°, передпліччя горизонтально вперед, долоні вниз.</sub>
+
+### FRAME_FLEXED
+
+Save as `assets/exercises/ELBOW_004/images/motion_02_flexed_palms_down_mid_safe.png`
+
+```text
+One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
+
+Same crop and camera. Without the shoulders moving and without the forearms rotating, both elbows bend further so the hands travel toward the shoulders. The palms still face down and the wrists stay straight.
+
+Clean, calm, instructional illustration on a plain neutral light background with soft even lighting and no clutter. Camera: front, identical in every frame. Framing: full body. The pose must read clearly at thumbnail size.
+
+No text, letters, numbers, captions or labels anywhere in the image. No arrows, motion lines, circles or highlights. No watermark or logo. No exaggerated range of motion — keep it comfortable and realistic.
+```
+
+Check before accepting: .
+
+<sub>Authored pose (uk): Лікті зігнуті сильніше, кисті ближче до плечей, долоні все ще вниз.</sub>
+
+### Preview
+
+Save as `assets/exercises/ELBOW_004/images/preview.png` — a crop of `FRAME_SETUP`, no overlay text.
+
+**Acceptance checklist**
+
+- [ ] same subject all frames
+- [ ] same style all frames
+- [ ] setup frame may use different crop
+- [ ] motion frames same camera
+- [ ] motion frames same crop
+- [ ] no relevant limb cropping
+- [ ] no embedded text
+- [ ] no watermarks
+- [ ] original or properly licensed only
+- [ ] clinical pose review required
+
+## ELBOW_005 — Долоні вгору — вниз
+
+- Zone: `elbows`
+- Clinical status: `pending_review`
+- Source: `data/exercises/elbows/ELBOW_005.yaml`
+- Folder: `assets/exercises/ELBOW_005/images`
+- Master: 1024x1024 PNG
+- Equipment that must appear: stable chair
+
+**Must stay identical across all frames of this exercise:** subject, clothing, camera, crop, environment.
+
+### FRAME_SETUP
+
+Save as `assets/exercises/ELBOW_005/images/setup_full_safe.png`
+
+```text
+One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
+
+Full body. Sitting upright on a stable light wooden chair, seen from the front, both feet flat on the floor. Upper arms close to the torso, elbows bent to roughly ninety degrees, forearms pointing forward and both palms facing up toward the ceiling.
+
+Clean, calm, instructional illustration on a plain neutral light background with soft even lighting and no clutter. Camera: front, identical in every frame. Framing: full body. The pose must read clearly at thumbnail size.
+
+No text, letters, numbers, captions or labels anywhere in the image. No arrows, motion lines, circles or highlights. No watermark or logo. No exaggerated range of motion — keep it comfortable and realistic.
+```
+
+Check before accepting: .
+
+<sub>Authored pose (uk): Людина сидить рівно, лікті зігнуті біля тулуба, долоні дивляться вгору.</sub>
+
+### FRAME_PALMS_UP
+
+Save as `assets/exercises/ELBOW_005/images/motion_01_palms_up_mid_safe.png`
+
+```text
+One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
+
+Upper body, cropped from the lower abdomen to above the head with both hands fully visible. Elbows stay close to the torso and bent to roughly ninety degrees, forearms point forward, both palms face up.
+
+Clean, calm, instructional illustration on a plain neutral light background with soft even lighting and no clutter. Camera: front, identical in every frame. Framing: full body. The pose must read clearly at thumbnail size.
+
+No text, letters, numbers, captions or labels anywhere in the image. No arrows, motion lines, circles or highlights. No watermark or logo. No exaggerated range of motion — keep it comfortable and realistic.
+```
+
+Check before accepting: .
+
+<sub>Authored pose (uk): Лікті біля тулуба, передпліччя вперед, долоні дивляться вгору.</sub>
+
+### FRAME_PALMS_DOWN
+
+Save as `assets/exercises/ELBOW_005/images/motion_02_palms_down_mid_safe.png`
+
+```text
+One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
+
+Same crop, camera, shoulder and elbow position. Only the forearms have rotated, so both palms now face down toward the floor. The elbows have not moved away from the torso and the arm height is unchanged.
+
+Clean, calm, instructional illustration on a plain neutral light background with soft even lighting and no clutter. Camera: front, identical in every frame. Framing: full body. The pose must read clearly at thumbnail size.
+
+No text, letters, numbers, captions or labels anywhere in the image. No arrows, motion lines, circles or highlights. No watermark or logo. No exaggerated range of motion — keep it comfortable and realistic.
+```
+
+Check before accepting: .
+
+<sub>Authored pose (uk): Те саме положення плечей і ліктів, передпліччя повернуті долонями вниз.</sub>
+
+### Preview
+
+Save as `assets/exercises/ELBOW_005/images/preview.png` — a crop of `FRAME_SETUP`, no overlay text.
+
+**Acceptance checklist**
+
+- [ ] same subject all frames
+- [ ] same style all frames
+- [ ] setup frame may use different crop
+- [ ] motion frames same camera
+- [ ] motion frames same crop
+- [ ] no relevant limb cropping
+- [ ] no embedded text
+- [ ] no watermarks
+- [ ] original or properly licensed only
+- [ ] clinical pose review required
+
+## ELBOW_006 — Кисті до плечей — вперед
+
+- Zone: `elbows`
+- Clinical status: `pending_review`
+- Source: `data/exercises/elbows/ELBOW_006.yaml`
+- Folder: `assets/exercises/ELBOW_006/images`
+- Master: 1024x1024 PNG
+- Equipment that must appear: stable chair
+
+**Must stay identical across all frames of this exercise:** subject, clothing, camera, crop, environment.
+
+### FRAME_SETUP
+
+Save as `assets/exercises/ELBOW_006/images/setup_full_safe.png`
+
+```text
+One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
+
+Full body. Sitting upright on a stable light wooden chair, seen from the front, both feet flat on the floor, both hands up beside the shoulders with the elbows bent and the shoulders down and relaxed.
+
+Clean, calm, instructional illustration on a plain neutral light background with soft even lighting and no clutter. Camera: front, identical in every frame. Framing: full body. The pose must read clearly at thumbnail size.
+
+No text, letters, numbers, captions or labels anywhere in the image. No arrows, motion lines, circles or highlights. No watermark or logo. No exaggerated range of motion — keep it comfortable and realistic.
+```
+
+Check before accepting: .
+
+<sub>Authored pose (uk): Людина сидить рівно, обидві кисті біля плечей, лікті зігнуті.</sub>
+
+### FRAME_AT_SHOULDERS
+
+Save as `assets/exercises/ELBOW_006/images/motion_01_hands_at_shoulders_mid_safe.png`
+
+```text
+One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
+
+Upper body, cropped from the lower abdomen to above the head with both hands fully visible. Both hands are beside the shoulders, elbows bent, upper arms close to the torso, shoulders down, torso upright.
+
+Clean, calm, instructional illustration on a plain neutral light background with soft even lighting and no clutter. Camera: front, identical in every frame. Framing: full body. The pose must read clearly at thumbnail size.
+
+No text, letters, numbers, captions or labels anywhere in the image. No arrows, motion lines, circles or highlights. No watermark or logo. No exaggerated range of motion — keep it comfortable and realistic.
+```
+
+Check before accepting: .
+
+<sub>Authored pose (uk): Кисті біля плечей, лікті зігнуті, плечі опущені, корпус рівний.</sub>
+
+### FRAME_ARMS_FORWARD
+
+Save as `assets/exercises/ELBOW_006/images/motion_02_arms_forward_mid_safe.png`
+
+```text
+One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
+
+Same crop and camera. Both arms are now straightened forward at chest or shoulder height, elbows almost straight but not locked, palms facing each other or turned slightly down. The torso stays upright and the shoulders do not rise toward the ears.
+
+Clean, calm, instructional illustration on a plain neutral light background with soft even lighting and no clutter. Camera: front, identical in every frame. Framing: full body. The pose must read clearly at thumbnail size.
+
+No text, letters, numbers, captions or labels anywhere in the image. No arrows, motion lines, circles or highlights. No watermark or logo. No exaggerated range of motion — keep it comfortable and realistic.
+```
+
+Check before accepting: .
+
+<sub>Authored pose (uk): Обидві руки випрямлені вперед на рівні грудей або плечей.</sub>
+
+### Preview
+
+Save as `assets/exercises/ELBOW_006/images/preview.png` — a crop of `FRAME_SETUP`, no overlay text.
+
+**Acceptance checklist**
+
+- [ ] same subject all frames
+- [ ] same style all frames
+- [ ] setup frame may use different crop
+- [ ] motion frames same camera
+- [ ] motion frames same crop
+- [ ] no relevant limb cropping
+- [ ] no embedded text
+- [ ] no watermarks
+- [ ] original or properly licensed only
+- [ ] clinical pose review required
+
+## ELBOW_007 — Одна рука над головою: зігнути — випрямити
+
+- Zone: `elbows`
+- Clinical status: `pending_review`
+- Source: `data/exercises/elbows/ELBOW_007.yaml`
+- Folder: `assets/exercises/ELBOW_007/images`
+- Master: 1024x1024 PNG
+- Equipment that must appear: stable chair
+
+**Must stay identical across all frames of this exercise:** subject, clothing, camera, crop, environment.
+
+### FRAME_SETUP
+
+Save as `assets/exercises/ELBOW_007/images/setup_full_safe.png`
+
+```text
+One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
+
+Full body, generous margin on every side. Sitting upright on a stable light wooden chair in a three-quarter view, both feet flat on the floor. The subject's own right arm is bent overhead with the elbow raised and that hand behind the head near the top of the neck; the left hand rests quietly on the thigh.
+
+Clean, calm, instructional illustration on a plain neutral light background with soft even lighting and no clutter. Camera: front, identical in every frame. Framing: full body. The pose must read clearly at thumbnail size.
+
+No text, letters, numbers, captions or labels anywhere in the image. No arrows, motion lines, circles or highlights. No watermark or logo. No exaggerated range of motion — keep it comfortable and realistic.
+```
+
+Check before accepting: .
+
+<sub>Authored pose (uk): Людина сидить рівно, права рука зігнута над головою, ліва лежить на стегні.</sub>
+
+### FRAME_BENT_OVERHEAD
+
+Save as `assets/exercises/ELBOW_007/images/motion_01_one_arm_bent_overhead_full_safe.png`
+
+```text
+One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
+
+Full body with the whole raised arm, both hands, both feet and clear space above the head inside the frame. The right arm is bent overhead, the right hand behind the head near the top of the neck, the elbow pointing up rather than out to the side. The torso stays upright and does not lean sideways.
+
+Clean, calm, instructional illustration on a plain neutral light background with soft even lighting and no clutter. Camera: front, identical in every frame. Framing: full body. The pose must read clearly at thumbnail size.
+
+No text, letters, numbers, captions or labels anywhere in the image. No arrows, motion lines, circles or highlights. No watermark or logo. No exaggerated range of motion — keep it comfortable and realistic.
+```
+
+Check before accepting: .
+
+<sub>Authored pose (uk): Права рука зігнута над головою, кисть за головою або біля верхньої частини шиї.</sub>
+
+### FRAME_EXTENDED_OVERHEAD
+
+Save as `assets/exercises/ELBOW_007/images/motion_02_one_arm_extended_overhead_full_safe.png`
+
+```text
+One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
+
+Same crop, camera and scale. The right arm is now straightened upward above the head, the hand fully inside the frame with space above it. The left hand still rests on the thigh, the torso stays upright and the shoulders stay level.
+
+Clean, calm, instructional illustration on a plain neutral light background with soft even lighting and no clutter. Camera: front, identical in every frame. Framing: full body. The pose must read clearly at thumbnail size.
+
+No text, letters, numbers, captions or labels anywhere in the image. No arrows, motion lines, circles or highlights. No watermark or logo. No exaggerated range of motion — keep it comfortable and realistic.
+```
+
+Check before accepting: .
+
+<sub>Authored pose (uk): Права рука випрямлена вгору над головою.</sub>
+
+### Preview
+
+Save as `assets/exercises/ELBOW_007/images/preview.png` — a crop of `FRAME_SETUP`, no overlay text.
+
+**Acceptance checklist**
+
+- [ ] same subject all frames
+- [ ] same style all frames
+- [ ] setup frame may use different crop
+- [ ] motion frames same camera
+- [ ] motion frames same crop
+- [ ] no relevant limb cropping
+- [ ] no embedded text
+- [ ] no watermarks
+- [ ] original or properly licensed only
+- [ ] clinical pose review required
+
+## ELBOW_008 — Дві руки над головою: зігнути — випрямити
+
+- Zone: `elbows`
+- Clinical status: `pending_review`
+- Source: `data/exercises/elbows/ELBOW_008.yaml`
+- Folder: `assets/exercises/ELBOW_008/images`
+- Master: 1024x1024 PNG
+- Equipment that must appear: stable chair
+
+**Must stay identical across all frames of this exercise:** subject, clothing, camera, crop, environment.
+
+### FRAME_SETUP
+
+Save as `assets/exercises/ELBOW_008/images/setup_full_safe.png`
+
+```text
+One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
+
+Full body, generous margin on every side. Sitting upright on a stable light wooden chair, both feet flat on the floor. Both arms are bent overhead with the hands behind the head near the back of the skull and the elbows opened out to the sides.
+
+Clean, calm, instructional illustration on a plain neutral light background with soft even lighting and no clutter. Camera: front, identical in every frame. Framing: full body. The pose must read clearly at thumbnail size.
+
+No text, letters, numbers, captions or labels anywhere in the image. No arrows, motion lines, circles or highlights. No watermark or logo. No exaggerated range of motion — keep it comfortable and realistic.
+```
+
+Check before accepting: .
+
+<sub>Authored pose (uk): Людина сидить рівно, обидві руки зігнуті над головою.</sub>
+
+### FRAME_BENT_OVERHEAD
+
+Save as `assets/exercises/ELBOW_008/images/motion_01_both_arms_bent_overhead_full_safe.png`
+
+```text
+One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
+
+Full body with both raised arms, both hands, both feet and clear space above the head inside the frame. Both elbows are bent overhead, the hands behind the head, the elbows opened out to the sides, the torso upright without arching the lower back.
+
+Clean, calm, instructional illustration on a plain neutral light background with soft even lighting and no clutter. Camera: front, identical in every frame. Framing: full body. The pose must read clearly at thumbnail size.
+
+No text, letters, numbers, captions or labels anywhere in the image. No arrows, motion lines, circles or highlights. No watermark or logo. No exaggerated range of motion — keep it comfortable and realistic.
+```
+
+Check before accepting: .
+
+<sub>Authored pose (uk): Обидві руки зігнуті над головою, кисті за головою, лікті розведені в сторони.</sub>
+
+### FRAME_EXTENDED_OVERHEAD
+
+Save as `assets/exercises/ELBOW_008/images/motion_02_both_arms_extended_overhead_full_safe.png`
+
+```text
+One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
+
+Same crop, camera and scale. Both arms are now straightened upward above the head with both hands fully inside the frame and space above them. The shoulders do not rise toward the ears and the torso stays upright.
+
+Clean, calm, instructional illustration on a plain neutral light background with soft even lighting and no clutter. Camera: front, identical in every frame. Framing: full body. The pose must read clearly at thumbnail size.
+
+No text, letters, numbers, captions or labels anywhere in the image. No arrows, motion lines, circles or highlights. No watermark or logo. No exaggerated range of motion — keep it comfortable and realistic.
+```
+
+Check before accepting: .
+
+<sub>Authored pose (uk): Обидві руки випрямлені вгору над головою.</sub>
+
+### Preview
+
+Save as `assets/exercises/ELBOW_008/images/preview.png` — a crop of `FRAME_SETUP`, no overlay text.
+
+**Acceptance checklist**
+
+- [ ] same subject all frames
+- [ ] same style all frames
+- [ ] setup frame may use different crop
+- [ ] motion frames same camera
+- [ ] motion frames same crop
+- [ ] no relevant limb cropping
+- [ ] no embedded text
+- [ ] no watermarks
+- [ ] original or properly licensed only
+- [ ] clinical pose review required
+
+## ELBOW_009 — Віджимання від стіни
+
+- Zone: `elbows`
+- Clinical status: `pending_review`
+- Source: `data/exercises/elbows/ELBOW_009.yaml`
+- Folder: `assets/exercises/ELBOW_009/images`
+- Master: 1024x1024 PNG
+- Equipment that must appear: wall
+
+**Must stay identical across all frames of this exercise:** subject, clothing, camera, crop, environment.
+
+### FRAME_SETUP
+
+Save as `assets/exercises/ELBOW_009/images/setup_full_safe.png`
+
+```text
+One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
+
+Full body, seen from the side, standing and facing a plain wall at a comfortable distance. Both palms are flat on the wall at about chest or shoulder height, the arms are straight but the elbows are not locked, both feet are flat on the floor and the body is in one straight line from head to heels.
+
+Clean, calm, instructional illustration on a plain neutral light background with soft even lighting and no clutter. Camera: front, identical in every frame. Framing: full body. The pose must read clearly at thumbnail size.
+
+No text, letters, numbers, captions or labels anywhere in the image. No arrows, motion lines, circles or highlights. No watermark or logo. No exaggerated range of motion — keep it comfortable and realistic.
+```
+
+Check before accepting: .
+
+<sub>Authored pose (uk): Людина стоїть обличчям до стіни, долоні на стіні на рівні грудей, руки випрямлені.</sub>
+
+### FRAME_ARMS_EXTENDED
+
+Save as `assets/exercises/ELBOW_009/images/motion_01_arms_extended_wall_full_safe.png`
+
+```text
+One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
+
+Full body from the same side view, with both hands where they meet the wall and both feet fully inside the frame. The arms are straight, the palms stay on the wall, the body stays in one line and the head is in line with the torso.
+
+Clean, calm, instructional illustration on a plain neutral light background with soft even lighting and no clutter. Camera: front, identical in every frame. Framing: full body. The pose must read clearly at thumbnail size.
+
+No text, letters, numbers, captions or labels anywhere in the image. No arrows, motion lines, circles or highlights. No watermark or logo. No exaggerated range of motion — keep it comfortable and realistic.
+```
+
+Check before accepting: .
+
+<sub>Authored pose (uk): Руки випрямлені, долоні залишаються на стіні, корпус рівний.</sub>
+
+### FRAME_ELBOWS_BENT
+
+Save as `assets/exercises/ELBOW_009/images/motion_02_elbows_bent_wall_full_safe.png`
+
+```text
+One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
+
+Same crop, camera and distance from the wall. The elbows are bent and the whole body has moved closer to the wall as a single unit, still in one straight line from head to heels. The head is not dropped toward the wall on its own and the heels stay down.
+
+Clean, calm, instructional illustration on a plain neutral light background with soft even lighting and no clutter. Camera: front, identical in every frame. Framing: full body. The pose must read clearly at thumbnail size.
+
+No text, letters, numbers, captions or labels anywhere in the image. No arrows, motion lines, circles or highlights. No watermark or logo. No exaggerated range of motion — keep it comfortable and realistic.
+```
+
+Check before accepting: .
+
+<sub>Authored pose (uk): Лікті зігнуті, корпус наближається до стіни як єдине ціле.</sub>
+
+### Preview
+
+Save as `assets/exercises/ELBOW_009/images/preview.png` — a crop of `FRAME_SETUP`, no overlay text.
+
+**Acceptance checklist**
+
+- [ ] same subject all frames
+- [ ] same style all frames
+- [ ] setup frame may use different crop
+- [ ] motion frames same camera
+- [ ] motion frames same crop
+- [ ] no relevant limb cropping
+- [ ] no embedded text
+- [ ] no watermarks
+- [ ] original or properly licensed only
+- [ ] clinical pose review required

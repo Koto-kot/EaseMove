@@ -1,0 +1,467 @@
+schema_version: '1.3'
+content_version: 0.1.0
+exercise:
+  id: ELBOW_005
+  slug: seated_forearm_rotation_palms_up_down
+  internal_name: Seated forearm rotation palms up down
+  status: draft
+  availability:
+    tier: free
+    visible_to_free_users: true
+    pro_personalization_eligible: true
+  classification:
+    primary_zone: elbows
+    secondary_zones:
+    - forearms
+    - upper_arms
+    body_map_hotspot_ids:
+    - left_elbow
+    - right_elbow
+    collections:
+    - body_elbows
+    - seated_gentle
+    - computer_break
+    - after_sitting
+    tags:
+      anatomy:
+      - elbow
+      - forearm
+      - upper_arm
+      context:
+      - computer
+      - after_sitting
+      position:
+      - sitting
+      movement:
+      - mobility
+      - forearm_rotation
+      - bilateral
+      - no_resistance
+      level:
+      - beginner
+      - gentle
+      equipment: &id001
+      - stable_chair
+    collection_candidates: []
+  exercise_properties:
+    difficulty: easy
+    laterality: bilateral
+    movement_pattern: forearm_pronation_supination
+    preferred_position: sitting
+    alternative_positions: []
+    equipment_required: *id001
+    equipment_optional: []
+    space_requirement: room_for_arms_at_the_sides
+  anatomy:
+    primary_joint: elbow
+    primary_muscle_groups:
+    - biceps_brachii
+    - triceps_brachii
+    secondary_muscle_groups:
+    - forearm_muscles
+    movement_plane: sagittal
+    joint_action: flexion_extension
+clinical:
+  status: pending_review
+  publish_rule: production_requires_approved
+  source_basis:
+    basis: everyday_movement_without_clinical_prescription
+    source_summary_uk: Це звичайний побутовий рух без опору. Бриф не посилається на клінічне джерело із дозуванням,
+      тому тривалість і темп взяті з production brief і потребують затвердження фахівцем.
+  app_prototype_prescription:
+    status: pending_review
+    mode: timed
+    active_duration_seconds: 61
+    cycle_seconds: 4.0
+    range_rule: comfortable_controlled_range
+    movement_speed_rule: slow_controlled
+    note_uk: Тривалість і темп відповідають розділу Timing у brief. Перед production їх має затвердити фізіотерапевт.
+  movement_quality:
+    required_cues_uk: &id002
+    - Лікті залишаються біля тулуба.
+    - Рухаються лише передпліччя, плечі нерухомі.
+    - Рух плавний, у комфортному діапазоні.
+  safety:
+    general_rule_uk: Виконуйте рух повільно, у комфортному діапазоні та без ривків.
+    stop_conditions_uk:
+    - різкий або незвичний біль
+    - раптове погіршення самопочуття
+    - інший новий або незвичний симптом під час виконання
+    in_app_stop_message_uk: Зупиніть вправу, якщо з'явився різкий біль або інший незвичний симптом.
+    requires_professional_review:
+      prescription: true
+      safety_text: true
+      contraindications: true
+      animation_accuracy: true
+      voice_cues: true
+  review:
+    reviewer_role: physiotherapist_or_equivalent
+    reviewer_name: null
+    reviewed_at: null
+    review_notes: null
+    approval_version: null
+  variants: []
+locale:
+  default: uk
+  uk:
+    title: Долоні вгору — вниз
+    short_title: Обертання передпліч
+    card_description: Сидячи, повертайте передпліччя долонями вгору та вниз.
+    category_label: Лікті
+    purpose_text: Проста вправа для ліктів і передпліч без обладнання. Рух відбувається лише передпліччями.
+    start_position_title: Початкове положення
+    start_position_text: Сядьте рівно на стійкий стілець. Верхні частини рук біля тулуба, лікті зігнуті приблизно
+      на 90°, передпліччя вперед, долоні дивляться вгору.
+    instructions_title: Як виконувати
+    instructions:
+    - step: 1
+      text: Сядьте рівно, лікті тримайте біля тулуба.
+    - step: 2
+      text: Почніть із положення, в якому долоні дивляться вгору.
+    - step: 3
+      text: Плавно поверніть передпліччя так, щоб долоні дивилися вниз.
+    - step: 4
+      text: Поверніться до положення долонями вгору.
+    technique_tips_title: Зверніть увагу
+    technique_tips: *id002
+    safety_label: Безпека
+    safety_text: Рухайтеся в комфортному діапазоні. Якщо з'явився різкий біль або інший незвичний симптом, натисніть
+      «Стоп».
+    completion_text: Готово.
+    halfway_text: Половину виконано.
+ui:
+  card:
+    title_key: exercise.ELBOW_005.title
+    description_key: exercise.ELBOW_005.card_description
+    preview_asset: assets/exercises/ELBOW_005/images/preview.png
+    primary_action:
+      key: common.exercise.start
+      resolved_uk: Почати
+    badges:
+      show_difficulty: false
+      show_duration: true
+      show_pro_badge: false
+  exercise_screen:
+    title_key: exercise.ELBOW_005.title
+    labels: {}
+    prep:
+      label_key: common.exercise.starts_in
+      resolved_uk: Починаємо через
+    rest:
+      label_key: common.exercise.rest
+      resolved_uk: Відпочинок
+      next_label_key: common.exercise.next_exercise
+      next_label_resolved_uk: Наступна вправа
+timing:
+  prep_countdown_seconds: 5
+  rest_after_seconds: 10
+  completion_mode: timed_duration
+  prescription:
+    active_duration_seconds: 61
+    cycle_ms: 4000
+  duration_presets_seconds:
+  - 60
+  - 120
+  - 180
+  - 300
+  playback:
+    setup_hold_ms: 1000
+    phase_a_to_b_ms: 2000
+    phase_b_to_a_ms: 2000
+  estimated_active_duration_seconds: 61
+  progress:
+    basis: sequence_time
+    show_elapsed_time: true
+    show_progress_bar: true
+    show_repetition_counter: false
+    show_side_label: false
+    show_set_counter: false
+movement_phases:
+- id: PHASE_SETUP
+  name_uk: Початкове положення
+  biomechanics: start_position
+- id: PHASE_A
+  name_uk: Долоні вгору
+  biomechanics: phase_a
+- id: PHASE_B
+  name_uk: Долоні вниз
+  biomechanics: phase_b
+sequence:
+  side_blocks:
+  - side: null
+    repeat: 1
+    steps:
+    - id: setup
+      phase: PHASE_SETUP
+      frame_id: FRAME_SETUP
+      duration_ms: 1000
+      voice_event: null
+  - side: null
+    repeat: 15
+    steps:
+    - id: pronate
+      phase: PHASE_B
+      frame_transition:
+        from: FRAME_PALMS_UP
+        to: FRAME_PALMS_DOWN
+      duration_ms: 2000
+      voice_event: null
+    - id: supinate
+      phase: PHASE_A
+      frame_transition:
+        from: FRAME_PALMS_DOWN
+        to: FRAME_PALMS_UP
+      duration_ms: 2000
+      voice_event: null
+animation:
+  engine: frame_sequence
+  style_profile_id: exercise_visual_v1
+  loop_mode: timed_loop
+  interpolation: motion_interpolation
+  reduced_motion_fallback: static_step_frames
+  subject:
+    subject_profile_id: adult_neutral_01
+    consistency_required_across_frames: true
+  framing:
+    template_version: v2_FULL_SAFE
+    setup_frame_may_use_different_crop: true
+    motion_frames_same_camera: true
+    motion_frames_same_crop: true
+    no_relevant_limb_cropping: true
+    active_limb_safe_margin_min: 0.05
+    background: clean_neutral
+    arrows_in_production_asset: false
+    text_inside_asset: false
+  asset_spec:
+    master_format: png
+    width_px: 1024
+    height_px: 1024
+    transparent_background_preferred: false
+    production_assets_must_be_original: true
+  frames:
+  - id: FRAME_SETUP
+    file: assets/exercises/ELBOW_005/images/setup_full_safe.png
+    pose_description_uk: Людина сидить рівно, лікті зігнуті біля тулуба, долоні дивляться вгору.
+    alt_text_uk: Початкове положення сидячи, долоні вгору.
+    framing: FULL_SAFE
+  - id: FRAME_PALMS_UP
+    file: assets/exercises/ELBOW_005/images/motion_01_palms_up_mid_safe.png
+    pose_description_uk: Лікті біля тулуба, передпліччя вперед, долоні дивляться вгору.
+    alt_text_uk: Долоні повернуті вгору.
+    framing: MID_SAFE
+  - id: FRAME_PALMS_DOWN
+    file: assets/exercises/ELBOW_005/images/motion_02_palms_down_mid_safe.png
+    pose_description_uk: Те саме положення плечей і ліктів, передпліччя повернуті долонями вниз.
+    alt_text_uk: Долоні повернуті вниз.
+    framing: MID_SAFE
+  preview:
+    file: assets/exercises/ELBOW_005/images/preview.png
+    source_frame_id: FRAME_SETUP
+    overlay_text: false
+audio:
+  default_language: uk
+  mix:
+    voice_level: 1.0
+    music_level_relative_to_voice: 0.5
+    dynamic_ducking: false
+  countdown:
+    use_global_audio_pack: true
+    seconds:
+    - 5
+    - 4
+    - 3
+    - 2
+    - 1
+  events:
+  - id: VOICE_SETUP
+    type: instruction
+    trigger:
+      event: prep_countdown_started
+      offset_ms: 0
+    text_key: exercise.ELBOW_005.voice.setup
+    text_uk: Сядьте рівно. Лікті біля тулуба. Долоні вгору.
+    asset_key: exercise.ELBOW_005.voice.setup
+    target_file: audio/uk/exercises/ELBOW_005/setup.m4a
+    priority: 80
+    interruptible: true
+  - id: VOICE_START_MOVEMENT
+    type: movement
+    trigger:
+      event: repetition_started
+      repetition_number: 1
+    text_key: exercise.ELBOW_005.voice.start_movement
+    text_uk: Плавно поверніть долоні вниз і назад угору.
+    asset_key: exercise.ELBOW_005.voice.start_movement
+    target_file: audio/uk/exercises/ELBOW_005/start_movement.m4a
+    priority: 100
+    interruptible: false
+  - id: VOICE_HALFWAY
+    type: progress
+    trigger:
+      event: progress_crossed
+      percent: 50
+    text_key: common.voice.halfway
+    text_uk: Половину виконано.
+    asset_key: common.voice.halfway
+    target_file: audio/uk/common/halfway.m4a
+    priority: 50
+    interruptible: true
+    collision_policy: delay_until_primary_cue_finishes
+  - id: VOICE_COMPLETED
+    type: completion
+    trigger:
+      event: exercise_completed
+    text_key: common.voice.completed
+    text_uk: Готово.
+    asset_key: common.voice.completed
+    target_file: audio/uk/common/completed.m4a
+    priority: 120
+    interruptible: false
+  recording_spec:
+    current_status: not_recorded
+    source_master_format: wav
+    app_delivery_format: m4a
+    voice_style_uk: спокійний, доброзичливий, чіткий, без поспіху
+    normalization_required: true
+    silence_trim_required: true
+music:
+  enabled_by_default: true
+  default_track_profile: gentle_rhythm_01
+  loop: true
+  vocals_allowed: false
+  fixed_relative_volume: 0.5
+  duck_on_voice: false
+flow:
+  use_global_start_countdown: true
+  start_countdown_seconds: 5
+  pause:
+    freeze_timer: true
+    freeze_animation: true
+    pause_music: true
+    resume_from_same_step: true
+  stop:
+    allowed_any_time: true
+    show_failure_state: false
+    save_actual_elapsed_time: true
+    completion_classification: early_stop
+  completion:
+    increment_lifetime_exercise_counter: true
+    show_plus_one_animation: true
+    proceed_to_auto_rest: true
+  auto_next:
+    enabled: true
+    rest_seconds: 10
+    show_next_exercise_preview: true
+    start_next_automatically_at_zero: true
+    manual_previous_or_next:
+      cancel_auto_mode: true
+      cancel_rest_countdown: true
+      selected_exercise_requires_manual_start: true
+      manual_start_uses_prep_countdown: true
+accessibility:
+  screen_reader:
+    exercise_summary_uk: Долоні вгору — вниз. Сидячи на стільці, тримайте лікті біля тулуба і повертайте передпліччя
+      так, щоб долоні почергово дивилися вгору і вниз.
+    announce_countdown: true
+    announce_repetition: false
+    announce_side_change: false
+    announce_pause_resume: true
+    announce_completion: true
+  visual:
+    minimum_touch_target_dp: 44
+    supports_large_text: true
+    essential_information_not_color_only: true
+  reduced_motion:
+    supported: true
+    behavior: show_static_pose_steps_without_smooth_interpolation
+tracking:
+  enabled: true
+  metrics:
+    actual_active_seconds: true
+    prescribed_completion: true
+    early_stop: true
+    pause_count: true
+    selected_from_collection: true
+  analytics_dimensions:
+    exercise_id: ELBOW_005
+    primary_zone: elbows
+    tags:
+    - elbows
+    - arms
+    - mobility
+    - forearm_rotation
+    - bilateral
+    - no_resistance
+  lifetime_counter:
+    use_global_policy: true
+pro:
+  include_in_personal_plan_pool: true
+  allow_favorite: true
+  allow_custom_voice: true
+  allow_custom_music: true
+  adaptive_parameters:
+    duration:
+      enabled: false
+      reason: requires_clinical_review_before_personalized_dosing
+    tempo:
+      enabled: false
+      reason: requires_clinical_review_before_personalized_tempo
+    rest_after:
+      enabled: true
+      allowed_values_seconds:
+      - 10
+      - 15
+      - 20
+  ai_selection:
+    allowed: true
+    rule: AI may select this approved exercise from the verified library, but may not change the movement, add resistance
+      or invent a new exercise.
+    production_requires_clinical_status: approved
+assets:
+  folder: assets/exercises/ELBOW_005/images
+  required:
+  - setup_full_safe.png
+  - motion_01_palms_up_mid_safe.png
+  - motion_02_palms_down_mid_safe.png
+  - preview.png
+  optional: []
+  validation:
+    same_subject_all_frames: true
+    same_style_all_frames: true
+    setup_frame_may_use_different_crop: true
+    motion_frames_same_camera: true
+    motion_frames_same_crop: true
+    no_relevant_limb_cropping: true
+    no_embedded_text: true
+    no_watermarks: true
+    original_or_properly_licensed_only: true
+    clinical_pose_review_required: true
+qa:
+  content_checks:
+  - Назва і опис відповідають руху на зображеннях.
+  - Між motion frames змінюється лише положення рук.
+  - У кадрі немає гантелей, еспандерів чи іншого опору.
+  - Немає тексту, стрілок, UI чи watermark у production images.
+  - Вправа присутня у collection body_elbows.
+  - Усі користувацькі написи беруться через localization keys.
+  - Stop працює у будь-який момент.
+  - Після штатного завершення запускається 10-секундний auto-rest.
+  - Production build не показує вправу, поки clinical.status != approved.
+  automated_tests:
+  - id: ELBOW_005_VISIBLE_BODY_ELBOWS
+    expected: exercise_is_returned_for_collection_body_elbows
+  - id: ELBOW_005_TIMED_COMPLETION
+    expected: timeline_total_matches_estimated_active_duration
+references:
+  source_ids: []
+  note_uk: Звичайний побутовий рух без опору. Формулювання, зображення та аудіо — оригінальні активи проєкту.
+metadata:
+  created_for: elbows_library_v6_pack
+  authoring_language: uk
+  created_at: '2026-09-12'
+  last_modified_at: '2026-09-12'
+  brief_path: docs/exercise_briefs/elbows/ELBOW_005/ELBOW_005_BRIEF.md
+  brief_sheet_path: docs/exercise_briefs/elbows/ELBOW_005/ELBOW_005_brief_sheet_v0.png
+  repository_pack_version: ELBOW_001_009_repository_pack_v6
+  schema_notes_uk: 'Часова вправа без лічильника повторів: поза setup показується один раз, далі цикл A-B повторюється
+    до кінця часу.'

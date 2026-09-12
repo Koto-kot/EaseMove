@@ -234,6 +234,15 @@ void main() {
         expect(computer.map((ExerciseSummary s) => s.id), <String>[
           'NECK_001',
           'KNEE_001',
+          'ELBOW_001',
+          'ELBOW_002',
+          'ELBOW_003',
+          'ELBOW_004',
+          'ELBOW_005',
+          'ELBOW_006',
+          'ELBOW_007',
+          'ELBOW_008',
+          'ELBOW_009',
         ]);
       },
     );
@@ -253,8 +262,9 @@ void main() {
         repository.nonEmptyZoneCollections().map(
           (ExerciseCollection c) => c.id,
         ),
-        // KNEE_002 also belongs to body_hips, so that zone is non-empty too.
-        <String>['body_neck', 'body_hips', 'body_knees'],
+        // KNEE_002 also belongs to body_hips, so that zone is non-empty too,
+        // and the order is the zone order of data/categories/body_zones.yaml.
+        <String>['body_neck', 'body_elbows', 'body_hips', 'body_knees'],
       );
     });
 

@@ -37,11 +37,12 @@ auto-start наступної`
 - clinical gate, feature flags, Free/Pro entitlements, contextual paywall;
 - локалізація `uk` + `en`, частковий `pl` (домашній екран і зони) з per-key
   fallback, усе з одного authoring-джерела;
-- 80 тестів (state machine, timeline, контент, локалізація, entitlements,
-  домашній екран, acceptance-флоу).
+- 87 тестів (state machine, timeline, контент, локалізація, entitlements,
+  домашній екран, бібліотека ліктів, acceptance-флоу).
 
-Ще не зроблено: production-кадри вправ (артворк тіла вже є), запис voice packs,
-billing, планування нагадувань. Див. `docs/DEV_SETUP.md` → «Відомі обмеження».
+Ще не зроблено: production-кадри для шиї та колін (артворк тіла й дев'яти
+ліктьових вправ уже є), запис voice packs, billing, планування нагадувань.
+Див. `docs/DEV_SETUP.md` → «Відомі обмеження».
 
 Швидкий старт: **`docs/DEV_SETUP.md`**.
 
@@ -93,6 +94,9 @@ Web-збірка того ж коду, для перегляду UI та фло�
 - `KNEE_001` — Розгинання ноги сидячи.
 - `KNEE_002` — Встати — сісти зі стільця.
 - `KNEE_003` — Підтягування п’яти лежачи.
+- `ELBOW_001`–`ELBOW_009` — лікті: від згинання рук сидячи до віджимань
+  від стіни. Це перші вправи з готовим артворком
+  (`docs/exercise_briefs/elbows/INDEX.md`).
 
 Усі вони поки мають `clinical.status: pending_review`.
 
