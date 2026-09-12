@@ -85,6 +85,7 @@ class _PlayerScreenState extends ConsumerState<PlayerScreen> {
             SessionState.browsing => _SelectedView(
               state: state,
               controller: controller,
+              voiceEnabled: settings.voiceEnabled,
             ),
             SessionState.stopped => _StoppedView(
               state: state,
@@ -111,18 +112,72 @@ class _PlayerScreenState extends ConsumerState<PlayerScreen> {
 }
 
 /// SELECTED — the exercise is chosen but never starts on its own.
-class _SelectedView extends StatelessWidget {
-  const _SelectedView({required this.state, required this.controller});
+class _SelectedView extends StatefulWidget {
+  const _SelectedView({
+    required this.state,
+    required this.controller,
+    required this.voiceEnabled,
+  });
 
   final PlayerState state;
   final PlayerController controller;
+
+  /// A voice turned off in Settings makes "listen" a dead button, so it is not
+  /// offered at all and reading takes the whole row.
+  final bool voiceEnabled;
+
+  @override
+  State<_SelectedView> createState() => _SelectedViewState();
+}
+
+class _SelectedViewState extends State<_SelectedView> {
+  /// The steps are the instruction, and the instruction is shown the way the
+  /// listener asked for it — aloud or on the page, never both and never
+  /// unasked (docs/DECISIONS.md 69).
+  bool _reading = false;
+
+  /// A reading was asked for, so the same button offers to cut it short.
+  ///
+  /// Cues are spoken and forgotten — the voice is told to let a later cue cut
+  /// in rather than queue behind this one (docs/AUDIO_SPEC.md, collision
+  /// policy) — so nothing reports back when a reading ends. The offer to stop
+  /// therefore stands until the listener takes it, reads instead, or starts.
+  bool _speaking = false;
+
+  void _listen() {
+    if (_speaking) {
+      _stopSpeaking();
+      return;
+    }
+    widget.controller.speakInstructions();
+    setState(() {
+      _reading = false;
+      _speaking = true;
+    });
+  }
+
+  void _stopSpeaking() {
+    widget.controller.stopSpeaking();
+    setState(() => _speaking = false);
+  }
+
+  void _read() {
+    if (_speaking) _stopSpeaking();
+    setState(() => _reading = !_reading);
+  }
 
   @override
   Widget build(BuildContext context) {
     final AppStrings t = AppStrings.of(context);
     final ThemeData theme = Theme.of(context);
-    final Exercise exercise = state.exercise!;
+    final Exercise exercise = widget.state.exercise!;
     final ExerciseText text = exercise.text;
+    final bool canListen =
+        widget.voiceEnabled && text.spokenInstructions.isNotEmpty;
+    final bool canRead =
+        text.startPosition != null ||
+        text.instructions.isNotEmpty ||
+        text.techniqueTips.isNotEmpty;
 
     // Start stays pinned: the primary action must never require scrolling.
     return Column(
@@ -147,48 +202,52 @@ class _SelectedView extends StatelessWidget {
                 Text(text.purpose!, style: theme.textTheme.bodyLarge),
                 const SizedBox(height: 20),
               ],
-              if (text.startPosition != null)
-                _Section(
-                  title: text.startPositionTitle ?? '',
-                  child: Text(
-                    text.startPosition!,
-                    style: theme.textTheme.bodyMedium,
+              // The instruction is on the page only while it is being read.
+              if (_reading) ...<Widget>[
+                if (text.startPosition != null)
+                  _Section(
+                    title: text.startPositionTitle ?? '',
+                    child: Text(
+                      text.startPosition!,
+                      style: theme.textTheme.bodyMedium,
+                    ),
                   ),
-                ),
-              if (text.instructions.isNotEmpty)
-                _Section(
-                  title: text.instructionsTitle ?? '',
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      for (int i = 0; i < text.instructions.length; i++)
-                        Padding(
-                          padding: const EdgeInsets.only(bottom: 8),
-                          child: Text(
-                            '${i + 1}. ${text.instructions[i]}',
-                            style: theme.textTheme.bodyMedium,
+                if (text.instructions.isNotEmpty)
+                  _Section(
+                    title: text.instructionsTitle ?? '',
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        for (int i = 0; i < text.instructions.length; i++)
+                          Padding(
+                            padding: const EdgeInsets.only(bottom: 8),
+                            child: Text(
+                              '${i + 1}. ${text.instructions[i]}',
+                              style: theme.textTheme.bodyMedium,
+                            ),
                           ),
-                        ),
-                    ],
+                      ],
+                    ),
                   ),
-                ),
-              if (text.techniqueTips.isNotEmpty)
-                _Section(
-                  title: text.techniqueTipsTitle ?? '',
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      for (final String tip in text.techniqueTips)
-                        Padding(
-                          padding: const EdgeInsets.only(bottom: 8),
-                          child: Text(
-                            '• $tip',
-                            style: theme.textTheme.bodyMedium,
+                if (text.techniqueTips.isNotEmpty)
+                  _Section(
+                    title: text.techniqueTipsTitle ?? '',
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        for (final String tip in text.techniqueTips)
+                          Padding(
+                            padding: const EdgeInsets.only(bottom: 8),
+                            child: Text(
+                              '• $tip',
+                              style: theme.textTheme.bodyMedium,
+                            ),
                           ),
-                        ),
-                    ],
+                      ],
+                    ),
                   ),
-                ),
+              ],
+              // The warning is not an instruction and is never folded away.
               if (text.safety != null)
                 _Section(
                   title: text.safetyLabel ?? '',
@@ -197,23 +256,57 @@ class _SelectedView extends StatelessWidget {
             ],
           ),
         ),
-        // Read aloud before starting: the steps take longer to say than a
-        // cue, so they are offered here rather than spoken over the movement.
-        if (text.spokenInstructions.isNotEmpty)
+        // Two ways to take the instruction in, offered side by side. Listening
+        // happens here rather than over the movement: the steps take far
+        // longer to say than a cue and would collide with the rhythm words
+        // (docs/AUDIO_SPEC.md, collision policy).
+        if (canListen || canRead)
           Padding(
             padding: const EdgeInsets.only(bottom: 8),
-            child: OutlinedButton.icon(
-              onPressed: controller.speakInstructions,
-              icon: const Icon(Icons.volume_up_outlined),
-              label: Text(t('app.exercise.listen_instructions')),
+            child: Row(
+              children: <Widget>[
+                if (canListen)
+                  Expanded(
+                    child: OutlinedButton.icon(
+                      onPressed: _listen,
+                      icon: Icon(
+                        _speaking
+                            ? Icons.stop_outlined
+                            : Icons.volume_up_outlined,
+                      ),
+                      label: Text(
+                        _speaking
+                            ? t('app.exercise.stop_listening')
+                            : t('app.exercise.listen_instructions'),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                  ),
+                if (canListen && canRead) const SizedBox(width: 12),
+                if (canRead)
+                  Expanded(
+                    child: OutlinedButton.icon(
+                      onPressed: _read,
+                      icon: Icon(
+                        _reading ? Icons.expand_less : Icons.article_outlined,
+                      ),
+                      label: Text(
+                        _reading
+                            ? t('app.exercise.hide_instructions')
+                            : t('app.exercise.read_instructions'),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                  ),
+              ],
             ),
           ),
         Padding(
           padding: const EdgeInsets.only(bottom: 16),
           child: FilledButton.icon(
             onPressed: () {
-              controller.stopSpeaking();
-              controller.start();
+              widget.controller.stopSpeaking();
+              widget.controller.start();
             },
             icon: const Icon(Icons.play_arrow),
             label: Text(t(StringKeys.start)),

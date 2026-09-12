@@ -240,7 +240,13 @@ void main() {
       find.textContaining('A simple starter exercise for elbow mobility'),
       findsOneWidget,
     );
-    expect(find.text('Starting position'), findsOneWidget);
     expect(find.text('Listen to the steps'), findsOneWidget);
+    expect(find.text('Read the steps'), findsOneWidget);
+
+    // The steps themselves are translated too, and they arrive in English
+    // because the button that reveals them is in English.
+    await tester.tap(find.text('Read the steps'));
+    await settle();
+    expect(find.text('Starting position'), findsOneWidget);
   });
 }

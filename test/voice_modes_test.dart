@@ -106,49 +106,82 @@ void main() {
   testWidgets('the idle screen reads the steps aloud on request', (
     WidgetTester tester,
   ) async {
-    final InMemoryLocalStore store = InMemoryLocalStore();
-    await store.writeSettings(const AppSettings(localeOverride: 'uk'));
     final LoggingAudioService audio = LoggingAudioService();
-
-    tester.view
-      ..devicePixelRatio = 1.0
-      ..physicalSize = const Size(400, 900);
-    addTearDown(tester.view.reset);
-
-    await tester.pumpWidget(
-      ProviderScope(
-        overrides: <Override>[
-          localStoreProvider.overrideWithValue(store),
-          assetBundleProvider.overrideWithValue(DiskAssetBundle()),
-          audioServiceProvider.overrideWithValue(audio),
-        ],
-        child: const EaseMoveApp(),
-      ),
-    );
-    Future<void> settle() async {
-      for (int i = 0; i < 8; i++) {
-        await tester.pump(const Duration(milliseconds: 50));
-      }
-    }
-
-    await settle();
-    await tester.tap(find.byKey(const ValueKey<String>('hotspot.left_elbow')));
-    await tester.pump(const Duration(milliseconds: 400));
-    await settle();
-    await tester.tap(find.text('Почати').first);
-    await settle();
+    await openFirstElbow(tester, audio: audio);
 
     expect(audio.log, isEmpty);
     await tester.tap(find.text('Прослухати інструкцію'));
-    await settle();
+    await settleFrames(tester);
     expect(audio.log, contains('voice:VOICE_INSTRUCTIONS'));
+
+    // Aloud means aloud: the steps do not also land under the model.
+    expect(find.text('Як виконувати'), findsNothing);
 
     // Starting the session cuts the read-aloud short rather than talking over
     // the preparation cue.
     await tester.tap(find.widgetWithText(FilledButton, 'Старт'));
-    await settle();
+    await settleFrames(tester);
     expect(audio.log, contains('stop'));
     expect(audio.log, contains('voice:VOICE_SETUP'));
+  });
+
+  testWidgets('reading and listening are two separate offers', (
+    WidgetTester tester,
+  ) async {
+    final LoggingAudioService audio = LoggingAudioService();
+    await openFirstElbow(tester, audio: audio);
+
+    // Neither happens on its own: the model, the purpose and the safety line
+    // are the whole screen until the listener picks a way in.
+    expect(find.text('Як виконувати'), findsNothing);
+    expect(find.text('Зверніть увагу'), findsNothing);
+    expect(find.text('Безпека'), findsOneWidget);
+    expect(find.text('Прослухати інструкцію'), findsOneWidget);
+    expect(find.text('Прочитати інструкцію'), findsOneWidget);
+
+    // Reading puts the steps on the page and says nothing.
+    await tester.tap(find.text('Прочитати інструкцію'));
+    await settleFrames(tester);
+    expect(find.text('Початкове положення'), findsOneWidget);
+    expect(audio.log, isEmpty);
+
+    // The steps and the tips are down the page, under the model.
+    await tester.drag(find.byType(ListView), const Offset(0, -600));
+    await settleFrames(tester);
+    expect(find.text('Як виконувати'), findsOneWidget);
+    expect(find.text('Зверніть увагу'), findsOneWidget);
+
+    // The same button folds them away again.
+    await tester.tap(find.text('Сховати інструкцію'));
+    await settleFrames(tester);
+    expect(find.text('Як виконувати'), findsNothing);
+
+    // Listening offers to cut itself short, and takes the steps back off the
+    // page if they were on it.
+    await tester.tap(find.text('Прочитати інструкцію'));
+    await settleFrames(tester);
+    await tester.tap(find.text('Прослухати інструкцію'));
+    await settleFrames(tester);
+    expect(audio.log, contains('voice:VOICE_INSTRUCTIONS'));
+    expect(find.text('Початкове положення'), findsNothing);
+
+    await tester.tap(find.text('Зупинити'));
+    await settleFrames(tester);
+    expect(audio.log, contains('stop'));
+    expect(find.text('Прослухати інструкцію'), findsOneWidget);
+  });
+
+  testWidgets('a silenced voice leaves only the offer to read', (
+    WidgetTester tester,
+  ) async {
+    await openFirstElbow(
+      tester,
+      audio: LoggingAudioService(),
+      settings: const AppSettings(localeOverride: 'uk', voiceEnabled: false),
+    );
+
+    expect(find.text('Прослухати інструкцію'), findsNothing);
+    expect(find.text('Прочитати інструкцію'), findsOneWidget);
   });
 
   group('the recorded pack', () {
@@ -279,4 +312,45 @@ void main() {
     await settle();
     expect(find.text('Слова руху'), findsNothing);
   });
+}
+
+/// The widget tests here all start on one idle exercise screen, reached the
+/// way a listener reaches it: body → elbow → the first card.
+Future<void> openFirstElbow(
+  WidgetTester tester, {
+  required AudioService audio,
+  AppSettings settings = const AppSettings(localeOverride: 'uk'),
+}) async {
+  final InMemoryLocalStore store = InMemoryLocalStore();
+  await store.writeSettings(settings);
+
+  tester.view
+    ..devicePixelRatio = 1.0
+    ..physicalSize = const Size(400, 900);
+  addTearDown(tester.view.reset);
+
+  await tester.pumpWidget(
+    ProviderScope(
+      overrides: <Override>[
+        localStoreProvider.overrideWithValue(store),
+        assetBundleProvider.overrideWithValue(DiskAssetBundle()),
+        audioServiceProvider.overrideWithValue(audio),
+      ],
+      child: const EaseMoveApp(),
+    ),
+  );
+
+  await settleFrames(tester);
+  await tester.tap(find.byKey(const ValueKey<String>('hotspot.left_elbow')));
+  await tester.pump(const Duration(milliseconds: 400));
+  await settleFrames(tester);
+  await tester.tap(find.text('Почати').first);
+  await settleFrames(tester);
+}
+
+/// Pumps without `pumpAndSettle`: the body screen animates forever.
+Future<void> settleFrames(WidgetTester tester) async {
+  for (int i = 0; i < 8; i++) {
+    await tester.pump(const Duration(milliseconds: 50));
+  }
 }

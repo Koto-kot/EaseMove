@@ -129,8 +129,14 @@ void main() {
     await tester.tap(find.text('Почати').first);
     await settle(tester);
     expect(find.byType(PlayerScreen), findsOneWidget);
-    expect(find.text('Початкове положення'), findsOneWidget);
     expect(playerState().state, SessionState.selected);
+
+    // The instruction waits behind its own button, so the model keeps the
+    // screen (docs/UX_FLOW.md C).
+    expect(find.text('Початкове положення'), findsNothing);
+    await tester.tap(find.text('Прочитати інструкцію'));
+    await settle(tester);
+    expect(find.text('Початкове положення'), findsOneWidget);
 
     // --- Start → 5 second prep countdown; the exercise timer stays at zero.
     await tester.tap(find.widgetWithText(FilledButton, 'Старт'));
