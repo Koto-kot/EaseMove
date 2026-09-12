@@ -42,6 +42,7 @@ class PlayerState {
       state: SessionState.selected,
       elapsedMs: 0,
       prepRemainingMs: 0,
+      prepIntroRemainingMs: 0,
       restRemainingMs: 0,
       pauseCount: 0,
       autoModeEnabled: false,

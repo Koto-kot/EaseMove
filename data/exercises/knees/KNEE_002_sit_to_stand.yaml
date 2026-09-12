@@ -348,6 +348,7 @@ ui:
       next_label_resolved_uk: Наступна вправа
 timing:
   prep_countdown_seconds: 5
+  prep_intro_ms: 5700
   rest_after_seconds: 10
   completion_mode: prescribed_repetitions
   prescription:

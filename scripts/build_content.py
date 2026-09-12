@@ -213,6 +213,9 @@ def compile_exercise(path: Path, locale: str) -> dict:
             "prepCountdownSeconds": int(
                 timing.get("prep_countdown_seconds", flow.get("start_countdown_seconds", 5))
             ),
+            # How long the spoken setup line runs, so the countdown can wait
+            # for it instead of talking over it (docs/UX_FLOW.md B).
+            "prepIntroMs": int(timing.get("prep_intro_ms", 0)),
             "restAfterSeconds": int(timing.get("rest_after_seconds", 10)),
             "completionMode": timing.get("completion_mode", "prescribed_repetitions"),
             "estimatedActiveSeconds": int(timing.get("estimated_active_duration_seconds", 0)),

@@ -138,13 +138,22 @@ void main() {
     await settle(tester);
     expect(find.text('Початкове положення'), findsOneWidget);
 
-    // --- Start → 5 second prep countdown; the exercise timer stays at zero.
+    // --- Start → the setup line is said first, with no numbers over it.
     await tester.tap(find.widgetWithText(FilledButton, 'Старт'));
     await settle(tester);
-    expect(find.text('Починаємо через'), findsOneWidget);
     expect(playerState().state, SessionState.prepCountdown);
     expect(playerState().snapshot.elapsedMs, 0);
+    expect(audio.log, contains('voice:VOICE_PREPARE'));
+    expect(audio.log, isNot(contains('tick:5')));
+    expect(find.text('Починаємо через'), findsNothing);
+
+    // --- Then the 5 second countdown; the exercise timer stays at zero.
+    await tester.pump(
+      Duration(milliseconds: playerState().exercise!.timing.prepIntroMs),
+    );
+    expect(find.text('Починаємо через'), findsOneWidget);
     expect(audio.log, contains('tick:5'));
+    expect(playerState().snapshot.elapsedMs, 0);
 
     await tester.pump(const Duration(seconds: 2));
     expect(find.text('3'), findsOneWidget);
@@ -202,10 +211,13 @@ void main() {
     expect(find.text('Встати — сісти зі стільця'), findsOneWidget);
 
     // --- Rest reaches zero and the next exercise starts on its own, with its
-    // own prep countdown.
+    // own setup line and then its own prep countdown.
     await tester.pump(const Duration(seconds: 10));
     await settle(tester);
     expect(find.text('Встати — сісти зі стільця'), findsWidgets);
+    await tester.pump(
+      Duration(milliseconds: playerState().exercise!.timing.prepIntroMs),
+    );
     expect(find.text('Починаємо через'), findsOneWidget);
   });
 

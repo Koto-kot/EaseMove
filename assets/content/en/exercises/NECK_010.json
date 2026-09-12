@@ -101,6 +101,7 @@
   "labels": {},
   "timing": {
     "prepCountdownSeconds": 5,
+    "prepIntroMs": 5600,
     "restAfterSeconds": 10,
     "completionMode": "timed_duration",
     "estimatedActiveSeconds": 61

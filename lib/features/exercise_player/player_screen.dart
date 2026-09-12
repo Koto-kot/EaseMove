@@ -348,8 +348,12 @@ class _ActiveView extends StatelessWidget {
     final SessionSnapshot snapshot = state.snapshot;
     final TimelineStep? step = state.currentStep;
     final bool counting = snapshot.isCountingDown;
+    // The start pose holds through both halves of PREP_COUNTDOWN: the spoken
+    // introduction and then the numbers.
+    final bool beforeMovement =
+        counting || snapshot.state == SessionState.prepCountdown;
 
-    final String? frameId = counting
+    final String? frameId = beforeMovement
         ? state.timeline?.first.keyFrameId
         : reducedMotion
         ? step?.keyFrameId

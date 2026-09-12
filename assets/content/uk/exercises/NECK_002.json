@@ -114,6 +114,7 @@
   },
   "timing": {
     "prepCountdownSeconds": 5,
+    "prepIntroMs": 4200,
     "restAfterSeconds": 10,
     "completionMode": "prescribed_repetitions",
     "estimatedActiveSeconds": 51

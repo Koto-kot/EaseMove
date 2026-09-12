@@ -108,6 +108,7 @@
   "labels": {},
   "timing": {
     "prepCountdownSeconds": 5,
+    "prepIntroMs": 4700,
     "restAfterSeconds": 10,
     "completionMode": "timed_duration",
     "estimatedActiveSeconds": 61

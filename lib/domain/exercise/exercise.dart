@@ -272,6 +272,7 @@ class ExerciseText {
 class ExerciseTiming {
   const ExerciseTiming({
     required this.prepCountdownSeconds,
+    required this.prepIntroMs,
     required this.restAfterSeconds,
     required this.completionMode,
     required this.estimatedActiveSeconds,
@@ -281,6 +282,7 @@ class ExerciseTiming {
     return ExerciseTiming(
       prepCountdownSeconds:
           (json['prepCountdownSeconds'] as num?)?.toInt() ?? 5,
+      prepIntroMs: (json['prepIntroMs'] as num?)?.toInt() ?? 0,
       restAfterSeconds: (json['restAfterSeconds'] as num?)?.toInt() ?? 10,
       completionMode:
           json['completionMode'] as String? ?? 'prescribed_repetitions',
@@ -290,6 +292,13 @@ class ExerciseTiming {
   }
 
   final int prepCountdownSeconds;
+
+  /// How long the spoken setup line runs. The countdown waits this long before
+  /// the first number, so the two are never said over each other
+  /// (docs/UX_FLOW.md B). Measured from the recorded pack; zero means there is
+  /// nothing to wait for.
+  final int prepIntroMs;
+
   final int restAfterSeconds;
   final String completionMode;
   final int estimatedActiveSeconds;

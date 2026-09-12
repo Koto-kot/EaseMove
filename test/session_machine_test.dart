@@ -43,8 +43,15 @@ void main() {
       expect(machine.elapsedMs, 0);
     });
 
-    test('Start runs a 5 second prep countdown before the exercise timer', () {
+    test('Start says the setup line, and only then counts down', () {
       final SessionMachine machine = machineFor('KNEE_001');
+      final int introMs = machine.exercise.timing.prepIntroMs;
+      expect(
+        introMs,
+        greaterThan(0),
+        reason: 'this exercise has a setup line to say',
+      );
+
       final List<SessionEffect> onStart = machine.handle(
         SessionEventType.start,
       );
@@ -60,23 +67,43 @@ void main() {
         onStart.whereType<PlayVoiceCue>().map((PlayVoiceCue c) => c.eventId),
         contains('VOICE_PREPARE'),
       );
-      expect(
-        onStart.whereType<PlayCountdownTick>().map(
-          (PlayCountdownTick t) => t.secondsLeft,
-        ),
-        <int>[5],
-      );
+      // Nothing counts while the line is being said: both go to the same
+      // voice, and "five" over "sit up straight" leaves neither audible.
+      expect(onStart.whereType<PlayCountdownTick>(), isEmpty);
+      expect(machine.snapshot.isPreparing, isTrue);
+      expect(machine.snapshot.isCountingDown, isFalse);
 
-      final List<int> ticks = <int>[];
+      final List<int> duringIntro = <int>[];
+      for (int ms = 0; ms + 100 < introMs; ms += 100) {
+        duringIntro.addAll(
+          machine
+              .tick(const Duration(milliseconds: 100))
+              .whereType<PlayCountdownTick>()
+              .map((PlayCountdownTick t) => t.secondsLeft),
+        );
+      }
+      expect(duringIntro, isEmpty);
+      expect(machine.snapshot.prepSecondsLeft, 5);
+
+      // The line is over; now five.
+      final List<int> ticks = machine
+          .tick(const Duration(milliseconds: 100))
+          .whereType<PlayCountdownTick>()
+          .map((PlayCountdownTick t) => t.secondsLeft)
+          .toList();
+      expect(ticks, <int>[5]);
+      expect(machine.snapshot.isCountingDown, isTrue);
+
+      final List<int> rest = <int>[];
       for (int i = 0; i < 4; i++) {
-        ticks.addAll(
+        rest.addAll(
           machine
               .tick(const Duration(seconds: 1))
               .whereType<PlayCountdownTick>()
               .map((PlayCountdownTick t) => t.secondsLeft),
         );
       }
-      expect(ticks, <int>[4, 3, 2, 1]);
+      expect(rest, <int>[4, 3, 2, 1]);
       expect(machine.state, SessionState.prepCountdown);
 
       final List<SessionEffect> last = machine.tick(const Duration(seconds: 1));
@@ -156,6 +183,8 @@ void main() {
     test('pausing during the prep countdown keeps the countdown position', () {
       final SessionMachine machine = machineFor('KNEE_001');
       machine.handle(SessionEventType.start);
+      // Past the setup line, then two seconds of counting.
+      machine.tick(Duration(milliseconds: machine.exercise.timing.prepIntroMs));
       advance(machine, 2);
       expect(machine.snapshot.prepSecondsLeft, 3);
 
@@ -165,6 +194,18 @@ void main() {
 
       machine.handle(SessionEventType.resume);
       expect(machine.state, SessionState.prepCountdown);
+    });
+
+    test('pausing during the setup line freezes it too', () {
+      final SessionMachine machine = machineFor('KNEE_001');
+      machine.handle(SessionEventType.start);
+      machine.tick(const Duration(seconds: 1));
+      final int left = machine.snapshot.prepIntroRemainingMs;
+      expect(left, greaterThan(0));
+
+      machine.handle(SessionEventType.pause);
+      advance(machine, 5);
+      expect(machine.snapshot.prepIntroRemainingMs, left);
     });
 
     test(
@@ -366,7 +407,14 @@ void main() {
 
       expect(machine.state, SessionState.prepCountdown);
       expect(machine.snapshot.autoModeEnabled, isTrue);
-      expect(effects.whereType<PlayCountdownTick>(), isNotEmpty);
+      // The setup line first, then the numbers — same as a manual start.
+      expect(effects.whereType<PlayVoiceCue>(), isNotEmpty);
+      expect(
+        machine
+            .tick(Duration(milliseconds: machine.exercise.timing.prepIntroMs))
+            .whereType<PlayCountdownTick>(),
+        isNotEmpty,
+      );
     });
   });
 

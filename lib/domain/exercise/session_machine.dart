@@ -145,6 +145,7 @@ class SessionSnapshot {
     required this.state,
     required this.elapsedMs,
     required this.prepRemainingMs,
+    required this.prepIntroRemainingMs,
     required this.restRemainingMs,
     required this.pauseCount,
     required this.autoModeEnabled,
@@ -153,13 +154,24 @@ class SessionSnapshot {
   final SessionState state;
   final int elapsedMs;
   final int prepRemainingMs;
+
+  /// Time left in the spoken setup line. The screen holds the start pose while
+  /// it runs, and the numbers have not begun.
+  final int prepIntroRemainingMs;
+
   final int restRemainingMs;
   final int pauseCount;
   final bool autoModeEnabled;
 
   bool get isRunning =>
       state == SessionState.prepCountdown || state == SessionState.active;
-  bool get isCountingDown => state == SessionState.prepCountdown;
+
+  /// PREP_COUNTDOWN covers the spoken introduction and the numbers; only the
+  /// second half is a countdown, so only it shows one.
+  bool get isPreparing =>
+      state == SessionState.prepCountdown && prepIntroRemainingMs > 0;
+  bool get isCountingDown =>
+      state == SessionState.prepCountdown && prepIntroRemainingMs <= 0;
   bool get isResting => state == SessionState.autoRest;
 
   /// Whole seconds remaining, the way a countdown reads: 5, 4, 3, 2, 1.
@@ -181,6 +193,7 @@ class SessionMachine {
        _prepDurationMs = skipCountdowns
            ? 0
            : exercise.timing.prepCountdownSeconds * 1000,
+       _prepIntroDurationMs = skipCountdowns ? 0 : exercise.timing.prepIntroMs,
        _restDurationMs = exercise.flow.restSeconds * 1000;
 
   final Exercise exercise;
@@ -198,11 +211,13 @@ class SessionMachine {
 
   final DateTime Function() _clock;
   final int _prepDurationMs;
+  final int _prepIntroDurationMs;
   final int _restDurationMs;
 
   SessionState _state = SessionState.selected;
   int _elapsedMs = 0;
   int _prepRemainingMs = 0;
+  int _prepIntroRemainingMs = 0;
   int _restRemainingMs = 0;
   int _pauseCount = 0;
   bool _autoModeEnabled = false;
@@ -215,6 +230,7 @@ class SessionMachine {
     state: _state,
     elapsedMs: _elapsedMs,
     prepRemainingMs: _prepRemainingMs,
+    prepIntroRemainingMs: _prepIntroRemainingMs,
     restRemainingMs: _restRemainingMs,
     pauseCount: _pauseCount,
     autoModeEnabled: _autoModeEnabled,
@@ -334,6 +350,7 @@ class SessionMachine {
 
     final List<SessionEffect> effects = <SessionEffect>[];
     final AudioEvent? prepare = _eventByTrigger('prep_countdown_started');
+    _prepIntroRemainingMs = prepare == null ? 0 : _prepIntroDurationMs;
     if (prepare != null) {
       effects.add(
         PlayVoiceCue(
@@ -344,11 +361,14 @@ class SessionMachine {
       );
     }
     if (_prepRemainingMs <= 0) {
+      _prepIntroRemainingMs = 0;
       effects.addAll(_enterActive());
       return effects;
     }
-    // Announce the first number immediately: 5 → 4 → 3 → 2 → 1
+    // The setup line gets said in full before "five": both go to the same
+    // voice, so starting them together means hearing neither
     // (docs/UX_FLOW.md B).
+    if (_prepIntroRemainingMs > 0) return effects;
     _lastCountdownSecondAnnounced = (_prepRemainingMs / 1000).ceil();
     effects.add(PlayCountdownTick(_lastCountdownSecondAnnounced));
     return effects;
@@ -356,6 +376,18 @@ class SessionMachine {
 
   List<SessionEffect> _tickPrep(int deltaMs) {
     final List<SessionEffect> effects = <SessionEffect>[];
+
+    if (_prepIntroRemainingMs > 0) {
+      _prepIntroRemainingMs -= deltaMs;
+      if (_prepIntroRemainingMs > 0) return effects;
+      // Whatever of this tick was left over belongs to the countdown.
+      deltaMs = -_prepIntroRemainingMs;
+      _prepIntroRemainingMs = 0;
+      _lastCountdownSecondAnnounced = (_prepRemainingMs / 1000).ceil();
+      effects.add(PlayCountdownTick(_lastCountdownSecondAnnounced));
+      if (deltaMs <= 0) return effects;
+    }
+
     _prepRemainingMs -= deltaMs;
 
     final int secondsLeft = _prepRemainingMs <= 0

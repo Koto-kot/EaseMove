@@ -13,9 +13,14 @@ spread across thirteen YAML files, so it is generated here.
 Lines whose `asset_key` starts with `common.` are recorded once and reused by
 every exercise (docs/AUDIO_SPEC.md). A line already on disk is marked as
 recorded, so the script doubles as the progress report for the voice pack.
+
+It also fails when a setup line outgrew the `timing.prep_intro_ms` the
+countdown waits for it. Re-recording that line a second longer would otherwise
+put "five" back on top of it, which is a defect nobody would see in a diff.
 """
 from __future__ import annotations
 
+import struct
 import sys
 from pathlib import Path
 
@@ -257,6 +262,66 @@ def build(lang: str) -> tuple[int, int]:
     return recorded, total
 
 
+def m4a_duration_ms(path: Path) -> int | None:
+    """Length of an MP4/M4A, read from its `mvhd` box.
+
+    No decoder and no ffmpeg: the header carries a timescale and a duration,
+    and every file in the pack is written by the same pipeline.
+    """
+    try:
+        blob = path.read_bytes()
+    except OSError:
+        return None
+    at = blob.find(b"mvhd")
+    if at < 0:
+        return None
+    # "mvhd", then version(1) + flags(3), then the two timestamps, then the
+    # timescale and the duration - both wider when version is 1.
+    version = blob[at + 4]
+    try:
+        if version == 1:
+            timescale, duration = struct.unpack(">IQ", blob[at + 24 : at + 36])
+        else:
+            timescale, duration = struct.unpack(">II", blob[at + 16 : at + 24])
+    except struct.error:
+        return None
+    if not timescale:
+        return None
+    return int(round(duration * 1000 / timescale))
+
+
+def check_prep_intros() -> list[str]:
+    """The countdown waits `prep_intro_ms` for the setup line. Say so."""
+    problems: list[str] = []
+    index = load(DATA / "exercises/index.yaml")
+    for entry in index["exercises"]:
+        raw = load(DATA / "exercises" / entry["file"])
+        events = [
+            e
+            for e in (raw.get("audio", {}).get("events") or [])
+            if (e.get("trigger") or {}).get("event") == "prep_countdown_started"
+        ]
+        if not events:
+            continue
+        declared = int((raw.get("timing") or {}).get("prep_intro_ms", 0))
+        target = events[0].get("target_file")
+        if not target:
+            continue
+        for lang in LANGUAGES:
+            path = ROOT / localized(target, lang)
+            length = m4a_duration_ms(path)
+            if length is None:
+                continue
+            if length > declared:
+                problems.append(
+                    "{0}: {1} runs {2} ms but timing.prep_intro_ms is {3} ms — "
+                    "the countdown would start over the line".format(
+                        entry["id"], localized(target, lang), length, declared
+                    )
+                )
+    return problems
+
+
 def main() -> int:
     # The single-language file this replaced.
     legacy = OUT_DIR / "AUDIO_SCRIPT.md"
@@ -264,6 +329,16 @@ def main() -> int:
         legacy.unlink()
     for lang in LANGUAGES:
         build(lang)
+
+    problems = check_prep_intros()
+    for problem in problems:
+        print("ERROR: " + problem)
+    if problems:
+        print(
+            "\nRe-measure after re-recording a setup line: the countdown waits "
+            "timing.prep_intro_ms before the first number."
+        )
+        return 1
     return 0
 
 
