@@ -93,6 +93,7 @@ class ExerciseTimeline {
   factory ExerciseTimeline.build(
     Exercise exercise, {
     double timingMultiplier = 1.0,
+    VoiceMode voiceMode = VoiceMode.minimal,
   }) {
     final List<TimelineStep> steps = <TimelineStep>[];
     int cursor = 0;
@@ -143,7 +144,7 @@ class ExerciseTimeline {
 
     return ExerciseTimeline(
       steps: steps,
-      cues: _resolveCues(exercise, steps, cursor),
+      cues: _resolveCues(exercise, steps, cursor, voiceMode),
       totalRepetitions: totalRepetitions,
       totalDurationMs: cursor,
     );
@@ -222,6 +223,7 @@ class ExerciseTimeline {
     Exercise exercise,
     List<TimelineStep> steps,
     int totalMs,
+    VoiceMode voiceMode,
   ) {
     final List<ScheduledCue> cues = <ScheduledCue>[];
 
@@ -238,6 +240,9 @@ class ExerciseTimeline {
     }
 
     for (final AudioEvent event in exercise.audioEvents) {
+      // A cue that names a mode belongs to that mode only, so the rhythm
+      // words stay silent until the listener asks for them.
+      if (event.voiceMode != null && event.voiceMode != voiceMode) continue;
       final AudioTrigger trigger = event.trigger;
       switch (trigger.event) {
         case 'sequence_phase_started':

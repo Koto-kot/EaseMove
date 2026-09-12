@@ -52,3 +52,19 @@ flutter:
     - assets/exercises/ELBOW_007/images/
     - assets/exercises/ELBOW_008/images/
     - assets/exercises/ELBOW_009/images/
+    # The voice pack. Lines not recorded yet fall back to text-to-speech
+    # (lib/core/audio/recorded_voice_audio_service.dart).
+    - audio/uk/common/
+    - audio/uk/exercises/ELBOW_001/
+    - audio/uk/exercises/ELBOW_002/
+    - audio/uk/exercises/ELBOW_003/
+    - audio/uk/exercises/ELBOW_004/
+    - audio/uk/exercises/ELBOW_005/
+    - audio/uk/exercises/ELBOW_006/
+    - audio/uk/exercises/ELBOW_007/
+    - audio/uk/exercises/ELBOW_008/
+    - audio/uk/exercises/ELBOW_009/
+    - audio/uk/exercises/KNEE_001/
+    - audio/uk/exercises/KNEE_002/
+    - audio/uk/exercises/KNEE_003/
+    - audio/uk/exercises/NECK_001/

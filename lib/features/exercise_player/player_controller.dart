@@ -147,6 +147,7 @@ class PlayerController extends StateNotifier<PlayerState> {
     final ExerciseTimeline timeline = ExerciseTimeline.build(
       exercise,
       timingMultiplier: multiplier,
+      voiceMode: settings.voiceMode,
     );
 
     // Resolved before the machine exists: whether anything follows decides
@@ -215,6 +216,46 @@ class PlayerController extends StateNotifier<PlayerState> {
     _dispatch(SessionEventType.stop);
     _stopTicker();
   }
+
+  /// Reads the exercise's own "how to do it" text aloud.
+  ///
+  /// On request and only while the session is still idle: the steps take
+  /// longer to say than a cue, so speaking them over the movement would
+  /// collide with the rhythm words and with the halfway cue
+  /// (docs/AUDIO_SPEC.md, collision policy).
+  void speakInstructions() {
+    final Exercise? exercise = state.exercise;
+    if (exercise == null) return;
+    final String speech = exercise.text.spokenInstructions;
+    if (speech.isEmpty) return;
+    unawaited(
+      _audio?.play(
+            AudioEvent(
+              id: 'VOICE_INSTRUCTIONS',
+              type: 'instruction',
+              priority: 40,
+              interruptible: true,
+              playOncePerSide: false,
+              text: speech,
+              assetKey: null,
+              assetFile: null,
+              trigger: const AudioTrigger(
+                event: 'user_requested',
+                phase: null,
+                side: null,
+                percent: null,
+                repetitionNumber: null,
+                relativePosition: null,
+                offsetMs: null,
+              ),
+            ),
+          ) ??
+          Future<void>.value(),
+    );
+  }
+
+  /// Stops whatever is being said, so the read-aloud can be cut short.
+  void stopSpeaking() => unawaited(_audio?.stop() ?? Future<void>.value());
 
   void previous() => _dispatch(SessionEventType.previous);
 

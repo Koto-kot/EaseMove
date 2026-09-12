@@ -10,6 +10,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'app/app.dart';
 import 'app/providers.dart';
+import 'core/audio/recorded_voice_audio_service.dart';
 import 'core/audio/tts_audio_service.dart';
 import 'core/config/feature_flags.dart';
 import 'core/storage/local_store.dart';
@@ -36,9 +37,14 @@ Future<void> main() async {
         localStoreProvider.overrideWithValue(store),
         // The provider's default is the logging stub, so tests never reach a
         // platform channel; the real app speaks the authored cues.
-        audioServiceProvider.overrideWith(
-          (Ref ref) => TtsAudioService(languageCode: ref.watch(localeProvider)),
-        ),
+        audioServiceProvider.overrideWith((Ref ref) {
+          final String locale = ref.watch(localeProvider);
+          // Recorded lines win; everything not recorded yet is spoken.
+          return RecordedVoiceAudioService(
+            languageCode: locale,
+            fallback: TtsAudioService(languageCode: locale),
+          );
+        }),
       ],
       child: const EaseMoveApp(),
     ),

@@ -67,6 +67,7 @@ strings:
   app.exercise.working_zone: Працюють
   app.exercise.more_in_zone: Інші вправи
   app.exercise.back_to_body: До тіла
+  app.exercise.listen_instructions: Прослухати інструкцію
   app.activity.title: Моя активність
   app.activity.lifetime: Усього вправ
   app.activity.history: Останні заняття
@@ -78,6 +79,12 @@ strings:
   app.settings.language_system: Як у системі
   app.settings.audio: Звук і музика
   app.settings.voice: Голосові команди
+  app.settings.voice_mode.minimal: Мінімум голосу
+  app.settings.voice_mode.minimal_hint: Тільки на початку, на половині та в кінці
+  app.settings.voice_mode.phase_words: Слова руху
+  app.settings.voice_mode.phase_words_hint: Коротка підказка на кожний цикл — «Зігніть — розігніть»
+  app.settings.voice_mode.count: Лічба
+  app.settings.voice_mode.count_hint: Рахунок на кожний цикл — «Раз — два»
   app.settings.music: Фонова музика
   app.settings.reduced_motion: Зменшити рух
   app.settings.reminders: Нагадування

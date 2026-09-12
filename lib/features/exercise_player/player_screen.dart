@@ -197,10 +197,24 @@ class _SelectedView extends StatelessWidget {
             ],
           ),
         ),
+        // Read aloud before starting: the steps take longer to say than a
+        // cue, so they are offered here rather than spoken over the movement.
+        if (text.spokenInstructions.isNotEmpty)
+          Padding(
+            padding: const EdgeInsets.only(bottom: 8),
+            child: OutlinedButton.icon(
+              onPressed: controller.speakInstructions,
+              icon: const Icon(Icons.volume_up_outlined),
+              label: Text(t('app.exercise.listen_instructions')),
+            ),
+          ),
         Padding(
           padding: const EdgeInsets.only(bottom: 16),
           child: FilledButton.icon(
-            onPressed: controller.start,
+            onPressed: () {
+              controller.stopSpeaking();
+              controller.start();
+            },
             icon: const Icon(Icons.play_arrow),
             label: Text(t(StringKeys.start)),
           ),

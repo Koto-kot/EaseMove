@@ -18,6 +18,7 @@ import '../core/storage/local_store.dart';
 import '../data/content_bundle.dart';
 import '../data/exercise_repository.dart';
 import '../data/tracking_repository.dart';
+import '../domain/exercise/exercise.dart';
 
 /// Overridden in main() with the build's real environment, and in tests.
 final Provider<AppEnvironment> environmentProvider = Provider<AppEnvironment>(
@@ -52,6 +53,8 @@ class SettingsController extends StateNotifier<AppSettings> {
 
   Future<void> setVoiceEnabled(bool value) =>
       update(state.copyWith(voiceEnabled: value));
+  Future<void> setVoiceMode(VoiceMode value) =>
+      update(state.copyWith(voiceMode: value));
   Future<void> setMusicEnabled(bool value) =>
       update(state.copyWith(musicEnabled: value));
   Future<void> setReducedMotion(bool value) =>

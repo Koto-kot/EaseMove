@@ -6,12 +6,14 @@ import 'dart:convert';
 
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../domain/exercise/exercise.dart';
 import '../../domain/exercise/session_machine.dart';
 
 class AppSettings {
   const AppSettings({
     this.localeOverride,
     this.voiceEnabled = true,
+    this.voiceMode = VoiceMode.minimal,
     this.musicEnabled = true,
     this.reducedMotion = false,
     this.remindersEnabled = false,
@@ -25,6 +27,10 @@ class AppSettings {
   /// `null` means "follow the system language" (docs/LOCALIZATION.md).
   final String? localeOverride;
   final bool voiceEnabled;
+
+  /// How much is spoken while the movement runs. Independent of
+  /// [voiceEnabled], which is the master switch.
+  final VoiceMode voiceMode;
   final bool musicEnabled;
   final bool reducedMotion;
   final bool remindersEnabled;
@@ -38,6 +44,7 @@ class AppSettings {
     String? localeOverride,
     bool clearLocaleOverride = false,
     bool? voiceEnabled,
+    VoiceMode? voiceMode,
     bool? musicEnabled,
     bool? reducedMotion,
     bool? remindersEnabled,
@@ -52,6 +59,7 @@ class AppSettings {
           ? null
           : (localeOverride ?? this.localeOverride),
       voiceEnabled: voiceEnabled ?? this.voiceEnabled,
+      voiceMode: voiceMode ?? this.voiceMode,
       musicEnabled: musicEnabled ?? this.musicEnabled,
       reducedMotion: reducedMotion ?? this.reducedMotion,
       remindersEnabled: remindersEnabled ?? this.remindersEnabled,
@@ -82,6 +90,7 @@ class PreferencesLocalStore implements LocalStore {
 
   static const String _kLocale = 'settings.locale';
   static const String _kVoice = 'settings.voice';
+  static const String _kVoiceMode = 'settings.voice_mode';
   static const String _kMusic = 'settings.music';
   static const String _kReducedMotion = 'settings.reduced_motion';
   static const String _kReminders = 'settings.reminders';
@@ -106,6 +115,7 @@ class PreferencesLocalStore implements LocalStore {
   AppSettings readSettings() => AppSettings(
     localeOverride: _prefs.getString(_kLocale),
     voiceEnabled: _prefs.getBool(_kVoice) ?? true,
+    voiceMode: VoiceMode.parse(_prefs.getString(_kVoiceMode)),
     musicEnabled: _prefs.getBool(_kMusic) ?? true,
     reducedMotion: _prefs.getBool(_kReducedMotion) ?? false,
     remindersEnabled: _prefs.getBool(_kReminders) ?? false,
@@ -124,6 +134,7 @@ class PreferencesLocalStore implements LocalStore {
       await _prefs.setString(_kLocale, settings.localeOverride!);
     }
     await _prefs.setBool(_kVoice, settings.voiceEnabled);
+    await _prefs.setString(_kVoiceMode, settings.voiceMode.id);
     await _prefs.setBool(_kMusic, settings.musicEnabled);
     await _prefs.setBool(_kReducedMotion, settings.reducedMotion);
     await _prefs.setBool(_kReminders, settings.remindersEnabled);

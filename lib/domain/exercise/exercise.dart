@@ -255,6 +255,18 @@ class ExerciseText {
   final String? safetyLabel;
   final String? safety;
   final String? completion;
+
+  /// The instruction block as one spoken passage: what the exercise is for,
+  /// how to sit or stand, then the numbered steps. Read aloud on request from
+  /// the idle screen (docs/AUDIO_SPEC.md).
+  String get spokenInstructions {
+    final List<String> parts = <String>[
+      if (purpose != null && purpose!.isNotEmpty) purpose!,
+      if (startPosition != null && startPosition!.isNotEmpty) startPosition!,
+      ...instructions.where((String step) => step.isNotEmpty),
+    ];
+    return parts.join(' ');
+  }
 }
 
 class ExerciseTiming {
@@ -471,6 +483,30 @@ class ExerciseFrame {
   final String? altText;
 }
 
+/// How much the app says while the movement runs (docs/AUDIO_SPEC.md).
+///
+/// The production briefs call these the rhythm modes and make them optional:
+/// the default speaks at the start, at the halfway mark and at the end, and
+/// never on every cycle.
+enum VoiceMode {
+  minimal('minimal'),
+
+  /// Adds the exercise's own phase words — «Зігніть — розігніть».
+  phaseWords('phase_words'),
+
+  /// Adds a neutral count — «Раз — два».
+  count('count');
+
+  const VoiceMode(this.id);
+
+  final String id;
+
+  static VoiceMode parse(String? raw) => values.firstWhere(
+    (VoiceMode mode) => mode.id == raw,
+    orElse: () => VoiceMode.minimal,
+  );
+}
+
 class AudioEvent {
   const AudioEvent({
     required this.id,
@@ -482,6 +518,7 @@ class AudioEvent {
     required this.assetKey,
     required this.assetFile,
     required this.trigger,
+    this.voiceMode,
   });
 
   factory AudioEvent.fromJson(Map<String, dynamic> json) => AudioEvent(
@@ -494,6 +531,9 @@ class AudioEvent {
     assetKey: json['assetKey'] as String?,
     assetFile: json['assetFile'] as String?,
     trigger: AudioTrigger.fromJson(_map(json['trigger'])),
+    voiceMode: json['voiceMode'] == null
+        ? null
+        : VoiceMode.parse(json['voiceMode'] as String?),
   );
 
   final String id;
@@ -505,6 +545,10 @@ class AudioEvent {
   final String? assetKey;
   final String? assetFile;
   final AudioTrigger trigger;
+
+  /// `null` for a cue that belongs to every mode. Otherwise the cue is
+  /// scheduled only when the listener has chosen that mode.
+  final VoiceMode? voiceMode;
 }
 
 class AudioTrigger {

@@ -288,8 +288,8 @@ audio:
   - id: VOICE_START_MOVEMENT
     type: movement
     trigger:
-      event: repetition_started
-      repetition_number: 1
+      event: sequence_phase_started
+      phase: PHASE_SETUP
     text_key: exercise.ELBOW_007.voice.start_movement
     text_uk: Плавно випряміть руку вгору і поверніть назад.
     asset_key: exercise.ELBOW_007.voice.start_movement
@@ -318,6 +318,54 @@ audio:
     target_file: audio/uk/common/completed.m4a
     priority: 120
     interruptible: false
+  - id: VOICE_PHASE_B
+    type: movement
+    voice_mode: phase_words
+    trigger:
+      event: sequence_phase_started
+      phase: PHASE_B
+    text_key: exercise.ELBOW_007.voice.phase_b
+    text_uk: Випряміть.
+    asset_key: exercise.ELBOW_007.voice.phase_b
+    target_file: audio/uk/exercises/ELBOW_007/phase_b.m4a
+    priority: 70
+    interruptible: true
+  - id: VOICE_PHASE_A
+    type: movement
+    voice_mode: phase_words
+    trigger:
+      event: sequence_phase_started
+      phase: PHASE_A
+    text_key: exercise.ELBOW_007.voice.phase_a
+    text_uk: Зігніть.
+    asset_key: exercise.ELBOW_007.voice.phase_a
+    target_file: audio/uk/exercises/ELBOW_007/phase_a.m4a
+    priority: 70
+    interruptible: true
+  - id: VOICE_COUNT_ONE
+    type: movement
+    voice_mode: count
+    trigger:
+      event: sequence_phase_started
+      phase: PHASE_B
+    text_key: common.voice.count_one
+    text_uk: Раз.
+    asset_key: common.voice.count_one
+    target_file: audio/uk/common/count_one.m4a
+    priority: 70
+    interruptible: true
+  - id: VOICE_COUNT_TWO
+    type: movement
+    voice_mode: count
+    trigger:
+      event: sequence_phase_started
+      phase: PHASE_A
+    text_key: common.voice.count_two
+    text_uk: Два.
+    asset_key: common.voice.count_two
+    target_file: audio/uk/common/count_two.m4a
+    priority: 70
+    interruptible: true
   recording_spec:
     current_status: not_recorded
     source_master_format: wav

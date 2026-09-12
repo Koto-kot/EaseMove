@@ -422,6 +422,9 @@ def compile_audio_event(event: dict, locale: str) -> dict:
         "priority": int(event.get("priority", 50)),
         "interruptible": bool(event.get("interruptible", True)),
         "playOncePerSide": bool(event.get("play_once_per_side", False)),
+        # A cue tagged with a mode is only scheduled when the listener has
+        # chosen that mode (docs/AUDIO_SPEC.md, rhythm modes).
+        "voiceMode": event.get("voice_mode"),
         "text": event.get("text_" + locale),
         "assetKey": event.get("asset_key"),
         "assetFile": event.get("target_file"),

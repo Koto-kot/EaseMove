@@ -20,5 +20,12 @@
   "body_zone.knees": "Kolana",
   "body_zone.calves": "Podudzia",
   "body_zone.ankles": "Stawy skokowe",
-  "body_zone.feet": "Stopy"
+  "body_zone.feet": "Stopy",
+  "app.exercise.listen_instructions": "Posłuchaj instrukcji",
+  "app.settings.voice_mode.minimal": "Minimum głosu",
+  "app.settings.voice_mode.minimal_hint": "Tylko na początku, w połowie i na końcu",
+  "app.settings.voice_mode.phase_words": "Słowa ruchu",
+  "app.settings.voice_mode.phase_words_hint": "Krótka podpowiedź w każdym cyklu — „Zegnij — wyprostuj”",
+  "app.settings.voice_mode.count": "Liczenie",
+  "app.settings.voice_mode.count_hint": "Liczenie w każdym cyklu — „Raz — dwa”"
 }

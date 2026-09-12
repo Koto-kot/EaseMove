@@ -43,6 +43,12 @@ jobs:
       # a stale brief would send the wrong prompt to whoever draws the frame.
       - name: Rebuild image briefs
         run: python scripts/build_image_briefs.py
+
+      # Same reason for the voice pack: the recording script is generated from
+      # the cue texts, so a changed line with a stale script would be recorded
+      # wrong.
+      - name: Rebuild the voice recording script
+        run: python scripts/build_audio_script.py
       - name: Briefs must be in sync with the exercise library
         run: |
           if ! git diff --quiet -- docs/generated; then

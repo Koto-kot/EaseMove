@@ -12,6 +12,7 @@ import '../../app/theme.dart';
 import '../../core/config/feature_flags.dart';
 import '../../core/localization/app_strings.dart';
 import '../../core/storage/local_store.dart';
+import '../../domain/exercise/exercise.dart';
 import '../pro/paywall.dart';
 
 class SettingsScreen extends ConsumerWidget {
@@ -49,6 +50,16 @@ class SettingsScreen extends ConsumerWidget {
               value: settings.voiceEnabled,
               onChanged: controller.setVoiceEnabled,
             ),
+            // How much is said while moving. Hidden when the voice is off,
+            // because then none of the three choices changes anything.
+            if (settings.voiceEnabled)
+              for (final VoiceMode mode in VoiceMode.values)
+                _ChoiceOption(
+                  label: t('app.settings.voice_mode.${mode.id}'),
+                  subtitle: t('app.settings.voice_mode.${mode.id}_hint'),
+                  selected: settings.voiceMode == mode,
+                  onTap: () => controller.setVoiceMode(mode),
+                ),
             SwitchListTile(
               title: Text(t('app.settings.music')),
               value: settings.musicEnabled,
@@ -56,13 +67,13 @@ class SettingsScreen extends ConsumerWidget {
             ),
             const Divider(),
             _SectionHeader(title: t('app.settings.language')),
-            _LanguageOption(
+            _ChoiceOption(
               label: t('app.settings.language_system'),
               selected: settings.localeOverride == null,
               onTap: () => controller.setLocaleOverride(null),
             ),
             for (final String locale in AppStrings.supportedLocales)
-              _LanguageOption(
+              _ChoiceOption(
                 label: locale.toUpperCase(),
                 selected: settings.localeOverride == locale,
                 onTap: () => controller.setLocaleOverride(locale),
@@ -144,14 +155,16 @@ class SettingsScreen extends ConsumerWidget {
 
 /// Single-choice row. A plain ListTile with a check mark keeps the selection
 /// readable at large text sizes and does not depend on radio internals.
-class _LanguageOption extends StatelessWidget {
-  const _LanguageOption({
+class _ChoiceOption extends StatelessWidget {
+  const _ChoiceOption({
     required this.label,
     required this.selected,
     required this.onTap,
+    this.subtitle,
   });
 
   final String label;
+  final String? subtitle;
   final bool selected;
   final VoidCallback onTap;
 
@@ -159,6 +172,7 @@ class _LanguageOption extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       title: Text(label),
+      subtitle: subtitle == null ? null : Text(subtitle!),
       trailing: selected ? const Icon(Icons.check) : null,
       selected: selected,
       onTap: onTap,
