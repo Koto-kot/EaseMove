@@ -23,11 +23,22 @@ Common voice cues are recorded once and reused; exercise-specific phrases live
 in the exercise folder. The exact file for every line is declared in the
 exercise YAML (`audio.events[].target_file`) — nothing guesses a name.
 
+Each language repeats the same tree: `audio/en/` mirrors `audio/uk/` file for
+file, and the app swaps the folder for the language it is running in.
+
 What has to be recorded, and what already is:
-`docs/generated/AUDIO_SCRIPT.md` (rebuild with
+`docs/generated/AUDIO_SCRIPT_UK.md` and `AUDIO_SCRIPT_EN.md` (rebuild with
 `python scripts/build_audio_script.py`).
 
-A draft pack can be generated with `python scripts/generate_voice.py --yes`,
-which needs `OPENAI_API_KEY` in `.env`. Until a line exists the app speaks it
+A draft pack can be generated:
+
+```text
+python scripts/generate_voice.py --lang en --engine sapi --yes   # local voice
+python scripts/generate_voice.py --lang uk --yes                 # speech API
+```
+
+`sapi` uses an installed Windows voice and needs ffmpeg on PATH; `openai`
+needs `OPENAI_API_KEY` in `.env`. `audio/en/` was produced this way and is
+complete; `audio/uk/` is still empty. Until a line exists the app speaks it
 with text-to-speech, so a partial pack is usable
 (`lib/core/audio/recorded_voice_audio_service.dart`).

@@ -366,6 +366,7 @@ audio:
       offset_ms: 0
     text_key: exercise.NECK_001.voice.prepare
     text_uk: Приготуйтеся. Сядьте рівно і розслабте плечі.
+    text_en: Get ready. Sit up straight and relax your shoulders.
     asset_key: exercise.NECK_001.voice.prepare
     target_file: audio/uk/exercises/NECK_001/prepare.m4a
     priority: 80
@@ -377,6 +378,7 @@ audio:
       step_id: move_left
     text_key: exercise.NECK_001.voice.turn_left
     text_uk: Повільно поверніть голову ліворуч.
+    text_en: Slowly turn your head to the left.
     asset_key: exercise.NECK_001.voice.turn_left
     target_file: audio/uk/exercises/NECK_001/turn_left.m4a
     priority: 100
@@ -388,6 +390,7 @@ audio:
       phase: hold
     text_key: common.voice.hold
     text_uk: Тримайте.
+    text_en: Hold.
     asset_key: common.voice.hold
     target_file: audio/uk/common/hold.m4a
     priority: 90
@@ -401,6 +404,7 @@ audio:
       - return_center_from_right
     text_key: common.voice.return_center
     text_uk: Поверніться в центр.
+    text_en: Return to the centre.
     asset_key: common.voice.return_center
     target_file: audio/uk/common/return_center.m4a
     priority: 100
@@ -412,6 +416,7 @@ audio:
       step_id: move_right
     text_key: exercise.NECK_001.voice.turn_right
     text_uk: Тепер праворуч.
+    text_en: Now to the right.
     asset_key: exercise.NECK_001.voice.turn_right
     target_file: audio/uk/exercises/NECK_001/turn_right.m4a
     priority: 100
@@ -423,6 +428,7 @@ audio:
       percent: 50
     text_key: common.voice.halfway
     text_uk: Половину виконано.
+    text_en: Halfway done.
     asset_key: common.voice.halfway
     target_file: audio/uk/common/halfway.m4a
     priority: 50
@@ -435,6 +441,7 @@ audio:
       cycle_number: 3
     text_key: exercise.NECK_001.voice.last_cycle
     text_uk: Останній цикл.
+    text_en: Last cycle.
     asset_key: exercise.NECK_001.voice.last_cycle
     target_file: audio/uk/exercises/NECK_001/last_cycle.m4a
     priority: 60
@@ -446,6 +453,7 @@ audio:
       event: exercise_completed
     text_key: common.voice.completed
     text_uk: Готово.
+    text_en: Done.
     asset_key: common.voice.completed
     target_file: audio/uk/common/completed.m4a
     priority: 120

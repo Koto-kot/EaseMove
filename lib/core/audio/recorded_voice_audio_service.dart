@@ -61,7 +61,9 @@ class RecordedVoiceAudioService implements AudioService {
     return parts.join('/');
   }
 
-  Future<bool> _isBundled(String path) async {
+  /// Whether the pack carries this line, cached after the first look.
+  @visibleForTesting
+  Future<bool> isBundled(String path) async {
     final bool? known = _available[path];
     if (known != null) return known;
     bool exists;
@@ -78,7 +80,7 @@ class RecordedVoiceAudioService implements AudioService {
   @override
   Future<void> playVoice(AudioEvent event) async {
     final String? path = localizedAssetPath(event.assetFile);
-    if (path == null || !await _isBundled(path)) {
+    if (path == null || !await isBundled(path)) {
       await fallback.playVoice(event);
       return;
     }
@@ -96,7 +98,7 @@ class RecordedVoiceAudioService implements AudioService {
   @override
   Future<void> playCountdownTick(int secondsLeft) async {
     final String path = 'audio/$languageCode/common/countdown_$secondsLeft.m4a';
-    if (!await _isBundled(path)) {
+    if (!await isBundled(path)) {
       await fallback.playCountdownTick(secondsLeft);
       return;
     }
@@ -113,7 +115,7 @@ class RecordedVoiceAudioService implements AudioService {
   @override
   Future<void> playMusic(String trackId) async {
     final String path = 'audio/music/$trackId.m4a';
-    if (!await _isBundled(path)) return;
+    if (!await isBundled(path)) return;
     try {
       await _music.setAsset(path);
       await _music.setLoopMode(LoopMode.one);

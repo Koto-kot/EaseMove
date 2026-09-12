@@ -281,6 +281,7 @@ audio:
       offset_ms: 0
     text_key: exercise.ELBOW_007.voice.setup
     text_uk: Сядьте рівно. Праву руку зігніть над головою.
+    text_en: Sit up straight. Bend your right arm overhead.
     asset_key: exercise.ELBOW_007.voice.setup
     target_file: audio/uk/exercises/ELBOW_007/setup.m4a
     priority: 80
@@ -292,6 +293,7 @@ audio:
       phase: PHASE_SETUP
     text_key: exercise.ELBOW_007.voice.start_movement
     text_uk: Плавно випряміть руку вгору і поверніть назад.
+    text_en: Smoothly straighten your arm up, then bring it back.
     asset_key: exercise.ELBOW_007.voice.start_movement
     target_file: audio/uk/exercises/ELBOW_007/start_movement.m4a
     priority: 100
@@ -303,6 +305,7 @@ audio:
       percent: 50
     text_key: common.voice.halfway
     text_uk: Половину виконано.
+    text_en: Halfway done.
     asset_key: common.voice.halfway
     target_file: audio/uk/common/halfway.m4a
     priority: 50
@@ -314,6 +317,7 @@ audio:
       event: exercise_completed
     text_key: common.voice.completed
     text_uk: Готово.
+    text_en: Done.
     asset_key: common.voice.completed
     target_file: audio/uk/common/completed.m4a
     priority: 120
@@ -326,6 +330,7 @@ audio:
       phase: PHASE_B
     text_key: exercise.ELBOW_007.voice.phase_b
     text_uk: Випряміть.
+    text_en: Straighten.
     asset_key: exercise.ELBOW_007.voice.phase_b
     target_file: audio/uk/exercises/ELBOW_007/phase_b.m4a
     priority: 70
@@ -338,6 +343,7 @@ audio:
       phase: PHASE_A
     text_key: exercise.ELBOW_007.voice.phase_a
     text_uk: Зігніть.
+    text_en: Bend.
     asset_key: exercise.ELBOW_007.voice.phase_a
     target_file: audio/uk/exercises/ELBOW_007/phase_a.m4a
     priority: 70
@@ -350,6 +356,7 @@ audio:
       phase: PHASE_B
     text_key: common.voice.count_one
     text_uk: Раз.
+    text_en: One.
     asset_key: common.voice.count_one
     target_file: audio/uk/common/count_one.m4a
     priority: 70
@@ -362,6 +369,7 @@ audio:
       phase: PHASE_A
     text_key: common.voice.count_two
     text_uk: Два.
+    text_en: Two.
     asset_key: common.voice.count_two
     target_file: audio/uk/common/count_two.m4a
     priority: 70

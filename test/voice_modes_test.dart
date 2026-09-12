@@ -6,6 +6,8 @@
 /// nothing else about the session changes.
 library;
 
+import 'dart:io';
+
 import 'package:ease_move/app/app.dart';
 import 'package:ease_move/app/providers.dart';
 import 'package:ease_move/core/audio/audio_service.dart';
@@ -18,6 +20,18 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'support/test_assets.dart';
+
+const List<String> elbowIds = <String>[
+  'ELBOW_001',
+  'ELBOW_002',
+  'ELBOW_003',
+  'ELBOW_004',
+  'ELBOW_005',
+  'ELBOW_006',
+  'ELBOW_007',
+  'ELBOW_008',
+  'ELBOW_009',
+];
 
 void main() {
   late Exercise exercise;
@@ -161,6 +175,50 @@ void main() {
       await service.playCountdownTick(3);
 
       expect(fallback.log, <String>['voice:VOICE_SETUP', 'tick:3']);
+    });
+
+    test('the English pack is complete and bundled', () async {
+      final String pubspec = File('pubspec.yaml').readAsStringSync();
+      final RecordedVoiceAudioService english = RecordedVoiceAudioService(
+        fallback: fallback,
+        languageCode: 'en',
+        bundle: DiskAssetBundle(),
+      );
+
+      final List<String> ids = <String>[
+        'NECK_001',
+        'KNEE_001',
+        'KNEE_002',
+        'KNEE_003',
+        ...elbowIds,
+      ];
+      for (final String id in ids) {
+        final Exercise ex = loadExerciseFromDisk(id);
+        for (final AudioEvent event in ex.audioEvents) {
+          final String? path = english.localizedAssetPath(event.assetFile);
+          if (path == null) continue;
+          expect(File(path).existsSync(), isTrue, reason: '$id: $path');
+          final String folder = path.substring(0, path.lastIndexOf('/') + 1);
+          expect(pubspec, contains('- $folder'), reason: folder);
+        }
+      }
+
+      // Including the countdown, which no exercise declares by name.
+      for (int n = 1; n <= 5; n++) {
+        expect(
+          File('audio/en/common/countdown_$n.m4a').existsSync(),
+          isTrue,
+          reason: 'countdown_$n',
+        );
+      }
+
+      // And the service resolves them to the pack rather than the fallback.
+      // (Playing one here would need a real platform audio player.)
+      expect(
+        await english.isBundled('audio/en/exercises/ELBOW_001/setup.m4a'),
+        isTrue,
+      );
+      expect(fallback.log, isEmpty);
     });
 
     test('the file is looked up under the chosen language', () {

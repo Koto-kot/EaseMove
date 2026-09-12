@@ -68,3 +68,18 @@ flutter:
     - audio/uk/exercises/KNEE_002/
     - audio/uk/exercises/KNEE_003/
     - audio/uk/exercises/NECK_001/
+    # The English pack is complete (scripts/generate_voice.py).
+    - audio/en/common/
+    - audio/en/exercises/ELBOW_001/
+    - audio/en/exercises/ELBOW_002/
+    - audio/en/exercises/ELBOW_003/
+    - audio/en/exercises/ELBOW_004/
+    - audio/en/exercises/ELBOW_005/
+    - audio/en/exercises/ELBOW_006/
+    - audio/en/exercises/ELBOW_007/
+    - audio/en/exercises/ELBOW_008/
+    - audio/en/exercises/ELBOW_009/
+    - audio/en/exercises/KNEE_001/
+    - audio/en/exercises/KNEE_002/
+    - audio/en/exercises/KNEE_003/
+    - audio/en/exercises/NECK_001/

@@ -511,6 +511,7 @@ audio:
       offset_ms: 0
     text_key: exercise.KNEE_003.voice.prepare
     text_uk: Приготуйтеся. Ляжте на спину та випряміть ноги.
+    text_en: Get ready. Lie on your back and straighten your legs.
     asset_key: exercise.KNEE_003.voice.prepare
     target_file: audio/uk/exercises/KNEE_003/prepare.m4a
     priority: 80
@@ -522,6 +523,7 @@ audio:
       phase: PHASE_SLIDE_IN
     text_key: exercise.KNEE_003.voice.slide_in
     text_uk: Повільно ковзайте п’ятою до себе.
+    text_en: Slowly slide your heel toward you.
     asset_key: exercise.KNEE_003.voice.slide_in
     target_file: audio/uk/exercises/KNEE_003/slide_in.m4a
     priority: 100
@@ -533,6 +535,7 @@ audio:
       phase: PHASE_KNEE_BENT
     text_key: exercise.KNEE_003.voice.knee_up
     text_uk: Коліно тримайте спрямованим угору.
+    text_en: Keep your knee pointing up.
     asset_key: exercise.KNEE_003.voice.knee_up
     target_file: audio/uk/exercises/KNEE_003/knee_up.m4a
     priority: 70
@@ -545,6 +548,7 @@ audio:
       phase: PHASE_SLIDE_OUT
     text_key: exercise.KNEE_003.voice.slide_out
     text_uk: Тепер повільно випряміть ногу.
+    text_en: Now slowly straighten your leg.
     asset_key: exercise.KNEE_003.voice.slide_out
     target_file: audio/uk/exercises/KNEE_003/slide_out.m4a
     priority: 100
@@ -556,6 +560,7 @@ audio:
       side: left
     text_key: common.voice.switch_leg
     text_uk: Тепер інша нога.
+    text_en: Now the other leg.
     asset_key: common.voice.switch_leg
     target_file: audio/uk/common/switch_leg.m4a
     priority: 120
@@ -567,6 +572,7 @@ audio:
       percent: 50
     text_key: common.voice.halfway
     text_uk: Половину виконано.
+    text_en: Halfway done.
     asset_key: common.voice.halfway
     target_file: audio/uk/common/halfway.m4a
     priority: 50
@@ -579,6 +585,7 @@ audio:
       relative_position: last
     text_key: common.voice.last_repetition
     text_uk: Останній повтор.
+    text_en: Last repetition.
     asset_key: common.voice.last_repetition
     target_file: audio/uk/common/last_repetition.m4a
     priority: 60
@@ -590,6 +597,7 @@ audio:
       event: exercise_completed
     text_key: common.voice.completed
     text_uk: Готово.
+    text_en: Done.
     asset_key: common.voice.completed
     target_file: audio/uk/common/completed.m4a
     priority: 120
