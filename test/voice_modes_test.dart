@@ -131,25 +131,31 @@ void main() {
     final LoggingAudioService audio = LoggingAudioService();
     await openFirstElbow(tester, audio: audio);
 
-    // Neither happens on its own: the model, the purpose and the safety line
-    // are the whole screen until the listener picks a way in.
+    // Neither happens on its own: the model and the purpose are the whole
+    // screen until the listener picks a way in.
+    expect(find.byType(AspectRatio), findsWidgets);
     expect(find.text('Як виконувати'), findsNothing);
     expect(find.text('Зверніть увагу'), findsNothing);
-    expect(find.text('Безпека'), findsOneWidget);
+    expect(find.text('Безпека'), findsNothing);
     expect(find.text('Прослухати інструкцію'), findsOneWidget);
     expect(find.text('Прочитати інструкцію'), findsOneWidget);
 
-    // Reading puts the steps on the page and says nothing.
+    // Reading puts the whole text on the page and says nothing. The model
+    // steps aside to make room for it.
     await tester.tap(find.text('Прочитати інструкцію'));
     await settleFrames(tester);
+    expect(find.byType(AspectRatio), findsNothing);
     expect(find.text('Початкове положення'), findsOneWidget);
+    expect(find.text('Як виконувати'), findsOneWidget);
     expect(audio.log, isEmpty);
 
-    // The steps and the tips are down the page, under the model.
-    await tester.drag(find.byType(ListView), const Offset(0, -600));
+    // The tips and the warning are further down the same page.
+    await tester.drag(find.byType(ListView), const Offset(0, -400));
     await settleFrames(tester);
-    expect(find.text('Як виконувати'), findsOneWidget);
     expect(find.text('Зверніть увагу'), findsOneWidget);
+    await tester.drag(find.byType(ListView), const Offset(0, -400));
+    await settleFrames(tester);
+    expect(find.text('Безпека'), findsOneWidget);
 
     // The same button folds them away again.
     await tester.tap(find.text('Сховати інструкцію'));

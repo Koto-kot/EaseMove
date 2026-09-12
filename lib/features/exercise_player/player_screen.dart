@@ -177,7 +177,8 @@ class _SelectedViewState extends State<_SelectedView> {
     final bool canRead =
         text.startPosition != null ||
         text.instructions.isNotEmpty ||
-        text.techniqueTips.isNotEmpty;
+        text.techniqueTips.isNotEmpty ||
+        text.safety != null;
 
     // Start stays pinned: the primary action must never require scrolling.
     return Column(
@@ -186,16 +187,21 @@ class _SelectedViewState extends State<_SelectedView> {
           child: ListView(
             padding: const EdgeInsets.only(bottom: 16),
             children: <Widget>[
-              AspectRatio(
-                aspectRatio: 1,
-                child: AssetImageOrPlaceholder(
-                  assetPath: exercise.previewAsset,
-                  placeholderLabel: t('app.exercise.frame_missing'),
-                  semanticLabel: exercise.accessibilitySummary ?? text.title,
-                  caption: text.startPosition,
+              // The model steps aside while the text is being read: the two
+              // together left the instruction squeezed into what was left of
+              // the screen (docs/DECISIONS.md 69).
+              if (!_reading) ...<Widget>[
+                AspectRatio(
+                  aspectRatio: 1,
+                  child: AssetImageOrPlaceholder(
+                    assetPath: exercise.previewAsset,
+                    placeholderLabel: t('app.exercise.frame_missing'),
+                    semanticLabel: exercise.accessibilitySummary ?? text.title,
+                    caption: text.startPosition,
+                  ),
                 ),
-              ),
-              const SizedBox(height: 16),
+                const SizedBox(height: 16),
+              ],
               if (exercise.clinicalStatus != ClinicalStatus.approved)
                 _Notice(text: t('app.exercise.pending_review_notice')),
               if (text.purpose != null) ...<Widget>[
@@ -246,13 +252,15 @@ class _SelectedViewState extends State<_SelectedView> {
                       ],
                     ),
                   ),
+                if (text.safety != null)
+                  _Section(
+                    title: text.safetyLabel ?? '',
+                    child: Text(
+                      text.safety!,
+                      style: theme.textTheme.bodyMedium,
+                    ),
+                  ),
               ],
-              // The warning is not an instruction and is never folded away.
-              if (text.safety != null)
-                _Section(
-                  title: text.safetyLabel ?? '',
-                  child: Text(text.safety!, style: theme.textTheme.bodyMedium),
-                ),
             ],
           ),
         ),
