@@ -116,6 +116,13 @@ exercises:
       alt: Right knee bent, heel still resting on the surface.
 
   NECK_002:
+    FRAME_SETUP:
+      pose: >-
+        Sitting upright on a stable chair seen from the front, both feet flat
+        on the floor about hip width apart, knees bent to roughly ninety
+        degrees, hands resting quietly on the thighs, shoulders level and
+        relaxed, the head in a neutral position looking straight ahead.
+      alt: Seated start position, head level and looking straight ahead.
     FRAME_CENTER:
       pose: >-
         Sitting upright, seen from the front. The head is in a neutral position
@@ -341,3 +348,206 @@ exercises:
         one straight line from head to heels. The head is not dropped toward the
         wall on its own and the heels stay down.
       alt: Elbows bent, body moved closer to the wall.
+
+  NECK_001:
+    FRAME_SETUP:
+      pose: >-
+        Sitting upright on a stable chair seen from the front, both feet flat
+        on the floor about hip width apart, knees bent to roughly ninety
+        degrees, hands resting quietly on the thighs, shoulders level and
+        relaxed, the head in a neutral position looking straight ahead.
+      alt: Seated start position, head level and looking straight ahead.
+    FRAME_NEUTRAL:
+      pose: >-
+        Same seated position seen in profile, closer in on the head, neck and
+        shoulders. The head is in its ordinary neutral position, the neck
+        relaxed, the gaze level and straight ahead.
+      alt: Head in a neutral position, looking straight ahead.
+    FRAME_CHIN_TUCK:
+      pose: >-
+        Same seated position and same profile camera. The chin is drawn gently
+        straight back toward the neck, lengthening the back of the neck. The
+        head stays level - it does not tip back and does not drop down - and
+        the shoulders stay relaxed and down.
+      alt: Chin drawn back, head still level.
+
+  NECK_003:
+    FRAME_SETUP:
+      pose: >-
+        Sitting upright on a stable chair seen from the front, both feet flat
+        on the floor about hip width apart, knees bent to roughly ninety
+        degrees, hands resting quietly on the thighs, shoulders level and
+        relaxed, the head in a neutral position looking straight ahead.
+      alt: Seated start position with the head in a neutral position.
+    FRAME_TILT_RIGHT:
+      pose: >-
+        Same seated position seen from the front, closer in on the head and
+        shoulders. The head is tilted sideways so one ear travels toward that
+        shoulder within a comfortable range. The shoulders stay level and
+        down, the head does not rotate, the torso stays square to the camera.
+      alt: Head tilted toward the shoulder, ear closer to the shoulder, shoulders down.
+    FRAME_TILT_LEFT:
+      pose: >-
+        Mirror of the other tilt frame, same camera and crop. The head is
+        tilted toward the opposite shoulder within a comfortable range,
+        shoulders still level and down, torso still square.
+      alt: Head tilted toward the other shoulder, shoulders still down.
+
+  NECK_004:
+    FRAME_SETUP:
+      pose: >-
+        Sitting upright on a stable chair seen from the front, both feet flat
+        on the floor about hip width apart, knees bent to roughly ninety
+        degrees, hands resting quietly on the thighs, shoulders level and
+        relaxed, the head in a neutral position looking straight ahead.
+      alt: Seated start position, back tall and head in a neutral position.
+    FRAME_NEUTRAL:
+      pose: >-
+        Same seated position, closer in on the head, neck and shoulders. The
+        head is in a neutral position, the neck long, the gaze level and
+        straight ahead.
+      alt: Head in a neutral position, looking straight ahead.
+    FRAME_DOWN:
+      pose: >-
+        Same seated position and camera. The head is lowered gently so the
+        gaze travels down within a comfortable range. The chin moves down but
+        is not pressed against the chest, the shoulders stay still and
+        relaxed, the torso does not lean forward.
+      alt: Head lowered, gaze directed down.
+
+  NECK_005:
+    FRAME_SETUP:
+      pose: >-
+        Sitting upright on a stable chair seen from the front, both feet flat
+        on the floor about hip width apart, knees bent to roughly ninety
+        degrees, hands resting quietly on the thighs, shoulders level and
+        relaxed, the head in a neutral position looking straight ahead.
+      alt: Seated start position, back tall and head level.
+    FRAME_NEUTRAL:
+      pose: >-
+        Same seated position, closer in on the head, neck and shoulders. The
+        head is in a neutral position, the neck long, the gaze level and
+        straight ahead.
+      alt: Head in a neutral position, looking straight ahead.
+    FRAME_UP:
+      pose: >-
+        Same seated position and camera. The chin and the gaze are lifted only
+        slightly upward - a small, comfortable range, not a head thrown back.
+        The neck does not fold sharply, the shoulders stay down, the torso
+        does not arch backward.
+      alt: Chin lifted slightly, gaze directed a little upward.
+
+  NECK_006:
+    FRAME_SETUP:
+      pose: >-
+        Sitting upright on a stable chair seen from the front, both feet flat
+        on the floor about hip width apart, knees bent to roughly ninety
+        degrees, hands resting quietly on the thighs, shoulders level and
+        relaxed, the head in a neutral position looking straight ahead.
+      alt: Seated start position with the head in a neutral position.
+    FRAME_DIAGONAL_LEFT:
+      pose: >-
+        Same seated position seen from the front, closer in on the head and
+        shoulders. The head and gaze are lowered gently along a diagonal to
+        one side, so the chin travels down and slightly across. The range is
+        small, the shoulders stay down, the torso does not twist.
+      alt: Head lowered diagonally to the left, gaze down and to the side.
+    FRAME_DIAGONAL_RIGHT:
+      pose: >-
+        Mirror of the other diagonal frame, same camera and crop. The head and
+        gaze are lowered along the opposite diagonal, the range still small,
+        the shoulders still down, the torso still untwisted.
+      alt: Head lowered diagonally to the right, gaze down and to the side.
+
+  NECK_007:
+    FRAME_SETUP:
+      pose: >-
+        Sitting upright on a stable chair seen from the front, both feet flat
+        on the floor about hip width apart, knees bent to roughly ninety
+        degrees, hands resting quietly on the thighs, shoulders level and
+        relaxed, the head in a neutral position looking straight ahead.
+      alt: Seated start position, head level and hands at rest.
+    FRAME_PALM_READY:
+      pose: >-
+        Same seated position, closer in on the head, shoulders and the working
+        arm. One open palm rests flat on the centre of the forehead with the
+        elbow loosely bent out in front. The head is level, the shoulders
+        relaxed, and no effort is being made yet.
+      alt: Palm resting on the forehead, head level.
+    FRAME_PRESS:
+      pose: >-
+        Same seated position, same camera and crop. The forehead presses
+        gently into the palm and the palm holds back against it, an isometric
+        effort with no visible head movement - the head has not tipped back
+        and has not leaned forward. A soft red highlight marks where the palm
+        meets the forehead.
+      alt: Forehead pressing into the palm, head staying still.
+
+  NECK_008:
+    FRAME_SETUP:
+      pose: >-
+        Sitting upright on a stable chair seen from the front, both feet flat
+        on the floor about hip width apart, knees bent to roughly ninety
+        degrees, hands resting quietly on the thighs, shoulders level and
+        relaxed, the head in a neutral position looking straight ahead.
+      alt: Seated start position with the head centred.
+    FRAME_PRESS_RIGHT:
+      pose: >-
+        Same seated position seen from the front, closer in on the head,
+        shoulders and working arm. One open palm rests against the temple on
+        that side, elbow out. The temple presses gently into the palm and the
+        palm holds back, an isometric effort with the head staying upright and
+        centred. A soft red highlight marks the contact.
+      alt: Palm against the temple, head staying upright.
+    FRAME_PRESS_LEFT:
+      pose: >-
+        Mirror of the other press frame, same camera and crop: the palm is
+        against the opposite temple with the same gentle isometric press, the
+        head still upright and centred, the shoulders still down.
+      alt: Palm against the other temple, head still centred.
+
+  NECK_009:
+    FRAME_SETUP:
+      pose: >-
+        Sitting upright on a stable chair seen from the front, both feet flat
+        on the floor about hip width apart, knees bent to roughly ninety
+        degrees, hands resting quietly on the thighs, shoulders level and
+        relaxed, the head in a neutral position looking straight ahead.
+      alt: Seated start position, neck long and head level.
+    FRAME_PALM_READY:
+      pose: >-
+        Same seated position, closer in on the head, shoulders and working
+        arm, seen slightly from the side. One open palm rests on the back of
+        the head with the elbow out. The neck stays long, the head has not
+        tipped back, the shoulders are relaxed and no effort is being made
+        yet.
+      alt: Palm resting on the back of the head, head in a neutral position.
+    FRAME_PRESS:
+      pose: >-
+        Same seated position, same camera and crop. The back of the head
+        presses gently back into the palm and the palm holds it from moving,
+        an isometric effort with no visible shift of the head and no tipping
+        back. A soft red highlight marks the contact.
+      alt: Back of the head pressing into the palm, head staying put.
+
+  NECK_010:
+    FRAME_SETUP:
+      pose: >-
+        Standing upright with the back to a plain wall, seen from the side,
+        the back of the head and the upper back touching the wall, arms
+        hanging freely, shoulders level and relaxed, the gaze level and
+        straight ahead.
+      alt: Standing start position at a wall, back straight and looking ahead.
+    FRAME_WALL_NEUTRAL:
+      pose: >-
+        Standing at the wall in the same neutral position, whole body visible:
+        posture tall, gaze level and straight ahead, shoulders relaxed and
+        down, chin in its ordinary position.
+      alt: Neutral position at the wall, looking straight ahead.
+    FRAME_WALL_CHIN_TUCK:
+      pose: >-
+        Same stance at the wall, closer in on the head, neck and shoulders.
+        The chin is drawn gently straight back toward the neck so a slight
+        double chin appears. The head neither lifts nor drops, the gaze stays
+        level, the shoulders do not rise and the torso does not lean.
+      alt: Chin drawn back at the wall, gaze still straight ahead.

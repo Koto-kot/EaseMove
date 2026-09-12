@@ -11,19 +11,119 @@ Each block below is one image. Paste the prompt as-is, generate, and save the re
 
 See also `docs/IMAGE_ASSET_SPEC.md`, `docs/VISUAL_STYLE_GUIDE.md` and `docs/EXERCISE_IMAGE_QA.md`.
 
-## NECK_001 — Повороти голови
+## NECK_001 — Підборіддя назад
 
 - Zone: `neck`
 - Clinical status: `pending_review`
 - Source: `data/exercises/neck/NECK_001.yaml`
-- Folder: `assets/exercises/NECK_001`
-- Master: 1024x1024 PNG, transparent background preferred
+- Folder: `assets/exercises/NECK_001/images`
+- Master: 1024x1024 PNG
+- Equipment that must appear: stable chair
 
 **Must stay identical across all frames of this exercise:** subject, clothing, camera, crop, environment.
 
+### FRAME_SETUP
+
+Save as `assets/exercises/NECK_001/images/setup_full_safe.png`
+
+```text
+One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
+
+Sitting upright on a stable chair seen from the front, both feet flat on the floor about hip width apart, knees bent to roughly ninety degrees, hands resting quietly on the thighs, shoulders level and relaxed, the head in a neutral position looking straight ahead.
+
+Clean, calm, instructional illustration on a plain neutral light background with soft even lighting and no clutter. Camera: front, identical in every frame. Framing: full body. The pose must read clearly at thumbnail size.
+
+No text, letters, numbers, captions or labels anywhere in the image. No arrows, motion lines, circles or highlights. No watermark or logo. No exaggerated range of motion — keep it comfortable and realistic.
+```
+
+Check before accepting: .
+
+<sub>Authored pose (uk): Людина сидить рівно на стільці, стопи на підлозі, голова у нейтральному положенні, погляд прямо.</sub>
+
+### FRAME_NEUTRAL
+
+Save as `assets/exercises/NECK_001/images/motion_01_chin_forward_neutral_upper_safe.png`
+
+```text
+One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
+
+Same seated position seen in profile, closer in on the head, neck and shoulders. The head is in its ordinary neutral position, the neck relaxed, the gaze level and straight ahead.
+
+Clean, calm, instructional illustration on a plain neutral light background with soft even lighting and no clutter. Camera: front, identical in every frame. Framing: full body. The pose must read clearly at thumbnail size.
+
+No text, letters, numbers, captions or labels anywhere in the image. No arrows, motion lines, circles or highlights. No watermark or logo. No exaggerated range of motion — keep it comfortable and realistic.
+```
+
+Check before accepting: .
+
+<sub>Authored pose (uk): Голова у звичайному нейтральному положенні, шия розслаблена, погляд прямо.</sub>
+
+### FRAME_CHIN_TUCK
+
+Save as `assets/exercises/NECK_001/images/motion_02_chin_tuck_upper_safe.png`
+
+```text
+One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
+
+Same seated position and same profile camera. The chin is drawn gently straight back toward the neck, lengthening the back of the neck. The head stays level - it does not tip back and does not drop down - and the shoulders stay relaxed and down.
+
+Clean, calm, instructional illustration on a plain neutral light background with soft even lighting and no clutter. Camera: front, identical in every frame. Framing: full body. The pose must read clearly at thumbnail size.
+
+No text, letters, numbers, captions or labels anywhere in the image. No arrows, motion lines, circles or highlights. No watermark or logo. No exaggerated range of motion — keep it comfortable and realistic.
+```
+
+Check before accepting: .
+
+<sub>Authored pose (uk): Підборіддя м'яко відведене назад, шия витягнута, голова не нахилена вниз.</sub>
+
+### Preview
+
+Save as `assets/exercises/NECK_001/images/preview.png` — a crop of `FRAME_SETUP`, no overlay text.
+
+**Acceptance checklist**
+
+- [ ] same subject all frames
+- [ ] same style all frames
+- [ ] setup frame may use different crop
+- [ ] motion frames same camera
+- [ ] motion frames same crop
+- [ ] no relevant limb cropping
+- [ ] no embedded text
+- [ ] no watermarks
+- [ ] original or properly licensed only
+- [ ] clinical pose review required
+
+## NECK_002 — Повороти голови
+
+- Zone: `neck`
+- Clinical status: `pending_review`
+- Source: `data/exercises/neck/NECK_002.yaml`
+- Folder: `assets/exercises/NECK_002/images`
+- Master: 1024x1024 PNG
+
+**Must stay identical across all frames of this exercise:** subject, clothing, camera, crop, environment.
+
+### FRAME_SETUP
+
+Save as `assets/exercises/NECK_002/images/setup_full_safe.png`
+
+```text
+One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
+
+Sitting upright on a stable chair seen from the front, both feet flat on the floor about hip width apart, knees bent to roughly ninety degrees, hands resting quietly on the thighs, shoulders level and relaxed, the head in a neutral position looking straight ahead.
+
+Clean, calm, instructional illustration on a plain neutral light background with soft even lighting and no clutter. Camera: front, identical in every frame. Framing: head shoulders upper torso. The pose must read clearly at thumbnail size.
+
+No text, letters, numbers, captions or labels anywhere in the image. No arrows, motion lines, circles or highlights. No watermark or logo. No exaggerated range of motion — keep it comfortable and realistic.
+```
+
+Check before accepting: `head neutral`, `eyes forward`, `shoulders level`.
+
+<sub>Authored pose (uk): Людина сидить рівно на стільці, стопи на підлозі, руки на стегнах, голова у нейтральному положенні.</sub>
+
 ### FRAME_CENTER
 
-Save as `assets/exercises/NECK_001/frame_center.png`
+Save as `assets/exercises/NECK_002/images/motion_00_head_centre_upper_safe.png`
 
 ```text
 One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
@@ -41,7 +141,7 @@ Check before accepting: `head neutral`, `eyes forward`, `shoulders level`, `tors
 
 ### FRAME_LEFT
 
-Save as `assets/exercises/NECK_001/frame_left.png`
+Save as `assets/exercises/NECK_002/images/motion_01_head_turn_left_upper_safe.png`
 
 ```text
 One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
@@ -59,7 +159,7 @@ Check before accepting: `head rotated left`, `chin height stable`, `shoulders le
 
 ### FRAME_RIGHT
 
-Save as `assets/exercises/NECK_001/frame_right.png`
+Save as `assets/exercises/NECK_002/images/motion_02_head_turn_right_upper_safe.png`
 
 ```text
 One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
@@ -77,13 +177,668 @@ Check before accepting: `head rotated right`, `chin height stable`, `shoulders l
 
 ### Preview
 
-Save as `assets/exercises/NECK_001/preview.png` — a crop of `FRAME_LEFT`, no overlay text.
+Save as `assets/exercises/NECK_002/images/preview.png` — a crop of `FRAME_SETUP`, no overlay text.
 
 **Acceptance checklist**
 
 - [ ] same subject all frames
 - [ ] same camera all frames
 - [ ] same crop all frames
+- [ ] no embedded text
+- [ ] no watermarks
+- [ ] original or properly licensed only
+- [ ] clinical pose review required
+
+## NECK_003 — Нахил голови до плеча
+
+- Zone: `neck`
+- Clinical status: `pending_review`
+- Source: `data/exercises/neck/NECK_003.yaml`
+- Folder: `assets/exercises/NECK_003/images`
+- Master: 1024x1024 PNG
+- Equipment that must appear: stable chair
+
+**Must stay identical across all frames of this exercise:** subject, clothing, camera, crop, environment.
+
+### FRAME_SETUP
+
+Save as `assets/exercises/NECK_003/images/setup_full_safe.png`
+
+```text
+One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
+
+Sitting upright on a stable chair seen from the front, both feet flat on the floor about hip width apart, knees bent to roughly ninety degrees, hands resting quietly on the thighs, shoulders level and relaxed, the head in a neutral position looking straight ahead.
+
+Clean, calm, instructional illustration on a plain neutral light background with soft even lighting and no clutter. Camera: front, identical in every frame. Framing: full body. The pose must read clearly at thumbnail size.
+
+No text, letters, numbers, captions or labels anywhere in the image. No arrows, motion lines, circles or highlights. No watermark or logo. No exaggerated range of motion — keep it comfortable and realistic.
+```
+
+Check before accepting: .
+
+<sub>Authored pose (uk): Людина сидить рівно на стільці, стопи на підлозі, руки на стегнах, голова у нейтральному положенні.</sub>
+
+### FRAME_TILT_RIGHT
+
+Save as `assets/exercises/NECK_003/images/motion_01_ear_to_left_shoulder_upper_safe.png`
+
+```text
+One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
+
+Same seated position seen from the front, closer in on the head and shoulders. The head is tilted sideways so one ear travels toward that shoulder within a comfortable range. The shoulders stay level and down, the head does not rotate, the torso stays square to the camera.
+
+Clean, calm, instructional illustration on a plain neutral light background with soft even lighting and no clutter. Camera: front, identical in every frame. Framing: full body. The pose must read clearly at thumbnail size.
+
+No text, letters, numbers, captions or labels anywhere in the image. No arrows, motion lines, circles or highlights. No watermark or logo. No exaggerated range of motion — keep it comfortable and realistic.
+```
+
+Check before accepting: .
+
+<sub>Authored pose (uk): Голова нахилена до плеча; у дзеркальному показі користувач сприймає цей кадр як нахил вправо.</sub>
+
+### FRAME_TILT_LEFT
+
+Save as `assets/exercises/NECK_003/images/motion_02_ear_to_right_shoulder_upper_safe.png`
+
+```text
+One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
+
+Mirror of the other tilt frame, same camera and crop. The head is tilted toward the opposite shoulder within a comfortable range, shoulders still level and down, torso still square.
+
+Clean, calm, instructional illustration on a plain neutral light background with soft even lighting and no clutter. Camera: front, identical in every frame. Framing: full body. The pose must read clearly at thumbnail size.
+
+No text, letters, numbers, captions or labels anywhere in the image. No arrows, motion lines, circles or highlights. No watermark or logo. No exaggerated range of motion — keep it comfortable and realistic.
+```
+
+Check before accepting: .
+
+<sub>Authored pose (uk): Голова нахилена до протилежного плеча; у дзеркальному показі це нахил вліво.</sub>
+
+### Preview
+
+Save as `assets/exercises/NECK_003/images/preview.png` — a crop of `FRAME_SETUP`, no overlay text.
+
+**Acceptance checklist**
+
+- [ ] same subject all frames
+- [ ] same style all frames
+- [ ] setup frame may use different crop
+- [ ] motion frames same camera
+- [ ] motion frames same crop
+- [ ] no relevant limb cropping
+- [ ] no embedded text
+- [ ] no watermarks
+- [ ] original or properly licensed only
+- [ ] clinical pose review required
+
+## NECK_004 — Погляд вниз
+
+- Zone: `neck`
+- Clinical status: `pending_review`
+- Source: `data/exercises/neck/NECK_004.yaml`
+- Folder: `assets/exercises/NECK_004/images`
+- Master: 1024x1024 PNG
+- Equipment that must appear: stable chair
+
+**Must stay identical across all frames of this exercise:** subject, clothing, camera, crop, environment.
+
+### FRAME_SETUP
+
+Save as `assets/exercises/NECK_004/images/setup_full_safe.png`
+
+```text
+One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
+
+Sitting upright on a stable chair seen from the front, both feet flat on the floor about hip width apart, knees bent to roughly ninety degrees, hands resting quietly on the thighs, shoulders level and relaxed, the head in a neutral position looking straight ahead.
+
+Clean, calm, instructional illustration on a plain neutral light background with soft even lighting and no clutter. Camera: front, identical in every frame. Framing: full body. The pose must read clearly at thumbnail size.
+
+No text, letters, numbers, captions or labels anywhere in the image. No arrows, motion lines, circles or highlights. No watermark or logo. No exaggerated range of motion — keep it comfortable and realistic.
+```
+
+Check before accepting: .
+
+<sub>Authored pose (uk): Людина сидить рівно на стільці, спина витягнута, руки на стегнах, голова у нейтральному положенні.</sub>
+
+### FRAME_NEUTRAL
+
+Save as `assets/exercises/NECK_004/images/motion_01_head_neutral_upper_safe.png`
+
+```text
+One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
+
+Same seated position, closer in on the head, neck and shoulders. The head is in a neutral position, the neck long, the gaze level and straight ahead.
+
+Clean, calm, instructional illustration on a plain neutral light background with soft even lighting and no clutter. Camera: front, identical in every frame. Framing: full body. The pose must read clearly at thumbnail size.
+
+No text, letters, numbers, captions or labels anywhere in the image. No arrows, motion lines, circles or highlights. No watermark or logo. No exaggerated range of motion — keep it comfortable and realistic.
+```
+
+Check before accepting: .
+
+<sub>Authored pose (uk): Голова у нейтральному положенні, шия витягнута, погляд прямо.</sub>
+
+### FRAME_DOWN
+
+Save as `assets/exercises/NECK_004/images/motion_02_head_down_upper_safe.png`
+
+```text
+One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
+
+Same seated position and camera. The head is lowered gently so the gaze travels down within a comfortable range. The chin moves down but is not pressed against the chest, the shoulders stay still and relaxed, the torso does not lean forward.
+
+Clean, calm, instructional illustration on a plain neutral light background with soft even lighting and no clutter. Camera: front, identical in every frame. Framing: full body. The pose must read clearly at thumbnail size.
+
+No text, letters, numbers, captions or labels anywhere in the image. No arrows, motion lines, circles or highlights. No watermark or logo. No exaggerated range of motion — keep it comfortable and realistic.
+```
+
+Check before accepting: .
+
+<sub>Authored pose (uk): Голова м'яко опущена, погляд вниз, підборіддя не притиснуте до грудей.</sub>
+
+### Preview
+
+Save as `assets/exercises/NECK_004/images/preview.png` — a crop of `FRAME_SETUP`, no overlay text.
+
+**Acceptance checklist**
+
+- [ ] same subject all frames
+- [ ] same style all frames
+- [ ] setup frame may use different crop
+- [ ] motion frames same camera
+- [ ] motion frames same crop
+- [ ] no relevant limb cropping
+- [ ] no embedded text
+- [ ] no watermarks
+- [ ] original or properly licensed only
+- [ ] clinical pose review required
+
+## NECK_005 — Легкий погляд вгору
+
+- Zone: `neck`
+- Clinical status: `pending_review`
+- Source: `data/exercises/neck/NECK_005.yaml`
+- Folder: `assets/exercises/NECK_005/images`
+- Master: 1024x1024 PNG
+- Equipment that must appear: stable chair
+
+**Must stay identical across all frames of this exercise:** subject, clothing, camera, crop, environment.
+
+### FRAME_SETUP
+
+Save as `assets/exercises/NECK_005/images/setup_full_safe.png`
+
+```text
+One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
+
+Sitting upright on a stable chair seen from the front, both feet flat on the floor about hip width apart, knees bent to roughly ninety degrees, hands resting quietly on the thighs, shoulders level and relaxed, the head in a neutral position looking straight ahead.
+
+Clean, calm, instructional illustration on a plain neutral light background with soft even lighting and no clutter. Camera: front, identical in every frame. Framing: full body. The pose must read clearly at thumbnail size.
+
+No text, letters, numbers, captions or labels anywhere in the image. No arrows, motion lines, circles or highlights. No watermark or logo. No exaggerated range of motion — keep it comfortable and realistic.
+```
+
+Check before accepting: .
+
+<sub>Authored pose (uk): Людина сидить рівно на стільці, спина витягнута без прогину, голова у нейтральному положенні.</sub>
+
+### FRAME_NEUTRAL
+
+Save as `assets/exercises/NECK_005/images/motion_01_head_neutral_upper_safe.png`
+
+```text
+One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
+
+Same seated position, closer in on the head, neck and shoulders. The head is in a neutral position, the neck long, the gaze level and straight ahead.
+
+Clean, calm, instructional illustration on a plain neutral light background with soft even lighting and no clutter. Camera: front, identical in every frame. Framing: full body. The pose must read clearly at thumbnail size.
+
+No text, letters, numbers, captions or labels anywhere in the image. No arrows, motion lines, circles or highlights. No watermark or logo. No exaggerated range of motion — keep it comfortable and realistic.
+```
+
+Check before accepting: .
+
+<sub>Authored pose (uk): Голова у нейтральному положенні, шия витягнута, погляд прямо.</sub>
+
+### FRAME_UP
+
+Save as `assets/exercises/NECK_005/images/motion_02_head_slightly_up_upper_safe.png`
+
+```text
+One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
+
+Same seated position and camera. The chin and the gaze are lifted only slightly upward - a small, comfortable range, not a head thrown back. The neck does not fold sharply, the shoulders stay down, the torso does not arch backward.
+
+Clean, calm, instructional illustration on a plain neutral light background with soft even lighting and no clutter. Camera: front, identical in every frame. Framing: full body. The pose must read clearly at thumbnail size.
+
+No text, letters, numbers, captions or labels anywhere in the image. No arrows, motion lines, circles or highlights. No watermark or logo. No exaggerated range of motion — keep it comfortable and realistic.
+```
+
+Check before accepting: .
+
+<sub>Authored pose (uk): Підборіддя й погляд трохи підняті вгору, амплітуда мала, шия не заламується назад.</sub>
+
+### Preview
+
+Save as `assets/exercises/NECK_005/images/preview.png` — a crop of `FRAME_SETUP`, no overlay text.
+
+**Acceptance checklist**
+
+- [ ] same subject all frames
+- [ ] same style all frames
+- [ ] setup frame may use different crop
+- [ ] motion frames same camera
+- [ ] motion frames same crop
+- [ ] no relevant limb cropping
+- [ ] no embedded text
+- [ ] no watermarks
+- [ ] original or properly licensed only
+- [ ] clinical pose review required
+
+## NECK_006 — Діагональний погляд вниз
+
+- Zone: `neck`
+- Clinical status: `pending_review`
+- Source: `data/exercises/neck/NECK_006.yaml`
+- Folder: `assets/exercises/NECK_006/images`
+- Master: 1024x1024 PNG
+- Equipment that must appear: stable chair
+
+**Must stay identical across all frames of this exercise:** subject, clothing, camera, crop, environment.
+
+### FRAME_SETUP
+
+Save as `assets/exercises/NECK_006/images/setup_full_safe.png`
+
+```text
+One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
+
+Sitting upright on a stable chair seen from the front, both feet flat on the floor about hip width apart, knees bent to roughly ninety degrees, hands resting quietly on the thighs, shoulders level and relaxed, the head in a neutral position looking straight ahead.
+
+Clean, calm, instructional illustration on a plain neutral light background with soft even lighting and no clutter. Camera: front, identical in every frame. Framing: full body. The pose must read clearly at thumbnail size.
+
+No text, letters, numbers, captions or labels anywhere in the image. No arrows, motion lines, circles or highlights. No watermark or logo. No exaggerated range of motion — keep it comfortable and realistic.
+```
+
+Check before accepting: .
+
+<sub>Authored pose (uk): Людина сидить рівно на стільці, спина витягнута, руки на стегнах, голова у нейтральному положенні.</sub>
+
+### FRAME_DIAGONAL_LEFT
+
+Save as `assets/exercises/NECK_006/images/motion_01_diagonal_down_left_upper_safe.png`
+
+```text
+One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
+
+Same seated position seen from the front, closer in on the head and shoulders. The head and gaze are lowered gently along a diagonal to one side, so the chin travels down and slightly across. The range is small, the shoulders stay down, the torso does not twist.
+
+Clean, calm, instructional illustration on a plain neutral light background with soft even lighting and no clutter. Camera: front, identical in every frame. Framing: full body. The pose must read clearly at thumbnail size.
+
+No text, letters, numbers, captions or labels anywhere in the image. No arrows, motion lines, circles or highlights. No watermark or logo. No exaggerated range of motion — keep it comfortable and realistic.
+```
+
+Check before accepting: .
+
+<sub>Authored pose (uk): Голова й погляд м'яко опущені по діагоналі вліво, підборіддя йде вниз і трохи вбік.</sub>
+
+### FRAME_DIAGONAL_RIGHT
+
+Save as `assets/exercises/NECK_006/images/motion_02_diagonal_down_right_upper_safe.png`
+
+```text
+One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
+
+Mirror of the other diagonal frame, same camera and crop. The head and gaze are lowered along the opposite diagonal, the range still small, the shoulders still down, the torso still untwisted.
+
+Clean, calm, instructional illustration on a plain neutral light background with soft even lighting and no clutter. Camera: front, identical in every frame. Framing: full body. The pose must read clearly at thumbnail size.
+
+No text, letters, numbers, captions or labels anywhere in the image. No arrows, motion lines, circles or highlights. No watermark or logo. No exaggerated range of motion — keep it comfortable and realistic.
+```
+
+Check before accepting: .
+
+<sub>Authored pose (uk): Голова й погляд м'яко опущені по діагоналі вправо, амплітуда невелика.</sub>
+
+### Preview
+
+Save as `assets/exercises/NECK_006/images/preview.png` — a crop of `FRAME_SETUP`, no overlay text.
+
+**Acceptance checklist**
+
+- [ ] same subject all frames
+- [ ] same style all frames
+- [ ] setup frame may use different crop
+- [ ] motion frames same camera
+- [ ] motion frames same crop
+- [ ] no relevant limb cropping
+- [ ] no embedded text
+- [ ] no watermarks
+- [ ] original or properly licensed only
+- [ ] clinical pose review required
+
+## NECK_007 — Ізометрія: долоня до лоба
+
+- Zone: `neck`
+- Clinical status: `pending_review`
+- Source: `data/exercises/neck/NECK_007.yaml`
+- Folder: `assets/exercises/NECK_007/images`
+- Master: 1024x1024 PNG
+- Equipment that must appear: stable chair
+
+**Must stay identical across all frames of this exercise:** subject, clothing, camera, crop, environment.
+
+### FRAME_SETUP
+
+Save as `assets/exercises/NECK_007/images/setup_full_safe.png`
+
+```text
+One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
+
+Sitting upright on a stable chair seen from the front, both feet flat on the floor about hip width apart, knees bent to roughly ninety degrees, hands resting quietly on the thighs, shoulders level and relaxed, the head in a neutral position looking straight ahead.
+
+Clean, calm, instructional illustration on a plain neutral light background with soft even lighting and no clutter. Camera: front, identical in every frame. Framing: full body. The pose must read clearly at thumbnail size.
+
+No text, letters, numbers, captions or labels anywhere in the image. No arrows, motion lines, circles or highlights. No watermark or logo. No exaggerated range of motion — keep it comfortable and realistic.
+```
+
+Check before accepting: .
+
+<sub>Authored pose (uk): Людина сидить рівно на стільці, спина витягнута, голова у нейтральному положенні, одна рука на стегні.</sub>
+
+### FRAME_PALM_READY
+
+Save as `assets/exercises/NECK_007/images/motion_01_palm_to_forehead_upper_safe.png`
+
+```text
+One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
+
+Same seated position, closer in on the head, shoulders and the working arm. One open palm rests flat on the centre of the forehead with the elbow loosely bent out in front. The head is level, the shoulders relaxed, and no effort is being made yet.
+
+Clean, calm, instructional illustration on a plain neutral light background with soft even lighting and no clutter. Camera: front, identical in every frame. Framing: full body. The pose must read clearly at thumbnail size.
+
+No text, letters, numbers, captions or labels anywhere in the image. No arrows, motion lines, circles or highlights. No watermark or logo. No exaggerated range of motion — keep it comfortable and realistic.
+```
+
+Check before accepting: .
+
+<sub>Authored pose (uk): Долоня лежить на центрі лоба, лікоть вільно зігнутий, голова рівна, напруги ще немає.</sub>
+
+### FRAME_PRESS
+
+Save as `assets/exercises/NECK_007/images/motion_02_isometric_forehead_press_upper_safe.png`
+
+```text
+One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
+
+Same seated position, same camera and crop. The forehead presses gently into the palm and the palm holds back against it, an isometric effort with no visible head movement - the head has not tipped back and has not leaned forward. A soft red highlight marks where the palm meets the forehead.
+
+Clean, calm, instructional illustration on a plain neutral light background with soft even lighting and no clutter. Camera: front, identical in every frame. Framing: full body. The pose must read clearly at thumbnail size.
+
+No text, letters, numbers, captions or labels anywhere in the image. No arrows, motion lines, circles or highlights. No watermark or logo. No exaggerated range of motion — keep it comfortable and realistic.
+```
+
+Check before accepting: .
+
+<sub>Authored pose (uk): Лоб м'яко тисне в долоню, долоня створює зустрічний опір, видимого руху голови немає.</sub>
+
+### Preview
+
+Save as `assets/exercises/NECK_007/images/preview.png` — a crop of `FRAME_SETUP`, no overlay text.
+
+**Acceptance checklist**
+
+- [ ] same subject all frames
+- [ ] same style all frames
+- [ ] setup frame may use different crop
+- [ ] motion frames same camera
+- [ ] motion frames same crop
+- [ ] no relevant limb cropping
+- [ ] no embedded text
+- [ ] no watermarks
+- [ ] original or properly licensed only
+- [ ] clinical pose review required
+
+## NECK_008 — Ізометрія: долоня до скроні
+
+- Zone: `neck`
+- Clinical status: `pending_review`
+- Source: `data/exercises/neck/NECK_008.yaml`
+- Folder: `assets/exercises/NECK_008/images`
+- Master: 1024x1024 PNG
+- Equipment that must appear: stable chair
+
+**Must stay identical across all frames of this exercise:** subject, clothing, camera, crop, environment.
+
+### FRAME_SETUP
+
+Save as `assets/exercises/NECK_008/images/setup_full_safe.png`
+
+```text
+One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
+
+Sitting upright on a stable chair seen from the front, both feet flat on the floor about hip width apart, knees bent to roughly ninety degrees, hands resting quietly on the thighs, shoulders level and relaxed, the head in a neutral position looking straight ahead.
+
+Clean, calm, instructional illustration on a plain neutral light background with soft even lighting and no clutter. Camera: front, identical in every frame. Framing: full body. The pose must read clearly at thumbnail size.
+
+No text, letters, numbers, captions or labels anywhere in the image. No arrows, motion lines, circles or highlights. No watermark or logo. No exaggerated range of motion — keep it comfortable and realistic.
+```
+
+Check before accepting: .
+
+<sub>Authored pose (uk): Людина сидить рівно на стільці, голова у нейтральному положенні, вільна рука на стегні.</sub>
+
+### FRAME_PRESS_RIGHT
+
+Save as `assets/exercises/NECK_008/images/motion_01_palm_to_left_temple_upper_safe.png`
+
+```text
+One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
+
+Same seated position seen from the front, closer in on the head, shoulders and working arm. One open palm rests against the temple on that side, elbow out. The temple presses gently into the palm and the palm holds back, an isometric effort with the head staying upright and centred. A soft red highlight marks the contact.
+
+Clean, calm, instructional illustration on a plain neutral light background with soft even lighting and no clutter. Camera: front, identical in every frame. Framing: full body. The pose must read clearly at thumbnail size.
+
+No text, letters, numbers, captions or labels anywhere in the image. No arrows, motion lines, circles or highlights. No watermark or logo. No exaggerated range of motion — keep it comfortable and realistic.
+```
+
+Check before accepting: .
+
+<sub>Authored pose (uk): Долоня на скроні, скроня м'яко тисне в долоню; у дзеркальному показі це виконання справа.</sub>
+
+### FRAME_PRESS_LEFT
+
+Save as `assets/exercises/NECK_008/images/motion_02_palm_to_right_temple_upper_safe.png`
+
+```text
+One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
+
+Mirror of the other press frame, same camera and crop: the palm is against the opposite temple with the same gentle isometric press, the head still upright and centred, the shoulders still down.
+
+Clean, calm, instructional illustration on a plain neutral light background with soft even lighting and no clutter. Camera: front, identical in every frame. Framing: full body. The pose must read clearly at thumbnail size.
+
+No text, letters, numbers, captions or labels anywhere in the image. No arrows, motion lines, circles or highlights. No watermark or logo. No exaggerated range of motion — keep it comfortable and realistic.
+```
+
+Check before accepting: .
+
+<sub>Authored pose (uk): Долоня на протилежній скроні з таким самим м'яким натиском; у дзеркальному показі це виконання зліва.</sub>
+
+### Preview
+
+Save as `assets/exercises/NECK_008/images/preview.png` — a crop of `FRAME_SETUP`, no overlay text.
+
+**Acceptance checklist**
+
+- [ ] same subject all frames
+- [ ] same style all frames
+- [ ] setup frame may use different crop
+- [ ] motion frames same camera
+- [ ] motion frames same crop
+- [ ] no relevant limb cropping
+- [ ] no embedded text
+- [ ] no watermarks
+- [ ] original or properly licensed only
+- [ ] clinical pose review required
+
+## NECK_009 — Ізометрія: долоня до потилиці
+
+- Zone: `neck`
+- Clinical status: `pending_review`
+- Source: `data/exercises/neck/NECK_009.yaml`
+- Folder: `assets/exercises/NECK_009/images`
+- Master: 1024x1024 PNG
+- Equipment that must appear: stable chair
+
+**Must stay identical across all frames of this exercise:** subject, clothing, camera, crop, environment.
+
+### FRAME_SETUP
+
+Save as `assets/exercises/NECK_009/images/setup_full_safe.png`
+
+```text
+One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
+
+Sitting upright on a stable chair seen from the front, both feet flat on the floor about hip width apart, knees bent to roughly ninety degrees, hands resting quietly on the thighs, shoulders level and relaxed, the head in a neutral position looking straight ahead.
+
+Clean, calm, instructional illustration on a plain neutral light background with soft even lighting and no clutter. Camera: front, identical in every frame. Framing: full body. The pose must read clearly at thumbnail size.
+
+No text, letters, numbers, captions or labels anywhere in the image. No arrows, motion lines, circles or highlights. No watermark or logo. No exaggerated range of motion — keep it comfortable and realistic.
+```
+
+Check before accepting: .
+
+<sub>Authored pose (uk): Людина сидить рівно на стільці, шия довга, голова у нейтральному положенні, вільна рука на стегні.</sub>
+
+### FRAME_PALM_READY
+
+Save as `assets/exercises/NECK_009/images/motion_01_hands_behind_head_upper_safe.png`
+
+```text
+One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
+
+Same seated position, closer in on the head, shoulders and working arm, seen slightly from the side. One open palm rests on the back of the head with the elbow out. The neck stays long, the head has not tipped back, the shoulders are relaxed and no effort is being made yet.
+
+Clean, calm, instructional illustration on a plain neutral light background with soft even lighting and no clutter. Camera: front, identical in every frame. Framing: full body. The pose must read clearly at thumbnail size.
+
+No text, letters, numbers, captions or labels anywhere in the image. No arrows, motion lines, circles or highlights. No watermark or logo. No exaggerated range of motion — keep it comfortable and realistic.
+```
+
+Check before accepting: .
+
+<sub>Authored pose (uk): Долоня лежить на потилиці, шия довга, голова не відхилена назад, напруги ще немає.</sub>
+
+### FRAME_PRESS
+
+Save as `assets/exercises/NECK_009/images/motion_02_isometric_back_head_press_upper_safe.png`
+
+```text
+One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
+
+Same seated position, same camera and crop. The back of the head presses gently back into the palm and the palm holds it from moving, an isometric effort with no visible shift of the head and no tipping back. A soft red highlight marks the contact.
+
+Clean, calm, instructional illustration on a plain neutral light background with soft even lighting and no clutter. Camera: front, identical in every frame. Framing: full body. The pose must read clearly at thumbnail size.
+
+No text, letters, numbers, captions or labels anywhere in the image. No arrows, motion lines, circles or highlights. No watermark or logo. No exaggerated range of motion — keep it comfortable and realistic.
+```
+
+Check before accepting: .
+
+<sub>Authored pose (uk): Потилиця м'яко тисне в долоню, долоня утримує голову від руху назад, зміщення немає.</sub>
+
+### Preview
+
+Save as `assets/exercises/NECK_009/images/preview.png` — a crop of `FRAME_SETUP`, no overlay text.
+
+**Acceptance checklist**
+
+- [ ] same subject all frames
+- [ ] same style all frames
+- [ ] setup frame may use different crop
+- [ ] motion frames same camera
+- [ ] motion frames same crop
+- [ ] no relevant limb cropping
+- [ ] no embedded text
+- [ ] no watermarks
+- [ ] original or properly licensed only
+- [ ] clinical pose review required
+
+## NECK_010 — Підборіддя назад біля стіни
+
+- Zone: `neck`
+- Clinical status: `pending_review`
+- Source: `data/exercises/neck/NECK_010.yaml`
+- Folder: `assets/exercises/NECK_010/images`
+- Master: 1024x1024 PNG
+- Equipment that must appear: wall
+
+**Must stay identical across all frames of this exercise:** subject, clothing, camera, crop, environment.
+
+### FRAME_SETUP
+
+Save as `assets/exercises/NECK_010/images/setup_full_safe.png`
+
+```text
+One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
+
+Standing upright with the back to a plain wall, seen from the side, the back of the head and the upper back touching the wall, arms hanging freely, shoulders level and relaxed, the gaze level and straight ahead.
+
+Clean, calm, instructional illustration on a plain neutral light background with soft even lighting and no clutter. Camera: front, identical in every frame. Framing: full body. The pose must read clearly at thumbnail size.
+
+No text, letters, numbers, captions or labels anywhere in the image. No arrows, motion lines, circles or highlights. No watermark or logo. No exaggerated range of motion — keep it comfortable and realistic.
+```
+
+Check before accepting: .
+
+<sub>Authored pose (uk): Людина стоїть рівно біля стіни, потилиця і верхня частина спини торкаються стіни, руки вздовж тіла.</sub>
+
+### FRAME_WALL_NEUTRAL
+
+Save as `assets/exercises/NECK_010/images/motion_01_wall_neutral_full_safe.png`
+
+```text
+One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
+
+Standing at the wall in the same neutral position, whole body visible: posture tall, gaze level and straight ahead, shoulders relaxed and down, chin in its ordinary position.
+
+Clean, calm, instructional illustration on a plain neutral light background with soft even lighting and no clutter. Camera: front, identical in every frame. Framing: full body. The pose must read clearly at thumbnail size.
+
+No text, letters, numbers, captions or labels anywhere in the image. No arrows, motion lines, circles or highlights. No watermark or logo. No exaggerated range of motion — keep it comfortable and realistic.
+```
+
+Check before accepting: .
+
+<sub>Authored pose (uk): Людина стоїть біля стіни у нейтральному положенні, постава рівна, плечі розслаблені.</sub>
+
+### FRAME_WALL_CHIN_TUCK
+
+Save as `assets/exercises/NECK_010/images/motion_02_wall_chin_tuck_upper_safe.png`
+
+```text
+One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
+
+Same stance at the wall, closer in on the head, neck and shoulders. The chin is drawn gently straight back toward the neck so a slight double chin appears. The head neither lifts nor drops, the gaze stays level, the shoulders do not rise and the torso does not lean.
+
+Clean, calm, instructional illustration on a plain neutral light background with soft even lighting and no clutter. Camera: front, identical in every frame. Framing: full body. The pose must read clearly at thumbnail size.
+
+No text, letters, numbers, captions or labels anywhere in the image. No arrows, motion lines, circles or highlights. No watermark or logo. No exaggerated range of motion — keep it comfortable and realistic.
+```
+
+Check before accepting: .
+
+<sub>Authored pose (uk): Підборіддя м'яко відведене назад до шиї, голова не піднімається і не нахиляється вниз.</sub>
+
+### Preview
+
+Save as `assets/exercises/NECK_010/images/preview.png` — a crop of `FRAME_SETUP`, no overlay text.
+
+**Acceptance checklist**
+
+- [ ] same subject all frames
+- [ ] same style all frames
+- [ ] setup frame may use different crop
+- [ ] motion frames same camera
+- [ ] no relevant limb cropping
 - [ ] no embedded text
 - [ ] no watermarks
 - [ ] original or properly licensed only
