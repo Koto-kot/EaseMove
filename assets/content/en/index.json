@@ -5,6 +5,35 @@
   "exercises": [
     {
       "id": "NECK_001",
+      "title": "Chin tuck",
+      "cardDescription": "Seated, gently draw your chin back and return to neutral.",
+      "primaryZone": "neck",
+      "clinicalStatus": "pending_review",
+      "collections": [
+        "body_neck",
+        "seated_gentle",
+        "computer_break",
+        "after_sitting"
+      ],
+      "tags": [
+        "neck",
+        "cervical_spine",
+        "computer",
+        "after_sitting",
+        "sitting",
+        "mobility",
+        "cervical_retraction",
+        "midline",
+        "beginner",
+        "gentle",
+        "stable_chair"
+      ],
+      "preview": "assets/exercises/NECK_001/images/preview.png",
+      "estimatedActiveSeconds": 61,
+      "requiresPro": false
+    },
+    {
+      "id": "NECK_002",
       "title": "Head turns",
       "cardDescription": "Slowly turn your head to the left and to the right.",
       "primaryZone": "neck",
@@ -28,8 +57,240 @@
         "none",
         "chair_optional"
       ],
-      "preview": "assets/exercises/NECK_001/preview.png",
+      "preview": "assets/exercises/NECK_002/images/preview.png",
       "estimatedActiveSeconds": 51,
+      "requiresPro": false
+    },
+    {
+      "id": "NECK_003",
+      "title": "Ear to shoulder",
+      "cardDescription": "Seated, gently tilt your head toward one shoulder, then the other.",
+      "primaryZone": "neck",
+      "clinicalStatus": "pending_review",
+      "collections": [
+        "body_neck",
+        "seated_gentle",
+        "computer_break",
+        "after_sitting"
+      ],
+      "tags": [
+        "neck",
+        "cervical_spine",
+        "computer",
+        "after_sitting",
+        "sitting",
+        "mobility",
+        "cervical_lateral_flexion",
+        "bilateral",
+        "beginner",
+        "gentle",
+        "stable_chair"
+      ],
+      "preview": "assets/exercises/NECK_003/images/preview.png",
+      "estimatedActiveSeconds": 61,
+      "requiresPro": false
+    },
+    {
+      "id": "NECK_004",
+      "title": "Look down",
+      "cardDescription": "Seated, gently lower your head and your gaze, then return to neutral.",
+      "primaryZone": "neck",
+      "clinicalStatus": "pending_review",
+      "collections": [
+        "body_neck",
+        "seated_gentle",
+        "computer_break",
+        "after_sitting"
+      ],
+      "tags": [
+        "neck",
+        "cervical_spine",
+        "computer",
+        "after_sitting",
+        "sitting",
+        "mobility",
+        "cervical_flexion",
+        "midline",
+        "beginner",
+        "gentle",
+        "stable_chair"
+      ],
+      "preview": "assets/exercises/NECK_004/images/preview.png",
+      "estimatedActiveSeconds": 61,
+      "requiresPro": false
+    },
+    {
+      "id": "NECK_005",
+      "title": "Look slightly up",
+      "cardDescription": "Seated, lift your chin and your gaze a little, then return to neutral.",
+      "primaryZone": "neck",
+      "clinicalStatus": "pending_review",
+      "collections": [
+        "body_neck",
+        "seated_gentle",
+        "computer_break",
+        "after_sitting"
+      ],
+      "tags": [
+        "neck",
+        "cervical_spine",
+        "computer",
+        "after_sitting",
+        "sitting",
+        "mobility",
+        "cervical_extension",
+        "midline",
+        "beginner",
+        "gentle",
+        "stable_chair"
+      ],
+      "preview": "assets/exercises/NECK_005/images/preview.png",
+      "estimatedActiveSeconds": 61,
+      "requiresPro": false
+    },
+    {
+      "id": "NECK_006",
+      "title": "Diagonal look down",
+      "cardDescription": "Seated, gently lower your head and gaze diagonally left, then right.",
+      "primaryZone": "neck",
+      "clinicalStatus": "pending_review",
+      "collections": [
+        "body_neck",
+        "seated_gentle",
+        "computer_break",
+        "after_sitting"
+      ],
+      "tags": [
+        "neck",
+        "cervical_spine",
+        "computer",
+        "after_sitting",
+        "sitting",
+        "mobility",
+        "cervical_diagonal_flexion",
+        "bilateral",
+        "beginner",
+        "gentle",
+        "stable_chair"
+      ],
+      "preview": "assets/exercises/NECK_006/images/preview.png",
+      "estimatedActiveSeconds": 61,
+      "requiresPro": false
+    },
+    {
+      "id": "NECK_007",
+      "title": "Isometric: palm to forehead",
+      "cardDescription": "Seated, gently press your forehead into your palm, with almost no head movement.",
+      "primaryZone": "neck",
+      "clinicalStatus": "pending_review",
+      "collections": [
+        "body_neck",
+        "seated_gentle",
+        "computer_break",
+        "after_sitting"
+      ],
+      "tags": [
+        "neck",
+        "cervical_spine",
+        "computer",
+        "after_sitting",
+        "sitting",
+        "isometric",
+        "cervical_isometric_flexion",
+        "midline",
+        "beginner",
+        "gentle",
+        "stable_chair"
+      ],
+      "preview": "assets/exercises/NECK_007/images/preview.png",
+      "estimatedActiveSeconds": 61,
+      "requiresPro": false
+    },
+    {
+      "id": "NECK_008",
+      "title": "Isometric: palm to temple",
+      "cardDescription": "Seated, gently press your temple into your palm without tilting your head. Then change sides.",
+      "primaryZone": "neck",
+      "clinicalStatus": "pending_review",
+      "collections": [
+        "body_neck",
+        "seated_gentle",
+        "computer_break",
+        "after_sitting"
+      ],
+      "tags": [
+        "neck",
+        "cervical_spine",
+        "computer",
+        "after_sitting",
+        "sitting",
+        "isometric",
+        "cervical_isometric_lateral_flexion",
+        "bilateral",
+        "beginner",
+        "gentle",
+        "stable_chair"
+      ],
+      "preview": "assets/exercises/NECK_008/images/preview.png",
+      "estimatedActiveSeconds": 61,
+      "requiresPro": false
+    },
+    {
+      "id": "NECK_009",
+      "title": "Isometric: palm to back of head",
+      "cardDescription": "Seated, gently press the back of your head into your palm without tipping it back.",
+      "primaryZone": "neck",
+      "clinicalStatus": "pending_review",
+      "collections": [
+        "body_neck",
+        "seated_gentle",
+        "computer_break",
+        "after_sitting"
+      ],
+      "tags": [
+        "neck",
+        "cervical_spine",
+        "computer",
+        "after_sitting",
+        "sitting",
+        "isometric",
+        "cervical_isometric_extension",
+        "midline",
+        "beginner",
+        "gentle",
+        "stable_chair"
+      ],
+      "preview": "assets/exercises/NECK_009/images/preview.png",
+      "estimatedActiveSeconds": 61,
+      "requiresPro": false
+    },
+    {
+      "id": "NECK_010",
+      "title": "Chin tuck at the wall",
+      "cardDescription": "Standing at a wall, gently draw your chin back and return to neutral.",
+      "primaryZone": "neck",
+      "clinicalStatus": "pending_review",
+      "collections": [
+        "body_neck",
+        "computer_break",
+        "after_sitting"
+      ],
+      "tags": [
+        "neck",
+        "cervical_spine",
+        "computer",
+        "after_sitting",
+        "standing",
+        "mobility",
+        "cervical_retraction",
+        "posture",
+        "midline",
+        "beginner",
+        "gentle",
+        "wall"
+      ],
+      "preview": "assets/exercises/NECK_010/images/preview.png",
+      "estimatedActiveSeconds": 61,
       "requiresPro": false
     },
     {

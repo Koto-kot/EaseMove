@@ -9,7 +9,7 @@
 
 **Режими голосу:** «завжди» звучить у будь-якому режимі; репліки режимів «Слова руху» та «Лічба» звучать лише тоді, коли користувач обрав цей режим у Налаштуваннях, і мають бути короткими — вони мусять вкластися в половину циклу руху (близько двох секунд).
 
-Записано 66 із 66 реплік.
+Записано 102 із 102 реплік.
 
 ## Спільні репліки
 
@@ -17,28 +17,109 @@
 
 | Текст | Коли | Файл | Використовує | Стан |
 |---|---|---|---|---|
-| Готово. | завжди | `audio/uk/common/completed.m4a` | 13 вправ | записано |
-| Раз. | режим «Лічба» | `audio/uk/common/count_one.m4a` | 9 вправ | записано |
-| Два. | режим «Лічба» | `audio/uk/common/count_two.m4a` | 9 вправ | записано |
+| Готово. | завжди | `audio/uk/common/completed.m4a` | 22 вправи | записано |
+| Раз. | режим «Лічба» | `audio/uk/common/count_one.m4a` | 18 вправ | записано |
+| Два. | режим «Лічба» | `audio/uk/common/count_two.m4a` | 18 вправ | записано |
 | Один. | завжди | `audio/uk/common/countdown_1.m4a` | відлік підготовки | записано |
 | Два. | завжди | `audio/uk/common/countdown_2.m4a` | відлік підготовки | записано |
 | Три. | завжди | `audio/uk/common/countdown_3.m4a` | відлік підготовки | записано |
 | Чотири. | завжди | `audio/uk/common/countdown_4.m4a` | відлік підготовки | записано |
 | П'ять. | завжди | `audio/uk/common/countdown_5.m4a` | відлік підготовки | записано |
-| Половину виконано. | завжди | `audio/uk/common/halfway.m4a` | 13 вправ | записано |
+| Половину виконано. | завжди | `audio/uk/common/halfway.m4a` | 22 вправи | записано |
 | Тримайте. | завжди | `audio/uk/common/hold.m4a` | 2 вправи | записано |
 | Останній повтор. | завжди | `audio/uk/common/last_repetition.m4a` | 3 вправи | записано |
-| Поверніться в центр. | завжди | `audio/uk/common/return_center.m4a` | NECK_001 | записано |
+| Поверніться в центр. | завжди | `audio/uk/common/return_center.m4a` | NECK_002 | записано |
 | Тепер інша нога. | завжди | `audio/uk/common/switch_leg.m4a` | 2 вправи | записано |
 
-## NECK_001 — Повороти голови
+## NECK_001 — Підборіддя назад
 
 | Репліка | Коли | Текст | Файл | Стан |
 |---|---|---|---|---|
-| `VOICE_PREPARE` | завжди | Приготуйтеся. Сядьте рівно і розслабте плечі. | `audio/uk/exercises/NECK_001/prepare.m4a` | записано |
-| `VOICE_TURN_LEFT` | завжди | Повільно поверніть голову ліворуч. | `audio/uk/exercises/NECK_001/turn_left.m4a` | записано |
-| `VOICE_TURN_RIGHT` | завжди | Тепер праворуч. | `audio/uk/exercises/NECK_001/turn_right.m4a` | записано |
-| `VOICE_LAST_CYCLE` | завжди | Останній цикл. | `audio/uk/exercises/NECK_001/last_cycle.m4a` | записано |
+| `VOICE_SETUP` | завжди | Сядьте рівно. Розслабте плечі. Дивіться прямо. | `audio/uk/exercises/NECK_001/setup.m4a` | записано |
+| `VOICE_START_MOVEMENT` | завжди | М'яко відведіть підборіддя назад. Не нахиляйте голову вниз. Поверніться у звичайне положення. | `audio/uk/exercises/NECK_001/start_movement.m4a` | записано |
+| `VOICE_PHASE_B` | режим «Слова руху» | Підборіддя назад. | `audio/uk/exercises/NECK_001/phase_b.m4a` | записано |
+| `VOICE_PHASE_A` | режим «Слова руху» | Нейтраль. | `audio/uk/exercises/NECK_001/phase_a.m4a` | записано |
+
+## NECK_002 — Повороти голови
+
+| Репліка | Коли | Текст | Файл | Стан |
+|---|---|---|---|---|
+| `VOICE_PREPARE` | завжди | Приготуйтеся. Сядьте рівно і розслабте плечі. | `audio/uk/exercises/NECK_002/prepare.m4a` | записано |
+| `VOICE_TURN_LEFT` | завжди | Повільно поверніть голову ліворуч. | `audio/uk/exercises/NECK_002/turn_left.m4a` | записано |
+| `VOICE_TURN_RIGHT` | завжди | Тепер праворуч. | `audio/uk/exercises/NECK_002/turn_right.m4a` | записано |
+| `VOICE_LAST_CYCLE` | завжди | Останній цикл. | `audio/uk/exercises/NECK_002/last_cycle.m4a` | записано |
+
+## NECK_003 — Нахил голови до плеча
+
+| Репліка | Коли | Текст | Файл | Стан |
+|---|---|---|---|---|
+| `VOICE_SETUP` | завжди | Сядьте рівно. Розслабте плечі. Дивіться прямо. | `audio/uk/exercises/NECK_003/setup.m4a` | записано |
+| `VOICE_START_MOVEMENT` | завжди | Плавно нахиліть голову вправо. Поверніться у центр. Потім нахиліть голову вліво. | `audio/uk/exercises/NECK_003/start_movement.m4a` | записано |
+| `VOICE_PHASE_B` | режим «Слова руху» | Вліво. | `audio/uk/exercises/NECK_003/phase_b.m4a` | записано |
+| `VOICE_PHASE_A` | режим «Слова руху» | Вправо. | `audio/uk/exercises/NECK_003/phase_a.m4a` | записано |
+
+## NECK_004 — Погляд вниз
+
+| Репліка | Коли | Текст | Файл | Стан |
+|---|---|---|---|---|
+| `VOICE_SETUP` | завжди | Сядьте рівно. Розслабте плечі. Дивіться прямо. | `audio/uk/exercises/NECK_004/setup.m4a` | записано |
+| `VOICE_START_MOVEMENT` | завжди | З нейтрального положення м'яко опустіть голову й погляд вниз. Потім поверніться у нейтраль. | `audio/uk/exercises/NECK_004/start_movement.m4a` | записано |
+| `VOICE_PHASE_B` | режим «Слова руху» | Вниз. | `audio/uk/exercises/NECK_004/phase_b.m4a` | записано |
+| `VOICE_PHASE_A` | режим «Слова руху» | Нейтраль. | `audio/uk/exercises/NECK_004/phase_a.m4a` | записано |
+
+## NECK_005 — Легкий погляд вгору
+
+| Репліка | Коли | Текст | Файл | Стан |
+|---|---|---|---|---|
+| `VOICE_SETUP` | завжди | Сядьте рівно. Розслабте плечі. Дивіться прямо. | `audio/uk/exercises/NECK_005/setup.m4a` | записано |
+| `VOICE_START_MOVEMENT` | завжди | М'яко підніміть підборіддя і погляд трохи вгору. Потім поверніться у нейтраль. | `audio/uk/exercises/NECK_005/start_movement.m4a` | записано |
+| `VOICE_PHASE_B` | режим «Слова руху» | Вгору. | `audio/uk/exercises/NECK_005/phase_b.m4a` | записано |
+| `VOICE_PHASE_A` | режим «Слова руху» | Нейтраль. | `audio/uk/exercises/NECK_005/phase_a.m4a` | записано |
+
+## NECK_006 — Діагональний погляд вниз
+
+| Репліка | Коли | Текст | Файл | Стан |
+|---|---|---|---|---|
+| `VOICE_SETUP` | завжди | Сядьте рівно. Розслабте плечі. Дивіться прямо. | `audio/uk/exercises/NECK_006/setup.m4a` | записано |
+| `VOICE_START_MOVEMENT` | завжди | М'яко опустіть голову й погляд по діагоналі вліво. Поверніться у центр. Потім по діагоналі вправо. | `audio/uk/exercises/NECK_006/start_movement.m4a` | записано |
+| `VOICE_PHASE_B` | режим «Слова руху» | Вправо. | `audio/uk/exercises/NECK_006/phase_b.m4a` | записано |
+| `VOICE_PHASE_A` | режим «Слова руху» | Вліво. | `audio/uk/exercises/NECK_006/phase_a.m4a` | записано |
+
+## NECK_007 — Ізометрія: долоня до лоба
+
+| Репліка | Коли | Текст | Файл | Стан |
+|---|---|---|---|---|
+| `VOICE_SETUP` | завжди | Сядьте рівно. Розслабте плечі. Дивіться прямо. | `audio/uk/exercises/NECK_007/setup.m4a` | записано |
+| `VOICE_START_MOVEMENT` | завжди | Покладіть долоню на лоб. М'яко натискайте лобом у долоню, не рухаючи головою. | `audio/uk/exercises/NECK_007/start_movement.m4a` | записано |
+| `VOICE_PHASE_B` | режим «Слова руху» | Натисніть. | `audio/uk/exercises/NECK_007/phase_b.m4a` | записано |
+| `VOICE_PHASE_A` | режим «Слова руху» | Розслабте. | `audio/uk/exercises/NECK_007/phase_a.m4a` | записано |
+
+## NECK_008 — Ізометрія: долоня до скроні
+
+| Репліка | Коли | Текст | Файл | Стан |
+|---|---|---|---|---|
+| `VOICE_SETUP` | завжди | Сядьте рівно. Розслабте плечі. Дивіться прямо. | `audio/uk/exercises/NECK_008/setup.m4a` | записано |
+| `VOICE_START_MOVEMENT` | завжди | Прикладіть долоню до скроні. М'яко натискайте скронею в долоню, не нахиляючи голову. Потім змініть бік. | `audio/uk/exercises/NECK_008/start_movement.m4a` | записано |
+| `VOICE_PHASE_B` | режим «Слова руху» | Зліва. | `audio/uk/exercises/NECK_008/phase_b.m4a` | записано |
+| `VOICE_PHASE_A` | режим «Слова руху» | Справа. | `audio/uk/exercises/NECK_008/phase_a.m4a` | записано |
+
+## NECK_009 — Ізометрія: долоня до потилиці
+
+| Репліка | Коли | Текст | Файл | Стан |
+|---|---|---|---|---|
+| `VOICE_SETUP` | завжди | Сядьте рівно. Розслабте плечі. Тримайте голову прямо. | `audio/uk/exercises/NECK_009/setup.m4a` | записано |
+| `VOICE_START_MOVEMENT` | завжди | Покладіть долоню на потилицю. М'яко натискайте потилицею в долоню, не відхиляючи голову назад. | `audio/uk/exercises/NECK_009/start_movement.m4a` | записано |
+| `VOICE_PHASE_B` | режим «Слова руху» | Натисніть. | `audio/uk/exercises/NECK_009/phase_b.m4a` | записано |
+| `VOICE_PHASE_A` | режим «Слова руху» | Розслабте. | `audio/uk/exercises/NECK_009/phase_a.m4a` | записано |
+
+## NECK_010 — Підборіддя назад біля стіни
+
+| Репліка | Коли | Текст | Файл | Стан |
+|---|---|---|---|---|
+| `VOICE_SETUP` | завжди | Станьте рівно біля стіни. Розслабте плечі. Дивіться прямо. | `audio/uk/exercises/NECK_010/setup.m4a` | записано |
+| `VOICE_START_MOVEMENT` | завжди | М'яко потягніть підборіддя назад, не закидаючи голову. Поверніться у нейтраль. | `audio/uk/exercises/NECK_010/start_movement.m4a` | записано |
+| `VOICE_PHASE_B` | режим «Слова руху» | Підборіддя назад. | `audio/uk/exercises/NECK_010/phase_b.m4a` | записано |
+| `VOICE_PHASE_A` | режим «Слова руху» | Нейтраль. | `audio/uk/exercises/NECK_010/phase_a.m4a` | записано |
 
 ## KNEE_001 — Розгинання ноги сидячи
 

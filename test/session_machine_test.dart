@@ -294,12 +294,12 @@ void main() {
       'completion saves the result, adds +1 and starts the rest countdown',
       () {
         final SessionMachine machine = machineFor(
-          'NECK_001',
+          'NECK_002',
           skipCountdowns: true,
         );
         machine.handle(SessionEventType.start);
 
-        // NECK_001 is 3 cycles x 17 s = 51 s of active time.
+        // NECK_002 is 3 cycles x 17 s = 51 s of active time.
         final List<SessionEffect> effects = advance(machine, 51);
         final SaveResult saved = effects.whereType<SaveResult>().single;
         expect(saved.result.completed, isTrue);
@@ -320,7 +320,7 @@ void main() {
       'rest runs the full 10 seconds and then asks for the next exercise',
       () {
         final SessionMachine machine = machineFor(
-          'NECK_001',
+          'NECK_002',
           skipCountdowns: true,
         );
         machine.handle(SessionEventType.start);
@@ -337,7 +337,7 @@ void main() {
 
     test('the result is saved once, not on every following tick', () {
       final SessionMachine machine = machineFor(
-        'NECK_001',
+        'NECK_002',
         skipCountdowns: true,
       );
       machine.handle(SessionEventType.start);
@@ -373,7 +373,7 @@ void main() {
   group('manual browse during rest (invariant 2)', () {
     test('Next cancels autoplay and requires a manual Start afterwards', () {
       final SessionMachine machine = machineFor(
-        'NECK_001',
+        'NECK_002',
         skipCountdowns: true,
       );
       machine.handle(SessionEventType.start);

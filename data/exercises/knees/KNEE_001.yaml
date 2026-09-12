@@ -806,7 +806,7 @@ metadata:
   authoring_language: uk
   created_at: '2026-09-09'
   last_modified_at: '2026-09-09'
-  schema_notes_uk: Цей файл тестує Exercise Schema v1.1 на вправі з повтореннями та фазами руху. Порівняно з NECK_001
+  schema_notes_uk: Цей файл тестує Exercise Schema v1.1 на вправі з повтореннями та фазами руху. Порівняно з NECK_002
     додано anatomy, repetition_model, movement_phases, side-block sequence, completed_repetitions tracking і окремі
     adaptive parameters для повторів та часу утримання.
   migrated_from_schema_version: '1.1'

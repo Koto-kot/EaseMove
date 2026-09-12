@@ -5,6 +5,35 @@
   "exercises": [
     {
       "id": "NECK_001",
+      "title": "Підборіддя назад",
+      "cardDescription": "Сидячи, м'яко відводьте підборіддя назад і повертайтеся у нейтральне положення.",
+      "primaryZone": "neck",
+      "clinicalStatus": "pending_review",
+      "collections": [
+        "body_neck",
+        "seated_gentle",
+        "computer_break",
+        "after_sitting"
+      ],
+      "tags": [
+        "neck",
+        "cervical_spine",
+        "computer",
+        "after_sitting",
+        "sitting",
+        "mobility",
+        "cervical_retraction",
+        "midline",
+        "beginner",
+        "gentle",
+        "stable_chair"
+      ],
+      "preview": "assets/exercises/NECK_001/images/preview.png",
+      "estimatedActiveSeconds": 61,
+      "requiresPro": false
+    },
+    {
+      "id": "NECK_002",
       "title": "Повороти голови",
       "cardDescription": "Повільно повертайте голову ліворуч і праворуч.",
       "primaryZone": "neck",
@@ -28,8 +57,240 @@
         "none",
         "chair_optional"
       ],
-      "preview": "assets/exercises/NECK_001/preview.png",
+      "preview": "assets/exercises/NECK_002/images/preview.png",
       "estimatedActiveSeconds": 51,
+      "requiresPro": false
+    },
+    {
+      "id": "NECK_003",
+      "title": "Нахил голови до плеча",
+      "cardDescription": "Сидячи, плавно нахиляйте голову до одного плеча, потім до іншого.",
+      "primaryZone": "neck",
+      "clinicalStatus": "pending_review",
+      "collections": [
+        "body_neck",
+        "seated_gentle",
+        "computer_break",
+        "after_sitting"
+      ],
+      "tags": [
+        "neck",
+        "cervical_spine",
+        "computer",
+        "after_sitting",
+        "sitting",
+        "mobility",
+        "cervical_lateral_flexion",
+        "bilateral",
+        "beginner",
+        "gentle",
+        "stable_chair"
+      ],
+      "preview": "assets/exercises/NECK_003/images/preview.png",
+      "estimatedActiveSeconds": 61,
+      "requiresPro": false
+    },
+    {
+      "id": "NECK_004",
+      "title": "Погляд вниз",
+      "cardDescription": "Сидячи, м'яко опускайте голову й погляд вниз і повертайтеся у нейтраль.",
+      "primaryZone": "neck",
+      "clinicalStatus": "pending_review",
+      "collections": [
+        "body_neck",
+        "seated_gentle",
+        "computer_break",
+        "after_sitting"
+      ],
+      "tags": [
+        "neck",
+        "cervical_spine",
+        "computer",
+        "after_sitting",
+        "sitting",
+        "mobility",
+        "cervical_flexion",
+        "midline",
+        "beginner",
+        "gentle",
+        "stable_chair"
+      ],
+      "preview": "assets/exercises/NECK_004/images/preview.png",
+      "estimatedActiveSeconds": 61,
+      "requiresPro": false
+    },
+    {
+      "id": "NECK_005",
+      "title": "Легкий погляд вгору",
+      "cardDescription": "Сидячи, злегка піднімайте підборіддя й погляд угору і повертайтеся у нейтраль.",
+      "primaryZone": "neck",
+      "clinicalStatus": "pending_review",
+      "collections": [
+        "body_neck",
+        "seated_gentle",
+        "computer_break",
+        "after_sitting"
+      ],
+      "tags": [
+        "neck",
+        "cervical_spine",
+        "computer",
+        "after_sitting",
+        "sitting",
+        "mobility",
+        "cervical_extension",
+        "midline",
+        "beginner",
+        "gentle",
+        "stable_chair"
+      ],
+      "preview": "assets/exercises/NECK_005/images/preview.png",
+      "estimatedActiveSeconds": 61,
+      "requiresPro": false
+    },
+    {
+      "id": "NECK_006",
+      "title": "Діагональний погляд вниз",
+      "cardDescription": "Сидячи, м'яко опускайте голову й погляд по діагоналі вліво, потім вправо.",
+      "primaryZone": "neck",
+      "clinicalStatus": "pending_review",
+      "collections": [
+        "body_neck",
+        "seated_gentle",
+        "computer_break",
+        "after_sitting"
+      ],
+      "tags": [
+        "neck",
+        "cervical_spine",
+        "computer",
+        "after_sitting",
+        "sitting",
+        "mobility",
+        "cervical_diagonal_flexion",
+        "bilateral",
+        "beginner",
+        "gentle",
+        "stable_chair"
+      ],
+      "preview": "assets/exercises/NECK_006/images/preview.png",
+      "estimatedActiveSeconds": 61,
+      "requiresPro": false
+    },
+    {
+      "id": "NECK_007",
+      "title": "Ізометрія: долоня до лоба",
+      "cardDescription": "Сидячи, м'яко натискайте лобом у долоню, майже не рухаючи головою.",
+      "primaryZone": "neck",
+      "clinicalStatus": "pending_review",
+      "collections": [
+        "body_neck",
+        "seated_gentle",
+        "computer_break",
+        "after_sitting"
+      ],
+      "tags": [
+        "neck",
+        "cervical_spine",
+        "computer",
+        "after_sitting",
+        "sitting",
+        "isometric",
+        "cervical_isometric_flexion",
+        "midline",
+        "beginner",
+        "gentle",
+        "stable_chair"
+      ],
+      "preview": "assets/exercises/NECK_007/images/preview.png",
+      "estimatedActiveSeconds": 61,
+      "requiresPro": false
+    },
+    {
+      "id": "NECK_008",
+      "title": "Ізометрія: долоня до скроні",
+      "cardDescription": "Сидячи, м'яко натискайте скронею в долоню, не нахиляючи голову. Потім змініть бік.",
+      "primaryZone": "neck",
+      "clinicalStatus": "pending_review",
+      "collections": [
+        "body_neck",
+        "seated_gentle",
+        "computer_break",
+        "after_sitting"
+      ],
+      "tags": [
+        "neck",
+        "cervical_spine",
+        "computer",
+        "after_sitting",
+        "sitting",
+        "isometric",
+        "cervical_isometric_lateral_flexion",
+        "bilateral",
+        "beginner",
+        "gentle",
+        "stable_chair"
+      ],
+      "preview": "assets/exercises/NECK_008/images/preview.png",
+      "estimatedActiveSeconds": 61,
+      "requiresPro": false
+    },
+    {
+      "id": "NECK_009",
+      "title": "Ізометрія: долоня до потилиці",
+      "cardDescription": "Сидячи, м'яко натискайте потилицею в долоню, не відхиляючи голову назад.",
+      "primaryZone": "neck",
+      "clinicalStatus": "pending_review",
+      "collections": [
+        "body_neck",
+        "seated_gentle",
+        "computer_break",
+        "after_sitting"
+      ],
+      "tags": [
+        "neck",
+        "cervical_spine",
+        "computer",
+        "after_sitting",
+        "sitting",
+        "isometric",
+        "cervical_isometric_extension",
+        "midline",
+        "beginner",
+        "gentle",
+        "stable_chair"
+      ],
+      "preview": "assets/exercises/NECK_009/images/preview.png",
+      "estimatedActiveSeconds": 61,
+      "requiresPro": false
+    },
+    {
+      "id": "NECK_010",
+      "title": "Підборіддя назад біля стіни",
+      "cardDescription": "Стоячи біля стіни, м'яко відводьте підборіддя назад і повертайтеся у нейтраль.",
+      "primaryZone": "neck",
+      "clinicalStatus": "pending_review",
+      "collections": [
+        "body_neck",
+        "computer_break",
+        "after_sitting"
+      ],
+      "tags": [
+        "neck",
+        "cervical_spine",
+        "computer",
+        "after_sitting",
+        "standing",
+        "mobility",
+        "cervical_retraction",
+        "posture",
+        "midline",
+        "beginner",
+        "gentle",
+        "wall"
+      ],
+      "preview": "assets/exercises/NECK_010/images/preview.png",
+      "estimatedActiveSeconds": 61,
       "requiresPro": false
     },
     {

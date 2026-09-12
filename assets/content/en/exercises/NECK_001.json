@@ -1,6 +1,6 @@
 {
   "id": "NECK_001",
-  "slug": "neck_rotation",
+  "slug": "seated_chin_tuck",
   "schemaVersion": "1.3",
   "contentVersion": "0.1.0",
   "clinicalStatus": "pending_review",
@@ -12,111 +12,97 @@
   ],
   "tags": [
     "neck",
+    "cervical_spine",
     "computer",
     "after_sitting",
     "sitting",
-    "standing",
     "mobility",
-    "rotation",
-    "bilateral",
+    "cervical_retraction",
+    "midline",
     "beginner",
     "gentle",
-    "none",
-    "chair_optional"
+    "stable_chair"
   ],
   "tagGroups": {
     "anatomy": [
-      "neck"
+      "neck",
+      "cervical_spine"
     ],
     "context": [
       "computer",
       "after_sitting"
     ],
     "position": [
-      "sitting",
-      "standing"
+      "sitting"
     ],
     "movement": [
       "mobility",
-      "rotation",
-      "bilateral"
+      "cervical_retraction",
+      "midline"
     ],
     "level": [
       "beginner",
       "gentle"
     ],
     "equipment": [
-      "none",
-      "chair_optional"
+      "stable_chair"
     ]
   },
   "collections": [
     "body_neck",
+    "seated_gentle",
     "computer_break",
     "after_sitting"
   ],
   "collectionCandidates": [],
   "text": {
-    "title": "Head turns",
-    "shortTitle": "Turns",
-    "cardDescription": "Slowly turn your head to the left and to the right.",
+    "title": "Chin tuck",
+    "shortTitle": "Chin back",
+    "cardDescription": "Seated, gently draw your chin back and return to neutral.",
     "categoryLabel": "Neck",
-    "purpose": "A gentle exercise for neck mobility.",
+    "purpose": "A starter exercise for waking the neck up gently and finding a good head position.",
     "startPositionTitle": "Starting position",
-    "startPosition": "Sit up straight on a stable chair. Place your feet on the floor. Drop and relax your shoulders. Look straight ahead.",
+    "startPosition": "Sit up straight on a stable chair. Feet firmly on the floor. Shoulders relaxed. Head level, looking straight ahead. Hands resting by your sides or on your thighs.",
     "instructionsTitle": "How to do it",
     "instructions": [
       {
         "step": 1,
-        "text": "Slowly turn your head to the left, as far as is comfortable."
+        "text": "Sit up straight and place your feet on the floor."
       },
       {
         "step": 2,
-        "text": "Hold the position for 5 seconds."
+        "text": "Look straight ahead."
       },
       {
         "step": 3,
-        "text": "Slowly return to the centre."
+        "text": "Gently draw your chin back — the movement goes back, not down."
       },
       {
         "step": 4,
-        "text": "Slowly turn your head to the right, as far as is comfortable."
+        "text": "Smoothly return to neutral."
       },
       {
         "step": 5,
-        "text": "Hold the position for 5 seconds."
-      },
-      {
-        "step": 6,
-        "text": "Slowly return to the centre."
-      },
-      {
-        "step": 7,
-        "text": "Repeat 3 times to each side."
+        "text": "Keep repeating at a calm pace until the time is up."
       }
     ],
     "techniqueTipsTitle": "Watch out for",
     "techniqueTips": [
-      "Your shoulders stay relaxed.",
-      "Do not turn your torso with your head.",
-      "Do not raise or drop your chin as you turn.",
-      "Move smoothly, with no jerking."
+      "Keep the movement small and controlled.",
+      "Do not tip your head back.",
+      "Do not drop your head down as you move.",
+      "Do not lift your shoulders."
     ],
     "safetyLabel": "Safety",
-    "safety": "Move only within a comfortable range. If you feel dizzy, or have sharp pain or any other unusual symptom, press Stop.",
+    "safety": "Move within a comfortable range. If you feel sharp pain or any other unusual symptom, press Stop.",
     "completion": "Done."
   },
-  "labels": {
-    "elapsed_time": "Time",
-    "progress": "Done",
-    "repetition": "Rep",
-    "side": "Side"
-  },
+  "labels": {},
   "timing": {
     "prepCountdownSeconds": 5,
     "restAfterSeconds": 10,
-    "completionMode": "prescribed_repetitions",
-    "estimatedActiveSeconds": 51
+    "completionMode": "timed_duration",
+    "estimatedActiveSeconds": 61
   },
   "progress": {
     "basis": "sequence_time",
@@ -129,107 +115,77 @@
   "repetitionModel": {
     "type": "sequence_time",
     "sets": 1,
-    "repetitionsPerBlock": 3,
+    "repetitionsPerBlock": 1,
     "blockOrder": [
+      null,
       null
     ],
     "switchSideAutomatically": true,
     "resetCounterOnSideChange": false
   },
-  "movementPhases": [],
+  "movementPhases": [
+    {
+      "id": "PHASE_SETUP",
+      "name": "Starting position",
+      "type": null
+    },
+    {
+      "id": "PHASE_A",
+      "name": "Neutral position",
+      "type": null
+    },
+    {
+      "id": "PHASE_B",
+      "name": "Chin drawn back",
+      "type": null
+    }
+  ],
   "sequence": {
     "blocks": [
       {
         "side": null,
-        "repeat": 3,
+        "repeat": 1,
         "steps": [
           {
-            "id": "center_before_left",
-            "phase": "neutral",
+            "id": "setup",
+            "phase": "PHASE_SETUP",
             "side": null,
-            "frameId": "FRAME_CENTER",
+            "frameId": "FRAME_SETUP",
             "frameTransition": null,
-            "durationMs": 500,
+            "durationMs": 1000,
+            "voiceEvent": null
+          }
+        ]
+      },
+      {
+        "side": null,
+        "repeat": 15,
+        "steps": [
+          {
+            "id": "tuck",
+            "phase": "PHASE_B",
+            "side": null,
+            "frameId": null,
+            "frameTransition": {
+              "from": "FRAME_NEUTRAL",
+              "via": null,
+              "to": "FRAME_CHIN_TUCK"
+            },
+            "durationMs": 2000,
             "voiceEvent": null
           },
           {
-            "id": "move_left",
-            "phase": "movement",
-            "side": "left",
-            "frameId": null,
-            "frameTransition": {
-              "from": "FRAME_CENTER",
-              "via": null,
-              "to": "FRAME_LEFT"
-            },
-            "durationMs": 1800,
-            "voiceEvent": "VOICE_TURN_LEFT"
-          },
-          {
-            "id": "hold_left",
-            "phase": "hold",
-            "side": "left",
-            "frameId": "FRAME_LEFT",
-            "frameTransition": null,
-            "durationMs": 5000,
-            "voiceEvent": "VOICE_HOLD"
-          },
-          {
-            "id": "return_center_from_left",
-            "phase": "movement",
-            "side": "left",
-            "frameId": null,
-            "frameTransition": {
-              "from": "FRAME_LEFT",
-              "via": null,
-              "to": "FRAME_CENTER"
-            },
-            "durationMs": 1200,
-            "voiceEvent": "VOICE_CENTER"
-          },
-          {
-            "id": "center_before_right",
-            "phase": "neutral",
+            "id": "release",
+            "phase": "PHASE_A",
             "side": null,
-            "frameId": "FRAME_CENTER",
-            "frameTransition": null,
-            "durationMs": 500,
+            "frameId": null,
+            "frameTransition": {
+              "from": "FRAME_CHIN_TUCK",
+              "via": null,
+              "to": "FRAME_NEUTRAL"
+            },
+            "durationMs": 2000,
             "voiceEvent": null
-          },
-          {
-            "id": "move_right",
-            "phase": "movement",
-            "side": "right",
-            "frameId": null,
-            "frameTransition": {
-              "from": "FRAME_CENTER",
-              "via": null,
-              "to": "FRAME_RIGHT"
-            },
-            "durationMs": 1800,
-            "voiceEvent": "VOICE_TURN_RIGHT"
-          },
-          {
-            "id": "hold_right",
-            "phase": "hold",
-            "side": "right",
-            "frameId": "FRAME_RIGHT",
-            "frameTransition": null,
-            "durationMs": 5000,
-            "voiceEvent": "VOICE_HOLD"
-          },
-          {
-            "id": "return_center_from_right",
-            "phase": "movement",
-            "side": "right",
-            "frameId": null,
-            "frameTransition": {
-              "from": "FRAME_RIGHT",
-              "via": null,
-              "to": "FRAME_CENTER"
-            },
-            "durationMs": 1200,
-            "voiceEvent": "VOICE_CENTER"
           }
         ]
       }
@@ -239,35 +195,35 @@
     "reducedMotionFallback": "static_step_frames",
     "frames": [
       {
-        "id": "FRAME_CENTER",
-        "file": "assets/exercises/NECK_001/frame_center.png",
-        "altText": "Start position: head facing forward, shoulders relaxed."
+        "id": "FRAME_SETUP",
+        "file": "assets/exercises/NECK_001/images/setup_full_safe.png",
+        "altText": "Seated start position, head level and looking straight ahead."
       },
       {
-        "id": "FRAME_LEFT",
-        "file": "assets/exercises/NECK_001/frame_left.png",
-        "altText": "Head turned to the left, torso still facing forward."
+        "id": "FRAME_NEUTRAL",
+        "file": "assets/exercises/NECK_001/images/motion_01_chin_forward_neutral_upper_safe.png",
+        "altText": "Head in a neutral position, looking straight ahead."
       },
       {
-        "id": "FRAME_RIGHT",
-        "file": "assets/exercises/NECK_001/frame_right.png",
-        "altText": "Head turned to the right, torso still facing forward."
+        "id": "FRAME_CHIN_TUCK",
+        "file": "assets/exercises/NECK_001/images/motion_02_chin_tuck_upper_safe.png",
+        "altText": "Chin drawn back, head still level."
       }
     ],
-    "preview": "assets/exercises/NECK_001/preview.png"
+    "preview": "assets/exercises/NECK_001/images/preview.png"
   },
   "audio": {
     "events": [
       {
-        "id": "VOICE_PREPARE",
+        "id": "VOICE_SETUP",
         "type": "instruction",
         "priority": 80,
         "interruptible": true,
         "playOncePerSide": false,
         "voiceMode": null,
-        "text": "Get ready. Sit up straight and relax your shoulders.",
-        "assetKey": "exercise.NECK_001.voice.prepare",
-        "assetFile": "audio/uk/exercises/NECK_001/prepare.m4a",
+        "text": "Sit up straight. Relax your shoulders. Look straight ahead.",
+        "assetKey": "exercise.NECK_001.voice.setup",
+        "assetFile": "audio/uk/exercises/NECK_001/setup.m4a",
         "trigger": {
           "event": "prep_countdown_started",
           "phase": null,
@@ -279,78 +235,18 @@
         }
       },
       {
-        "id": "VOICE_TURN_LEFT",
+        "id": "VOICE_START_MOVEMENT",
         "type": "movement",
         "priority": 100,
         "interruptible": false,
         "playOncePerSide": false,
         "voiceMode": null,
-        "text": "Slowly turn your head to the left.",
-        "assetKey": "exercise.NECK_001.voice.turn_left",
-        "assetFile": "audio/uk/exercises/NECK_001/turn_left.m4a",
+        "text": "Gently draw your chin back. Do not drop your head down. Return to your normal position.",
+        "assetKey": "exercise.NECK_001.voice.start_movement",
+        "assetFile": "audio/uk/exercises/NECK_001/start_movement.m4a",
         "trigger": {
-          "event": "sequence_step_started",
-          "phase": null,
-          "side": null,
-          "percent": null,
-          "repetitionNumber": null,
-          "relativePosition": null,
-          "offsetMs": null
-        }
-      },
-      {
-        "id": "VOICE_HOLD",
-        "type": "movement",
-        "priority": 90,
-        "interruptible": true,
-        "playOncePerSide": false,
-        "voiceMode": null,
-        "text": "Hold.",
-        "assetKey": "common.voice.hold",
-        "assetFile": "audio/uk/common/hold.m4a",
-        "trigger": {
-          "event": "sequence_step_started",
-          "phase": "hold",
-          "side": null,
-          "percent": null,
-          "repetitionNumber": null,
-          "relativePosition": null,
-          "offsetMs": null
-        }
-      },
-      {
-        "id": "VOICE_CENTER",
-        "type": "movement",
-        "priority": 100,
-        "interruptible": false,
-        "playOncePerSide": false,
-        "voiceMode": null,
-        "text": "Return to the centre.",
-        "assetKey": "common.voice.return_center",
-        "assetFile": "audio/uk/common/return_center.m4a",
-        "trigger": {
-          "event": "sequence_step_started",
-          "phase": null,
-          "side": null,
-          "percent": null,
-          "repetitionNumber": null,
-          "relativePosition": null,
-          "offsetMs": null
-        }
-      },
-      {
-        "id": "VOICE_TURN_RIGHT",
-        "type": "movement",
-        "priority": 100,
-        "interruptible": false,
-        "playOncePerSide": false,
-        "voiceMode": null,
-        "text": "Now to the right.",
-        "assetKey": "exercise.NECK_001.voice.turn_right",
-        "assetFile": "audio/uk/exercises/NECK_001/turn_right.m4a",
-        "trigger": {
-          "event": "sequence_step_started",
-          "phase": null,
+          "event": "sequence_phase_started",
+          "phase": "PHASE_SETUP",
           "side": null,
           "percent": null,
           "repetitionNumber": null,
@@ -379,26 +275,6 @@
         }
       },
       {
-        "id": "VOICE_LAST_CYCLE",
-        "type": "progress",
-        "priority": 60,
-        "interruptible": true,
-        "playOncePerSide": false,
-        "voiceMode": null,
-        "text": "Last cycle.",
-        "assetKey": "exercise.NECK_001.voice.last_cycle",
-        "assetFile": "audio/uk/exercises/NECK_001/last_cycle.m4a",
-        "trigger": {
-          "event": "cycle_started",
-          "phase": null,
-          "side": null,
-          "percent": null,
-          "repetitionNumber": null,
-          "relativePosition": null,
-          "offsetMs": null
-        }
-      },
-      {
         "id": "VOICE_COMPLETED",
         "type": "completion",
         "priority": 120,
@@ -411,6 +287,86 @@
         "trigger": {
           "event": "exercise_completed",
           "phase": null,
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      },
+      {
+        "id": "VOICE_PHASE_B",
+        "type": "movement",
+        "priority": 70,
+        "interruptible": true,
+        "playOncePerSide": false,
+        "voiceMode": "phase_words",
+        "text": "Chin back.",
+        "assetKey": "exercise.NECK_001.voice.phase_b",
+        "assetFile": "audio/uk/exercises/NECK_001/phase_b.m4a",
+        "trigger": {
+          "event": "sequence_phase_started",
+          "phase": "PHASE_B",
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      },
+      {
+        "id": "VOICE_PHASE_A",
+        "type": "movement",
+        "priority": 70,
+        "interruptible": true,
+        "playOncePerSide": false,
+        "voiceMode": "phase_words",
+        "text": "Neutral.",
+        "assetKey": "exercise.NECK_001.voice.phase_a",
+        "assetFile": "audio/uk/exercises/NECK_001/phase_a.m4a",
+        "trigger": {
+          "event": "sequence_phase_started",
+          "phase": "PHASE_A",
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      },
+      {
+        "id": "VOICE_COUNT_ONE",
+        "type": "movement",
+        "priority": 70,
+        "interruptible": true,
+        "playOncePerSide": false,
+        "voiceMode": "count",
+        "text": "One.",
+        "assetKey": "common.voice.count_one",
+        "assetFile": "audio/uk/common/count_one.m4a",
+        "trigger": {
+          "event": "sequence_phase_started",
+          "phase": "PHASE_B",
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      },
+      {
+        "id": "VOICE_COUNT_TWO",
+        "type": "movement",
+        "priority": 70,
+        "interruptible": true,
+        "playOncePerSide": false,
+        "voiceMode": "count",
+        "text": "Two.",
+        "assetKey": "common.voice.count_two",
+        "assetFile": "audio/uk/common/count_two.m4a",
+        "trigger": {
+          "event": "sequence_phase_started",
+          "phase": "PHASE_A",
           "side": null,
           "percent": null,
           "repetitionNumber": null,
@@ -431,7 +387,7 @@
     "incrementCounterOnCompletion": true
   },
   "accessibility": {
-    "summary": "Head turns. The exercise is done sitting or standing. Slowly turn your head to one side, hold, return to the centre, then turn to the other side.",
+    "summary": "Chin tuck. Sitting on a chair, gently draw your chin back and return to a neutral head position.",
     "reducedMotionSupported": true
   },
   "pro": {

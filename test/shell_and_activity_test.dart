@@ -163,11 +163,13 @@ void main() {
     await tester.pumpWidget(wrap());
     await settle(tester);
 
-    // NECK_001, KNEE_001 and KNEE_002 all belong to after_sitting.
+    // The whole neck library, KNEE_001 and KNEE_002 belong to after_sitting;
+    // the card lists them in library order, so the neck comes first and the
+    // rest is below the fold on a phone.
     await tapCard(tester, 'sitting');
 
+    expect(find.text('Підборіддя назад'), findsOneWidget);
     expect(find.text('Повороти голови'), findsOneWidget);
-    expect(find.text('Розгинання ноги сидячи'), findsOneWidget);
   });
 
   testWidgets('the Body card lists the zones that have exercises', (

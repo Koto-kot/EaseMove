@@ -2,8 +2,8 @@ schema_version: '1.3'
 content_version: 0.1.0
 exercise:
   id: NECK_001
-  slug: neck_rotation
-  internal_name: Neck rotation
+  slug: seated_chin_tuck
+  internal_name: Seated chin tuck
   status: draft
   availability:
     tier: free
@@ -16,73 +16,75 @@ exercise:
     - neck
     collections:
     - body_neck
+    - seated_gentle
     - computer_break
     - after_sitting
     tags:
       anatomy:
       - neck
+      - cervical_spine
       context:
       - computer
       - after_sitting
       position:
       - sitting
-      - standing
       movement:
       - mobility
-      - rotation
-      - bilateral
+      - cervical_retraction
+      - midline
       level:
       - beginner
       - gentle
-      equipment:
-      - none
-      - chair_optional
+      equipment: &id001
+      - stable_chair
     collection_candidates: []
   exercise_properties:
     difficulty: easy
-    laterality: bilateral_alternating
-    movement_pattern: cervical_rotation
+    laterality: midline
+    movement_pattern: cervical_retraction
     preferred_position: sitting
-    alternative_positions:
-    - standing
-    equipment_required: []
-    equipment_optional:
-    - stable_chair
+    alternative_positions: []
+    equipment_required: *id001
+    equipment_optional: []
+    space_requirement: seat_with_room_to_move_the_head
+  anatomy:
+    primary_joint: cervical_spine
+    primary_muscle_groups:
+    - deep_cervical_flexors
+    - cervical_extensors
+    secondary_muscle_groups:
+    - upper_trapezius
+    - sternocleidomastoid
+    movement_plane: sagittal
+    joint_action: cervical_retraction
 clinical:
   status: pending_review
   publish_rule: production_requires_approved
   source_basis:
-    primary_source_id: NHS_FLEXIBILITY_NECK_ROTATION
-    secondary_source_ids:
-    - NHS_SITTING_NECK_ROTATION
-    - CUH_NECK_MOBILITY_ROTATION
-    source_summary_uk: 'Базовий рух: сидіти рівно, плечі опущені, дивитися вперед; повільно повернути голову до
-      лівого плеча настільки, наскільки комфортно, утримувати 5 секунд, повернутися у вихідне положення, повторити
-      праворуч. У матеріалах NHS рекомендовано 3 повороти на кожен бік.
-
-      '
-  source_prescription:
-    repetitions_per_side: 3
-    hold_seconds: 5
-    range_rule: as_far_as_comfortable
+    basis: everyday_movement_without_clinical_prescription
+    source_summary_uk: Це м'який побутовий рух для шиї без опору та без обтяження. Бриф не посилається на клінічне
+      джерело із дозуванням, тому тривалість і темп взяті з production brief і потребують затвердження фахівцем.
+  app_prototype_prescription:
+    status: pending_review
+    mode: timed
+    active_duration_seconds: 61
+    cycle_seconds: 4.0
+    range_rule: comfortable_controlled_range
     movement_speed_rule: slow_controlled
-  adaptation_notes_uk:
-  - Застосунок чергує лівий і правий бік, але не змінює сам рух.
-  - Час переходу між положеннями є технічним таймінгом анімації, а не окремою клінічною рекомендацією.
-  - Зображення, тексти та аудіо створюються спеціально для застосунку і не копіюють ілюстрації джерел.
+    note_uk: Тривалість і темп відповідають розділу Timing у brief. Перед production їх має затвердити фізіотерапевт.
+  movement_quality:
+    required_cues_uk: &id002
+    - Рух малий і контрольований.
+    - Не закидайте голову назад.
+    - Не нахиляйте голову вниз під час руху.
+    - Не піднімайте плечі.
   safety:
-    general_rule_uk: 'Виконуйте рух повільно і лише в комфортному діапазоні. Не робіть різких рухів і не змушуйте
-      голову повертатися далі через силу.
-
-      '
+    general_rule_uk: Виконуйте рух повільно, у комфортному діапазоні та без ривків.
     stop_conditions_uk:
-    - запаморочення
     - різкий або незвичний біль
+    - раптове погіршення самопочуття
     - інший новий або незвичний симптом під час виконання
-    in_app_stop_message_uk: 'Зупиніть вправу, якщо вона викликає запаморочення, різкий біль або інший незвичний
-      симптом.
-
-      '
+    in_app_stop_message_uk: Зупиніть вправу, якщо з'явився різкий біль або інший незвичний симптом.
     requires_professional_review:
       prescription: true
       safety_text: true
@@ -99,258 +101,167 @@ clinical:
 locale:
   default: uk
   en:
-    title: Head turns
-    short_title: Turns
-    card_description: Slowly turn your head to the left and to the right.
+    title: Chin tuck
+    short_title: Chin back
+    card_description: Seated, gently draw your chin back and return to neutral.
     category_label: Neck
-    purpose_text: A gentle exercise for neck mobility.
+    purpose_text: A starter exercise for waking the neck up gently and finding a good head position.
     start_position_title: Starting position
-    start_position_text: Sit up straight on a stable chair. Place your feet on the floor. Drop and relax
-      your shoulders. Look straight ahead.
+    start_position_text: Sit up straight on a stable chair. Feet firmly on the floor. Shoulders relaxed. Head level,
+      looking straight ahead. Hands resting by your sides or on your thighs.
     instructions_title: How to do it
     instructions:
     - step: 1
-      text: Slowly turn your head to the left, as far as is comfortable.
+      text: Sit up straight and place your feet on the floor.
     - step: 2
-      text: Hold the position for 5 seconds.
+      text: Look straight ahead.
     - step: 3
-      text: Slowly return to the centre.
+      text: Gently draw your chin back — the movement goes back, not down.
     - step: 4
-      text: Slowly turn your head to the right, as far as is comfortable.
+      text: Smoothly return to neutral.
     - step: 5
-      text: Hold the position for 5 seconds.
-    - step: 6
-      text: Slowly return to the centre.
-    - step: 7
-      text: Repeat 3 times to each side.
+      text: Keep repeating at a calm pace until the time is up.
     technique_tips_title: Watch out for
     technique_tips:
-    - Your shoulders stay relaxed.
-    - Do not turn your torso with your head.
-    - Do not raise or drop your chin as you turn.
-    - Move smoothly, with no jerking.
+    - Keep the movement small and controlled.
+    - Do not tip your head back.
+    - Do not drop your head down as you move.
+    - Do not lift your shoulders.
     safety_label: Safety
-    safety_text: Move only within a comfortable range. If you feel dizzy, or have sharp pain or any other
-      unusual symptom, press Stop.
+    safety_text: Move within a comfortable range. If you feel sharp pain or any other unusual symptom, press Stop.
     completion_text: Done.
     halfway_text: Halfway done.
-    almost_done_text: Last cycle.
   uk:
-    title: Повороти голови
-    short_title: Повороти
-    card_description: Повільно повертайте голову ліворуч і праворуч.
+    title: Підборіддя назад
+    short_title: Підборіддя
+    card_description: Сидячи, м'яко відводьте підборіддя назад і повертайтеся у нейтральне положення.
     category_label: Шия
-    purpose_text: Легка вправа на рухливість шиї.
+    purpose_text: Базова вправа для м'якої активації шиї та відчуття правильного положення голови.
     start_position_title: Початкове положення
-    start_position_text: 'Сядьте рівно на стійкий стілець. Поставте стопи на підлогу. Опустіть і розслабте плечі.
-      Дивіться прямо перед собою.
-
-      '
+    start_position_text: Сядьте рівно на стійкий стілець. Стопи стійко на підлозі. Плечі розслаблені. Голова прямо,
+      погляд горизонтальний. Руки спокійно лежать уздовж тіла або на стегнах.
     instructions_title: Як виконувати
     instructions:
     - step: 1
-      text: Повільно поверніть голову ліворуч настільки, наскільки комфортно.
+      text: Сядьте рівно, стопи поставте на підлогу.
     - step: 2
-      text: Утримуйте положення 5 секунд.
+      text: Дивіться прямо перед собою.
     - step: 3
-      text: Повільно поверніться в центр.
+      text: М'яко відведіть підборіддя назад — рух іде назад, а не вниз.
     - step: 4
-      text: Повільно поверніть голову праворуч настільки, наскільки комфортно.
+      text: Плавно поверніться у нейтральне положення.
     - step: 5
-      text: Утримуйте положення 5 секунд.
-    - step: 6
-      text: Повільно поверніться в центр.
-    - step: 7
-      text: Повторіть 3 рази на кожен бік.
+      text: Повторюйте рух у спокійному темпі до кінця часу.
     technique_tips_title: Зверніть увагу
-    technique_tips:
-    - Плечі залишаються розслабленими.
-    - Не повертайте разом із головою корпус.
-    - Не закидайте і не опускайте підборіддя під час повороту.
-    - Рухайтеся плавно, без ривків.
+    technique_tips: *id002
     safety_label: Безпека
-    safety_text: 'Рухайтеся тільки в комфортному діапазоні. Якщо з''явилося запаморочення, різкий біль або інший
-      незвичний симптом, натисніть «Стоп».
-
-      '
+    safety_text: Рухайтеся в комфортному діапазоні. Якщо з'явився різкий біль або інший незвичний симптом, натисніть
+      «Стоп».
     completion_text: Готово.
     halfway_text: Половину виконано.
-    almost_done_text: Останній цикл.
 ui:
   card:
     title_key: exercise.NECK_001.title
     description_key: exercise.NECK_001.card_description
-    preview_asset: assets/exercises/NECK_001/preview.png
+    preview_asset: assets/exercises/NECK_001/images/preview.png
     primary_action:
       key: common.exercise.start
       resolved_uk: Почати
-      resolved_en: Start
     badges:
       show_difficulty: false
       show_duration: true
       show_pro_badge: false
   exercise_screen:
     title_key: exercise.NECK_001.title
-    labels:
-      elapsed_time:
-        key: common.exercise.elapsed_time
-        resolved_uk: Час
-        resolved_en: Time
-      progress:
-        key: common.exercise.progress
-        resolved_uk: Виконано
-        resolved_en: Done
-      repetition:
-        key: common.exercise.repetition
-        resolved_uk: Повтор
-        resolved_en: Rep
-      side:
-        key: common.exercise.side
-        resolved_uk: Бік
-        resolved_en: Side
-    controls:
-      previous:
-        key: common.control.previous
-        resolved_uk: Попередня
-        resolved_en: Previous
-        icon: arrow_left
-      start:
-        key: common.control.start
-        resolved_uk: Старт
-        resolved_en: Start
-        icon: play
-      pause:
-        key: common.control.pause
-        resolved_uk: Пауза
-        resolved_en: Pause
-        icon: pause
-      continue:
-        key: common.control.continue
-        resolved_uk: Продовжити
-        resolved_en: Continue
-        icon: play
-      stop:
-        key: common.control.stop
-        resolved_uk: Стоп
-        resolved_en: Stop
-        icon: stop
-      next:
-        key: common.control.next
-        resolved_uk: Наступна
-        resolved_en: Next
-        icon: arrow_right
+    labels: {}
     prep:
       label_key: common.exercise.starts_in
       resolved_uk: Починаємо через
-      resolved_en: Starting in
     rest:
       label_key: common.exercise.rest
       resolved_uk: Відпочинок
-      resolved_en: Rest
       next_label_key: common.exercise.next_exercise
       next_label_resolved_uk: Наступна вправа
 timing:
   prep_countdown_seconds: 5
   rest_after_seconds: 10
-  completion_mode: prescribed_repetitions
+  completion_mode: timed_duration
   prescription:
-    cycles: 3
-    sides_per_cycle:
-    - left
-    - right
-    hold_seconds_each_side: 5
+    active_duration_seconds: 61
+    cycle_ms: 4000
+  duration_presets_seconds:
+  - 60
+  - 120
+  - 180
+  - 300
   playback:
-    move_to_side_ms: 1800
-    hold_side_ms: 5000
-    return_to_center_ms: 1200
-    pause_in_center_ms: 500
-  estimated_active_duration_seconds: 51
+    setup_hold_ms: 1000
+    phase_a_to_b_ms: 2000
+    phase_b_to_a_ms: 2000
+  estimated_active_duration_seconds: 61
   progress:
     basis: sequence_time
     show_elapsed_time: true
     show_progress_bar: true
     show_repetition_counter: false
     show_side_label: false
+    show_set_counter: false
+movement_phases:
+- id: PHASE_SETUP
+  name_uk: Початкове положення
+  name_en: Starting position
+  biomechanics: start_position
+- id: PHASE_A
+  name_uk: Нейтральне положення
+  name_en: Neutral position
+  biomechanics: phase_a
+- id: PHASE_B
+  name_uk: Підборіддя назад
+  name_en: Chin drawn back
+  biomechanics: phase_b
 sequence:
-  repeat_cycles: 3
-  steps:
-  - id: center_before_left
-    order: 1
-    phase: neutral
-    side: null
-    frame_id: FRAME_CENTER
-    duration_ms: 500
-    voice_event: null
-  - id: move_left
-    order: 2
-    phase: movement
-    side: left
-    frame_transition:
-      from: FRAME_CENTER
-      to: FRAME_LEFT
-    duration_ms: 1800
-    voice_event: VOICE_TURN_LEFT
-  - id: hold_left
-    order: 3
-    phase: hold
-    side: left
-    frame_id: FRAME_LEFT
-    duration_ms: 5000
-    voice_event: VOICE_HOLD
-  - id: return_center_from_left
-    order: 4
-    phase: movement
-    side: left
-    frame_transition:
-      from: FRAME_LEFT
-      to: FRAME_CENTER
-    duration_ms: 1200
-    voice_event: VOICE_CENTER
-  - id: center_before_right
-    order: 5
-    phase: neutral
-    side: null
-    frame_id: FRAME_CENTER
-    duration_ms: 500
-    voice_event: null
-  - id: move_right
-    order: 6
-    phase: movement
-    side: right
-    frame_transition:
-      from: FRAME_CENTER
-      to: FRAME_RIGHT
-    duration_ms: 1800
-    voice_event: VOICE_TURN_RIGHT
-  - id: hold_right
-    order: 7
-    phase: hold
-    side: right
-    frame_id: FRAME_RIGHT
-    duration_ms: 5000
-    voice_event: VOICE_HOLD
-  - id: return_center_from_right
-    order: 8
-    phase: movement
-    side: right
-    frame_transition:
-      from: FRAME_RIGHT
-      to: FRAME_CENTER
-    duration_ms: 1200
-    voice_event: VOICE_CENTER
+  side_blocks:
+  - side: null
+    repeat: 1
+    steps:
+    - id: setup
+      phase: PHASE_SETUP
+      frame_id: FRAME_SETUP
+      duration_ms: 1000
+      voice_event: null
+  - side: null
+    repeat: 15
+    steps:
+    - id: tuck
+      phase: PHASE_B
+      frame_transition:
+        from: FRAME_NEUTRAL
+        to: FRAME_CHIN_TUCK
+      duration_ms: 2000
+      voice_event: null
+    - id: release
+      phase: PHASE_A
+      frame_transition:
+        from: FRAME_CHIN_TUCK
+        to: FRAME_NEUTRAL
+      duration_ms: 2000
+      voice_event: null
 animation:
   engine: frame_sequence
   style_profile_id: exercise_visual_v1
-  loop_mode: sequence_driven
-  interpolation: crossfade_or_motion_interpolation
+  loop_mode: timed_loop
+  interpolation: motion_interpolation
   reduced_motion_fallback: static_step_frames
   subject:
     subject_profile_id: adult_neutral_01
     consistency_required_across_frames: true
   framing:
-    view: upper_body
-    camera: front
-    crop: head_shoulders_upper_torso
+    template_version: v2_FULL_SAFE
+    setup_frame_may_use_different_crop: true
+    motion_frames_same_camera: true
+    motion_frames_same_crop: true
+    no_relevant_limb_cropping: true
+    active_limb_safe_margin_min: 0.05
     background: clean_neutral
     arrows_in_production_asset: false
     text_inside_asset: false
@@ -358,44 +269,31 @@ animation:
     master_format: png
     width_px: 1024
     height_px: 1024
-    transparent_background_preferred: true
+    transparent_background_preferred: false
     production_assets_must_be_original: true
   frames:
-  - id: FRAME_CENTER
-    file: assets/exercises/NECK_001/frame_center.png
-    pose_description_uk: Людина сидить рівно. Голова в нейтральному положенні, погляд прямо. Плечі опущені й розслаблені.
-    alt_text_uk: 'Початкове положення: голова прямо, плечі розслаблені.'
-    alt_text_en: 'Start position: head facing forward, shoulders relaxed.'
-    validation_points:
-    - head_neutral
-    - eyes_forward
-    - shoulders_level
-    - torso_not_rotated
-  - id: FRAME_LEFT
-    file: assets/exercises/NECK_001/frame_left.png
-    pose_description_uk: Корпус залишається прямо. Голова повернута ліворуч у комфортному діапазоні. Підборіддя
-      приблизно на тій самій висоті.
-    alt_text_uk: Голова повернута ліворуч, корпус залишається прямо.
-    alt_text_en: Head turned to the left, torso still facing forward.
-    validation_points:
-    - head_rotated_left
-    - chin_height_stable
-    - shoulders_level
-    - torso_not_rotated
-  - id: FRAME_RIGHT
-    file: assets/exercises/NECK_001/frame_right.png
-    pose_description_uk: Корпус залишається прямо. Голова повернута праворуч у комфортному діапазоні. Підборіддя
-      приблизно на тій самій висоті.
-    alt_text_uk: Голова повернута праворуч, корпус залишається прямо.
-    alt_text_en: Head turned to the right, torso still facing forward.
-    validation_points:
-    - head_rotated_right
-    - chin_height_stable
-    - shoulders_level
-    - torso_not_rotated
+  - id: FRAME_SETUP
+    file: assets/exercises/NECK_001/images/setup_full_safe.png
+    pose_description_uk: Людина сидить рівно на стільці, стопи на підлозі, голова у нейтральному положенні, погляд
+      прямо.
+    alt_text_uk: Початкове положення сидячи, голова прямо, погляд горизонтальний.
+    alt_text_en: Seated start position, head level and looking straight ahead.
+    framing: FULL_SAFE
+  - id: FRAME_NEUTRAL
+    file: assets/exercises/NECK_001/images/motion_01_chin_forward_neutral_upper_safe.png
+    pose_description_uk: Голова у звичайному нейтральному положенні, шия розслаблена, погляд прямо.
+    alt_text_uk: Голова у нейтральному положенні, погляд прямо.
+    alt_text_en: Head in a neutral position, looking straight ahead.
+    framing: UPPER_SAFE
+  - id: FRAME_CHIN_TUCK
+    file: assets/exercises/NECK_001/images/motion_02_chin_tuck_upper_safe.png
+    pose_description_uk: Підборіддя м'яко відведене назад, шия витягнута, голова не нахилена вниз.
+    alt_text_uk: Підборіддя відведене назад, голова залишається рівною.
+    alt_text_en: Chin drawn back, head still level.
+    framing: UPPER_SAFE
   preview:
-    file: assets/exercises/NECK_001/preview.png
-    source_frame_id: FRAME_LEFT
+    file: assets/exercises/NECK_001/images/preview.png
+    source_frame_id: FRAME_SETUP
     overlay_text: false
 audio:
   default_language: uk
@@ -412,66 +310,28 @@ audio:
     - 2
     - 1
   events:
-  - id: VOICE_PREPARE
+  - id: VOICE_SETUP
     type: instruction
     trigger:
       event: prep_countdown_started
       offset_ms: 0
-    text_key: exercise.NECK_001.voice.prepare
-    text_uk: Приготуйтеся. Сядьте рівно і розслабте плечі.
-    text_en: Get ready. Sit up straight and relax your shoulders.
-    asset_key: exercise.NECK_001.voice.prepare
-    target_file: audio/uk/exercises/NECK_001/prepare.m4a
+    text_key: exercise.NECK_001.voice.setup
+    text_uk: Сядьте рівно. Розслабте плечі. Дивіться прямо.
+    text_en: Sit up straight. Relax your shoulders. Look straight ahead.
+    asset_key: exercise.NECK_001.voice.setup
+    target_file: audio/uk/exercises/NECK_001/setup.m4a
     priority: 80
     interruptible: true
-  - id: VOICE_TURN_LEFT
+  - id: VOICE_START_MOVEMENT
     type: movement
     trigger:
-      event: sequence_step_started
-      step_id: move_left
-    text_key: exercise.NECK_001.voice.turn_left
-    text_uk: Повільно поверніть голову ліворуч.
-    text_en: Slowly turn your head to the left.
-    asset_key: exercise.NECK_001.voice.turn_left
-    target_file: audio/uk/exercises/NECK_001/turn_left.m4a
-    priority: 100
-    interruptible: false
-  - id: VOICE_HOLD
-    type: movement
-    trigger:
-      event: sequence_step_started
-      phase: hold
-    text_key: common.voice.hold
-    text_uk: Тримайте.
-    text_en: Hold.
-    asset_key: common.voice.hold
-    target_file: audio/uk/common/hold.m4a
-    priority: 90
-    interruptible: true
-  - id: VOICE_CENTER
-    type: movement
-    trigger:
-      event: sequence_step_started
-      step_id_any:
-      - return_center_from_left
-      - return_center_from_right
-    text_key: common.voice.return_center
-    text_uk: Поверніться в центр.
-    text_en: Return to the centre.
-    asset_key: common.voice.return_center
-    target_file: audio/uk/common/return_center.m4a
-    priority: 100
-    interruptible: false
-  - id: VOICE_TURN_RIGHT
-    type: movement
-    trigger:
-      event: sequence_step_started
-      step_id: move_right
-    text_key: exercise.NECK_001.voice.turn_right
-    text_uk: Тепер праворуч.
-    text_en: Now to the right.
-    asset_key: exercise.NECK_001.voice.turn_right
-    target_file: audio/uk/exercises/NECK_001/turn_right.m4a
+      event: sequence_phase_started
+      phase: PHASE_SETUP
+    text_key: exercise.NECK_001.voice.start_movement
+    text_uk: М'яко відведіть підборіддя назад. Не нахиляйте голову вниз. Поверніться у звичайне положення.
+    text_en: Gently draw your chin back. Do not drop your head down. Return to your normal position.
+    asset_key: exercise.NECK_001.voice.start_movement
+    target_file: audio/uk/exercises/NECK_001/start_movement.m4a
     priority: 100
     interruptible: false
   - id: VOICE_HALFWAY
@@ -487,19 +347,6 @@ audio:
     priority: 50
     interruptible: true
     collision_policy: delay_until_primary_cue_finishes
-  - id: VOICE_LAST_CYCLE
-    type: progress
-    trigger:
-      event: cycle_started
-      cycle_number: 3
-    text_key: exercise.NECK_001.voice.last_cycle
-    text_uk: Останній цикл.
-    text_en: Last cycle.
-    asset_key: exercise.NECK_001.voice.last_cycle
-    target_file: audio/uk/exercises/NECK_001/last_cycle.m4a
-    priority: 60
-    interruptible: true
-    collision_policy: delay_until_primary_cue_finishes
   - id: VOICE_COMPLETED
     type: completion
     trigger:
@@ -511,6 +358,58 @@ audio:
     target_file: audio/uk/common/completed.m4a
     priority: 120
     interruptible: false
+  - id: VOICE_PHASE_B
+    type: movement
+    voice_mode: phase_words
+    trigger:
+      event: sequence_phase_started
+      phase: PHASE_B
+    text_key: exercise.NECK_001.voice.phase_b
+    text_uk: Підборіддя назад.
+    text_en: Chin back.
+    asset_key: exercise.NECK_001.voice.phase_b
+    target_file: audio/uk/exercises/NECK_001/phase_b.m4a
+    priority: 70
+    interruptible: true
+  - id: VOICE_PHASE_A
+    type: movement
+    voice_mode: phase_words
+    trigger:
+      event: sequence_phase_started
+      phase: PHASE_A
+    text_key: exercise.NECK_001.voice.phase_a
+    text_uk: Нейтраль.
+    text_en: Neutral.
+    asset_key: exercise.NECK_001.voice.phase_a
+    target_file: audio/uk/exercises/NECK_001/phase_a.m4a
+    priority: 70
+    interruptible: true
+  - id: VOICE_COUNT_ONE
+    type: movement
+    voice_mode: count
+    trigger:
+      event: sequence_phase_started
+      phase: PHASE_B
+    text_key: common.voice.count_one
+    text_uk: Раз.
+    text_en: One.
+    asset_key: common.voice.count_one
+    target_file: audio/uk/common/count_one.m4a
+    priority: 70
+    interruptible: true
+  - id: VOICE_COUNT_TWO
+    type: movement
+    voice_mode: count
+    trigger:
+      event: sequence_phase_started
+      phase: PHASE_A
+    text_key: common.voice.count_two
+    text_uk: Два.
+    text_en: Two.
+    asset_key: common.voice.count_two
+    target_file: audio/uk/common/count_two.m4a
+    priority: 70
+    interruptible: true
   recording_spec:
     current_status: not_recorded
     source_master_format: wav
@@ -554,10 +453,13 @@ flow:
       manual_start_uses_prep_countdown: true
 accessibility:
   screen_reader:
-    exercise_summary_uk: Повороти голови. Вправа виконується сидячи або стоячи. Повільно повертайте голову ліворуч
-      і праворуч у комфортному діапазоні.
-    exercise_summary_en: Head turns. The exercise is done sitting or standing. Slowly turn your head to one side, hold, return to the centre, then turn to the other side.
+    exercise_summary_uk: Підборіддя назад. Сидячи на стільці, м'яко відводьте підборіддя назад і повертайтеся у
+      нейтральне положення.
+    exercise_summary_en: Chin tuck. Sitting on a chair, gently draw your chin back and return to a neutral head
+      position.
     announce_countdown: true
+    announce_repetition: false
+    announce_side_change: false
     announce_pause_resume: true
     announce_completion: true
   visual:
@@ -580,11 +482,9 @@ tracking:
     primary_zone: neck
     tags:
     - neck
-    - computer
-    - after_sitting
-    - sitting
     - mobility
-    - rotation
+    - cervical_retraction
+    - midline
   lifetime_counter:
     use_global_policy: true
 pro:
@@ -607,22 +507,24 @@ pro:
       - 20
   ai_selection:
     allowed: true
-    rule: AI may select this approved exercise from the verified library, but may not alter the movement or invent
-      a new exercise.
+    rule: AI may select this approved exercise from the verified library, but may not change the movement, add resistance
+      or invent a new exercise.
     production_requires_clinical_status: approved
 assets:
-  folder: assets/exercises/NECK_001
+  folder: assets/exercises/NECK_001/images
   required:
+  - setup_full_safe.png
+  - motion_01_chin_forward_neutral_upper_safe.png
+  - motion_02_chin_tuck_upper_safe.png
   - preview.png
-  - frame_center.png
-  - frame_left.png
-  - frame_right.png
-  optional:
-  - thumbnail.png
+  optional: []
   validation:
     same_subject_all_frames: true
-    same_camera_all_frames: true
-    same_crop_all_frames: true
+    same_style_all_frames: true
+    setup_frame_may_use_different_crop: true
+    motion_frames_same_camera: true
+    motion_frames_same_crop: true
+    no_relevant_limb_cropping: true
     no_embedded_text: true
     no_watermarks: true
     original_or_properly_licensed_only: true
@@ -630,63 +532,30 @@ assets:
 qa:
   content_checks:
   - Назва і опис відповідають руху на зображеннях.
-  - Усі три кадри показують одну й ту саму людину та однаковий ракурс.
-  - На лівому і правому кадрах корпус не повертається разом із головою.
-  - Підборіддя не змінює висоту суттєво під час повороту.
+  - Між motion frames змінюється лише положення голови та шиї.
+  - Немає тексту, стрілок, UI чи watermark у production images.
   - Вправа присутня у collection body_neck.
-  - Вправа присутня у collection computer_break.
-  - Вправа присутня у collection after_sitting.
   - Усі користувацькі написи беруться через localization keys.
-  - Аудіо не перекриває пріоритетні команди руху.
-  - Музика не змінює гучність під час голосової команди.
   - Stop працює у будь-який момент.
   - Після штатного завершення запускається 10-секундний auto-rest.
-  - Manual Previous/Next під час auto-rest скасовує autoplay.
   - Production build не показує вправу, поки clinical.status != approved.
   automated_tests:
   - id: NECK_001_VISIBLE_BODY_NECK
     expected: exercise_is_returned_for_collection_body_neck
-  - id: NECK_001_VISIBLE_COMPUTER
-    expected: exercise_is_returned_for_collection_computer_break
-  - id: NECK_001_THREE_CYCLES
-    expected: sequence_executes_three_left_right_cycles
-  - id: NECK_001_FIVE_SECOND_HOLD
-    expected: each_side_hold_is_5000_ms
-  - id: NECK_001_LOCALIZATION
-    expected: no_user_visible_hardcoded_text_outside_locale_or_resolved_preview
-  - id: NECK_001_PRODUCTION_GATE
-    expected: pending_review_content_is_hidden_in_production
+  - id: NECK_001_TIMED_COMPLETION
+    expected: timeline_total_matches_estimated_active_duration
 references:
-  source_ids:
-  - id: NHS_FLEXIBILITY_NECK_ROTATION
-    organization: NHS
-    title: Flexibility exercises — Neck rotation
-    evidence_used:
-    - sit upright with shoulders down
-    - turn left as far as comfortable
-    - hold 5 seconds
-    - repeat on right
-    - 3 rotations on each side
-  - id: NHS_SITTING_NECK_ROTATION
-    organization: NHS
-    title: Sitting exercises — Neck rotation
-    evidence_used:
-    - same basic movement and 5-second hold
-    - 3 rotations on each side
-  - id: CUH_NECK_MOBILITY_ROTATION
-    organization: Cambridge University Hospitals NHS Foundation Trust
-    title: Neck exercises and advice — Mobility exercises
-    evidence_used:
-    - turn head to one side until a stretch is felt
-    - repeat to the other side
+  source_ids: []
+  note_uk: М'який рух для шиї без опору. Формулювання, зображення та аудіо — оригінальні активи проєкту, взяті з
+    production brief пакета.
 metadata:
-  created_for: exercise_library_reference_template
+  created_for: neck_library_v14_qa_pack
   authoring_language: uk
-  created_at: '2026-09-09'
-  last_modified_at: '2026-09-09'
-  notes_uk: 'Це еталонний запис. Наступні вправи повинні використовувати ту саму схему. Якщо конкретній вправі поле
-    не потрібне, воно може бути null або порожнім, але структура верхнього рівня повинна залишатися стабільною.
-
-    '
-  migrated_from_schema_version: '1.0'
-  repository_pack_version: '0.1'
+  created_at: '2026-09-12'
+  last_modified_at: '2026-09-12'
+  brief_path: docs/exercise_briefs/neck/NECK_001/NECK_001_BRIEF.md
+  brief_sheet_path: docs/exercise_briefs/neck/NECK_001/NECK_001_brief_sheet_v1.png
+  repository_pack_version: NECK_001_010_repository_pack_v14_QA
+  schema_notes_uk: 'Часова вправа без лічильника повторів: поза setup показується один раз, далі цикл A-B повторюється
+    до кінця часу. Голова проходить через центр за рахунок інтерполяції між двома motion-кадрами — окремого кадру
+    центру серія не має.'

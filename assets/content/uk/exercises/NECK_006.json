@@ -1,0 +1,400 @@
+{
+  "id": "NECK_006",
+  "slug": "seated_diagonal_head_down_left_right",
+  "schemaVersion": "1.3",
+  "contentVersion": "0.1.0",
+  "clinicalStatus": "pending_review",
+  "editorialStatus": "draft",
+  "primaryZone": "neck",
+  "secondaryZones": [],
+  "hotspotIds": [
+    "neck"
+  ],
+  "tags": [
+    "neck",
+    "cervical_spine",
+    "computer",
+    "after_sitting",
+    "sitting",
+    "mobility",
+    "cervical_diagonal_flexion",
+    "bilateral",
+    "beginner",
+    "gentle",
+    "stable_chair"
+  ],
+  "tagGroups": {
+    "anatomy": [
+      "neck",
+      "cervical_spine"
+    ],
+    "context": [
+      "computer",
+      "after_sitting"
+    ],
+    "position": [
+      "sitting"
+    ],
+    "movement": [
+      "mobility",
+      "cervical_diagonal_flexion",
+      "bilateral"
+    ],
+    "level": [
+      "beginner",
+      "gentle"
+    ],
+    "equipment": [
+      "stable_chair"
+    ]
+  },
+  "collections": [
+    "body_neck",
+    "seated_gentle",
+    "computer_break",
+    "after_sitting"
+  ],
+  "collectionCandidates": [],
+  "text": {
+    "title": "Діагональний погляд вниз",
+    "shortTitle": "Діагональ",
+    "cardDescription": "Сидячи, м'яко опускайте голову й погляд по діагоналі вліво, потім вправо.",
+    "categoryLabel": "Шия",
+    "purpose": "Базова вправа на м'яку рухливість шиї та зняття скутості після тривалого сидіння.",
+    "startPositionTitle": "Початкове положення",
+    "startPosition": "Сядьте рівно на стійкий стілець. Стопи стійко на підлозі, спина витягнута, таз стабільний. Плечі розслаблені й опущені. Руки лежать на стегнах. Голова у нейтральному положенні, погляд прямо.",
+    "instructionsTitle": "Як виконувати",
+    "instructions": [
+      {
+        "step": 1,
+        "text": "Сядьте рівно, спину витягніть."
+      },
+      {
+        "step": 2,
+        "text": "М'яко опустіть голову й погляд по діагоналі вліво."
+      },
+      {
+        "step": 3,
+        "text": "Поверніться у центр."
+      },
+      {
+        "step": 4,
+        "text": "Так само опустіть голову й погляд по діагоналі вправо."
+      },
+      {
+        "step": 5,
+        "text": "Чергуйте напрямки у спокійному темпі до кінця часу."
+      }
+    ],
+    "techniqueTipsTitle": "Зверніть увагу",
+    "techniqueTips": [
+      "Не піднімайте плечі.",
+      "Не скручуйте корпус.",
+      "Очі й голова рухаються разом.",
+      "Амплітуда лише комфортна, без болю."
+    ],
+    "safetyLabel": "Безпека",
+    "safety": "Рухайтеся в комфортному діапазоні. Якщо з'явився різкий біль, запаморочення або інший незвичний симптом, натисніть «Стоп».",
+    "completion": "Готово."
+  },
+  "labels": {},
+  "timing": {
+    "prepCountdownSeconds": 5,
+    "restAfterSeconds": 10,
+    "completionMode": "timed_duration",
+    "estimatedActiveSeconds": 61
+  },
+  "progress": {
+    "basis": "sequence_time",
+    "showElapsedTime": true,
+    "showProgressBar": true,
+    "showRepetitionCounter": false,
+    "showSideLabel": false,
+    "showSetCounter": false
+  },
+  "repetitionModel": {
+    "type": "sequence_time",
+    "sets": 1,
+    "repetitionsPerBlock": 1,
+    "blockOrder": [
+      null,
+      null
+    ],
+    "switchSideAutomatically": true,
+    "resetCounterOnSideChange": false
+  },
+  "movementPhases": [
+    {
+      "id": "PHASE_SETUP",
+      "name": "Початкове положення",
+      "type": null
+    },
+    {
+      "id": "PHASE_A",
+      "name": "Діагональ вліво",
+      "type": null
+    },
+    {
+      "id": "PHASE_B",
+      "name": "Діагональ вправо",
+      "type": null
+    }
+  ],
+  "sequence": {
+    "blocks": [
+      {
+        "side": null,
+        "repeat": 1,
+        "steps": [
+          {
+            "id": "setup",
+            "phase": "PHASE_SETUP",
+            "side": null,
+            "frameId": "FRAME_SETUP",
+            "frameTransition": null,
+            "durationMs": 1000,
+            "voiceEvent": null
+          }
+        ]
+      },
+      {
+        "side": null,
+        "repeat": 12,
+        "steps": [
+          {
+            "id": "diagonal_right",
+            "phase": "PHASE_B",
+            "side": null,
+            "frameId": null,
+            "frameTransition": {
+              "from": "FRAME_DIAGONAL_LEFT",
+              "via": null,
+              "to": "FRAME_DIAGONAL_RIGHT"
+            },
+            "durationMs": 2500,
+            "voiceEvent": null
+          },
+          {
+            "id": "diagonal_left",
+            "phase": "PHASE_A",
+            "side": null,
+            "frameId": null,
+            "frameTransition": {
+              "from": "FRAME_DIAGONAL_RIGHT",
+              "via": null,
+              "to": "FRAME_DIAGONAL_LEFT"
+            },
+            "durationMs": 2500,
+            "voiceEvent": null
+          }
+        ]
+      }
+    ]
+  },
+  "animation": {
+    "reducedMotionFallback": "static_step_frames",
+    "frames": [
+      {
+        "id": "FRAME_SETUP",
+        "file": "assets/exercises/NECK_006/images/setup_full_safe.png",
+        "altText": "Початкове положення сидячи, голова у нейтральному положенні."
+      },
+      {
+        "id": "FRAME_DIAGONAL_LEFT",
+        "file": "assets/exercises/NECK_006/images/motion_01_diagonal_down_left_upper_safe.png",
+        "altText": "Голова опущена по діагоналі вліво, погляд спрямований вниз і вбік."
+      },
+      {
+        "id": "FRAME_DIAGONAL_RIGHT",
+        "file": "assets/exercises/NECK_006/images/motion_02_diagonal_down_right_upper_safe.png",
+        "altText": "Голова опущена по діагоналі вправо, погляд спрямований вниз і вбік."
+      }
+    ],
+    "preview": "assets/exercises/NECK_006/images/preview.png"
+  },
+  "audio": {
+    "events": [
+      {
+        "id": "VOICE_SETUP",
+        "type": "instruction",
+        "priority": 80,
+        "interruptible": true,
+        "playOncePerSide": false,
+        "voiceMode": null,
+        "text": "Сядьте рівно. Розслабте плечі. Дивіться прямо.",
+        "assetKey": "exercise.NECK_006.voice.setup",
+        "assetFile": "audio/uk/exercises/NECK_006/setup.m4a",
+        "trigger": {
+          "event": "prep_countdown_started",
+          "phase": null,
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": 0
+        }
+      },
+      {
+        "id": "VOICE_START_MOVEMENT",
+        "type": "movement",
+        "priority": 100,
+        "interruptible": false,
+        "playOncePerSide": false,
+        "voiceMode": null,
+        "text": "М'яко опустіть голову й погляд по діагоналі вліво. Поверніться у центр. Потім по діагоналі вправо.",
+        "assetKey": "exercise.NECK_006.voice.start_movement",
+        "assetFile": "audio/uk/exercises/NECK_006/start_movement.m4a",
+        "trigger": {
+          "event": "sequence_phase_started",
+          "phase": "PHASE_SETUP",
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      },
+      {
+        "id": "VOICE_HALFWAY",
+        "type": "progress",
+        "priority": 50,
+        "interruptible": true,
+        "playOncePerSide": false,
+        "voiceMode": null,
+        "text": "Половину виконано.",
+        "assetKey": "common.voice.halfway",
+        "assetFile": "audio/uk/common/halfway.m4a",
+        "trigger": {
+          "event": "progress_crossed",
+          "phase": null,
+          "side": null,
+          "percent": 50,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      },
+      {
+        "id": "VOICE_COMPLETED",
+        "type": "completion",
+        "priority": 120,
+        "interruptible": false,
+        "playOncePerSide": false,
+        "voiceMode": null,
+        "text": "Готово.",
+        "assetKey": "common.voice.completed",
+        "assetFile": "audio/uk/common/completed.m4a",
+        "trigger": {
+          "event": "exercise_completed",
+          "phase": null,
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      },
+      {
+        "id": "VOICE_PHASE_B",
+        "type": "movement",
+        "priority": 70,
+        "interruptible": true,
+        "playOncePerSide": false,
+        "voiceMode": "phase_words",
+        "text": "Вправо.",
+        "assetKey": "exercise.NECK_006.voice.phase_b",
+        "assetFile": "audio/uk/exercises/NECK_006/phase_b.m4a",
+        "trigger": {
+          "event": "sequence_phase_started",
+          "phase": "PHASE_B",
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      },
+      {
+        "id": "VOICE_PHASE_A",
+        "type": "movement",
+        "priority": 70,
+        "interruptible": true,
+        "playOncePerSide": false,
+        "voiceMode": "phase_words",
+        "text": "Вліво.",
+        "assetKey": "exercise.NECK_006.voice.phase_a",
+        "assetFile": "audio/uk/exercises/NECK_006/phase_a.m4a",
+        "trigger": {
+          "event": "sequence_phase_started",
+          "phase": "PHASE_A",
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      },
+      {
+        "id": "VOICE_COUNT_ONE",
+        "type": "movement",
+        "priority": 70,
+        "interruptible": true,
+        "playOncePerSide": false,
+        "voiceMode": "count",
+        "text": "Раз.",
+        "assetKey": "common.voice.count_one",
+        "assetFile": "audio/uk/common/count_one.m4a",
+        "trigger": {
+          "event": "sequence_phase_started",
+          "phase": "PHASE_B",
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      },
+      {
+        "id": "VOICE_COUNT_TWO",
+        "type": "movement",
+        "priority": 70,
+        "interruptible": true,
+        "playOncePerSide": false,
+        "voiceMode": "count",
+        "text": "Два.",
+        "assetKey": "common.voice.count_two",
+        "assetFile": "audio/uk/common/count_two.m4a",
+        "trigger": {
+          "event": "sequence_phase_started",
+          "phase": "PHASE_A",
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      }
+    ],
+    "mix": {
+      "voiceLevel": 1.0,
+      "musicLevel": 0.5,
+      "dynamicDucking": false
+    }
+  },
+  "flow": {
+    "autoNextEnabled": true,
+    "restSeconds": 10,
+    "incrementCounterOnCompletion": true
+  },
+  "accessibility": {
+    "summary": "Діагональний погляд вниз. Сидячи на стільці, м'яко опускайте голову й погляд по діагоналі вліво та вправо, щоразу повертаючись у центр.",
+    "reducedMotionSupported": true
+  },
+  "pro": {
+    "tier": "free",
+    "requiresPro": false,
+    "visibleToFree": true,
+    "allowFavorite": true,
+    "includeInPersonalPlanPool": true
+  }
+}

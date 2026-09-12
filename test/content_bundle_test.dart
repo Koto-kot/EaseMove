@@ -234,22 +234,26 @@ void main() {
     test(
       'one exercise can belong to several collections without duplication',
       () {
-        final List<ExerciseSummary> computer = repository.byCollection(
-          'computer_break',
+        final List<String> computer = repository
+            .byCollection('computer_break')
+            .map((ExerciseSummary s) => s.id)
+            .toList();
+
+        // Every one of these is also in body_<zone> and in after_sitting, and
+        // each still appears exactly once here.
+        expect(computer.toSet(), hasLength(computer.length));
+        expect(computer, containsAll(<String>['NECK_002', 'KNEE_001']));
+        expect(
+          computer.where((String id) => id.startsWith('ELBOW_')),
+          hasLength(9),
         );
-        expect(computer.map((ExerciseSummary s) => s.id), <String>[
-          'NECK_001',
-          'KNEE_001',
-          'ELBOW_001',
-          'ELBOW_002',
-          'ELBOW_003',
-          'ELBOW_004',
-          'ELBOW_005',
-          'ELBOW_006',
-          'ELBOW_007',
-          'ELBOW_008',
-          'ELBOW_009',
-        ]);
+        expect(
+          computer.where((String id) => id.startsWith('NECK_')),
+          hasLength(10),
+        );
+
+        // The library order carries over from the index, not the collection.
+        expect(computer.first, 'NECK_001');
       },
     );
 

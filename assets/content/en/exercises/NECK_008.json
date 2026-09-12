@@ -1,0 +1,400 @@
+{
+  "id": "NECK_008",
+  "slug": "seated_isometric_palm_temple",
+  "schemaVersion": "1.3",
+  "contentVersion": "0.1.0",
+  "clinicalStatus": "pending_review",
+  "editorialStatus": "draft",
+  "primaryZone": "neck",
+  "secondaryZones": [],
+  "hotspotIds": [
+    "neck"
+  ],
+  "tags": [
+    "neck",
+    "cervical_spine",
+    "computer",
+    "after_sitting",
+    "sitting",
+    "isometric",
+    "cervical_isometric_lateral_flexion",
+    "bilateral",
+    "beginner",
+    "gentle",
+    "stable_chair"
+  ],
+  "tagGroups": {
+    "anatomy": [
+      "neck",
+      "cervical_spine"
+    ],
+    "context": [
+      "computer",
+      "after_sitting"
+    ],
+    "position": [
+      "sitting"
+    ],
+    "movement": [
+      "isometric",
+      "cervical_isometric_lateral_flexion",
+      "bilateral"
+    ],
+    "level": [
+      "beginner",
+      "gentle"
+    ],
+    "equipment": [
+      "stable_chair"
+    ]
+  },
+  "collections": [
+    "body_neck",
+    "seated_gentle",
+    "computer_break",
+    "after_sitting"
+  ],
+  "collectionCandidates": [],
+  "text": {
+    "title": "Isometric: palm to temple",
+    "shortTitle": "Palm to temple",
+    "cardDescription": "Seated, gently press your temple into your palm without tilting your head. Then change sides.",
+    "categoryLabel": "Neck",
+    "purpose": "A gentle isometric exercise for the side neck muscles and for keeping your head centred.",
+    "startPositionTitle": "Starting position",
+    "startPosition": "Sit up straight on a stable chair. Feet firmly on the floor, back tall, pelvis steady. Shoulders down and relaxed. Head in a neutral position, looking straight ahead. Your free hand rests on your thigh.",
+    "instructionsTitle": "How to do it",
+    "instructions": [
+      {
+        "step": 1,
+        "text": "Sit up straight and keep your head centred."
+      },
+      {
+        "step": 2,
+        "text": "Place your palm against your right temple."
+      },
+      {
+        "step": 3,
+        "text": "Gently press your temple into your palm and your palm back against it; your head does not tilt."
+      },
+      {
+        "step": 4,
+        "text": "Ease off the pressure and change sides."
+      },
+      {
+        "step": 5,
+        "text": "Keep alternating at a calm pace until the time is up."
+      }
+    ],
+    "techniqueTipsTitle": "Watch out for",
+    "techniqueTips": [
+      "Do not press hard.",
+      "Do not tilt your head to the side.",
+      "Do not lift your shoulders.",
+      "Do not hold your breath."
+    ],
+    "safetyLabel": "Safety",
+    "safety": "Move within a comfortable range. If you feel sharp pain, dizziness or any other unusual symptom, press Stop.",
+    "completion": "Done."
+  },
+  "labels": {},
+  "timing": {
+    "prepCountdownSeconds": 5,
+    "restAfterSeconds": 10,
+    "completionMode": "timed_duration",
+    "estimatedActiveSeconds": 61
+  },
+  "progress": {
+    "basis": "sequence_time",
+    "showElapsedTime": true,
+    "showProgressBar": true,
+    "showRepetitionCounter": false,
+    "showSideLabel": false,
+    "showSetCounter": false
+  },
+  "repetitionModel": {
+    "type": "sequence_time",
+    "sets": 1,
+    "repetitionsPerBlock": 1,
+    "blockOrder": [
+      null,
+      null
+    ],
+    "switchSideAutomatically": true,
+    "resetCounterOnSideChange": false
+  },
+  "movementPhases": [
+    {
+      "id": "PHASE_SETUP",
+      "name": "Starting position",
+      "type": null
+    },
+    {
+      "id": "PHASE_A",
+      "name": "Pressing on the right",
+      "type": null
+    },
+    {
+      "id": "PHASE_B",
+      "name": "Pressing on the left",
+      "type": null
+    }
+  ],
+  "sequence": {
+    "blocks": [
+      {
+        "side": null,
+        "repeat": 1,
+        "steps": [
+          {
+            "id": "setup",
+            "phase": "PHASE_SETUP",
+            "side": null,
+            "frameId": "FRAME_SETUP",
+            "frameTransition": null,
+            "durationMs": 1000,
+            "voiceEvent": null
+          }
+        ]
+      },
+      {
+        "side": null,
+        "repeat": 10,
+        "steps": [
+          {
+            "id": "press_left",
+            "phase": "PHASE_B",
+            "side": null,
+            "frameId": null,
+            "frameTransition": {
+              "from": "FRAME_PRESS_RIGHT",
+              "via": null,
+              "to": "FRAME_PRESS_LEFT"
+            },
+            "durationMs": 3000,
+            "voiceEvent": null
+          },
+          {
+            "id": "press_right",
+            "phase": "PHASE_A",
+            "side": null,
+            "frameId": null,
+            "frameTransition": {
+              "from": "FRAME_PRESS_LEFT",
+              "via": null,
+              "to": "FRAME_PRESS_RIGHT"
+            },
+            "durationMs": 3000,
+            "voiceEvent": null
+          }
+        ]
+      }
+    ]
+  },
+  "animation": {
+    "reducedMotionFallback": "static_step_frames",
+    "frames": [
+      {
+        "id": "FRAME_SETUP",
+        "file": "assets/exercises/NECK_008/images/setup_full_safe.png",
+        "altText": "Seated start position with the head centred."
+      },
+      {
+        "id": "FRAME_PRESS_RIGHT",
+        "file": "assets/exercises/NECK_008/images/motion_01_palm_to_left_temple_upper_safe.png",
+        "altText": "Palm against the temple, head staying upright."
+      },
+      {
+        "id": "FRAME_PRESS_LEFT",
+        "file": "assets/exercises/NECK_008/images/motion_02_palm_to_right_temple_upper_safe.png",
+        "altText": "Palm against the other temple, head still centred."
+      }
+    ],
+    "preview": "assets/exercises/NECK_008/images/preview.png"
+  },
+  "audio": {
+    "events": [
+      {
+        "id": "VOICE_SETUP",
+        "type": "instruction",
+        "priority": 80,
+        "interruptible": true,
+        "playOncePerSide": false,
+        "voiceMode": null,
+        "text": "Sit up straight. Relax your shoulders. Look straight ahead.",
+        "assetKey": "exercise.NECK_008.voice.setup",
+        "assetFile": "audio/uk/exercises/NECK_008/setup.m4a",
+        "trigger": {
+          "event": "prep_countdown_started",
+          "phase": null,
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": 0
+        }
+      },
+      {
+        "id": "VOICE_START_MOVEMENT",
+        "type": "movement",
+        "priority": 100,
+        "interruptible": false,
+        "playOncePerSide": false,
+        "voiceMode": null,
+        "text": "Place your palm against your temple. Gently press your temple into your palm without tilting your head. Then change sides.",
+        "assetKey": "exercise.NECK_008.voice.start_movement",
+        "assetFile": "audio/uk/exercises/NECK_008/start_movement.m4a",
+        "trigger": {
+          "event": "sequence_phase_started",
+          "phase": "PHASE_SETUP",
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      },
+      {
+        "id": "VOICE_HALFWAY",
+        "type": "progress",
+        "priority": 50,
+        "interruptible": true,
+        "playOncePerSide": false,
+        "voiceMode": null,
+        "text": "Halfway done.",
+        "assetKey": "common.voice.halfway",
+        "assetFile": "audio/uk/common/halfway.m4a",
+        "trigger": {
+          "event": "progress_crossed",
+          "phase": null,
+          "side": null,
+          "percent": 50,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      },
+      {
+        "id": "VOICE_COMPLETED",
+        "type": "completion",
+        "priority": 120,
+        "interruptible": false,
+        "playOncePerSide": false,
+        "voiceMode": null,
+        "text": "Done.",
+        "assetKey": "common.voice.completed",
+        "assetFile": "audio/uk/common/completed.m4a",
+        "trigger": {
+          "event": "exercise_completed",
+          "phase": null,
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      },
+      {
+        "id": "VOICE_PHASE_B",
+        "type": "movement",
+        "priority": 70,
+        "interruptible": true,
+        "playOncePerSide": false,
+        "voiceMode": "phase_words",
+        "text": "Left.",
+        "assetKey": "exercise.NECK_008.voice.phase_b",
+        "assetFile": "audio/uk/exercises/NECK_008/phase_b.m4a",
+        "trigger": {
+          "event": "sequence_phase_started",
+          "phase": "PHASE_B",
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      },
+      {
+        "id": "VOICE_PHASE_A",
+        "type": "movement",
+        "priority": 70,
+        "interruptible": true,
+        "playOncePerSide": false,
+        "voiceMode": "phase_words",
+        "text": "Right.",
+        "assetKey": "exercise.NECK_008.voice.phase_a",
+        "assetFile": "audio/uk/exercises/NECK_008/phase_a.m4a",
+        "trigger": {
+          "event": "sequence_phase_started",
+          "phase": "PHASE_A",
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      },
+      {
+        "id": "VOICE_COUNT_ONE",
+        "type": "movement",
+        "priority": 70,
+        "interruptible": true,
+        "playOncePerSide": false,
+        "voiceMode": "count",
+        "text": "One.",
+        "assetKey": "common.voice.count_one",
+        "assetFile": "audio/uk/common/count_one.m4a",
+        "trigger": {
+          "event": "sequence_phase_started",
+          "phase": "PHASE_B",
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      },
+      {
+        "id": "VOICE_COUNT_TWO",
+        "type": "movement",
+        "priority": 70,
+        "interruptible": true,
+        "playOncePerSide": false,
+        "voiceMode": "count",
+        "text": "Two.",
+        "assetKey": "common.voice.count_two",
+        "assetFile": "audio/uk/common/count_two.m4a",
+        "trigger": {
+          "event": "sequence_phase_started",
+          "phase": "PHASE_A",
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      }
+    ],
+    "mix": {
+      "voiceLevel": 1.0,
+      "musicLevel": 0.5,
+      "dynamicDucking": false
+    }
+  },
+  "flow": {
+    "autoNextEnabled": true,
+    "restSeconds": 10,
+    "incrementCounterOnCompletion": true
+  },
+  "accessibility": {
+    "summary": "Isometric palm to temple. Sitting on a chair, gently press your temple into your palm on one side and then the other, keeping your head centred.",
+    "reducedMotionSupported": true
+  },
+  "pro": {
+    "tier": "free",
+    "requiresPro": false,
+    "visibleToFree": true,
+    "allowFavorite": true,
+    "includeInPersonalPlanPool": true
+  }
+}

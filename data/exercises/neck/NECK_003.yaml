@@ -1,0 +1,564 @@
+schema_version: '1.3'
+content_version: 0.1.0
+exercise:
+  id: NECK_003
+  slug: seated_ear_to_shoulder
+  internal_name: Seated ear to shoulder
+  status: draft
+  availability:
+    tier: free
+    visible_to_free_users: true
+    pro_personalization_eligible: true
+  classification:
+    primary_zone: neck
+    secondary_zones: []
+    body_map_hotspot_ids:
+    - neck
+    collections:
+    - body_neck
+    - seated_gentle
+    - computer_break
+    - after_sitting
+    tags:
+      anatomy:
+      - neck
+      - cervical_spine
+      context:
+      - computer
+      - after_sitting
+      position:
+      - sitting
+      movement:
+      - mobility
+      - cervical_lateral_flexion
+      - bilateral
+      level:
+      - beginner
+      - gentle
+      equipment: &id001
+      - stable_chair
+    collection_candidates: []
+  exercise_properties:
+    difficulty: easy
+    laterality: bilateral_alternating
+    movement_pattern: cervical_lateral_flexion
+    preferred_position: sitting
+    alternative_positions: []
+    equipment_required: *id001
+    equipment_optional: []
+    space_requirement: seat_with_room_to_move_the_head
+  anatomy:
+    primary_joint: cervical_spine
+    primary_muscle_groups:
+    - deep_cervical_flexors
+    - cervical_extensors
+    secondary_muscle_groups:
+    - upper_trapezius
+    - sternocleidomastoid
+    movement_plane: sagittal
+    joint_action: cervical_lateral_flexion
+clinical:
+  status: pending_review
+  publish_rule: production_requires_approved
+  source_basis:
+    basis: everyday_movement_without_clinical_prescription
+    source_summary_uk: Це м'який побутовий рух для шиї без опору та без обтяження. Бриф не посилається на клінічне
+      джерело із дозуванням, тому тривалість і темп взяті з production brief і потребують затвердження фахівцем.
+  app_prototype_prescription:
+    status: pending_review
+    mode: timed
+    active_duration_seconds: 61
+    cycle_seconds: 5.0
+    range_rule: comfortable_controlled_range
+    movement_speed_rule: slow_controlled
+    note_uk: Тривалість і темп відповідають розділу Timing у brief. Перед production їх має затвердити фізіотерапевт.
+  movement_quality:
+    required_cues_uk: &id002
+    - Не піднімайте плечі.
+    - Не обертайте голову під час нахилу.
+    - Рух плавний, без ривків.
+    - Не тисніть рукою на голову.
+  safety:
+    general_rule_uk: Виконуйте рух повільно, у комфортному діапазоні та без ривків.
+    stop_conditions_uk:
+    - різкий або незвичний біль
+    - раптове погіршення самопочуття
+    - інший новий або незвичний симптом під час виконання
+    in_app_stop_message_uk: Зупиніть вправу, якщо з'явився різкий біль або інший незвичний симптом.
+    requires_professional_review:
+      prescription: true
+      safety_text: true
+      contraindications: true
+      animation_accuracy: true
+      voice_cues: true
+  review:
+    reviewer_role: physiotherapist_or_equivalent
+    reviewer_name: null
+    reviewed_at: null
+    review_notes: null
+    approval_version: null
+  variants: []
+locale:
+  default: uk
+  en:
+    title: Ear to shoulder
+    short_title: Head tilts
+    card_description: Seated, gently tilt your head toward one shoulder, then the other.
+    category_label: Neck
+    purpose_text: A starter exercise for gentle side-to-side neck mobility.
+    start_position_title: Starting position
+    start_position_text: Sit up straight on a stable chair. Feet firmly on the floor. Shoulders relaxed. Head in
+      a neutral position, looking straight ahead. Hands on your thighs.
+    instructions_title: How to do it
+    instructions:
+    - step: 1
+      text: Sit up straight and let your shoulders drop and relax.
+    - step: 2
+      text: Gently tilt your head to the right, bringing your ear toward your shoulder.
+    - step: 3
+      text: Come back to the centre.
+    - step: 4
+      text: Tilt your head to the left in the same gentle way.
+    - step: 5
+      text: Keep alternating at a calm pace until the time is up.
+    technique_tips_title: Watch out for
+    technique_tips:
+    - Do not lift your shoulders.
+    - Do not turn your head as you tilt it.
+    - Move smoothly, with no jerking.
+    - Do not push on your head with your hand.
+    safety_label: Safety
+    safety_text: Move within a comfortable range. If you feel sharp pain or any other unusual symptom, press Stop.
+    completion_text: Done.
+    halfway_text: Halfway done.
+  uk:
+    title: Нахил голови до плеча
+    short_title: Нахили голови
+    card_description: Сидячи, плавно нахиляйте голову до одного плеча, потім до іншого.
+    category_label: Шия
+    purpose_text: Базова вправа на м'яку бічну рухливість шиї.
+    start_position_title: Початкове положення
+    start_position_text: Сядьте рівно на стійкий стілець. Стопи стійко на підлозі. Плечі розслаблені. Голова у нейтральному
+      положенні, погляд прямо. Руки лежать на стегнах.
+    instructions_title: Як виконувати
+    instructions:
+    - step: 1
+      text: Сядьте рівно, плечі опустіть і розслабте.
+    - step: 2
+      text: Плавно нахиліть голову вправо, ведучи вухо до плеча.
+    - step: 3
+      text: Поверніться у центр.
+    - step: 4
+      text: Так само плавно нахиліть голову вліво.
+    - step: 5
+      text: Чергуйте боки у спокійному темпі до кінця часу.
+    technique_tips_title: Зверніть увагу
+    technique_tips: *id002
+    safety_label: Безпека
+    safety_text: Рухайтеся в комфортному діапазоні. Якщо з'явився різкий біль або інший незвичний симптом, натисніть
+      «Стоп».
+    completion_text: Готово.
+    halfway_text: Половину виконано.
+ui:
+  card:
+    title_key: exercise.NECK_003.title
+    description_key: exercise.NECK_003.card_description
+    preview_asset: assets/exercises/NECK_003/images/preview.png
+    primary_action:
+      key: common.exercise.start
+      resolved_uk: Почати
+    badges:
+      show_difficulty: false
+      show_duration: true
+      show_pro_badge: false
+  exercise_screen:
+    title_key: exercise.NECK_003.title
+    labels: {}
+    prep:
+      label_key: common.exercise.starts_in
+      resolved_uk: Починаємо через
+    rest:
+      label_key: common.exercise.rest
+      resolved_uk: Відпочинок
+      next_label_key: common.exercise.next_exercise
+      next_label_resolved_uk: Наступна вправа
+timing:
+  prep_countdown_seconds: 5
+  rest_after_seconds: 10
+  completion_mode: timed_duration
+  prescription:
+    active_duration_seconds: 61
+    cycle_ms: 5000
+  duration_presets_seconds:
+  - 60
+  - 120
+  - 180
+  - 300
+  playback:
+    setup_hold_ms: 1000
+    phase_a_to_b_ms: 2500
+    phase_b_to_a_ms: 2500
+  estimated_active_duration_seconds: 61
+  progress:
+    basis: sequence_time
+    show_elapsed_time: true
+    show_progress_bar: true
+    show_repetition_counter: false
+    show_side_label: false
+    show_set_counter: false
+movement_phases:
+- id: PHASE_SETUP
+  name_uk: Початкове положення
+  name_en: Starting position
+  biomechanics: start_position
+- id: PHASE_A
+  name_uk: Нахил вправо
+  name_en: Tilted right
+  biomechanics: phase_a
+- id: PHASE_B
+  name_uk: Нахил вліво
+  name_en: Tilted left
+  biomechanics: phase_b
+sequence:
+  side_blocks:
+  - side: null
+    repeat: 1
+    steps:
+    - id: setup
+      phase: PHASE_SETUP
+      frame_id: FRAME_SETUP
+      duration_ms: 1000
+      voice_event: null
+  - side: null
+    repeat: 12
+    steps:
+    - id: tilt_left
+      phase: PHASE_B
+      frame_transition:
+        from: FRAME_TILT_RIGHT
+        to: FRAME_TILT_LEFT
+      duration_ms: 2500
+      voice_event: null
+    - id: tilt_right
+      phase: PHASE_A
+      frame_transition:
+        from: FRAME_TILT_LEFT
+        to: FRAME_TILT_RIGHT
+      duration_ms: 2500
+      voice_event: null
+animation:
+  engine: frame_sequence
+  style_profile_id: exercise_visual_v1
+  loop_mode: timed_loop
+  interpolation: motion_interpolation
+  reduced_motion_fallback: static_step_frames
+  subject:
+    subject_profile_id: adult_neutral_01
+    consistency_required_across_frames: true
+  framing:
+    template_version: v2_FULL_SAFE
+    setup_frame_may_use_different_crop: true
+    motion_frames_same_camera: true
+    motion_frames_same_crop: true
+    no_relevant_limb_cropping: true
+    active_limb_safe_margin_min: 0.05
+    background: clean_neutral
+    arrows_in_production_asset: false
+    text_inside_asset: false
+  asset_spec:
+    master_format: png
+    width_px: 1024
+    height_px: 1024
+    transparent_background_preferred: false
+    production_assets_must_be_original: true
+  frames:
+  - id: FRAME_SETUP
+    file: assets/exercises/NECK_003/images/setup_full_safe.png
+    pose_description_uk: Людина сидить рівно на стільці, стопи на підлозі, руки на стегнах, голова у нейтральному
+      положенні.
+    alt_text_uk: Початкове положення сидячи, голова у нейтральному положенні.
+    alt_text_en: Seated start position with the head in a neutral position.
+    framing: FULL_SAFE
+  - id: FRAME_TILT_RIGHT
+    file: assets/exercises/NECK_003/images/motion_01_ear_to_left_shoulder_upper_safe.png
+    pose_description_uk: Голова нахилена до плеча; у дзеркальному показі користувач сприймає цей кадр як нахил вправо.
+    alt_text_uk: Голова нахилена до плеча, вухо ближче до плеча, плечі опущені.
+    alt_text_en: Head tilted toward the shoulder, ear closer to the shoulder, shoulders down.
+    framing: UPPER_SAFE
+  - id: FRAME_TILT_LEFT
+    file: assets/exercises/NECK_003/images/motion_02_ear_to_right_shoulder_upper_safe.png
+    pose_description_uk: Голова нахилена до протилежного плеча; у дзеркальному показі це нахил вліво.
+    alt_text_uk: Голова нахилена до протилежного плеча, плечі залишаються опущеними.
+    alt_text_en: Head tilted toward the other shoulder, shoulders still down.
+    framing: UPPER_SAFE
+  preview:
+    file: assets/exercises/NECK_003/images/preview.png
+    source_frame_id: FRAME_SETUP
+    overlay_text: false
+audio:
+  default_language: uk
+  mix:
+    voice_level: 1.0
+    music_level_relative_to_voice: 0.5
+    dynamic_ducking: false
+  countdown:
+    use_global_audio_pack: true
+    seconds:
+    - 5
+    - 4
+    - 3
+    - 2
+    - 1
+  events:
+  - id: VOICE_SETUP
+    type: instruction
+    trigger:
+      event: prep_countdown_started
+      offset_ms: 0
+    text_key: exercise.NECK_003.voice.setup
+    text_uk: Сядьте рівно. Розслабте плечі. Дивіться прямо.
+    text_en: Sit up straight. Relax your shoulders. Look straight ahead.
+    asset_key: exercise.NECK_003.voice.setup
+    target_file: audio/uk/exercises/NECK_003/setup.m4a
+    priority: 80
+    interruptible: true
+  - id: VOICE_START_MOVEMENT
+    type: movement
+    trigger:
+      event: sequence_phase_started
+      phase: PHASE_SETUP
+    text_key: exercise.NECK_003.voice.start_movement
+    text_uk: Плавно нахиліть голову вправо. Поверніться у центр. Потім нахиліть голову вліво.
+    text_en: Gently tilt your head to the right. Come back to the centre. Then tilt to the left.
+    asset_key: exercise.NECK_003.voice.start_movement
+    target_file: audio/uk/exercises/NECK_003/start_movement.m4a
+    priority: 100
+    interruptible: false
+  - id: VOICE_HALFWAY
+    type: progress
+    trigger:
+      event: progress_crossed
+      percent: 50
+    text_key: common.voice.halfway
+    text_uk: Половину виконано.
+    text_en: Halfway done.
+    asset_key: common.voice.halfway
+    target_file: audio/uk/common/halfway.m4a
+    priority: 50
+    interruptible: true
+    collision_policy: delay_until_primary_cue_finishes
+  - id: VOICE_COMPLETED
+    type: completion
+    trigger:
+      event: exercise_completed
+    text_key: common.voice.completed
+    text_uk: Готово.
+    text_en: Done.
+    asset_key: common.voice.completed
+    target_file: audio/uk/common/completed.m4a
+    priority: 120
+    interruptible: false
+  - id: VOICE_PHASE_B
+    type: movement
+    voice_mode: phase_words
+    trigger:
+      event: sequence_phase_started
+      phase: PHASE_B
+    text_key: exercise.NECK_003.voice.phase_b
+    text_uk: Вліво.
+    text_en: Left.
+    asset_key: exercise.NECK_003.voice.phase_b
+    target_file: audio/uk/exercises/NECK_003/phase_b.m4a
+    priority: 70
+    interruptible: true
+  - id: VOICE_PHASE_A
+    type: movement
+    voice_mode: phase_words
+    trigger:
+      event: sequence_phase_started
+      phase: PHASE_A
+    text_key: exercise.NECK_003.voice.phase_a
+    text_uk: Вправо.
+    text_en: Right.
+    asset_key: exercise.NECK_003.voice.phase_a
+    target_file: audio/uk/exercises/NECK_003/phase_a.m4a
+    priority: 70
+    interruptible: true
+  - id: VOICE_COUNT_ONE
+    type: movement
+    voice_mode: count
+    trigger:
+      event: sequence_phase_started
+      phase: PHASE_B
+    text_key: common.voice.count_one
+    text_uk: Раз.
+    text_en: One.
+    asset_key: common.voice.count_one
+    target_file: audio/uk/common/count_one.m4a
+    priority: 70
+    interruptible: true
+  - id: VOICE_COUNT_TWO
+    type: movement
+    voice_mode: count
+    trigger:
+      event: sequence_phase_started
+      phase: PHASE_A
+    text_key: common.voice.count_two
+    text_uk: Два.
+    text_en: Two.
+    asset_key: common.voice.count_two
+    target_file: audio/uk/common/count_two.m4a
+    priority: 70
+    interruptible: true
+  recording_spec:
+    current_status: not_recorded
+    source_master_format: wav
+    app_delivery_format: m4a
+    voice_style_uk: спокійний, доброзичливий, чіткий, без поспіху
+    normalization_required: true
+    silence_trim_required: true
+music:
+  enabled_by_default: true
+  default_track_profile: gentle_rhythm_01
+  loop: true
+  vocals_allowed: false
+  fixed_relative_volume: 0.5
+  duck_on_voice: false
+flow:
+  use_global_start_countdown: true
+  start_countdown_seconds: 5
+  pause:
+    freeze_timer: true
+    freeze_animation: true
+    pause_music: true
+    resume_from_same_step: true
+  stop:
+    allowed_any_time: true
+    show_failure_state: false
+    save_actual_elapsed_time: true
+    completion_classification: early_stop
+  completion:
+    increment_lifetime_exercise_counter: true
+    show_plus_one_animation: true
+    proceed_to_auto_rest: true
+  auto_next:
+    enabled: true
+    rest_seconds: 10
+    show_next_exercise_preview: true
+    start_next_automatically_at_zero: true
+    manual_previous_or_next:
+      cancel_auto_mode: true
+      cancel_rest_countdown: true
+      selected_exercise_requires_manual_start: true
+      manual_start_uses_prep_countdown: true
+accessibility:
+  screen_reader:
+    exercise_summary_uk: Нахил голови до плеча. Сидячи на стільці, плавно нахиляйте голову до правого та лівого
+      плеча, щоразу проходячи через центр.
+    exercise_summary_en: Ear to shoulder. Sitting on a chair, gently tilt your head toward your right and left shoulder,
+      passing through the centre each time.
+    announce_countdown: true
+    announce_repetition: false
+    announce_side_change: false
+    announce_pause_resume: true
+    announce_completion: true
+  visual:
+    minimum_touch_target_dp: 44
+    supports_large_text: true
+    essential_information_not_color_only: true
+  reduced_motion:
+    supported: true
+    behavior: show_static_pose_steps_without_smooth_interpolation
+tracking:
+  enabled: true
+  metrics:
+    actual_active_seconds: true
+    prescribed_completion: true
+    early_stop: true
+    pause_count: true
+    selected_from_collection: true
+  analytics_dimensions:
+    exercise_id: NECK_003
+    primary_zone: neck
+    tags:
+    - neck
+    - mobility
+    - cervical_lateral_flexion
+    - bilateral
+  lifetime_counter:
+    use_global_policy: true
+pro:
+  include_in_personal_plan_pool: true
+  allow_favorite: true
+  allow_custom_voice: true
+  allow_custom_music: true
+  adaptive_parameters:
+    duration:
+      enabled: false
+      reason: requires_clinical_review_before_personalized_dosing
+    tempo:
+      enabled: false
+      reason: requires_clinical_review_before_personalized_tempo
+    rest_after:
+      enabled: true
+      allowed_values_seconds:
+      - 10
+      - 15
+      - 20
+  ai_selection:
+    allowed: true
+    rule: AI may select this approved exercise from the verified library, but may not change the movement, add resistance
+      or invent a new exercise.
+    production_requires_clinical_status: approved
+assets:
+  folder: assets/exercises/NECK_003/images
+  required:
+  - setup_full_safe.png
+  - motion_01_ear_to_left_shoulder_upper_safe.png
+  - motion_02_ear_to_right_shoulder_upper_safe.png
+  - preview.png
+  optional: []
+  validation:
+    same_subject_all_frames: true
+    same_style_all_frames: true
+    setup_frame_may_use_different_crop: true
+    motion_frames_same_camera: true
+    motion_frames_same_crop: true
+    no_relevant_limb_cropping: true
+    no_embedded_text: true
+    no_watermarks: true
+    original_or_properly_licensed_only: true
+    clinical_pose_review_required: true
+qa:
+  content_checks:
+  - Назва і опис відповідають руху на зображеннях.
+  - Між motion frames змінюється лише положення голови та шиї.
+  - Немає тексту, стрілок, UI чи watermark у production images.
+  - Вправа присутня у collection body_neck.
+  - Усі користувацькі написи беруться через localization keys.
+  - Stop працює у будь-який момент.
+  - Після штатного завершення запускається 10-секундний auto-rest.
+  - Production build не показує вправу, поки clinical.status != approved.
+  automated_tests:
+  - id: NECK_003_VISIBLE_BODY_NECK
+    expected: exercise_is_returned_for_collection_body_neck
+  - id: NECK_003_TIMED_COMPLETION
+    expected: timeline_total_matches_estimated_active_duration
+references:
+  source_ids: []
+  note_uk: М'який рух для шиї без опору. Формулювання, зображення та аудіо — оригінальні активи проєкту, взяті з
+    production brief пакета.
+metadata:
+  created_for: neck_library_v14_qa_pack
+  authoring_language: uk
+  created_at: '2026-09-12'
+  last_modified_at: '2026-09-12'
+  brief_path: docs/exercise_briefs/neck/NECK_003/NECK_003_BRIEF.md
+  brief_sheet_path: docs/exercise_briefs/neck/NECK_003/NECK_003_brief_sheet_v1.png
+  repository_pack_version: NECK_001_010_repository_pack_v14_QA
+  schema_notes_uk: 'Часова вправа без лічильника повторів: поза setup показується один раз, далі цикл A-B повторюється
+    до кінця часу. Голова проходить через центр за рахунок інтерполяції між двома motion-кадрами — окремого кадру
+    центру серія не має.'
+  mirror_note_uk: 'Кадри показані дзеркально, як у дзеркалі: motion_01 користувач сприймає як виконання з правого
+    боку, motion_02 — з лівого. Імена файлів анатомічні для моделі й навмисно не перейменовані (brief, розділ про
+    дзеркальний принцип).'

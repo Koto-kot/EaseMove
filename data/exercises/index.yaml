@@ -2,7 +2,96 @@ schema_version: '1.0'
 exercises:
 - id: NECK_001
   file: neck/NECK_001.yaml
+  title_uk: Підборіддя назад
+  primary_zone: neck
+  clinical_status: pending_review
+  collections:
+  - body_neck
+  - seated_gentle
+  - computer_break
+  - after_sitting
+- id: NECK_002
+  file: neck/NECK_002.yaml
   title_uk: Повороти голови
+  primary_zone: neck
+  clinical_status: pending_review
+  collections:
+  - body_neck
+  - computer_break
+  - after_sitting
+- id: NECK_003
+  file: neck/NECK_003.yaml
+  title_uk: Нахил голови до плеча
+  primary_zone: neck
+  clinical_status: pending_review
+  collections:
+  - body_neck
+  - seated_gentle
+  - computer_break
+  - after_sitting
+- id: NECK_004
+  file: neck/NECK_004.yaml
+  title_uk: Погляд вниз
+  primary_zone: neck
+  clinical_status: pending_review
+  collections:
+  - body_neck
+  - seated_gentle
+  - computer_break
+  - after_sitting
+- id: NECK_005
+  file: neck/NECK_005.yaml
+  title_uk: Легкий погляд вгору
+  primary_zone: neck
+  clinical_status: pending_review
+  collections:
+  - body_neck
+  - seated_gentle
+  - computer_break
+  - after_sitting
+- id: NECK_006
+  file: neck/NECK_006.yaml
+  title_uk: Діагональний погляд вниз
+  primary_zone: neck
+  clinical_status: pending_review
+  collections:
+  - body_neck
+  - seated_gentle
+  - computer_break
+  - after_sitting
+- id: NECK_007
+  file: neck/NECK_007.yaml
+  title_uk: 'Ізометрія: долоня до лоба'
+  primary_zone: neck
+  clinical_status: pending_review
+  collections:
+  - body_neck
+  - seated_gentle
+  - computer_break
+  - after_sitting
+- id: NECK_008
+  file: neck/NECK_008.yaml
+  title_uk: 'Ізометрія: долоня до скроні'
+  primary_zone: neck
+  clinical_status: pending_review
+  collections:
+  - body_neck
+  - seated_gentle
+  - computer_break
+  - after_sitting
+- id: NECK_009
+  file: neck/NECK_009.yaml
+  title_uk: 'Ізометрія: долоня до потилиці'
+  primary_zone: neck
+  clinical_status: pending_review
+  collections:
+  - body_neck
+  - seated_gentle
+  - computer_break
+  - after_sitting
+- id: NECK_010
+  file: neck/NECK_010.yaml
+  title_uk: Підборіддя назад біля стіни
   primary_zone: neck
   clinical_status: pending_review
   collections:

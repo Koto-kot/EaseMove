@@ -1,0 +1,400 @@
+{
+  "id": "NECK_008",
+  "slug": "seated_isometric_palm_temple",
+  "schemaVersion": "1.3",
+  "contentVersion": "0.1.0",
+  "clinicalStatus": "pending_review",
+  "editorialStatus": "draft",
+  "primaryZone": "neck",
+  "secondaryZones": [],
+  "hotspotIds": [
+    "neck"
+  ],
+  "tags": [
+    "neck",
+    "cervical_spine",
+    "computer",
+    "after_sitting",
+    "sitting",
+    "isometric",
+    "cervical_isometric_lateral_flexion",
+    "bilateral",
+    "beginner",
+    "gentle",
+    "stable_chair"
+  ],
+  "tagGroups": {
+    "anatomy": [
+      "neck",
+      "cervical_spine"
+    ],
+    "context": [
+      "computer",
+      "after_sitting"
+    ],
+    "position": [
+      "sitting"
+    ],
+    "movement": [
+      "isometric",
+      "cervical_isometric_lateral_flexion",
+      "bilateral"
+    ],
+    "level": [
+      "beginner",
+      "gentle"
+    ],
+    "equipment": [
+      "stable_chair"
+    ]
+  },
+  "collections": [
+    "body_neck",
+    "seated_gentle",
+    "computer_break",
+    "after_sitting"
+  ],
+  "collectionCandidates": [],
+  "text": {
+    "title": "Ізометрія: долоня до скроні",
+    "shortTitle": "Долоня до скроні",
+    "cardDescription": "Сидячи, м'яко натискайте скронею в долоню, не нахиляючи голову. Потім змініть бік.",
+    "categoryLabel": "Шия",
+    "purpose": "М'яка ізометрична вправа для бічних м'язів шиї та утримання голови по центру.",
+    "startPositionTitle": "Початкове положення",
+    "startPosition": "Сядьте рівно на стійкий стілець. Стопи стійко на підлозі, спина витягнута, таз стабільний. Плечі опущені й розслаблені. Голова у нейтральному положенні, погляд прямо. Вільна рука лежить на стегні.",
+    "instructionsTitle": "Як виконувати",
+    "instructions": [
+      {
+        "step": 1,
+        "text": "Сядьте рівно, голову тримайте по центру."
+      },
+      {
+        "step": 2,
+        "text": "Прикладіть долоню до скроні справа."
+      },
+      {
+        "step": 3,
+        "text": "М'яко натискайте скронею в долоню, а долонею — назустріч; голова не нахиляється."
+      },
+      {
+        "step": 4,
+        "text": "Послабте напругу і змініть бік."
+      },
+      {
+        "step": 5,
+        "text": "Чергуйте боки у спокійному темпі до кінця часу."
+      }
+    ],
+    "techniqueTipsTitle": "Зверніть увагу",
+    "techniqueTips": [
+      "Не тисніть сильно.",
+      "Не нахиляйте голову вбік.",
+      "Не піднімайте плечі.",
+      "Не затримуйте дихання."
+    ],
+    "safetyLabel": "Безпека",
+    "safety": "Рухайтеся в комфортному діапазоні. Якщо з'явився різкий біль, запаморочення або інший незвичний симптом, натисніть «Стоп».",
+    "completion": "Готово."
+  },
+  "labels": {},
+  "timing": {
+    "prepCountdownSeconds": 5,
+    "restAfterSeconds": 10,
+    "completionMode": "timed_duration",
+    "estimatedActiveSeconds": 61
+  },
+  "progress": {
+    "basis": "sequence_time",
+    "showElapsedTime": true,
+    "showProgressBar": true,
+    "showRepetitionCounter": false,
+    "showSideLabel": false,
+    "showSetCounter": false
+  },
+  "repetitionModel": {
+    "type": "sequence_time",
+    "sets": 1,
+    "repetitionsPerBlock": 1,
+    "blockOrder": [
+      null,
+      null
+    ],
+    "switchSideAutomatically": true,
+    "resetCounterOnSideChange": false
+  },
+  "movementPhases": [
+    {
+      "id": "PHASE_SETUP",
+      "name": "Початкове положення",
+      "type": null
+    },
+    {
+      "id": "PHASE_A",
+      "name": "Натиск справа",
+      "type": null
+    },
+    {
+      "id": "PHASE_B",
+      "name": "Натиск зліва",
+      "type": null
+    }
+  ],
+  "sequence": {
+    "blocks": [
+      {
+        "side": null,
+        "repeat": 1,
+        "steps": [
+          {
+            "id": "setup",
+            "phase": "PHASE_SETUP",
+            "side": null,
+            "frameId": "FRAME_SETUP",
+            "frameTransition": null,
+            "durationMs": 1000,
+            "voiceEvent": null
+          }
+        ]
+      },
+      {
+        "side": null,
+        "repeat": 10,
+        "steps": [
+          {
+            "id": "press_left",
+            "phase": "PHASE_B",
+            "side": null,
+            "frameId": null,
+            "frameTransition": {
+              "from": "FRAME_PRESS_RIGHT",
+              "via": null,
+              "to": "FRAME_PRESS_LEFT"
+            },
+            "durationMs": 3000,
+            "voiceEvent": null
+          },
+          {
+            "id": "press_right",
+            "phase": "PHASE_A",
+            "side": null,
+            "frameId": null,
+            "frameTransition": {
+              "from": "FRAME_PRESS_LEFT",
+              "via": null,
+              "to": "FRAME_PRESS_RIGHT"
+            },
+            "durationMs": 3000,
+            "voiceEvent": null
+          }
+        ]
+      }
+    ]
+  },
+  "animation": {
+    "reducedMotionFallback": "static_step_frames",
+    "frames": [
+      {
+        "id": "FRAME_SETUP",
+        "file": "assets/exercises/NECK_008/images/setup_full_safe.png",
+        "altText": "Початкове положення сидячи, голова по центру."
+      },
+      {
+        "id": "FRAME_PRESS_RIGHT",
+        "file": "assets/exercises/NECK_008/images/motion_01_palm_to_left_temple_upper_safe.png",
+        "altText": "Долоня притиснута до скроні, голова залишається вертикальною."
+      },
+      {
+        "id": "FRAME_PRESS_LEFT",
+        "file": "assets/exercises/NECK_008/images/motion_02_palm_to_right_temple_upper_safe.png",
+        "altText": "Долоня притиснута до протилежної скроні, голова по центру."
+      }
+    ],
+    "preview": "assets/exercises/NECK_008/images/preview.png"
+  },
+  "audio": {
+    "events": [
+      {
+        "id": "VOICE_SETUP",
+        "type": "instruction",
+        "priority": 80,
+        "interruptible": true,
+        "playOncePerSide": false,
+        "voiceMode": null,
+        "text": "Сядьте рівно. Розслабте плечі. Дивіться прямо.",
+        "assetKey": "exercise.NECK_008.voice.setup",
+        "assetFile": "audio/uk/exercises/NECK_008/setup.m4a",
+        "trigger": {
+          "event": "prep_countdown_started",
+          "phase": null,
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": 0
+        }
+      },
+      {
+        "id": "VOICE_START_MOVEMENT",
+        "type": "movement",
+        "priority": 100,
+        "interruptible": false,
+        "playOncePerSide": false,
+        "voiceMode": null,
+        "text": "Прикладіть долоню до скроні. М'яко натискайте скронею в долоню, не нахиляючи голову. Потім змініть бік.",
+        "assetKey": "exercise.NECK_008.voice.start_movement",
+        "assetFile": "audio/uk/exercises/NECK_008/start_movement.m4a",
+        "trigger": {
+          "event": "sequence_phase_started",
+          "phase": "PHASE_SETUP",
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      },
+      {
+        "id": "VOICE_HALFWAY",
+        "type": "progress",
+        "priority": 50,
+        "interruptible": true,
+        "playOncePerSide": false,
+        "voiceMode": null,
+        "text": "Половину виконано.",
+        "assetKey": "common.voice.halfway",
+        "assetFile": "audio/uk/common/halfway.m4a",
+        "trigger": {
+          "event": "progress_crossed",
+          "phase": null,
+          "side": null,
+          "percent": 50,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      },
+      {
+        "id": "VOICE_COMPLETED",
+        "type": "completion",
+        "priority": 120,
+        "interruptible": false,
+        "playOncePerSide": false,
+        "voiceMode": null,
+        "text": "Готово.",
+        "assetKey": "common.voice.completed",
+        "assetFile": "audio/uk/common/completed.m4a",
+        "trigger": {
+          "event": "exercise_completed",
+          "phase": null,
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      },
+      {
+        "id": "VOICE_PHASE_B",
+        "type": "movement",
+        "priority": 70,
+        "interruptible": true,
+        "playOncePerSide": false,
+        "voiceMode": "phase_words",
+        "text": "Зліва.",
+        "assetKey": "exercise.NECK_008.voice.phase_b",
+        "assetFile": "audio/uk/exercises/NECK_008/phase_b.m4a",
+        "trigger": {
+          "event": "sequence_phase_started",
+          "phase": "PHASE_B",
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      },
+      {
+        "id": "VOICE_PHASE_A",
+        "type": "movement",
+        "priority": 70,
+        "interruptible": true,
+        "playOncePerSide": false,
+        "voiceMode": "phase_words",
+        "text": "Справа.",
+        "assetKey": "exercise.NECK_008.voice.phase_a",
+        "assetFile": "audio/uk/exercises/NECK_008/phase_a.m4a",
+        "trigger": {
+          "event": "sequence_phase_started",
+          "phase": "PHASE_A",
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      },
+      {
+        "id": "VOICE_COUNT_ONE",
+        "type": "movement",
+        "priority": 70,
+        "interruptible": true,
+        "playOncePerSide": false,
+        "voiceMode": "count",
+        "text": "Раз.",
+        "assetKey": "common.voice.count_one",
+        "assetFile": "audio/uk/common/count_one.m4a",
+        "trigger": {
+          "event": "sequence_phase_started",
+          "phase": "PHASE_B",
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      },
+      {
+        "id": "VOICE_COUNT_TWO",
+        "type": "movement",
+        "priority": 70,
+        "interruptible": true,
+        "playOncePerSide": false,
+        "voiceMode": "count",
+        "text": "Два.",
+        "assetKey": "common.voice.count_two",
+        "assetFile": "audio/uk/common/count_two.m4a",
+        "trigger": {
+          "event": "sequence_phase_started",
+          "phase": "PHASE_A",
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      }
+    ],
+    "mix": {
+      "voiceLevel": 1.0,
+      "musicLevel": 0.5,
+      "dynamicDucking": false
+    }
+  },
+  "flow": {
+    "autoNextEnabled": true,
+    "restSeconds": 10,
+    "incrementCounterOnCompletion": true
+  },
+  "accessibility": {
+    "summary": "Ізометрія долонею до скроні. Сидячи на стільці, м'яко натискайте скронею в долоню по черзі з одного та другого боку, тримаючи голову по центру.",
+    "reducedMotionSupported": true
+  },
+  "pro": {
+    "tier": "free",
+    "requiresPro": false,
+    "visibleToFree": true,
+    "allowFavorite": true,
+    "includeInPersonalPlanPool": true
+  }
+}

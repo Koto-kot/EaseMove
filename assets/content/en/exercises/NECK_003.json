@@ -1,0 +1,400 @@
+{
+  "id": "NECK_003",
+  "slug": "seated_ear_to_shoulder",
+  "schemaVersion": "1.3",
+  "contentVersion": "0.1.0",
+  "clinicalStatus": "pending_review",
+  "editorialStatus": "draft",
+  "primaryZone": "neck",
+  "secondaryZones": [],
+  "hotspotIds": [
+    "neck"
+  ],
+  "tags": [
+    "neck",
+    "cervical_spine",
+    "computer",
+    "after_sitting",
+    "sitting",
+    "mobility",
+    "cervical_lateral_flexion",
+    "bilateral",
+    "beginner",
+    "gentle",
+    "stable_chair"
+  ],
+  "tagGroups": {
+    "anatomy": [
+      "neck",
+      "cervical_spine"
+    ],
+    "context": [
+      "computer",
+      "after_sitting"
+    ],
+    "position": [
+      "sitting"
+    ],
+    "movement": [
+      "mobility",
+      "cervical_lateral_flexion",
+      "bilateral"
+    ],
+    "level": [
+      "beginner",
+      "gentle"
+    ],
+    "equipment": [
+      "stable_chair"
+    ]
+  },
+  "collections": [
+    "body_neck",
+    "seated_gentle",
+    "computer_break",
+    "after_sitting"
+  ],
+  "collectionCandidates": [],
+  "text": {
+    "title": "Ear to shoulder",
+    "shortTitle": "Head tilts",
+    "cardDescription": "Seated, gently tilt your head toward one shoulder, then the other.",
+    "categoryLabel": "Neck",
+    "purpose": "A starter exercise for gentle side-to-side neck mobility.",
+    "startPositionTitle": "Starting position",
+    "startPosition": "Sit up straight on a stable chair. Feet firmly on the floor. Shoulders relaxed. Head in a neutral position, looking straight ahead. Hands on your thighs.",
+    "instructionsTitle": "How to do it",
+    "instructions": [
+      {
+        "step": 1,
+        "text": "Sit up straight and let your shoulders drop and relax."
+      },
+      {
+        "step": 2,
+        "text": "Gently tilt your head to the right, bringing your ear toward your shoulder."
+      },
+      {
+        "step": 3,
+        "text": "Come back to the centre."
+      },
+      {
+        "step": 4,
+        "text": "Tilt your head to the left in the same gentle way."
+      },
+      {
+        "step": 5,
+        "text": "Keep alternating at a calm pace until the time is up."
+      }
+    ],
+    "techniqueTipsTitle": "Watch out for",
+    "techniqueTips": [
+      "Do not lift your shoulders.",
+      "Do not turn your head as you tilt it.",
+      "Move smoothly, with no jerking.",
+      "Do not push on your head with your hand."
+    ],
+    "safetyLabel": "Safety",
+    "safety": "Move within a comfortable range. If you feel sharp pain or any other unusual symptom, press Stop.",
+    "completion": "Done."
+  },
+  "labels": {},
+  "timing": {
+    "prepCountdownSeconds": 5,
+    "restAfterSeconds": 10,
+    "completionMode": "timed_duration",
+    "estimatedActiveSeconds": 61
+  },
+  "progress": {
+    "basis": "sequence_time",
+    "showElapsedTime": true,
+    "showProgressBar": true,
+    "showRepetitionCounter": false,
+    "showSideLabel": false,
+    "showSetCounter": false
+  },
+  "repetitionModel": {
+    "type": "sequence_time",
+    "sets": 1,
+    "repetitionsPerBlock": 1,
+    "blockOrder": [
+      null,
+      null
+    ],
+    "switchSideAutomatically": true,
+    "resetCounterOnSideChange": false
+  },
+  "movementPhases": [
+    {
+      "id": "PHASE_SETUP",
+      "name": "Starting position",
+      "type": null
+    },
+    {
+      "id": "PHASE_A",
+      "name": "Tilted right",
+      "type": null
+    },
+    {
+      "id": "PHASE_B",
+      "name": "Tilted left",
+      "type": null
+    }
+  ],
+  "sequence": {
+    "blocks": [
+      {
+        "side": null,
+        "repeat": 1,
+        "steps": [
+          {
+            "id": "setup",
+            "phase": "PHASE_SETUP",
+            "side": null,
+            "frameId": "FRAME_SETUP",
+            "frameTransition": null,
+            "durationMs": 1000,
+            "voiceEvent": null
+          }
+        ]
+      },
+      {
+        "side": null,
+        "repeat": 12,
+        "steps": [
+          {
+            "id": "tilt_left",
+            "phase": "PHASE_B",
+            "side": null,
+            "frameId": null,
+            "frameTransition": {
+              "from": "FRAME_TILT_RIGHT",
+              "via": null,
+              "to": "FRAME_TILT_LEFT"
+            },
+            "durationMs": 2500,
+            "voiceEvent": null
+          },
+          {
+            "id": "tilt_right",
+            "phase": "PHASE_A",
+            "side": null,
+            "frameId": null,
+            "frameTransition": {
+              "from": "FRAME_TILT_LEFT",
+              "via": null,
+              "to": "FRAME_TILT_RIGHT"
+            },
+            "durationMs": 2500,
+            "voiceEvent": null
+          }
+        ]
+      }
+    ]
+  },
+  "animation": {
+    "reducedMotionFallback": "static_step_frames",
+    "frames": [
+      {
+        "id": "FRAME_SETUP",
+        "file": "assets/exercises/NECK_003/images/setup_full_safe.png",
+        "altText": "Seated start position with the head in a neutral position."
+      },
+      {
+        "id": "FRAME_TILT_RIGHT",
+        "file": "assets/exercises/NECK_003/images/motion_01_ear_to_left_shoulder_upper_safe.png",
+        "altText": "Head tilted toward the shoulder, ear closer to the shoulder, shoulders down."
+      },
+      {
+        "id": "FRAME_TILT_LEFT",
+        "file": "assets/exercises/NECK_003/images/motion_02_ear_to_right_shoulder_upper_safe.png",
+        "altText": "Head tilted toward the other shoulder, shoulders still down."
+      }
+    ],
+    "preview": "assets/exercises/NECK_003/images/preview.png"
+  },
+  "audio": {
+    "events": [
+      {
+        "id": "VOICE_SETUP",
+        "type": "instruction",
+        "priority": 80,
+        "interruptible": true,
+        "playOncePerSide": false,
+        "voiceMode": null,
+        "text": "Sit up straight. Relax your shoulders. Look straight ahead.",
+        "assetKey": "exercise.NECK_003.voice.setup",
+        "assetFile": "audio/uk/exercises/NECK_003/setup.m4a",
+        "trigger": {
+          "event": "prep_countdown_started",
+          "phase": null,
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": 0
+        }
+      },
+      {
+        "id": "VOICE_START_MOVEMENT",
+        "type": "movement",
+        "priority": 100,
+        "interruptible": false,
+        "playOncePerSide": false,
+        "voiceMode": null,
+        "text": "Gently tilt your head to the right. Come back to the centre. Then tilt to the left.",
+        "assetKey": "exercise.NECK_003.voice.start_movement",
+        "assetFile": "audio/uk/exercises/NECK_003/start_movement.m4a",
+        "trigger": {
+          "event": "sequence_phase_started",
+          "phase": "PHASE_SETUP",
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      },
+      {
+        "id": "VOICE_HALFWAY",
+        "type": "progress",
+        "priority": 50,
+        "interruptible": true,
+        "playOncePerSide": false,
+        "voiceMode": null,
+        "text": "Halfway done.",
+        "assetKey": "common.voice.halfway",
+        "assetFile": "audio/uk/common/halfway.m4a",
+        "trigger": {
+          "event": "progress_crossed",
+          "phase": null,
+          "side": null,
+          "percent": 50,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      },
+      {
+        "id": "VOICE_COMPLETED",
+        "type": "completion",
+        "priority": 120,
+        "interruptible": false,
+        "playOncePerSide": false,
+        "voiceMode": null,
+        "text": "Done.",
+        "assetKey": "common.voice.completed",
+        "assetFile": "audio/uk/common/completed.m4a",
+        "trigger": {
+          "event": "exercise_completed",
+          "phase": null,
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      },
+      {
+        "id": "VOICE_PHASE_B",
+        "type": "movement",
+        "priority": 70,
+        "interruptible": true,
+        "playOncePerSide": false,
+        "voiceMode": "phase_words",
+        "text": "Left.",
+        "assetKey": "exercise.NECK_003.voice.phase_b",
+        "assetFile": "audio/uk/exercises/NECK_003/phase_b.m4a",
+        "trigger": {
+          "event": "sequence_phase_started",
+          "phase": "PHASE_B",
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      },
+      {
+        "id": "VOICE_PHASE_A",
+        "type": "movement",
+        "priority": 70,
+        "interruptible": true,
+        "playOncePerSide": false,
+        "voiceMode": "phase_words",
+        "text": "Right.",
+        "assetKey": "exercise.NECK_003.voice.phase_a",
+        "assetFile": "audio/uk/exercises/NECK_003/phase_a.m4a",
+        "trigger": {
+          "event": "sequence_phase_started",
+          "phase": "PHASE_A",
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      },
+      {
+        "id": "VOICE_COUNT_ONE",
+        "type": "movement",
+        "priority": 70,
+        "interruptible": true,
+        "playOncePerSide": false,
+        "voiceMode": "count",
+        "text": "One.",
+        "assetKey": "common.voice.count_one",
+        "assetFile": "audio/uk/common/count_one.m4a",
+        "trigger": {
+          "event": "sequence_phase_started",
+          "phase": "PHASE_B",
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      },
+      {
+        "id": "VOICE_COUNT_TWO",
+        "type": "movement",
+        "priority": 70,
+        "interruptible": true,
+        "playOncePerSide": false,
+        "voiceMode": "count",
+        "text": "Two.",
+        "assetKey": "common.voice.count_two",
+        "assetFile": "audio/uk/common/count_two.m4a",
+        "trigger": {
+          "event": "sequence_phase_started",
+          "phase": "PHASE_A",
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      }
+    ],
+    "mix": {
+      "voiceLevel": 1.0,
+      "musicLevel": 0.5,
+      "dynamicDucking": false
+    }
+  },
+  "flow": {
+    "autoNextEnabled": true,
+    "restSeconds": 10,
+    "incrementCounterOnCompletion": true
+  },
+  "accessibility": {
+    "summary": "Ear to shoulder. Sitting on a chair, gently tilt your head toward your right and left shoulder, passing through the centre each time.",
+    "reducedMotionSupported": true
+  },
+  "pro": {
+    "tier": "free",
+    "requiresPro": false,
+    "visibleToFree": true,
+    "allowFavorite": true,
+    "includeInPersonalPlanPool": true
+  }
+}

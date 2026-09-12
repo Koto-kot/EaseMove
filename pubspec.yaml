@@ -43,10 +43,19 @@ flutter:
     - assets/ui/home/body/
     - assets/ui/home/cards/
     - assets/icons/
+    - assets/exercises/NECK_001/images/
+    - assets/exercises/NECK_002/images/
+    - assets/exercises/NECK_003/images/
+    - assets/exercises/NECK_004/images/
+    - assets/exercises/NECK_005/images/
+    - assets/exercises/NECK_006/images/
+    - assets/exercises/NECK_007/images/
+    - assets/exercises/NECK_008/images/
+    - assets/exercises/NECK_009/images/
+    - assets/exercises/NECK_010/images/
     - assets/exercises/KNEE_001/
     - assets/exercises/KNEE_002/
     - assets/exercises/KNEE_003/
-    - assets/exercises/NECK_001/
     - assets/exercises/ELBOW_001/images/
     - assets/exercises/ELBOW_002/images/
     - assets/exercises/ELBOW_003/images/
@@ -72,6 +81,15 @@ flutter:
     - audio/uk/exercises/KNEE_002/
     - audio/uk/exercises/KNEE_003/
     - audio/uk/exercises/NECK_001/
+    - audio/uk/exercises/NECK_002/
+    - audio/uk/exercises/NECK_003/
+    - audio/uk/exercises/NECK_004/
+    - audio/uk/exercises/NECK_005/
+    - audio/uk/exercises/NECK_006/
+    - audio/uk/exercises/NECK_007/
+    - audio/uk/exercises/NECK_008/
+    - audio/uk/exercises/NECK_009/
+    - audio/uk/exercises/NECK_010/
     # The English pack is complete (scripts/generate_voice.py).
     - audio/en/common/
     - audio/en/exercises/ELBOW_001/
@@ -87,3 +105,12 @@ flutter:
     - audio/en/exercises/KNEE_002/
     - audio/en/exercises/KNEE_003/
     - audio/en/exercises/NECK_001/
+    - audio/en/exercises/NECK_002/
+    - audio/en/exercises/NECK_003/
+    - audio/en/exercises/NECK_004/
+    - audio/en/exercises/NECK_005/
+    - audio/en/exercises/NECK_006/
+    - audio/en/exercises/NECK_007/
+    - audio/en/exercises/NECK_008/
+    - audio/en/exercises/NECK_009/
+    - audio/en/exercises/NECK_010/

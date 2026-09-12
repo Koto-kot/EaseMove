@@ -1,0 +1,401 @@
+{
+  "id": "NECK_010",
+  "slug": "standing_chin_tuck_at_wall",
+  "schemaVersion": "1.3",
+  "contentVersion": "0.1.0",
+  "clinicalStatus": "pending_review",
+  "editorialStatus": "draft",
+  "primaryZone": "neck",
+  "secondaryZones": [],
+  "hotspotIds": [
+    "neck"
+  ],
+  "tags": [
+    "neck",
+    "cervical_spine",
+    "computer",
+    "after_sitting",
+    "standing",
+    "mobility",
+    "cervical_retraction",
+    "posture",
+    "midline",
+    "beginner",
+    "gentle",
+    "wall"
+  ],
+  "tagGroups": {
+    "anatomy": [
+      "neck",
+      "cervical_spine"
+    ],
+    "context": [
+      "computer",
+      "after_sitting"
+    ],
+    "position": [
+      "standing"
+    ],
+    "movement": [
+      "mobility",
+      "cervical_retraction",
+      "posture",
+      "midline"
+    ],
+    "level": [
+      "beginner",
+      "gentle"
+    ],
+    "equipment": [
+      "wall"
+    ]
+  },
+  "collections": [
+    "body_neck",
+    "computer_break",
+    "after_sitting"
+  ],
+  "collectionCandidates": [],
+  "text": {
+    "title": "Chin tuck at the wall",
+    "shortTitle": "At the wall",
+    "cardDescription": "Standing at a wall, gently draw your chin back and return to neutral.",
+    "categoryLabel": "Neck",
+    "purpose": "An exercise for gentle head-position control, posture and the deep neck muscles.",
+    "startPositionTitle": "Starting position",
+    "startPosition": "Stand up straight against a wall. Back tall, the back of your head and your upper back touching the wall. Shoulders down and relaxed. Arms hanging freely. Looking straight ahead, chin in a neutral position.",
+    "instructionsTitle": "How to do it",
+    "instructions": [
+      {
+        "step": 1,
+        "text": "Stand up straight at the wall, keeping the back of your head against it."
+      },
+      {
+        "step": 2,
+        "text": "Look straight ahead."
+      },
+      {
+        "step": 3,
+        "text": "Gently draw your chin back, as if making a double chin."
+      },
+      {
+        "step": 4,
+        "text": "Hold for a few seconds and smoothly return to neutral."
+      },
+      {
+        "step": 5,
+        "text": "Keep repeating at a calm pace until the time is up."
+      }
+    ],
+    "techniqueTipsTitle": "Watch out for",
+    "techniqueTips": [
+      "Do not tip your head back.",
+      "Do not drop your chin down.",
+      "Your shoulders do not lift.",
+      "The movement happens in your neck, not by leaning your whole torso."
+    ],
+    "safetyLabel": "Safety",
+    "safety": "Move within a comfortable range. If you feel sharp pain, dizziness or any other unusual symptom, press Stop.",
+    "completion": "Done."
+  },
+  "labels": {},
+  "timing": {
+    "prepCountdownSeconds": 5,
+    "restAfterSeconds": 10,
+    "completionMode": "timed_duration",
+    "estimatedActiveSeconds": 61
+  },
+  "progress": {
+    "basis": "sequence_time",
+    "showElapsedTime": true,
+    "showProgressBar": true,
+    "showRepetitionCounter": false,
+    "showSideLabel": false,
+    "showSetCounter": false
+  },
+  "repetitionModel": {
+    "type": "sequence_time",
+    "sets": 1,
+    "repetitionsPerBlock": 1,
+    "blockOrder": [
+      null,
+      null
+    ],
+    "switchSideAutomatically": true,
+    "resetCounterOnSideChange": false
+  },
+  "movementPhases": [
+    {
+      "id": "PHASE_SETUP",
+      "name": "Starting position",
+      "type": null
+    },
+    {
+      "id": "PHASE_A",
+      "name": "Neutral at the wall",
+      "type": null
+    },
+    {
+      "id": "PHASE_B",
+      "name": "Chin drawn back",
+      "type": null
+    }
+  ],
+  "sequence": {
+    "blocks": [
+      {
+        "side": null,
+        "repeat": 1,
+        "steps": [
+          {
+            "id": "setup",
+            "phase": "PHASE_SETUP",
+            "side": null,
+            "frameId": "FRAME_SETUP",
+            "frameTransition": null,
+            "durationMs": 1000,
+            "voiceEvent": null
+          }
+        ]
+      },
+      {
+        "side": null,
+        "repeat": 12,
+        "steps": [
+          {
+            "id": "tuck",
+            "phase": "PHASE_B",
+            "side": null,
+            "frameId": null,
+            "frameTransition": {
+              "from": "FRAME_WALL_NEUTRAL",
+              "via": null,
+              "to": "FRAME_WALL_CHIN_TUCK"
+            },
+            "durationMs": 2500,
+            "voiceEvent": null
+          },
+          {
+            "id": "release",
+            "phase": "PHASE_A",
+            "side": null,
+            "frameId": null,
+            "frameTransition": {
+              "from": "FRAME_WALL_CHIN_TUCK",
+              "via": null,
+              "to": "FRAME_WALL_NEUTRAL"
+            },
+            "durationMs": 2500,
+            "voiceEvent": null
+          }
+        ]
+      }
+    ]
+  },
+  "animation": {
+    "reducedMotionFallback": "static_step_frames",
+    "frames": [
+      {
+        "id": "FRAME_SETUP",
+        "file": "assets/exercises/NECK_010/images/setup_full_safe.png",
+        "altText": "Standing start position at a wall, back straight and looking ahead."
+      },
+      {
+        "id": "FRAME_WALL_NEUTRAL",
+        "file": "assets/exercises/NECK_010/images/motion_01_wall_neutral_full_safe.png",
+        "altText": "Neutral position at the wall, looking straight ahead."
+      },
+      {
+        "id": "FRAME_WALL_CHIN_TUCK",
+        "file": "assets/exercises/NECK_010/images/motion_02_wall_chin_tuck_upper_safe.png",
+        "altText": "Chin drawn back at the wall, gaze still straight ahead."
+      }
+    ],
+    "preview": "assets/exercises/NECK_010/images/preview.png"
+  },
+  "audio": {
+    "events": [
+      {
+        "id": "VOICE_SETUP",
+        "type": "instruction",
+        "priority": 80,
+        "interruptible": true,
+        "playOncePerSide": false,
+        "voiceMode": null,
+        "text": "Stand up straight against the wall. Relax your shoulders. Look straight ahead.",
+        "assetKey": "exercise.NECK_010.voice.setup",
+        "assetFile": "audio/uk/exercises/NECK_010/setup.m4a",
+        "trigger": {
+          "event": "prep_countdown_started",
+          "phase": null,
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": 0
+        }
+      },
+      {
+        "id": "VOICE_START_MOVEMENT",
+        "type": "movement",
+        "priority": 100,
+        "interruptible": false,
+        "playOncePerSide": false,
+        "voiceMode": null,
+        "text": "Gently draw your chin back without tipping your head. Return to neutral.",
+        "assetKey": "exercise.NECK_010.voice.start_movement",
+        "assetFile": "audio/uk/exercises/NECK_010/start_movement.m4a",
+        "trigger": {
+          "event": "sequence_phase_started",
+          "phase": "PHASE_SETUP",
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      },
+      {
+        "id": "VOICE_HALFWAY",
+        "type": "progress",
+        "priority": 50,
+        "interruptible": true,
+        "playOncePerSide": false,
+        "voiceMode": null,
+        "text": "Halfway done.",
+        "assetKey": "common.voice.halfway",
+        "assetFile": "audio/uk/common/halfway.m4a",
+        "trigger": {
+          "event": "progress_crossed",
+          "phase": null,
+          "side": null,
+          "percent": 50,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      },
+      {
+        "id": "VOICE_COMPLETED",
+        "type": "completion",
+        "priority": 120,
+        "interruptible": false,
+        "playOncePerSide": false,
+        "voiceMode": null,
+        "text": "Done.",
+        "assetKey": "common.voice.completed",
+        "assetFile": "audio/uk/common/completed.m4a",
+        "trigger": {
+          "event": "exercise_completed",
+          "phase": null,
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      },
+      {
+        "id": "VOICE_PHASE_B",
+        "type": "movement",
+        "priority": 70,
+        "interruptible": true,
+        "playOncePerSide": false,
+        "voiceMode": "phase_words",
+        "text": "Chin back.",
+        "assetKey": "exercise.NECK_010.voice.phase_b",
+        "assetFile": "audio/uk/exercises/NECK_010/phase_b.m4a",
+        "trigger": {
+          "event": "sequence_phase_started",
+          "phase": "PHASE_B",
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      },
+      {
+        "id": "VOICE_PHASE_A",
+        "type": "movement",
+        "priority": 70,
+        "interruptible": true,
+        "playOncePerSide": false,
+        "voiceMode": "phase_words",
+        "text": "Neutral.",
+        "assetKey": "exercise.NECK_010.voice.phase_a",
+        "assetFile": "audio/uk/exercises/NECK_010/phase_a.m4a",
+        "trigger": {
+          "event": "sequence_phase_started",
+          "phase": "PHASE_A",
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      },
+      {
+        "id": "VOICE_COUNT_ONE",
+        "type": "movement",
+        "priority": 70,
+        "interruptible": true,
+        "playOncePerSide": false,
+        "voiceMode": "count",
+        "text": "One.",
+        "assetKey": "common.voice.count_one",
+        "assetFile": "audio/uk/common/count_one.m4a",
+        "trigger": {
+          "event": "sequence_phase_started",
+          "phase": "PHASE_B",
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      },
+      {
+        "id": "VOICE_COUNT_TWO",
+        "type": "movement",
+        "priority": 70,
+        "interruptible": true,
+        "playOncePerSide": false,
+        "voiceMode": "count",
+        "text": "Two.",
+        "assetKey": "common.voice.count_two",
+        "assetFile": "audio/uk/common/count_two.m4a",
+        "trigger": {
+          "event": "sequence_phase_started",
+          "phase": "PHASE_A",
+          "side": null,
+          "percent": null,
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      }
+    ],
+    "mix": {
+      "voiceLevel": 1.0,
+      "musicLevel": 0.5,
+      "dynamicDucking": false
+    }
+  },
+  "flow": {
+    "autoNextEnabled": true,
+    "restSeconds": 10,
+    "incrementCounterOnCompletion": true
+  },
+  "accessibility": {
+    "summary": "Chin tuck at the wall. Standing with your back to a wall, gently draw your chin back and smoothly return to a neutral position.",
+    "reducedMotionSupported": true
+  },
+  "pro": {
+    "tier": "free",
+    "requiresPro": false,
+    "visibleToFree": true,
+    "allowFavorite": true,
+    "includeInPersonalPlanPool": true
+  }
+}

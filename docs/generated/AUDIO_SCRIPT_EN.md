@@ -9,7 +9,7 @@ Do not edit by hand: change the cue text in the exercise file instead.
 
 **Voice modes:** "always" is spoken in every mode; the movement-words and counting lines are spoken only when the listener has picked that mode in Settings, and must be short — they have to fit inside half a movement cycle, about two seconds.
 
-Recorded 66 of 66 lines.
+Recorded 102 of 102 lines.
 
 ## Shared lines
 
@@ -17,28 +17,109 @@ Recorded once and reused by every exercise.
 
 | Text | When | File | Used by | State |
 |---|---|---|---|---|
-| Done. | always | `audio/en/common/completed.m4a` | 13 exercises | recorded |
-| One. | counting mode | `audio/en/common/count_one.m4a` | 9 exercises | recorded |
-| Two. | counting mode | `audio/en/common/count_two.m4a` | 9 exercises | recorded |
+| Done. | always | `audio/en/common/completed.m4a` | 22 exercises | recorded |
+| One. | counting mode | `audio/en/common/count_one.m4a` | 18 exercises | recorded |
+| Two. | counting mode | `audio/en/common/count_two.m4a` | 18 exercises | recorded |
 | One. | always | `audio/en/common/countdown_1.m4a` | preparation countdown | recorded |
 | Two. | always | `audio/en/common/countdown_2.m4a` | preparation countdown | recorded |
 | Three. | always | `audio/en/common/countdown_3.m4a` | preparation countdown | recorded |
 | Four. | always | `audio/en/common/countdown_4.m4a` | preparation countdown | recorded |
 | Five. | always | `audio/en/common/countdown_5.m4a` | preparation countdown | recorded |
-| Halfway done. | always | `audio/en/common/halfway.m4a` | 13 exercises | recorded |
+| Halfway done. | always | `audio/en/common/halfway.m4a` | 22 exercises | recorded |
 | Hold. | always | `audio/en/common/hold.m4a` | 2 exercises | recorded |
 | Last repetition. | always | `audio/en/common/last_repetition.m4a` | 3 exercises | recorded |
-| Return to the centre. | always | `audio/en/common/return_center.m4a` | NECK_001 | recorded |
+| Return to the centre. | always | `audio/en/common/return_center.m4a` | NECK_002 | recorded |
 | Now the other leg. | always | `audio/en/common/switch_leg.m4a` | 2 exercises | recorded |
 
-## NECK_001 — Повороти голови
+## NECK_001 — Підборіддя назад
 
 | Cue | When | Text | File | State |
 |---|---|---|---|---|
-| `VOICE_PREPARE` | always | Get ready. Sit up straight and relax your shoulders. | `audio/en/exercises/NECK_001/prepare.m4a` | recorded |
-| `VOICE_TURN_LEFT` | always | Slowly turn your head to the left. | `audio/en/exercises/NECK_001/turn_left.m4a` | recorded |
-| `VOICE_TURN_RIGHT` | always | Now to the right. | `audio/en/exercises/NECK_001/turn_right.m4a` | recorded |
-| `VOICE_LAST_CYCLE` | always | Last cycle. | `audio/en/exercises/NECK_001/last_cycle.m4a` | recorded |
+| `VOICE_SETUP` | always | Sit up straight. Relax your shoulders. Look straight ahead. | `audio/en/exercises/NECK_001/setup.m4a` | recorded |
+| `VOICE_START_MOVEMENT` | always | Gently draw your chin back. Do not drop your head down. Return to your normal position. | `audio/en/exercises/NECK_001/start_movement.m4a` | recorded |
+| `VOICE_PHASE_B` | movement words mode | Chin back. | `audio/en/exercises/NECK_001/phase_b.m4a` | recorded |
+| `VOICE_PHASE_A` | movement words mode | Neutral. | `audio/en/exercises/NECK_001/phase_a.m4a` | recorded |
+
+## NECK_002 — Повороти голови
+
+| Cue | When | Text | File | State |
+|---|---|---|---|---|
+| `VOICE_PREPARE` | always | Get ready. Sit up straight and relax your shoulders. | `audio/en/exercises/NECK_002/prepare.m4a` | recorded |
+| `VOICE_TURN_LEFT` | always | Slowly turn your head to the left. | `audio/en/exercises/NECK_002/turn_left.m4a` | recorded |
+| `VOICE_TURN_RIGHT` | always | Now to the right. | `audio/en/exercises/NECK_002/turn_right.m4a` | recorded |
+| `VOICE_LAST_CYCLE` | always | Last cycle. | `audio/en/exercises/NECK_002/last_cycle.m4a` | recorded |
+
+## NECK_003 — Нахил голови до плеча
+
+| Cue | When | Text | File | State |
+|---|---|---|---|---|
+| `VOICE_SETUP` | always | Sit up straight. Relax your shoulders. Look straight ahead. | `audio/en/exercises/NECK_003/setup.m4a` | recorded |
+| `VOICE_START_MOVEMENT` | always | Gently tilt your head to the right. Come back to the centre. Then tilt to the left. | `audio/en/exercises/NECK_003/start_movement.m4a` | recorded |
+| `VOICE_PHASE_B` | movement words mode | Left. | `audio/en/exercises/NECK_003/phase_b.m4a` | recorded |
+| `VOICE_PHASE_A` | movement words mode | Right. | `audio/en/exercises/NECK_003/phase_a.m4a` | recorded |
+
+## NECK_004 — Погляд вниз
+
+| Cue | When | Text | File | State |
+|---|---|---|---|---|
+| `VOICE_SETUP` | always | Sit up straight. Relax your shoulders. Look straight ahead. | `audio/en/exercises/NECK_004/setup.m4a` | recorded |
+| `VOICE_START_MOVEMENT` | always | From neutral, gently lower your head and your gaze. Then come back to neutral. | `audio/en/exercises/NECK_004/start_movement.m4a` | recorded |
+| `VOICE_PHASE_B` | movement words mode | Down. | `audio/en/exercises/NECK_004/phase_b.m4a` | recorded |
+| `VOICE_PHASE_A` | movement words mode | Neutral. | `audio/en/exercises/NECK_004/phase_a.m4a` | recorded |
+
+## NECK_005 — Легкий погляд вгору
+
+| Cue | When | Text | File | State |
+|---|---|---|---|---|
+| `VOICE_SETUP` | always | Sit up straight. Relax your shoulders. Look straight ahead. | `audio/en/exercises/NECK_005/setup.m4a` | recorded |
+| `VOICE_START_MOVEMENT` | always | Gently lift your chin and your gaze a little. Then come back to neutral. | `audio/en/exercises/NECK_005/start_movement.m4a` | recorded |
+| `VOICE_PHASE_B` | movement words mode | Up. | `audio/en/exercises/NECK_005/phase_b.m4a` | recorded |
+| `VOICE_PHASE_A` | movement words mode | Neutral. | `audio/en/exercises/NECK_005/phase_a.m4a` | recorded |
+
+## NECK_006 — Діагональний погляд вниз
+
+| Cue | When | Text | File | State |
+|---|---|---|---|---|
+| `VOICE_SETUP` | always | Sit up straight. Relax your shoulders. Look straight ahead. | `audio/en/exercises/NECK_006/setup.m4a` | recorded |
+| `VOICE_START_MOVEMENT` | always | Gently lower your head and gaze diagonally to the left. Come back to the centre. Then diagonally to the right. | `audio/en/exercises/NECK_006/start_movement.m4a` | recorded |
+| `VOICE_PHASE_B` | movement words mode | Right. | `audio/en/exercises/NECK_006/phase_b.m4a` | recorded |
+| `VOICE_PHASE_A` | movement words mode | Left. | `audio/en/exercises/NECK_006/phase_a.m4a` | recorded |
+
+## NECK_007 — Ізометрія: долоня до лоба
+
+| Cue | When | Text | File | State |
+|---|---|---|---|---|
+| `VOICE_SETUP` | always | Sit up straight. Relax your shoulders. Look straight ahead. | `audio/en/exercises/NECK_007/setup.m4a` | recorded |
+| `VOICE_START_MOVEMENT` | always | Place your palm on your forehead. Gently press your forehead into your palm without moving your head. | `audio/en/exercises/NECK_007/start_movement.m4a` | recorded |
+| `VOICE_PHASE_B` | movement words mode | Press. | `audio/en/exercises/NECK_007/phase_b.m4a` | recorded |
+| `VOICE_PHASE_A` | movement words mode | Release. | `audio/en/exercises/NECK_007/phase_a.m4a` | recorded |
+
+## NECK_008 — Ізометрія: долоня до скроні
+
+| Cue | When | Text | File | State |
+|---|---|---|---|---|
+| `VOICE_SETUP` | always | Sit up straight. Relax your shoulders. Look straight ahead. | `audio/en/exercises/NECK_008/setup.m4a` | recorded |
+| `VOICE_START_MOVEMENT` | always | Place your palm against your temple. Gently press your temple into your palm without tilting your head. Then change sides. | `audio/en/exercises/NECK_008/start_movement.m4a` | recorded |
+| `VOICE_PHASE_B` | movement words mode | Left. | `audio/en/exercises/NECK_008/phase_b.m4a` | recorded |
+| `VOICE_PHASE_A` | movement words mode | Right. | `audio/en/exercises/NECK_008/phase_a.m4a` | recorded |
+
+## NECK_009 — Ізометрія: долоня до потилиці
+
+| Cue | When | Text | File | State |
+|---|---|---|---|---|
+| `VOICE_SETUP` | always | Sit up straight. Relax your shoulders. Keep your head level. | `audio/en/exercises/NECK_009/setup.m4a` | recorded |
+| `VOICE_START_MOVEMENT` | always | Place your palm on the back of your head. Gently press back into your palm without letting your head tip back. | `audio/en/exercises/NECK_009/start_movement.m4a` | recorded |
+| `VOICE_PHASE_B` | movement words mode | Press. | `audio/en/exercises/NECK_009/phase_b.m4a` | recorded |
+| `VOICE_PHASE_A` | movement words mode | Release. | `audio/en/exercises/NECK_009/phase_a.m4a` | recorded |
+
+## NECK_010 — Підборіддя назад біля стіни
+
+| Cue | When | Text | File | State |
+|---|---|---|---|---|
+| `VOICE_SETUP` | always | Stand up straight against the wall. Relax your shoulders. Look straight ahead. | `audio/en/exercises/NECK_010/setup.m4a` | recorded |
+| `VOICE_START_MOVEMENT` | always | Gently draw your chin back without tipping your head. Return to neutral. | `audio/en/exercises/NECK_010/start_movement.m4a` | recorded |
+| `VOICE_PHASE_B` | movement words mode | Chin back. | `audio/en/exercises/NECK_010/phase_b.m4a` | recorded |
+| `VOICE_PHASE_A` | movement words mode | Neutral. | `audio/en/exercises/NECK_010/phase_a.m4a` | recorded |
 
 ## KNEE_001 — Розгинання ноги сидячи
 

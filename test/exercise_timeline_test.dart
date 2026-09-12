@@ -162,9 +162,9 @@ void main() {
     });
   });
 
-  group('cycle exercise (NECK_001)', () {
+  group('cycle exercise (NECK_002)', () {
     test('repeat_cycles becomes one sideless block', () {
-      final Exercise exercise = loadExerciseFromDisk('NECK_001');
+      final Exercise exercise = loadExerciseFromDisk('NECK_002');
       final ExerciseTimeline timeline = ExerciseTimeline.build(exercise);
 
       expect(exercise.sequence.blocks.length, 1);

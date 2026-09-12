@@ -1,22 +1,53 @@
-# Exercise Brief Template v2 — FULL_SAFE framing
+# Exercise Brief Template v2 — FULL_SAFE / UPPER_SAFE
 
-## Mandatory framing safety rules
+## Purpose
+A repository template for exercise production briefs.
 
-- Active moving limbs must remain fully visible in every production frame.
-- Do not crop hands, fingers, feet, or toes when they are relevant to the exercise.
-- Do not crop through major joints: shoulder, elbow, wrist, hip, knee, ankle.
-- Maintain at least 5–10% safe margin around the active moving limb.
-- If a limb moves overhead, forward, or far outward, widen the framing.
-- If there is any risk of cropping, choose a wider framing.
+## Mandatory visual consistency
+- same model identity across all frames of one exercise
+- same clothing
+- same lighting
+- same chair / wall / table / mat if used
+- same camera direction within motion frames
+- no text baked into production image assets
+- no arrows
+- no UI
+- no badges
+- no branding
+- no watermark
 
-## Framing labels
+## Framing levels
 
-- `FULL_SAFE` — full body visible, all limbs fully in frame, safe margin around the body.
-- `MID_SAFE` — closer crop permitted only if all relevant moving limbs remain fully visible.
-- `LOWER_SAFE` — lower-body focused crop, but both legs and both feet fully visible when relevant.
-- `DETAIL_SAFE` — close-up of a hand, foot, or other part only if the entire relevant part remains fully visible.
+### FULL_SAFE
+Use when the whole body must be visible.
+Mandatory:
+- no cropped hands
+- no cropped feet
+- no cropped moving limbs
+- safe margin around the whole figure
 
-## Exercise-specific rule
+### MID_SAFE
+Use when the exercise focuses on the upper or lower body and a closer crop is acceptable,
+but all relevant moving body parts must remain fully visible.
 
-For exercises with a hand or arm above the head, motion frames must default to `FULL_SAFE`
-unless a closer crop still preserves the entire arm, hand, torso, and any other relevant limbs.
+### UPPER_SAFE
+Especially useful for neck, face, shoulder-girdle, elbows, wrists and hand details.
+Mandatory:
+- head fully visible
+- neck fully visible
+- all relevant arms / hands fully visible when they are part of the movement
+- do not crop through the active joints or the active moving path
+- keep a small safe margin around the active body region
+
+## Standard production files
+- `setup_full_safe.png` or `setup_<framing>.png`
+- `motion_01_<pose>_<framing>.png`
+- `motion_02_<pose>_<framing>.png`
+- additional motion frames if needed
+- `preview.png`
+
+## Visual brief sheet
+Each exercise may also have:
+- `EXERCISE_ID_brief_sheet_v1.png`
+
+This is a documentation artifact, not a runtime image.

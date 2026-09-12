@@ -85,7 +85,7 @@ Default:
 записаного голосу: `clinical.safety.requires_professional_review.voice_cues`
 лишається `true`.
 
-Стан пакетів: **uk — 66 із 66**, **en — 66 із 66**.
+Стан пакетів: **uk — 102 із 102**, **en — 102 із 102**.
 
 Голоси, якими згенеровано:
 
