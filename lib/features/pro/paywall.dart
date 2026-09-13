@@ -5,6 +5,7 @@ library;
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../app/app_menu.dart';
 import '../../app/providers.dart';
 import '../../core/entitlements/entitlements_service.dart';
 import '../../core/localization/app_strings.dart';
@@ -101,7 +102,11 @@ class ProPlanScreen extends ConsumerWidget {
     final EntitlementsService entitlements = ref.watch(entitlementsProvider);
 
     return Scaffold(
-      appBar: AppBar(title: Text(t('app.pro.title'))),
+      drawer: const AppDrawer(),
+      appBar: AppBar(
+        title: Text(t('app.pro.title')),
+        actions: const <Widget>[AppMenuButton()],
+      ),
       body: ListView(
         padding: const EdgeInsets.symmetric(vertical: 8),
         children: <Widget>[

@@ -7,6 +7,7 @@ library;
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../app/app_menu.dart';
 import '../../app/providers.dart';
 import '../../app/theme.dart';
 import '../../core/audio/audio_service.dart';
@@ -72,7 +73,11 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
     return Theme(
       data: AppTheme.dark(),
       child: Scaffold(
-        appBar: AppBar(title: Text(t('app.settings.title'))),
+        drawer: const AppDrawer(current: AppMenuTarget.settings),
+        appBar: AppBar(
+          title: Text(t('app.settings.title')),
+          actions: const <Widget>[AppMenuButton()],
+        ),
         body: ListView(
           children: <Widget>[
             ListTile(

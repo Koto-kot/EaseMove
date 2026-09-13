@@ -10,6 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../app/design_tokens.dart';
+import '../../app/app_menu.dart';
 import '../../app/providers.dart';
 import '../../core/localization/app_strings.dart';
 import '../../data/content_bundle.dart';
@@ -27,7 +28,11 @@ class ZonesScreen extends ConsumerWidget {
     );
 
     return Scaffold(
-      appBar: AppBar(title: Text(t('app.zones.title'))),
+      drawer: const AppDrawer(),
+      appBar: AppBar(
+        title: Text(t('app.zones.title')),
+        actions: const <Widget>[AppMenuButton()],
+      ),
       body: repository.when(
         loading: () => const Center(child: CircularProgressIndicator()),
         error: (Object error, StackTrace stack) =>

@@ -512,12 +512,23 @@ void main() {
     }
 
     await settle();
-    await tester.tap(find.byTooltip('Налаштування'));
+    await tester.tap(find.byTooltip('Меню'));
+    await settle();
+    await tester.tap(find.text('Налаштування'));
     await settle();
 
     expect(find.text('Мінімум голосу'), findsOneWidget);
     expect(find.text('Слова руху'), findsOneWidget);
     expect(find.text('Лічба'), findsOneWidget);
+
+    // The movement words are what a listener who never opens this screen
+    // hears (docs/DECISIONS.md 85).
+    expect(const AppSettings().voiceMode, VoiceMode.phaseWords);
+    expect(store.readSettings().voiceMode, VoiceMode.phaseWords);
+
+    await tester.tap(find.text('Лічба'));
+    await settle();
+    expect(store.readSettings().voiceMode, VoiceMode.count);
 
     await tester.tap(find.text('Слова руху'));
     await settle();

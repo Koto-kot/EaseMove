@@ -548,9 +548,15 @@ enum VoiceMode {
 
   final String id;
 
-  static VoiceMode parse(String? raw) => values.firstWhere(
+  /// [fallback] is what an unknown or missing name becomes. Content keeps the
+  /// quiet default — an exercise file that names a mode wrongly should not
+  /// start talking — while the listener's own setting passes its own.
+  static VoiceMode parse(
+    String? raw, {
+    VoiceMode fallback = VoiceMode.minimal,
+  }) => values.firstWhere(
     (VoiceMode mode) => mode.id == raw,
-    orElse: () => VoiceMode.minimal,
+    orElse: () => fallback,
   );
 }
 

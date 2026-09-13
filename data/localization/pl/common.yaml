@@ -4,7 +4,7 @@
 strings:
   app.home.title: Ruszaj się łatwiej
   app.home.subtitle: Wybierz obszar ciała, aby znaleźć ćwiczenia
-  app.home.menu: Menu
+  app.common.menu: Menu
   app.home.card.body.title: Ciało
   app.home.card.body.subtitle: Ćwiczenia dla całego ciała
   app.home.card.eyes.title: Oczy

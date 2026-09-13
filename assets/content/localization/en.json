@@ -38,7 +38,7 @@
   "app.name": "Movement",
   "app.home.title": "Move easier",
   "app.home.subtitle": "Choose a body area to find exercises",
-  "app.home.menu": "Menu",
+  "app.common.menu": "Menu",
   "app.home.card.body.title": "Body",
   "app.home.card.body.subtitle": "Exercises for the whole body",
   "app.home.card.eyes.title": "Eyes",

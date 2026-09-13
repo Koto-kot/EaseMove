@@ -1223,8 +1223,6 @@
   "home": {
     "hintKey": "app.home.subtitle",
     "header": {
-      "menuButton": true,
-      "settingsButton": true,
       "showSubtitle": false,
       "titleKey": "app.home.title",
       "subtitleKey": "app.home.subtitle"

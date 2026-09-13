@@ -33,7 +33,7 @@ const List<String> _requiredKeys = <String>[
   'app.name',
   'app.home.title',
   'app.home.subtitle',
-  'app.home.menu',
+  'app.common.menu',
   'app.home.card.body.title',
   'app.home.card.body.subtitle',
   'app.home.card.eyes.title',

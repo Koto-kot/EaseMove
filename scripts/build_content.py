@@ -482,8 +482,6 @@ def compile_home(spec: dict) -> dict:
     return {
         "hintKey": spec["body_map"].get("hint_key"),
         "header": {
-            "menuButton": bool(header["menu_button"]),
-            "settingsButton": bool(header["settings_button"]),
             "showSubtitle": bool(header.get("show_subtitle", True)),
             "titleKey": header["title_key"],
             "subtitleKey": header["subtitle_key"],

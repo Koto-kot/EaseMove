@@ -1,6 +1,9 @@
-/// The approved home screen: menu and settings, a reserved title block, the
-/// interactive body map, and four section cards
+/// The approved home screen: the menu, a reserved title block, the interactive
+/// body map, and four section cards
 /// (docs/ui/home/HOME_SCREEN_LAYOUT_SPEC.md).
+///
+/// The brief's second header button — a shortcut to Settings — is gone: one
+/// menu, on every screen, is the whole navigation (docs/DECISIONS.md 84).
 ///
 /// There is no bottom navigation in this MVP, which supersedes the tab shell
 /// docs/MENU_AND_NAVIGATION.md describes (docs/DECISIONS.md 46).
@@ -11,15 +14,13 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../app/app_menu.dart';
 import '../../app/design_tokens.dart';
 import '../../app/providers.dart';
-import '../../app/theme.dart';
 import '../../core/localization/app_strings.dart';
 import '../../data/content_bundle.dart';
 import '../../data/exercise_repository.dart';
-import '../activity/activity_screen.dart';
 import '../exercise_catalog/catalog_screen.dart';
-import '../settings/settings_screen.dart';
 import 'widgets/body_map_view.dart';
 import 'widgets/home_section_card.dart';
 import 'widgets/shrink_to_fit.dart';
@@ -54,7 +55,7 @@ class HomeScreen extends ConsumerWidget {
     );
 
     return Scaffold(
-      drawer: const _HomeDrawer(),
+      drawer: const AppDrawer(),
       body: SafeArea(
         child: repository.when(
           loading: () => const Center(child: CircularProgressIndicator()),
@@ -144,8 +145,6 @@ class _HomeBody extends StatelessWidget {
                         subtitle: home.showSubtitle
                             ? t(home.subtitleKey)
                             : null,
-                        showMenu: home.menuButton,
-                        showSettings: home.settingsButton,
                       ),
                       const SizedBox(height: 8),
                       // The map takes what is left. When height runs short
@@ -197,40 +196,25 @@ class _HomeBody extends StatelessWidget {
   }
 }
 
-/// Menu, title block and settings. The text block keeps its space whatever the
+/// The menu and the title block. The text block keeps its space whatever the
 /// copy is, so a longer translation does not move the map (brief 3.2).
 class _Header extends StatelessWidget {
-  const _Header({
-    required this.title,
-    required this.subtitle,
-    required this.showMenu,
-    required this.showSettings,
-  });
+  const _Header({required this.title, required this.subtitle});
 
   final String title;
 
   /// Null when the config draws the explanatory line under the back figure
   /// instead of in the header.
   final String? subtitle;
-  final bool showMenu;
-  final bool showSettings;
 
   @override
   Widget build(BuildContext context) {
-    final AppStrings t = AppStrings.of(context);
     final ThemeData theme = Theme.of(context);
 
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        if (showMenu)
-          IconButton(
-            tooltip: t('app.home.menu'),
-            icon: const Icon(Icons.menu),
-            onPressed: () => Scaffold.of(context).openDrawer(),
-          )
-        else
-          const SizedBox(width: Tokens.touchTarget),
+        const AppMenuButton(),
         Expanded(
           child: Padding(
             padding: const EdgeInsets.only(top: 8),
@@ -267,86 +251,10 @@ class _Header extends StatelessWidget {
             ),
           ),
         ),
-        if (showSettings)
-          IconButton(
-            tooltip: t('app.settings.title'),
-            icon: const Icon(Icons.settings_outlined),
-            onPressed: () => Navigator.of(context).push(
-              MaterialPageRoute<void>(
-                builder: (BuildContext context) => const SettingsScreen(),
-              ),
-            ),
-          )
-        else
-          const SizedBox(width: Tokens.touchTarget),
+        // Balances the menu, so the title sits in the middle of the screen
+        // rather than in the middle of what is left of it.
+        const SizedBox(width: Tokens.touchTarget),
       ],
-    );
-  }
-}
-
-/// What the bottom tabs used to reach. Everything else on this screen is one
-/// tap away already, so the drawer stays short.
-class _HomeDrawer extends StatelessWidget {
-  const _HomeDrawer();
-
-  @override
-  Widget build(BuildContext context) {
-    final AppStrings t = AppStrings.of(context);
-    final ThemeData theme = AppTheme.dark();
-
-    // The menu stays dark: it is chrome over the white screen, not content.
-    return Theme(
-      data: theme,
-      child: Drawer(
-        child: SafeArea(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: <Widget>[
-              Padding(
-                padding: const EdgeInsets.fromLTRB(20, 24, 20, 12),
-                child: Text(
-                  t('app.name'),
-                  style: theme.textTheme.headlineSmall,
-                ),
-              ),
-              ListTile(
-                leading: const Icon(Icons.insights_outlined),
-                title: Text(t('app.activity.title')),
-                onTap: () {
-                  Navigator.of(context).pop();
-                  Navigator.of(context).push(
-                    MaterialPageRoute<void>(
-                      builder: (BuildContext context) => const ActivityScreen(),
-                    ),
-                  );
-                },
-              ),
-              ListTile(
-                leading: const Icon(Icons.settings_outlined),
-                title: Text(t('app.settings.title')),
-                onTap: () {
-                  Navigator.of(context).pop();
-                  Navigator.of(context).push(
-                    MaterialPageRoute<void>(
-                      builder: (BuildContext context) => const SettingsScreen(),
-                    ),
-                  );
-                },
-              ),
-              const Spacer(),
-              Padding(
-                padding: const EdgeInsets.all(20),
-                child: Text(
-                  t('app.disclaimer'),
-                  style: theme.textTheme.labelSmall?.copyWith(
-                    color: theme.colorScheme.outline,
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
     );
   }
 }

@@ -13,8 +13,8 @@ screen:
   status: "approved_layout_v1"
 
 header:
-  menu_button: true
-  settings_button: true
+  # The brief's two header buttons are one: the menu, which every screen now
+  # carries. See docs/DECISIONS.md 84.
   reserve_title_area: true
   reserve_subtitle_area: true
   # The area stays reserved (brief 3.2) but the line is not drawn in it: at a

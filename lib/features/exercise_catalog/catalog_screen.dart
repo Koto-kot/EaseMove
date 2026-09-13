@@ -6,6 +6,7 @@ library;
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../app/app_menu.dart';
 import '../../app/providers.dart';
 import '../../core/localization/app_strings.dart';
 import '../../data/exercise_repository.dart';
@@ -27,6 +28,7 @@ class CatalogScreen extends ConsumerWidget {
     final bool showIds = ref.watch(settingsProvider).devShowIds;
 
     return Scaffold(
+      drawer: const AppDrawer(),
       appBar: AppBar(
         title: Text(
           repository.maybeWhen(
@@ -35,6 +37,7 @@ class CatalogScreen extends ConsumerWidget {
             orElse: () => '',
           ),
         ),
+        actions: const <Widget>[AppMenuButton()],
       ),
       body: repository.when(
         loading: () => const Center(child: CircularProgressIndicator()),

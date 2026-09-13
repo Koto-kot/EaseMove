@@ -13,7 +13,7 @@ class AppSettings {
   const AppSettings({
     this.localeOverride,
     this.voiceEnabled = true,
-    this.voiceMode = VoiceMode.minimal,
+    this.voiceMode = defaultVoiceMode,
     this.musicEnabled = true,
     this.musicTrackId,
     this.musicVolume = defaultMusicVolume,
@@ -33,6 +33,11 @@ class AppSettings {
   /// How much is spoken while the movement runs. Independent of
   /// [voiceEnabled], which is the master switch.
   final VoiceMode voiceMode;
+
+  /// The movement words are what the exercises were written around: every one
+  /// of them names its own phases, and hearing «вліво — вправо» is what lets
+  /// you follow the rhythm without watching the screen (docs/DECISIONS.md 85).
+  static const VoiceMode defaultVoiceMode = VoiceMode.phaseWords;
   final bool musicEnabled;
 
   /// Chosen background track, or `null` while the listener has never picked
@@ -134,7 +139,10 @@ class PreferencesLocalStore implements LocalStore {
   AppSettings readSettings() => AppSettings(
     localeOverride: _prefs.getString(_kLocale),
     voiceEnabled: _prefs.getBool(_kVoice) ?? true,
-    voiceMode: VoiceMode.parse(_prefs.getString(_kVoiceMode)),
+    voiceMode: VoiceMode.parse(
+      _prefs.getString(_kVoiceMode),
+      fallback: AppSettings.defaultVoiceMode,
+    ),
     musicEnabled: _prefs.getBool(_kMusic) ?? true,
     musicTrackId: _prefs.getString(_kMusicTrack),
     musicVolume:

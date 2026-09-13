@@ -119,7 +119,10 @@ void main() {
         ),
       );
       await settle(tester);
-      await tester.tap(find.byTooltip('Налаштування'));
+      // Settings lives in the menu now, and nowhere else.
+      await tester.tap(find.byTooltip('Меню'));
+      await settle(tester);
+      await tester.tap(find.text('Налаштування'));
       await settle(tester);
     }
 

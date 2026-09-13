@@ -282,8 +282,6 @@ class HomeSection {
 
 class HomeConfig {
   const HomeConfig({
-    required this.menuButton,
-    required this.settingsButton,
     required this.showSubtitle,
     required this.titleKey,
     required this.subtitleKey,
@@ -295,8 +293,6 @@ class HomeConfig {
     final Map<String, dynamic> header = (json['header'] as Map)
         .cast<String, dynamic>();
     return HomeConfig(
-      menuButton: header['menuButton'] as bool? ?? true,
-      settingsButton: header['settingsButton'] as bool? ?? true,
       showSubtitle: header['showSubtitle'] as bool? ?? true,
       titleKey: header['titleKey'] as String,
       subtitleKey: header['subtitleKey'] as String,
@@ -307,9 +303,6 @@ class HomeConfig {
       ],
     );
   }
-
-  final bool menuButton;
-  final bool settingsButton;
 
   /// The header always reserves its block (brief 3.2); this says whether the
   /// explanatory second line is drawn in it.
