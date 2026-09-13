@@ -107,6 +107,21 @@ class RecordedVoiceAudioService implements AudioService {
     }
   }
 
+  @override
+  Future<void> playCommonLine(String name) async {
+    final String path = 'audio/$languageCode/common/$name.m4a';
+    if (!await isBundled(path)) {
+      await fallback.playCommonLine(name);
+      return;
+    }
+    try {
+      await _playAsset(path);
+    } on Object catch (error) {
+      debugPrint('[audio] $path failed: $error');
+      await fallback.playCommonLine(name);
+    }
+  }
+
   /// Plays a bundled line and reports its length, which is what tells the
   /// caller when a cue that may not be spoken over has finished. `setAsset`
   /// answers null when the platform will not say; the caller then treats the

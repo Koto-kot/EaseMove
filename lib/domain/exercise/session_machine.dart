@@ -54,6 +54,16 @@ class PlayCountdownTick extends SessionEffect {
   final int secondsLeft;
 }
 
+/// A line the session says on its own rather than one an exercise declares:
+/// the countdown's opening and the break announcement
+/// (data/audio/common_lines.yaml).
+class PlayCommonLine extends SessionEffect {
+  const PlayCommonLine(this.name);
+
+  /// Asset stem under `audio/<lang>/common/`.
+  final String name;
+}
+
 class StartMusic extends SessionEffect {
   const StartMusic();
 }
@@ -146,6 +156,8 @@ class SessionSnapshot {
     required this.elapsedMs,
     required this.prepRemainingMs,
     required this.prepIntroRemainingMs,
+    required this.prepOpeningRemainingMs,
+    required this.prepSecondsTotal,
     required this.restRemainingMs,
     required this.pauseCount,
     required this.autoModeEnabled,
@@ -156,8 +168,16 @@ class SessionSnapshot {
   final int prepRemainingMs;
 
   /// Time left in the spoken setup line. The screen holds the start pose while
-  /// it runs, and the numbers have not begun.
+  /// it runs.
   final int prepIntroRemainingMs;
+
+  /// Time left in "Починаємо вправу через п'ять". The ticking starts after it,
+  /// at four, because the line has already said the five.
+  final int prepOpeningRemainingMs;
+
+  /// The number the countdown starts from, which is what the screen shows for
+  /// as long as the two spoken lines run.
+  final int prepSecondsTotal;
 
   final int restRemainingMs;
   final int pauseCount;
@@ -166,16 +186,18 @@ class SessionSnapshot {
   bool get isRunning =>
       state == SessionState.prepCountdown || state == SessionState.active;
 
-  /// PREP_COUNTDOWN covers the spoken introduction and the numbers; only the
-  /// second half is a countdown, so only it shows one.
+  /// PREP_COUNTDOWN covers the two spoken lines and then the numbers. The
+  /// number is on screen throughout — five is lit while the lines run, which
+  /// is what makes the countdown feel started rather than pending.
   bool get isPreparing =>
-      state == SessionState.prepCountdown && prepIntroRemainingMs > 0;
-  bool get isCountingDown =>
-      state == SessionState.prepCountdown && prepIntroRemainingMs <= 0;
+      state == SessionState.prepCountdown &&
+      (prepIntroRemainingMs > 0 || prepOpeningRemainingMs > 0);
+  bool get isCountingDown => state == SessionState.prepCountdown;
   bool get isResting => state == SessionState.autoRest;
 
-  /// Whole seconds remaining, the way a countdown reads: 5, 4, 3, 2, 1.
-  int get prepSecondsLeft => (prepRemainingMs / 1000).ceil();
+  /// Whole seconds remaining, the way a countdown reads: 5, 4, 3, 2, 1, 0.
+  int get prepSecondsLeft =>
+      isPreparing ? prepSecondsTotal : (prepRemainingMs / 1000).ceil();
   int get restSecondsLeft => (restRemainingMs / 1000).ceil();
 }
 
@@ -194,6 +216,15 @@ class SessionMachine {
            ? 0
            : exercise.timing.prepCountdownSeconds * 1000,
        _prepIntroDurationMs = skipCountdowns ? 0 : exercise.timing.prepIntroMs,
+       _prepOpeningDurationMs = skipCountdowns
+           ? 0
+           : exercise.timing.countdownOpeningMs,
+       _restIntroDurationMs = skipCountdowns
+           ? 0
+           : exercise.timing.completionMs + exercise.timing.restIntroMs,
+       _completionDurationMs = skipCountdowns
+           ? 0
+           : exercise.timing.completionMs,
        _restDurationMs = exercise.flow.restSeconds * 1000;
 
   final Exercise exercise;
@@ -212,13 +243,23 @@ class SessionMachine {
   final DateTime Function() _clock;
   final int _prepDurationMs;
   final int _prepIntroDurationMs;
+  final int _prepOpeningDurationMs;
+
+  /// "Готово." and then the break announcement, before the break's own
+  /// numbers start.
+  final int _restIntroDurationMs;
+  final int _completionDurationMs;
   final int _restDurationMs;
 
   SessionState _state = SessionState.selected;
   int _elapsedMs = 0;
   int _prepRemainingMs = 0;
   int _prepIntroRemainingMs = 0;
+  int _prepOpeningRemainingMs = 0;
   int _restRemainingMs = 0;
+  int _restIntroRemainingMs = 0;
+  bool _restIntroAnnounced = true;
+  int _lastRestSecondAnnounced = -1;
   int _pauseCount = 0;
   bool _autoModeEnabled = false;
   bool _resultSaved = false;
@@ -231,6 +272,8 @@ class SessionMachine {
     elapsedMs: _elapsedMs,
     prepRemainingMs: _prepRemainingMs,
     prepIntroRemainingMs: _prepIntroRemainingMs,
+    prepOpeningRemainingMs: _prepOpeningRemainingMs,
+    prepSecondsTotal: exercise.timing.prepCountdownSeconds,
     restRemainingMs: _restRemainingMs,
     pauseCount: _pauseCount,
     autoModeEnabled: _autoModeEnabled,
@@ -342,6 +385,13 @@ class SessionMachine {
     }
   }
 
+  /// Start: the exercise's setup line, then "Починаємо вправу через п'ять",
+  /// then 4, 3, 2, 1, 0.
+  ///
+  /// All of it goes to one voice, so each part waits for the one before it —
+  /// started together, none of them is heard (docs/UX_FLOW.md B). The five is
+  /// on screen from the first moment and stays lit until the opening line has
+  /// said it, which is why the ticking picks up at four.
   List<SessionEffect> _enterPrep() {
     _state = SessionState.prepCountdown;
     _prepRemainingMs = _prepDurationMs;
@@ -351,6 +401,7 @@ class SessionMachine {
     final List<SessionEffect> effects = <SessionEffect>[];
     final AudioEvent? prepare = _eventByTrigger('prep_countdown_started');
     _prepIntroRemainingMs = prepare == null ? 0 : _prepIntroDurationMs;
+    _prepOpeningRemainingMs = _prepOpeningDurationMs;
     if (prepare != null) {
       effects.add(
         PlayVoiceCue(
@@ -362,16 +413,34 @@ class SessionMachine {
     }
     if (_prepRemainingMs <= 0) {
       _prepIntroRemainingMs = 0;
+      _prepOpeningRemainingMs = 0;
       effects.addAll(_enterActive());
       return effects;
     }
-    // The setup line gets said in full before "five": both go to the same
-    // voice, so starting them together means hearing neither
-    // (docs/UX_FLOW.md B).
     if (_prepIntroRemainingMs > 0) return effects;
-    _lastCountdownSecondAnnounced = (_prepRemainingMs / 1000).ceil();
-    effects.add(PlayCountdownTick(_lastCountdownSecondAnnounced));
+    effects.addAll(_openCountdown());
     return effects;
+  }
+
+  /// The setup line is over: say the opening, and hold the numbers until it
+  /// finishes. With nothing to say, the numbers start at once.
+  List<SessionEffect> _openCountdown() {
+    if (_prepOpeningRemainingMs > 0) {
+      return <SessionEffect>[const PlayCommonLine('countdown_opening')];
+    }
+    return _beginCountdownNumbers();
+  }
+
+  /// The opening has said the first number, so the clock starts one second in.
+  List<SessionEffect> _beginCountdownNumbers() {
+    _prepRemainingMs =
+        _prepDurationMs - (_prepOpeningDurationMs > 0 ? 1000 : 0);
+    if (_prepRemainingMs <= 0) {
+      _prepRemainingMs = 0;
+      return <SessionEffect>[const PlayCountdownTick(0), ..._enterActive()];
+    }
+    _lastCountdownSecondAnnounced = (_prepRemainingMs / 1000).ceil();
+    return <SessionEffect>[PlayCountdownTick(_lastCountdownSecondAnnounced)];
   }
 
   List<SessionEffect> _tickPrep(int deltaMs) {
@@ -380,12 +449,20 @@ class SessionMachine {
     if (_prepIntroRemainingMs > 0) {
       _prepIntroRemainingMs -= deltaMs;
       if (_prepIntroRemainingMs > 0) return effects;
-      // Whatever of this tick was left over belongs to the countdown.
+      // Whatever of this tick was left over belongs to what comes next.
       deltaMs = -_prepIntroRemainingMs;
       _prepIntroRemainingMs = 0;
-      _lastCountdownSecondAnnounced = (_prepRemainingMs / 1000).ceil();
-      effects.add(PlayCountdownTick(_lastCountdownSecondAnnounced));
-      if (deltaMs <= 0) return effects;
+      effects.addAll(_openCountdown());
+      if (deltaMs <= 0 || _state != SessionState.prepCountdown) return effects;
+    }
+
+    if (_prepOpeningRemainingMs > 0) {
+      _prepOpeningRemainingMs -= deltaMs;
+      if (_prepOpeningRemainingMs > 0) return effects;
+      deltaMs = -_prepOpeningRemainingMs;
+      _prepOpeningRemainingMs = 0;
+      effects.addAll(_beginCountdownNumbers());
+      if (deltaMs <= 0 || _state != SessionState.prepCountdown) return effects;
     }
 
     _prepRemainingMs -= deltaMs;
@@ -400,6 +477,9 @@ class SessionMachine {
 
     if (_prepRemainingMs <= 0) {
       _prepRemainingMs = 0;
+      // Zero is spoken as the movement starts; the exercise's own first
+      // instruction follows it immediately, which is the right order.
+      effects.add(const PlayCountdownTick(0));
       effects.addAll(_enterActive());
     }
     return effects;
@@ -428,15 +508,49 @@ class SessionMachine {
     return effects;
   }
 
+  /// The break: "Готово.", then "Перерва між вправами — десять секунд", then
+  /// the seconds spoken as the timer shows them.
+  ///
+  /// The numbers name whatever second is on screen rather than starting from
+  /// ten, because the two announcements have already used some of the break
+  /// and a number that disagrees with the timer is worse than no number.
   List<SessionEffect> _tickRest(int deltaMs) {
     if (_autoNextRequested) return const <SessionEffect>[];
+    final List<SessionEffect> effects = <SessionEffect>[];
+
     _restRemainingMs -= deltaMs;
-    if (_restRemainingMs > 0) return const <SessionEffect>[];
+
+    if (_restIntroRemainingMs > 0) {
+      final int before = _restIntroRemainingMs;
+      _restIntroRemainingMs -= deltaMs;
+      // The announcement waits for "Готово." to finish before it starts.
+      if (!_restIntroAnnounced &&
+          before > _restIntroRemainingMs &&
+          _restIntroRemainingMs <=
+              _restIntroDurationMs - _completionDurationMs) {
+        _restIntroAnnounced = true;
+        effects.add(const PlayCommonLine('rest_intro'));
+      }
+    }
+
+    if (_restRemainingMs > 0) {
+      if (_restIntroRemainingMs <= 0) {
+        final int secondsLeft = (_restRemainingMs / 1000).ceil();
+        if (secondsLeft != _lastRestSecondAnnounced) {
+          _lastRestSecondAnnounced = secondsLeft;
+          effects.add(PlayCountdownTick(secondsLeft));
+        }
+      }
+      return effects;
+    }
+
     _restRemainingMs = 0;
     // Invariant 4: rest runs to zero, then the next exercise auto-starts.
-    // Requested exactly once, even if ticks keep arriving.
+    // Requested exactly once, even if ticks keep arriving. No zero is spoken:
+    // the next exercise's own setup line lands on the same instant.
     _autoNextRequested = true;
-    return const <SessionEffect>[AutoStartNext()];
+    effects.add(const AutoStartNext());
+    return effects;
   }
 
   List<SessionEffect> _finish({required bool completed}) {
@@ -468,6 +582,9 @@ class SessionMachine {
         _autoModeEnabled = true;
         _state = SessionState.autoRest;
         _restRemainingMs = _restDurationMs;
+        _restIntroRemainingMs = _restIntroDurationMs;
+        _restIntroAnnounced = _restIntroDurationMs <= 0;
+        _lastRestSecondAnnounced = -1;
         _autoNextRequested = false;
       }
     } else {
@@ -489,6 +606,7 @@ class SessionMachine {
     }
     _autoModeEnabled = false;
     _restRemainingMs = 0;
+    _restIntroRemainingMs = 0;
     _state = SessionState.manualBrowseNext;
     effects.add(const StopAudio());
     effects.add(RequestManualBrowse(direction));

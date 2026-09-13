@@ -1,9 +1,9 @@
 /// The optional rhythm modes and the read-aloud instructions
 /// (docs/AUDIO_SPEC.md; ELBOW_001 brief sections 12–13).
 ///
-/// The default stays quiet on purpose: a cue at the start, one halfway and one
-/// at the end. The other two modes add one short word per half-cycle, and
-/// nothing else about the session changes.
+/// The default stays quiet on purpose: a cue at the start and one at the end.
+/// The other two modes add one short word per half-cycle, and nothing else
+/// about the session changes.
 library;
 
 import 'dart:io';
@@ -48,15 +48,15 @@ void main() {
   test('the default mode says nothing during the cycles', () {
     final List<String> ids = cueIds(VoiceMode.minimal);
     // prep and completion are fired by the session machine, not the timeline.
-    expect(ids, <String>['VOICE_START_MOVEMENT', 'VOICE_HALFWAY']);
+    expect(ids, <String>['VOICE_START_MOVEMENT']);
   });
 
   test('movement words speak once per half-cycle, in movement order', () {
     final List<String> ids = cueIds(VoiceMode.phaseWords);
     expect(ids.where((String id) => id == 'VOICE_PHASE_B'), hasLength(15));
     expect(ids.where((String id) => id == 'VOICE_PHASE_A'), hasLength(15));
-    // The halfway cue is still there; the count words are not.
-    expect(ids, contains('VOICE_HALFWAY'));
+    // The movement command is still there; the count words are not.
+    expect(ids, contains('VOICE_START_MOVEMENT'));
     expect(ids, isNot(contains('VOICE_COUNT_ONE')));
 
     // B is the movement away from the start pose, so it is said first.
@@ -236,13 +236,13 @@ void main() {
       now = now.add(const Duration(seconds: 2));
       await controller.play(exercise.audioEventById('VOICE_PHASE_B')!);
       now = now.add(const Duration(seconds: 2));
-      await controller.play(exercise.audioEventById('VOICE_HALFWAY')!);
+      await controller.play(exercise.audioEventById('VOICE_PHASE_A')!);
 
       expect(spoken(audio), <String>[
         'VOICE_START_MOVEMENT',
         'VOICE_PHASE_A',
         'VOICE_PHASE_B',
-        'VOICE_HALFWAY',
+        'VOICE_PHASE_A',
       ]);
     });
 
@@ -333,6 +333,17 @@ void main() {
     expect(find.text('Початкове положення'), findsOneWidget);
     expect(find.text('Як виконувати'), findsOneWidget);
     expect(audio.log, isEmpty);
+
+    // The step's number is its own column, so a wrapped line starts under the
+    // text and not under the number (docs/DECISIONS.md 79). That means the
+    // step reads as its own string, with no "1. " glued to the front.
+    final String firstStep = loadExerciseFromDisk('ELBOW_001')
+        .text
+        .instructions
+        .first;
+    expect(find.text(firstStep), findsOneWidget);
+    expect(find.text('1. $firstStep'), findsNothing);
+    expect(find.text('1.'), findsOneWidget);
 
     // The tips and the warning are further down the same page.
     await tester.drag(find.byType(ListView), const Offset(0, -400));

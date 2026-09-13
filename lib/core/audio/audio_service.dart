@@ -17,6 +17,10 @@ abstract interface class AudioService {
   /// read as "nothing is holding the voice".
   Future<Duration?> playVoice(AudioEvent event);
   Future<void> playCountdownTick(int secondsLeft);
+
+  /// A line the session says on its own, by asset stem under
+  /// `audio/<lang>/common/` (data/audio/common_lines.yaml).
+  Future<void> playCommonLine(String name);
   Future<void> playMusic(String trackId);
   Future<void> pauseAll();
   Future<void> resumeAll();
@@ -95,7 +99,16 @@ class SessionAudioController {
 
   Future<void> countdown(int secondsLeft) async {
     if (!voiceEnabled) return;
+    // The numbers are the session's own clock: they are never held back by a
+    // cue, and they release the floor so nothing is silenced behind them.
+    _releaseFloor();
     await service.playCountdownTick(secondsLeft);
+  }
+
+  Future<void> commonLine(String name) async {
+    if (!voiceEnabled) return;
+    _releaseFloor();
+    await service.playCommonLine(name);
   }
 
   Future<void> startMusic(String trackId) async {
@@ -141,6 +154,9 @@ class LoggingAudioService implements AudioService {
   @override
   Future<void> playCountdownTick(int secondsLeft) async =>
       log.add('tick:$secondsLeft');
+
+  @override
+  Future<void> playCommonLine(String name) async => log.add('line:$name');
 
   @override
   Future<void> playMusic(String trackId) async => log.add('music:$trackId');

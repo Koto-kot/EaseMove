@@ -138,28 +138,36 @@ void main() {
     await settle(tester);
     expect(find.text('Початкове положення'), findsOneWidget);
 
-    // --- Start → the setup line is said first, with no numbers over it.
+    // --- Start → five is lit, the setup line is said, nothing counts yet.
     await tester.tap(find.widgetWithText(FilledButton, 'Старт'));
     await settle(tester);
     expect(playerState().state, SessionState.prepCountdown);
     expect(playerState().snapshot.elapsedMs, 0);
     expect(audio.log, contains('voice:VOICE_PREPARE'));
-    expect(audio.log, isNot(contains('tick:5')));
-    expect(find.text('Починаємо через'), findsNothing);
+    expect(find.text('Починаємо через'), findsOneWidget);
+    expect(find.text('5'), findsOneWidget);
+    expect(audio.log, isNot(contains('tick:4')));
 
-    // --- Then the 5 second countdown; the exercise timer stays at zero.
+    // --- The setup line ends, the opening announces the five itself, and the
+    // ticking picks up at four. The exercise timer stays at zero throughout.
     await tester.pump(
       Duration(milliseconds: playerState().exercise!.timing.prepIntroMs),
     );
-    expect(find.text('Починаємо через'), findsOneWidget);
-    expect(audio.log, contains('tick:5'));
+    expect(audio.log, contains('line:countdown_opening'));
+    expect(audio.log, isNot(contains('tick:4')));
+    expect(find.text('5'), findsOneWidget);
+
+    await tester.pump(
+      Duration(milliseconds: playerState().exercise!.timing.countdownOpeningMs),
+    );
+    expect(audio.log, contains('tick:4'));
     expect(playerState().snapshot.elapsedMs, 0);
 
     await tester.pump(const Duration(seconds: 2));
-    expect(find.text('3'), findsOneWidget);
+    expect(find.text('2'), findsOneWidget);
 
     // --- Countdown over: active, music started, metrics from the exercise data.
-    await tester.pump(const Duration(seconds: 4));
+    await tester.pump(const Duration(seconds: 3));
     expect(playerState().state, SessionState.active);
     expect(find.text('Починаємо через'), findsNothing);
     expect(audio.log.where((String e) => e.startsWith('music:')), isNotEmpty);
@@ -212,12 +220,13 @@ void main() {
 
     // --- Rest reaches zero and the next exercise starts on its own, with its
     // own setup line and then its own prep countdown.
-    await tester.pump(const Duration(seconds: 10));
+    // The break announces itself, then counts the seconds it is showing.
+    await tester.pump(const Duration(seconds: 5));
+    expect(audio.log, contains('line:rest_intro'));
+
+    await tester.pump(const Duration(seconds: 6));
     await settle(tester);
     expect(find.text('Встати — сісти зі стільця'), findsWidgets);
-    await tester.pump(
-      Duration(milliseconds: playerState().exercise!.timing.prepIntroMs),
-    );
     expect(find.text('Починаємо через'), findsOneWidget);
   });
 

@@ -90,6 +90,12 @@ class TtsAudioService implements AudioService {
   }
 
   @override
+  Future<void> playCommonLine(String name) async {
+    // These lines live in the pack, not in the library's text, so there is
+    // nothing to speak here. A pack without them simply counts silently.
+  }
+
+  @override
   Future<void> playMusic(String trackId) async {
     // No tracks exist yet (`music/` holds only a README), and TTS cannot
     // provide background music. Wired when the audio pack lands.

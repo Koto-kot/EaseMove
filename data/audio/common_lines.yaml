@@ -1,0 +1,54 @@
+schema_version: '1.0'
+
+# Lines that belong to no single exercise.
+#
+# The exercise files carry their own cues; these are the ones the session
+# machine speaks on its own — the countdown before the movement and the break
+# between two exercises. They live here rather than being repeated in
+# twenty-two YAML files, and scripts/generate_voice.py records them from here.
+
+countdown:
+  # Spoken while the number is on screen. The app uses 0..5 before an
+  # exercise and 0..10 during a break, so every number in that range has a
+  # line.
+  numbers:
+    0: {uk: 'Нуль.', en: 'Zero.'}
+    1: {uk: 'Один.', en: 'One.'}
+    2: {uk: 'Два.', en: 'Two.'}
+    3: {uk: 'Три.', en: 'Three.'}
+    4: {uk: 'Чотири.', en: 'Four.'}
+    5: {uk: "П'ять.", en: 'Five.'}
+    6: {uk: 'Шість.', en: 'Six.'}
+    7: {uk: 'Сім.', en: 'Seven.'}
+    8: {uk: 'Вісім.', en: 'Eight.'}
+    9: {uk: "Дев'ять.", en: 'Nine.'}
+    10: {uk: 'Десять.', en: 'Ten.'}
+
+  # Said once, after the exercise's own setup line and before the numbers
+  # start ticking. It announces the five itself, so the ticking picks up at
+  # four; the five stays lit on screen for as long as this takes
+  # (docs/UX_FLOW.md B).
+  opening:
+    file: audio/uk/common/countdown_opening.m4a
+    uk: Починаємо вправу через п'ять.
+    en: Starting the exercise in five.
+    # Measured from the recording by scripts/build_audio_script.py, which
+    # fails when the line outgrows it — the numbers would start over it.
+    duration_ms: 2800
+
+# "Готово." is an exercise cue, but it is the last thing said before the break
+# announcement, so the break has to wait for it. Measured from
+# audio/<lang>/common/completed.m4a.
+completion:
+  duration_ms: 1200
+
+rest:
+  # Every exercise declares this same break (`flow.rest_after_seconds`), and
+  # the spoken line names it, so build_audio_script.py refuses a library where
+  # the two disagree.
+  seconds: 10
+  intro:
+    file: audio/uk/common/rest_intro.m4a
+    uk: Перерва між вправами — десять секунд.
+    en: A ten second break between exercises.
+    duration_ms: 3400

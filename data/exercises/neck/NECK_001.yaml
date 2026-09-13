@@ -335,19 +335,6 @@ audio:
     target_file: audio/uk/exercises/NECK_001/start_movement.m4a
     priority: 100
     interruptible: false
-  - id: VOICE_HALFWAY
-    type: progress
-    trigger:
-      event: progress_crossed
-      percent: 50
-    text_key: common.voice.halfway
-    text_uk: Половину виконано.
-    text_en: Halfway done.
-    asset_key: common.voice.halfway
-    target_file: audio/uk/common/halfway.m4a
-    priority: 50
-    interruptible: true
-    collision_policy: delay_until_primary_cue_finishes
   - id: VOICE_COMPLETED
     type: completion
     trigger:

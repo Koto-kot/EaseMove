@@ -36,12 +36,9 @@ OUT_DIR = ROOT / "docs/generated"
 
 LANGUAGES = ("uk", "en")
 
-# The preparation countdown is spoken from the global pack rather than per
-# exercise (docs/AUDIO_SPEC.md, "Common reusable").
-COUNTDOWN = {
-    "uk": {5: "П'ять.", 4: "Чотири.", 3: "Три.", 2: "Два.", 1: "Один."},
-    "en": {5: "Five.", 4: "Four.", 3: "Three.", 2: "Two.", 1: "One."},
-}
+# Lines the session speaks itself, kept in one place rather than repeated in
+# every exercise (docs/AUDIO_SPEC.md, "Common reusable").
+COMMON_LINES = DATA / "audio/common_lines.yaml"
 
 WORDS = {
     "uk": {
@@ -71,6 +68,7 @@ WORDS = {
         "todo": "потрібно записати",
         "no_path": "немає шляху",
         "countdown": "відлік підготовки",
+        "rest": "перерва між вправами",
         "instructions": "кнопка «Прослухати інструкцію»",
         "always": "завжди",
         "phase_words": "режим «Слова руху»",
@@ -104,6 +102,7 @@ WORDS = {
         "todo": "to record",
         "no_path": "no path",
         "countdown": "preparation countdown",
+        "rest": "the break between exercises",
         "instructions": "the \"listen to the steps\" button",
         "always": "always",
         "phase_words": "movement words mode",
@@ -171,12 +170,22 @@ def build(lang: str) -> tuple[int, int]:
         }.get(mode, str(mode))
 
     # target file -> {text, mode, used_by}
+    spec = load(COMMON_LINES)
     common: dict[str, dict] = {}
-    for seconds, text in COUNTDOWN[lang].items():
-        common["audio/{0}/common/countdown_{1}.m4a".format(lang, seconds)] = {
-            "text": text,
+    for number, texts in spec["countdown"]["numbers"].items():
+        common["audio/{0}/common/countdown_{1}.m4a".format(lang, number)] = {
+            "text": texts[lang],
             "mode": None,
             "used_by": [words["countdown"]],
+        }
+    for used_by, block in (
+        (words["countdown"], spec["countdown"]["opening"]),
+        (words["rest"], spec["rest"]["intro"]),
+    ):
+        common[localized(block["file"], lang)] = {
+            "text": block[lang],
+            "mode": None,
+            "used_by": [used_by],
         }
 
     sections: list[str] = []
@@ -351,6 +360,56 @@ def check_prep_intros() -> list[str]:
     return problems
 
 
+def check_common_lines() -> list[str]:
+    """The machine waits a declared number of milliseconds for each of these.
+
+    Re-recording one a second longer would put the next thing on top of it,
+    exactly as it would for an exercise's setup line.
+    """
+    problems: list[str] = []
+    spec = load(COMMON_LINES)
+    checks = [
+        ("countdown.opening", spec["countdown"]["opening"]),
+        ("rest.intro", spec["rest"]["intro"]),
+    ]
+    for name, block in checks:
+        declared = int(block["duration_ms"])
+        for lang in LANGUAGES:
+            path = ROOT / localized(block["file"], lang)
+            length = m4a_duration_ms(path)
+            if length is not None and length > declared:
+                problems.append(
+                    "{0}: {1} runs {2} ms but duration_ms is {3} ms".format(
+                        name, localized(block["file"], lang), length, declared
+                    )
+                )
+
+    declared = int(spec["completion"]["duration_ms"])
+    for lang in LANGUAGES:
+        length = m4a_duration_ms(ROOT / "audio/{0}/common/completed.m4a".format(lang))
+        if length is not None and length > declared:
+            problems.append(
+                "completion: audio/{0}/common/completed.m4a runs {1} ms but "
+                "duration_ms is {2} ms".format(lang, length, declared)
+            )
+
+    # The break announcement names a number of seconds; the library has to
+    # actually rest that long.
+    seconds = int(spec["rest"]["seconds"])
+    index = load(DATA / "exercises/index.yaml")
+    for entry in index["exercises"]:
+        raw = load(DATA / "exercises" / entry["file"])
+        timing = raw.get("timing") or {}
+        actual = int(timing.get("rest_after_seconds", seconds))
+        if actual != seconds:
+            problems.append(
+                "{0}: rests {1} s but the spoken line says {2} s".format(
+                    entry["id"], actual, seconds
+                )
+            )
+    return problems
+
+
 def main() -> int:
     # The single-language file this replaced.
     legacy = OUT_DIR / "AUDIO_SCRIPT.md"
@@ -359,7 +418,7 @@ def main() -> int:
     for lang in LANGUAGES:
         build(lang)
 
-    problems = check_prep_intros()
+    problems = check_prep_intros() + check_common_lines()
     for problem in problems:
         print("ERROR: " + problem)
     if problems:

@@ -117,6 +117,9 @@
   "timing": {
     "prepCountdownSeconds": 5,
     "prepIntroMs": 4200,
+    "countdownOpeningMs": 2800,
+    "restIntroMs": 3400,
+    "completionMs": 1200,
     "restAfterSeconds": 10,
     "completionMode": "prescribed_repetitions",
     "estimatedActiveSeconds": 51
@@ -373,27 +376,6 @@
           "stepIds": [
             "move_right"
           ],
-          "repetitionNumber": null,
-          "relativePosition": null,
-          "offsetMs": null
-        }
-      },
-      {
-        "id": "VOICE_HALFWAY",
-        "type": "progress",
-        "priority": 50,
-        "interruptible": true,
-        "playOncePerSide": false,
-        "voiceMode": null,
-        "text": "Halfway done.",
-        "assetKey": "common.voice.halfway",
-        "assetFile": "audio/uk/common/halfway.m4a",
-        "trigger": {
-          "event": "progress_crossed",
-          "phase": null,
-          "side": null,
-          "percent": 50,
-          "stepIds": [],
           "repetitionNumber": null,
           "relativePosition": null,
           "offsetMs": null

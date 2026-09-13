@@ -151,10 +151,7 @@ void main() {
   test('every neck exercise carries the cues its brief specifies', () {
     for (final String id in neckIds) {
       final Exercise exercise = loadExerciseFromDisk(id);
-      for (final String eventId in <String>[
-        'VOICE_HALFWAY',
-        'VOICE_COMPLETED',
-      ]) {
+      for (final String eventId in <String>['VOICE_COMPLETED']) {
         final AudioEvent? event = exercise.audioEventById(eventId);
         expect(event, isNotNull, reason: '$id/$eventId');
         expect(event!.text, isNotEmpty, reason: '$id/$eventId');

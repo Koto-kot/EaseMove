@@ -149,7 +149,25 @@ def normalize_step(step: dict) -> dict:
 # ---------------------------------------------------------------- exercise
 
 
-def compile_exercise(path: Path, locale: str) -> dict:
+COMMON_LINES = DATA / "audio/common_lines.yaml"
+
+
+def common_audio() -> dict:
+    """Waits the session machine needs for the lines it speaks itself.
+
+    They belong to no exercise (data/audio/common_lines.yaml), but the machine
+    only ever sees one exercise, so they ride along in its timing block rather
+    than through a second loader.
+    """
+    spec = load_yaml(COMMON_LINES)
+    return {
+        "countdownOpeningMs": int(spec["countdown"]["opening"]["duration_ms"]),
+        "restIntroMs": int(spec["rest"]["intro"]["duration_ms"]),
+        "completionMs": int(spec["completion"]["duration_ms"]),
+    }
+
+
+def compile_exercise(path: Path, locale: str, waits: dict) -> dict:
     raw = load_yaml(path)
     ex = raw["exercise"]
     classification = ex.get("classification", {})
@@ -216,6 +234,11 @@ def compile_exercise(path: Path, locale: str) -> dict:
             # How long the spoken setup line runs, so the countdown can wait
             # for it instead of talking over it (docs/UX_FLOW.md B).
             "prepIntroMs": int(timing.get("prep_intro_ms", 0)),
+            # The two waits for the lines the machine speaks itself: the
+            # countdown's opening, and the break announcement.
+            "countdownOpeningMs": waits["countdownOpeningMs"],
+            "restIntroMs": waits["restIntroMs"],
+            "completionMs": waits["completionMs"],
             "restAfterSeconds": int(timing.get("rest_after_seconds", 10)),
             "completionMode": timing.get("completion_mode", "prescribed_repetitions"),
             "estimatedActiveSeconds": int(timing.get("estimated_active_duration_seconds", 0)),
@@ -591,6 +614,7 @@ def main() -> int:
     hotspots = load_yaml(DATA / "ui/body_map/body_hotspots.yaml")
     home = load_yaml(DATA / "ui/home/home_screen.yaml")
     music = load_yaml(DATA / "music/tracks.yaml")
+    waits = common_audio()
     locale_packs = {}
     for pack in sorted((DATA / "localization").glob("*/common.yaml")):
         locale_packs[pack.parent.name] = load_yaml(pack)["strings"]
@@ -617,7 +641,7 @@ def main() -> int:
             where = ".".join(str(x) for x in err.absolute_path) or "<root>"
             errors.append("{0}: schema error at {1}: {2}".format(path.name, where, err.message))
         try:
-            compiled = compile_exercise(path, locale)
+            compiled = compile_exercise(path, locale, waits)
         except ValueError as exc:
             errors.append(str(exc))
             continue
@@ -749,7 +773,7 @@ def main() -> int:
         bundle_dir = OUT / bundle_locale
         localized_summaries = []
         for path, entry in sources:
-            compiled = compile_exercise(path, bundle_locale)
+            compiled = compile_exercise(path, bundle_locale, waits)
             write_json(bundle_dir / "exercises" / (compiled["id"] + ".json"), compiled)
             localized_summaries.append(summary_of(compiled))
 

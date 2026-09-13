@@ -54,12 +54,18 @@ class TimelineStep {
   String? get keyFrameId =>
       step.frameId ?? step.frameTransition?.to ?? step.frameTransition?.from;
 
-  /// Frame to show at [elapsedMs]. A transition walks its frames evenly.
+  /// Frame to show at [elapsedMs].
+  ///
+  /// The movement starts on the word that names it: the step's opening pose is
+  /// already on screen from the step before, so the step spends its time on
+  /// where it is going. A transition with an intermediate frame still travels
+  /// through it (docs/DECISIONS.md 80).
   String? frameAt(int elapsedMs) {
     if (step.frameId != null) return step.frameId;
-    final List<String> frames =
-        step.frameTransition?.frameIds ?? const <String>[];
-    if (frames.isEmpty) return null;
+    final FrameTransition? transition = step.frameTransition;
+    if (transition == null) return null;
+    final List<String> frames = transition.travelFrames;
+    if (frames.isEmpty) return transition.from;
     final int slot = (localProgress(elapsedMs) * frames.length).floor();
     return frames[slot.clamp(0, frames.length - 1)];
   }

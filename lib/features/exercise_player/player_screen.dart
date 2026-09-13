@@ -78,7 +78,7 @@ class _PlayerScreenState extends ConsumerState<PlayerScreen> {
       ),
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16),
+          padding: const EdgeInsets.symmetric(horizontal: 20),
           child: switch (state.state) {
             SessionState.selected ||
             SessionState.manualBrowseNext ||
@@ -180,6 +180,12 @@ class _SelectedViewState extends State<_SelectedView> {
         text.techniqueTips.isNotEmpty ||
         text.safety != null;
 
+    // One size and one rhythm for everything that is read rather than
+    // glanced at. The instruction is the longest text in the app and it is
+    // read on a phone, so it gets the body size with a line height that
+    // leaves the lines apart (docs/DECISIONS.md 79).
+    final TextStyle? reading = theme.textTheme.bodyLarge?.copyWith(height: 1.5);
+
     // Start stays pinned: the primary action must never require scrolling.
     return Column(
       children: <Widget>[
@@ -205,7 +211,7 @@ class _SelectedViewState extends State<_SelectedView> {
               if (exercise.clinicalStatus != ClinicalStatus.approved)
                 _Notice(text: t('app.exercise.pending_review_notice')),
               if (text.purpose != null) ...<Widget>[
-                Text(text.purpose!, style: theme.textTheme.bodyLarge),
+                Text(text.purpose!, style: reading),
                 const SizedBox(height: 20),
               ],
               // The instruction is on the page only while it is being read.
@@ -213,10 +219,7 @@ class _SelectedViewState extends State<_SelectedView> {
                 if (text.startPosition != null)
                   _Section(
                     title: text.startPositionTitle ?? '',
-                    child: Text(
-                      text.startPosition!,
-                      style: theme.textTheme.bodyMedium,
-                    ),
+                    child: Text(text.startPosition!, style: reading),
                   ),
                 if (text.instructions.isNotEmpty)
                   _Section(
@@ -225,12 +228,10 @@ class _SelectedViewState extends State<_SelectedView> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         for (int i = 0; i < text.instructions.length; i++)
-                          Padding(
-                            padding: const EdgeInsets.only(bottom: 8),
-                            child: Text(
-                              '${i + 1}. ${text.instructions[i]}',
-                              style: theme.textTheme.bodyMedium,
-                            ),
+                          _ListItem(
+                            marker: '${i + 1}.',
+                            text: text.instructions[i],
+                            style: reading,
                           ),
                       ],
                     ),
@@ -242,23 +243,14 @@ class _SelectedViewState extends State<_SelectedView> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         for (final String tip in text.techniqueTips)
-                          Padding(
-                            padding: const EdgeInsets.only(bottom: 8),
-                            child: Text(
-                              '• $tip',
-                              style: theme.textTheme.bodyMedium,
-                            ),
-                          ),
+                          _ListItem(marker: '•', text: tip, style: reading),
                       ],
                     ),
                   ),
                 if (text.safety != null)
                   _Section(
                     title: text.safetyLabel ?? '',
-                    child: Text(
-                      text.safety!,
-                      style: theme.textTheme.bodyMedium,
-                    ),
+                    child: Text(text.safety!, style: reading),
                   ),
               ],
             ],
@@ -347,11 +339,10 @@ class _ActiveView extends StatelessWidget {
     final Exercise exercise = state.exercise!;
     final SessionSnapshot snapshot = state.snapshot;
     final TimelineStep? step = state.currentStep;
-    final bool counting = snapshot.isCountingDown;
-    // The start pose holds through both halves of PREP_COUNTDOWN: the spoken
-    // introduction and then the numbers.
-    final bool beforeMovement =
-        counting || snapshot.state == SessionState.prepCountdown;
+    // The start pose and the number both hold for the whole of
+    // PREP_COUNTDOWN: the spoken lines first, with five already lit, and then
+    // the ticking (docs/UX_FLOW.md B).
+    final bool beforeMovement = snapshot.state == SessionState.prepCountdown;
 
     final String? frameId = beforeMovement
         ? state.timeline?.first.keyFrameId
@@ -395,7 +386,7 @@ class _ActiveView extends StatelessWidget {
                     color: zoneTint,
                   ),
                 ),
-                if (counting)
+                if (beforeMovement)
                   _CountdownOverlay(
                     label: t(StringKeys.startsIn),
                     seconds: snapshot.prepSecondsLeft,
@@ -731,7 +722,7 @@ class _Section extends StatelessWidget {
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
     return Padding(
-      padding: const EdgeInsets.only(bottom: 20),
+      padding: const EdgeInsets.only(bottom: 24),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
@@ -742,9 +733,39 @@ class _Section extends StatelessWidget {
                 fontWeight: FontWeight.w600,
               ),
             ),
-            const SizedBox(height: 8),
+            const SizedBox(height: 10),
           ],
           child,
+        ],
+      ),
+    );
+  }
+}
+
+/// A numbered step or a bullet, with the marker in its own column.
+///
+/// A wrapped line then starts under the text rather than under the number,
+/// which is what makes a list of steps scannable on a narrow screen.
+class _ListItem extends StatelessWidget {
+  const _ListItem({
+    required this.marker,
+    required this.text,
+    required this.style,
+  });
+
+  final String marker;
+  final String text;
+  final TextStyle? style;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 10),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          SizedBox(width: 26, child: Text(marker, style: style)),
+          Expanded(child: Text(text, style: style)),
         ],
       ),
     );

@@ -44,70 +44,80 @@ void main() {
       expect(machine.elapsedMs, 0);
     });
 
-    test('Start says the setup line, and only then counts down', () {
+    test('Start says the setup line, announces five, then counts 4 to 0', () {
       final SessionMachine machine = machineFor('KNEE_001');
       final int introMs = machine.exercise.timing.prepIntroMs;
-      expect(
-        introMs,
-        greaterThan(0),
-        reason: 'this exercise has a setup line to say',
-      );
+      final int openingMs = machine.exercise.timing.countdownOpeningMs;
+      expect(introMs, greaterThan(0), reason: 'this exercise has a setup line');
+      expect(openingMs, greaterThan(0));
+
+      List<int> ticksOf(List<SessionEffect> effects) => <int>[
+        for (final SessionEffect effect in effects)
+          if (effect is PlayCountdownTick) effect.secondsLeft,
+      ];
+      List<String> linesOf(List<SessionEffect> effects) => <String>[
+        for (final SessionEffect effect in effects)
+          if (effect is PlayCommonLine) effect.name,
+      ];
 
       final List<SessionEffect> onStart = machine.handle(
         SessionEventType.start,
       );
 
       expect(machine.state, SessionState.prepCountdown);
-      expect(machine.snapshot.prepSecondsLeft, 5);
-      expect(
-        machine.elapsedMs,
-        0,
-        reason: 'exercise timer waits for the countdown',
-      );
+      expect(machine.elapsedMs, 0, reason: 'the exercise timer waits');
       expect(
         onStart.whereType<PlayVoiceCue>().map((PlayVoiceCue c) => c.eventId),
         contains('VOICE_PREPARE'),
       );
-      // Nothing counts while the line is being said: both go to the same
-      // voice, and "five" over "sit up straight" leaves neither audible.
-      expect(onStart.whereType<PlayCountdownTick>(), isEmpty);
+      // Five is lit from the first frame, before anything has been counted.
+      expect(machine.snapshot.prepSecondsLeft, 5);
       expect(machine.snapshot.isPreparing, isTrue);
-      expect(machine.snapshot.isCountingDown, isFalse);
+      expect(ticksOf(onStart), isEmpty);
+      expect(linesOf(onStart), isEmpty);
 
-      final List<int> duringIntro = <int>[];
+      // Nothing else is said while the setup line runs: one voice, one line.
+      final List<SessionEffect> duringIntro = <SessionEffect>[];
       for (int ms = 0; ms + 100 < introMs; ms += 100) {
-        duringIntro.addAll(
-          machine
-              .tick(const Duration(milliseconds: 100))
-              .whereType<PlayCountdownTick>()
-              .map((PlayCountdownTick t) => t.secondsLeft),
-        );
+        duringIntro.addAll(machine.tick(const Duration(milliseconds: 100)));
       }
-      expect(duringIntro, isEmpty);
+      expect(ticksOf(duringIntro), isEmpty);
+      expect(linesOf(duringIntro), isEmpty);
       expect(machine.snapshot.prepSecondsLeft, 5);
 
-      // The line is over; now five.
-      final List<int> ticks = machine
-          .tick(const Duration(milliseconds: 100))
-          .whereType<PlayCountdownTick>()
-          .map((PlayCountdownTick t) => t.secondsLeft)
-          .toList();
-      expect(ticks, <int>[5]);
-      expect(machine.snapshot.isCountingDown, isTrue);
+      // The line is over: "Починаємо вправу через п'ять", still no ticking,
+      // and five stays lit because the line has just said it.
+      final List<SessionEffect> opening = machine.tick(
+        const Duration(milliseconds: 100),
+      );
+      expect(linesOf(opening), <String>['countdown_opening']);
+      expect(ticksOf(opening), isEmpty);
+      expect(machine.snapshot.prepSecondsLeft, 5);
+      expect(machine.snapshot.isPreparing, isTrue);
+
+      final List<SessionEffect> duringOpening = <SessionEffect>[];
+      for (int ms = 0; ms + 100 < openingMs; ms += 100) {
+        duringOpening.addAll(machine.tick(const Duration(milliseconds: 100)));
+      }
+      expect(ticksOf(duringOpening), isEmpty);
+
+      // And now the numbers, picking up at four.
+      final List<SessionEffect> four = machine.tick(
+        const Duration(milliseconds: 100),
+      );
+      expect(ticksOf(four), <int>[4]);
+      expect(machine.snapshot.prepSecondsLeft, 4);
+      expect(machine.snapshot.isPreparing, isFalse);
 
       final List<int> rest = <int>[];
-      for (int i = 0; i < 4; i++) {
-        rest.addAll(
-          machine
-              .tick(const Duration(seconds: 1))
-              .whereType<PlayCountdownTick>()
-              .map((PlayCountdownTick t) => t.secondsLeft),
-        );
+      for (int i = 0; i < 3; i++) {
+        rest.addAll(ticksOf(machine.tick(const Duration(seconds: 1))));
       }
-      expect(rest, <int>[4, 3, 2, 1]);
+      expect(rest, <int>[3, 2, 1]);
       expect(machine.state, SessionState.prepCountdown);
 
       final List<SessionEffect> last = machine.tick(const Duration(seconds: 1));
+      expect(ticksOf(last), <int>[0], reason: 'zero lands on the movement');
       expect(machine.state, SessionState.active);
       expect(last.whereType<StartMusic>(), isNotEmpty);
     });
@@ -184,14 +194,17 @@ void main() {
     test('pausing during the prep countdown keeps the countdown position', () {
       final SessionMachine machine = machineFor('KNEE_001');
       machine.handle(SessionEventType.start);
-      // Past the setup line, then two seconds of counting.
+      // Past the setup line and the opening, then two seconds of counting.
       machine.tick(Duration(milliseconds: machine.exercise.timing.prepIntroMs));
+      machine.tick(
+        Duration(milliseconds: machine.exercise.timing.countdownOpeningMs),
+      );
       advance(machine, 2);
-      expect(machine.snapshot.prepSecondsLeft, 3);
+      expect(machine.snapshot.prepSecondsLeft, 2);
 
       machine.handle(SessionEventType.pause);
       advance(machine, 5);
-      expect(machine.snapshot.prepSecondsLeft, 3);
+      expect(machine.snapshot.prepSecondsLeft, 2);
 
       machine.handle(SessionEventType.resume);
       expect(machine.state, SessionState.prepCountdown);
@@ -405,17 +418,63 @@ void main() {
       expect(machine.snapshot.autoModeEnabled, isFalse);
     });
 
+    test('the break announces itself, then counts the seconds on screen', () {
+      final SessionMachine machine = machineFor('NECK_002');
+      machine.handle(SessionEventType.start);
+      final int prepMs =
+          machine.exercise.timing.prepIntroMs +
+          machine.exercise.timing.countdownOpeningMs;
+      machine.tick(Duration(milliseconds: prepMs));
+      advance(machine, 5);
+      advance(machine, 51);
+      expect(machine.state, SessionState.autoRest);
+
+      final List<String> lines = <String>[];
+      final List<int> spoken = <int>[];
+      for (int ms = 0; ms < 10000; ms += 100) {
+        for (final SessionEffect effect in machine.tick(
+          const Duration(milliseconds: 100),
+        )) {
+          if (effect is PlayCommonLine) lines.add(effect.name);
+          if (effect is PlayCountdownTick) {
+            spoken.add(effect.secondsLeft);
+            // Synchronised with the timer: the number said is the number
+            // showing, not a count of its own.
+            expect(effect.secondsLeft, machine.snapshot.restSecondsLeft);
+          }
+        }
+      }
+
+      expect(lines, <String>['rest_intro']);
+      expect(spoken, isNotEmpty);
+      expect(spoken, equals(<int>[...spoken]..sort((int a, int b) => b - a)));
+      expect(spoken.last, 1, reason: 'the next exercise speaks for the zero');
+      // Nothing is said while "Готово." and the announcement run.
+      expect(spoken.first, lessThan(10));
+    });
+
     test('an auto-started exercise still gets its prep countdown', () {
       final SessionMachine machine = machineFor('KNEE_001');
       final List<SessionEffect> effects = machine.beginAutoStarted();
 
       expect(machine.state, SessionState.prepCountdown);
       expect(machine.snapshot.autoModeEnabled, isTrue);
-      // The setup line first, then the numbers — same as a manual start.
+      // The setup line, then the opening, then the numbers — same as a
+      // manual start.
       expect(effects.whereType<PlayVoiceCue>(), isNotEmpty);
       expect(
         machine
             .tick(Duration(milliseconds: machine.exercise.timing.prepIntroMs))
+            .whereType<PlayCommonLine>(),
+        isNotEmpty,
+      );
+      expect(
+        machine
+            .tick(
+              Duration(
+                milliseconds: machine.exercise.timing.countdownOpeningMs,
+              ),
+            )
             .whereType<PlayCountdownTick>(),
         isNotEmpty,
       );

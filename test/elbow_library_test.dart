@@ -116,7 +116,6 @@ void main() {
       for (final String eventId in <String>[
         'VOICE_SETUP',
         'VOICE_START_MOVEMENT',
-        'VOICE_HALFWAY',
         'VOICE_COMPLETED',
       ]) {
         final AudioEvent? event = exercise.audioEventById(eventId);

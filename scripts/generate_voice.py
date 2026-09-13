@@ -98,11 +98,28 @@ CUE_SAMPLE_RATE = "44100"
 PASSAGE_BITRATE = "32k"
 PASSAGE_SAMPLE_RATE = "22050"
 
-# Spoken once and reused by every exercise (docs/AUDIO_SPEC.md).
-COUNTDOWN = {
-    "uk": {5: "П'ять.", 4: "Чотири.", 3: "Три.", 2: "Два.", 1: "Один."},
-    "en": {5: "Five.", 4: "Four.", 3: "Three.", 2: "Two.", 1: "One."},
-}
+# Spoken by the session machine rather than by an exercise
+# (data/audio/common_lines.yaml).
+COMMON_LINES = DATA / "audio/common_lines.yaml"
+
+
+def common_lines(lang: str) -> list[tuple[str, str, str]]:
+    """(target file, text, source) for the countdown and the break."""
+    spec = yaml.safe_load(COMMON_LINES.read_text(encoding="utf-8"))
+    out = [
+        (
+            "audio/{0}/common/countdown_{1}.m4a".format(lang, number),
+            words[lang],
+            "countdown {0}".format(number),
+        )
+        for number, words in sorted(spec["countdown"]["numbers"].items())
+    ]
+    for source, block in (
+        ("countdown opening", spec["countdown"]["opening"]),
+        ("rest intro", spec["rest"]["intro"]),
+    ):
+        out.append((localized(block["file"], lang), block[lang], source))
+    return out
 
 
 def load_env() -> None:
@@ -168,12 +185,8 @@ def collect(lang: str, only: str | None) -> list[tuple[str, str, str, bool]]:
     lines: dict[str, tuple[str, str, bool]] = {}
 
     if only is None:
-        for seconds, text in COUNTDOWN.get(lang, {}).items():
-            lines["audio/{0}/common/countdown_{1}.m4a".format(lang, seconds)] = (
-                text,
-                "countdown",
-                False,
-            )
+        for target, text, source in common_lines(lang):
+            lines[target] = (text, source, False)
 
     index = load_yaml(DATA / "exercises/index.yaml")
     for entry in index["exercises"]:

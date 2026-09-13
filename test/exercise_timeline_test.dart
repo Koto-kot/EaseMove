@@ -65,23 +65,71 @@ void main() {
       );
     });
 
-    test('frame transitions walk their frames in order', () {
+    test('a transition starts moving on the word, not halfway through it', () {
       final TimelineStep extend = timeline.steps[1];
       expect(extend.step.phase, 'PHASE_EXTEND');
-      expect(extend.frameAt(extend.startMs), 'FRAME_START');
+      // FRAME_START is where the step before left off, so the step does not
+      // play it again: at the instant "Повільно випряміть ногу" is said, the
+      // leg is already on its way (docs/DECISIONS.md 80).
+      expect(extend.frameAt(extend.startMs), 'FRAME_LEFT_MID');
       expect(
         extend.frameAt(extend.startMs + extend.durationMs ~/ 2),
-        'FRAME_LEFT_MID',
+        'FRAME_LEFT_EXTENDED',
       );
       expect(extend.frameAt(extend.endMs - 1), 'FRAME_LEFT_EXTENDED');
+    });
+
+    test('a two-frame transition arrives at once', () {
+      // Most of the library has no intermediate frame. There the whole step is
+      // the destination pose, so the picture and the word change together.
+      final Exercise elbow = loadExerciseFromDisk('ELBOW_001');
+      final ExerciseTimeline elbowTimeline = ExerciseTimeline.build(elbow);
+      final TimelineStep flex = elbowTimeline.steps[1];
+      expect(flex.step.phase, 'PHASE_B');
+      expect(flex.step.frameTransition!.from, 'FRAME_EXTENDED');
+      expect(flex.frameAt(flex.startMs), 'FRAME_FLEXED');
+      expect(flex.frameAt(flex.endMs - 1), 'FRAME_FLEXED');
+    });
+
+    test('no step in the library opens on the pose it is leaving', () {
+      // What the listener hears and what they see have to agree: a step that
+      // spends its first moments on the pose it is moving away from puts the
+      // picture behind the word by half a step (docs/DECISIONS.md 80). A step
+      // that holds a pose has a single frame and nothing to move.
+      final Map<String, dynamic> index = loadJsonFromDisk(
+        'assets/content/uk/index.json',
+      );
+      int checked = 0;
+      for (final dynamic entry in index['exercises'] as List<dynamic>) {
+        final String id = (entry as Map)['id'] as String;
+        final ExerciseTimeline built = ExerciseTimeline.build(
+          loadExerciseFromDisk(id),
+        );
+        for (final TimelineStep step in built.steps) {
+          final FrameTransition? transition = step.step.frameTransition;
+          if (transition == null) continue;
+          checked++;
+          expect(
+            step.frameAt(step.startMs),
+            isNot(transition.from),
+            reason: '$id/${step.step.id} opens on the pose it is leaving',
+          );
+          expect(
+            step.frameAt(step.endMs - 1),
+            transition.to,
+            reason: '$id/${step.step.id} does not arrive',
+          );
+        }
+      }
+      expect(checked, greaterThan(40), reason: 'the library has transitions');
     });
 
     test('reduced motion pins each step to one key pose', () {
       final TimelineStep extend = timeline.steps[1];
       expect(extend.step.frameTransition, isNotNull);
 
-      // Normal playback walks the transition...
-      expect(extend.frameAt(extend.startMs), 'FRAME_START');
+      // Normal playback travels through the intermediate pose...
+      expect(extend.frameAt(extend.startMs), 'FRAME_LEFT_MID');
       expect(extend.frameAt(extend.endMs - 1), 'FRAME_LEFT_EXTENDED');
 
       // ...while reduced motion shows the settled pose for the whole step.
@@ -138,10 +186,31 @@ void main() {
     });
 
     test('progress_crossed cue lands at the declared percentage', () {
-      final ScheduledCue cue = timeline.cues.firstWhere(
-        (ScheduledCue cue) => cue.eventId == 'VOICE_HALFWAY',
+      // No exercise uses this trigger any more — the halfway cue was the last
+      // one, and it was dropped because it interrupted the movement — but the
+      // engine still resolves it, so it is exercised against a cue added to a
+      // real exercise here rather than left untested.
+      final Map<String, dynamic> raw = loadJsonFromDisk(
+        'assets/content/uk/exercises/KNEE_001.json',
       );
-      expect(cue.atMs, timeline.totalDurationMs ~/ 2);
+      (raw['audio']['events'] as List<dynamic>).add(<String, dynamic>{
+        'id': 'VOICE_THREE_QUARTERS',
+        'type': 'progress',
+        'priority': 50,
+        'interruptible': true,
+        'text': 'Три чверті.',
+        'trigger': <String, dynamic>{
+          'event': 'progress_crossed',
+          'percent': 75,
+        },
+      });
+      final ExerciseTimeline built = ExerciseTimeline.build(
+        Exercise.fromJson(raw),
+      );
+      final ScheduledCue cue = built.cues.firstWhere(
+        (ScheduledCue cue) => cue.eventId == 'VOICE_THREE_QUARTERS',
+      );
+      expect(cue.atMs, (built.totalDurationMs * 75 / 100).round());
     });
 
     test('last repetition cue fires once per block', () {

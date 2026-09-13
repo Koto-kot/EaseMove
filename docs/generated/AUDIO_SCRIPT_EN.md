@@ -9,7 +9,7 @@ Do not edit by hand: change the cue text in the exercise file instead.
 
 **Voice modes:** "always" is spoken in every mode; the movement-words and counting lines are spoken only when the listener has picked that mode in Settings, and must be short — they have to fit inside half a movement cycle, about two seconds.
 
-Recorded 124 of 124 lines.
+Recorded 131 of 131 lines.
 
 ## Shared lines
 
@@ -20,14 +20,21 @@ Recorded once and reused by every exercise.
 | Done. | always | `audio/en/common/completed.m4a` | 22 exercises | recorded |
 | One. | counting mode | `audio/en/common/count_one.m4a` | 22 exercises | recorded |
 | Two. | counting mode | `audio/en/common/count_two.m4a` | 22 exercises | recorded |
+| Zero. | always | `audio/en/common/countdown_0.m4a` | preparation countdown | recorded |
 | One. | always | `audio/en/common/countdown_1.m4a` | preparation countdown | recorded |
+| Ten. | always | `audio/en/common/countdown_10.m4a` | preparation countdown | recorded |
 | Two. | always | `audio/en/common/countdown_2.m4a` | preparation countdown | recorded |
 | Three. | always | `audio/en/common/countdown_3.m4a` | preparation countdown | recorded |
 | Four. | always | `audio/en/common/countdown_4.m4a` | preparation countdown | recorded |
 | Five. | always | `audio/en/common/countdown_5.m4a` | preparation countdown | recorded |
-| Halfway done. | always | `audio/en/common/halfway.m4a` | 22 exercises | recorded |
+| Six. | always | `audio/en/common/countdown_6.m4a` | preparation countdown | recorded |
+| Seven. | always | `audio/en/common/countdown_7.m4a` | preparation countdown | recorded |
+| Eight. | always | `audio/en/common/countdown_8.m4a` | preparation countdown | recorded |
+| Nine. | always | `audio/en/common/countdown_9.m4a` | preparation countdown | recorded |
+| Starting the exercise in five. | always | `audio/en/common/countdown_opening.m4a` | preparation countdown | recorded |
 | Hold. | movement words mode | `audio/en/common/hold.m4a` | 2 exercises | recorded |
 | Last repetition. | always | `audio/en/common/last_repetition.m4a` | 3 exercises | recorded |
+| A ten second break between exercises. | always | `audio/en/common/rest_intro.m4a` | the break between exercises | recorded |
 | Return to the centre. | movement words mode | `audio/en/common/return_center.m4a` | NECK_002 | recorded |
 | Now the other leg. | always | `audio/en/common/switch_leg.m4a` | 2 exercises | recorded |
 

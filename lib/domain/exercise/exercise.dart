@@ -279,6 +279,9 @@ class ExerciseTiming {
   const ExerciseTiming({
     required this.prepCountdownSeconds,
     required this.prepIntroMs,
+    required this.countdownOpeningMs,
+    required this.restIntroMs,
+    required this.completionMs,
     required this.restAfterSeconds,
     required this.completionMode,
     required this.estimatedActiveSeconds,
@@ -289,6 +292,9 @@ class ExerciseTiming {
       prepCountdownSeconds:
           (json['prepCountdownSeconds'] as num?)?.toInt() ?? 5,
       prepIntroMs: (json['prepIntroMs'] as num?)?.toInt() ?? 0,
+      countdownOpeningMs: (json['countdownOpeningMs'] as num?)?.toInt() ?? 0,
+      restIntroMs: (json['restIntroMs'] as num?)?.toInt() ?? 0,
+      completionMs: (json['completionMs'] as num?)?.toInt() ?? 0,
       restAfterSeconds: (json['restAfterSeconds'] as num?)?.toInt() ?? 10,
       completionMode:
           json['completionMode'] as String? ?? 'prescribed_repetitions',
@@ -304,6 +310,20 @@ class ExerciseTiming {
   /// (docs/UX_FLOW.md B). Measured from the recorded pack; zero means there is
   /// nothing to wait for.
   final int prepIntroMs;
+
+  /// How long "Починаємо вправу через п'ять" runs. It announces the five
+  /// itself, so the five stays lit for this long and the ticking picks up at
+  /// four (data/audio/common_lines.yaml).
+  final int countdownOpeningMs;
+
+  /// How long "Перерва між вправами — десять секунд" runs. The break's own
+  /// countdown starts speaking only after it, and then names whatever second
+  /// the timer is actually showing.
+  final int restIntroMs;
+
+  /// How long "Готово." runs. The break announcement waits for it rather than
+  /// cutting the last word of the exercise.
+  final int completionMs;
 
   final int restAfterSeconds;
   final String completionMode;
@@ -472,9 +492,21 @@ class FrameTransition {
   final String? via;
   final String? to;
 
-  /// Frames in playback order, skipping the optional intermediate frame.
+  /// Every frame the transition names, in order. Used for asset checks.
   List<String> get frameIds => <String>[
     if (from != null) from!,
+    if (via != null) via!,
+    if (to != null) to!,
+  ];
+
+  /// The frames the step actually travels through.
+  ///
+  /// [from] is the pose the previous step ended on, so it is not played
+  /// again: the step's own time belongs to where it is going. Playing it
+  /// meant the picture only reached the new pose halfway through the step,
+  /// half a second or more after the voice named the movement
+  /// (docs/DECISIONS.md 80).
+  List<String> get travelFrames => <String>[
     if (via != null) via!,
     if (to != null) to!,
   ];

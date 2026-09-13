@@ -44,6 +44,8 @@ class PlayerState {
       elapsedMs: 0,
       prepRemainingMs: 0,
       prepIntroRemainingMs: 0,
+      prepOpeningRemainingMs: 0,
+      prepSecondsTotal: 5,
       restRemainingMs: 0,
       pauseCount: 0,
       autoModeEnabled: false,
@@ -333,6 +335,9 @@ class PlayerController extends StateNotifier<PlayerState> {
 
         case PlayCountdownTick(:final int secondsLeft):
           unawaited(_audio?.countdown(secondsLeft) ?? Future<void>.value());
+
+        case PlayCommonLine(:final String name):
+          unawaited(_audio?.commonLine(name) ?? Future<void>.value());
 
         case StartMusic():
           final MusicTrack? track = _musicTrack;

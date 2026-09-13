@@ -103,6 +103,9 @@
   "timing": {
     "prepCountdownSeconds": 5,
     "prepIntroMs": 5000,
+    "countdownOpeningMs": 2800,
+    "restIntroMs": 3400,
+    "completionMs": 1200,
     "restAfterSeconds": 10,
     "completionMode": "timed_duration",
     "estimatedActiveSeconds": 61
@@ -253,27 +256,6 @@
           "phase": "PHASE_SETUP",
           "side": null,
           "percent": null,
-          "stepIds": [],
-          "repetitionNumber": null,
-          "relativePosition": null,
-          "offsetMs": null
-        }
-      },
-      {
-        "id": "VOICE_HALFWAY",
-        "type": "progress",
-        "priority": 50,
-        "interruptible": true,
-        "playOncePerSide": false,
-        "voiceMode": null,
-        "text": "Половину виконано.",
-        "assetKey": "common.voice.halfway",
-        "assetFile": "audio/uk/common/halfway.m4a",
-        "trigger": {
-          "event": "progress_crossed",
-          "phase": null,
-          "side": null,
-          "percent": 50,
           "stepIds": [],
           "repetitionNumber": null,
           "relativePosition": null,
