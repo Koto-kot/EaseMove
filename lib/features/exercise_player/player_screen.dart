@@ -184,9 +184,17 @@ class _SelectedViewState extends State<_SelectedView> {
 
     // One size and one rhythm for everything that is read rather than
     // glanced at. The instruction is the longest text in the app and it is
-    // read on a phone, so it gets the body size with a line height that
-    // leaves the lines apart (docs/DECISIONS.md 79).
-    final TextStyle? reading = theme.textTheme.bodyLarge?.copyWith(height: 1.5);
+    // read on a phone, so it gets a line height that leaves the lines apart
+    // (docs/DECISIONS.md 79).
+    //
+    // 18 rather than the platform's 16: these are people with sore joints,
+    // mostly not young, and the buttons around this text are already 17 and
+    // 18. Text that is read should not be smaller than the labels that are
+    // glanced at (docs/DECISIONS.md 89).
+    final TextStyle? reading = theme.textTheme.bodyLarge?.copyWith(
+      fontSize: 18,
+      height: 1.5,
+    );
 
     // Start stays pinned: the primary action must never require scrolling.
     return Column(
@@ -731,7 +739,10 @@ class _Section extends StatelessWidget {
           if (title.isNotEmpty) ...<Widget>[
             Text(
               title,
+              // Above the 18 of the text it heads, or the heading would be
+              // the smaller of the two.
               style: theme.textTheme.titleMedium?.copyWith(
+                fontSize: 20,
                 fontWeight: FontWeight.w600,
               ),
             ),
@@ -766,7 +777,12 @@ class _ListItem extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          SizedBox(width: 26, child: Text(marker, style: style)),
+          // The column grows with the system font: at a large accessibility
+          // size a fixed 28 would clip "7." against the text beside it.
+          SizedBox(
+            width: MediaQuery.textScalerOf(context).scale(28),
+            child: Text(marker, style: style),
+          ),
           Expanded(child: Text(text, style: style)),
         ],
       ),

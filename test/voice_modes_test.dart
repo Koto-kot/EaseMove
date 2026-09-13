@@ -345,12 +345,27 @@ void main() {
     expect(find.text('1. $firstStep'), findsNothing);
     expect(find.text('1.'), findsOneWidget);
 
-    // The tips and the warning are further down the same page.
-    await tester.drag(find.byType(ListView), const Offset(0, -400));
-    await settleFrames(tester);
+    // Read at 18, not at the platform's 16 (docs/DECISIONS.md 89).
+    expect(tester.widget<Text>(find.text(firstStep)).style?.fontSize, 18);
+    expect(
+      tester.widget<Text>(find.text('Як виконувати')).style?.fontSize,
+      greaterThan(18),
+      reason: 'a heading is not smaller than the text under it',
+    );
+
+    // The tips and the warning are further down the same page. How many
+    // drags that takes depends on the text size, so scroll until they show
+    // rather than assuming a distance.
+    Future<void> scrollTo(String label) async {
+      for (int i = 0; i < 12 && find.text(label).evaluate().isEmpty; i++) {
+        await tester.drag(find.byType(ListView), const Offset(0, -300));
+        await settleFrames(tester);
+      }
+    }
+
+    await scrollTo('Зверніть увагу');
     expect(find.text('Зверніть увагу'), findsOneWidget);
-    await tester.drag(find.byType(ListView), const Offset(0, -400));
-    await settleFrames(tester);
+    await scrollTo('Безпека');
     expect(find.text('Безпека'), findsOneWidget);
 
     // The same button folds them away again.
