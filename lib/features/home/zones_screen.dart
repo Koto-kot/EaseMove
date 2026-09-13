@@ -28,7 +28,6 @@ class ZonesScreen extends ConsumerWidget {
     );
 
     return Scaffold(
-      drawer: const AppDrawer(),
       appBar: AppBar(
         title: Text(t('app.zones.title')),
         actions: const <Widget>[AppMenuButton()],

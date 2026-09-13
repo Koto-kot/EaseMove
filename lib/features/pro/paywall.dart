@@ -102,7 +102,6 @@ class ProPlanScreen extends ConsumerWidget {
     final EntitlementsService entitlements = ref.watch(entitlementsProvider);
 
     return Scaffold(
-      drawer: const AppDrawer(),
       appBar: AppBar(
         title: Text(t('app.pro.title')),
         actions: const <Widget>[AppMenuButton()],

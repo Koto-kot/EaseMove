@@ -37,7 +37,7 @@ auto-start наступної`
 - clinical gate, feature flags, Free/Pro entitlements, contextual paywall;
 - локалізація `uk` + `en`, частковий `pl` (домашній екран і зони) з per-key
   fallback, усе з одного authoring-джерела;
-- 140 тестів (state machine, timeline, контент, локалізація, entitlements,
+- 143 тести (state machine, timeline, контент, локалізація, entitlements,
   домашній екран, бібліотеки шиї та ліктів, режими голосу, acceptance-флоу).
 
 Ще не зроблено: production-кадри для колін (артворк тіла, десяти вправ для

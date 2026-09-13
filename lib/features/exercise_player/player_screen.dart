@@ -61,14 +61,12 @@ class _PlayerScreenState extends ConsumerState<PlayerScreen> {
     final Exercise? exercise = state.exercise;
     if (exercise == null || state.error != null) {
       return Scaffold(
-        drawer: const AppDrawer(),
         appBar: AppBar(actions: const <Widget>[AppMenuButton()]),
         body: Center(child: Text(t('app.common.error'))),
       );
     }
 
     return Scaffold(
-      drawer: const AppDrawer(),
       appBar: AppBar(
         title: Text(exercise.text.title),
         actions: <Widget>[

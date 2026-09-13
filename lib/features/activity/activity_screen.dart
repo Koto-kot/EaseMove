@@ -37,7 +37,6 @@ class ActivityScreen extends ConsumerWidget {
         );
 
     return Scaffold(
-      drawer: const AppDrawer(current: AppMenuTarget.activity),
       appBar: AppBar(
         title: Text(t('app.activity.title')),
         actions: const <Widget>[AppMenuButton()],

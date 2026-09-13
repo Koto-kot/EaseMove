@@ -28,7 +28,6 @@ class CatalogScreen extends ConsumerWidget {
     final bool showIds = ref.watch(settingsProvider).devShowIds;
 
     return Scaffold(
-      drawer: const AppDrawer(),
       appBar: AppBar(
         title: Text(
           repository.maybeWhen(

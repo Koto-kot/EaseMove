@@ -133,10 +133,11 @@ void main() {
         ),
       );
       await settle(tester);
-      // Settings lives in the menu now, and nowhere else.
+      // The menu is the settings list now, and the melodies live in a group
+      // that opens on tap (docs/DECISIONS.md 87).
       await tester.tap(find.byTooltip('Меню'));
       await settle(tester);
-      await tester.tap(find.text('Налаштування'));
+      await tester.tap(find.text('Фонова музика'));
       await settle(tester);
     }
 
@@ -152,9 +153,8 @@ void main() {
       await openSettings(tester);
       final List<MusicTrack> tracks = catalogue();
 
-      expect(find.text('Мелодія'), findsOneWidget);
       for (final MusicTrack track in tracks) {
-        expect(find.text(track.title), findsOneWidget);
+        expect(find.text(track.title), findsWidgets);
         expect(find.text(track.attribution), findsOneWidget);
       }
 
@@ -202,12 +202,23 @@ void main() {
       WidgetTester tester,
     ) async {
       await openSettings(tester);
-      expect(find.text('Мелодія'), findsOneWidget);
+      final List<MusicTrack> tracks = catalogue();
+      expect(find.text(tracks.last.title), findsOneWidget);
 
-      await tester.tap(find.text('Фонова музика'));
+      // The switch on the group's own row, not the row itself: tapping the
+      // row would only close the group.
+      await tester.tap(
+        find.descendant(
+          of: find.ancestor(
+            of: find.text('Фонова музика'),
+            matching: find.byType(ListTile),
+          ),
+          matching: find.byType(Switch),
+        ),
+      );
       await settle(tester);
 
-      expect(find.text('Мелодія'), findsNothing);
+      expect(find.text(tracks.last.title), findsNothing);
       expect(find.byType(Slider), findsNothing);
     });
   });

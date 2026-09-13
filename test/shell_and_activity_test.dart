@@ -6,6 +6,8 @@ import 'package:ease_move/app/providers.dart';
 import 'package:ease_move/core/audio/audio_service.dart';
 import 'package:ease_move/core/config/feature_flags.dart';
 import 'package:ease_move/core/storage/local_store.dart';
+import 'package:ease_move/data/content_bundle.dart';
+import 'package:ease_move/data/exercise_repository.dart';
 import 'package:ease_move/domain/exercise/session_machine.dart';
 import 'package:ease_move/features/home/home_screen.dart';
 import 'package:ease_move/features/home/widgets/body_map_view.dart';
@@ -108,6 +110,74 @@ void main() {
       find.byKey(const ValueKey<String>('home.card.body')),
       findsOneWidget,
     );
+  });
+
+  testWidgets('every dot on the map leads somewhere', (
+    WidgetTester tester,
+  ) async {
+    // Reported as "the exercises are gone": aiming at the neck landed on the
+    // shoulder 21 px below it, aiming at the elbow landed on the wrist 47 px
+    // below it, and both of those zones are empty — so the map answered
+    // "no exercises yet" for two zones that have nineteen between them
+    // (docs/DECISIONS.md 86).
+    usePhoneScreen(tester);
+    await tester.pumpWidget(wrap());
+    await settle(tester);
+
+    final ExerciseRepository repo = await container.read(
+      exerciseRepositoryProvider.future,
+    );
+    final List<BodyHotspot> shown = <BodyHotspot>[
+      for (final BodyHotspot spot in repo.bundle.bodyMap.hotspots)
+        if (find
+            .byKey(ValueKey<String>('hotspot.${spot.id}'))
+            .evaluate()
+            .isNotEmpty)
+          spot,
+    ];
+
+    expect(shown, isNotEmpty);
+    for (final BodyHotspot spot in shown) {
+      expect(
+        repo.byCollection(spot.collectionId),
+        isNotEmpty,
+        reason: '${spot.id} offers a zone with nothing in it',
+      );
+    }
+    for (final BodyHotspot spot in repo.bundle.bodyMap.hotspots) {
+      if (repo.byCollection(spot.collectionId).isNotEmpty) continue;
+      expect(
+        find.byKey(ValueKey<String>('hotspot.${spot.id}')),
+        findsNothing,
+        reason: '${spot.id} is empty and must not take a tap from a neighbour',
+      );
+    }
+
+    // The two the report named.
+    expect(find.byKey(const ValueKey<String>('hotspot.neck')), findsOneWidget);
+    expect(
+      find.byKey(const ValueKey<String>('hotspot.left_elbow')),
+      findsOneWidget,
+    );
+    expect(
+      find.byKey(const ValueKey<String>('hotspot.left_shoulder')),
+      findsNothing,
+    );
+  });
+
+  testWidgets('tapping the neck opens the neck exercises', (
+    WidgetTester tester,
+  ) async {
+    usePhoneScreen(tester);
+    await tester.pumpWidget(wrap());
+    await settle(tester);
+
+    await tester.tap(find.byKey(const ValueKey<String>('hotspot.neck')));
+    await tester.pump(const Duration(milliseconds: 400));
+    await settle(tester);
+
+    expect(find.text('Повороти голови'), findsOneWidget);
+    expect(find.text('Для цієї зони вправи ще готуються'), findsNothing);
   });
 
   testWidgets('a desktop-width window keeps the phone layout', (

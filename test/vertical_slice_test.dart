@@ -276,16 +276,22 @@ void main() {
 
     expect(find.text('Рухайся легше'), findsOneWidget);
 
-    // The map still shows every zone, but the gate lets nothing through:
-    // tapping one explains itself instead of opening an empty catalog.
-    await openKneeZone(tester);
-
-    expect(find.byType(ExerciseCard), findsNothing);
+    // The gate lets nothing through, so the figure offers no zone at all: a
+    // dot that leads nowhere is what made the map answer "not yet" for zones
+    // that were full (docs/DECISIONS.md 86).
     expect(
-      find.textContaining('вправи ще готуються'),
-      findsOneWidget,
+      find.byKey(const ValueKey<String>('hotspot.left_knee')),
+      findsNothing,
       reason: 'pending_review content must not reach a production build',
     );
+
+    // The named section still opens, and explains itself instead of showing
+    // an empty list.
+    await tester.tap(find.byKey(const ValueKey<String>('home.card.body')));
+    await settle(tester);
+
+    expect(find.byType(ExerciseCard), findsNothing);
+    expect(find.textContaining('вправи ще готуються'), findsOneWidget);
   });
   testWidgets('the last exercise in a collection ends on a completion screen', (
     WidgetTester tester,

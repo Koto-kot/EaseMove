@@ -55,7 +55,6 @@ class HomeScreen extends ConsumerWidget {
     );
 
     return Scaffold(
-      drawer: const AppDrawer(),
       body: SafeArea(
         child: repository.when(
           loading: () => const Center(child: CircularProgressIndicator()),
@@ -116,6 +115,13 @@ class _HomeBody extends StatelessWidget {
     final Map<String, String> zoneTitles = <String, String>{
       for (final BodyZone zone in repo.bundle.zones) zone.id: zone.shortTitle,
     };
+    // The same rule the "Choose an area" list already follows: a zone appears
+    // when it has something to open.
+    final Set<String> available = <String>{
+      for (final ExerciseCollection collection
+          in repo.nonEmptyZoneCollections())
+        collection.id,
+    };
 
     return Center(
       child: ConstrainedBox(
@@ -153,6 +159,7 @@ class _HomeBody extends StatelessWidget {
                       Expanded(
                         child: BodyMapView(
                           config: repo.bundle.bodyMap,
+                          availableCollections: available,
                           zoneTitles: zoneTitles,
                           hint: home.hintKey == null ? null : t(home.hintKey!),
                           onZoneSelected: (BodyHotspot spot) =>

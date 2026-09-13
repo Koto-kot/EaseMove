@@ -15,6 +15,7 @@ typedef HotspotTap = void Function(BodyHotspot spot);
 class BodyMapView extends StatefulWidget {
   const BodyMapView({
     required this.config,
+    required this.availableCollections,
     required this.zoneTitles,
     required this.onZoneSelected,
     this.hint,
@@ -22,6 +23,16 @@ class BodyMapView extends StatefulWidget {
   });
 
   final BodyMapConfig config;
+
+  /// Collections that actually have something to show.
+  ///
+  /// A dot for an empty zone is worse than no dot: it advertises exercises
+  /// that do not exist, and — because the nearest centre within 44 px wins a
+  /// tap — it steals the tap from the zone next to it. The shoulder sits 21 px
+  /// under the neck and the wrist 47 px under the elbow, so aiming at the two
+  /// zones that are full landed on the two that are empty
+  /// (docs/DECISIONS.md 86).
+  final Set<String> availableCollections;
 
   /// Zone id to its short title, for the semantic label of each dot. Paired
   /// dots share the label, so a screen reader announces "Коліна" for either
@@ -89,6 +100,12 @@ class _BodyMapViewState extends State<BodyMapView>
     widget.onZoneSelected(spot);
   }
 
+  /// The dots of [view] that lead somewhere.
+  List<BodyHotspot> _liveHotspots(String view) => <BodyHotspot>[
+    for (final BodyHotspot spot in widget.config.forView(view))
+      if (widget.availableCollections.contains(spot.collectionId)) spot,
+  ];
+
   @override
   Widget build(BuildContext context) {
     final BodyMapArtwork? front = widget.config.artwork['front'];
@@ -125,7 +142,7 @@ class _BodyMapViewState extends State<BodyMapView>
                   height: frontHeight,
                   child: _Figure(
                     artwork: front,
-                    hotspots: widget.config.forView('front'),
+                    hotspots: _liveHotspots('front'),
                     rules: widget.config.rules,
                     zoneTitles: widget.zoneTitles,
                     highlighted: _highlighted,
@@ -143,7 +160,7 @@ class _BodyMapViewState extends State<BodyMapView>
                     height: miniHeight,
                     child: _Figure(
                       artwork: back,
-                      hotspots: widget.config.forView('back_mini'),
+                      hotspots: _liveHotspots('back_mini'),
                       rules: widget.config.rules,
                       zoneTitles: widget.zoneTitles,
                       highlighted: _highlighted,
