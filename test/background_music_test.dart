@@ -254,6 +254,73 @@ void main() {
       );
     });
 
+    testWidgets('takes the music away when the movement ends', (
+      WidgetTester tester,
+    ) async {
+      final InMemoryLocalStore store = InMemoryLocalStore();
+      await store.writeSettings(
+        const AppSettings(
+          localeOverride: 'uk',
+          devSkipCountdowns: true,
+          devTimingMultiplier: 0.05,
+        ),
+      );
+      final LoggingAudioService audio = LoggingAudioService();
+      late ProviderContainer container;
+
+      tester.view
+        ..devicePixelRatio = 1.0
+        ..physicalSize = const Size(400, 900);
+      addTearDown(tester.view.reset);
+
+      await tester.pumpWidget(
+        ProviderScope(
+          overrides: <Override>[
+            localStoreProvider.overrideWithValue(store),
+            assetBundleProvider.overrideWithValue(DiskAssetBundle()),
+            audioServiceProvider.overrideWithValue(audio),
+          ],
+          child: Consumer(
+            builder: (BuildContext context, WidgetRef ref, Widget? child) {
+              container = ProviderScope.containerOf(context);
+              return const EaseMoveApp();
+            },
+          ),
+        ),
+      );
+      await settle(tester);
+      await tester.tap(find.byKey(const ValueKey<String>('hotspot.left_knee')));
+      await tester.pump(const Duration(milliseconds: 400));
+      await settle(tester);
+      await tester.tap(find.text('Почати').first);
+      await settle(tester);
+      await tester.tap(find.widgetWithText(FilledButton, 'Старт'));
+      await settle(tester);
+
+      SessionState stateNow() => container
+          .read(
+            playerControllerProvider((
+              exerciseId: 'KNEE_001',
+              collectionId: 'body_knees',
+            )),
+          )
+          .state;
+
+      // Stopped as soon as the movement is over, so the break and the next
+      // exercise's instructions are heard in quiet.
+      for (int i = 0; i < 600 && stateNow() == SessionState.active; i++) {
+        await tester.pump(const Duration(milliseconds: 50));
+      }
+      expect(stateNow(), isNot(SessionState.active));
+
+      expect(audio.log, contains('musicStop'));
+      expect(
+        audio.log.indexOf('musicStop'),
+        greaterThan(audio.log.indexWhere((String e) => e.startsWith('music:'))),
+        reason: 'it is taken away after it was started, not instead',
+      );
+    });
+
     testWidgets('a track the build no longer carries falls back to the first', (
       WidgetTester tester,
     ) async {

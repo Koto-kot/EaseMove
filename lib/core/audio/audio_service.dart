@@ -21,12 +21,36 @@ abstract interface class AudioService {
   /// A line the session says on its own, by asset stem under
   /// `audio/<lang>/common/` (data/audio/common_lines.yaml).
   Future<void> playCommonLine(String name);
-  Future<void> playMusic(String trackId);
+
+  /// Starts the background track, arriving over [fadeIn].
+  Future<void> playMusic(String trackId, {required Duration fadeIn});
+
+  /// Takes the background track away over [fadeOut], leaving the voice alone.
+  Future<void> stopMusic({required Duration fadeOut});
   Future<void> pauseAll();
   Future<void> resumeAll();
   Future<void> stopAll();
   Future<void> setVoiceVolume(double value);
   Future<void> setMusicVolume(double value);
+}
+
+/// How long the background music takes to arrive and to leave.
+///
+/// The music belongs to the movement and to nothing else, so it is started and
+/// stopped several times in a session — once per exercise. At that rate the
+/// edges matter more than the middle: a level that snaps on under the first
+/// instruction is heard as a mistake (docs/DECISIONS.md 83).
+abstract final class MusicFade {
+  /// Under the countdown's zero and the exercise's first words.
+  static const Duration arrive = Duration(milliseconds: 2000);
+
+  /// Long enough to still be leaving while "Готово." is said, and gone before
+  /// the break is announced.
+  static const Duration leave = Duration(milliseconds: 2500);
+
+  /// A tap on a melody in Settings is a question being answered, so it answers
+  /// quickly.
+  static const Duration preview = Duration(milliseconds: 400);
 }
 
 /// Applies the documented mix and priority rules on top of any player.
@@ -115,8 +139,13 @@ class SessionAudioController {
     if (!musicEnabled) return;
     // No dynamic ducking by default (docs/TECHNICAL_SPEC.md 10).
     await service.setMusicVolume(musicVolume);
-    await service.playMusic(trackId);
+    await service.playMusic(trackId, fadeIn: MusicFade.arrive);
   }
+
+  /// The music belongs to the movement: it leaves when the movement does, so
+  /// the break, the instructions and the countdown of the next exercise are
+  /// heard in quiet (docs/AUDIO_SPEC.md, "When the music plays").
+  Future<void> stopMusic() => service.stopMusic(fadeOut: MusicFade.leave);
 
   Future<void> pause() => service.pauseAll();
 
@@ -159,7 +188,12 @@ class LoggingAudioService implements AudioService {
   Future<void> playCommonLine(String name) async => log.add('line:$name');
 
   @override
-  Future<void> playMusic(String trackId) async => log.add('music:$trackId');
+  Future<void> playMusic(String trackId, {required Duration fadeIn}) async =>
+      log.add('music:$trackId');
+
+  @override
+  Future<void> stopMusic({required Duration fadeOut}) async =>
+      log.add('musicStop');
 
   @override
   Future<void> pauseAll() async => log.add('pause');

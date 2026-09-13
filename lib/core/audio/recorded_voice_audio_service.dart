@@ -9,12 +9,15 @@
 /// an improvement and never a regression.
 library;
 
+import 'dart:async';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:just_audio/just_audio.dart';
 
 import '../../domain/exercise/exercise.dart';
 import 'audio_service.dart';
+import 'volume_fader.dart';
 
 class RecordedVoiceAudioService implements AudioService {
   RecordedVoiceAudioService({
@@ -44,6 +47,18 @@ class RecordedVoiceAudioService implements AudioService {
 
   AudioPlayer get _voice => _voicePlayer ??= AudioPlayer();
   AudioPlayer get _music => _musicPlayer ??= AudioPlayer();
+
+  /// Shapes the music's entrances and exits. It never creates the player: a
+  /// volume set before anything plays is only remembered.
+  late final VolumeFader _musicFade = VolumeFader(
+    apply: (double value) async => _musicPlayer?.setVolume(value),
+  );
+
+  /// The level the listener chose, kept across a fade to nothing so the next
+  /// exercise starts where the last one left off. The opening value is only a
+  /// floor: [setMusicVolume] runs before any track does
+  /// (AppSettings.defaultMusicVolume).
+  double _musicLevel = 0.4;
 
   /// Remembers what is bundled, so a missing line costs one failed load and
   /// not one per repetition.
@@ -129,21 +144,64 @@ class RecordedVoiceAudioService implements AudioService {
   Future<Duration?> _playAsset(String path) async {
     await _voice.stop();
     final Duration? length = await _voice.setAsset(path);
-    await _voice.play();
+    _start(_voice);
     return length;
   }
 
+  /// Starts a player without waiting for it.
+  ///
+  /// `AudioPlayer.play()` answers when playback *finishes*, not when it begins
+  /// (just_audio's README says as much). Awaiting it means the next line of
+  /// code runs a sentence later — or, for a looping track, never.
+  void _start(AudioPlayer player) {
+    unawaited(
+      player.play().catchError((Object error) {
+        debugPrint('[audio] play failed: $error');
+      }),
+    );
+  }
+
   @override
-  Future<void> playMusic(String trackId) async {
+  Future<void> playMusic(String trackId, {required Duration fadeIn}) async {
     final String path = 'audio/music/$trackId.m4a';
     if (!await isBundled(path)) return;
     try {
+      _musicFade.cancel();
       await _music.setAsset(path);
       await _music.setLoopMode(LoopMode.one);
-      await _music.play();
+      // Silent first, then brought up: setting the asset does not reset the
+      // volume, so without this the track would open at full level.
+      await _music.setVolume(0);
+      _start(_music);
+      _musicFade.ramp(from: 0, to: _musicLevel, over: fadeIn);
     } on Object catch (error) {
       debugPrint('[audio] $path failed: $error');
     }
+  }
+
+  @override
+  Future<void> stopMusic({required Duration fadeOut}) async {
+    final AudioPlayer? player = _musicPlayer;
+    if (player == null) return;
+    if (!player.playing) {
+      _musicFade.cancel();
+      await player.stop();
+      _musicFade.target = _musicLevel;
+      return;
+    }
+    _musicFade.ramp(
+      from: player.volume,
+      to: 0,
+      over: fadeOut,
+      onDone: () => unawaited(_settleAfterFadeOut(player)),
+    );
+  }
+
+  /// The track is only stopped once it cannot be heard, and the listener's
+  /// level is put back for the next exercise.
+  Future<void> _settleAfterFadeOut(AudioPlayer player) async {
+    await player.stop();
+    _musicFade.target = _musicLevel;
   }
 
   @override
@@ -157,14 +215,19 @@ class RecordedVoiceAudioService implements AudioService {
   Future<void> resumeAll() async {
     // The voice cue is not resumed: the timeline will deliver the next one at
     // its own offset, and half a sentence is worse than none.
-    await _musicPlayer?.play();
+    final AudioPlayer? music = _musicPlayer;
+    if (music != null) _start(music);
     await fallback.resumeAll();
   }
 
   @override
   Future<void> stopAll() async {
+    // Silence now, not gracefully: this is Stop, Exit and dispose, where a
+    // track still fading in the background would be a bug and not a kindness.
+    _musicFade.cancel();
     await _voicePlayer?.stop();
     await _musicPlayer?.stop();
+    _musicFade.target = _musicLevel;
     await fallback.stopAll();
   }
 
@@ -176,11 +239,15 @@ class RecordedVoiceAudioService implements AudioService {
 
   @override
   Future<void> setMusicVolume(double value) async {
-    await _musicPlayer?.setVolume(value);
+    _musicLevel = value;
+    // A ramp in flight bends towards the new level rather than jumping to it,
+    // so the slider stays usable while a preview is still arriving.
+    _musicFade.target = value;
     await fallback.setMusicVolume(value);
   }
 
   Future<void> dispose() async {
+    _musicFade.cancel();
     await _voicePlayer?.dispose();
     await _musicPlayer?.dispose();
   }

@@ -68,6 +68,14 @@ class StartMusic extends SessionEffect {
   const StartMusic();
 }
 
+/// The movement is over, so the music goes — while the voice carries on into
+/// the break. The music accompanies the exercise and nothing else: not the
+/// instructions, not the countdown, not the ten seconds in between
+/// (docs/DECISIONS.md 83).
+class StopMusic extends SessionEffect {
+  const StopMusic();
+}
+
 class PauseAudio extends SessionEffect {
   const PauseAudio();
 }
@@ -567,6 +575,9 @@ class SessionMachine {
     }
 
     if (completed) {
+      // Before "Готово.", so the track is already on its way out while the
+      // last word of the exercise is said.
+      effects.add(const StopMusic());
       final AudioEvent? done = _eventByTrigger('exercise_completed');
       if (done != null) {
         effects.add(

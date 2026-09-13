@@ -418,6 +418,47 @@ void main() {
       expect(machine.snapshot.autoModeEnabled, isFalse);
     });
 
+    test('the music plays for the movement and for nothing else', () {
+      final SessionMachine machine = machineFor('NECK_002');
+      final List<String> music = <String>[];
+      void collect(List<SessionEffect> effects) {
+        for (final SessionEffect effect in effects) {
+          if (effect is StartMusic) music.add('start');
+          if (effect is StopMusic) music.add('stop');
+        }
+      }
+
+      collect(advance(machine, 5));
+      expect(music, isEmpty, reason: 'nothing plays before Start');
+
+      collect(machine.handle(SessionEventType.start));
+      collect(
+        machine.tick(
+          Duration(
+            milliseconds:
+                machine.exercise.timing.prepIntroMs +
+                machine.exercise.timing.countdownOpeningMs,
+          ),
+        ),
+      );
+      expect(
+        music,
+        isEmpty,
+        reason: 'the setup line is heard in quiet, and so is the countdown',
+      );
+
+      collect(advance(machine, 5));
+      expect(machine.state, SessionState.active);
+      expect(music, <String>['start']);
+
+      collect(advance(machine, 51));
+      expect(machine.state, SessionState.autoRest);
+      expect(music, <String>['start', 'stop'], reason: 'the movement is over');
+
+      collect(advance(machine, 9));
+      expect(music, <String>['start', 'stop'], reason: 'the break is silent');
+    });
+
     test('the break announces itself, then counts the seconds on screen', () {
       final SessionMachine machine = machineFor('NECK_002');
       machine.handle(SessionEventType.start);

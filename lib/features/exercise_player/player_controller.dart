@@ -345,6 +345,9 @@ class PlayerController extends StateNotifier<PlayerState> {
             unawaited(_audio?.startMusic(track.id) ?? Future<void>.value());
           }
 
+        case StopMusic():
+          unawaited(_audio?.stopMusic() ?? Future<void>.value());
+
         case PauseAudio():
           unawaited(_audio?.pause() ?? Future<void>.value());
 

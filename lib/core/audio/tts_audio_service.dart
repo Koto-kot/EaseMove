@@ -96,9 +96,14 @@ class TtsAudioService implements AudioService {
   }
 
   @override
-  Future<void> playMusic(String trackId) async {
-    // No tracks exist yet (`music/` holds only a README), and TTS cannot
-    // provide background music. Wired when the audio pack lands.
+  Future<void> playMusic(String trackId, {required Duration fadeIn}) async {
+    // Text-to-speech cannot provide background music: the recorded service in
+    // front of this one owns the track and its fades.
+  }
+
+  @override
+  Future<void> stopMusic({required Duration fadeOut}) async {
+    // See playMusic.
   }
 
   @override

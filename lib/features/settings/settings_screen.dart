@@ -37,7 +37,9 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
     final AudioService audio = ref.read(audioServiceProvider);
     _preview = audio;
     audio.setMusicVolume(volume);
-    audio.playMusic(track.id);
+    // A short fade here rather than the session's: a tap is a question, and
+    // the answer should not take two seconds to arrive.
+    audio.playMusic(track.id, fadeIn: MusicFade.preview);
   }
 
   void _stopPreview() {
