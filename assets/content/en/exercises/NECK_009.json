@@ -56,6 +56,8 @@
   ],
   "collectionCandidates": [],
   "text": {
+    "spokenInstructions": "A gentle isometric exercise for the back of the neck and for holding your head neutral. Sit up straight on a stable chair. Feet firmly on the floor, back tall, pelvis steady. Shoulders down and relaxed. Head in a neutral position, looking straight ahead. Your free hand rests on your thigh. Sit up straight and keep your neck long. Place your palm on the back of your head. Gently press the back of your head into your palm, and your palm back against it. Your head stays put; hold for a few seconds. Ease off the pressure and keep repeating until the time is up.",
+    "spokenInstructionsAsset": "audio/uk/exercises/NECK_009/instructions.m4a",
     "title": "Isometric: palm to back of head",
     "shortTitle": "Palm behind head",
     "cardDescription": "Seated, gently press the back of your head into your palm without tipping it back.",

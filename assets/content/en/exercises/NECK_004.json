@@ -56,6 +56,8 @@
   ],
   "collectionCandidates": [],
   "text": {
+    "spokenInstructions": "A starter exercise for gentle neck mobility, well suited to a calm daily routine. Sit up straight on a stable chair. Feet firmly on the floor, pelvis steady, back tall. Shoulders down and relaxed. Hands on your thighs. Head in a neutral position, looking straight ahead. Sit up straight and lengthen your back. Let your shoulders drop and relax. Gently lower your head and your gaze, within a comfortable range. Smoothly return to a neutral head position. Keep repeating at a calm pace until the time is up.",
+    "spokenInstructionsAsset": "audio/uk/exercises/NECK_004/instructions.m4a",
     "title": "Look down",
     "shortTitle": "Look down",
     "cardDescription": "Seated, gently lower your head and your gaze, then return to neutral.",

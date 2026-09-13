@@ -57,6 +57,8 @@
   ],
   "collectionCandidates": [],
   "text": {
+    "spokenInstructions": "An exercise for gentle head-position control, posture and the deep neck muscles. Stand up straight against a wall. Back tall, the back of your head and your upper back touching the wall. Shoulders down and relaxed. Arms hanging freely. Looking straight ahead, chin in a neutral position. Stand up straight at the wall, keeping the back of your head against it. Look straight ahead. Gently draw your chin back, as if making a double chin. Hold for a few seconds and smoothly return to neutral. Keep repeating at a calm pace until the time is up.",
+    "spokenInstructionsAsset": "audio/uk/exercises/NECK_010/instructions.m4a",
     "title": "Chin tuck at the wall",
     "shortTitle": "At the wall",
     "cardDescription": "Standing at a wall, gently draw your chin back and return to neutral.",

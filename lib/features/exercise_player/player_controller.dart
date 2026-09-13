@@ -231,6 +231,10 @@ class PlayerController extends StateNotifier<PlayerState> {
   /// longer to say than a cue, so speaking them over the movement would
   /// collide with the rhythm words and with the halfway cue
   /// (docs/AUDIO_SPEC.md, collision policy).
+  ///
+  /// The passage is recorded in the voice pack like every other line, so the
+  /// listener hears the same voice that guides the exercise rather than the
+  /// device's own text-to-speech (docs/DECISIONS.md 78).
   void speakInstructions() {
     final Exercise? exercise = state.exercise;
     if (exercise == null) return;
@@ -245,8 +249,8 @@ class PlayerController extends StateNotifier<PlayerState> {
               interruptible: true,
               playOncePerSide: false,
               text: speech,
-              assetKey: null,
-              assetFile: null,
+              assetKey: 'exercise.instructions',
+              assetFile: exercise.text.spokenInstructionsAsset,
               trigger: const AudioTrigger(
                 event: 'user_requested',
                 phase: null,

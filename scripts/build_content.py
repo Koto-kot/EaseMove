@@ -207,7 +207,7 @@ def compile_exercise(path: Path, locale: str) -> dict:
         "tagGroups": classification.get("tags") or {},
         "collections": classification.get("collections") or [],
         "collectionCandidates": classification.get("collection_candidates") or [],
-        "text": compile_text(loc),
+        "text": compile_text(loc, ex["id"]),
         "labels": compile_labels(raw.get("ui"), locale),
         "timing": {
             "prepCountdownSeconds": int(
@@ -307,9 +307,35 @@ def frame_ids_of(step: dict) -> list:
     return [v for v in (transition.get("from"), transition.get("via"), transition.get("to")) if v]
 
 
-def compile_text(loc: dict) -> dict:
+# Where the read-aloud file for an exercise lives, in the authoring language;
+# RecordedVoiceAudioService rewrites the locale segment for the listener.
+INSTRUCTIONS_ASSET = "audio/{0}/exercises/{1}/instructions.m4a"
+
+
+def spoken_instructions(loc: dict) -> str:
+    """The instruction block as one passage: what the exercise is for, how to
+    sit or stand, then the steps.
+
+    Composed here rather than in the app, because two things have to say the
+    same words: the screen that reads them aloud, and scripts/generate_voice.py
+    which records them. One definition, so a reworded step cannot leave the
+    recording behind (docs/AUDIO_SPEC.md, "Інструкція на вимогу").
+    """
+    parts = [loc.get("purpose_text"), loc.get("start_position_text")]
+    parts += [item.get("text") for item in (loc.get("instructions") or [])]
+    return " ".join(part.strip() for part in parts if part and part.strip())
+
+
+def compile_text(loc: dict, exercise_id: str) -> dict:
     instructions = loc.get("instructions") or []
+    passage = spoken_instructions(loc)
     return {
+        "spokenInstructions": passage,
+        "spokenInstructionsAsset": (
+            INSTRUCTIONS_ASSET.format(AUTHORING_LOCALE, exercise_id)
+            if passage
+            else None
+        ),
         "title": loc.get("title"),
         "shortTitle": loc.get("short_title"),
         "cardDescription": loc.get("card_description"),

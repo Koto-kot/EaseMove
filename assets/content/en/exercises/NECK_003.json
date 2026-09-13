@@ -56,6 +56,8 @@
   ],
   "collectionCandidates": [],
   "text": {
+    "spokenInstructions": "A starter exercise for gentle side-to-side neck mobility. Sit up straight on a stable chair. Feet firmly on the floor. Shoulders relaxed. Head in a neutral position, looking straight ahead. Hands on your thighs. Sit up straight and let your shoulders drop and relax. Gently tilt your head to the right, bringing your ear toward your shoulder. Come back to the centre. Tilt your head to the left in the same gentle way. Keep alternating at a calm pace until the time is up.",
+    "spokenInstructionsAsset": "audio/uk/exercises/NECK_003/instructions.m4a",
     "title": "Ear to shoulder",
     "shortTitle": "Head tilts",
     "cardDescription": "Seated, gently tilt your head toward one shoulder, then the other.",

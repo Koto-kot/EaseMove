@@ -64,6 +64,8 @@
   ],
   "collectionCandidates": [],
   "text": {
+    "spokenInstructions": "A simple exercise for the elbows and forearms with no equipment. The movement comes from the forearms only. Sit up straight on a stable chair. Upper arms by your body, elbows bent to about ninety degrees, forearms pointing forward, palms facing up. Sit up straight and keep your elbows by your body. Start with your palms facing up. Smoothly rotate your forearms so your palms face down. Return to the palms-up position.",
+    "spokenInstructionsAsset": "audio/uk/exercises/ELBOW_005/instructions.m4a",
     "title": "Palms up, palms down",
     "shortTitle": "Forearm rotation",
     "cardDescription": "Seated, rotate your forearms so your palms turn up and down.",

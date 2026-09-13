@@ -56,6 +56,8 @@
   ],
   "collectionCandidates": [],
   "text": {
+    "spokenInstructions": "A starter exercise for gentle neck mobility and for easing stiffness after long sitting. Sit up straight on a stable chair. Feet firmly on the floor, back tall, pelvis steady. Shoulders down and relaxed. Hands on your thighs. Head in a neutral position, looking straight ahead. Sit up straight and lengthen your back. Gently lower your head and gaze diagonally to the left. Come back to the centre. Lower your head and gaze diagonally to the right in the same way. Keep alternating at a calm pace until the time is up.",
+    "spokenInstructionsAsset": "audio/uk/exercises/NECK_006/instructions.m4a",
     "title": "Diagonal look down",
     "shortTitle": "Diagonal",
     "cardDescription": "Seated, gently lower your head and gaze diagonally left, then right.",

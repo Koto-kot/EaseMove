@@ -20,6 +20,7 @@ put "five" back on top of it, which is a defect nobody would see in a diff.
 """
 from __future__ import annotations
 
+import json
 import struct
 import sys
 from pathlib import Path
@@ -70,6 +71,7 @@ WORDS = {
         "todo": "потрібно записати",
         "no_path": "немає шляху",
         "countdown": "відлік підготовки",
+        "instructions": "кнопка «Прослухати інструкцію»",
         "always": "завжди",
         "phase_words": "режим «Слова руху»",
         "count": "режим «Лічба»",
@@ -102,6 +104,7 @@ WORDS = {
         "todo": "to record",
         "no_path": "no path",
         "countdown": "preparation countdown",
+        "instructions": "the \"listen to the steps\" button",
         "always": "always",
         "phase_words": "movement words mode",
         "count": "counting mode",
@@ -112,6 +115,15 @@ WORDS = {
 
 def load(path: Path):
     return yaml.safe_load(path.read_text(encoding="utf-8"))
+
+
+def compiled_text(exercise_id: str, lang: str) -> dict:
+    """The compiled text block, which is where the spoken passage is composed
+    (scripts/build_content.py). Run that first; CI does."""
+    path = ROOT / "assets/content/{0}/exercises/{1}.json".format(lang, exercise_id)
+    if not path.exists():
+        return {}
+    return json.loads(path.read_text(encoding="utf-8")).get("text", {})
 
 
 def escape(text: str) -> str:
@@ -200,6 +212,23 @@ def build(lang: str) -> tuple[int, int]:
             rows.append(
                 "| `{0}` | {1} | {2} | `{3}` | {4} |".format(
                     event["id"], when(mode), escape(text), target, state
+                )
+            )
+
+        # The read-aloud instruction passage. It is not an `audio.events`
+        # entry — its words are the instruction text itself — but it is a line
+        # somebody has to record, so it belongs in the script.
+        passage = compiled_text(ex_id, lang)
+        text = passage.get("spokenInstructions") or ""
+        target = localized(passage.get("spokenInstructionsAsset") or "", lang)
+        if text and target:
+            total += 1
+            state = status(target)
+            if state == words["recorded"]:
+                recorded += 1
+            rows.append(
+                "| `VOICE_INSTRUCTIONS` | {0} | {1} | `{2}` | {3} |".format(
+                    words["instructions"], escape(text), target, state
                 )
             )
 

@@ -56,6 +56,8 @@
   ],
   "collectionCandidates": [],
   "text": {
+    "spokenInstructions": "A gentle isometric exercise for the side neck muscles and for keeping your head centred. Sit up straight on a stable chair. Feet firmly on the floor, back tall, pelvis steady. Shoulders down and relaxed. Head in a neutral position, looking straight ahead. Your free hand rests on your thigh. Sit up straight and keep your head centred. Place your palm against your right temple. Gently press your temple into your palm and your palm back against it; your head does not tilt. Ease off the pressure and change sides. Keep alternating at a calm pace until the time is up.",
+    "spokenInstructionsAsset": "audio/uk/exercises/NECK_008/instructions.m4a",
     "title": "Isometric: palm to temple",
     "shortTitle": "Palm to temple",
     "cardDescription": "Seated, gently press your temple into your palm without tilting your head. Then change sides.",

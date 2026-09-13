@@ -219,6 +219,8 @@ class ExerciseText {
     required this.safetyLabel,
     required this.safety,
     required this.completion,
+    required this.spokenInstructions,
+    required this.spokenInstructionsAsset,
   });
 
   factory ExerciseText.fromJson(Map<String, dynamic> json) {
@@ -239,6 +241,8 @@ class ExerciseText {
       safetyLabel: json['safetyLabel'] as String?,
       safety: json['safety'] as String?,
       completion: json['completion'] as String?,
+      spokenInstructions: json['spokenInstructions'] as String? ?? '',
+      spokenInstructionsAsset: json['spokenInstructionsAsset'] as String?,
     );
   }
 
@@ -259,14 +263,16 @@ class ExerciseText {
   /// The instruction block as one spoken passage: what the exercise is for,
   /// how to sit or stand, then the numbered steps. Read aloud on request from
   /// the idle screen (docs/AUDIO_SPEC.md).
-  String get spokenInstructions {
-    final List<String> parts = <String>[
-      if (purpose != null && purpose!.isNotEmpty) purpose!,
-      if (startPosition != null && startPosition!.isNotEmpty) startPosition!,
-      ...instructions.where((String step) => step.isNotEmpty),
-    ];
-    return parts.join(' ');
-  }
+  ///
+  /// Composed by scripts/build_content.py rather than here, because
+  /// scripts/generate_voice.py records this exact passage: one definition, so
+  /// a reworded step cannot leave the recording behind.
+  final String spokenInstructions;
+
+  /// The recording of [spokenInstructions], in the authoring language. The
+  /// player rewrites the locale segment for the listener and speaks the text
+  /// instead when the pack does not carry the file.
+  final String? spokenInstructionsAsset;
 }
 
 class ExerciseTiming {

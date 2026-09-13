@@ -56,6 +56,8 @@
   ],
   "collectionCandidates": [],
   "text": {
+    "spokenInstructions": "A gentle neck movement that suits short daily breaks. This is not a full head tip back. Sit up straight on a stable chair. Feet firmly on the floor, pelvis steady. Back tall, without arching. Shoulders down and relaxed. Hands on your thighs. Head in a neutral position, looking straight ahead. Sit up straight and let your shoulders drop. Look straight ahead. Gently lift your chin and your gaze a little. Smoothly return to a neutral head position. Keep repeating at a calm pace until the time is up.",
+    "spokenInstructionsAsset": "audio/uk/exercises/NECK_005/instructions.m4a",
     "title": "Look slightly up",
     "shortTitle": "Look up",
     "cardDescription": "Seated, lift your chin and your gaze a little, then return to neutral.",

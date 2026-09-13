@@ -280,6 +280,12 @@ void main() {
     for (final String step in exercise.text.instructions) {
       expect(speech, contains(step));
     }
+    // And the passage names the recording of itself, so the button plays the
+    // pack's voice instead of the device's own (docs/DECISIONS.md 78).
+    expect(
+      exercise.text.spokenInstructionsAsset,
+      'audio/uk/exercises/ELBOW_001/instructions.m4a',
+    );
   });
 
   testWidgets('the idle screen reads the steps aloud on request', (
@@ -417,6 +423,21 @@ void main() {
             final String folder = path.substring(0, path.lastIndexOf('/') + 1);
             expect(pubspec, contains('- $folder'), reason: folder);
           }
+        }
+
+        // Including the read-aloud instruction passage, which is what the
+        // "listen to the steps" button plays: before it was recorded, that
+        // button fell through to the device's own text-to-speech and sounded
+        // nothing like the rest of the session (docs/DECISIONS.md 78).
+        for (final String id in ids) {
+          final Exercise ex = loadExerciseFromDisk(id);
+          final String? passage = pack.localizedAssetPath(
+            ex.text.spokenInstructionsAsset,
+          );
+          expect(passage, isNotNull, reason: '$id has no read-aloud asset');
+          expect(passage, startsWith('audio/$lang/'));
+          expect(File(passage!).existsSync(), isTrue, reason: '$id: $passage');
+          expect(await pack.isBundled(passage), isTrue, reason: passage);
         }
 
         // Including the countdown, which no exercise declares by name.

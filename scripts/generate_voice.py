@@ -90,6 +90,14 @@ FFMPEG_FILTER = (
     "loudnorm=I=-16:TP=-1.5:LRA=11"
 )
 
+# Cues are a few seconds long; the read-aloud instruction passage is closer to
+# forty. Both come out of a 22 kHz synthesizer, so the passage loses nothing at
+# half the bit rate and the pack does not double in size because of it.
+CUE_BITRATE = "64k"
+CUE_SAMPLE_RATE = "44100"
+PASSAGE_BITRATE = "32k"
+PASSAGE_SAMPLE_RATE = "22050"
+
 # Spoken once and reused by every exercise (docs/AUDIO_SPEC.md).
 COUNTDOWN = {
     "uk": {5: "П'ять.", 4: "Чотири.", 3: "Три.", 2: "Два.", 1: "Один."},
@@ -140,15 +148,31 @@ def localized(target: str, lang: str) -> str:
     return "/".join(parts)
 
 
-def collect(lang: str, only: str | None) -> list[tuple[str, str, str]]:
-    """(target file, text, where it came from), deduplicated by target file."""
-    lines: dict[str, tuple[str, str]] = {}
+def compiled_text(exercise_id: str, lang: str) -> dict:
+    """The exercise as the app will read it, in this language.
+
+    The instruction passage is composed by scripts/build_content.py, so the
+    recording and the screen say the same words by construction.
+    """
+    path = ROOT / "assets/content/{0}/exercises/{1}.json".format(lang, exercise_id)
+    if not path.exists():
+        raise SystemExit(
+            "ERROR: {0} is not compiled. Run scripts/build_content.py "
+            "first.".format(path.relative_to(ROOT))
+        )
+    return json.loads(path.read_text(encoding="utf-8"))["text"]
+
+
+def collect(lang: str, only: str | None) -> list[tuple[str, str, str, bool]]:
+    """(target file, text, where it came from, is a long passage)."""
+    lines: dict[str, tuple[str, str, bool]] = {}
 
     if only is None:
         for seconds, text in COUNTDOWN.get(lang, {}).items():
             lines["audio/{0}/common/countdown_{1}.m4a".format(lang, seconds)] = (
                 text,
                 "countdown",
+                False,
             )
 
     index = load_yaml(DATA / "exercises/index.yaml")
@@ -165,10 +189,26 @@ def collect(lang: str, only: str | None) -> list[tuple[str, str, str]]:
             # this keeps the order stable across runs.
             lines.setdefault(
                 localized(target, lang),
-                (text, "{0}/{1}".format(entry["id"], event["id"])),
+                (text, "{0}/{1}".format(entry["id"], event["id"]), False),
             )
 
-    return [(target, lines[target][0], lines[target][1]) for target in sorted(lines)]
+        # The "listen to the steps" passage. Not an `audio.events` entry: its
+        # words are the instruction text itself, and duplicating them into a
+        # cue would give the same sentence two places to be edited.
+        text = compiled_text(entry["id"], lang)
+        passage = text.get("spokenInstructions") or ""
+        target = text.get("spokenInstructionsAsset")
+        if passage and target:
+            lines[localized(target, lang)] = (
+                passage,
+                "{0}/instructions".format(entry["id"]),
+                True,
+            )
+
+    return [
+        (target, lines[target][0], lines[target][1], lines[target][2])
+        for target in sorted(lines)
+    ]
 
 
 def missing_text(lang: str) -> list[str]:
@@ -230,7 +270,7 @@ def sapi_voice(lang: str) -> str | None:
 
 
 def speak_with_sapi(
-    todo: list[tuple[str, str, str]], voice: str, ffmpeg: str
+    todo: list[tuple[str, str, str, bool]], voice: str, ffmpeg: str
 ) -> list[str]:
     """One PowerShell run for all the WAVs, then ffmpeg per file.
 
@@ -241,7 +281,7 @@ def speak_with_sapi(
     with tempfile.TemporaryDirectory() as tmp:
         manifest = [
             {"text": text, "wav": str(Path(tmp) / ("line_%03d.wav" % n))}
-            for n, (_, text, _) in enumerate(todo)
+            for n, (_, text, _, _) in enumerate(todo)
         ]
         manifest_path = Path(tmp) / "lines.json"
         manifest_path.write_text(
@@ -293,7 +333,7 @@ $synth.Dispose()
             print(result.stderr)
             raise SystemExit("ERROR: speech synthesis failed")
 
-        for (target, _, _), item in zip(todo, manifest):
+        for (target, _, _, passage), item in zip(todo, manifest):
             wav = Path(item["wav"])
             if not wav.exists() or wav.stat().st_size == 0:
                 print("  FAILED {0}: nothing was spoken".format(target))
@@ -314,9 +354,9 @@ $synth.Dispose()
                     "-c:a",
                     "aac",
                     "-b:a",
-                    "64k",
+                    PASSAGE_BITRATE if passage else CUE_BITRATE,
                     "-ar",
-                    "44100",
+                    PASSAGE_SAMPLE_RATE if passage else CUE_SAMPLE_RATE,
                     "-ac",
                     "1",
                     str(path),
@@ -336,10 +376,12 @@ $synth.Dispose()
 # ----------------------------------------------------------------- openai ---
 
 
-def speak_with_openai(todo: list[tuple[str, str, str]], lang: str) -> list[str]:
+def speak_with_openai(
+    todo: list[tuple[str, str, str, bool]], lang: str
+) -> list[str]:
     api = openai_client()
     written: list[str] = []
-    for target, text, _ in todo:
+    for target, text, _, _ in todo:
         path = ROOT / target
         path.parent.mkdir(parents=True, exist_ok=True)
         try:
@@ -410,9 +452,9 @@ def main() -> int:
         )
     print()
 
-    for target, text, source in todo:
+    for target, text, source, _ in todo:
         print("  {0}".format(target))
-        print("      [{0}] {1}".format(source, text))
+        print("      [{0}] {1}".format(source, text[:160]))
 
     if not todo:
         print("Nothing to do. Pass --force to re-record.")

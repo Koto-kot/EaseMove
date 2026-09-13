@@ -57,6 +57,8 @@
   ],
   "collectionCandidates": [],
   "text": {
+    "spokenInstructions": "A gentle exercise for neck mobility. Sit up straight on a stable chair. Place your feet on the floor. Drop and relax your shoulders. Look straight ahead. Slowly turn your head to the left, as far as is comfortable. Hold the position for 5 seconds. Slowly return to the centre. Slowly turn your head to the right, as far as is comfortable. Hold the position for 5 seconds. Slowly return to the centre. Repeat 3 times to each side.",
+    "spokenInstructionsAsset": "audio/uk/exercises/NECK_002/instructions.m4a",
     "title": "Head turns",
     "shortTitle": "Turns",
     "cardDescription": "Slowly turn your head to the left and to the right.",

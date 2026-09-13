@@ -56,6 +56,8 @@
   ],
   "collectionCandidates": [],
   "text": {
+    "spokenInstructions": "A gentle isometric exercise for the neck muscles and for head-position control. Sit up straight on a stable chair. Feet firmly on the floor, back tall, pelvis steady. Shoulders down and relaxed. Head in a neutral position, looking straight ahead. One hand rests on your thigh, the other is ready to meet your forehead. Sit up straight and keep your head level. Place your palm on the centre of your forehead, elbow loosely bent. Gently press your forehead into your palm, and your palm back against it. Your head stays put; hold for a few seconds. Ease off the pressure and keep repeating until the time is up.",
+    "spokenInstructionsAsset": "audio/uk/exercises/NECK_007/instructions.m4a",
     "title": "Isometric: palm to forehead",
     "shortTitle": "Palm to forehead",
     "cardDescription": "Seated, gently press your forehead into your palm, with almost no head movement.",

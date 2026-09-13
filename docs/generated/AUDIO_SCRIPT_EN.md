@@ -9,7 +9,7 @@ Do not edit by hand: change the cue text in the exercise file instead.
 
 **Voice modes:** "always" is spoken in every mode; the movement-words and counting lines are spoken only when the listener has picked that mode in Settings, and must be short — they have to fit inside half a movement cycle, about two seconds.
 
-Recorded 102 of 102 lines.
+Recorded 124 of 124 lines.
 
 ## Shared lines
 
@@ -39,6 +39,7 @@ Recorded once and reused by every exercise.
 | `VOICE_START_MOVEMENT` | always | Gently draw your chin back. Do not drop your head down. Return to your normal position. | `audio/en/exercises/NECK_001/start_movement.m4a` | recorded |
 | `VOICE_PHASE_B` | movement words mode | Chin back. | `audio/en/exercises/NECK_001/phase_b.m4a` | recorded |
 | `VOICE_PHASE_A` | movement words mode | Neutral. | `audio/en/exercises/NECK_001/phase_a.m4a` | recorded |
+| `VOICE_INSTRUCTIONS` | the "listen to the steps" button | A starter exercise for waking the neck up gently and finding a good head position. Sit up straight on a stable chair. Feet firmly on the floor. Shoulders relaxed. Head level, looking straight ahead. Hands resting by your sides or on your thighs. Sit up straight and place your feet on the floor. Look straight ahead. Gently draw your chin back — the movement goes back, not down. Smoothly return to neutral. Keep repeating at a calm pace until the time is up. | `audio/en/exercises/NECK_001/instructions.m4a` | recorded |
 
 ## NECK_002 — Повороти голови
 
@@ -48,6 +49,7 @@ Recorded once and reused by every exercise.
 | `VOICE_TURN_LEFT` | movement words mode | Slowly turn your head to the left. | `audio/en/exercises/NECK_002/turn_left.m4a` | recorded |
 | `VOICE_TURN_RIGHT` | movement words mode | Now to the right. | `audio/en/exercises/NECK_002/turn_right.m4a` | recorded |
 | `VOICE_LAST_CYCLE` | always | Last cycle. | `audio/en/exercises/NECK_002/last_cycle.m4a` | recorded |
+| `VOICE_INSTRUCTIONS` | the "listen to the steps" button | A gentle exercise for neck mobility. Sit up straight on a stable chair. Place your feet on the floor. Drop and relax your shoulders. Look straight ahead. Slowly turn your head to the left, as far as is comfortable. Hold the position for 5 seconds. Slowly return to the centre. Slowly turn your head to the right, as far as is comfortable. Hold the position for 5 seconds. Slowly return to the centre. Repeat 3 times to each side. | `audio/en/exercises/NECK_002/instructions.m4a` | recorded |
 
 ## NECK_003 — Нахил голови до плеча
 
@@ -57,6 +59,7 @@ Recorded once and reused by every exercise.
 | `VOICE_START_MOVEMENT` | always | Gently tilt your head to the right. Come back to the centre. Then tilt to the left. | `audio/en/exercises/NECK_003/start_movement.m4a` | recorded |
 | `VOICE_PHASE_B` | movement words mode | Left. | `audio/en/exercises/NECK_003/phase_b.m4a` | recorded |
 | `VOICE_PHASE_A` | movement words mode | Right. | `audio/en/exercises/NECK_003/phase_a.m4a` | recorded |
+| `VOICE_INSTRUCTIONS` | the "listen to the steps" button | A starter exercise for gentle side-to-side neck mobility. Sit up straight on a stable chair. Feet firmly on the floor. Shoulders relaxed. Head in a neutral position, looking straight ahead. Hands on your thighs. Sit up straight and let your shoulders drop and relax. Gently tilt your head to the right, bringing your ear toward your shoulder. Come back to the centre. Tilt your head to the left in the same gentle way. Keep alternating at a calm pace until the time is up. | `audio/en/exercises/NECK_003/instructions.m4a` | recorded |
 
 ## NECK_004 — Погляд вниз
 
@@ -66,6 +69,7 @@ Recorded once and reused by every exercise.
 | `VOICE_START_MOVEMENT` | always | From neutral, gently lower your head and your gaze. Then come back to neutral. | `audio/en/exercises/NECK_004/start_movement.m4a` | recorded |
 | `VOICE_PHASE_B` | movement words mode | Down. | `audio/en/exercises/NECK_004/phase_b.m4a` | recorded |
 | `VOICE_PHASE_A` | movement words mode | Neutral. | `audio/en/exercises/NECK_004/phase_a.m4a` | recorded |
+| `VOICE_INSTRUCTIONS` | the "listen to the steps" button | A starter exercise for gentle neck mobility, well suited to a calm daily routine. Sit up straight on a stable chair. Feet firmly on the floor, pelvis steady, back tall. Shoulders down and relaxed. Hands on your thighs. Head in a neutral position, looking straight ahead. Sit up straight and lengthen your back. Let your shoulders drop and relax. Gently lower your head and your gaze, within a comfortable range. Smoothly return to a neutral head position. Keep repeating at a calm pace until the time is up. | `audio/en/exercises/NECK_004/instructions.m4a` | recorded |
 
 ## NECK_005 — Легкий погляд вгору
 
@@ -75,6 +79,7 @@ Recorded once and reused by every exercise.
 | `VOICE_START_MOVEMENT` | always | Gently lift your chin and your gaze a little. Then come back to neutral. | `audio/en/exercises/NECK_005/start_movement.m4a` | recorded |
 | `VOICE_PHASE_B` | movement words mode | Up. | `audio/en/exercises/NECK_005/phase_b.m4a` | recorded |
 | `VOICE_PHASE_A` | movement words mode | Neutral. | `audio/en/exercises/NECK_005/phase_a.m4a` | recorded |
+| `VOICE_INSTRUCTIONS` | the "listen to the steps" button | A gentle neck movement that suits short daily breaks. This is not a full head tip back. Sit up straight on a stable chair. Feet firmly on the floor, pelvis steady. Back tall, without arching. Shoulders down and relaxed. Hands on your thighs. Head in a neutral position, looking straight ahead. Sit up straight and let your shoulders drop. Look straight ahead. Gently lift your chin and your gaze a little. Smoothly return to a neutral head position. Keep repeating at a calm pace until the time is up. | `audio/en/exercises/NECK_005/instructions.m4a` | recorded |
 
 ## NECK_006 — Діагональний погляд вниз
 
@@ -84,6 +89,7 @@ Recorded once and reused by every exercise.
 | `VOICE_START_MOVEMENT` | always | Gently lower your head and gaze diagonally to the left. Come back to the centre. Then diagonally to the right. | `audio/en/exercises/NECK_006/start_movement.m4a` | recorded |
 | `VOICE_PHASE_B` | movement words mode | Right. | `audio/en/exercises/NECK_006/phase_b.m4a` | recorded |
 | `VOICE_PHASE_A` | movement words mode | Left. | `audio/en/exercises/NECK_006/phase_a.m4a` | recorded |
+| `VOICE_INSTRUCTIONS` | the "listen to the steps" button | A starter exercise for gentle neck mobility and for easing stiffness after long sitting. Sit up straight on a stable chair. Feet firmly on the floor, back tall, pelvis steady. Shoulders down and relaxed. Hands on your thighs. Head in a neutral position, looking straight ahead. Sit up straight and lengthen your back. Gently lower your head and gaze diagonally to the left. Come back to the centre. Lower your head and gaze diagonally to the right in the same way. Keep alternating at a calm pace until the time is up. | `audio/en/exercises/NECK_006/instructions.m4a` | recorded |
 
 ## NECK_007 — Ізометрія: долоня до лоба
 
@@ -93,6 +99,7 @@ Recorded once and reused by every exercise.
 | `VOICE_START_MOVEMENT` | always | Place your palm on your forehead. Gently press your forehead into your palm without moving your head. | `audio/en/exercises/NECK_007/start_movement.m4a` | recorded |
 | `VOICE_PHASE_B` | movement words mode | Press. | `audio/en/exercises/NECK_007/phase_b.m4a` | recorded |
 | `VOICE_PHASE_A` | movement words mode | Release. | `audio/en/exercises/NECK_007/phase_a.m4a` | recorded |
+| `VOICE_INSTRUCTIONS` | the "listen to the steps" button | A gentle isometric exercise for the neck muscles and for head-position control. Sit up straight on a stable chair. Feet firmly on the floor, back tall, pelvis steady. Shoulders down and relaxed. Head in a neutral position, looking straight ahead. One hand rests on your thigh, the other is ready to meet your forehead. Sit up straight and keep your head level. Place your palm on the centre of your forehead, elbow loosely bent. Gently press your forehead into your palm, and your palm back against it. Your head stays put; hold for a few seconds. Ease off the pressure and keep repeating until the time is up. | `audio/en/exercises/NECK_007/instructions.m4a` | recorded |
 
 ## NECK_008 — Ізометрія: долоня до скроні
 
@@ -102,6 +109,7 @@ Recorded once and reused by every exercise.
 | `VOICE_START_MOVEMENT` | always | Place your palm against your temple. Gently press your temple into your palm without tilting your head. Then change sides. | `audio/en/exercises/NECK_008/start_movement.m4a` | recorded |
 | `VOICE_PHASE_B` | movement words mode | Left. | `audio/en/exercises/NECK_008/phase_b.m4a` | recorded |
 | `VOICE_PHASE_A` | movement words mode | Right. | `audio/en/exercises/NECK_008/phase_a.m4a` | recorded |
+| `VOICE_INSTRUCTIONS` | the "listen to the steps" button | A gentle isometric exercise for the side neck muscles and for keeping your head centred. Sit up straight on a stable chair. Feet firmly on the floor, back tall, pelvis steady. Shoulders down and relaxed. Head in a neutral position, looking straight ahead. Your free hand rests on your thigh. Sit up straight and keep your head centred. Place your palm against your right temple. Gently press your temple into your palm and your palm back against it; your head does not tilt. Ease off the pressure and change sides. Keep alternating at a calm pace until the time is up. | `audio/en/exercises/NECK_008/instructions.m4a` | recorded |
 
 ## NECK_009 — Ізометрія: долоня до потилиці
 
@@ -111,6 +119,7 @@ Recorded once and reused by every exercise.
 | `VOICE_START_MOVEMENT` | always | Place your palm on the back of your head. Gently press back into your palm without letting your head tip back. | `audio/en/exercises/NECK_009/start_movement.m4a` | recorded |
 | `VOICE_PHASE_B` | movement words mode | Press. | `audio/en/exercises/NECK_009/phase_b.m4a` | recorded |
 | `VOICE_PHASE_A` | movement words mode | Release. | `audio/en/exercises/NECK_009/phase_a.m4a` | recorded |
+| `VOICE_INSTRUCTIONS` | the "listen to the steps" button | A gentle isometric exercise for the back of the neck and for holding your head neutral. Sit up straight on a stable chair. Feet firmly on the floor, back tall, pelvis steady. Shoulders down and relaxed. Head in a neutral position, looking straight ahead. Your free hand rests on your thigh. Sit up straight and keep your neck long. Place your palm on the back of your head. Gently press the back of your head into your palm, and your palm back against it. Your head stays put; hold for a few seconds. Ease off the pressure and keep repeating until the time is up. | `audio/en/exercises/NECK_009/instructions.m4a` | recorded |
 
 ## NECK_010 — Підборіддя назад біля стіни
 
@@ -120,6 +129,7 @@ Recorded once and reused by every exercise.
 | `VOICE_START_MOVEMENT` | always | Gently draw your chin back without tipping your head. Return to neutral. | `audio/en/exercises/NECK_010/start_movement.m4a` | recorded |
 | `VOICE_PHASE_B` | movement words mode | Chin back. | `audio/en/exercises/NECK_010/phase_b.m4a` | recorded |
 | `VOICE_PHASE_A` | movement words mode | Neutral. | `audio/en/exercises/NECK_010/phase_a.m4a` | recorded |
+| `VOICE_INSTRUCTIONS` | the "listen to the steps" button | An exercise for gentle head-position control, posture and the deep neck muscles. Stand up straight against a wall. Back tall, the back of your head and your upper back touching the wall. Shoulders down and relaxed. Arms hanging freely. Looking straight ahead, chin in a neutral position. Stand up straight at the wall, keeping the back of your head against it. Look straight ahead. Gently draw your chin back, as if making a double chin. Hold for a few seconds and smoothly return to neutral. Keep repeating at a calm pace until the time is up. | `audio/en/exercises/NECK_010/instructions.m4a` | recorded |
 
 ## KNEE_001 — Розгинання ноги сидячи
 
@@ -129,6 +139,7 @@ Recorded once and reused by every exercise.
 | `VOICE_EXTEND` | movement words mode | Slowly straighten your leg. | `audio/en/exercises/KNEE_001/extend.m4a` | recorded |
 | `VOICE_TOES` | always | Pull your toes toward you. | `audio/en/exercises/KNEE_001/toes.m4a` | recorded |
 | `VOICE_LOWER` | movement words mode | Slowly lower your leg. | `audio/en/exercises/KNEE_001/lower.m4a` | recorded |
+| `VOICE_INSTRUCTIONS` | the "listen to the steps" button | A simple seated exercise for knee movement and for the muscles at the front of the thigh. Sit up straight on a stable chair. Place your feet on the floor. Knees bent. Leave enough room in front of you to straighten your leg freely. Sit up straight and place your feet on the floor. Slowly straighten your left leg at the knee. Pull your toes toward you. Hold the leg straight for 5 seconds. Slowly and smoothly lower your foot to the floor. Do the set number of repetitions. When the app tells you, repeat with the other leg. | `audio/en/exercises/KNEE_001/instructions.m4a` | recorded |
 
 ## KNEE_002 — Встати — сісти зі стільця
 
@@ -139,6 +150,7 @@ Recorded once and reused by every exercise.
 | `VOICE_STAND_UP` | movement words mode | Stand up smoothly. | `audio/en/exercises/KNEE_002/stand_up.m4a` | recorded |
 | `VOICE_STAND_STABLE` | movement words mode | Straighten up. Stand steady. | `audio/en/exercises/KNEE_002/stand_stable.m4a` | recorded |
 | `VOICE_SIT_SLOWLY` | movement words mode | Now sit down slowly. | `audio/en/exercises/KNEE_002/sit_slowly.m4a` | recorded |
+| `VOICE_INSTRUCTIONS` | the "listen to the steps" button | A functional exercise for the leg muscles and for moving between sitting and standing under control. Sit closer to the front edge of a stable chair. Place your feet on the floor about hip width apart. Look ahead. Sit closer to the front edge of the chair. Plant your feet firmly on the floor. Lean your torso forward a little. Stand up smoothly, straightening your legs. Straighten up fully and feel steady. Slowly bend your knees and hips and sit back down. Do the set number of repetitions. | `audio/en/exercises/KNEE_002/instructions.m4a` | recorded |
 
 ## KNEE_003 — Підтягування п’яти лежачи
 
@@ -148,6 +160,7 @@ Recorded once and reused by every exercise.
 | `VOICE_SLIDE_IN` | movement words mode | Slowly slide your heel toward you. | `audio/en/exercises/KNEE_003/slide_in.m4a` | recorded |
 | `VOICE_KNEE_UP` | movement words mode | Keep your knee pointing up. | `audio/en/exercises/KNEE_003/knee_up.m4a` | recorded |
 | `VOICE_SLIDE_OUT` | movement words mode | Now slowly straighten your leg. | `audio/en/exercises/KNEE_003/slide_out.m4a` | recorded |
+| `VOICE_INSTRUCTIONS` | the "listen to the steps" button | A gentle lying exercise for knee mobility and for bending the leg under control. Lie on your back. Straighten your legs and relax. The heel of the working leg rests on the surface. Lie comfortably on your back with your legs straight. Slowly slide your left heel toward you. Bend the knee as far as is comfortable. Keep your knee pointing up. Slowly slide the heel back, straightening the leg. Do the set number of repetitions. When the app tells you, repeat with the other leg. | `audio/en/exercises/KNEE_003/instructions.m4a` | recorded |
 
 ## ELBOW_001 — Зігнути — розігнути руки
 
@@ -157,6 +170,7 @@ Recorded once and reused by every exercise.
 | `VOICE_START_MOVEMENT` | always | Bend your elbows, then straighten them smoothly. | `audio/en/exercises/ELBOW_001/start_movement.m4a` | recorded |
 | `VOICE_PHASE_B` | movement words mode | Bend. | `audio/en/exercises/ELBOW_001/phase_b.m4a` | recorded |
 | `VOICE_PHASE_A` | movement words mode | Straighten. | `audio/en/exercises/ELBOW_001/phase_a.m4a` | recorded |
+| `VOICE_INSTRUCTIONS` | the "listen to the steps" button | A simple starter exercise for elbow mobility. No dumbbells, bands or any other resistance. Sit up straight on a stable chair. Feet flat on the floor, knees at about a right angle. Shoulders down and relaxed. Both arms hang freely beside your body, elbows close to your sides. Sit up straight and place your feet on the floor. Let your arms hang freely beside your body. Bend both elbows at the same time, bringing your hands up to about shoulder height. Smoothly straighten your arms and return to the start. Keep repeating at a calm pace until the time is up. | `audio/en/exercises/ELBOW_001/instructions.m4a` | recorded |
 
 ## ELBOW_002 — Почергове згинання рук
 
@@ -166,6 +180,7 @@ Recorded once and reused by every exercise.
 | `VOICE_START_MOVEMENT` | always | Bend your right and your left arm at the elbow in turn. | `audio/en/exercises/ELBOW_002/start_movement.m4a` | recorded |
 | `VOICE_PHASE_B` | movement words mode | Left. | `audio/en/exercises/ELBOW_002/phase_b.m4a` | recorded |
 | `VOICE_PHASE_A` | movement words mode | Right. | `audio/en/exercises/ELBOW_002/phase_a.m4a` | recorded |
+| `VOICE_INSTRUCTIONS` | the "listen to the steps" button | A gentle alternating exercise for the elbows and arms, with no resistance. Sit up straight on a stable chair. Feet flat on the floor, knees at about a right angle. Both arms beside your body, shoulders relaxed. Sit up straight, arms hanging beside your body. Bend your right arm at the elbow, bringing the hand up to shoulder height. Lower the right arm and bend the left one straight away. Keep alternating, smoothly and without hurrying. | `audio/en/exercises/ELBOW_002/instructions.m4a` | recorded |
 
 ## ELBOW_003 — Згинання рук долонями всередину
 
@@ -175,6 +190,7 @@ Recorded once and reused by every exercise.
 | `VOICE_START_MOVEMENT` | always | Bend both elbows, then straighten them smoothly. | `audio/en/exercises/ELBOW_003/start_movement.m4a` | recorded |
 | `VOICE_PHASE_B` | movement words mode | Bend. | `audio/en/exercises/ELBOW_003/phase_b.m4a` | recorded |
 | `VOICE_PHASE_A` | movement words mode | Straighten. | `audio/en/exercises/ELBOW_003/phase_a.m4a` | recorded |
+| `VOICE_INSTRUCTIONS` | the "listen to the steps" button | A gentle version of the elbow bend, with the hand in a neutral position. Sit up straight on a stable chair. Feet on the floor, arms beside your body, palms turned inward. Sit up straight, arms hanging beside your body. Turn your palms inward, facing each other. Bend both elbows at the same time without changing the position of your hands. Smoothly return to the start. | `audio/en/exercises/ELBOW_003/instructions.m4a` | recorded |
 
 ## ELBOW_004 — Згинання рук долонями вниз
 
@@ -184,6 +200,7 @@ Recorded once and reused by every exercise.
 | `VOICE_START_MOVEMENT` | always | Bring your hands up toward your shoulders and smoothly back. Keep your palms facing down. | `audio/en/exercises/ELBOW_004/start_movement.m4a` | recorded |
 | `VOICE_PHASE_B` | movement words mode | To the shoulders. | `audio/en/exercises/ELBOW_004/phase_b.m4a` | recorded |
 | `VOICE_PHASE_A` | movement words mode | Back. | `audio/en/exercises/ELBOW_004/phase_a.m4a` | recorded |
+| `VOICE_INSTRUCTIONS` | the "listen to the steps" button | A simple exercise for elbow movement, with no weight and no other resistance. This is not a forearm rotation exercise. Sit up straight on a stable chair. Upper arms close to your body, elbows bent to about ninety degrees, forearms pointing forward, both palms facing down. Sit up straight and place your feet on the floor. Bend your elbows to about ninety degrees, forearms forward, palms down. Without rotating your forearms, bend your elbows further and bring your hands toward your shoulders. Smoothly return to about ninety degrees. | `audio/en/exercises/ELBOW_004/instructions.m4a` | recorded |
 
 ## ELBOW_005 — Долоні вгору — вниз
 
@@ -193,6 +210,7 @@ Recorded once and reused by every exercise.
 | `VOICE_START_MOVEMENT` | always | Smoothly turn your palms down, and back up again. | `audio/en/exercises/ELBOW_005/start_movement.m4a` | recorded |
 | `VOICE_PHASE_B` | movement words mode | Palms down. | `audio/en/exercises/ELBOW_005/phase_b.m4a` | recorded |
 | `VOICE_PHASE_A` | movement words mode | Palms up. | `audio/en/exercises/ELBOW_005/phase_a.m4a` | recorded |
+| `VOICE_INSTRUCTIONS` | the "listen to the steps" button | A simple exercise for the elbows and forearms with no equipment. The movement comes from the forearms only. Sit up straight on a stable chair. Upper arms by your body, elbows bent to about ninety degrees, forearms pointing forward, palms facing up. Sit up straight and keep your elbows by your body. Start with your palms facing up. Smoothly rotate your forearms so your palms face down. Return to the palms-up position. | `audio/en/exercises/ELBOW_005/instructions.m4a` | recorded |
 
 ## ELBOW_006 — Кисті до плечей — вперед
 
@@ -202,6 +220,7 @@ Recorded once and reused by every exercise.
 | `VOICE_START_MOVEMENT` | always | Smoothly straighten both arms forward, then bring them back to your shoulders. | `audio/en/exercises/ELBOW_006/start_movement.m4a` | recorded |
 | `VOICE_PHASE_B` | movement words mode | Forward. | `audio/en/exercises/ELBOW_006/phase_b.m4a` | recorded |
 | `VOICE_PHASE_A` | movement words mode | To the shoulders. | `audio/en/exercises/ELBOW_006/phase_a.m4a` | recorded |
+| `VOICE_INSTRUCTIONS` | the "listen to the steps" button | A simple exercise for the elbows and arms with no equipment. Sit up straight on a stable chair. Feet on the floor, both hands beside your shoulders, elbows bent, shoulders down. Sit up straight and bring your hands beside your shoulders. Smoothly straighten both arms forward at chest or shoulder height. Bring your hands back to your shoulders. Keep repeating calmly, with no jerking. | `audio/en/exercises/ELBOW_006/instructions.m4a` | recorded |
 
 ## ELBOW_007 — Одна рука над головою: зігнути — випрямити
 
@@ -211,6 +230,7 @@ Recorded once and reused by every exercise.
 | `VOICE_START_MOVEMENT` | always | Smoothly straighten your arm up, then bring it back. | `audio/en/exercises/ELBOW_007/start_movement.m4a` | recorded |
 | `VOICE_PHASE_B` | movement words mode | Straighten. | `audio/en/exercises/ELBOW_007/phase_b.m4a` | recorded |
 | `VOICE_PHASE_A` | movement words mode | Bend. | `audio/en/exercises/ELBOW_007/phase_a.m4a` | recorded |
+| `VOICE_INSTRUCTIONS` | the "listen to the steps" button | A simple exercise for the arm and elbow with no equipment. Sit up straight on a stable chair. Your right arm is bent overhead: the elbow is raised and the hand is behind your head. Your left hand rests quietly on your thigh. Sit up straight and place your feet on the floor. Raise your right arm and bend it overhead. Smoothly straighten the arm upward. Return to the bent starting position. | `audio/en/exercises/ELBOW_007/instructions.m4a` | recorded |
 
 ## ELBOW_008 — Дві руки над головою: зігнути — випрямити
 
@@ -220,6 +240,7 @@ Recorded once and reused by every exercise.
 | `VOICE_START_MOVEMENT` | always | Smoothly straighten your arms up, then bring them back. | `audio/en/exercises/ELBOW_008/start_movement.m4a` | recorded |
 | `VOICE_PHASE_B` | movement words mode | Straighten. | `audio/en/exercises/ELBOW_008/phase_b.m4a` | recorded |
 | `VOICE_PHASE_A` | movement words mode | Bend. | `audio/en/exercises/ELBOW_008/phase_a.m4a` | recorded |
+| `VOICE_INSTRUCTIONS` | the "listen to the steps" button | A simple exercise for the arms and elbows with no equipment. Sit up straight on a stable chair. Both arms are bent overhead: your hands are behind your head and your elbows are opened out to the sides. Sit up straight and place your feet on the floor. Bend both arms overhead, hands behind your head. Smoothly straighten both arms upward. Return your arms to the bent starting position. | `audio/en/exercises/ELBOW_008/instructions.m4a` | recorded |
 
 ## ELBOW_009 — Віджимання від стіни
 
@@ -229,3 +250,4 @@ Recorded once and reused by every exercise.
 | `VOICE_START_MOVEMENT` | always | Smoothly bend your arms, come closer to the wall, then straighten them again. | `audio/en/exercises/ELBOW_009/start_movement.m4a` | recorded |
 | `VOICE_PHASE_B` | movement words mode | To the wall. | `audio/en/exercises/ELBOW_009/phase_b.m4a` | recorded |
 | `VOICE_PHASE_A` | movement words mode | Press away. | `audio/en/exercises/ELBOW_009/phase_a.m4a` | recorded |
+| `VOICE_INSTRUCTIONS` | the "listen to the steps" button | An ordinary movement with no extra equipment: a simple elbow exercise with the wall for support. Stand facing the wall at a comfortable distance. Place your palms on the wall at about chest or shoulder height. Arms straight but not locked at the elbows. Feet flat on the floor. Stand facing a solid wall. Place your palms on the wall at chest or shoulder height. Smoothly bend your elbows and bring your body closer to the wall. Smoothly straighten your arms and return to the start. | `audio/en/exercises/ELBOW_009/instructions.m4a` | recorded |

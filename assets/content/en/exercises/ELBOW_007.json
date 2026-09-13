@@ -66,6 +66,8 @@
   ],
   "collectionCandidates": [],
   "text": {
+    "spokenInstructions": "A simple exercise for the arm and elbow with no equipment. Sit up straight on a stable chair. Your right arm is bent overhead: the elbow is raised and the hand is behind your head. Your left hand rests quietly on your thigh. Sit up straight and place your feet on the floor. Raise your right arm and bend it overhead. Smoothly straighten the arm upward. Return to the bent starting position.",
+    "spokenInstructionsAsset": "audio/uk/exercises/ELBOW_007/instructions.m4a",
     "title": "One arm overhead: bend and straighten",
     "shortTitle": "Arm overhead",
     "cardDescription": "Seated, bend and straighten one arm above your head.",

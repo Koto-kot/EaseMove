@@ -63,6 +63,8 @@
   ],
   "collectionCandidates": [],
   "text": {
+    "spokenInstructions": "An ordinary movement with no extra equipment: a simple elbow exercise with the wall for support. Stand facing the wall at a comfortable distance. Place your palms on the wall at about chest or shoulder height. Arms straight but not locked at the elbows. Feet flat on the floor. Stand facing a solid wall. Place your palms on the wall at chest or shoulder height. Smoothly bend your elbows and bring your body closer to the wall. Smoothly straighten your arms and return to the start.",
+    "spokenInstructionsAsset": "audio/uk/exercises/ELBOW_009/instructions.m4a",
     "title": "Wall push-up",
     "shortTitle": "At the wall",
     "cardDescription": "Standing at a wall, smoothly bend and straighten your arms.",

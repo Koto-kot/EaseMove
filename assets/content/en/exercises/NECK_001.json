@@ -56,6 +56,8 @@
   ],
   "collectionCandidates": [],
   "text": {
+    "spokenInstructions": "A starter exercise for waking the neck up gently and finding a good head position. Sit up straight on a stable chair. Feet firmly on the floor. Shoulders relaxed. Head level, looking straight ahead. Hands resting by your sides or on your thighs. Sit up straight and place your feet on the floor. Look straight ahead. Gently draw your chin back — the movement goes back, not down. Smoothly return to neutral. Keep repeating at a calm pace until the time is up.",
+    "spokenInstructionsAsset": "audio/uk/exercises/NECK_001/instructions.m4a",
     "title": "Chin tuck",
     "shortTitle": "Chin back",
     "cardDescription": "Seated, gently draw your chin back and return to neutral.",

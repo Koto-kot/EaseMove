@@ -66,6 +66,8 @@
   ],
   "collectionCandidates": [],
   "text": {
+    "spokenInstructions": "A gentle version of the elbow bend, with the hand in a neutral position. Sit up straight on a stable chair. Feet on the floor, arms beside your body, palms turned inward. Sit up straight, arms hanging beside your body. Turn your palms inward, facing each other. Bend both elbows at the same time without changing the position of your hands. Smoothly return to the start.",
+    "spokenInstructionsAsset": "audio/uk/exercises/ELBOW_003/instructions.m4a",
     "title": "Arm bends with palms facing in",
     "shortTitle": "Palms facing in",
     "cardDescription": "Seated, bend both elbows while keeping your palms facing inward.",

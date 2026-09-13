@@ -81,6 +81,8 @@
     "morning_mobility"
   ],
   "text": {
+    "spokenInstructions": "A functional exercise for the leg muscles and for moving between sitting and standing under control. Sit closer to the front edge of a stable chair. Place your feet on the floor about hip width apart. Look ahead. Sit closer to the front edge of the chair. Plant your feet firmly on the floor. Lean your torso forward a little. Stand up smoothly, straightening your legs. Straighten up fully and feel steady. Slowly bend your knees and hips and sit back down. Do the set number of repetitions.",
+    "spokenInstructionsAsset": "audio/uk/exercises/KNEE_002/instructions.m4a",
     "title": "Sit to stand",
     "shortTitle": "Stand and sit",
     "cardDescription": "Slowly stand up from the chair and sit back down under control.",

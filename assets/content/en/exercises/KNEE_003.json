@@ -72,6 +72,8 @@
     "evening_gentle"
   ],
   "text": {
+    "spokenInstructions": "A gentle lying exercise for knee mobility and for bending the leg under control. Lie on your back. Straighten your legs and relax. The heel of the working leg rests on the surface. Lie comfortably on your back with your legs straight. Slowly slide your left heel toward you. Bend the knee as far as is comfortable. Keep your knee pointing up. Slowly slide the heel back, straightening the leg. Do the set number of repetitions. When the app tells you, repeat with the other leg.",
+    "spokenInstructionsAsset": "audio/uk/exercises/KNEE_003/instructions.m4a",
     "title": "Heel slide lying down",
     "shortTitle": "Heel to you",
     "cardDescription": "Slide your heel toward you, bending the knee, then slowly straighten the leg.",

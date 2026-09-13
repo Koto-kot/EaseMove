@@ -64,6 +64,8 @@
   ],
   "collectionCandidates": [],
   "text": {
+    "spokenInstructions": "A gentle alternating exercise for the elbows and arms, with no resistance. Sit up straight on a stable chair. Feet flat on the floor, knees at about a right angle. Both arms beside your body, shoulders relaxed. Sit up straight, arms hanging beside your body. Bend your right arm at the elbow, bringing the hand up to shoulder height. Lower the right arm and bend the left one straight away. Keep alternating, smoothly and without hurrying.",
+    "spokenInstructionsAsset": "audio/uk/exercises/ELBOW_002/instructions.m4a",
     "title": "Alternating arm bends",
     "shortTitle": "Alternating",
     "cardDescription": "Seated, bend your right and left arm at the elbow in turn.",

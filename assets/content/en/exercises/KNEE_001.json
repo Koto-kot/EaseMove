@@ -63,6 +63,8 @@
   ],
   "collectionCandidates": [],
   "text": {
+    "spokenInstructions": "A simple seated exercise for knee movement and for the muscles at the front of the thigh. Sit up straight on a stable chair. Place your feet on the floor. Knees bent. Leave enough room in front of you to straighten your leg freely. Sit up straight and place your feet on the floor. Slowly straighten your left leg at the knee. Pull your toes toward you. Hold the leg straight for 5 seconds. Slowly and smoothly lower your foot to the floor. Do the set number of repetitions. When the app tells you, repeat with the other leg.",
+    "spokenInstructionsAsset": "audio/uk/exercises/KNEE_001/instructions.m4a",
     "title": "Seated knee extension",
     "shortTitle": "Knee extension",
     "cardDescription": "Slowly straighten your leg at the knee and lower it under control.",
