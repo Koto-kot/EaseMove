@@ -1295,6 +1295,13 @@
       "title": "Ciepła przestrzeń",
       "attribution": "Placid Ambient — MusicLFiles (CC BY 4.0)",
       "licenceUrl": "https://creativecommons.org/licenses/by/4.0/"
+    },
+    {
+      "id": "japanese_calm",
+      "file": "audio/music/japanese_calm.m4a",
+      "title": "Japoński spokój",
+      "attribution": "Senbazuru — Kevin MacLeod (CC BY 4.0)",
+      "licenceUrl": "https://creativecommons.org/licenses/by/4.0/"
     }
   ]
 }

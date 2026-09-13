@@ -40,9 +40,9 @@ Future<void> settle(WidgetTester tester) async {
 
 void main() {
   group('the pack', () {
-    test('three melodies to choose between, each one bundled', () {
+    test('four melodies to choose between, each one bundled', () {
       final List<MusicTrack> tracks = catalogue();
-      expect(tracks, hasLength(3));
+      expect(tracks, hasLength(4));
 
       final String pubspec = File('pubspec.yaml').readAsStringSync();
       expect(
@@ -87,6 +87,20 @@ void main() {
         // verbatim.
         expect(uk[i].attribution, en[i].attribution);
       }
+    });
+
+    test('not every melody is a piano', () {
+      // Asked for directly: a listener who does not want a piano should still
+      // have a choice, so at least two tracks are something else.
+      final List<MusicTrack> tracks = catalogue(locale: 'en');
+      final Iterable<MusicTrack> withoutPiano = tracks.where(
+        (MusicTrack track) => !track.title.toLowerCase().contains('piano'),
+      );
+      expect(withoutPiano.length, greaterThanOrEqualTo(2));
+      expect(
+        tracks.map((MusicTrack track) => track.id),
+        contains('japanese_calm'),
+      );
     });
 
     test('the sources are declared with a free licence and one loudness', () {
@@ -163,10 +177,17 @@ void main() {
       await openSettings(tester);
 
       expect(store.readSettings().musicVolume, 0.4);
-      expect(find.text('40%'), findsOneWidget);
 
-      await tester.ensureVisible(find.byType(Slider).first);
+      // The melodies push the volume past the fold on a phone.
+      // `.last`: the home screen stays in the tree under Settings, and its
+      // scroll view would be found first.
+      await tester.scrollUntilVisible(
+        find.byType(Slider),
+        100,
+        scrollable: find.byType(Scrollable).last,
+      );
       await settle(tester);
+      expect(find.text('40%'), findsOneWidget);
       // Drag the slider to the left: where exactly it lands is the widget's
       // business, the setting moving with it is ours.
       await tester.drag(find.byType(Slider).first, const Offset(-80, 0));

@@ -8,8 +8,9 @@ schema_version: '1.0'
 # requires attribution wherever the work is used, so `attribution` is rendered
 # under the track's name in Settings.
 #
-# The three are deliberately different textures — solo piano, piano over a
-# pad, a slow ambient bed — so that "choose a melody" is a real choice.
+# The four are deliberately different textures — solo piano, piano over a pad,
+# a slow ambient bed, and a koto over a synth — so that "choose a melody" is a
+# real choice, and so that someone who does not want a piano still has two.
 
 # Every track is normalised to the same integrated loudness, so switching
 # between them does not change how loud the session is. -20 LUFS is quiet
@@ -70,3 +71,16 @@ tracks:
     licence_url: https://creativecommons.org/licenses/by/4.0/
     page: https://commons.wikimedia.org/wiki/File:Placid_Ambient_by_MusicLFiles.ogg
     download: https://upload.wikimedia.org/wikipedia/commons/5/53/Placid_Ambient_by_MusicLFiles.ogg
+
+- id: japanese_calm
+  file: audio/music/japanese_calm.m4a
+  title_uk: Японський спокій
+  title_en: Japanese calm
+  title_pl: Japoński spokój
+  source:
+    work: Senbazuru
+    author: Kevin MacLeod
+    licence: CC BY 4.0
+    licence_url: https://creativecommons.org/licenses/by/4.0/
+    page: https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1100821
+    download: https://incompetech.com/music/royalty-free/mp3-royaltyfree/Senbazuru.mp3
