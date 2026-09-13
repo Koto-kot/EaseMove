@@ -155,7 +155,8 @@ void main() {
 
       for (final MusicTrack track in tracks) {
         expect(find.text(track.title), findsWidgets);
-        expect(find.text(track.attribution), findsOneWidget);
+        // The credit moved to About (docs/DECISIONS.md 92).
+        expect(find.text(track.attribution), findsNothing);
       }
 
       // The audio section runs past the fold on a phone.
@@ -205,11 +206,12 @@ void main() {
       final List<MusicTrack> tracks = catalogue();
       expect(find.text(tracks.last.title), findsOneWidget);
 
-      // The switch lives inside the group, above the melodies it governs.
-      await tester.tap(find.text('Увімкнено'));
+      // Silence is the last option in the same list.
+      await tester.tap(find.text('Без музики'));
       await settle(tester);
 
-      expect(find.text(tracks.last.title), findsNothing);
+      expect(store.readSettings().musicEnabled, isFalse);
+      expect(find.text(tracks.last.title), findsOneWidget);
       // The volume by name, not by widget type: the developer menu keeps a
       // slider of its own further down the same list.
       expect(find.text('Гучність музики'), findsNothing);

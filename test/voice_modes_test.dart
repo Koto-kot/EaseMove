@@ -549,11 +549,11 @@ void main() {
     await settle();
     expect(store.readSettings().voiceMode, VoiceMode.phaseWords);
 
-    // Turning the voice off hides the choice: none of the three would change
-    // anything while nothing is spoken.
-    await tester.tap(find.text('Увімкнено'));
+    // Silence is the fourth option, in the same list as the other three.
+    await tester.tap(find.text('Без голосових команд'));
     await settle();
-    expect(find.text('Слова руху'), findsNothing);
+    expect(store.readSettings().voiceEnabled, isFalse);
+    expect(find.text('Слова руху'), findsOneWidget);
   });
 }
 

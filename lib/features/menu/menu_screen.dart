@@ -22,6 +22,7 @@ import '../../core/storage/local_store.dart';
 import '../../data/content_bundle.dart';
 import '../../domain/exercise/exercise.dart';
 import '../activity/activity_screen.dart';
+import 'about_screen.dart';
 import '../pro/paywall.dart';
 
 class MenuScreen extends ConsumerStatefulWidget {
@@ -89,48 +90,53 @@ class _MenuScreenState extends ConsumerState<MenuScreen> {
               icon: Icons.record_voice_over_outlined,
               title: t('app.settings.voice'),
               children: <Widget>[
-                SwitchListTile(
-                  title: Text(t('app.settings.enabled')),
-                  value: settings.voiceEnabled,
-                  onChanged: controller.setVoiceEnabled,
+                for (final VoiceMode mode in VoiceMode.values)
+                  _ChoiceOption(
+                    label: t('app.settings.voice_mode.${mode.id}'),
+                    subtitle: t('app.settings.voice_mode.${mode.id}_hint'),
+                    selected:
+                        settings.voiceEnabled && settings.voiceMode == mode,
+                    onTap: () {
+                      controller.setVoiceEnabled(true);
+                      controller.setVoiceMode(mode);
+                    },
+                  ),
+                // Silence is one of the choices rather than a switch above
+                // them: "no voice cues" is what the listener is choosing
+                // between, not a state the choice hangs off
+                // (docs/DECISIONS.md 92).
+                _ChoiceOption(
+                  label: t('app.settings.voice_off'),
+                  selected: !settings.voiceEnabled,
+                  onTap: () => controller.setVoiceEnabled(false),
                 ),
-                if (settings.voiceEnabled)
-                  for (final VoiceMode mode in VoiceMode.values)
-                    _ChoiceOption(
-                      label: t('app.settings.voice_mode.${mode.id}'),
-                      subtitle: t('app.settings.voice_mode.${mode.id}_hint'),
-                      selected: settings.voiceMode == mode,
-                      onTap: () => controller.setVoiceMode(mode),
-                    ),
               ],
             ),
             _Group(
               icon: Icons.music_note_outlined,
               title: t('app.settings.music'),
               children: <Widget>[
-                SwitchListTile(
-                  title: Text(t('app.settings.enabled')),
-                  value: settings.musicEnabled,
-                  onChanged: (bool value) {
-                    if (!value) _stopPreview();
-                    controller.setMusicEnabled(value);
+                // Just the names. Who wrote them and under what licence is in
+                // "About", where it can be read rather than skimmed past.
+                for (final MusicTrack track in tracks)
+                  _ChoiceOption(
+                    label: track.title,
+                    selected: settings.musicEnabled && track.id == chosen?.id,
+                    onTap: () {
+                      controller.setMusicEnabled(true);
+                      controller.setMusicTrack(track.id);
+                      _previewTrack(track, settings.musicVolume);
+                    },
+                  ),
+                _ChoiceOption(
+                  label: t('app.settings.music_off'),
+                  selected: !settings.musicEnabled,
+                  onTap: () {
+                    _stopPreview();
+                    controller.setMusicEnabled(false);
                   },
                 ),
-                if (settings.musicEnabled) ...<Widget>[
-                  // No "tap to hear it" line: tapping a name plays it, which
-                  // the first tap teaches better than a sentence does.
-                  for (final MusicTrack track in tracks)
-                    _ChoiceOption(
-                      label: track.title,
-                      // The licence asks for the credit to travel with the
-                      // music.
-                      subtitle: track.attribution,
-                      selected: track.id == chosen?.id,
-                      onTap: () {
-                        controller.setMusicTrack(track.id);
-                        _previewTrack(track, settings.musicVolume);
-                      },
-                    ),
+                if (settings.musicEnabled)
                   ListTile(
                     title: Text(t('app.settings.music_volume')),
                     trailing: Text('${(settings.musicVolume * 100).round()}%'),
@@ -147,7 +153,6 @@ class _MenuScreenState extends ConsumerState<MenuScreen> {
                       },
                     ),
                   ),
-                ],
               ],
             ),
             _Group(
@@ -201,6 +206,16 @@ class _MenuScreenState extends ConsumerState<MenuScreen> {
               onTap: () => Navigator.of(context).push(
                 MaterialPageRoute<void>(
                   builder: (BuildContext context) => const ProPlanScreen(),
+                ),
+              ),
+            ),
+            ListTile(
+              leading: const Icon(Icons.info_outline),
+              title: Text(t('app.about.title')),
+              trailing: const Icon(Icons.chevron_right),
+              onTap: () => Navigator.of(context).push(
+                MaterialPageRoute<void>(
+                  builder: (BuildContext context) => const AboutScreen(),
                 ),
               ),
             ),

@@ -120,34 +120,67 @@ void main() {
     );
   });
 
-  testWidgets('a group holds its switch and its choice, and shows neither '
-      'until it is opened', (WidgetTester tester) async {
+  testWidgets('silence is one of the options, not a switch over them', (
+    WidgetTester tester,
+  ) async {
     await pumpApp(tester, store);
     await tester.tap(find.byTooltip('Меню'));
     await settle(tester);
 
-    // Closed, a row is a name and nothing else: no melody named under it, no
-    // switch on it to mistake the row for (docs/DECISIONS.md 91).
+    // Closed, a row is a name and nothing else (docs/DECISIONS.md 91).
     expect(find.text('Вечірнє фортепіано'), findsNothing);
-    expect(find.text('Увімкнено'), findsNothing);
 
     await tester.tap(find.text('Фонова музика'));
     await settle(tester);
-    expect(find.text('Увімкнено'), findsOneWidget);
     expect(find.text('Вечірнє фортепіано'), findsOneWidget);
     expect(find.text('Японський спокій'), findsOneWidget);
+    expect(find.text('Без музики'), findsOneWidget);
     expect(
       find.text('Торкніться, щоб послухати'),
       findsNothing,
       reason: 'a tap teaches that better than a sentence',
     );
+    // The credit belongs in About, not in the middle of a choice
+    // (docs/DECISIONS.md 92).
+    expect(find.textContaining('Kevin MacLeod'), findsNothing);
 
-    // The switch is the first thing in the group, above what it governs.
-    await tester.tap(find.text('Увімкнено'));
+    // Choosing silence leaves the melodies on the page: it is one of them,
+    // not a state that hides them.
+    await tester.tap(find.text('Без музики'));
     await settle(tester);
     expect(store.readSettings().musicEnabled, isFalse);
-    expect(find.text('Вечірнє фортепіано'), findsNothing);
-    expect(find.text('Увімкнено'), findsOneWidget);
+    expect(find.text('Вечірнє фортепіано'), findsOneWidget);
+    expect(find.text('Гучність музики'), findsNothing);
+
+    await tester.tap(find.text('Японський спокій'));
+    await settle(tester);
+    expect(store.readSettings().musicEnabled, isTrue);
+    expect(store.readSettings().musicTrackId, 'japanese_calm');
+  });
+
+  testWidgets('the licence credit is still in the app, under About', (
+    WidgetTester tester,
+  ) async {
+    // CC BY asks for the author wherever the work is used. Taking the credit
+    // out of the melody list only works because it lands here.
+    await pumpApp(tester, store);
+    await tester.tap(find.byTooltip('Меню'));
+    await settle(tester);
+
+    await tester.scrollUntilVisible(
+      find.text('Про застосунок'),
+      120,
+      scrollable: find.byType(Scrollable).last,
+    );
+    await tester.tap(find.text('Про застосунок'));
+    await settle(tester);
+
+    expect(find.textContaining('Kevin MacLeod'), findsWidgets);
+    expect(find.textContaining('CC BY'), findsWidgets);
+    expect(
+      find.textContaining('creativecommons.org/licenses/by'),
+      findsWidgets,
+    );
   });
 
   testWidgets('what leaves the app is at the end of the menu', (
