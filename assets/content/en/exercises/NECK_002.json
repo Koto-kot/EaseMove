@@ -246,26 +246,26 @@
     "frames": [
       {
         "id": "FRAME_SETUP",
-        "file": "assets/exercises/NECK_002/images/setup_full_safe.png",
+        "file": "assets/exercises/NECK_002/images/setup_full_safe.jpg",
         "altText": "Seated start position, head level and looking straight ahead."
       },
       {
         "id": "FRAME_CENTER",
-        "file": "assets/exercises/NECK_002/images/motion_00_head_centre_upper_safe.png",
+        "file": "assets/exercises/NECK_002/images/motion_00_head_centre_upper_safe.jpg",
         "altText": "Start position: head facing forward, shoulders relaxed."
       },
       {
         "id": "FRAME_LEFT",
-        "file": "assets/exercises/NECK_002/images/motion_01_head_turn_left_upper_safe.png",
+        "file": "assets/exercises/NECK_002/images/motion_01_head_turn_left_upper_safe.jpg",
         "altText": "Head turned to the left, torso still facing forward."
       },
       {
         "id": "FRAME_RIGHT",
-        "file": "assets/exercises/NECK_002/images/motion_02_head_turn_right_upper_safe.png",
+        "file": "assets/exercises/NECK_002/images/motion_02_head_turn_right_upper_safe.jpg",
         "altText": "Head turned to the right, torso still facing forward."
       }
     ],
-    "preview": "assets/exercises/NECK_002/images/preview.png"
+    "preview": "assets/exercises/NECK_002/images/preview.jpg"
   },
   "audio": {
     "events": [

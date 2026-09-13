@@ -162,7 +162,7 @@ ui:
   card:
     title_key: exercise.ELBOW_006.title
     description_key: exercise.ELBOW_006.card_description
-    preview_asset: assets/exercises/ELBOW_006/images/preview.png
+    preview_asset: assets/exercises/ELBOW_006/images/preview.jpg
     primary_action:
       key: common.exercise.start
       resolved_uk: Почати
@@ -267,31 +267,32 @@ animation:
     text_inside_asset: false
   asset_spec:
     master_format: png
+    app_delivery_format: jpg
     width_px: 1024
     height_px: 1024
     transparent_background_preferred: false
     production_assets_must_be_original: true
   frames:
   - id: FRAME_SETUP
-    file: assets/exercises/ELBOW_006/images/setup_full_safe.png
+    file: assets/exercises/ELBOW_006/images/setup_full_safe.jpg
     pose_description_uk: Людина сидить рівно, обидві кисті біля плечей, лікті зігнуті.
     alt_text_uk: Початкове положення сидячи, кисті біля плечей.
     alt_text_en: Seated start position, hands beside the shoulders.
     framing: FULL_SAFE
   - id: FRAME_AT_SHOULDERS
-    file: assets/exercises/ELBOW_006/images/motion_01_hands_at_shoulders_mid_safe.png
+    file: assets/exercises/ELBOW_006/images/motion_01_hands_at_shoulders_mid_safe.jpg
     pose_description_uk: Кисті біля плечей, лікті зігнуті, плечі опущені, корпус рівний.
     alt_text_uk: Кисті біля плечей, лікті зігнуті.
     alt_text_en: Hands beside the shoulders, elbows bent.
     framing: MID_SAFE
   - id: FRAME_ARMS_FORWARD
-    file: assets/exercises/ELBOW_006/images/motion_02_arms_forward_mid_safe.png
+    file: assets/exercises/ELBOW_006/images/motion_02_arms_forward_mid_safe.jpg
     pose_description_uk: Обидві руки випрямлені вперед на рівні грудей або плечей.
     alt_text_uk: Руки випрямлені вперед.
     alt_text_en: Both arms straightened forward at chest height.
     framing: MID_SAFE
   preview:
-    file: assets/exercises/ELBOW_006/images/preview.png
+    file: assets/exercises/ELBOW_006/images/preview.jpg
     source_frame_id: FRAME_SETUP
     overlay_text: false
 audio:
@@ -502,10 +503,10 @@ pro:
 assets:
   folder: assets/exercises/ELBOW_006/images
   required:
-  - setup_full_safe.png
-  - motion_01_hands_at_shoulders_mid_safe.png
-  - motion_02_arms_forward_mid_safe.png
-  - preview.png
+  - setup_full_safe.jpg
+  - motion_01_hands_at_shoulders_mid_safe.jpg
+  - motion_02_arms_forward_mid_safe.jpg
+  - preview.jpg
   optional: []
   validation:
     same_subject_all_frames: true
@@ -543,7 +544,7 @@ metadata:
   created_at: '2026-09-12'
   last_modified_at: '2026-09-12'
   brief_path: docs/exercise_briefs/elbows/ELBOW_006/ELBOW_006_BRIEF.md
-  brief_sheet_path: docs/exercise_briefs/elbows/ELBOW_006/ELBOW_006_brief_sheet_v0.png
+  brief_sheet_path: docs/exercise_briefs/elbows/ELBOW_006/ELBOW_006_brief_sheet_v0.jpg
   repository_pack_version: ELBOW_001_009_repository_pack_v6
   schema_notes_uk: 'Часова вправа без лічильника повторів: поза setup показується один раз, далі цикл A-B повторюється
     до кінця часу.'

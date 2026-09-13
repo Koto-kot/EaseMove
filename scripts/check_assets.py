@@ -90,6 +90,9 @@ def check_image(
         return
 
     problems: list[str] = []
+    # Pillow calls it jpeg, the spec calls it jpg, and they are the same file.
+    if fmt == "jpeg":
+        fmt = "jpg"
     if fmt != expect_format:
         problems.append("format is {0}, expected {1}".format(fmt, expect_format))
     if expect_size and size != expect_size:
@@ -130,7 +133,7 @@ def check_exercise(exercise: ExerciseAssets, declared: list[str], inspect: bool)
     if not exercise.folder:
         error(exercise.id + ": assets.folder is not set")
         return
-    if not is_bundled(exercise.folder + "/x.png", declared):
+    if not is_bundled(exercise.folder + "/x.jpg", declared):
         error(
             "{0}: {1}/ is not listed under `flutter: assets:` in pubspec.yaml - "
             "its images would never load".format(exercise.id, exercise.folder)
@@ -177,7 +180,7 @@ def check_exercise(exercise: ExerciseAssets, declared: list[str], inspect: bool)
             path,
             label,
             expect_size=(exercise.width_px, exercise.height_px) if is_frame else None,
-            expect_format=exercise.master_format,
+            expect_format=exercise.delivery_format,
             transparent_preferred=exercise.transparent_preferred,
             inspect=inspect,
         )

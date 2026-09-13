@@ -202,21 +202,21 @@
     "frames": [
       {
         "id": "FRAME_SETUP",
-        "file": "assets/exercises/NECK_006/images/setup_full_safe.png",
+        "file": "assets/exercises/NECK_006/images/setup_full_safe.jpg",
         "altText": "Початкове положення сидячи, голова у нейтральному положенні."
       },
       {
         "id": "FRAME_DIAGONAL_LEFT",
-        "file": "assets/exercises/NECK_006/images/motion_01_diagonal_down_left_upper_safe.png",
+        "file": "assets/exercises/NECK_006/images/motion_01_diagonal_down_left_upper_safe.jpg",
         "altText": "Голова опущена по діагоналі вліво, погляд спрямований вниз і вбік."
       },
       {
         "id": "FRAME_DIAGONAL_RIGHT",
-        "file": "assets/exercises/NECK_006/images/motion_02_diagonal_down_right_upper_safe.png",
+        "file": "assets/exercises/NECK_006/images/motion_02_diagonal_down_right_upper_safe.jpg",
         "altText": "Голова опущена по діагоналі вправо, погляд спрямований вниз і вбік."
       }
     ],
-    "preview": "assets/exercises/NECK_006/images/preview.png"
+    "preview": "assets/exercises/NECK_006/images/preview.jpg"
   },
   "audio": {
     "events": [

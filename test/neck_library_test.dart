@@ -232,7 +232,7 @@ void main() {
 
     expect(
       shownAssets(),
-      contains('assets/exercises/NECK_001/images/preview.png'),
+      contains('assets/exercises/NECK_001/images/preview.jpg'),
     );
 
     await tester.tap(find.widgetWithText(FilledButton, 'Старт'));
@@ -240,7 +240,7 @@ void main() {
 
     expect(
       shownAssets(),
-      contains('assets/exercises/NECK_001/images/setup_full_safe.png'),
+      contains('assets/exercises/NECK_001/images/setup_full_safe.jpg'),
     );
   });
 }

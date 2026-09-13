@@ -203,21 +203,21 @@
     "frames": [
       {
         "id": "FRAME_SETUP",
-        "file": "assets/exercises/NECK_010/images/setup_full_safe.png",
+        "file": "assets/exercises/NECK_010/images/setup_full_safe.jpg",
         "altText": "Початкове положення стоячи біля стіни, спина рівна, погляд прямо."
       },
       {
         "id": "FRAME_WALL_NEUTRAL",
-        "file": "assets/exercises/NECK_010/images/motion_01_wall_neutral_full_safe.png",
+        "file": "assets/exercises/NECK_010/images/motion_01_wall_neutral_full_safe.jpg",
         "altText": "Нейтральне положення біля стіни, погляд прямо."
       },
       {
         "id": "FRAME_WALL_CHIN_TUCK",
-        "file": "assets/exercises/NECK_010/images/motion_02_wall_chin_tuck_upper_safe.png",
+        "file": "assets/exercises/NECK_010/images/motion_02_wall_chin_tuck_upper_safe.jpg",
         "altText": "Підборіддя відведене назад біля стіни, погляд залишається прямо."
       }
     ],
-    "preview": "assets/exercises/NECK_010/images/preview.png"
+    "preview": "assets/exercises/NECK_010/images/preview.jpg"
   },
   "audio": {
     "events": [

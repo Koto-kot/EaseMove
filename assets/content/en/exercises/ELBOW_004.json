@@ -207,21 +207,21 @@
     "frames": [
       {
         "id": "FRAME_SETUP",
-        "file": "assets/exercises/ELBOW_004/images/setup_full_safe.png",
+        "file": "assets/exercises/ELBOW_004/images/setup_full_safe.jpg",
         "altText": "Seated start position, forearms forward and palms down."
       },
       {
         "id": "FRAME_FOREARMS_FORWARD",
-        "file": "assets/exercises/ELBOW_004/images/motion_01_forearms_forward_palms_down_mid_safe.png",
+        "file": "assets/exercises/ELBOW_004/images/motion_01_forearms_forward_palms_down_mid_safe.jpg",
         "altText": "Forearms pointing forward, palms facing down."
       },
       {
         "id": "FRAME_FLEXED",
-        "file": "assets/exercises/ELBOW_004/images/motion_02_flexed_palms_down_mid_safe.png",
+        "file": "assets/exercises/ELBOW_004/images/motion_02_flexed_palms_down_mid_safe.jpg",
         "altText": "Hands raised toward the shoulders, palms still facing down."
       }
     ],
-    "preview": "assets/exercises/ELBOW_004/images/preview.png"
+    "preview": "assets/exercises/ELBOW_004/images/preview.jpg"
   },
   "audio": {
     "events": [

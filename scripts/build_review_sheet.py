@@ -196,7 +196,7 @@ def render_body_map() -> str:
         out.extend(
             frame_cell(
                 view,
-                "{0}/{1}.png".format(BODY_MAP_DIR, view),
+                "{0}/{1}.jpg".format(BODY_MAP_DIR, view),
                 '<div class="vp">check: same height and scale in both views, '
                 "no dots or labels baked in</div>",
             )
@@ -224,7 +224,7 @@ def main() -> int:
                 drawn += 1
     for view in BODY_MAP_VIEWS:
         total += 1
-        if (ROOT / BODY_MAP_DIR / (view + ".png")).exists():
+        if (ROOT / BODY_MAP_DIR / (view + ".jpg")).exists():
             drawn += 1
 
     parts: list[str] = [

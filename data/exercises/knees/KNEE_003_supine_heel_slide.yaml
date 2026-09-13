@@ -276,7 +276,7 @@ ui:
   card:
     title_key: exercise.KNEE_003.title
     description_key: exercise.KNEE_003.card_description
-    preview_asset: assets/exercises/KNEE_003/preview.png
+    preview_asset: assets/exercises/KNEE_003/preview.jpg
     primary_action:
       key: common.exercise.start
       resolved_uk: Почати
@@ -490,13 +490,14 @@ animation:
     text_inside_asset: false
   asset_spec:
     master_format: png
+    app_delivery_format: jpg
     width_px: 1024
     height_px: 1024
     transparent_background_preferred: false
     production_assets_must_be_original: true
   frames:
   - id: FRAME_START
-    file: assets/exercises/KNEE_003/frame_start.png
+    file: assets/exercises/KNEE_003/frame_start.jpg
     pose_description_uk: Людина лежить на спині на стабільній поверхні. Обидві ноги випрямлені, таз нейтральний.
     alt_text_uk: Початкове положення лежачи на спині з випрямленими ногами.
     alt_text_en: Supine start position with both legs straight.
@@ -506,7 +507,7 @@ animation:
     - pelvis_neutral
     - surface_stable
   - id: FRAME_LEFT_MID
-    file: assets/exercises/KNEE_003/frame_left_mid.png
+    file: assets/exercises/KNEE_003/frame_left_mid.jpg
     pose_description_uk: Ліва п’ята ковзає до тіла. Ліве коліно частково зігнуте і спрямоване вгору. Таз не повертається.
     alt_text_uk: Ліва п’ята ковзає до тіла, коліно частково зігнуте.
     alt_text_en: Left heel sliding toward the body, knee partly bent.
@@ -516,7 +517,7 @@ animation:
     - left_knee_points_up
     - pelvis_not_rotated
   - id: FRAME_LEFT_BENT
-    file: assets/exercises/KNEE_003/frame_left_bent.png
+    file: assets/exercises/KNEE_003/frame_left_bent.jpg
     pose_description_uk: Ліва п’ята підтягнута до комфортної межі. Ліве коліно зігнуте і спрямоване вгору. П’ята
       залишається на поверхні.
     alt_text_uk: Ліве коліно зігнуте, п’ята залишається на поверхні.
@@ -527,7 +528,7 @@ animation:
     - left_knee_points_up
     - pelvis_not_rotated
   - id: FRAME_RIGHT_MID
-    file: assets/exercises/KNEE_003/frame_right_mid.png
+    file: assets/exercises/KNEE_003/frame_right_mid.jpg
     pose_description_uk: Права п’ята ковзає до тіла. Праве коліно частково зігнуте і спрямоване вгору. Таз не повертається.
     alt_text_uk: Права п’ята ковзає до тіла, коліно частково зігнуте.
     alt_text_en: Right heel sliding toward the body, knee partly bent.
@@ -537,7 +538,7 @@ animation:
     - right_knee_points_up
     - pelvis_not_rotated
   - id: FRAME_RIGHT_BENT
-    file: assets/exercises/KNEE_003/frame_right_bent.png
+    file: assets/exercises/KNEE_003/frame_right_bent.jpg
     pose_description_uk: Права п’ята підтягнута до комфортної межі. Праве коліно зігнуте і спрямоване вгору. П’ята
       залишається на поверхні.
     alt_text_uk: Праве коліно зігнуте, п’ята залишається на поверхні.
@@ -548,7 +549,7 @@ animation:
     - right_knee_points_up
     - pelvis_not_rotated
   preview:
-    file: assets/exercises/KNEE_003/preview.png
+    file: assets/exercises/KNEE_003/preview.jpg
     source_frame_id: FRAME_LEFT_BENT
     overlay_text: false
 audio:
@@ -796,14 +797,14 @@ pro:
 assets:
   folder: assets/exercises/KNEE_003
   required:
-  - preview.png
-  - frame_start.png
-  - frame_left_mid.png
-  - frame_left_bent.png
-  - frame_right_mid.png
-  - frame_right_bent.png
+  - preview.jpg
+  - frame_start.jpg
+  - frame_left_mid.jpg
+  - frame_left_bent.jpg
+  - frame_right_mid.jpg
+  - frame_right_bent.jpg
   optional:
-  - thumbnail.png
+  - thumbnail.jpg
   validation:
     same_subject_all_frames: true
     same_camera_all_frames: true

@@ -207,21 +207,21 @@
     "frames": [
       {
         "id": "FRAME_SETUP",
-        "file": "assets/exercises/ELBOW_008/images/setup_full_safe.png",
+        "file": "assets/exercises/ELBOW_008/images/setup_full_safe.jpg",
         "altText": "Seated start position, both arms bent overhead."
       },
       {
         "id": "FRAME_BENT_OVERHEAD",
-        "file": "assets/exercises/ELBOW_008/images/motion_01_both_arms_bent_overhead_full_safe.png",
+        "file": "assets/exercises/ELBOW_008/images/motion_01_both_arms_bent_overhead_full_safe.jpg",
         "altText": "Both arms bent overhead, hands behind the head."
       },
       {
         "id": "FRAME_EXTENDED_OVERHEAD",
-        "file": "assets/exercises/ELBOW_008/images/motion_02_both_arms_extended_overhead_full_safe.png",
+        "file": "assets/exercises/ELBOW_008/images/motion_02_both_arms_extended_overhead_full_safe.jpg",
         "altText": "Both arms straightened up above the head."
       }
     ],
-    "preview": "assets/exercises/ELBOW_008/images/preview.png"
+    "preview": "assets/exercises/ELBOW_008/images/preview.jpg"
   },
   "audio": {
     "events": [

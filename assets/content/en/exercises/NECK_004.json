@@ -202,21 +202,21 @@
     "frames": [
       {
         "id": "FRAME_SETUP",
-        "file": "assets/exercises/NECK_004/images/setup_full_safe.png",
+        "file": "assets/exercises/NECK_004/images/setup_full_safe.jpg",
         "altText": "Seated start position, back tall and head in a neutral position."
       },
       {
         "id": "FRAME_NEUTRAL",
-        "file": "assets/exercises/NECK_004/images/motion_01_head_neutral_upper_safe.png",
+        "file": "assets/exercises/NECK_004/images/motion_01_head_neutral_upper_safe.jpg",
         "altText": "Head in a neutral position, looking straight ahead."
       },
       {
         "id": "FRAME_DOWN",
-        "file": "assets/exercises/NECK_004/images/motion_02_head_down_upper_safe.png",
+        "file": "assets/exercises/NECK_004/images/motion_02_head_down_upper_safe.jpg",
         "altText": "Head lowered, gaze directed down."
       }
     ],
-    "preview": "assets/exercises/NECK_004/images/preview.png"
+    "preview": "assets/exercises/NECK_004/images/preview.jpg"
   },
   "audio": {
     "events": [

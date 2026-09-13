@@ -281,31 +281,31 @@
     "frames": [
       {
         "id": "FRAME_START",
-        "file": "assets/exercises/KNEE_001/frame_start.png",
+        "file": "assets/exercises/KNEE_001/frame_start.jpg",
         "altText": "Seated start position, both feet flat on the floor."
       },
       {
         "id": "FRAME_LEFT_MID",
-        "file": "assets/exercises/KNEE_001/frame_left_mid.png",
+        "file": "assets/exercises/KNEE_001/frame_left_mid.jpg",
         "altText": "Left leg partly straightened at the knee."
       },
       {
         "id": "FRAME_LEFT_EXTENDED",
-        "file": "assets/exercises/KNEE_001/frame_left_extended.png",
+        "file": "assets/exercises/KNEE_001/frame_left_extended.jpg",
         "altText": "Left leg straightened forward, right foot flat on the floor."
       },
       {
         "id": "FRAME_RIGHT_MID",
-        "file": "assets/exercises/KNEE_001/frame_right_mid.png",
+        "file": "assets/exercises/KNEE_001/frame_right_mid.jpg",
         "altText": "Right leg partly straightened at the knee."
       },
       {
         "id": "FRAME_RIGHT_EXTENDED",
-        "file": "assets/exercises/KNEE_001/frame_right_extended.png",
+        "file": "assets/exercises/KNEE_001/frame_right_extended.jpg",
         "altText": "Right leg straightened forward, left foot flat on the floor."
       }
     ],
-    "preview": "assets/exercises/KNEE_001/preview.png"
+    "preview": "assets/exercises/KNEE_001/preview.jpg"
   },
   "audio": {
     "events": [

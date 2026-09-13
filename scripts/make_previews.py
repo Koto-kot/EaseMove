@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build each exercise's preview.png from the frame its YAML nominates.
+"""Build each exercise's preview.jpg from the frame its YAML nominates.
 
     python scripts/make_previews.py            # only what is out of date
     python scripts/make_previews.py --force    # rebuild everything
@@ -96,7 +96,16 @@ def build_one(exercise, size: int, force: bool, dry_run: bool) -> str:
         if preview.size != (size, size):
             preview = preview.resize((size, size), Image.LANCZOS)
         target.parent.mkdir(parents=True, exist_ok=True)
-        preview.save(target, format="PNG", optimize=True)
+        # The same encoding scripts/build_artwork.py uses, so a regenerated
+        # preview weighs what the rest of the pack weighs.
+        preview.convert("RGB").save(
+            target,
+            format="JPEG",
+            quality=92,
+            subsampling=2,
+            optimize=True,
+            progressive=True,
+        )
 
     return "built: {0}/{1} ({2}x{2}) from {3} {4}".format(
         exercise.id, target.name, size, frame.id, box

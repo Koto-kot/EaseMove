@@ -85,6 +85,10 @@ class ExerciseAssets:
     width_px: int
     height_px: int
     master_format: str
+
+    # What the artist delivers is not what the app bundles: PNG masters,
+    # JPEG in the build (scripts/build_artwork.py).
+    delivery_format: str
     transparent_preferred: bool
     preview_file: str | None
     preview_source_frame_id: str | None
@@ -144,6 +148,9 @@ def _read_exercise(path: Path) -> ExerciseAssets:
         width_px=int(spec.get("width_px", 1024)),
         height_px=int(spec.get("height_px", 1024)),
         master_format=str(spec.get("master_format", "png")).lower(),
+        delivery_format=str(
+            spec.get("app_delivery_format", spec.get("master_format", "png"))
+        ).lower(),
         transparent_preferred=bool(spec.get("transparent_background_preferred")),
         preview_file=preview.get("file"),
         preview_source_frame_id=preview.get("source_frame_id"),

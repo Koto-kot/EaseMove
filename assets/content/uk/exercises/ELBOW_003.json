@@ -207,21 +207,21 @@
     "frames": [
       {
         "id": "FRAME_SETUP",
-        "file": "assets/exercises/ELBOW_003/images/setup_full_safe.png",
+        "file": "assets/exercises/ELBOW_003/images/setup_full_safe.jpg",
         "altText": "Початкове положення сидячи, долоні всередину."
       },
       {
         "id": "FRAME_NEUTRAL",
-        "file": "assets/exercises/ELBOW_003/images/motion_01_neutral_palms_in_mid_safe.png",
+        "file": "assets/exercises/ELBOW_003/images/motion_01_neutral_palms_in_mid_safe.jpg",
         "altText": "Руки опущені, долоні всередину."
       },
       {
         "id": "FRAME_FLEXED",
-        "file": "assets/exercises/ELBOW_003/images/motion_02_flexed_palms_in_mid_safe.png",
+        "file": "assets/exercises/ELBOW_003/images/motion_02_flexed_palms_in_mid_safe.jpg",
         "altText": "Руки зігнуті, долоні всередину."
       }
     ],
-    "preview": "assets/exercises/ELBOW_003/images/preview.png"
+    "preview": "assets/exercises/ELBOW_003/images/preview.jpg"
   },
   "audio": {
     "events": [

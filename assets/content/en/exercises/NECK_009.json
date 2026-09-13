@@ -202,21 +202,21 @@
     "frames": [
       {
         "id": "FRAME_SETUP",
-        "file": "assets/exercises/NECK_009/images/setup_full_safe.png",
+        "file": "assets/exercises/NECK_009/images/setup_full_safe.jpg",
         "altText": "Seated start position, neck long and head level."
       },
       {
         "id": "FRAME_PALM_READY",
-        "file": "assets/exercises/NECK_009/images/motion_01_hands_behind_head_upper_safe.png",
+        "file": "assets/exercises/NECK_009/images/motion_01_hands_behind_head_upper_safe.jpg",
         "altText": "Palm resting on the back of the head, head in a neutral position."
       },
       {
         "id": "FRAME_PRESS",
-        "file": "assets/exercises/NECK_009/images/motion_02_isometric_back_head_press_upper_safe.png",
+        "file": "assets/exercises/NECK_009/images/motion_02_isometric_back_head_press_upper_safe.jpg",
         "altText": "Back of the head pressing into the palm, head staying put."
       }
     ],
-    "preview": "assets/exercises/NECK_009/images/preview.png"
+    "preview": "assets/exercises/NECK_009/images/preview.jpg"
   },
   "audio": {
     "events": [

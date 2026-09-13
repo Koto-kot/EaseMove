@@ -202,21 +202,21 @@
     "frames": [
       {
         "id": "FRAME_SETUP",
-        "file": "assets/exercises/NECK_009/images/setup_full_safe.png",
+        "file": "assets/exercises/NECK_009/images/setup_full_safe.jpg",
         "altText": "Початкове положення сидячи, шия довга, голова прямо."
       },
       {
         "id": "FRAME_PALM_READY",
-        "file": "assets/exercises/NECK_009/images/motion_01_hands_behind_head_upper_safe.png",
+        "file": "assets/exercises/NECK_009/images/motion_01_hands_behind_head_upper_safe.jpg",
         "altText": "Долоня лежить на потилиці, голова у нейтральному положенні."
       },
       {
         "id": "FRAME_PRESS",
-        "file": "assets/exercises/NECK_009/images/motion_02_isometric_back_head_press_upper_safe.png",
+        "file": "assets/exercises/NECK_009/images/motion_02_isometric_back_head_press_upper_safe.jpg",
         "altText": "Потилиця тисне в долоню, голова залишається на місці."
       }
     ],
-    "preview": "assets/exercises/NECK_009/images/preview.png"
+    "preview": "assets/exercises/NECK_009/images/preview.jpg"
   },
   "audio": {
     "events": [

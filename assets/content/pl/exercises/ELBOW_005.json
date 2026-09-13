@@ -205,21 +205,21 @@
     "frames": [
       {
         "id": "FRAME_SETUP",
-        "file": "assets/exercises/ELBOW_005/images/setup_full_safe.png",
+        "file": "assets/exercises/ELBOW_005/images/setup_full_safe.jpg",
         "altText": "Початкове положення сидячи, долоні вгору."
       },
       {
         "id": "FRAME_PALMS_UP",
-        "file": "assets/exercises/ELBOW_005/images/motion_01_palms_up_mid_safe.png",
+        "file": "assets/exercises/ELBOW_005/images/motion_01_palms_up_mid_safe.jpg",
         "altText": "Долоні повернуті вгору."
       },
       {
         "id": "FRAME_PALMS_DOWN",
-        "file": "assets/exercises/ELBOW_005/images/motion_02_palms_down_mid_safe.png",
+        "file": "assets/exercises/ELBOW_005/images/motion_02_palms_down_mid_safe.jpg",
         "altText": "Долоні повернуті вниз."
       }
     ],
-    "preview": "assets/exercises/ELBOW_005/images/preview.png"
+    "preview": "assets/exercises/ELBOW_005/images/preview.jpg"
   },
   "audio": {
     "events": [

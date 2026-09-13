@@ -202,21 +202,21 @@
     "frames": [
       {
         "id": "FRAME_SETUP",
-        "file": "assets/exercises/NECK_003/images/setup_full_safe.png",
+        "file": "assets/exercises/NECK_003/images/setup_full_safe.jpg",
         "altText": "Seated start position with the head in a neutral position."
       },
       {
         "id": "FRAME_TILT_RIGHT",
-        "file": "assets/exercises/NECK_003/images/motion_01_ear_to_left_shoulder_upper_safe.png",
+        "file": "assets/exercises/NECK_003/images/motion_01_ear_to_left_shoulder_upper_safe.jpg",
         "altText": "Head tilted toward the shoulder, ear closer to the shoulder, shoulders down."
       },
       {
         "id": "FRAME_TILT_LEFT",
-        "file": "assets/exercises/NECK_003/images/motion_02_ear_to_right_shoulder_upper_safe.png",
+        "file": "assets/exercises/NECK_003/images/motion_02_ear_to_right_shoulder_upper_safe.jpg",
         "altText": "Head tilted toward the other shoulder, shoulders still down."
       }
     ],
-    "preview": "assets/exercises/NECK_003/images/preview.png"
+    "preview": "assets/exercises/NECK_003/images/preview.jpg"
   },
   "audio": {
     "events": [

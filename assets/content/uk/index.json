@@ -28,7 +28,7 @@
         "gentle",
         "stable_chair"
       ],
-      "preview": "assets/exercises/NECK_001/images/preview.png",
+      "preview": "assets/exercises/NECK_001/images/preview.jpg",
       "estimatedActiveSeconds": 61,
       "requiresPro": false
     },
@@ -57,7 +57,7 @@
         "none",
         "chair_optional"
       ],
-      "preview": "assets/exercises/NECK_002/images/preview.png",
+      "preview": "assets/exercises/NECK_002/images/preview.jpg",
       "estimatedActiveSeconds": 51,
       "requiresPro": false
     },
@@ -86,7 +86,7 @@
         "gentle",
         "stable_chair"
       ],
-      "preview": "assets/exercises/NECK_003/images/preview.png",
+      "preview": "assets/exercises/NECK_003/images/preview.jpg",
       "estimatedActiveSeconds": 61,
       "requiresPro": false
     },
@@ -115,7 +115,7 @@
         "gentle",
         "stable_chair"
       ],
-      "preview": "assets/exercises/NECK_004/images/preview.png",
+      "preview": "assets/exercises/NECK_004/images/preview.jpg",
       "estimatedActiveSeconds": 61,
       "requiresPro": false
     },
@@ -144,7 +144,7 @@
         "gentle",
         "stable_chair"
       ],
-      "preview": "assets/exercises/NECK_005/images/preview.png",
+      "preview": "assets/exercises/NECK_005/images/preview.jpg",
       "estimatedActiveSeconds": 61,
       "requiresPro": false
     },
@@ -173,7 +173,7 @@
         "gentle",
         "stable_chair"
       ],
-      "preview": "assets/exercises/NECK_006/images/preview.png",
+      "preview": "assets/exercises/NECK_006/images/preview.jpg",
       "estimatedActiveSeconds": 61,
       "requiresPro": false
     },
@@ -202,7 +202,7 @@
         "gentle",
         "stable_chair"
       ],
-      "preview": "assets/exercises/NECK_007/images/preview.png",
+      "preview": "assets/exercises/NECK_007/images/preview.jpg",
       "estimatedActiveSeconds": 61,
       "requiresPro": false
     },
@@ -231,7 +231,7 @@
         "gentle",
         "stable_chair"
       ],
-      "preview": "assets/exercises/NECK_008/images/preview.png",
+      "preview": "assets/exercises/NECK_008/images/preview.jpg",
       "estimatedActiveSeconds": 61,
       "requiresPro": false
     },
@@ -260,7 +260,7 @@
         "gentle",
         "stable_chair"
       ],
-      "preview": "assets/exercises/NECK_009/images/preview.png",
+      "preview": "assets/exercises/NECK_009/images/preview.jpg",
       "estimatedActiveSeconds": 61,
       "requiresPro": false
     },
@@ -289,7 +289,7 @@
         "gentle",
         "wall"
       ],
-      "preview": "assets/exercises/NECK_010/images/preview.png",
+      "preview": "assets/exercises/NECK_010/images/preview.jpg",
       "estimatedActiveSeconds": 61,
       "requiresPro": false
     },
@@ -320,7 +320,7 @@
         "gentle",
         "chair"
       ],
-      "preview": "assets/exercises/KNEE_001/preview.png",
+      "preview": "assets/exercises/KNEE_001/preview.jpg",
       "estimatedActiveSeconds": 182,
       "requiresPro": false
     },
@@ -356,7 +356,7 @@
         "beginner",
         "gentle"
       ],
-      "preview": "assets/exercises/KNEE_002/preview.png",
+      "preview": "assets/exercises/KNEE_002/preview.jpg",
       "estimatedActiveSeconds": 42,
       "requiresPro": false
     },
@@ -389,7 +389,7 @@
         "gentle",
         "bed_or_mat"
       ],
-      "preview": "assets/exercises/KNEE_003/preview.png",
+      "preview": "assets/exercises/KNEE_003/preview.jpg",
       "estimatedActiveSeconds": 54,
       "requiresPro": false
     },
@@ -420,7 +420,7 @@
         "gentle",
         "stable_chair"
       ],
-      "preview": "assets/exercises/ELBOW_001/images/preview.png",
+      "preview": "assets/exercises/ELBOW_001/images/preview.jpg",
       "estimatedActiveSeconds": 61,
       "requiresPro": false
     },
@@ -451,7 +451,7 @@
         "gentle",
         "stable_chair"
       ],
-      "preview": "assets/exercises/ELBOW_002/images/preview.png",
+      "preview": "assets/exercises/ELBOW_002/images/preview.jpg",
       "estimatedActiveSeconds": 61,
       "requiresPro": false
     },
@@ -483,7 +483,7 @@
         "gentle",
         "stable_chair"
       ],
-      "preview": "assets/exercises/ELBOW_003/images/preview.png",
+      "preview": "assets/exercises/ELBOW_003/images/preview.jpg",
       "estimatedActiveSeconds": 61,
       "requiresPro": false
     },
@@ -515,7 +515,7 @@
         "gentle",
         "stable_chair"
       ],
-      "preview": "assets/exercises/ELBOW_004/images/preview.png",
+      "preview": "assets/exercises/ELBOW_004/images/preview.jpg",
       "estimatedActiveSeconds": 61,
       "requiresPro": false
     },
@@ -546,7 +546,7 @@
         "gentle",
         "stable_chair"
       ],
-      "preview": "assets/exercises/ELBOW_005/images/preview.png",
+      "preview": "assets/exercises/ELBOW_005/images/preview.jpg",
       "estimatedActiveSeconds": 61,
       "requiresPro": false
     },
@@ -578,7 +578,7 @@
         "gentle",
         "stable_chair"
       ],
-      "preview": "assets/exercises/ELBOW_006/images/preview.png",
+      "preview": "assets/exercises/ELBOW_006/images/preview.jpg",
       "estimatedActiveSeconds": 61,
       "requiresPro": false
     },
@@ -610,7 +610,7 @@
         "gentle",
         "stable_chair"
       ],
-      "preview": "assets/exercises/ELBOW_007/images/preview.png",
+      "preview": "assets/exercises/ELBOW_007/images/preview.jpg",
       "estimatedActiveSeconds": 61,
       "requiresPro": false
     },
@@ -642,7 +642,7 @@
         "gentle",
         "stable_chair"
       ],
-      "preview": "assets/exercises/ELBOW_008/images/preview.png",
+      "preview": "assets/exercises/ELBOW_008/images/preview.jpg",
       "estimatedActiveSeconds": 61,
       "requiresPro": false
     },
@@ -672,7 +672,7 @@
         "gentle",
         "wall"
       ],
-      "preview": "assets/exercises/ELBOW_009/images/preview.png",
+      "preview": "assets/exercises/ELBOW_009/images/preview.jpg",
       "estimatedActiveSeconds": 61,
       "requiresPro": false
     }
@@ -904,7 +904,7 @@
   "bodyMap": {
     "artwork": {
       "front": {
-        "asset": "assets/ui/home/body/body_front.png",
+        "asset": "assets/ui/home/body/body_front.jpg",
         "widthPx": 1086,
         "heightPx": 1448,
         "content": {
@@ -915,7 +915,7 @@
         }
       },
       "back_mini": {
-        "asset": "assets/ui/home/body/body_back_mini.png",
+        "asset": "assets/ui/home/body/body_back_mini.jpg",
         "widthPx": 1086,
         "heightPx": 1448,
         "content": {

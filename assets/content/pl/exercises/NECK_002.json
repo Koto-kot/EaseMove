@@ -246,26 +246,26 @@
     "frames": [
       {
         "id": "FRAME_SETUP",
-        "file": "assets/exercises/NECK_002/images/setup_full_safe.png",
+        "file": "assets/exercises/NECK_002/images/setup_full_safe.jpg",
         "altText": "Початкове положення сидячи, голова прямо, погляд горизонтальний."
       },
       {
         "id": "FRAME_CENTER",
-        "file": "assets/exercises/NECK_002/images/motion_00_head_centre_upper_safe.png",
+        "file": "assets/exercises/NECK_002/images/motion_00_head_centre_upper_safe.jpg",
         "altText": "Початкове положення: голова прямо, плечі розслаблені."
       },
       {
         "id": "FRAME_LEFT",
-        "file": "assets/exercises/NECK_002/images/motion_01_head_turn_left_upper_safe.png",
+        "file": "assets/exercises/NECK_002/images/motion_01_head_turn_left_upper_safe.jpg",
         "altText": "Голова повернута ліворуч, корпус залишається прямо."
       },
       {
         "id": "FRAME_RIGHT",
-        "file": "assets/exercises/NECK_002/images/motion_02_head_turn_right_upper_safe.png",
+        "file": "assets/exercises/NECK_002/images/motion_02_head_turn_right_upper_safe.jpg",
         "altText": "Голова повернута праворуч, корпус залишається прямо."
       }
     ],
-    "preview": "assets/exercises/NECK_002/images/preview.png"
+    "preview": "assets/exercises/NECK_002/images/preview.jpg"
   },
   "audio": {
     "events": [

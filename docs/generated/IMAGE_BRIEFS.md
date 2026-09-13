@@ -24,7 +24,7 @@ See also `docs/IMAGE_ASSET_SPEC.md`, `docs/VISUAL_STYLE_GUIDE.md` and `docs/EXER
 
 ### FRAME_SETUP
 
-Save as `assets/exercises/NECK_001/images/setup_full_safe.png`
+Save as `assets/exercises/NECK_001/images/setup_full_safe.jpg`
 
 ```text
 One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
@@ -42,7 +42,7 @@ Check before accepting: .
 
 ### FRAME_NEUTRAL
 
-Save as `assets/exercises/NECK_001/images/motion_01_chin_forward_neutral_upper_safe.png`
+Save as `assets/exercises/NECK_001/images/motion_01_chin_forward_neutral_upper_safe.jpg`
 
 ```text
 One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
@@ -60,7 +60,7 @@ Check before accepting: .
 
 ### FRAME_CHIN_TUCK
 
-Save as `assets/exercises/NECK_001/images/motion_02_chin_tuck_upper_safe.png`
+Save as `assets/exercises/NECK_001/images/motion_02_chin_tuck_upper_safe.jpg`
 
 ```text
 One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
@@ -78,7 +78,7 @@ Check before accepting: .
 
 ### Preview
 
-Save as `assets/exercises/NECK_001/images/preview.png` — a crop of `FRAME_SETUP`, no overlay text.
+Save as `assets/exercises/NECK_001/images/preview.jpg` — a crop of `FRAME_SETUP`, no overlay text.
 
 **Acceptance checklist**
 
@@ -105,7 +105,7 @@ Save as `assets/exercises/NECK_001/images/preview.png` — a crop of `FRAME_SETU
 
 ### FRAME_SETUP
 
-Save as `assets/exercises/NECK_002/images/setup_full_safe.png`
+Save as `assets/exercises/NECK_002/images/setup_full_safe.jpg`
 
 ```text
 One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
@@ -123,7 +123,7 @@ Check before accepting: `head neutral`, `eyes forward`, `shoulders level`.
 
 ### FRAME_CENTER
 
-Save as `assets/exercises/NECK_002/images/motion_00_head_centre_upper_safe.png`
+Save as `assets/exercises/NECK_002/images/motion_00_head_centre_upper_safe.jpg`
 
 ```text
 One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
@@ -141,7 +141,7 @@ Check before accepting: `head neutral`, `eyes forward`, `shoulders level`, `tors
 
 ### FRAME_LEFT
 
-Save as `assets/exercises/NECK_002/images/motion_01_head_turn_left_upper_safe.png`
+Save as `assets/exercises/NECK_002/images/motion_01_head_turn_left_upper_safe.jpg`
 
 ```text
 One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
@@ -159,7 +159,7 @@ Check before accepting: `head rotated left`, `chin height stable`, `shoulders le
 
 ### FRAME_RIGHT
 
-Save as `assets/exercises/NECK_002/images/motion_02_head_turn_right_upper_safe.png`
+Save as `assets/exercises/NECK_002/images/motion_02_head_turn_right_upper_safe.jpg`
 
 ```text
 One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
@@ -177,7 +177,7 @@ Check before accepting: `head rotated right`, `chin height stable`, `shoulders l
 
 ### Preview
 
-Save as `assets/exercises/NECK_002/images/preview.png` — a crop of `FRAME_SETUP`, no overlay text.
+Save as `assets/exercises/NECK_002/images/preview.jpg` — a crop of `FRAME_SETUP`, no overlay text.
 
 **Acceptance checklist**
 
@@ -202,7 +202,7 @@ Save as `assets/exercises/NECK_002/images/preview.png` — a crop of `FRAME_SETU
 
 ### FRAME_SETUP
 
-Save as `assets/exercises/NECK_003/images/setup_full_safe.png`
+Save as `assets/exercises/NECK_003/images/setup_full_safe.jpg`
 
 ```text
 One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
@@ -220,7 +220,7 @@ Check before accepting: .
 
 ### FRAME_TILT_RIGHT
 
-Save as `assets/exercises/NECK_003/images/motion_01_ear_to_left_shoulder_upper_safe.png`
+Save as `assets/exercises/NECK_003/images/motion_01_ear_to_left_shoulder_upper_safe.jpg`
 
 ```text
 One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
@@ -238,7 +238,7 @@ Check before accepting: .
 
 ### FRAME_TILT_LEFT
 
-Save as `assets/exercises/NECK_003/images/motion_02_ear_to_right_shoulder_upper_safe.png`
+Save as `assets/exercises/NECK_003/images/motion_02_ear_to_right_shoulder_upper_safe.jpg`
 
 ```text
 One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
@@ -256,7 +256,7 @@ Check before accepting: .
 
 ### Preview
 
-Save as `assets/exercises/NECK_003/images/preview.png` — a crop of `FRAME_SETUP`, no overlay text.
+Save as `assets/exercises/NECK_003/images/preview.jpg` — a crop of `FRAME_SETUP`, no overlay text.
 
 **Acceptance checklist**
 
@@ -284,7 +284,7 @@ Save as `assets/exercises/NECK_003/images/preview.png` — a crop of `FRAME_SETU
 
 ### FRAME_SETUP
 
-Save as `assets/exercises/NECK_004/images/setup_full_safe.png`
+Save as `assets/exercises/NECK_004/images/setup_full_safe.jpg`
 
 ```text
 One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
@@ -302,7 +302,7 @@ Check before accepting: .
 
 ### FRAME_NEUTRAL
 
-Save as `assets/exercises/NECK_004/images/motion_01_head_neutral_upper_safe.png`
+Save as `assets/exercises/NECK_004/images/motion_01_head_neutral_upper_safe.jpg`
 
 ```text
 One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
@@ -320,7 +320,7 @@ Check before accepting: .
 
 ### FRAME_DOWN
 
-Save as `assets/exercises/NECK_004/images/motion_02_head_down_upper_safe.png`
+Save as `assets/exercises/NECK_004/images/motion_02_head_down_upper_safe.jpg`
 
 ```text
 One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
@@ -338,7 +338,7 @@ Check before accepting: .
 
 ### Preview
 
-Save as `assets/exercises/NECK_004/images/preview.png` — a crop of `FRAME_SETUP`, no overlay text.
+Save as `assets/exercises/NECK_004/images/preview.jpg` — a crop of `FRAME_SETUP`, no overlay text.
 
 **Acceptance checklist**
 
@@ -366,7 +366,7 @@ Save as `assets/exercises/NECK_004/images/preview.png` — a crop of `FRAME_SETU
 
 ### FRAME_SETUP
 
-Save as `assets/exercises/NECK_005/images/setup_full_safe.png`
+Save as `assets/exercises/NECK_005/images/setup_full_safe.jpg`
 
 ```text
 One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
@@ -384,7 +384,7 @@ Check before accepting: .
 
 ### FRAME_NEUTRAL
 
-Save as `assets/exercises/NECK_005/images/motion_01_head_neutral_upper_safe.png`
+Save as `assets/exercises/NECK_005/images/motion_01_head_neutral_upper_safe.jpg`
 
 ```text
 One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
@@ -402,7 +402,7 @@ Check before accepting: .
 
 ### FRAME_UP
 
-Save as `assets/exercises/NECK_005/images/motion_02_head_slightly_up_upper_safe.png`
+Save as `assets/exercises/NECK_005/images/motion_02_head_slightly_up_upper_safe.jpg`
 
 ```text
 One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
@@ -420,7 +420,7 @@ Check before accepting: .
 
 ### Preview
 
-Save as `assets/exercises/NECK_005/images/preview.png` — a crop of `FRAME_SETUP`, no overlay text.
+Save as `assets/exercises/NECK_005/images/preview.jpg` — a crop of `FRAME_SETUP`, no overlay text.
 
 **Acceptance checklist**
 
@@ -448,7 +448,7 @@ Save as `assets/exercises/NECK_005/images/preview.png` — a crop of `FRAME_SETU
 
 ### FRAME_SETUP
 
-Save as `assets/exercises/NECK_006/images/setup_full_safe.png`
+Save as `assets/exercises/NECK_006/images/setup_full_safe.jpg`
 
 ```text
 One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
@@ -466,7 +466,7 @@ Check before accepting: .
 
 ### FRAME_DIAGONAL_LEFT
 
-Save as `assets/exercises/NECK_006/images/motion_01_diagonal_down_left_upper_safe.png`
+Save as `assets/exercises/NECK_006/images/motion_01_diagonal_down_left_upper_safe.jpg`
 
 ```text
 One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
@@ -484,7 +484,7 @@ Check before accepting: .
 
 ### FRAME_DIAGONAL_RIGHT
 
-Save as `assets/exercises/NECK_006/images/motion_02_diagonal_down_right_upper_safe.png`
+Save as `assets/exercises/NECK_006/images/motion_02_diagonal_down_right_upper_safe.jpg`
 
 ```text
 One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
@@ -502,7 +502,7 @@ Check before accepting: .
 
 ### Preview
 
-Save as `assets/exercises/NECK_006/images/preview.png` — a crop of `FRAME_SETUP`, no overlay text.
+Save as `assets/exercises/NECK_006/images/preview.jpg` — a crop of `FRAME_SETUP`, no overlay text.
 
 **Acceptance checklist**
 
@@ -530,7 +530,7 @@ Save as `assets/exercises/NECK_006/images/preview.png` — a crop of `FRAME_SETU
 
 ### FRAME_SETUP
 
-Save as `assets/exercises/NECK_007/images/setup_full_safe.png`
+Save as `assets/exercises/NECK_007/images/setup_full_safe.jpg`
 
 ```text
 One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
@@ -548,7 +548,7 @@ Check before accepting: .
 
 ### FRAME_PALM_READY
 
-Save as `assets/exercises/NECK_007/images/motion_01_palm_to_forehead_upper_safe.png`
+Save as `assets/exercises/NECK_007/images/motion_01_palm_to_forehead_upper_safe.jpg`
 
 ```text
 One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
@@ -566,7 +566,7 @@ Check before accepting: .
 
 ### FRAME_PRESS
 
-Save as `assets/exercises/NECK_007/images/motion_02_isometric_forehead_press_upper_safe.png`
+Save as `assets/exercises/NECK_007/images/motion_02_isometric_forehead_press_upper_safe.jpg`
 
 ```text
 One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
@@ -584,7 +584,7 @@ Check before accepting: .
 
 ### Preview
 
-Save as `assets/exercises/NECK_007/images/preview.png` — a crop of `FRAME_SETUP`, no overlay text.
+Save as `assets/exercises/NECK_007/images/preview.jpg` — a crop of `FRAME_SETUP`, no overlay text.
 
 **Acceptance checklist**
 
@@ -612,7 +612,7 @@ Save as `assets/exercises/NECK_007/images/preview.png` — a crop of `FRAME_SETU
 
 ### FRAME_SETUP
 
-Save as `assets/exercises/NECK_008/images/setup_full_safe.png`
+Save as `assets/exercises/NECK_008/images/setup_full_safe.jpg`
 
 ```text
 One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
@@ -630,7 +630,7 @@ Check before accepting: .
 
 ### FRAME_PRESS_RIGHT
 
-Save as `assets/exercises/NECK_008/images/motion_01_palm_to_left_temple_upper_safe.png`
+Save as `assets/exercises/NECK_008/images/motion_01_palm_to_left_temple_upper_safe.jpg`
 
 ```text
 One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
@@ -648,7 +648,7 @@ Check before accepting: .
 
 ### FRAME_PRESS_LEFT
 
-Save as `assets/exercises/NECK_008/images/motion_02_palm_to_right_temple_upper_safe.png`
+Save as `assets/exercises/NECK_008/images/motion_02_palm_to_right_temple_upper_safe.jpg`
 
 ```text
 One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
@@ -666,7 +666,7 @@ Check before accepting: .
 
 ### Preview
 
-Save as `assets/exercises/NECK_008/images/preview.png` — a crop of `FRAME_SETUP`, no overlay text.
+Save as `assets/exercises/NECK_008/images/preview.jpg` — a crop of `FRAME_SETUP`, no overlay text.
 
 **Acceptance checklist**
 
@@ -694,7 +694,7 @@ Save as `assets/exercises/NECK_008/images/preview.png` — a crop of `FRAME_SETU
 
 ### FRAME_SETUP
 
-Save as `assets/exercises/NECK_009/images/setup_full_safe.png`
+Save as `assets/exercises/NECK_009/images/setup_full_safe.jpg`
 
 ```text
 One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
@@ -712,7 +712,7 @@ Check before accepting: .
 
 ### FRAME_PALM_READY
 
-Save as `assets/exercises/NECK_009/images/motion_01_hands_behind_head_upper_safe.png`
+Save as `assets/exercises/NECK_009/images/motion_01_hands_behind_head_upper_safe.jpg`
 
 ```text
 One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
@@ -730,7 +730,7 @@ Check before accepting: .
 
 ### FRAME_PRESS
 
-Save as `assets/exercises/NECK_009/images/motion_02_isometric_back_head_press_upper_safe.png`
+Save as `assets/exercises/NECK_009/images/motion_02_isometric_back_head_press_upper_safe.jpg`
 
 ```text
 One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
@@ -748,7 +748,7 @@ Check before accepting: .
 
 ### Preview
 
-Save as `assets/exercises/NECK_009/images/preview.png` — a crop of `FRAME_SETUP`, no overlay text.
+Save as `assets/exercises/NECK_009/images/preview.jpg` — a crop of `FRAME_SETUP`, no overlay text.
 
 **Acceptance checklist**
 
@@ -776,7 +776,7 @@ Save as `assets/exercises/NECK_009/images/preview.png` — a crop of `FRAME_SETU
 
 ### FRAME_SETUP
 
-Save as `assets/exercises/NECK_010/images/setup_full_safe.png`
+Save as `assets/exercises/NECK_010/images/setup_full_safe.jpg`
 
 ```text
 One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
@@ -794,7 +794,7 @@ Check before accepting: .
 
 ### FRAME_WALL_NEUTRAL
 
-Save as `assets/exercises/NECK_010/images/motion_01_wall_neutral_full_safe.png`
+Save as `assets/exercises/NECK_010/images/motion_01_wall_neutral_full_safe.jpg`
 
 ```text
 One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
@@ -812,7 +812,7 @@ Check before accepting: .
 
 ### FRAME_WALL_CHIN_TUCK
 
-Save as `assets/exercises/NECK_010/images/motion_02_wall_chin_tuck_upper_safe.png`
+Save as `assets/exercises/NECK_010/images/motion_02_wall_chin_tuck_upper_safe.jpg`
 
 ```text
 One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
@@ -830,7 +830,7 @@ Check before accepting: .
 
 ### Preview
 
-Save as `assets/exercises/NECK_010/images/preview.png` — a crop of `FRAME_SETUP`, no overlay text.
+Save as `assets/exercises/NECK_010/images/preview.jpg` — a crop of `FRAME_SETUP`, no overlay text.
 
 **Acceptance checklist**
 
@@ -857,7 +857,7 @@ Save as `assets/exercises/NECK_010/images/preview.png` — a crop of `FRAME_SETU
 
 ### FRAME_START
 
-Save as `assets/exercises/KNEE_001/frame_start.png`
+Save as `assets/exercises/KNEE_001/frame_start.jpg`
 
 ```text
 One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
@@ -875,7 +875,7 @@ Check before accepting: `torso upright`, `both feet supported`, `thighs supporte
 
 ### FRAME_LEFT_MID
 
-Save as `assets/exercises/KNEE_001/frame_left_mid.png`
+Save as `assets/exercises/KNEE_001/frame_left_mid.jpg`
 
 ```text
 One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
@@ -893,7 +893,7 @@ Check before accepting: `left knee partially extended`, `left thigh supported`, 
 
 ### FRAME_LEFT_EXTENDED
 
-Save as `assets/exercises/KNEE_001/frame_left_extended.png`
+Save as `assets/exercises/KNEE_001/frame_left_extended.jpg`
 
 ```text
 One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
@@ -911,7 +911,7 @@ Check before accepting: `left knee extended`, `left thigh supported`, `left ankl
 
 ### FRAME_RIGHT_MID
 
-Save as `assets/exercises/KNEE_001/frame_right_mid.png`
+Save as `assets/exercises/KNEE_001/frame_right_mid.jpg`
 
 ```text
 One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
@@ -929,7 +929,7 @@ Check before accepting: `right knee partially extended`, `right thigh supported`
 
 ### FRAME_RIGHT_EXTENDED
 
-Save as `assets/exercises/KNEE_001/frame_right_extended.png`
+Save as `assets/exercises/KNEE_001/frame_right_extended.jpg`
 
 ```text
 One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
@@ -947,7 +947,7 @@ Check before accepting: `right knee extended`, `right thigh supported`, `right a
 
 ### Preview
 
-Save as `assets/exercises/KNEE_001/preview.png` — a crop of `FRAME_LEFT_EXTENDED`, no overlay text.
+Save as `assets/exercises/KNEE_001/preview.jpg` — a crop of `FRAME_LEFT_EXTENDED`, no overlay text.
 
 **Acceptance checklist**
 
@@ -973,7 +973,7 @@ Save as `assets/exercises/KNEE_001/preview.png` — a crop of `FRAME_LEFT_EXTEND
 
 ### FRAME_SEATED
 
-Save as `assets/exercises/KNEE_002/frame_seated.png`
+Save as `assets/exercises/KNEE_002/frame_seated.jpg`
 
 ```text
 One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
@@ -991,7 +991,7 @@ Check before accepting: `feet flat`, `feet hip width`, `eyes forward`, `chair st
 
 ### FRAME_FORWARD_LEAN
 
-Save as `assets/exercises/KNEE_002/frame_forward_lean.png`
+Save as `assets/exercises/KNEE_002/frame_forward_lean.jpg`
 
 ```text
 One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
@@ -1009,7 +1009,7 @@ Check before accepting: `forward lean present`, `feet flat`, `hips still near ch
 
 ### FRAME_RISING
 
-Save as `assets/exercises/KNEE_002/frame_rising.png`
+Save as `assets/exercises/KNEE_002/frame_rising.jpg`
 
 ```text
 One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
@@ -1027,7 +1027,7 @@ Check before accepting: `pelvis off chair`, `feet flat`, `knees extending`, `hip
 
 ### FRAME_STANDING
 
-Save as `assets/exercises/KNEE_002/frame_standing.png`
+Save as `assets/exercises/KNEE_002/frame_standing.jpg`
 
 ```text
 One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
@@ -1045,7 +1045,7 @@ Check before accepting: `fully upright`, `balanced stance`, `feet supported`, `e
 
 ### FRAME_DESCENDING
 
-Save as `assets/exercises/KNEE_002/frame_descending.png`
+Save as `assets/exercises/KNEE_002/frame_descending.jpg`
 
 ```text
 One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
@@ -1063,7 +1063,7 @@ Check before accepting: `controlled descent`, `hip and knee flexion`, `feet flat
 
 ### Preview
 
-Save as `assets/exercises/KNEE_002/preview.png` — a crop of `FRAME_RISING`, no overlay text.
+Save as `assets/exercises/KNEE_002/preview.jpg` — a crop of `FRAME_RISING`, no overlay text.
 
 **Acceptance checklist**
 
@@ -1091,7 +1091,7 @@ Save as `assets/exercises/KNEE_002/preview.png` — a crop of `FRAME_RISING`, no
 
 ### FRAME_START
 
-Save as `assets/exercises/KNEE_003/frame_start.png`
+Save as `assets/exercises/KNEE_003/frame_start.jpg`
 
 ```text
 One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
@@ -1109,7 +1109,7 @@ Check before accepting: `supine position`, `both legs extended`, `pelvis neutral
 
 ### FRAME_LEFT_MID
 
-Save as `assets/exercises/KNEE_003/frame_left_mid.png`
+Save as `assets/exercises/KNEE_003/frame_left_mid.jpg`
 
 ```text
 One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
@@ -1127,7 +1127,7 @@ Check before accepting: `left heel in contact`, `left knee partially flexed`, `l
 
 ### FRAME_LEFT_BENT
 
-Save as `assets/exercises/KNEE_003/frame_left_bent.png`
+Save as `assets/exercises/KNEE_003/frame_left_bent.jpg`
 
 ```text
 One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
@@ -1145,7 +1145,7 @@ Check before accepting: `left heel in contact`, `left knee flexed`, `left knee p
 
 ### FRAME_RIGHT_MID
 
-Save as `assets/exercises/KNEE_003/frame_right_mid.png`
+Save as `assets/exercises/KNEE_003/frame_right_mid.jpg`
 
 ```text
 One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
@@ -1163,7 +1163,7 @@ Check before accepting: `right heel in contact`, `right knee partially flexed`, 
 
 ### FRAME_RIGHT_BENT
 
-Save as `assets/exercises/KNEE_003/frame_right_bent.png`
+Save as `assets/exercises/KNEE_003/frame_right_bent.jpg`
 
 ```text
 One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
@@ -1181,7 +1181,7 @@ Check before accepting: `right heel in contact`, `right knee flexed`, `right kne
 
 ### Preview
 
-Save as `assets/exercises/KNEE_003/preview.png` — a crop of `FRAME_LEFT_BENT`, no overlay text.
+Save as `assets/exercises/KNEE_003/preview.jpg` — a crop of `FRAME_LEFT_BENT`, no overlay text.
 
 **Acceptance checklist**
 
@@ -1210,7 +1210,7 @@ Save as `assets/exercises/KNEE_003/preview.png` — a crop of `FRAME_LEFT_BENT`,
 
 ### FRAME_SETUP
 
-Save as `assets/exercises/ELBOW_001/images/setup_full_safe.png`
+Save as `assets/exercises/ELBOW_001/images/setup_full_safe.jpg`
 
 ```text
 One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
@@ -1228,7 +1228,7 @@ Check before accepting: .
 
 ### FRAME_EXTENDED
 
-Save as `assets/exercises/ELBOW_001/images/motion_01_extended_mid_safe.png`
+Save as `assets/exercises/ELBOW_001/images/motion_01_extended_mid_safe.jpg`
 
 ```text
 One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
@@ -1246,7 +1246,7 @@ Check before accepting: .
 
 ### FRAME_FLEXED
 
-Save as `assets/exercises/ELBOW_001/images/motion_02_flexed_mid_safe.png`
+Save as `assets/exercises/ELBOW_001/images/motion_02_flexed_mid_safe.jpg`
 
 ```text
 One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
@@ -1264,7 +1264,7 @@ Check before accepting: .
 
 ### Preview
 
-Save as `assets/exercises/ELBOW_001/images/preview.png` — a crop of `FRAME_SETUP`, no overlay text.
+Save as `assets/exercises/ELBOW_001/images/preview.jpg` — a crop of `FRAME_SETUP`, no overlay text.
 
 **Acceptance checklist**
 
@@ -1292,7 +1292,7 @@ Save as `assets/exercises/ELBOW_001/images/preview.png` — a crop of `FRAME_SET
 
 ### FRAME_SETUP
 
-Save as `assets/exercises/ELBOW_002/images/setup_full_safe.png`
+Save as `assets/exercises/ELBOW_002/images/setup_full_safe.jpg`
 
 ```text
 One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
@@ -1310,7 +1310,7 @@ Check before accepting: .
 
 ### FRAME_RIGHT_FLEXED
 
-Save as `assets/exercises/ELBOW_002/images/motion_01_right_flex_mid_safe.png`
+Save as `assets/exercises/ELBOW_002/images/motion_01_right_flex_mid_safe.jpg`
 
 ```text
 One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
@@ -1328,7 +1328,7 @@ Check before accepting: .
 
 ### FRAME_LEFT_FLEXED
 
-Save as `assets/exercises/ELBOW_002/images/motion_02_left_flex_mid_safe.png`
+Save as `assets/exercises/ELBOW_002/images/motion_02_left_flex_mid_safe.jpg`
 
 ```text
 One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
@@ -1346,7 +1346,7 @@ Check before accepting: .
 
 ### Preview
 
-Save as `assets/exercises/ELBOW_002/images/preview.png` — a crop of `FRAME_SETUP`, no overlay text.
+Save as `assets/exercises/ELBOW_002/images/preview.jpg` — a crop of `FRAME_SETUP`, no overlay text.
 
 **Acceptance checklist**
 
@@ -1374,7 +1374,7 @@ Save as `assets/exercises/ELBOW_002/images/preview.png` — a crop of `FRAME_SET
 
 ### FRAME_SETUP
 
-Save as `assets/exercises/ELBOW_003/images/setup_full_safe.png`
+Save as `assets/exercises/ELBOW_003/images/setup_full_safe.jpg`
 
 ```text
 One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
@@ -1392,7 +1392,7 @@ Check before accepting: .
 
 ### FRAME_NEUTRAL
 
-Save as `assets/exercises/ELBOW_003/images/motion_01_neutral_palms_in_mid_safe.png`
+Save as `assets/exercises/ELBOW_003/images/motion_01_neutral_palms_in_mid_safe.jpg`
 
 ```text
 One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
@@ -1410,7 +1410,7 @@ Check before accepting: .
 
 ### FRAME_FLEXED
 
-Save as `assets/exercises/ELBOW_003/images/motion_02_flexed_palms_in_mid_safe.png`
+Save as `assets/exercises/ELBOW_003/images/motion_02_flexed_palms_in_mid_safe.jpg`
 
 ```text
 One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
@@ -1428,7 +1428,7 @@ Check before accepting: .
 
 ### Preview
 
-Save as `assets/exercises/ELBOW_003/images/preview.png` — a crop of `FRAME_SETUP`, no overlay text.
+Save as `assets/exercises/ELBOW_003/images/preview.jpg` — a crop of `FRAME_SETUP`, no overlay text.
 
 **Acceptance checklist**
 
@@ -1456,7 +1456,7 @@ Save as `assets/exercises/ELBOW_003/images/preview.png` — a crop of `FRAME_SET
 
 ### FRAME_SETUP
 
-Save as `assets/exercises/ELBOW_004/images/setup_full_safe.png`
+Save as `assets/exercises/ELBOW_004/images/setup_full_safe.jpg`
 
 ```text
 One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
@@ -1474,7 +1474,7 @@ Check before accepting: .
 
 ### FRAME_FOREARMS_FORWARD
 
-Save as `assets/exercises/ELBOW_004/images/motion_01_forearms_forward_palms_down_mid_safe.png`
+Save as `assets/exercises/ELBOW_004/images/motion_01_forearms_forward_palms_down_mid_safe.jpg`
 
 ```text
 One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
@@ -1492,7 +1492,7 @@ Check before accepting: .
 
 ### FRAME_FLEXED
 
-Save as `assets/exercises/ELBOW_004/images/motion_02_flexed_palms_down_mid_safe.png`
+Save as `assets/exercises/ELBOW_004/images/motion_02_flexed_palms_down_mid_safe.jpg`
 
 ```text
 One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
@@ -1510,7 +1510,7 @@ Check before accepting: .
 
 ### Preview
 
-Save as `assets/exercises/ELBOW_004/images/preview.png` — a crop of `FRAME_SETUP`, no overlay text.
+Save as `assets/exercises/ELBOW_004/images/preview.jpg` — a crop of `FRAME_SETUP`, no overlay text.
 
 **Acceptance checklist**
 
@@ -1538,7 +1538,7 @@ Save as `assets/exercises/ELBOW_004/images/preview.png` — a crop of `FRAME_SET
 
 ### FRAME_SETUP
 
-Save as `assets/exercises/ELBOW_005/images/setup_full_safe.png`
+Save as `assets/exercises/ELBOW_005/images/setup_full_safe.jpg`
 
 ```text
 One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
@@ -1556,7 +1556,7 @@ Check before accepting: .
 
 ### FRAME_PALMS_UP
 
-Save as `assets/exercises/ELBOW_005/images/motion_01_palms_up_mid_safe.png`
+Save as `assets/exercises/ELBOW_005/images/motion_01_palms_up_mid_safe.jpg`
 
 ```text
 One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
@@ -1574,7 +1574,7 @@ Check before accepting: .
 
 ### FRAME_PALMS_DOWN
 
-Save as `assets/exercises/ELBOW_005/images/motion_02_palms_down_mid_safe.png`
+Save as `assets/exercises/ELBOW_005/images/motion_02_palms_down_mid_safe.jpg`
 
 ```text
 One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
@@ -1592,7 +1592,7 @@ Check before accepting: .
 
 ### Preview
 
-Save as `assets/exercises/ELBOW_005/images/preview.png` — a crop of `FRAME_SETUP`, no overlay text.
+Save as `assets/exercises/ELBOW_005/images/preview.jpg` — a crop of `FRAME_SETUP`, no overlay text.
 
 **Acceptance checklist**
 
@@ -1620,7 +1620,7 @@ Save as `assets/exercises/ELBOW_005/images/preview.png` — a crop of `FRAME_SET
 
 ### FRAME_SETUP
 
-Save as `assets/exercises/ELBOW_006/images/setup_full_safe.png`
+Save as `assets/exercises/ELBOW_006/images/setup_full_safe.jpg`
 
 ```text
 One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
@@ -1638,7 +1638,7 @@ Check before accepting: .
 
 ### FRAME_AT_SHOULDERS
 
-Save as `assets/exercises/ELBOW_006/images/motion_01_hands_at_shoulders_mid_safe.png`
+Save as `assets/exercises/ELBOW_006/images/motion_01_hands_at_shoulders_mid_safe.jpg`
 
 ```text
 One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
@@ -1656,7 +1656,7 @@ Check before accepting: .
 
 ### FRAME_ARMS_FORWARD
 
-Save as `assets/exercises/ELBOW_006/images/motion_02_arms_forward_mid_safe.png`
+Save as `assets/exercises/ELBOW_006/images/motion_02_arms_forward_mid_safe.jpg`
 
 ```text
 One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
@@ -1674,7 +1674,7 @@ Check before accepting: .
 
 ### Preview
 
-Save as `assets/exercises/ELBOW_006/images/preview.png` — a crop of `FRAME_SETUP`, no overlay text.
+Save as `assets/exercises/ELBOW_006/images/preview.jpg` — a crop of `FRAME_SETUP`, no overlay text.
 
 **Acceptance checklist**
 
@@ -1702,7 +1702,7 @@ Save as `assets/exercises/ELBOW_006/images/preview.png` — a crop of `FRAME_SET
 
 ### FRAME_SETUP
 
-Save as `assets/exercises/ELBOW_007/images/setup_full_safe.png`
+Save as `assets/exercises/ELBOW_007/images/setup_full_safe.jpg`
 
 ```text
 One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
@@ -1720,7 +1720,7 @@ Check before accepting: .
 
 ### FRAME_BENT_OVERHEAD
 
-Save as `assets/exercises/ELBOW_007/images/motion_01_one_arm_bent_overhead_full_safe.png`
+Save as `assets/exercises/ELBOW_007/images/motion_01_one_arm_bent_overhead_full_safe.jpg`
 
 ```text
 One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
@@ -1738,7 +1738,7 @@ Check before accepting: .
 
 ### FRAME_EXTENDED_OVERHEAD
 
-Save as `assets/exercises/ELBOW_007/images/motion_02_one_arm_extended_overhead_full_safe.png`
+Save as `assets/exercises/ELBOW_007/images/motion_02_one_arm_extended_overhead_full_safe.jpg`
 
 ```text
 One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
@@ -1756,7 +1756,7 @@ Check before accepting: .
 
 ### Preview
 
-Save as `assets/exercises/ELBOW_007/images/preview.png` — a crop of `FRAME_SETUP`, no overlay text.
+Save as `assets/exercises/ELBOW_007/images/preview.jpg` — a crop of `FRAME_SETUP`, no overlay text.
 
 **Acceptance checklist**
 
@@ -1784,7 +1784,7 @@ Save as `assets/exercises/ELBOW_007/images/preview.png` — a crop of `FRAME_SET
 
 ### FRAME_SETUP
 
-Save as `assets/exercises/ELBOW_008/images/setup_full_safe.png`
+Save as `assets/exercises/ELBOW_008/images/setup_full_safe.jpg`
 
 ```text
 One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
@@ -1802,7 +1802,7 @@ Check before accepting: .
 
 ### FRAME_BENT_OVERHEAD
 
-Save as `assets/exercises/ELBOW_008/images/motion_01_both_arms_bent_overhead_full_safe.png`
+Save as `assets/exercises/ELBOW_008/images/motion_01_both_arms_bent_overhead_full_safe.jpg`
 
 ```text
 One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
@@ -1820,7 +1820,7 @@ Check before accepting: .
 
 ### FRAME_EXTENDED_OVERHEAD
 
-Save as `assets/exercises/ELBOW_008/images/motion_02_both_arms_extended_overhead_full_safe.png`
+Save as `assets/exercises/ELBOW_008/images/motion_02_both_arms_extended_overhead_full_safe.jpg`
 
 ```text
 One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
@@ -1838,7 +1838,7 @@ Check before accepting: .
 
 ### Preview
 
-Save as `assets/exercises/ELBOW_008/images/preview.png` — a crop of `FRAME_SETUP`, no overlay text.
+Save as `assets/exercises/ELBOW_008/images/preview.jpg` — a crop of `FRAME_SETUP`, no overlay text.
 
 **Acceptance checklist**
 
@@ -1866,7 +1866,7 @@ Save as `assets/exercises/ELBOW_008/images/preview.png` — a crop of `FRAME_SET
 
 ### FRAME_SETUP
 
-Save as `assets/exercises/ELBOW_009/images/setup_full_safe.png`
+Save as `assets/exercises/ELBOW_009/images/setup_full_safe.jpg`
 
 ```text
 One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
@@ -1884,7 +1884,7 @@ Check before accepting: .
 
 ### FRAME_ARMS_EXTENDED
 
-Save as `assets/exercises/ELBOW_009/images/motion_01_arms_extended_wall_full_safe.png`
+Save as `assets/exercises/ELBOW_009/images/motion_01_arms_extended_wall_full_safe.jpg`
 
 ```text
 One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
@@ -1902,7 +1902,7 @@ Check before accepting: .
 
 ### FRAME_ELBOWS_BENT
 
-Save as `assets/exercises/ELBOW_009/images/motion_02_elbows_bent_wall_full_safe.png`
+Save as `assets/exercises/ELBOW_009/images/motion_02_elbows_bent_wall_full_safe.jpg`
 
 ```text
 One and the same adult person in every frame: ordinary build, not athletic and not a fitness model, neutral friendly appearance, plain solid-colour comfortable clothing with no logos or text, no medical uniform, same hairstyle, same body proportions, same clothing colour in all frames.
@@ -1920,7 +1920,7 @@ Check before accepting: .
 
 ### Preview
 
-Save as `assets/exercises/ELBOW_009/images/preview.png` — a crop of `FRAME_SETUP`, no overlay text.
+Save as `assets/exercises/ELBOW_009/images/preview.jpg` — a crop of `FRAME_SETUP`, no overlay text.
 
 **Acceptance checklist**
 

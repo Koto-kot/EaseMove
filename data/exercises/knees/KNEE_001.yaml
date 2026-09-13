@@ -208,7 +208,7 @@ ui:
   card:
     title_key: exercise.KNEE_001.title
     description_key: exercise.KNEE_001.card_description
-    preview_asset: assets/exercises/KNEE_001/preview.png
+    preview_asset: assets/exercises/KNEE_001/preview.jpg
     primary_action:
       key: common.exercise.start
       resolved_uk: Почати
@@ -412,13 +412,14 @@ animation:
     text_inside_asset: false
   asset_spec:
     master_format: png
+    app_delivery_format: jpg
     width_px: 1024
     height_px: 1024
     transparent_background_preferred: true
     production_assets_must_be_original: true
   frames:
   - id: FRAME_START
-    file: assets/exercises/KNEE_001/frame_start.png
+    file: assets/exercises/KNEE_001/frame_start.jpg
     pose_description_uk: Людина сидить рівно на стійкому стільці. Обидві стопи на підлозі, коліна зігнуті приблизно
       під прямим кутом.
     alt_text_uk: Початкове положення сидячи, обидві стопи на підлозі.
@@ -429,7 +430,7 @@ animation:
     - thighs_supported
     - knees_flexed
   - id: FRAME_LEFT_MID
-    file: assets/exercises/KNEE_001/frame_left_mid.png
+    file: assets/exercises/KNEE_001/frame_left_mid.jpg
     pose_description_uk: Ліва гомілка піднімається вперед у процесі розгинання коліна. Стегно залишається на сидінні,
       корпус не відхиляється.
     alt_text_uk: Ліва нога частково розігнута в коліні.
@@ -439,7 +440,7 @@ animation:
     - left_thigh_supported
     - torso_upright
   - id: FRAME_LEFT_EXTENDED
-    file: assets/exercises/KNEE_001/frame_left_extended.png
+    file: assets/exercises/KNEE_001/frame_left_extended.jpg
     pose_description_uk: Ліва нога розігнута вперед у комфортному діапазоні, носок підтягнутий у напрямку до себе.
       Праву стопу залишено на підлозі.
     alt_text_uk: Ліва нога розігнута вперед, права стопа на підлозі.
@@ -451,7 +452,7 @@ animation:
     - right_foot_supported
     - torso_upright
   - id: FRAME_RIGHT_MID
-    file: assets/exercises/KNEE_001/frame_right_mid.png
+    file: assets/exercises/KNEE_001/frame_right_mid.jpg
     pose_description_uk: Права гомілка піднімається вперед у процесі розгинання коліна. Стегно залишається на сидінні,
       корпус не відхиляється.
     alt_text_uk: Права нога частково розігнута в коліні.
@@ -461,7 +462,7 @@ animation:
     - right_thigh_supported
     - torso_upright
   - id: FRAME_RIGHT_EXTENDED
-    file: assets/exercises/KNEE_001/frame_right_extended.png
+    file: assets/exercises/KNEE_001/frame_right_extended.jpg
     pose_description_uk: Права нога розігнута вперед у комфортному діапазоні, носок підтягнутий у напрямку до себе.
       Ліву стопу залишено на підлозі.
     alt_text_uk: Права нога розігнута вперед, ліва стопа на підлозі.
@@ -473,7 +474,7 @@ animation:
     - left_foot_supported
     - torso_upright
   preview:
-    file: assets/exercises/KNEE_001/preview.png
+    file: assets/exercises/KNEE_001/preview.jpg
     source_frame_id: FRAME_LEFT_EXTENDED
     overlay_text: false
 audio:
@@ -730,14 +731,14 @@ pro:
 assets:
   folder: assets/exercises/KNEE_001
   required:
-  - preview.png
-  - frame_start.png
-  - frame_left_mid.png
-  - frame_left_extended.png
-  - frame_right_mid.png
-  - frame_right_extended.png
+  - preview.jpg
+  - frame_start.jpg
+  - frame_left_mid.jpg
+  - frame_left_extended.jpg
+  - frame_right_mid.jpg
+  - frame_right_extended.jpg
   optional:
-  - thumbnail.png
+  - thumbnail.jpg
   validation:
     same_subject_all_frames: true
     same_camera_all_frames: true

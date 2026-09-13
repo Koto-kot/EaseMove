@@ -210,21 +210,21 @@
     "frames": [
       {
         "id": "FRAME_SETUP",
-        "file": "assets/exercises/ELBOW_001/images/setup_full_safe.png",
+        "file": "assets/exercises/ELBOW_001/images/setup_full_safe.jpg",
         "altText": "Seated start position, both arms hanging down alongside the torso."
       },
       {
         "id": "FRAME_EXTENDED",
-        "file": "assets/exercises/ELBOW_001/images/motion_01_extended_mid_safe.png",
+        "file": "assets/exercises/ELBOW_001/images/motion_01_extended_mid_safe.jpg",
         "altText": "Arms hanging down, elbows straight."
       },
       {
         "id": "FRAME_FLEXED",
-        "file": "assets/exercises/ELBOW_001/images/motion_02_flexed_mid_safe.png",
+        "file": "assets/exercises/ELBOW_001/images/motion_02_flexed_mid_safe.jpg",
         "altText": "Both elbows bent, hands at shoulder height."
       }
     ],
-    "preview": "assets/exercises/ELBOW_001/images/preview.png"
+    "preview": "assets/exercises/ELBOW_001/images/preview.jpg"
   },
   "audio": {
     "events": [

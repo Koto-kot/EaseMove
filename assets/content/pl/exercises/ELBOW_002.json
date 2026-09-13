@@ -205,21 +205,21 @@
     "frames": [
       {
         "id": "FRAME_SETUP",
-        "file": "assets/exercises/ELBOW_002/images/setup_full_safe.png",
+        "file": "assets/exercises/ELBOW_002/images/setup_full_safe.jpg",
         "altText": "Початкове положення сидячи, обидві руки опущені."
       },
       {
         "id": "FRAME_RIGHT_FLEXED",
-        "file": "assets/exercises/ELBOW_002/images/motion_01_right_flex_mid_safe.png",
+        "file": "assets/exercises/ELBOW_002/images/motion_01_right_flex_mid_safe.jpg",
         "altText": "Права рука зігнута, ліва опущена."
       },
       {
         "id": "FRAME_LEFT_FLEXED",
-        "file": "assets/exercises/ELBOW_002/images/motion_02_left_flex_mid_safe.png",
+        "file": "assets/exercises/ELBOW_002/images/motion_02_left_flex_mid_safe.jpg",
         "altText": "Ліва рука зігнута, права опущена."
       }
     ],
-    "preview": "assets/exercises/ELBOW_002/images/preview.png"
+    "preview": "assets/exercises/ELBOW_002/images/preview.jpg"
   },
   "audio": {
     "events": [

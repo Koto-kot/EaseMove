@@ -162,7 +162,7 @@ ui:
   card:
     title_key: exercise.ELBOW_008.title
     description_key: exercise.ELBOW_008.card_description
-    preview_asset: assets/exercises/ELBOW_008/images/preview.png
+    preview_asset: assets/exercises/ELBOW_008/images/preview.jpg
     primary_action:
       key: common.exercise.start
       resolved_uk: Почати
@@ -267,31 +267,32 @@ animation:
     text_inside_asset: false
   asset_spec:
     master_format: png
+    app_delivery_format: jpg
     width_px: 1024
     height_px: 1024
     transparent_background_preferred: false
     production_assets_must_be_original: true
   frames:
   - id: FRAME_SETUP
-    file: assets/exercises/ELBOW_008/images/setup_full_safe.png
+    file: assets/exercises/ELBOW_008/images/setup_full_safe.jpg
     pose_description_uk: Людина сидить рівно, обидві руки зігнуті над головою.
     alt_text_uk: Початкове положення сидячи, обидві руки зігнуті над головою.
     alt_text_en: Seated start position, both arms bent overhead.
     framing: FULL_SAFE
   - id: FRAME_BENT_OVERHEAD
-    file: assets/exercises/ELBOW_008/images/motion_01_both_arms_bent_overhead_full_safe.png
+    file: assets/exercises/ELBOW_008/images/motion_01_both_arms_bent_overhead_full_safe.jpg
     pose_description_uk: Обидві руки зігнуті над головою, кисті за головою, лікті розведені в сторони.
     alt_text_uk: Обидві руки зігнуті над головою.
     alt_text_en: Both arms bent overhead, hands behind the head.
     framing: FULL_SAFE
   - id: FRAME_EXTENDED_OVERHEAD
-    file: assets/exercises/ELBOW_008/images/motion_02_both_arms_extended_overhead_full_safe.png
+    file: assets/exercises/ELBOW_008/images/motion_02_both_arms_extended_overhead_full_safe.jpg
     pose_description_uk: Обидві руки випрямлені вгору над головою.
     alt_text_uk: Обидві руки випрямлені вгору.
     alt_text_en: Both arms straightened up above the head.
     framing: FULL_SAFE
   preview:
-    file: assets/exercises/ELBOW_008/images/preview.png
+    file: assets/exercises/ELBOW_008/images/preview.jpg
     source_frame_id: FRAME_SETUP
     overlay_text: false
 audio:
@@ -502,10 +503,10 @@ pro:
 assets:
   folder: assets/exercises/ELBOW_008/images
   required:
-  - setup_full_safe.png
-  - motion_01_both_arms_bent_overhead_full_safe.png
-  - motion_02_both_arms_extended_overhead_full_safe.png
-  - preview.png
+  - setup_full_safe.jpg
+  - motion_01_both_arms_bent_overhead_full_safe.jpg
+  - motion_02_both_arms_extended_overhead_full_safe.jpg
+  - preview.jpg
   optional: []
   validation:
     same_subject_all_frames: true
@@ -543,7 +544,7 @@ metadata:
   created_at: '2026-09-12'
   last_modified_at: '2026-09-12'
   brief_path: docs/exercise_briefs/elbows/ELBOW_008/ELBOW_008_BRIEF.md
-  brief_sheet_path: docs/exercise_briefs/elbows/ELBOW_008/ELBOW_008_brief_sheet_v1.png
+  brief_sheet_path: docs/exercise_briefs/elbows/ELBOW_008/ELBOW_008_brief_sheet_v1.jpg
   repository_pack_version: ELBOW_001_009_repository_pack_v6
   schema_notes_uk: 'Часова вправа без лічильника повторів: поза setup показується один раз, далі цикл A-B повторюється
     до кінця часу.'

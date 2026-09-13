@@ -202,21 +202,21 @@
     "frames": [
       {
         "id": "FRAME_SETUP",
-        "file": "assets/exercises/NECK_001/images/setup_full_safe.png",
+        "file": "assets/exercises/NECK_001/images/setup_full_safe.jpg",
         "altText": "Seated start position, head level and looking straight ahead."
       },
       {
         "id": "FRAME_NEUTRAL",
-        "file": "assets/exercises/NECK_001/images/motion_01_chin_forward_neutral_upper_safe.png",
+        "file": "assets/exercises/NECK_001/images/motion_01_chin_forward_neutral_upper_safe.jpg",
         "altText": "Head in a neutral position, looking straight ahead."
       },
       {
         "id": "FRAME_CHIN_TUCK",
-        "file": "assets/exercises/NECK_001/images/motion_02_chin_tuck_upper_safe.png",
+        "file": "assets/exercises/NECK_001/images/motion_02_chin_tuck_upper_safe.jpg",
         "altText": "Chin drawn back, head still level."
       }
     ],
-    "preview": "assets/exercises/NECK_001/images/preview.png"
+    "preview": "assets/exercises/NECK_001/images/preview.jpg"
   },
   "audio": {
     "events": [

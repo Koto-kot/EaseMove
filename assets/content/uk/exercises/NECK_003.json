@@ -202,21 +202,21 @@
     "frames": [
       {
         "id": "FRAME_SETUP",
-        "file": "assets/exercises/NECK_003/images/setup_full_safe.png",
+        "file": "assets/exercises/NECK_003/images/setup_full_safe.jpg",
         "altText": "Початкове положення сидячи, голова у нейтральному положенні."
       },
       {
         "id": "FRAME_TILT_RIGHT",
-        "file": "assets/exercises/NECK_003/images/motion_01_ear_to_left_shoulder_upper_safe.png",
+        "file": "assets/exercises/NECK_003/images/motion_01_ear_to_left_shoulder_upper_safe.jpg",
         "altText": "Голова нахилена до плеча, вухо ближче до плеча, плечі опущені."
       },
       {
         "id": "FRAME_TILT_LEFT",
-        "file": "assets/exercises/NECK_003/images/motion_02_ear_to_right_shoulder_upper_safe.png",
+        "file": "assets/exercises/NECK_003/images/motion_02_ear_to_right_shoulder_upper_safe.jpg",
         "altText": "Голова нахилена до протилежного плеча, плечі залишаються опущеними."
       }
     ],
-    "preview": "assets/exercises/NECK_003/images/preview.png"
+    "preview": "assets/exercises/NECK_003/images/preview.jpg"
   },
   "audio": {
     "events": [

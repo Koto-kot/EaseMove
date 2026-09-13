@@ -202,21 +202,21 @@
     "frames": [
       {
         "id": "FRAME_SETUP",
-        "file": "assets/exercises/NECK_005/images/setup_full_safe.png",
+        "file": "assets/exercises/NECK_005/images/setup_full_safe.jpg",
         "altText": "Початкове положення сидячи, спина витягнута, голова прямо."
       },
       {
         "id": "FRAME_NEUTRAL",
-        "file": "assets/exercises/NECK_005/images/motion_01_head_neutral_upper_safe.png",
+        "file": "assets/exercises/NECK_005/images/motion_01_head_neutral_upper_safe.jpg",
         "altText": "Голова у нейтральному положенні, погляд прямо."
       },
       {
         "id": "FRAME_UP",
-        "file": "assets/exercises/NECK_005/images/motion_02_head_slightly_up_upper_safe.png",
+        "file": "assets/exercises/NECK_005/images/motion_02_head_slightly_up_upper_safe.jpg",
         "altText": "Підборіддя трохи підняте, погляд спрямований вгору."
       }
     ],
-    "preview": "assets/exercises/NECK_005/images/preview.png"
+    "preview": "assets/exercises/NECK_005/images/preview.jpg"
   },
   "audio": {
     "events": [

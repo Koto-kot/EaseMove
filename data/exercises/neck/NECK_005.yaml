@@ -167,7 +167,7 @@ ui:
   card:
     title_key: exercise.NECK_005.title
     description_key: exercise.NECK_005.card_description
-    preview_asset: assets/exercises/NECK_005/images/preview.png
+    preview_asset: assets/exercises/NECK_005/images/preview.jpg
     primary_action:
       key: common.exercise.start
       resolved_uk: Почати
@@ -272,31 +272,32 @@ animation:
     text_inside_asset: false
   asset_spec:
     master_format: png
+    app_delivery_format: jpg
     width_px: 1024
     height_px: 1024
     transparent_background_preferred: false
     production_assets_must_be_original: true
   frames:
   - id: FRAME_SETUP
-    file: assets/exercises/NECK_005/images/setup_full_safe.png
+    file: assets/exercises/NECK_005/images/setup_full_safe.jpg
     pose_description_uk: Людина сидить рівно на стільці, спина витягнута без прогину, голова у нейтральному положенні.
     alt_text_uk: Початкове положення сидячи, спина витягнута, голова прямо.
     alt_text_en: Seated start position, back tall and head level.
     framing: FULL_SAFE
   - id: FRAME_NEUTRAL
-    file: assets/exercises/NECK_005/images/motion_01_head_neutral_upper_safe.png
+    file: assets/exercises/NECK_005/images/motion_01_head_neutral_upper_safe.jpg
     pose_description_uk: Голова у нейтральному положенні, шия витягнута, погляд прямо.
     alt_text_uk: Голова у нейтральному положенні, погляд прямо.
     alt_text_en: Head in a neutral position, looking straight ahead.
     framing: UPPER_SAFE
   - id: FRAME_UP
-    file: assets/exercises/NECK_005/images/motion_02_head_slightly_up_upper_safe.png
+    file: assets/exercises/NECK_005/images/motion_02_head_slightly_up_upper_safe.jpg
     pose_description_uk: Підборіддя й погляд трохи підняті вгору, амплітуда мала, шия не заламується назад.
     alt_text_uk: Підборіддя трохи підняте, погляд спрямований вгору.
     alt_text_en: Chin lifted slightly, gaze directed a little upward.
     framing: UPPER_SAFE
   preview:
-    file: assets/exercises/NECK_005/images/preview.png
+    file: assets/exercises/NECK_005/images/preview.jpg
     source_frame_id: FRAME_SETUP
     overlay_text: false
 audio:
@@ -504,10 +505,10 @@ pro:
 assets:
   folder: assets/exercises/NECK_005/images
   required:
-  - setup_full_safe.png
-  - motion_01_head_neutral_upper_safe.png
-  - motion_02_head_slightly_up_upper_safe.png
-  - preview.png
+  - setup_full_safe.jpg
+  - motion_01_head_neutral_upper_safe.jpg
+  - motion_02_head_slightly_up_upper_safe.jpg
+  - preview.jpg
   optional: []
   validation:
     same_subject_all_frames: true
@@ -545,7 +546,7 @@ metadata:
   created_at: '2026-09-12'
   last_modified_at: '2026-09-12'
   brief_path: docs/exercise_briefs/neck/NECK_005/NECK_005_BRIEF.md
-  brief_sheet_path: docs/exercise_briefs/neck/NECK_005/NECK_005_brief_sheet_v1.png
+  brief_sheet_path: docs/exercise_briefs/neck/NECK_005/NECK_005_brief_sheet_v1.jpg
   repository_pack_version: NECK_001_010_repository_pack_v14_QA
   schema_notes_uk: 'Часова вправа без лічильника повторів: поза setup показується один раз, далі цикл A-B повторюється
     до кінця часу. Голова проходить через центр за рахунок інтерполяції між двома motion-кадрами — окремого кадру

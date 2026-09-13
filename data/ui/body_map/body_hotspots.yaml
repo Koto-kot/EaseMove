@@ -16,13 +16,13 @@ status: "tuned_against_artwork_v1"
 
 artwork:
   front:
-    path: "assets/ui/home/body/body_front.png"
+    path: "assets/ui/home/body/body_front.jpg"
     view: "front"
     width_px: 1086
     height_px: 1448
     content_rect: { left: 0.2726, top: 0.0304, right: 0.7155, bottom: 0.9302 }
   back_mini:
-    path: "assets/ui/home/body/body_back_mini.png"
+    path: "assets/ui/home/body/body_back_mini.jpg"
     view: "back_mini"
     width_px: 1086
     height_px: 1448

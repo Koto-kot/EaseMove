@@ -276,7 +276,7 @@ ui:
   card:
     title_key: exercise.KNEE_002.title
     description_key: exercise.KNEE_002.card_description
-    preview_asset: assets/exercises/KNEE_002/preview.png
+    preview_asset: assets/exercises/KNEE_002/preview.jpg
     primary_action:
       key: common.exercise.start
       resolved_uk: Почати
@@ -462,13 +462,14 @@ animation:
     text_inside_asset: false
   asset_spec:
     master_format: png
+    app_delivery_format: jpg
     width_px: 1024
     height_px: 1024
     transparent_background_preferred: true
     production_assets_must_be_original: true
   frames:
   - id: FRAME_SEATED
-    file: assets/exercises/KNEE_002/frame_seated.png
+    file: assets/exercises/KNEE_002/frame_seated.jpg
     pose_description_uk: Людина сидить ближче до переднього краю стільця. Стопи повністю на підлозі, погляд вперед.
     alt_text_uk: Початкове положення сидячи біля переднього краю стільця.
     alt_text_en: Seated start position near the front edge of the chair.
@@ -478,7 +479,7 @@ animation:
     - eyes_forward
     - chair_stable
   - id: FRAME_FORWARD_LEAN
-    file: assets/exercises/KNEE_002/frame_forward_lean.png
+    file: assets/exercises/KNEE_002/frame_forward_lean.jpg
     pose_description_uk: Корпус трохи нахилений уперед, плечі переміщуються вперед над стопами. Стопи залишаються
       на підлозі.
     alt_text_uk: Легкий нахил корпусу вперед перед вставанням.
@@ -489,7 +490,7 @@ animation:
     - hips_still_near_chair
     - eyes_forward
   - id: FRAME_RISING
-    file: assets/exercises/KNEE_002/frame_rising.png
+    file: assets/exercises/KNEE_002/frame_rising.jpg
     pose_description_uk: Таз відірваний від стільця. Коліна та стегна розгинаються. Стопи залишаються на підлозі.
     alt_text_uk: Проміжна фаза вставання зі стільця.
     alt_text_en: Intermediate phase of standing up from the chair.
@@ -499,7 +500,7 @@ animation:
     - knees_extending
     - hips_extending
   - id: FRAME_STANDING
-    file: assets/exercises/KNEE_002/frame_standing.png
+    file: assets/exercises/KNEE_002/frame_standing.jpg
     pose_description_uk: Людина стоїть повністю випроставшись перед стільцем, стопи на підлозі, погляд вперед.
     alt_text_uk: Повністю випростане положення стоячи.
     alt_text_en: Fully upright standing position.
@@ -509,7 +510,7 @@ animation:
     - feet_supported
     - eyes_forward
   - id: FRAME_DESCENDING
-    file: assets/exercises/KNEE_002/frame_descending.png
+    file: assets/exercises/KNEE_002/frame_descending.jpg
     pose_description_uk: Людина контрольовано згинає стегна й коліна та опускається до стільця. Корпус трохи нахилений
       уперед.
     alt_text_uk: Контрольоване опускання назад на стілець.
@@ -520,7 +521,7 @@ animation:
     - feet_flat
     - chair_position_unchanged
   preview:
-    file: assets/exercises/KNEE_002/preview.png
+    file: assets/exercises/KNEE_002/preview.jpg
     source_frame_id: FRAME_RISING
     overlay_text: false
 audio:
@@ -764,15 +765,15 @@ pro:
 assets:
   folder: assets/exercises/KNEE_002
   required:
-  - preview.png
-  - frame_seated.png
-  - frame_forward_lean.png
-  - frame_rising.png
-  - frame_standing.png
-  - frame_descending.png
+  - preview.jpg
+  - frame_seated.jpg
+  - frame_forward_lean.jpg
+  - frame_rising.jpg
+  - frame_standing.jpg
+  - frame_descending.jpg
   optional:
-  - thumbnail.png
-  - frame_assisted_variant.png
+  - thumbnail.jpg
+  - frame_assisted_variant.jpg
   validation:
     same_subject_all_frames: true
     same_camera_all_frames: true

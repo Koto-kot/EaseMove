@@ -207,21 +207,21 @@
     "frames": [
       {
         "id": "FRAME_SETUP",
-        "file": "assets/exercises/ELBOW_004/images/setup_full_safe.png",
+        "file": "assets/exercises/ELBOW_004/images/setup_full_safe.jpg",
         "altText": "Початкове положення сидячи, долоні вниз."
       },
       {
         "id": "FRAME_FOREARMS_FORWARD",
-        "file": "assets/exercises/ELBOW_004/images/motion_01_forearms_forward_palms_down_mid_safe.png",
+        "file": "assets/exercises/ELBOW_004/images/motion_01_forearms_forward_palms_down_mid_safe.jpg",
         "altText": "Передпліччя спрямовані вперед, долоні вниз."
       },
       {
         "id": "FRAME_FLEXED",
-        "file": "assets/exercises/ELBOW_004/images/motion_02_flexed_palms_down_mid_safe.png",
+        "file": "assets/exercises/ELBOW_004/images/motion_02_flexed_palms_down_mid_safe.jpg",
         "altText": "Кисті підведені до плечей, долоні вниз."
       }
     ],
-    "preview": "assets/exercises/ELBOW_004/images/preview.png"
+    "preview": "assets/exercises/ELBOW_004/images/preview.jpg"
   },
   "audio": {
     "events": [

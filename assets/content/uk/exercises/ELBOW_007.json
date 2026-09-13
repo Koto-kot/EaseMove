@@ -207,21 +207,21 @@
     "frames": [
       {
         "id": "FRAME_SETUP",
-        "file": "assets/exercises/ELBOW_007/images/setup_full_safe.png",
+        "file": "assets/exercises/ELBOW_007/images/setup_full_safe.jpg",
         "altText": "Початкове положення сидячи, права рука зігнута над головою."
       },
       {
         "id": "FRAME_BENT_OVERHEAD",
-        "file": "assets/exercises/ELBOW_007/images/motion_01_one_arm_bent_overhead_full_safe.png",
+        "file": "assets/exercises/ELBOW_007/images/motion_01_one_arm_bent_overhead_full_safe.jpg",
         "altText": "Права рука зігнута над головою."
       },
       {
         "id": "FRAME_EXTENDED_OVERHEAD",
-        "file": "assets/exercises/ELBOW_007/images/motion_02_one_arm_extended_overhead_full_safe.png",
+        "file": "assets/exercises/ELBOW_007/images/motion_02_one_arm_extended_overhead_full_safe.jpg",
         "altText": "Права рука випрямлена вгору."
       }
     ],
-    "preview": "assets/exercises/ELBOW_007/images/preview.png"
+    "preview": "assets/exercises/ELBOW_007/images/preview.jpg"
   },
   "audio": {
     "events": [

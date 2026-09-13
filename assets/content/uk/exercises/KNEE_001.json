@@ -281,31 +281,31 @@
     "frames": [
       {
         "id": "FRAME_START",
-        "file": "assets/exercises/KNEE_001/frame_start.png",
+        "file": "assets/exercises/KNEE_001/frame_start.jpg",
         "altText": "Початкове положення сидячи, обидві стопи на підлозі."
       },
       {
         "id": "FRAME_LEFT_MID",
-        "file": "assets/exercises/KNEE_001/frame_left_mid.png",
+        "file": "assets/exercises/KNEE_001/frame_left_mid.jpg",
         "altText": "Ліва нога частково розігнута в коліні."
       },
       {
         "id": "FRAME_LEFT_EXTENDED",
-        "file": "assets/exercises/KNEE_001/frame_left_extended.png",
+        "file": "assets/exercises/KNEE_001/frame_left_extended.jpg",
         "altText": "Ліва нога розігнута вперед, права стопа на підлозі."
       },
       {
         "id": "FRAME_RIGHT_MID",
-        "file": "assets/exercises/KNEE_001/frame_right_mid.png",
+        "file": "assets/exercises/KNEE_001/frame_right_mid.jpg",
         "altText": "Права нога частково розігнута в коліні."
       },
       {
         "id": "FRAME_RIGHT_EXTENDED",
-        "file": "assets/exercises/KNEE_001/frame_right_extended.png",
+        "file": "assets/exercises/KNEE_001/frame_right_extended.jpg",
         "altText": "Права нога розігнута вперед, ліва стопа на підлозі."
       }
     ],
-    "preview": "assets/exercises/KNEE_001/preview.png"
+    "preview": "assets/exercises/KNEE_001/preview.jpg"
   },
   "audio": {
     "events": [

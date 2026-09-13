@@ -205,21 +205,21 @@
     "frames": [
       {
         "id": "FRAME_SETUP",
-        "file": "assets/exercises/ELBOW_009/images/setup_full_safe.png",
+        "file": "assets/exercises/ELBOW_009/images/setup_full_safe.jpg",
         "altText": "Standing start position with both palms on the wall."
       },
       {
         "id": "FRAME_ARMS_EXTENDED",
-        "file": "assets/exercises/ELBOW_009/images/motion_01_arms_extended_wall_full_safe.png",
+        "file": "assets/exercises/ELBOW_009/images/motion_01_arms_extended_wall_full_safe.jpg",
         "altText": "Arms straight, palms on the wall."
       },
       {
         "id": "FRAME_ELBOWS_BENT",
-        "file": "assets/exercises/ELBOW_009/images/motion_02_elbows_bent_wall_full_safe.png",
+        "file": "assets/exercises/ELBOW_009/images/motion_02_elbows_bent_wall_full_safe.jpg",
         "altText": "Elbows bent, body moved closer to the wall."
       }
     ],
-    "preview": "assets/exercises/ELBOW_009/images/preview.png"
+    "preview": "assets/exercises/ELBOW_009/images/preview.jpg"
   },
   "audio": {
     "events": [

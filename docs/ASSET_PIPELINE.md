@@ -14,13 +14,19 @@ Production workflow:
 
 ```text
 assets/exercises/ELBOW_001/images/
-  setup_full_safe.png
-  motion_01_extended_mid_safe.png
-  motion_02_flexed_mid_safe.png
-  preview.png
+  setup_full_safe.jpg
+  motion_01_extended_mid_safe.jpg
+  motion_02_flexed_mid_safe.jpg
+  preview.jpg
 ```
 
-Історична форма без підпапки (`assets/exercises/KNEE_001/frame_start.png`)
+Художник віддає PNG (`asset_spec.master_format`), застосунок несе JPEG
+(`asset_spec.app_delivery_format`) — так само, як голос: майстри wav, у збірці
+m4a. Перекодовує `scripts/build_artwork.py`, запускати після розпакування
+нового пакета й перед `check_assets.py`. Майстри в репозиторій не кладуться:
+вони в пакетах постачання та в історії git (DECISIONS 90).
+
+Історична форма без підпапки (`assets/exercises/KNEE_001/frame_start.jpg`)
 лишається чинною для вправ, створених до пакета ліктів
 (docs/DECISIONS.md 53).
 
@@ -60,7 +66,8 @@ Preview може використовувати один ключовий frame.
 Технічна половина `EXERCISE_IMAGE_QA.md` (розділ F) плюс правила
 `IMAGE_ASSET_SPEC.md`:
 
-- файл існує, декодується, це PNG;
+- файл існує, декодується, і це той формат, який оголошує
+  `asset_spec.app_delivery_format` (зараз jpg);
 - розмір точно `asset_spec.width_px × height_px` (1024×1024);
 - зображення не порожнє;
 - контент лишається в центральних 90% канви — **warning**, бо підлога чи стіна
@@ -69,7 +76,7 @@ Preview може використовувати один ключовий frame.
 - `preview.source_frame_id` вказує на існуючий кадр;
 - папка вправи присутня в `flutter: assets:` у `pubspec.yaml` — інакше
   зображення не потрапляють у збірку і тихо не завантажуються;
-- body map: `front.png` і `back.png` однакового розміру, portrait, ≥1200 px.
+- body map: `front` і `back` однакового розміру, portrait, ≥1200 px.
 
 Exit 1 — лише якщо наявний файл неправильний. Ненамальований кадр
 повідомляється й не валить збірку, тому крок працює в CI з першого дня;
@@ -77,7 +84,7 @@ Exit 1 — лише якщо наявний файл неправильний. �
 
 ### `scripts/make_previews.py`
 
-`preview.png` не малюється руками: це квадратний кроп кадру з
+`preview.jpg` не малюється руками: це квадратний кроп кадру з
 `animation.preview.source_frame_id`, підтягнутий на фігуру (bbox + 6% полів) і
 зменшений до 512×512.
 
@@ -105,8 +112,8 @@ python scripts/generate_frames.py --body-map --yes
 це була *та сама* картинка 5 разів із переставленою ногою. Текстові промпти
 дрифтують, тому перший кадр вправи генерується з нуля, а кожен наступний — як
 **edit цього майстер-кадру**, який передається назад як reference. Опис позы
-тоді описує лише зміну, а не сцену. Для body map так само: `back.png` — це
-edit `front.png`, тому обидві фігури мають однакову висоту й масштаб, як і
+тоді описує лише зміну, а не сцену. Для body map так само: `back` — це
+edit `front`, тому обидві фігури мають однакову висоту й масштаб, як і
 вимагають спільні нормалізовані hotspot-и.
 
 Промпти складаються тими самими функціями, що пишуть `IMAGE_BRIEFS.md`, тому

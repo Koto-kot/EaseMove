@@ -77,7 +77,7 @@ def main() -> int:
             draw.ellipse((cx - 5, cy - 5, cx + 5, cy + 5), fill=OUTLINE)
             draw.text((cx + 20, cy - 6), spot["id"], fill=CORE)
 
-        target = OUT / (view + ".png")
+        target = OUT / (view + ".jpg")
         Image.alpha_composite(image, overlay).convert("RGB").save(target)
 
         print("OK    " + target.relative_to(ROOT).as_posix())

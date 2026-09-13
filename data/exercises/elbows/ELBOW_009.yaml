@@ -162,7 +162,7 @@ ui:
   card:
     title_key: exercise.ELBOW_009.title
     description_key: exercise.ELBOW_009.card_description
-    preview_asset: assets/exercises/ELBOW_009/images/preview.png
+    preview_asset: assets/exercises/ELBOW_009/images/preview.jpg
     primary_action:
       key: common.exercise.start
       resolved_uk: Почати
@@ -267,31 +267,32 @@ animation:
     text_inside_asset: false
   asset_spec:
     master_format: png
+    app_delivery_format: jpg
     width_px: 1024
     height_px: 1024
     transparent_background_preferred: false
     production_assets_must_be_original: true
   frames:
   - id: FRAME_SETUP
-    file: assets/exercises/ELBOW_009/images/setup_full_safe.png
+    file: assets/exercises/ELBOW_009/images/setup_full_safe.jpg
     pose_description_uk: Людина стоїть обличчям до стіни, долоні на стіні на рівні грудей, руки випрямлені.
     alt_text_uk: Початкове положення стоячи біля стіни.
     alt_text_en: Standing start position with both palms on the wall.
     framing: FULL_SAFE
   - id: FRAME_ARMS_EXTENDED
-    file: assets/exercises/ELBOW_009/images/motion_01_arms_extended_wall_full_safe.png
+    file: assets/exercises/ELBOW_009/images/motion_01_arms_extended_wall_full_safe.jpg
     pose_description_uk: Руки випрямлені, долоні залишаються на стіні, корпус рівний.
     alt_text_uk: Руки випрямлені, долоні на стіні.
     alt_text_en: Arms straight, palms on the wall.
     framing: FULL_SAFE
   - id: FRAME_ELBOWS_BENT
-    file: assets/exercises/ELBOW_009/images/motion_02_elbows_bent_wall_full_safe.png
+    file: assets/exercises/ELBOW_009/images/motion_02_elbows_bent_wall_full_safe.jpg
     pose_description_uk: Лікті зігнуті, корпус наближається до стіни як єдине ціле.
     alt_text_uk: Лікті зігнуті, корпус ближче до стіни.
     alt_text_en: Elbows bent, body moved closer to the wall.
     framing: FULL_SAFE
   preview:
-    file: assets/exercises/ELBOW_009/images/preview.png
+    file: assets/exercises/ELBOW_009/images/preview.jpg
     source_frame_id: FRAME_SETUP
     overlay_text: false
 audio:
@@ -501,10 +502,10 @@ pro:
 assets:
   folder: assets/exercises/ELBOW_009/images
   required:
-  - setup_full_safe.png
-  - motion_01_arms_extended_wall_full_safe.png
-  - motion_02_elbows_bent_wall_full_safe.png
-  - preview.png
+  - setup_full_safe.jpg
+  - motion_01_arms_extended_wall_full_safe.jpg
+  - motion_02_elbows_bent_wall_full_safe.jpg
+  - preview.jpg
   optional: []
   validation:
     same_subject_all_frames: true
@@ -542,7 +543,7 @@ metadata:
   created_at: '2026-09-12'
   last_modified_at: '2026-09-12'
   brief_path: docs/exercise_briefs/elbows/ELBOW_009/ELBOW_009_BRIEF.md
-  brief_sheet_path: docs/exercise_briefs/elbows/ELBOW_009/ELBOW_009_brief_sheet_v1.png
+  brief_sheet_path: docs/exercise_briefs/elbows/ELBOW_009/ELBOW_009_brief_sheet_v1.jpg
   repository_pack_version: ELBOW_001_009_repository_pack_v6
   schema_notes_uk: 'Часова вправа без лічильника повторів: поза setup показується один раз, далі цикл A-B повторюється
     до кінця часу.'

@@ -3,13 +3,15 @@
 ## 1. Формати
 
 ### Exercise frames
-- preferred source: PNG;
-- production delivery: PNG/WebP залежно від implementation benchmark;
-- master не повинен мати compression artifacts;
-- alpha дозволений, якщо background не є змістовною частиною вправи.
+- master від художника: PNG без артефактів стиснення;
+- у збірці: JPEG q92 (`scripts/build_artwork.py`) — виміряно на всій
+  бібліотеці, вдесятеро менше за PNG і без видимої різниці (DECISIONS 90);
+- alpha дозволений у майстрі, але кадр із прозорістю не можна віддати в JPEG:
+  `build_artwork.py` на такому зупиняється й просить розв'язати руками.
 
 ### Body map
-- preferred: SVG або високоякісний PNG/WebP;
+- master: PNG (або SVG, якщо фігуру колись перемалюють вектором);
+- у збірці: JPEG, як і кадри;
 - hotspot layer не вбудовується у bitmap.
 
 ## 2. Базовий master size

@@ -168,7 +168,7 @@ ui:
   card:
     title_key: exercise.ELBOW_001.title
     description_key: exercise.ELBOW_001.card_description
-    preview_asset: assets/exercises/ELBOW_001/images/preview.png
+    preview_asset: assets/exercises/ELBOW_001/images/preview.jpg
     primary_action:
       key: common.exercise.start
       resolved_uk: Почати
@@ -273,31 +273,32 @@ animation:
     text_inside_asset: false
   asset_spec:
     master_format: png
+    app_delivery_format: jpg
     width_px: 1024
     height_px: 1024
     transparent_background_preferred: false
     production_assets_must_be_original: true
   frames:
   - id: FRAME_SETUP
-    file: assets/exercises/ELBOW_001/images/setup_full_safe.png
+    file: assets/exercises/ELBOW_001/images/setup_full_safe.jpg
     pose_description_uk: Людина сидить рівно на стільці, стопи на підлозі, руки вільно опущені вздовж тулуба.
     alt_text_uk: Початкове положення сидячи, руки опущені вздовж тулуба.
     alt_text_en: Seated start position, both arms hanging down alongside the torso.
     framing: FULL_SAFE
   - id: FRAME_EXTENDED
-    file: assets/exercises/ELBOW_001/images/motion_01_extended_mid_safe.png
+    file: assets/exercises/ELBOW_001/images/motion_01_extended_mid_safe.jpg
     pose_description_uk: Руки опущені вздовж тулуба, лікті розігнуті без силового «замикання».
     alt_text_uk: Руки опущені, лікті розігнуті.
     alt_text_en: Arms hanging down, elbows straight.
     framing: MID_SAFE
   - id: FRAME_FLEXED
-    file: assets/exercises/ELBOW_001/images/motion_02_flexed_mid_safe.png
+    file: assets/exercises/ELBOW_001/images/motion_02_flexed_mid_safe.jpg
     pose_description_uk: Обидва лікті зігнуті, кисті приблизно на рівні плечей, плечі не підняті.
     alt_text_uk: Руки зігнуті в ліктях, кисті біля плечей.
     alt_text_en: Both elbows bent, hands at shoulder height.
     framing: MID_SAFE
   preview:
-    file: assets/exercises/ELBOW_001/images/preview.png
+    file: assets/exercises/ELBOW_001/images/preview.jpg
     source_frame_id: FRAME_SETUP
     overlay_text: false
 audio:
@@ -507,10 +508,10 @@ pro:
 assets:
   folder: assets/exercises/ELBOW_001/images
   required:
-  - setup_full_safe.png
-  - motion_01_extended_mid_safe.png
-  - motion_02_flexed_mid_safe.png
-  - preview.png
+  - setup_full_safe.jpg
+  - motion_01_extended_mid_safe.jpg
+  - motion_02_flexed_mid_safe.jpg
+  - preview.jpg
   optional: []
   validation:
     same_subject_all_frames: true
@@ -555,7 +556,7 @@ metadata:
   created_at: '2026-09-12'
   last_modified_at: '2026-09-12'
   brief_path: docs/exercise_briefs/elbows/ELBOW_001/ELBOW_001_BRIEF.md
-  brief_sheet_path: docs/exercise_briefs/elbows/ELBOW_001/ELBOW_001_brief_sheet_v0.png
+  brief_sheet_path: docs/exercise_briefs/elbows/ELBOW_001/ELBOW_001_brief_sheet_v0.jpg
   repository_pack_version: ELBOW_001_009_repository_pack_v6
   schema_notes_uk: 'Часова вправа без лічильника повторів: поза setup показується один раз, далі цикл A-B повторюється
     до кінця часу.'

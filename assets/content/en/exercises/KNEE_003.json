@@ -290,31 +290,31 @@
     "frames": [
       {
         "id": "FRAME_START",
-        "file": "assets/exercises/KNEE_003/frame_start.png",
+        "file": "assets/exercises/KNEE_003/frame_start.jpg",
         "altText": "Supine start position with both legs straight."
       },
       {
         "id": "FRAME_LEFT_MID",
-        "file": "assets/exercises/KNEE_003/frame_left_mid.png",
+        "file": "assets/exercises/KNEE_003/frame_left_mid.jpg",
         "altText": "Left heel sliding toward the body, knee partly bent."
       },
       {
         "id": "FRAME_LEFT_BENT",
-        "file": "assets/exercises/KNEE_003/frame_left_bent.png",
+        "file": "assets/exercises/KNEE_003/frame_left_bent.jpg",
         "altText": "Left knee bent, heel still resting on the surface."
       },
       {
         "id": "FRAME_RIGHT_MID",
-        "file": "assets/exercises/KNEE_003/frame_right_mid.png",
+        "file": "assets/exercises/KNEE_003/frame_right_mid.jpg",
         "altText": "Right heel sliding toward the body, knee partly bent."
       },
       {
         "id": "FRAME_RIGHT_BENT",
-        "file": "assets/exercises/KNEE_003/frame_right_bent.png",
+        "file": "assets/exercises/KNEE_003/frame_right_bent.jpg",
         "altText": "Right knee bent, heel still resting on the surface."
       }
     ],
-    "preview": "assets/exercises/KNEE_003/preview.png"
+    "preview": "assets/exercises/KNEE_003/preview.jpg"
   },
   "audio": {
     "events": [

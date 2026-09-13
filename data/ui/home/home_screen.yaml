@@ -26,8 +26,8 @@ header:
   subtitle_key: "app.home.subtitle"
 
 body_map:
-  front_asset: "assets/ui/home/body/body_front.png"
-  back_asset: "assets/ui/home/body/body_back_mini.png"
+  front_asset: "assets/ui/home/body/body_front.jpg"
+  back_asset: "assets/ui/home/body/body_back_mini.jpg"
   hotspots: "data/ui/body_map/body_hotspots.yaml"
   front_alignment: "center"
   back_mini_alignment: "right"

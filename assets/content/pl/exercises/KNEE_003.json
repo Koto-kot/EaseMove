@@ -290,31 +290,31 @@
     "frames": [
       {
         "id": "FRAME_START",
-        "file": "assets/exercises/KNEE_003/frame_start.png",
+        "file": "assets/exercises/KNEE_003/frame_start.jpg",
         "altText": "Початкове положення лежачи на спині з випрямленими ногами."
       },
       {
         "id": "FRAME_LEFT_MID",
-        "file": "assets/exercises/KNEE_003/frame_left_mid.png",
+        "file": "assets/exercises/KNEE_003/frame_left_mid.jpg",
         "altText": "Ліва п’ята ковзає до тіла, коліно частково зігнуте."
       },
       {
         "id": "FRAME_LEFT_BENT",
-        "file": "assets/exercises/KNEE_003/frame_left_bent.png",
+        "file": "assets/exercises/KNEE_003/frame_left_bent.jpg",
         "altText": "Ліве коліно зігнуте, п’ята залишається на поверхні."
       },
       {
         "id": "FRAME_RIGHT_MID",
-        "file": "assets/exercises/KNEE_003/frame_right_mid.png",
+        "file": "assets/exercises/KNEE_003/frame_right_mid.jpg",
         "altText": "Права п’ята ковзає до тіла, коліно частково зігнуте."
       },
       {
         "id": "FRAME_RIGHT_BENT",
-        "file": "assets/exercises/KNEE_003/frame_right_bent.png",
+        "file": "assets/exercises/KNEE_003/frame_right_bent.jpg",
         "altText": "Праве коліно зігнуте, п’ята залишається на поверхні."
       }
     ],
-    "preview": "assets/exercises/KNEE_003/preview.png"
+    "preview": "assets/exercises/KNEE_003/preview.jpg"
   },
   "audio": {
     "events": [

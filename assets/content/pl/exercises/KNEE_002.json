@@ -266,31 +266,31 @@
     "frames": [
       {
         "id": "FRAME_SEATED",
-        "file": "assets/exercises/KNEE_002/frame_seated.png",
+        "file": "assets/exercises/KNEE_002/frame_seated.jpg",
         "altText": "Початкове положення сидячи біля переднього краю стільця."
       },
       {
         "id": "FRAME_FORWARD_LEAN",
-        "file": "assets/exercises/KNEE_002/frame_forward_lean.png",
+        "file": "assets/exercises/KNEE_002/frame_forward_lean.jpg",
         "altText": "Легкий нахил корпусу вперед перед вставанням."
       },
       {
         "id": "FRAME_RISING",
-        "file": "assets/exercises/KNEE_002/frame_rising.png",
+        "file": "assets/exercises/KNEE_002/frame_rising.jpg",
         "altText": "Проміжна фаза вставання зі стільця."
       },
       {
         "id": "FRAME_STANDING",
-        "file": "assets/exercises/KNEE_002/frame_standing.png",
+        "file": "assets/exercises/KNEE_002/frame_standing.jpg",
         "altText": "Повністю випростане положення стоячи."
       },
       {
         "id": "FRAME_DESCENDING",
-        "file": "assets/exercises/KNEE_002/frame_descending.png",
+        "file": "assets/exercises/KNEE_002/frame_descending.jpg",
         "altText": "Контрольоване опускання назад на стілець."
       }
     ],
-    "preview": "assets/exercises/KNEE_002/preview.png"
+    "preview": "assets/exercises/KNEE_002/preview.jpg"
   },
   "audio": {
     "events": [

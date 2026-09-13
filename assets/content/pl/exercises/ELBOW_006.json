@@ -207,21 +207,21 @@
     "frames": [
       {
         "id": "FRAME_SETUP",
-        "file": "assets/exercises/ELBOW_006/images/setup_full_safe.png",
+        "file": "assets/exercises/ELBOW_006/images/setup_full_safe.jpg",
         "altText": "Початкове положення сидячи, кисті біля плечей."
       },
       {
         "id": "FRAME_AT_SHOULDERS",
-        "file": "assets/exercises/ELBOW_006/images/motion_01_hands_at_shoulders_mid_safe.png",
+        "file": "assets/exercises/ELBOW_006/images/motion_01_hands_at_shoulders_mid_safe.jpg",
         "altText": "Кисті біля плечей, лікті зігнуті."
       },
       {
         "id": "FRAME_ARMS_FORWARD",
-        "file": "assets/exercises/ELBOW_006/images/motion_02_arms_forward_mid_safe.png",
+        "file": "assets/exercises/ELBOW_006/images/motion_02_arms_forward_mid_safe.jpg",
         "altText": "Руки випрямлені вперед."
       }
     ],
-    "preview": "assets/exercises/ELBOW_006/images/preview.png"
+    "preview": "assets/exercises/ELBOW_006/images/preview.jpg"
   },
   "audio": {
     "events": [

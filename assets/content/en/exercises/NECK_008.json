@@ -202,21 +202,21 @@
     "frames": [
       {
         "id": "FRAME_SETUP",
-        "file": "assets/exercises/NECK_008/images/setup_full_safe.png",
+        "file": "assets/exercises/NECK_008/images/setup_full_safe.jpg",
         "altText": "Seated start position with the head centred."
       },
       {
         "id": "FRAME_PRESS_RIGHT",
-        "file": "assets/exercises/NECK_008/images/motion_01_palm_to_left_temple_upper_safe.png",
+        "file": "assets/exercises/NECK_008/images/motion_01_palm_to_left_temple_upper_safe.jpg",
         "altText": "Palm against the temple, head staying upright."
       },
       {
         "id": "FRAME_PRESS_LEFT",
-        "file": "assets/exercises/NECK_008/images/motion_02_palm_to_right_temple_upper_safe.png",
+        "file": "assets/exercises/NECK_008/images/motion_02_palm_to_right_temple_upper_safe.jpg",
         "altText": "Palm against the other temple, head still centred."
       }
     ],
-    "preview": "assets/exercises/NECK_008/images/preview.png"
+    "preview": "assets/exercises/NECK_008/images/preview.jpg"
   },
   "audio": {
     "events": [

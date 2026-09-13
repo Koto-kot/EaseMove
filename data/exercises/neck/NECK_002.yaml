@@ -180,7 +180,7 @@ ui:
   card:
     title_key: exercise.NECK_002.title
     description_key: exercise.NECK_002.card_description
-    preview_asset: assets/exercises/NECK_002/images/preview.png
+    preview_asset: assets/exercises/NECK_002/images/preview.jpg
     primary_action:
       key: common.exercise.start
       resolved_uk: Почати
@@ -357,13 +357,14 @@ animation:
     text_inside_asset: false
   asset_spec:
     master_format: png
+    app_delivery_format: jpg
     width_px: 1024
     height_px: 1024
     transparent_background_preferred: false
     production_assets_must_be_original: true
   frames:
   - id: FRAME_SETUP
-    file: assets/exercises/NECK_002/images/setup_full_safe.png
+    file: assets/exercises/NECK_002/images/setup_full_safe.jpg
     pose_description_uk: Людина сидить рівно на стільці, стопи на підлозі, руки на стегнах, голова у
       нейтральному положенні.
     alt_text_uk: Початкове положення сидячи, голова прямо, погляд горизонтальний.
@@ -374,7 +375,7 @@ animation:
     - eyes_forward
     - shoulders_level
   - id: FRAME_CENTER
-    file: assets/exercises/NECK_002/images/motion_00_head_centre_upper_safe.png
+    file: assets/exercises/NECK_002/images/motion_00_head_centre_upper_safe.jpg
     pose_description_uk: Людина сидить рівно. Голова в нейтральному положенні, погляд прямо. Плечі опущені й розслаблені.
     alt_text_uk: 'Початкове положення: голова прямо, плечі розслаблені.'
     alt_text_en: 'Start position: head facing forward, shoulders relaxed.'
@@ -384,7 +385,7 @@ animation:
     - shoulders_level
     - torso_not_rotated
   - id: FRAME_LEFT
-    file: assets/exercises/NECK_002/images/motion_01_head_turn_left_upper_safe.png
+    file: assets/exercises/NECK_002/images/motion_01_head_turn_left_upper_safe.jpg
     pose_description_uk: Корпус залишається прямо. Голова повернута ліворуч у комфортному діапазоні. Підборіддя
       приблизно на тій самій висоті.
     alt_text_uk: Голова повернута ліворуч, корпус залишається прямо.
@@ -395,7 +396,7 @@ animation:
     - shoulders_level
     - torso_not_rotated
   - id: FRAME_RIGHT
-    file: assets/exercises/NECK_002/images/motion_02_head_turn_right_upper_safe.png
+    file: assets/exercises/NECK_002/images/motion_02_head_turn_right_upper_safe.jpg
     pose_description_uk: Корпус залишається прямо. Голова повернута праворуч у комфортному діапазоні. Підборіддя
       приблизно на тій самій висоті.
     alt_text_uk: Голова повернута праворуч, корпус залишається прямо.
@@ -406,7 +407,7 @@ animation:
     - shoulders_level
     - torso_not_rotated
   preview:
-    file: assets/exercises/NECK_002/images/preview.png
+    file: assets/exercises/NECK_002/images/preview.jpg
     source_frame_id: FRAME_SETUP
     overlay_text: false
 audio:
@@ -646,13 +647,13 @@ pro:
 assets:
   folder: assets/exercises/NECK_002/images
   required:
-  - setup_full_safe.png
-  - motion_00_head_centre_upper_safe.png
-  - motion_01_head_turn_left_upper_safe.png
-  - motion_02_head_turn_right_upper_safe.png
-  - preview.png
+  - setup_full_safe.jpg
+  - motion_00_head_centre_upper_safe.jpg
+  - motion_01_head_turn_left_upper_safe.jpg
+  - motion_02_head_turn_right_upper_safe.jpg
+  - preview.jpg
   optional:
-  - thumbnail.png
+  - thumbnail.jpg
   validation:
     same_subject_all_frames: true
     same_camera_all_frames: true
@@ -728,5 +729,5 @@ metadata:
     а повороти голови — 002. Вправа зберегла власний вміст, джерела NHS і дозування з
     утриманнями; змінилися тільки id та кадри."
   brief_path: docs/exercise_briefs/neck/NECK_002/NECK_002_BRIEF.md
-  brief_sheet_path: docs/exercise_briefs/neck/NECK_002/NECK_002_brief_sheet_v1.png
+  brief_sheet_path: docs/exercise_briefs/neck/NECK_002/NECK_002_brief_sheet_v1.jpg
   repository_pack_version: NECK_001_010_repository_pack_v14_QA

@@ -205,21 +205,21 @@
     "frames": [
       {
         "id": "FRAME_SETUP",
-        "file": "assets/exercises/ELBOW_002/images/setup_full_safe.png",
+        "file": "assets/exercises/ELBOW_002/images/setup_full_safe.jpg",
         "altText": "Seated start position, both arms hanging down."
       },
       {
         "id": "FRAME_RIGHT_FLEXED",
-        "file": "assets/exercises/ELBOW_002/images/motion_01_right_flex_mid_safe.png",
+        "file": "assets/exercises/ELBOW_002/images/motion_01_right_flex_mid_safe.jpg",
         "altText": "Right arm bent at the elbow, left arm hanging down."
       },
       {
         "id": "FRAME_LEFT_FLEXED",
-        "file": "assets/exercises/ELBOW_002/images/motion_02_left_flex_mid_safe.png",
+        "file": "assets/exercises/ELBOW_002/images/motion_02_left_flex_mid_safe.jpg",
         "altText": "Left arm bent at the elbow, right arm hanging down."
       }
     ],
-    "preview": "assets/exercises/ELBOW_002/images/preview.png"
+    "preview": "assets/exercises/ELBOW_002/images/preview.jpg"
   },
   "audio": {
     "events": [
