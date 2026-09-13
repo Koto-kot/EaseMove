@@ -534,8 +534,7 @@ void main() {
 
     expect(find.text('Мінімум голосу'), findsOneWidget);
     expect(find.text('Лічба'), findsOneWidget);
-    // Twice: the closed row names the mode in use, and the list offers it.
-    expect(find.text('Слова руху'), findsWidgets);
+    expect(find.text('Слова руху'), findsOneWidget);
 
     // The movement words are what a listener who never opens this screen
     // hears (docs/DECISIONS.md 85).
@@ -546,21 +545,13 @@ void main() {
     await settle();
     expect(store.readSettings().voiceMode, VoiceMode.count);
 
-    await tester.tap(find.text('Слова руху').last);
+    await tester.tap(find.text('Слова руху'));
     await settle();
     expect(store.readSettings().voiceMode, VoiceMode.phaseWords);
 
     // Turning the voice off hides the choice: none of the three would change
     // anything while nothing is spoken.
-    await tester.tap(
-      find.descendant(
-        of: find.ancestor(
-          of: find.text('Голосові команди'),
-          matching: find.byType(ListTile),
-        ),
-        matching: find.byType(Switch),
-      ),
-    );
+    await tester.tap(find.text('Увімкнено'));
     await settle();
     expect(find.text('Слова руху'), findsNothing);
   });

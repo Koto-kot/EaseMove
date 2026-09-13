@@ -205,21 +205,14 @@ void main() {
       final List<MusicTrack> tracks = catalogue();
       expect(find.text(tracks.last.title), findsOneWidget);
 
-      // The switch on the group's own row, not the row itself: tapping the
-      // row would only close the group.
-      await tester.tap(
-        find.descendant(
-          of: find.ancestor(
-            of: find.text('Фонова музика'),
-            matching: find.byType(ListTile),
-          ),
-          matching: find.byType(Switch),
-        ),
-      );
+      // The switch lives inside the group, above the melodies it governs.
+      await tester.tap(find.text('Увімкнено'));
       await settle(tester);
 
       expect(find.text(tracks.last.title), findsNothing);
-      expect(find.byType(Slider), findsNothing);
+      // The volume by name, not by widget type: the developer menu keeps a
+      // slider of its own further down the same list.
+      expect(find.text('Гучність музики'), findsNothing);
     });
   });
 

@@ -81,39 +81,19 @@ class _MenuScreenState extends ConsumerState<MenuScreen> {
         appBar: AppBar(title: Text(t('app.menu.title'))),
         body: ListView(
           children: <Widget>[
-            ListTile(
-              leading: const Icon(Icons.insights_outlined),
-              title: Text(t('app.activity.title')),
-              trailing: const Icon(Icons.chevron_right),
-              onTap: () => Navigator.of(context).push(
-                MaterialPageRoute<void>(
-                  builder: (BuildContext context) => const ActivityScreen(),
-                ),
-              ),
-            ),
-            ListTile(
-              leading: const Icon(Icons.workspace_premium_outlined),
-              title: Text(t('app.pro.title')),
-              trailing: const Icon(Icons.chevron_right),
-              onTap: () => Navigator.of(context).push(
-                MaterialPageRoute<void>(
-                  builder: (BuildContext context) => const ProPlanScreen(),
-                ),
-              ),
-            ),
-            const Divider(),
-
-            // Each of these is a switch you can flick without opening it, and
-            // a choice you open when you want it.
+            // A row is a name and a chevron, and nothing else: what it is set
+            // to, and whether it is on at all, are both inside it. A switch
+            // riding on the closed row made the row look like a switch, and
+            // the choice underneath went unnoticed (docs/DECISIONS.md 91).
             _Group(
               icon: Icons.record_voice_over_outlined,
               title: t('app.settings.voice'),
-              summary: settings.voiceEnabled
-                  ? t('app.settings.voice_mode.${settings.voiceMode.id}')
-                  : t('app.common.off'),
-              enabled: settings.voiceEnabled,
-              onToggle: controller.setVoiceEnabled,
               children: <Widget>[
+                SwitchListTile(
+                  title: Text(t('app.settings.enabled')),
+                  value: settings.voiceEnabled,
+                  onChanged: controller.setVoiceEnabled,
+                ),
                 if (settings.voiceEnabled)
                   for (final VoiceMode mode in VoiceMode.values)
                     _ChoiceOption(
@@ -127,15 +107,15 @@ class _MenuScreenState extends ConsumerState<MenuScreen> {
             _Group(
               icon: Icons.music_note_outlined,
               title: t('app.settings.music'),
-              summary: settings.musicEnabled
-                  ? (chosen?.title ?? '')
-                  : t('app.common.off'),
-              enabled: settings.musicEnabled,
-              onToggle: (bool value) {
-                if (!value) _stopPreview();
-                controller.setMusicEnabled(value);
-              },
               children: <Widget>[
+                SwitchListTile(
+                  title: Text(t('app.settings.enabled')),
+                  value: settings.musicEnabled,
+                  onChanged: (bool value) {
+                    if (!value) _stopPreview();
+                    controller.setMusicEnabled(value);
+                  },
+                ),
                 if (settings.musicEnabled) ...<Widget>[
                   // No "tap to hear it" line: tapping a name plays it, which
                   // the first tap teaches better than a sentence does.
@@ -173,9 +153,6 @@ class _MenuScreenState extends ConsumerState<MenuScreen> {
             _Group(
               icon: Icons.language_outlined,
               title: t('app.settings.language'),
-              summary:
-                  settings.localeOverride?.toUpperCase() ??
-                  t('app.settings.language_system'),
               children: <Widget>[
                 _ChoiceOption(
                   label: t('app.settings.language_system'),
@@ -202,6 +179,30 @@ class _MenuScreenState extends ConsumerState<MenuScreen> {
               title: Text(t('app.settings.reminders')),
               value: settings.remindersEnabled,
               onChanged: controller.setReminders,
+            ),
+            const Divider(),
+
+            // The two screens the menu leads away to, at the end: everything
+            // above changes this app, these two leave it.
+            ListTile(
+              leading: const Icon(Icons.insights_outlined),
+              title: Text(t('app.activity.title')),
+              trailing: const Icon(Icons.chevron_right),
+              onTap: () => Navigator.of(context).push(
+                MaterialPageRoute<void>(
+                  builder: (BuildContext context) => const ActivityScreen(),
+                ),
+              ),
+            ),
+            ListTile(
+              leading: const Icon(Icons.workspace_premium_outlined),
+              title: Text(t('app.pro.title')),
+              trailing: const Icon(Icons.chevron_right),
+              onTap: () => Navigator.of(context).push(
+                MaterialPageRoute<void>(
+                  builder: (BuildContext context) => const ProPlanScreen(),
+                ),
+              ),
             ),
             const Divider(),
             Padding(
@@ -289,41 +290,30 @@ class _ChoiceOption extends StatelessWidget {
   }
 }
 
-/// One collapsed row: a name, what it is set to, and — where the group has
-/// one — the switch that turns it off without opening it.
+/// One collapsed row: an icon, a name, and a chevron that says there is
+/// something inside.
+///
+/// Deliberately nothing else. The row used to carry the current value as a
+/// subtitle and the on/off switch as its trailing widget, and both worked
+/// against it: the switch made the whole row read as a switch, so nobody
+/// opened it, and the subtitle looked like a description rather than a
+/// setting (docs/DECISIONS.md 91).
 class _Group extends StatelessWidget {
   const _Group({
     required this.icon,
     required this.title,
-    required this.summary,
     required this.children,
-    this.enabled,
-    this.onToggle,
   });
 
   final IconData icon;
   final String title;
-
-  /// What the row says while it is closed, so the setting can be read without
-  /// opening it.
-  final String summary;
   final List<Widget> children;
-
-  /// `null` for a group with nothing to turn off, such as the language.
-  final bool? enabled;
-  final ValueChanged<bool>? onToggle;
 
   @override
   Widget build(BuildContext context) {
-    final bool? on = enabled;
-    final ValueChanged<bool>? toggle = onToggle;
     return ExpansionTile(
       leading: Icon(icon),
       title: Text(title),
-      subtitle: Text(summary),
-      trailing: on == null || toggle == null
-          ? null
-          : Switch(value: on, onChanged: toggle),
       childrenPadding: EdgeInsets.zero,
       // No outline of its own: the list is already a list.
       shape: const Border(),

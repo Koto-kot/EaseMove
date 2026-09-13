@@ -120,20 +120,21 @@ void main() {
     );
   });
 
-  testWidgets('a group opens on tap and says what it is set to when closed', (
-    WidgetTester tester,
-  ) async {
+  testWidgets('a group holds its switch and its choice, and shows neither '
+      'until it is opened', (WidgetTester tester) async {
     await pumpApp(tester, store);
     await tester.tap(find.byTooltip('Меню'));
     await settle(tester);
 
-    // Closed: the melodies are not in the way, but the chosen one is named.
-    expect(find.text('Вечірнє фортепіано'), findsOneWidget);
-    expect(find.text('Тиха медитація'), findsNothing);
+    // Closed, a row is a name and nothing else: no melody named under it, no
+    // switch on it to mistake the row for (docs/DECISIONS.md 91).
+    expect(find.text('Вечірнє фортепіано'), findsNothing);
+    expect(find.text('Увімкнено'), findsNothing);
 
     await tester.tap(find.text('Фонова музика'));
     await settle(tester);
-    expect(find.text('Тиха медитація'), findsOneWidget);
+    expect(find.text('Увімкнено'), findsOneWidget);
+    expect(find.text('Вечірнє фортепіано'), findsOneWidget);
     expect(find.text('Японський спокій'), findsOneWidget);
     expect(
       find.text('Торкніться, щоб послухати'),
@@ -141,19 +142,27 @@ void main() {
       reason: 'a tap teaches that better than a sentence',
     );
 
-    // The switch rides on the closed row: the group can be turned off without
-    // opening it.
-    await tester.tap(
-      find.descendant(
-        of: find.ancestor(
-          of: find.text('Фонова музика'),
-          matching: find.byType(ListTile),
-        ),
-        matching: find.byType(Switch),
-      ),
-    );
+    // The switch is the first thing in the group, above what it governs.
+    await tester.tap(find.text('Увімкнено'));
     await settle(tester);
     expect(store.readSettings().musicEnabled, isFalse);
-    expect(find.text('Вимкнено'), findsOneWidget);
+    expect(find.text('Вечірнє фортепіано'), findsNothing);
+    expect(find.text('Увімкнено'), findsOneWidget);
+  });
+
+  testWidgets('what leaves the app is at the end of the menu', (
+    WidgetTester tester,
+  ) async {
+    await pumpApp(tester, store);
+    await tester.tap(find.byTooltip('Меню'));
+    await settle(tester);
+
+    // Everything above changes this app; these two open another screen, so
+    // they sit under the settings rather than over them.
+    final double music = tester.getTopLeft(find.text('Фонова музика')).dy;
+    final double activity = tester.getTopLeft(find.text('Моя активність')).dy;
+    final double pro = tester.getTopLeft(find.text('Мій план PRO')).dy;
+    expect(activity, greaterThan(music));
+    expect(pro, greaterThan(activity));
   });
 }

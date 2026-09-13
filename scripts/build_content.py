@@ -615,7 +615,20 @@ def main() -> int:
     waits = common_audio()
     locale_packs = {}
     for pack in sorted((DATA / "localization").glob("*/common.yaml")):
-        locale_packs[pack.parent.name] = load_yaml(pack)["strings"]
+        strings = load_yaml(pack)["strings"]
+        # YAML reads a bare On, Off, Yes or No as a boolean, and the app then
+        # shows "true" where a word belongs. Quote the value in the pack.
+        not_text = sorted(k for k, v in strings.items() if not isinstance(v, str))
+        if not_text:
+            print("CONTENT BUILD FAILED")
+            for key in not_text:
+                print(
+                    "- {0}: {1} is {2}, not text - quote it in {3}".format(
+                        pack.parent.name, key, strings[key], pack.name
+                    )
+                )
+            return 1
+        locale_packs[pack.parent.name] = strings
     if locale not in locale_packs:
         print("CONTENT BUILD FAILED")
         print("- missing authoring locale pack: data/localization/{0}/common.yaml".format(locale))

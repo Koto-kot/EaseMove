@@ -5,7 +5,7 @@ strings:
   app.home.title: Ruszaj się łatwiej
   app.home.subtitle: Wybierz obszar ciała, aby znaleźć ćwiczenia
   app.common.menu: Menu
-  app.common.off: Wyłączone
+  app.settings.enabled: Włączone
   app.menu.title: Menu
   app.home.card.body.title: Ciało
   app.home.card.body.subtitle: Ćwiczenia dla całego ciała
