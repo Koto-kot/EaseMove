@@ -26,8 +26,6 @@ class FeatureFlags {
     required this.environment,
     required this.proVisibleToFree,
     required this.proAccessMode,
-    required this.showPendingReviewContent,
-    required this.approvedContentOnly,
     required this.developerMenu,
     required this.timingMultiplier,
     required this.features,
@@ -41,8 +39,6 @@ class FeatureFlags {
           environment: environment,
           proVisibleToFree: true,
           proAccessMode: ProAccessMode.paywall,
-          showPendingReviewContent: false,
-          approvedContentOnly: true,
           developerMenu: false,
           timingMultiplier: 1.0,
           features: _defaultFeatures,
@@ -53,8 +49,6 @@ class FeatureFlags {
           environment: environment,
           proVisibleToFree: true,
           proAccessMode: ProAccessMode.unlocked,
-          showPendingReviewContent: true,
-          approvedContentOnly: false,
           developerMenu: true,
           timingMultiplier: 1.0,
           features: _defaultFeatures,
@@ -79,8 +73,6 @@ class FeatureFlags {
   final AppEnvironment environment;
   final bool proVisibleToFree;
   final ProAccessMode proAccessMode;
-  final bool showPendingReviewContent;
-  final bool approvedContentOnly;
   final bool developerMenu;
   final double timingMultiplier;
   final Map<String, bool> features;
@@ -93,17 +85,12 @@ class FeatureFlags {
 
   FeatureFlags copyWith({
     ProAccessMode? proAccessMode,
-    bool? showPendingReviewContent,
-    bool? approvedContentOnly,
     double? timingMultiplier,
   }) {
     return FeatureFlags(
       environment: environment,
       proVisibleToFree: proVisibleToFree,
       proAccessMode: proAccessMode ?? this.proAccessMode,
-      showPendingReviewContent:
-          showPendingReviewContent ?? this.showPendingReviewContent,
-      approvedContentOnly: approvedContentOnly ?? this.approvedContentOnly,
       developerMenu: developerMenu,
       timingMultiplier: timingMultiplier ?? this.timingMultiplier,
       features: features,

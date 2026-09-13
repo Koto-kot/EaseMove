@@ -76,19 +76,15 @@ Runtime build може:
 
 Exercise logic не hard-code.
 
-## 6. Clinical gate
+## 6. Clinical status
 
-API concept:
+Бібліотека показується цілком, у будь-якому середовищі. Фільтра за
+`clinical.status` у застосунку немає (DECISIONS 88).
 
-```text
-canRenderExercise(exercise, environment)
-```
-
-Development:
-- pending allowed by flag.
-
-Production:
-- `clinical.status === approved`.
+`clinical.status` лишається в даних і лишається видимим: вправа, яка не має
+`approved`, несе про це напис на своєму екрані й позначку на картці. Це
+розкриття, а не шлюз — рішення показувати бібліотеку до завершення рев'ю
+ухвалив власник продукту.
 
 ## 7. Collections
 
@@ -245,8 +241,6 @@ Must also prove:
 - Pro locked/unlocked mode;
 - localization keys;
 - YAML load;
-- pending content dev gate;
-- production approval gate;
 - tracking persistence.
 
 

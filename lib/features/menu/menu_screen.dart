@@ -225,11 +225,6 @@ class _MenuScreenState extends ConsumerState<MenuScreen> {
                 onChanged: controller.setDevPro,
               ),
               SwitchListTile(
-                title: Text(t('app.developer.show_pending')),
-                value: settings.devShowPending,
-                onChanged: controller.setDevShowPending,
-              ),
-              SwitchListTile(
                 title: Text(t('app.developer.skip_countdown')),
                 value: settings.devSkipCountdowns,
                 onChanged: controller.setDevSkipCountdowns,

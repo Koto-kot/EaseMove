@@ -58,7 +58,7 @@ strings:
   app.catalog.count_many: вправ
   app.catalog.duration_minutes: хв
   app.catalog.duration_seconds: с
-  app.exercise.pending_review_notice: Вправа ще не пройшла клінічне рев'ю. Показано лише у тестовій збірці.
+  app.exercise.pending_review_notice: Вправа ще не пройшла клінічне рев'ю.
   app.exercise.frame_missing: Кадр вправи ще не додано
   app.exercise.of_total: з
   app.exercise.completed_title: Готово

@@ -264,9 +264,11 @@ void main() {
     );
   });
 
-  testWidgets('production hides content that has not passed clinical review', (
+  testWidgets('a production build shows the same library as any other', (
     WidgetTester tester,
   ) async {
+    // The clinical gate used to empty the app here, because nothing in the
+    // library is marked approved (docs/DECISIONS.md 88).
     store = await seededStore();
     audio = LoggingAudioService();
     usePhoneScreen(tester);
@@ -275,23 +277,13 @@ void main() {
     await settle(tester);
 
     expect(find.text('Рухайся легше'), findsOneWidget);
-
-    // The gate lets nothing through, so the figure offers no zone at all: a
-    // dot that leads nowhere is what made the map answer "not yet" for zones
-    // that were full (docs/DECISIONS.md 86).
     expect(
       find.byKey(const ValueKey<String>('hotspot.left_knee')),
-      findsNothing,
-      reason: 'pending_review content must not reach a production build',
+      findsOneWidget,
     );
 
-    // The named section still opens, and explains itself instead of showing
-    // an empty list.
-    await tester.tap(find.byKey(const ValueKey<String>('home.card.body')));
-    await settle(tester);
-
-    expect(find.byType(ExerciseCard), findsNothing);
-    expect(find.textContaining('вправи ще готуються'), findsOneWidget);
+    await openKneeZone(tester);
+    expect(find.byType(ExerciseCard), findsNWidgets(3));
   });
   testWidgets('the last exercise in a collection ends on a completion screen', (
     WidgetTester tester,

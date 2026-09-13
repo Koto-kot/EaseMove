@@ -57,7 +57,7 @@
   "app.catalog.count_many": "exercises",
   "app.catalog.duration_minutes": "min",
   "app.catalog.duration_seconds": "s",
-  "app.exercise.pending_review_notice": "This exercise has not passed clinical review. Shown in test builds only.",
+  "app.exercise.pending_review_notice": "This exercise has not passed clinical review.",
   "app.exercise.frame_missing": "Exercise frame not added yet",
   "app.exercise.of_total": "of",
   "app.exercise.completed_title": "Done",

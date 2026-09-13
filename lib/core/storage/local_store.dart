@@ -20,7 +20,6 @@ class AppSettings {
     this.reducedMotion = false,
     this.remindersEnabled = false,
     this.devProOverride = false,
-    this.devShowPending = true,
     this.devSkipCountdowns = false,
     this.devShowIds = false,
     this.devTimingMultiplier = 1.0,
@@ -53,7 +52,6 @@ class AppSettings {
   final bool reducedMotion;
   final bool remindersEnabled;
   final bool devProOverride;
-  final bool devShowPending;
   final bool devSkipCountdowns;
   final bool devShowIds;
   final double devTimingMultiplier;
@@ -69,7 +67,6 @@ class AppSettings {
     bool? reducedMotion,
     bool? remindersEnabled,
     bool? devProOverride,
-    bool? devShowPending,
     bool? devSkipCountdowns,
     bool? devShowIds,
     double? devTimingMultiplier,
@@ -86,7 +83,6 @@ class AppSettings {
       reducedMotion: reducedMotion ?? this.reducedMotion,
       remindersEnabled: remindersEnabled ?? this.remindersEnabled,
       devProOverride: devProOverride ?? this.devProOverride,
-      devShowPending: devShowPending ?? this.devShowPending,
       devSkipCountdowns: devSkipCountdowns ?? this.devSkipCountdowns,
       devShowIds: devShowIds ?? this.devShowIds,
       devTimingMultiplier: devTimingMultiplier ?? this.devTimingMultiplier,
@@ -119,7 +115,6 @@ class PreferencesLocalStore implements LocalStore {
   static const String _kReducedMotion = 'settings.reduced_motion';
   static const String _kReminders = 'settings.reminders';
   static const String _kDevPro = 'dev.pro';
-  static const String _kDevPending = 'dev.pending';
   static const String _kDevSkip = 'dev.skip_countdown';
   static const String _kDevIds = 'dev.show_ids';
   static const String _kDevTiming = 'dev.timing_multiplier';
@@ -150,7 +145,6 @@ class PreferencesLocalStore implements LocalStore {
     reducedMotion: _prefs.getBool(_kReducedMotion) ?? false,
     remindersEnabled: _prefs.getBool(_kReminders) ?? false,
     devProOverride: _prefs.getBool(_kDevPro) ?? false,
-    devShowPending: _prefs.getBool(_kDevPending) ?? true,
     devSkipCountdowns: _prefs.getBool(_kDevSkip) ?? false,
     devShowIds: _prefs.getBool(_kDevIds) ?? false,
     devTimingMultiplier: _prefs.getDouble(_kDevTiming) ?? 1.0,
@@ -175,7 +169,6 @@ class PreferencesLocalStore implements LocalStore {
     await _prefs.setBool(_kReducedMotion, settings.reducedMotion);
     await _prefs.setBool(_kReminders, settings.remindersEnabled);
     await _prefs.setBool(_kDevPro, settings.devProOverride);
-    await _prefs.setBool(_kDevPending, settings.devShowPending);
     await _prefs.setBool(_kDevSkip, settings.devSkipCountdowns);
     await _prefs.setBool(_kDevIds, settings.devShowIds);
     await _prefs.setDouble(_kDevTiming, settings.devTimingMultiplier);

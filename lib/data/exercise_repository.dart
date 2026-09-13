@@ -1,38 +1,36 @@
-/// Catalog access with the clinical gate applied in one place.
+/// Catalog access.
+///
+/// Everything the bundle carries is shown. There used to be a clinical gate
+/// here that hid anything not marked `approved`, which in practice hid the
+/// whole library outside a development build (docs/DECISIONS.md 88).
 library;
 
 import 'package:flutter/services.dart';
 
-import '../core/clinical/clinical_gate.dart';
 import '../domain/exercise/exercise.dart';
 import 'content_bundle.dart';
 
 class ExerciseRepository {
-  ExerciseRepository({required this.bundle, required this.gate, this.assets});
+  ExerciseRepository({required this.bundle, this.assets});
 
   final ContentBundle bundle;
 
-  final ClinicalGate gate;
   final AssetBundle? assets;
   final Map<String, Exercise> _cache = <String, Exercise>{};
 
-  /// Exercises of a collection, in editorial (index) order, gated for the
-  /// current environment.
+  /// Exercises of a collection, in editorial (index) order.
   List<ExerciseSummary> byCollection(String collectionId) => <ExerciseSummary>[
     for (final ExerciseSummary summary in bundle.exercises)
-      if (summary.collections.contains(collectionId) &&
-          gate.canRenderSummary(summary))
-        summary,
+      if (summary.collections.contains(collectionId)) summary,
   ];
 
   List<ExerciseSummary> byZone(String zoneId) => <ExerciseSummary>[
     for (final ExerciseSummary summary in bundle.exercises)
-      if (summary.primaryZone == zoneId && gate.canRenderSummary(summary))
-        summary,
+      if (summary.primaryZone == zoneId) summary,
   ];
 
-  /// Zone collections that currently have at least one visible exercise, in
-  /// the documented top-to-bottom order (docs/MENU_AND_NAVIGATION.md).
+  /// Zone collections that have at least one exercise, in the documented
+  /// top-to-bottom order (docs/MENU_AND_NAVIGATION.md).
   List<ExerciseCollection> nonEmptyZoneCollections() {
     final Map<String, int> order = <String, int>{
       for (final BodyZone zone in bundle.zones) zone.id: zone.order,
@@ -65,8 +63,6 @@ class ExerciseRepository {
     _cache[id] = exercise;
     return exercise;
   }
-
-  bool canRender(Exercise exercise) => gate.canRenderExercise(exercise);
 
   /// Neighbour lookup inside the collection the user entered from, which is
   /// what Previous/Next and auto-next walk through.

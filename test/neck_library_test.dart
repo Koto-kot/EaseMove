@@ -12,8 +12,6 @@ import 'dart:io';
 import 'package:ease_move/app/app.dart';
 import 'package:ease_move/app/providers.dart';
 import 'package:ease_move/core/audio/audio_service.dart';
-import 'package:ease_move/core/clinical/clinical_gate.dart';
-import 'package:ease_move/core/config/feature_flags.dart';
 import 'package:ease_move/core/storage/local_store.dart';
 import 'package:ease_move/data/content_bundle.dart';
 import 'package:ease_move/data/exercise_repository.dart';
@@ -64,9 +62,6 @@ void main() {
   test('the neck zone is filled, in the pack order, and reachable', () {
     final ExerciseRepository repo = ExerciseRepository(
       bundle: bundle,
-      gate: ClinicalGate(
-        FeatureFlags.forEnvironment(AppEnvironment.development),
-      ),
       assets: DiskAssetBundle(),
     );
     expect(

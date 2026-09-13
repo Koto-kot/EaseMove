@@ -10,7 +10,6 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../core/audio/audio_service.dart';
-import '../core/clinical/clinical_gate.dart';
 import '../core/config/feature_flags.dart';
 import '../core/entitlements/entitlements_service.dart';
 import '../core/localization/app_strings.dart';
@@ -67,8 +66,6 @@ class SettingsController extends StateNotifier<AppSettings> {
       update(state.copyWith(remindersEnabled: value));
   Future<void> setDevPro(bool value) =>
       update(state.copyWith(devProOverride: value));
-  Future<void> setDevShowPending(bool value) =>
-      update(state.copyWith(devShowPending: value));
   Future<void> setDevSkipCountdowns(bool value) =>
       update(state.copyWith(devSkipCountdowns: value));
   Future<void> setDevShowIds(bool value) =>
@@ -92,15 +89,8 @@ final Provider<FeatureFlags> featureFlagsProvider = Provider<FeatureFlags>((
   );
   if (base.isProduction) return base;
   final AppSettings settings = ref.watch(settingsProvider);
-  return base.copyWith(
-    showPendingReviewContent: settings.devShowPending,
-    timingMultiplier: settings.devTimingMultiplier,
-  );
+  return base.copyWith(timingMultiplier: settings.devTimingMultiplier);
 });
-
-final Provider<ClinicalGate> clinicalGateProvider = Provider<ClinicalGate>(
-  (Ref ref) => ClinicalGate(ref.watch(featureFlagsProvider)),
-);
 
 final Provider<EntitlementsService> entitlementsProvider =
     Provider<EntitlementsService>((Ref ref) {
@@ -133,7 +123,6 @@ final FutureProvider<ExerciseRepository> exerciseRepositoryProvider =
       );
       return ExerciseRepository(
         bundle: bundle,
-        gate: ref.watch(clinicalGateProvider),
         assets: ref.watch(assetBundleProvider),
       );
     });

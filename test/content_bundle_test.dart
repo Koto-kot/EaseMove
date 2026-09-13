@@ -1,7 +1,5 @@
 import 'dart:io';
 
-import 'package:ease_move/core/clinical/clinical_gate.dart';
-import 'package:ease_move/core/config/feature_flags.dart';
 import 'package:ease_move/data/content_bundle.dart';
 import 'package:ease_move/data/exercise_repository.dart';
 import 'package:ease_move/domain/exercise/exercise.dart';
@@ -160,53 +158,32 @@ void main() {
     }
   });
 
-  group('clinical gate', () {
-    test('production shows approved content only', () {
-      final ClinicalGate gate = ClinicalGate(
-        FeatureFlags.forEnvironment(AppEnvironment.production),
+  group('the library is shown whole', () {
+    // The clinical gate is gone: it hid anything not marked `approved`, and
+    // nothing in the library is marked approved, so outside a development
+    // build the app had no content at all (docs/DECISIONS.md 88).
+    test('every environment shows the same exercises', () {
+      final ExerciseRepository production = ExerciseRepository(
+        bundle: bundle,
+        assets: DiskAssetBundle(),
       );
-      expect(gate.canRender(ClinicalStatus.approved), isTrue);
-      expect(gate.canRender(ClinicalStatus.pendingReview), isFalse);
-      expect(gate.canRender(ClinicalStatus.draft), isFalse);
-      expect(gate.canRender(ClinicalStatus.retired), isFalse);
+      expect(production.byCollection('body_knees'), isNotEmpty);
+      expect(production.byCollection('body_neck'), hasLength(10));
+      expect(production.byCollection('body_elbows'), hasLength(9));
+      expect(production.nonEmptyZoneCollections(), isNotEmpty);
     });
 
-    test('development may show pending review content', () {
-      final ClinicalGate gate = ClinicalGate(
-        FeatureFlags.forEnvironment(AppEnvironment.development),
-      );
-      expect(gate.canRender(ClinicalStatus.pendingReview), isTrue);
+    test('the status still travels with each exercise', () {
+      // Removing the gate removed the filter, not the fact: the exercise
+      // screen still says a movement has not been reviewed.
       expect(
-        gate.canRender(ClinicalStatus.retired),
-        isFalse,
-        reason: 'retired is never shown, in any environment',
+        bundle.exercises.every(
+          (ExerciseSummary summary) =>
+              summary.clinicalStatus == ClinicalStatus.pendingReview,
+        ),
+        isTrue,
       );
     });
-
-    test(
-      'the current library is hidden in production and visible in development',
-      () {
-        final ExerciseRepository production = ExerciseRepository(
-          bundle: bundle,
-          gate: ClinicalGate(
-            FeatureFlags.forEnvironment(AppEnvironment.production),
-          ),
-          assets: DiskAssetBundle(),
-        );
-        final ExerciseRepository development = ExerciseRepository(
-          bundle: bundle,
-          gate: ClinicalGate(
-            FeatureFlags.forEnvironment(AppEnvironment.development),
-          ),
-          assets: DiskAssetBundle(),
-        );
-
-        // All four exercises are still pending_review.
-        expect(production.byCollection('body_knees'), isEmpty);
-        expect(development.byCollection('body_knees'), isNotEmpty);
-        expect(production.nonEmptyZoneCollections(), isEmpty);
-      },
-    );
   });
 
   group('catalog navigation', () {
@@ -215,9 +192,6 @@ void main() {
     setUp(() {
       repository = ExerciseRepository(
         bundle: bundle,
-        gate: ClinicalGate(
-          FeatureFlags.forEnvironment(AppEnvironment.development),
-        ),
         assets: DiskAssetBundle(),
       );
     });
