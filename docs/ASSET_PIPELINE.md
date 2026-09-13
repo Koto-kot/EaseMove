@@ -20,11 +20,21 @@ assets/exercises/ELBOW_001/images/
   preview.jpg
 ```
 
-Художник віддає PNG (`asset_spec.master_format`), застосунок несе JPEG
-(`asset_spec.app_delivery_format`) — так само, як голос: майстри wav, у збірці
-m4a. Перекодовує `scripts/build_artwork.py`, запускати після розпакування
-нового пакета й перед `check_assets.py`. Майстри в репозиторій не кладуться:
-вони в пакетах постачання та в історії git (DECISIONS 90).
+Дерева два, і вони дзеркальні:
+
+```text
+masters/exercises/ELBOW_001/images/setup_full_safe.png   <- те, що віддав художник
+assets/exercises/ELBOW_001/images/setup_full_safe.jpg    <- те, що їде у збірці
+```
+
+Художник віддає PNG (`asset_spec.master_format`) у `masters/`, застосунок
+несе JPEG (`asset_spec.app_delivery_format`) в `assets/` — так само, як голос:
+майстри wav, у збірці m4a. Перекодовує `scripts/build_artwork.py`, запускати
+після розпакування нового пакета й перед `check_assets.py`.
+
+Майстри лежать поза `assets/` не з примхи: `pubspec.yaml` оголошує теки
+цілком, тож PNG, покладений поруч зі своїм JPEG, потрапив би у збірку — і
+застосунок ніс би обидва (DECISIONS 90).
 
 Історична форма без підпапки (`assets/exercises/KNEE_001/frame_start.jpg`)
 лишається чинною для вправ, створених до пакета ліктів

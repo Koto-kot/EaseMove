@@ -98,6 +98,21 @@ def render_exercise(path: Path, briefs: dict, subject_profiles: dict, style_prof
     subject = profile(subject_profiles, animation["subject"]["subject_profile_id"])
     style = profile(style_profiles, animation["style_profile_id"])
     spec = animation.get("asset_spec", {})
+    master_format = str(spec.get("master_format", "png")).lower()
+    delivery = str(spec.get("app_delivery_format", master_format)).lower()
+
+    def master(path_in_bundle: str) -> str:
+        """What the artist saves, which is not what the app bundles.
+
+        The library names the bundled file (`assets/...jpg`); the master is
+        the same name under `masters/` in the delivered format. Asking for a
+        JPEG master would bake compression into the source, and a master left
+        in `assets/` would be bundled alongside its own JPEG
+        (docs/DECISIONS.md 90).
+        """
+        stem = path_in_bundle.rsplit(".", 1)[0] + "." + master_format
+        return stem.replace("assets/", "masters/", 1)
+
     size = "{0}x{1}".format(spec.get("width_px", 1024), spec.get("height_px", 1024))
 
     frame_briefs = briefs["exercises"].get(ex_id)
@@ -112,12 +127,16 @@ def render_exercise(path: Path, briefs: dict, subject_profiles: dict, style_prof
     lines.append("- Source: `{0}`".format(path.relative_to(ROOT).as_posix()))
     lines.append("- Folder: `{0}`".format(assets.get("folder", "")))
     lines.append(
-        "- Master: {0} PNG{1}".format(
+        "- Master: {0} {1}{2}".format(
             size,
+            master_format.upper(),
             ", transparent background preferred"
             if spec.get("transparent_background_preferred")
             else "",
         )
+    )
+    lines.append(
+        "- Deliver into `masters/`; `python scripts/build_artwork.py` encodes the {0} the app bundles.".format(delivery.upper())
     )
     equipment = ex.get("exercise_properties", {}).get("equipment_required") or []
     if equipment:
@@ -135,7 +154,7 @@ def render_exercise(path: Path, briefs: dict, subject_profiles: dict, style_prof
 
         lines.append("### {0}".format(frame_id))
         lines.append("")
-        lines.append("Save as `{0}`".format(frame["file"]))
+        lines.append("Save as `{0}`".format(master(frame["file"])))
         lines.append("")
         lines.append("```text")
         lines.append(subject_prompt(subject))
@@ -162,7 +181,7 @@ def render_exercise(path: Path, briefs: dict, subject_profiles: dict, style_prof
         lines.append("")
         lines.append(
             "Save as `{0}` — a crop of `{1}`, no overlay text.".format(
-                preview["file"], preview.get("source_frame_id", "")
+                master(preview["file"]), preview.get("source_frame_id", "")
             )
         )
         lines.append("")
