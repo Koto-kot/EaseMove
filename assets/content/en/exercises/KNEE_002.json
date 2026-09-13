@@ -304,6 +304,7 @@
           "phase": null,
           "side": null,
           "percent": null,
+          "stepIds": [],
           "repetitionNumber": null,
           "relativePosition": null,
           "offsetMs": 0
@@ -315,7 +316,7 @@
         "priority": 100,
         "interruptible": false,
         "playOncePerSide": false,
-        "voiceMode": null,
+        "voiceMode": "phase_words",
         "text": "Lean forward a little.",
         "assetKey": "exercise.KNEE_002.voice.lean_forward",
         "assetFile": "audio/uk/exercises/KNEE_002/lean_forward.m4a",
@@ -324,6 +325,7 @@
           "phase": "PHASE_FORWARD_LEAN",
           "side": null,
           "percent": null,
+          "stepIds": [],
           "repetitionNumber": null,
           "relativePosition": null,
           "offsetMs": null
@@ -335,7 +337,7 @@
         "priority": 110,
         "interruptible": false,
         "playOncePerSide": false,
-        "voiceMode": null,
+        "voiceMode": "phase_words",
         "text": "Stand up smoothly.",
         "assetKey": "exercise.KNEE_002.voice.stand_up",
         "assetFile": "audio/uk/exercises/KNEE_002/stand_up.m4a",
@@ -344,6 +346,7 @@
           "phase": "PHASE_RISE",
           "side": null,
           "percent": null,
+          "stepIds": [],
           "repetitionNumber": null,
           "relativePosition": null,
           "offsetMs": null
@@ -355,7 +358,7 @@
         "priority": 110,
         "interruptible": false,
         "playOncePerSide": false,
-        "voiceMode": null,
+        "voiceMode": "phase_words",
         "text": "Straighten up. Stand steady.",
         "assetKey": "exercise.KNEE_002.voice.stand_stable",
         "assetFile": "audio/uk/exercises/KNEE_002/stand_stable.m4a",
@@ -364,6 +367,7 @@
           "phase": "PHASE_STAND",
           "side": null,
           "percent": null,
+          "stepIds": [],
           "repetitionNumber": null,
           "relativePosition": null,
           "offsetMs": null
@@ -375,7 +379,7 @@
         "priority": 110,
         "interruptible": false,
         "playOncePerSide": false,
-        "voiceMode": null,
+        "voiceMode": "phase_words",
         "text": "Now sit down slowly.",
         "assetKey": "exercise.KNEE_002.voice.sit_slowly",
         "assetFile": "audio/uk/exercises/KNEE_002/sit_slowly.m4a",
@@ -384,6 +388,7 @@
           "phase": "PHASE_DESCEND",
           "side": null,
           "percent": null,
+          "stepIds": [],
           "repetitionNumber": null,
           "relativePosition": null,
           "offsetMs": null
@@ -400,11 +405,12 @@
         "assetKey": "common.voice.halfway",
         "assetFile": "audio/uk/common/halfway.m4a",
         "trigger": {
-          "event": "repetition_completed",
+          "event": "progress_crossed",
           "phase": null,
           "side": null,
-          "percent": null,
-          "repetitionNumber": 3,
+          "percent": 50,
+          "stepIds": [],
+          "repetitionNumber": null,
           "relativePosition": null,
           "offsetMs": null
         }
@@ -424,6 +430,7 @@
           "phase": null,
           "side": null,
           "percent": null,
+          "stepIds": [],
           "repetitionNumber": null,
           "relativePosition": "last",
           "offsetMs": null
@@ -444,6 +451,49 @@
           "phase": null,
           "side": null,
           "percent": null,
+          "stepIds": [],
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      },
+      {
+        "id": "VOICE_COUNT_ONE",
+        "type": "movement",
+        "priority": 70,
+        "interruptible": true,
+        "playOncePerSide": false,
+        "voiceMode": "count",
+        "text": "One.",
+        "assetKey": "common.voice.count_one",
+        "assetFile": "audio/uk/common/count_one.m4a",
+        "trigger": {
+          "event": "sequence_phase_started",
+          "phase": "PHASE_RISE",
+          "side": null,
+          "percent": null,
+          "stepIds": [],
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      },
+      {
+        "id": "VOICE_COUNT_TWO",
+        "type": "movement",
+        "priority": 70,
+        "interruptible": true,
+        "playOncePerSide": false,
+        "voiceMode": "count",
+        "text": "Two.",
+        "assetKey": "common.voice.count_two",
+        "assetFile": "audio/uk/common/count_two.m4a",
+        "trigger": {
+          "event": "sequence_phase_started",
+          "phase": "PHASE_DESCEND",
+          "side": null,
+          "percent": null,
+          "stepIds": [],
           "repetitionNumber": null,
           "relativePosition": null,
           "offsetMs": null

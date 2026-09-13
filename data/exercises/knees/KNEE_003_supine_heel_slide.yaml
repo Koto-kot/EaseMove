@@ -580,6 +580,7 @@ audio:
     interruptible: true
   - id: VOICE_SLIDE_IN
     type: movement
+    voice_mode: phase_words
     trigger:
       event: sequence_phase_started
       phase: PHASE_SLIDE_IN
@@ -592,6 +593,7 @@ audio:
     interruptible: false
   - id: VOICE_KNEE_UP
     type: technique
+    voice_mode: phase_words
     trigger:
       event: sequence_phase_started
       phase: PHASE_KNEE_BENT
@@ -605,6 +607,7 @@ audio:
     play_once_per_side: true
   - id: VOICE_SLIDE_OUT
     type: movement
+    voice_mode: phase_words
     trigger:
       event: sequence_phase_started
       phase: PHASE_SLIDE_OUT
@@ -664,6 +667,32 @@ audio:
     target_file: audio/uk/common/completed.m4a
     priority: 120
     interruptible: false
+  - id: VOICE_COUNT_ONE
+    type: movement
+    voice_mode: count
+    trigger:
+      event: sequence_phase_started
+      phase: PHASE_SLIDE_IN
+    text_key: common.voice.count_one
+    text_uk: Раз.
+    text_en: One.
+    asset_key: common.voice.count_one
+    target_file: audio/uk/common/count_one.m4a
+    priority: 70
+    interruptible: true
+  - id: VOICE_COUNT_TWO
+    type: movement
+    voice_mode: count
+    trigger:
+      event: sequence_phase_started
+      phase: PHASE_SLIDE_OUT
+    text_key: common.voice.count_two
+    text_uk: Два.
+    text_en: Two.
+    asset_key: common.voice.count_two
+    target_file: audio/uk/common/count_two.m4a
+    priority: 70
+    interruptible: true
   recording_spec:
     current_status: not_recorded
     source_master_format: wav

@@ -65,6 +65,9 @@ flutter:
     - assets/exercises/ELBOW_007/images/
     - assets/exercises/ELBOW_008/images/
     - assets/exercises/ELBOW_009/images/
+    # Background music, normalised to one loudness by scripts/build_music.py
+    # from the licensed sources in data/music/tracks.yaml.
+    - audio/music/
     # The voice pack. Lines not recorded yet fall back to text-to-speech
     # (lib/core/audio/recorded_voice_audio_service.dart).
     - audio/uk/common/

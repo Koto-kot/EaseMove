@@ -57,6 +57,10 @@ class SettingsController extends StateNotifier<AppSettings> {
       update(state.copyWith(voiceMode: value));
   Future<void> setMusicEnabled(bool value) =>
       update(state.copyWith(musicEnabled: value));
+  Future<void> setMusicTrack(String id) =>
+      update(state.copyWith(musicTrackId: id));
+  Future<void> setMusicVolume(double value) =>
+      update(state.copyWith(musicVolume: value.clamp(0.0, 1.0)));
   Future<void> setReducedMotion(bool value) =>
       update(state.copyWith(reducedMotion: value));
   Future<void> setReminders(bool value) =>

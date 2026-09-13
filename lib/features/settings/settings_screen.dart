@@ -9,21 +9,61 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../app/providers.dart';
 import '../../app/theme.dart';
+import '../../core/audio/audio_service.dart';
 import '../../core/config/feature_flags.dart';
 import '../../core/localization/app_strings.dart';
 import '../../core/storage/local_store.dart';
+import '../../data/content_bundle.dart';
 import '../../domain/exercise/exercise.dart';
 import '../pro/paywall.dart';
 
-class SettingsScreen extends ConsumerWidget {
+class SettingsScreen extends ConsumerStatefulWidget {
   const SettingsScreen({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<SettingsScreen> createState() => _SettingsScreenState();
+}
+
+class _SettingsScreenState extends ConsumerState<SettingsScreen> {
+  /// Picking a melody from a list of names is guesswork, so choosing one plays
+  /// it. It keeps playing until the listener picks another, turns the music
+  /// off or leaves — nothing else on this screen makes a sound.
+  ///
+  /// Held rather than re-read, because the preview also has to be stopped from
+  /// `dispose`, where `ref` is already gone.
+  AudioService? _preview;
+
+  void _previewTrack(MusicTrack track, double volume) {
+    final AudioService audio = ref.read(audioServiceProvider);
+    _preview = audio;
+    audio.setMusicVolume(volume);
+    audio.playMusic(track.id);
+  }
+
+  void _stopPreview() {
+    final AudioService? audio = _preview;
+    if (audio == null) return;
+    _preview = null;
+    audio.stopAll();
+  }
+
+  @override
+  void dispose() {
+    _stopPreview();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
     final AppStrings t = AppStrings.of(context);
     final AppSettings settings = ref.watch(settingsProvider);
     final SettingsController controller = ref.read(settingsProvider.notifier);
     final FeatureFlags flags = ref.watch(featureFlagsProvider);
+    final ContentBundle? content = ref.watch(contentBundleProvider).valueOrNull;
+    final List<MusicTrack> tracks = content?.music ?? const <MusicTrack>[];
+    final MusicTrack? chosen = content?.resolveMusicTrack(
+      settings.musicTrackId,
+    );
 
     // Settings stays dark, like the menu it is reached from: it is chrome,
     // and nothing in it sits on the artwork's white.
@@ -63,8 +103,45 @@ class SettingsScreen extends ConsumerWidget {
             SwitchListTile(
               title: Text(t('app.settings.music')),
               value: settings.musicEnabled,
-              onChanged: controller.setMusicEnabled,
+              onChanged: (bool value) {
+                if (!value) _stopPreview();
+                controller.setMusicEnabled(value);
+              },
             ),
+            // Which melody and how loud. Both are hidden when the music is
+            // off, for the same reason the voice modes are.
+            if (settings.musicEnabled && tracks.isNotEmpty) ...<Widget>[
+              _SubHeader(
+                title: t('app.settings.music_track'),
+                hint: t('app.settings.music_track_hint'),
+              ),
+              for (final MusicTrack track in tracks)
+                _ChoiceOption(
+                  label: track.title,
+                  // The licence asks for the credit to travel with the music.
+                  subtitle: track.attribution,
+                  selected: track.id == chosen?.id,
+                  onTap: () {
+                    controller.setMusicTrack(track.id);
+                    _previewTrack(track, settings.musicVolume);
+                  },
+                ),
+              ListTile(
+                title: Text(t('app.settings.music_volume')),
+                trailing: Text('${(settings.musicVolume * 100).round()}%'),
+                subtitle: Slider(
+                  value: settings.musicVolume,
+                  divisions: 20,
+                  label: '${(settings.musicVolume * 100).round()}%',
+                  onChanged: (double value) {
+                    controller.setMusicVolume(value);
+                    // A volume slider has to be heard while it moves, so the
+                    // preview follows it rather than waiting for a replay.
+                    _preview?.setMusicVolume(value);
+                  },
+                ),
+              ),
+            ],
             const Divider(),
             _SectionHeader(title: t('app.settings.language')),
             _ChoiceOption(
@@ -176,6 +253,35 @@ class _ChoiceOption extends StatelessWidget {
       trailing: selected ? const Icon(Icons.check) : null,
       selected: selected,
       onTap: onTap,
+    );
+  }
+}
+
+/// Names a group inside a section — quieter than [_SectionHeader], which
+/// separates Sound from Language.
+class _SubHeader extends StatelessWidget {
+  const _SubHeader({required this.title, required this.hint});
+
+  final String title;
+  final String hint;
+
+  @override
+  Widget build(BuildContext context) {
+    final ThemeData theme = Theme.of(context);
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(16, 12, 16, 4),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Text(title, style: theme.textTheme.titleSmall),
+          Text(
+            hint,
+            style: theme.textTheme.bodySmall?.copyWith(
+              color: theme.colorScheme.onSurfaceVariant,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

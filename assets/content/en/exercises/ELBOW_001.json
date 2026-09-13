@@ -238,6 +238,7 @@
           "phase": null,
           "side": null,
           "percent": null,
+          "stepIds": [],
           "repetitionNumber": null,
           "relativePosition": null,
           "offsetMs": 0
@@ -258,6 +259,7 @@
           "phase": "PHASE_SETUP",
           "side": null,
           "percent": null,
+          "stepIds": [],
           "repetitionNumber": null,
           "relativePosition": null,
           "offsetMs": null
@@ -278,6 +280,7 @@
           "phase": null,
           "side": null,
           "percent": 50,
+          "stepIds": [],
           "repetitionNumber": null,
           "relativePosition": null,
           "offsetMs": null
@@ -298,6 +301,7 @@
           "phase": null,
           "side": null,
           "percent": null,
+          "stepIds": [],
           "repetitionNumber": null,
           "relativePosition": null,
           "offsetMs": null
@@ -318,6 +322,7 @@
           "phase": "PHASE_B",
           "side": null,
           "percent": null,
+          "stepIds": [],
           "repetitionNumber": null,
           "relativePosition": null,
           "offsetMs": null
@@ -338,6 +343,7 @@
           "phase": "PHASE_A",
           "side": null,
           "percent": null,
+          "stepIds": [],
           "repetitionNumber": null,
           "relativePosition": null,
           "offsetMs": null
@@ -358,6 +364,7 @@
           "phase": "PHASE_B",
           "side": null,
           "percent": null,
+          "stepIds": [],
           "repetitionNumber": null,
           "relativePosition": null,
           "offsetMs": null
@@ -378,6 +385,7 @@
           "phase": "PHASE_A",
           "side": null,
           "percent": null,
+          "stepIds": [],
           "repetitionNumber": null,
           "relativePosition": null,
           "offsetMs": null

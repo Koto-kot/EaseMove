@@ -1275,5 +1275,28 @@
         }
       }
     ]
-  }
+  },
+  "music": [
+    {
+      "id": "evening_piano",
+      "file": "audio/music/evening_piano.m4a",
+      "title": "Вечірнє фортепіано",
+      "attribution": "Evening Fall (Piano) — Kevin MacLeod (CC BY 3.0)",
+      "licenceUrl": "https://creativecommons.org/licenses/by/3.0/"
+    },
+    {
+      "id": "quiet_meditation",
+      "file": "audio/music/quiet_meditation.m4a",
+      "title": "Тиха медитація",
+      "attribution": "Meditation Impromptu 01 — Kevin MacLeod (CC BY 3.0)",
+      "licenceUrl": "https://creativecommons.org/licenses/by/3.0/"
+    },
+    {
+      "id": "warm_ambient",
+      "file": "audio/music/warm_ambient.m4a",
+      "title": "Теплий простір",
+      "attribution": "Placid Ambient — MusicLFiles (CC BY 4.0)",
+      "licenceUrl": "https://creativecommons.org/licenses/by/4.0/"
+    }
+  ]
 }

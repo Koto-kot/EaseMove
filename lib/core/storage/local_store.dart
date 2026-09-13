@@ -15,6 +15,8 @@ class AppSettings {
     this.voiceEnabled = true,
     this.voiceMode = VoiceMode.minimal,
     this.musicEnabled = true,
+    this.musicTrackId,
+    this.musicVolume = defaultMusicVolume,
     this.reducedMotion = false,
     this.remindersEnabled = false,
     this.devProOverride = false,
@@ -32,6 +34,17 @@ class AppSettings {
   /// [voiceEnabled], which is the master switch.
   final VoiceMode voiceMode;
   final bool musicEnabled;
+
+  /// Chosen background track, or `null` while the listener has never picked
+  /// one — the catalogue's first track then plays
+  /// (`ContentBundle.resolveMusicTrack`).
+  final String? musicTrackId;
+
+  /// 0..1. Quiet by default: the music is there to carry the session, not to
+  /// compete with the voice that instructs it.
+  final double musicVolume;
+  static const double defaultMusicVolume = 0.4;
+
   final bool reducedMotion;
   final bool remindersEnabled;
   final bool devProOverride;
@@ -46,6 +59,8 @@ class AppSettings {
     bool? voiceEnabled,
     VoiceMode? voiceMode,
     bool? musicEnabled,
+    String? musicTrackId,
+    double? musicVolume,
     bool? reducedMotion,
     bool? remindersEnabled,
     bool? devProOverride,
@@ -61,6 +76,8 @@ class AppSettings {
       voiceEnabled: voiceEnabled ?? this.voiceEnabled,
       voiceMode: voiceMode ?? this.voiceMode,
       musicEnabled: musicEnabled ?? this.musicEnabled,
+      musicTrackId: musicTrackId ?? this.musicTrackId,
+      musicVolume: musicVolume ?? this.musicVolume,
       reducedMotion: reducedMotion ?? this.reducedMotion,
       remindersEnabled: remindersEnabled ?? this.remindersEnabled,
       devProOverride: devProOverride ?? this.devProOverride,
@@ -92,6 +109,8 @@ class PreferencesLocalStore implements LocalStore {
   static const String _kVoice = 'settings.voice';
   static const String _kVoiceMode = 'settings.voice_mode';
   static const String _kMusic = 'settings.music';
+  static const String _kMusicTrack = 'settings.music_track';
+  static const String _kMusicVolume = 'settings.music_volume';
   static const String _kReducedMotion = 'settings.reduced_motion';
   static const String _kReminders = 'settings.reminders';
   static const String _kDevPro = 'dev.pro';
@@ -117,6 +136,9 @@ class PreferencesLocalStore implements LocalStore {
     voiceEnabled: _prefs.getBool(_kVoice) ?? true,
     voiceMode: VoiceMode.parse(_prefs.getString(_kVoiceMode)),
     musicEnabled: _prefs.getBool(_kMusic) ?? true,
+    musicTrackId: _prefs.getString(_kMusicTrack),
+    musicVolume:
+        _prefs.getDouble(_kMusicVolume) ?? AppSettings.defaultMusicVolume,
     reducedMotion: _prefs.getBool(_kReducedMotion) ?? false,
     remindersEnabled: _prefs.getBool(_kReminders) ?? false,
     devProOverride: _prefs.getBool(_kDevPro) ?? false,
@@ -136,6 +158,12 @@ class PreferencesLocalStore implements LocalStore {
     await _prefs.setBool(_kVoice, settings.voiceEnabled);
     await _prefs.setString(_kVoiceMode, settings.voiceMode.id);
     await _prefs.setBool(_kMusic, settings.musicEnabled);
+    if (settings.musicTrackId == null) {
+      await _prefs.remove(_kMusicTrack);
+    } else {
+      await _prefs.setString(_kMusicTrack, settings.musicTrackId!);
+    }
+    await _prefs.setDouble(_kMusicVolume, settings.musicVolume);
     await _prefs.setBool(_kReducedMotion, settings.reducedMotion);
     await _prefs.setBool(_kReminders, settings.remindersEnabled);
     await _prefs.setBool(_kDevPro, settings.devProOverride);

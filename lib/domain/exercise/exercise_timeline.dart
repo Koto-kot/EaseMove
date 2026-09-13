@@ -256,6 +256,17 @@ class ExerciseTimeline {
             add(event, step.startMs);
           }
 
+        // One named step rather than a whole phase. NECK_002 turns left and
+        // then right through the same `movement` phase and needs a different
+        // word for each, which a phase trigger cannot express.
+        case 'sequence_step_started':
+          for (final TimelineStep step in steps) {
+            final bool matches = trigger.stepIds.isEmpty
+                ? step.phase == trigger.phase
+                : trigger.stepIds.contains(step.step.id);
+            if (matches) add(event, step.startMs);
+          }
+
         case 'repetition_started':
           final Set<String> seenRepetitionSides = <String>{};
           for (final TimelineStep step in steps) {

@@ -404,6 +404,29 @@ def compile_body_map(spec: dict) -> dict:
     }
 
 
+def compile_music(spec: dict, locale: str) -> list:
+    """The background-music catalogue the settings screen offers.
+
+    Attribution travels with the track rather than sitting in a README: every
+    track is someone else's work under CC BY, which obliges the app to name
+    the author wherever the music is used (data/music/tracks.yaml).
+    """
+    return [
+        {
+            "id": track["id"],
+            "file": track["file"],
+            "title": localized(track, "title", locale),
+            "attribution": "{work} — {author} ({licence})".format(
+                work=track["source"]["work"],
+                author=track["source"]["author"],
+                licence=track["source"]["licence"],
+            ),
+            "licenceUrl": track["source"]["licence_url"],
+        }
+        for track in spec["tracks"]
+    ]
+
+
 def compile_home(spec: dict) -> dict:
     header = spec["header"]
     sections = spec["sections"]
@@ -456,8 +479,36 @@ def compile_repetition_model(model, sequence: dict) -> dict:
     }
 
 
+# Trigger events ExerciseTimeline._resolveCues knows how to place, plus the
+# two the session machine fires outside the timeline. A cue with any other
+# trigger would compile cleanly and then never be heard, which is how six of
+# them sat silent in the library (docs/DECISIONS.md 77).
+RESOLVABLE_TRIGGERS = {
+    "sequence_phase_started",
+    "sequence_step_started",
+    "repetition_started",
+    "side_block_completed",
+    "progress_crossed",
+    "prep_countdown_started",
+    "exercise_completed",
+}
+
+
+def step_ids_of(trigger: dict) -> list:
+    """`step_id`, or `step_id_any` when one cue covers several steps."""
+    single = trigger.get("step_id")
+    if single:
+        return [single]
+    return list(trigger.get("step_id_any") or [])
+
+
 def compile_audio_event(event: dict, locale: str) -> dict:
     trigger = event.get("trigger", {})
+    if trigger.get("event") not in RESOLVABLE_TRIGGERS:
+        raise ValueError(
+            "cue {0}: trigger {1} is not one the engine resolves, so the line "
+            "would never be heard".format(event["id"], trigger.get("event"))
+        )
     return {
         "id": event["id"],
         "type": event.get("type"),
@@ -475,6 +526,7 @@ def compile_audio_event(event: dict, locale: str) -> dict:
             "phase": trigger.get("phase"),
             "side": trigger.get("side"),
             "percent": trigger.get("percent"),
+            "stepIds": step_ids_of(trigger),
             "repetitionNumber": trigger.get("repetition_number"),
             "relativePosition": trigger.get("relative_position"),
             "offsetMs": trigger.get("offset_ms"),
@@ -512,6 +564,7 @@ def main() -> int:
     # The home screen's canonical hotspot file (docs/ui/home/...BRIEF.md 5).
     hotspots = load_yaml(DATA / "ui/body_map/body_hotspots.yaml")
     home = load_yaml(DATA / "ui/home/home_screen.yaml")
+    music = load_yaml(DATA / "music/tracks.yaml")
     locale_packs = {}
     for pack in sorted((DATA / "localization").glob("*/common.yaml")):
         locale_packs[pack.parent.name] = load_yaml(pack)["strings"]
@@ -704,6 +757,7 @@ def main() -> int:
                 ],
                 "bodyMap": compile_body_map(hotspots),
                 "home": compile_home(home),
+                "music": compile_music(music, bundle_locale),
             },
         )
     authoring_keys = set(locale_packs[locale])
@@ -724,6 +778,7 @@ def main() -> int:
     print("- zones: {0}".format(len(zones["zones"])))
     print("- hotspots: {0}".format(len(hotspots["hotspots"])))
     print("- home cards: {0}".format(len(home["sections"]["items"])))
+    print("- music tracks: {0}".format(len(music["tracks"])))
     for pack_locale, strings in sorted(locale_packs.items()):
         print("- {0} common strings: {1}".format(pack_locale, len(strings)))
     return 0

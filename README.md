@@ -37,7 +37,7 @@ auto-start наступної`
 - clinical gate, feature flags, Free/Pro entitlements, contextual paywall;
 - локалізація `uk` + `en`, частковий `pl` (домашній екран і зони) з per-key
   fallback, усе з одного authoring-джерела;
-- 110 тестів (state machine, timeline, контент, локалізація, entitlements,
+- 126 тестів (state machine, timeline, контент, локалізація, entitlements,
   домашній екран, бібліотеки шиї та ліктів, режими голосу, acceptance-флоу).
 
 Ще не зроблено: production-кадри для колін (артворк тіла, десяти вправ для
@@ -84,7 +84,8 @@ Web-збірка того ж коду, для перегляду UI та фло�
 - `config/` — feature flags.
 - `assets/` — майбутні production-кадри вправ і UI assets.
 - `audio/` — майбутні voice packs.
-- `music/` — фонова музика.
+- `audio/music/` — фонова музика: три мелодії під вільною ліцензією,
+  зведені до однієї гучності (`scripts/build_music.py`).
 - `scripts/` — валідація бібліотеки та build контенту.
 - `lib/` — код застосунку (Flutter).
 - `test/` — тести.

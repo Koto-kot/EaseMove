@@ -103,11 +103,22 @@ void main() {
     });
 
     test('phase cues are scheduled at every phase start', () {
-      final List<ScheduledCue> holds = timeline.cues
+      // "Тримайте" is a movement word, so it belongs to the rhythm mode; the
+      // quiet default schedules no phase cue at all.
+      final ExerciseTimeline rhythm = ExerciseTimeline.build(
+        exercise,
+        voiceMode: VoiceMode.phaseWords,
+      );
+      final List<ScheduledCue> holds = rhythm.cues
           .where((ScheduledCue cue) => cue.eventId == 'VOICE_HOLD')
           .toList();
       expect(holds.length, 20, reason: 'one hold cue per repetition');
       expect(holds.first.atMs, 500 + 1800);
+
+      expect(
+        timeline.cues.where((ScheduledCue cue) => cue.eventId == 'VOICE_HOLD'),
+        isEmpty,
+      );
     });
 
     test('play_once_per_side cue fires once per side', () {

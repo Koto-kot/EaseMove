@@ -564,6 +564,7 @@ class AudioTrigger {
   const AudioTrigger({
     required this.event,
     required this.phase,
+    required this.stepIds,
     required this.side,
     required this.percent,
     required this.repetitionNumber,
@@ -574,6 +575,11 @@ class AudioTrigger {
   factory AudioTrigger.fromJson(Map<String, dynamic> json) => AudioTrigger(
     event: json['event'] as String? ?? '',
     phase: json['phase'] as String?,
+    stepIds: <String>[
+      for (final dynamic id
+          in json['stepIds'] as List<dynamic>? ?? const <dynamic>[])
+        id as String,
+    ],
     side: BodySide.parse(json['side'] as String?),
     percent: (json['percent'] as num?)?.toInt(),
     repetitionNumber: (json['repetitionNumber'] as num?)?.toInt(),
@@ -583,6 +589,13 @@ class AudioTrigger {
 
   final String event;
   final String? phase;
+
+  /// Sequence steps this cue belongs to, by id. Used by
+  /// `sequence_step_started`, where two steps can share a phase and still need
+  /// different words — NECK_002 turns left and right through the same
+  /// `movement` phase.
+  final List<String> stepIds;
+
   final BodySide? side;
   final int? percent;
   final int? repetitionNumber;

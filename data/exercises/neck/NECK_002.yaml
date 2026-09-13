@@ -438,6 +438,7 @@ audio:
     interruptible: true
   - id: VOICE_TURN_LEFT
     type: movement
+    voice_mode: phase_words
     trigger:
       event: sequence_step_started
       step_id: move_left
@@ -450,6 +451,7 @@ audio:
     interruptible: false
   - id: VOICE_HOLD
     type: movement
+    voice_mode: phase_words
     trigger:
       event: sequence_step_started
       phase: hold
@@ -462,6 +464,7 @@ audio:
     interruptible: true
   - id: VOICE_CENTER
     type: movement
+    voice_mode: phase_words
     trigger:
       event: sequence_step_started
       step_id_any:
@@ -476,6 +479,7 @@ audio:
     interruptible: false
   - id: VOICE_TURN_RIGHT
     type: movement
+    voice_mode: phase_words
     trigger:
       event: sequence_step_started
       step_id: move_right
@@ -502,8 +506,8 @@ audio:
   - id: VOICE_LAST_CYCLE
     type: progress
     trigger:
-      event: cycle_started
-      cycle_number: 3
+      event: repetition_started
+      relative_position: last
     text_key: exercise.NECK_002.voice.last_cycle
     text_uk: Останній цикл.
     text_en: Last cycle.
@@ -523,6 +527,36 @@ audio:
     target_file: audio/uk/common/completed.m4a
     priority: 120
     interruptible: false
+  - id: VOICE_COUNT_ONE
+    type: movement
+    voice_mode: count
+    trigger:
+      event: sequence_step_started
+      step_id_any:
+      - move_left
+      - move_right
+    text_key: common.voice.count_one
+    text_uk: Раз.
+    text_en: One.
+    asset_key: common.voice.count_one
+    target_file: audio/uk/common/count_one.m4a
+    priority: 70
+    interruptible: true
+  - id: VOICE_COUNT_TWO
+    type: movement
+    voice_mode: count
+    trigger:
+      event: sequence_step_started
+      step_id_any:
+      - return_center_from_left
+      - return_center_from_right
+    text_key: common.voice.count_two
+    text_uk: Два.
+    text_en: Two.
+    asset_key: common.voice.count_two
+    target_file: audio/uk/common/count_two.m4a
+    priority: 70
+    interruptible: true
   recording_spec:
     current_status: not_recorded
     source_master_format: wav

@@ -1,0 +1,72 @@
+schema_version: '1.0'
+
+# Background music for the exercise player.
+#
+# Every track is third-party work under a free licence, downloaded and
+# normalised by scripts/build_music.py. The source URL and the licence live
+# here rather than in a README, because the app has to show the credit: CC BY
+# requires attribution wherever the work is used, so `attribution` is rendered
+# under the track's name in Settings.
+#
+# The three are deliberately different textures — solo piano, piano over a
+# pad, a slow ambient bed — so that "choose a melody" is a real choice.
+
+# Every track is normalised to the same integrated loudness, so switching
+# between them does not change how loud the session is. -20 LUFS is quiet
+# enough to sit under a voice cue without ducking (docs/AUDIO_SPEC.md).
+loudness:
+  integrated_lufs: -20.0
+  true_peak_dbtp: -1.5
+  # Allowed distance from the target when build_music.py verifies the result.
+  tolerance_lu: 0.6
+
+encoding:
+  format: m4a
+  codec: aac
+  bitrate_kbps: 80
+  sample_rate_hz: 44100
+  channels: 2
+  # The player loops a track for the whole session, so both ends are shaped to
+  # keep the seam from clicking.
+  fade_in_ms: 1500
+  fade_out_ms: 2500
+
+tracks:
+- id: evening_piano
+  file: audio/music/evening_piano.m4a
+  title_uk: Вечірнє фортепіано
+  title_en: Evening piano
+  title_pl: Wieczorne pianino
+  source:
+    work: Evening Fall (Piano)
+    author: Kevin MacLeod
+    licence: CC BY 3.0
+    licence_url: https://creativecommons.org/licenses/by/3.0/
+    page: https://commons.wikimedia.org/wiki/File:Evening_Fall_(Piano)_(ISRC_USUAN1100235).mp3
+    download: https://upload.wikimedia.org/wikipedia/commons/f/fd/Evening_Fall_%28Piano%29_%28ISRC_USUAN1100235%29.mp3
+
+- id: quiet_meditation
+  file: audio/music/quiet_meditation.m4a
+  title_uk: Тиха медитація
+  title_en: Quiet meditation
+  title_pl: Cicha medytacja
+  source:
+    work: Meditation Impromptu 01
+    author: Kevin MacLeod
+    licence: CC BY 3.0
+    licence_url: https://creativecommons.org/licenses/by/3.0/
+    page: https://commons.wikimedia.org/wiki/File:Meditation_Impromptu_01_(ISRC_USUAN1100163).mp3
+    download: https://upload.wikimedia.org/wikipedia/commons/4/44/Meditation_Impromptu_01_%28ISRC_USUAN1100163%29.mp3
+
+- id: warm_ambient
+  file: audio/music/warm_ambient.m4a
+  title_uk: Теплий простір
+  title_en: Warm ambient
+  title_pl: Ciepła przestrzeń
+  source:
+    work: Placid Ambient
+    author: MusicLFiles
+    licence: CC BY 4.0
+    licence_url: https://creativecommons.org/licenses/by/4.0/
+    page: https://commons.wikimedia.org/wiki/File:Placid_Ambient_by_MusicLFiles.ogg
+    download: https://upload.wikimedia.org/wikipedia/commons/5/53/Placid_Ambient_by_MusicLFiles.ogg

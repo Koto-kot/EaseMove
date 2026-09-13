@@ -94,6 +94,185 @@ void main() {
     }
   });
 
+  group('the whole library, not just the elbows', () {
+    /// Every exercise the app can open, read from the compiled index.
+    List<String> libraryIds() {
+      final Map<String, dynamic> index = loadJsonFromDisk(
+        'assets/content/uk/index.json',
+      );
+      return <String>[
+        for (final dynamic e in index['exercises'] as List<dynamic>)
+          (e as Map)['id'] as String,
+      ];
+    }
+
+    test('the three modes really differ, in every exercise', () {
+      for (final String id in libraryIds()) {
+        final Exercise ex = loadExerciseFromDisk(id);
+        List<String> cues(VoiceMode mode) => ExerciseTimeline.build(
+          ex,
+          voiceMode: mode,
+        ).cues.map((ScheduledCue cue) => cue.eventId).toList();
+
+        final Set<String> minimal = cues(VoiceMode.minimal).toSet();
+        final Set<String> words = cues(VoiceMode.phaseWords).toSet();
+        final Set<String> counting = cues(VoiceMode.count).toSet();
+
+        // The quiet default has to be quiet everywhere. Three knee exercises
+        // and the head turns narrated every phase in all three modes, which
+        // made the setting look broken (docs/DECISIONS.md 77).
+        for (final String cueId in minimal) {
+          expect(
+            ex.audioEventById(cueId)!.voiceMode,
+            isNull,
+            reason: '$id: $cueId is spoken in the minimal mode',
+          );
+        }
+        expect(
+          words.difference(minimal),
+          isNotEmpty,
+          reason: '$id: the movement-words mode adds nothing',
+        );
+        expect(
+          counting.difference(minimal),
+          isNotEmpty,
+          reason: '$id: the counting mode adds nothing',
+        );
+        expect(words.difference(minimal), isNot(counting.difference(minimal)));
+      }
+    });
+
+    test('no cue is scheduled at a time no tick can reach', () {
+      for (final String id in libraryIds()) {
+        final Exercise ex = loadExerciseFromDisk(id);
+        for (final VoiceMode mode in VoiceMode.values) {
+          final ExerciseTimeline timeline = ExerciseTimeline.build(
+            ex,
+            voiceMode: mode,
+          );
+          for (final ScheduledCue cue in timeline.cues) {
+            expect(cue.atMs, greaterThanOrEqualTo(0), reason: '$id/$cue');
+            expect(
+              cue.atMs,
+              lessThanOrEqualTo(timeline.totalDurationMs),
+              reason: '$id: ${cue.eventId} falls past the end',
+            );
+          }
+        }
+      }
+    });
+
+    test('a cue with an unreachable trigger would have no offset at all', () {
+      // The compile step refuses an unknown trigger, so every cue in the
+      // library reaches the timeline. This checks the other half: each
+      // exercise's movement cues actually land somewhere.
+      for (final String id in libraryIds()) {
+        final Exercise ex = loadExerciseFromDisk(id);
+        final Set<String> scheduled = <String>{
+          for (final VoiceMode mode in VoiceMode.values)
+            ...ExerciseTimeline.build(
+              ex,
+              voiceMode: mode,
+            ).cues.map((ScheduledCue cue) => cue.eventId),
+        };
+        for (final AudioEvent event in ex.audioEvents) {
+          // These two are fired by the session machine, outside the timeline.
+          if (event.trigger.event == 'prep_countdown_started') continue;
+          if (event.trigger.event == 'exercise_completed') continue;
+          expect(
+            scheduled,
+            contains(event.id),
+            reason: '$id: ${event.id} is never heard',
+          );
+        }
+      }
+    });
+  });
+
+  group('a cue that may not be spoken over', () {
+    /// The controller has to be told when the voice is free again, because
+    /// nothing reports a line finishing: text-to-speech is asked not to await
+    /// completion so that a higher-priority cue can cut in. A clock the test
+    /// drives stands in for the wall clock.
+    late DateTime now;
+
+    SessionAudioController controllerFor(AudioService service) {
+      now = DateTime(2026);
+      return SessionAudioController(
+        service: service,
+        mix: exercise.audioMix,
+        voiceEnabled: true,
+        musicEnabled: false,
+        clock: () => now,
+      );
+    }
+
+    List<String> spoken(LoggingAudioService audio) => <String>[
+      for (final String entry in audio.log)
+        if (entry.startsWith('voice:')) entry.substring(6),
+    ];
+
+    test('holds the voice while it runs, and lets go when it ends', () async {
+      final LoggingAudioService audio = LoggingAudioService(
+        voiceLength: const Duration(seconds: 3),
+      );
+      final SessionAudioController controller = controllerFor(audio);
+
+      // "Зігніть руки в ліктях, потім плавно розігніть" — priority 100 and
+      // not interruptible.
+      await controller.play(exercise.audioEventById('VOICE_START_MOVEMENT')!);
+      // The first rhythm word lands while it is still being said, and is
+      // dropped rather than spoken over it.
+      now = now.add(const Duration(seconds: 1));
+      await controller.play(exercise.audioEventById('VOICE_PHASE_B')!);
+      expect(spoken(audio), <String>['VOICE_START_MOVEMENT']);
+
+      // Once the line is over, the rhythm words go through — for the whole
+      // exercise, not just the next one. Before the floor could expire, the
+      // first non-interruptible cue silenced every lower-priority cue until
+      // the session ended (docs/DECISIONS.md 75).
+      now = now.add(const Duration(seconds: 3));
+      await controller.play(exercise.audioEventById('VOICE_PHASE_A')!);
+      now = now.add(const Duration(seconds: 2));
+      await controller.play(exercise.audioEventById('VOICE_PHASE_B')!);
+      now = now.add(const Duration(seconds: 2));
+      await controller.play(exercise.audioEventById('VOICE_HALFWAY')!);
+
+      expect(spoken(audio), <String>[
+        'VOICE_START_MOVEMENT',
+        'VOICE_PHASE_A',
+        'VOICE_PHASE_B',
+        'VOICE_HALFWAY',
+      ]);
+    });
+
+    test('a higher-priority cue still cuts in', () async {
+      final LoggingAudioService audio = LoggingAudioService(
+        voiceLength: const Duration(seconds: 3),
+      );
+      final SessionAudioController controller = controllerFor(audio);
+
+      await controller.play(exercise.audioEventById('VOICE_START_MOVEMENT')!);
+      now = now.add(const Duration(milliseconds: 500));
+      // "Готово." is priority 120: the session ending outranks anything.
+      await controller.play(exercise.audioEventById('VOICE_COMPLETED')!);
+
+      expect(spoken(audio), <String>[
+        'VOICE_START_MOVEMENT',
+        'VOICE_COMPLETED',
+      ]);
+    });
+
+    test('a player that says nothing holds nothing', () async {
+      final LoggingAudioService audio = LoggingAudioService();
+      final SessionAudioController controller = controllerFor(audio);
+
+      await controller.play(exercise.audioEventById('VOICE_START_MOVEMENT')!);
+      await controller.play(exercise.audioEventById('VOICE_PHASE_B')!);
+      expect(spoken(audio), hasLength(2));
+    });
+  });
+
   test('the spoken instructions read the purpose, the setup and the steps', () {
     final String speech = exercise.text.spokenInstructions;
     expect(speech, contains(exercise.text.purpose!));

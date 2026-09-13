@@ -323,6 +323,37 @@ class HomeConfig {
   final List<HomeSection> sections;
 }
 
+/// One background-music track the listener can pick in Settings.
+class MusicTrack {
+  const MusicTrack({
+    required this.id,
+    required this.file,
+    required this.title,
+    required this.attribution,
+    required this.licenceUrl,
+  });
+
+  factory MusicTrack.fromJson(Map<String, dynamic> json) => MusicTrack(
+    id: json['id'] as String,
+    file: json['file'] as String,
+    title: json['title'] as String? ?? json['id'] as String,
+    attribution: json['attribution'] as String? ?? '',
+    licenceUrl: json['licenceUrl'] as String? ?? '',
+  );
+
+  final String id;
+
+  /// Bundled asset, produced by scripts/build_music.py.
+  final String file;
+  final String title;
+
+  /// Work, author and licence. Every track is someone else's music under
+  /// CC BY, so this is shown wherever the track is offered: the licence asks
+  /// for a credit the listener can see, not for a line in a file nobody opens.
+  final String attribution;
+  final String licenceUrl;
+}
+
 class ContentBundle {
   const ContentBundle({
     required this.locale,
@@ -332,6 +363,7 @@ class ContentBundle {
     required this.zones,
     required this.bodyMap,
     required this.home,
+    required this.music,
   });
 
   /// The language this bundle was compiled in. One bundle per language is
@@ -352,6 +384,22 @@ class ContentBundle {
   final List<BodyZone> zones;
   final BodyMapConfig bodyMap;
   final HomeConfig home;
+
+  /// Background music, in the order Settings offers it. The first entry is
+  /// what a listener who has never chosen gets.
+  final List<MusicTrack> music;
+
+  MusicTrack? musicTrackById(String? id) {
+    for (final MusicTrack track in music) {
+      if (track.id == id) return track;
+    }
+    return null;
+  }
+
+  /// The chosen track, or the first one when the choice is unset or names a
+  /// track this build no longer carries.
+  MusicTrack? resolveMusicTrack(String? id) =>
+      musicTrackById(id) ?? (music.isEmpty ? null : music.first);
 
   static Future<ContentBundle> load({
     AssetBundle? bundle,
@@ -381,6 +429,11 @@ class ContentBundle {
         (json['bodyMap'] as Map).cast<String, dynamic>(),
       ),
       home: HomeConfig.fromJson((json['home'] as Map).cast<String, dynamic>()),
+      music: <MusicTrack>[
+        for (final dynamic m
+            in json['music'] as List<dynamic>? ?? const <dynamic>[])
+          MusicTrack.fromJson((m as Map).cast<String, dynamic>()),
+      ],
     );
   }
 

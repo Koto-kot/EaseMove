@@ -18,17 +18,17 @@
 | Текст | Коли | Файл | Використовує | Стан |
 |---|---|---|---|---|
 | Готово. | завжди | `audio/uk/common/completed.m4a` | 22 вправи | записано |
-| Раз. | режим «Лічба» | `audio/uk/common/count_one.m4a` | 18 вправ | записано |
-| Два. | режим «Лічба» | `audio/uk/common/count_two.m4a` | 18 вправ | записано |
+| Раз. | режим «Лічба» | `audio/uk/common/count_one.m4a` | 22 вправи | записано |
+| Два. | режим «Лічба» | `audio/uk/common/count_two.m4a` | 22 вправи | записано |
 | Один. | завжди | `audio/uk/common/countdown_1.m4a` | відлік підготовки | записано |
 | Два. | завжди | `audio/uk/common/countdown_2.m4a` | відлік підготовки | записано |
 | Три. | завжди | `audio/uk/common/countdown_3.m4a` | відлік підготовки | записано |
 | Чотири. | завжди | `audio/uk/common/countdown_4.m4a` | відлік підготовки | записано |
 | П'ять. | завжди | `audio/uk/common/countdown_5.m4a` | відлік підготовки | записано |
 | Половину виконано. | завжди | `audio/uk/common/halfway.m4a` | 22 вправи | записано |
-| Тримайте. | завжди | `audio/uk/common/hold.m4a` | 2 вправи | записано |
+| Тримайте. | режим «Слова руху» | `audio/uk/common/hold.m4a` | 2 вправи | записано |
 | Останній повтор. | завжди | `audio/uk/common/last_repetition.m4a` | 3 вправи | записано |
-| Поверніться в центр. | завжди | `audio/uk/common/return_center.m4a` | NECK_002 | записано |
+| Поверніться в центр. | режим «Слова руху» | `audio/uk/common/return_center.m4a` | NECK_002 | записано |
 | Тепер інша нога. | завжди | `audio/uk/common/switch_leg.m4a` | 2 вправи | записано |
 
 ## NECK_001 — Підборіддя назад
@@ -45,8 +45,8 @@
 | Репліка | Коли | Текст | Файл | Стан |
 |---|---|---|---|---|
 | `VOICE_PREPARE` | завжди | Приготуйтеся. Сядьте рівно і розслабте плечі. | `audio/uk/exercises/NECK_002/prepare.m4a` | записано |
-| `VOICE_TURN_LEFT` | завжди | Повільно поверніть голову ліворуч. | `audio/uk/exercises/NECK_002/turn_left.m4a` | записано |
-| `VOICE_TURN_RIGHT` | завжди | Тепер праворуч. | `audio/uk/exercises/NECK_002/turn_right.m4a` | записано |
+| `VOICE_TURN_LEFT` | режим «Слова руху» | Повільно поверніть голову ліворуч. | `audio/uk/exercises/NECK_002/turn_left.m4a` | записано |
+| `VOICE_TURN_RIGHT` | режим «Слова руху» | Тепер праворуч. | `audio/uk/exercises/NECK_002/turn_right.m4a` | записано |
 | `VOICE_LAST_CYCLE` | завжди | Останній цикл. | `audio/uk/exercises/NECK_002/last_cycle.m4a` | записано |
 
 ## NECK_003 — Нахил голови до плеча
@@ -126,28 +126,28 @@
 | Репліка | Коли | Текст | Файл | Стан |
 |---|---|---|---|---|
 | `VOICE_PREPARE` | завжди | Приготуйтеся. Сядьте рівно, стопи поставте на підлогу. | `audio/uk/exercises/KNEE_001/prepare.m4a` | записано |
-| `VOICE_EXTEND` | завжди | Повільно випряміть ногу. | `audio/uk/exercises/KNEE_001/extend.m4a` | записано |
+| `VOICE_EXTEND` | режим «Слова руху» | Повільно випряміть ногу. | `audio/uk/exercises/KNEE_001/extend.m4a` | записано |
 | `VOICE_TOES` | завжди | Підтягніть носок до себе. | `audio/uk/exercises/KNEE_001/toes.m4a` | записано |
-| `VOICE_LOWER` | завжди | Повільно опустіть ногу. | `audio/uk/exercises/KNEE_001/lower.m4a` | записано |
+| `VOICE_LOWER` | режим «Слова руху» | Повільно опустіть ногу. | `audio/uk/exercises/KNEE_001/lower.m4a` | записано |
 
 ## KNEE_002 — Встати — сісти зі стільця
 
 | Репліка | Коли | Текст | Файл | Стан |
 |---|---|---|---|---|
 | `VOICE_PREPARE` | завжди | Приготуйтеся. Сядьте ближче до краю стільця. Стопи на підлозі. | `audio/uk/exercises/KNEE_002/prepare.m4a` | записано |
-| `VOICE_LEAN_FORWARD` | завжди | Трохи нахиліться вперед. | `audio/uk/exercises/KNEE_002/lean_forward.m4a` | записано |
-| `VOICE_STAND_UP` | завжди | Плавно вставайте. | `audio/uk/exercises/KNEE_002/stand_up.m4a` | записано |
-| `VOICE_STAND_STABLE` | завжди | Випростайтеся. Стійте стійко. | `audio/uk/exercises/KNEE_002/stand_stable.m4a` | записано |
-| `VOICE_SIT_SLOWLY` | завжди | Тепер повільно сідайте. | `audio/uk/exercises/KNEE_002/sit_slowly.m4a` | записано |
+| `VOICE_LEAN_FORWARD` | режим «Слова руху» | Трохи нахиліться вперед. | `audio/uk/exercises/KNEE_002/lean_forward.m4a` | записано |
+| `VOICE_STAND_UP` | режим «Слова руху» | Плавно вставайте. | `audio/uk/exercises/KNEE_002/stand_up.m4a` | записано |
+| `VOICE_STAND_STABLE` | режим «Слова руху» | Випростайтеся. Стійте стійко. | `audio/uk/exercises/KNEE_002/stand_stable.m4a` | записано |
+| `VOICE_SIT_SLOWLY` | режим «Слова руху» | Тепер повільно сідайте. | `audio/uk/exercises/KNEE_002/sit_slowly.m4a` | записано |
 
 ## KNEE_003 — Підтягування п’яти лежачи
 
 | Репліка | Коли | Текст | Файл | Стан |
 |---|---|---|---|---|
 | `VOICE_PREPARE` | завжди | Приготуйтеся. Ляжте на спину та випряміть ноги. | `audio/uk/exercises/KNEE_003/prepare.m4a` | записано |
-| `VOICE_SLIDE_IN` | завжди | Повільно ковзайте п’ятою до себе. | `audio/uk/exercises/KNEE_003/slide_in.m4a` | записано |
-| `VOICE_KNEE_UP` | завжди | Коліно тримайте спрямованим угору. | `audio/uk/exercises/KNEE_003/knee_up.m4a` | записано |
-| `VOICE_SLIDE_OUT` | завжди | Тепер повільно випряміть ногу. | `audio/uk/exercises/KNEE_003/slide_out.m4a` | записано |
+| `VOICE_SLIDE_IN` | режим «Слова руху» | Повільно ковзайте п’ятою до себе. | `audio/uk/exercises/KNEE_003/slide_in.m4a` | записано |
+| `VOICE_KNEE_UP` | режим «Слова руху» | Коліно тримайте спрямованим угору. | `audio/uk/exercises/KNEE_003/knee_up.m4a` | записано |
+| `VOICE_SLIDE_OUT` | режим «Слова руху» | Тепер повільно випряміть ногу. | `audio/uk/exercises/KNEE_003/slide_out.m4a` | записано |
 
 ## ELBOW_001 — Зігнути — розігнути руки
 

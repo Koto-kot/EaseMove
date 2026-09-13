@@ -328,6 +328,7 @@
           "phase": null,
           "side": null,
           "percent": null,
+          "stepIds": [],
           "repetitionNumber": null,
           "relativePosition": null,
           "offsetMs": 0
@@ -339,7 +340,7 @@
         "priority": 100,
         "interruptible": false,
         "playOncePerSide": false,
-        "voiceMode": null,
+        "voiceMode": "phase_words",
         "text": "Повільно ковзайте п’ятою до себе.",
         "assetKey": "exercise.KNEE_003.voice.slide_in",
         "assetFile": "audio/uk/exercises/KNEE_003/slide_in.m4a",
@@ -348,6 +349,7 @@
           "phase": "PHASE_SLIDE_IN",
           "side": null,
           "percent": null,
+          "stepIds": [],
           "repetitionNumber": null,
           "relativePosition": null,
           "offsetMs": null
@@ -359,7 +361,7 @@
         "priority": 70,
         "interruptible": true,
         "playOncePerSide": true,
-        "voiceMode": null,
+        "voiceMode": "phase_words",
         "text": "Коліно тримайте спрямованим угору.",
         "assetKey": "exercise.KNEE_003.voice.knee_up",
         "assetFile": "audio/uk/exercises/KNEE_003/knee_up.m4a",
@@ -368,6 +370,7 @@
           "phase": "PHASE_KNEE_BENT",
           "side": null,
           "percent": null,
+          "stepIds": [],
           "repetitionNumber": null,
           "relativePosition": null,
           "offsetMs": null
@@ -379,7 +382,7 @@
         "priority": 100,
         "interruptible": false,
         "playOncePerSide": false,
-        "voiceMode": null,
+        "voiceMode": "phase_words",
         "text": "Тепер повільно випряміть ногу.",
         "assetKey": "exercise.KNEE_003.voice.slide_out",
         "assetFile": "audio/uk/exercises/KNEE_003/slide_out.m4a",
@@ -388,6 +391,7 @@
           "phase": "PHASE_SLIDE_OUT",
           "side": null,
           "percent": null,
+          "stepIds": [],
           "repetitionNumber": null,
           "relativePosition": null,
           "offsetMs": null
@@ -408,6 +412,7 @@
           "phase": null,
           "side": "left",
           "percent": null,
+          "stepIds": [],
           "repetitionNumber": null,
           "relativePosition": null,
           "offsetMs": null
@@ -428,6 +433,7 @@
           "phase": null,
           "side": null,
           "percent": 50,
+          "stepIds": [],
           "repetitionNumber": null,
           "relativePosition": null,
           "offsetMs": null
@@ -448,6 +454,7 @@
           "phase": null,
           "side": null,
           "percent": null,
+          "stepIds": [],
           "repetitionNumber": null,
           "relativePosition": "last",
           "offsetMs": null
@@ -468,6 +475,49 @@
           "phase": null,
           "side": null,
           "percent": null,
+          "stepIds": [],
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      },
+      {
+        "id": "VOICE_COUNT_ONE",
+        "type": "movement",
+        "priority": 70,
+        "interruptible": true,
+        "playOncePerSide": false,
+        "voiceMode": "count",
+        "text": "Раз.",
+        "assetKey": "common.voice.count_one",
+        "assetFile": "audio/uk/common/count_one.m4a",
+        "trigger": {
+          "event": "sequence_phase_started",
+          "phase": "PHASE_SLIDE_IN",
+          "side": null,
+          "percent": null,
+          "stepIds": [],
+          "repetitionNumber": null,
+          "relativePosition": null,
+          "offsetMs": null
+        }
+      },
+      {
+        "id": "VOICE_COUNT_TWO",
+        "type": "movement",
+        "priority": 70,
+        "interruptible": true,
+        "playOncePerSide": false,
+        "voiceMode": "count",
+        "text": "Два.",
+        "assetKey": "common.voice.count_two",
+        "assetFile": "audio/uk/common/count_two.m4a",
+        "trigger": {
+          "event": "sequence_phase_started",
+          "phase": "PHASE_SLIDE_OUT",
+          "side": null,
+          "percent": null,
+          "stepIds": [],
           "repetitionNumber": null,
           "relativePosition": null,
           "offsetMs": null

@@ -308,6 +308,34 @@ def check_body_map(declared: list[str], inspect: bool) -> None:
                 ok("{0} (card {1})".format(Path(icon).name, item["id"]))
 
 
+MUSIC_CATALOGUE = "data/music/tracks.yaml"
+
+
+def check_music(declared: list[str]) -> None:
+    """The background tracks are built by scripts/build_music.py and committed.
+
+    That script needs ffmpeg and the network, so CI cannot run it; what CI can
+    do is refuse a catalogue that promises a melody the build does not carry.
+    """
+    path = ROOT / MUSIC_CATALOGUE
+    if not path.exists():
+        return
+    print("")
+    print("Background music")
+    for track in load_yaml(path)["tracks"]:
+        name = track["file"]
+        if not is_bundled(name, declared):
+            error(name + " is not listed under `flutter: assets:`")
+        target = ROOT / name
+        if not target.exists():
+            error("{0} - missing; run scripts/build_music.py".format(name))
+            continue
+        if not track["source"].get("licence"):
+            error(track["id"] + " has no licence, so it cannot be shipped")
+        ok("{0} ({1:.1f} MB, {2})".format(
+            name, target.stat().st_size / 1e6, track["source"]["licence"]))
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
@@ -329,6 +357,7 @@ def main() -> int:
     for exercise in library:
         check_exercise(exercise, declared, inspect)
     check_body_map(declared, inspect)
+    check_music(declared)
 
     print("\n" + "-" * 60)
     print(

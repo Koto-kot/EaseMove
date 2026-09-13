@@ -18,17 +18,17 @@ Recorded once and reused by every exercise.
 | Text | When | File | Used by | State |
 |---|---|---|---|---|
 | Done. | always | `audio/en/common/completed.m4a` | 22 exercises | recorded |
-| One. | counting mode | `audio/en/common/count_one.m4a` | 18 exercises | recorded |
-| Two. | counting mode | `audio/en/common/count_two.m4a` | 18 exercises | recorded |
+| One. | counting mode | `audio/en/common/count_one.m4a` | 22 exercises | recorded |
+| Two. | counting mode | `audio/en/common/count_two.m4a` | 22 exercises | recorded |
 | One. | always | `audio/en/common/countdown_1.m4a` | preparation countdown | recorded |
 | Two. | always | `audio/en/common/countdown_2.m4a` | preparation countdown | recorded |
 | Three. | always | `audio/en/common/countdown_3.m4a` | preparation countdown | recorded |
 | Four. | always | `audio/en/common/countdown_4.m4a` | preparation countdown | recorded |
 | Five. | always | `audio/en/common/countdown_5.m4a` | preparation countdown | recorded |
 | Halfway done. | always | `audio/en/common/halfway.m4a` | 22 exercises | recorded |
-| Hold. | always | `audio/en/common/hold.m4a` | 2 exercises | recorded |
+| Hold. | movement words mode | `audio/en/common/hold.m4a` | 2 exercises | recorded |
 | Last repetition. | always | `audio/en/common/last_repetition.m4a` | 3 exercises | recorded |
-| Return to the centre. | always | `audio/en/common/return_center.m4a` | NECK_002 | recorded |
+| Return to the centre. | movement words mode | `audio/en/common/return_center.m4a` | NECK_002 | recorded |
 | Now the other leg. | always | `audio/en/common/switch_leg.m4a` | 2 exercises | recorded |
 
 ## NECK_001 — Підборіддя назад
@@ -45,8 +45,8 @@ Recorded once and reused by every exercise.
 | Cue | When | Text | File | State |
 |---|---|---|---|---|
 | `VOICE_PREPARE` | always | Get ready. Sit up straight and relax your shoulders. | `audio/en/exercises/NECK_002/prepare.m4a` | recorded |
-| `VOICE_TURN_LEFT` | always | Slowly turn your head to the left. | `audio/en/exercises/NECK_002/turn_left.m4a` | recorded |
-| `VOICE_TURN_RIGHT` | always | Now to the right. | `audio/en/exercises/NECK_002/turn_right.m4a` | recorded |
+| `VOICE_TURN_LEFT` | movement words mode | Slowly turn your head to the left. | `audio/en/exercises/NECK_002/turn_left.m4a` | recorded |
+| `VOICE_TURN_RIGHT` | movement words mode | Now to the right. | `audio/en/exercises/NECK_002/turn_right.m4a` | recorded |
 | `VOICE_LAST_CYCLE` | always | Last cycle. | `audio/en/exercises/NECK_002/last_cycle.m4a` | recorded |
 
 ## NECK_003 — Нахил голови до плеча
@@ -126,28 +126,28 @@ Recorded once and reused by every exercise.
 | Cue | When | Text | File | State |
 |---|---|---|---|---|
 | `VOICE_PREPARE` | always | Get ready. Sit up straight and place your feet on the floor. | `audio/en/exercises/KNEE_001/prepare.m4a` | recorded |
-| `VOICE_EXTEND` | always | Slowly straighten your leg. | `audio/en/exercises/KNEE_001/extend.m4a` | recorded |
+| `VOICE_EXTEND` | movement words mode | Slowly straighten your leg. | `audio/en/exercises/KNEE_001/extend.m4a` | recorded |
 | `VOICE_TOES` | always | Pull your toes toward you. | `audio/en/exercises/KNEE_001/toes.m4a` | recorded |
-| `VOICE_LOWER` | always | Slowly lower your leg. | `audio/en/exercises/KNEE_001/lower.m4a` | recorded |
+| `VOICE_LOWER` | movement words mode | Slowly lower your leg. | `audio/en/exercises/KNEE_001/lower.m4a` | recorded |
 
 ## KNEE_002 — Встати — сісти зі стільця
 
 | Cue | When | Text | File | State |
 |---|---|---|---|---|
 | `VOICE_PREPARE` | always | Get ready. Sit closer to the front of the chair, feet on the floor. | `audio/en/exercises/KNEE_002/prepare.m4a` | recorded |
-| `VOICE_LEAN_FORWARD` | always | Lean forward a little. | `audio/en/exercises/KNEE_002/lean_forward.m4a` | recorded |
-| `VOICE_STAND_UP` | always | Stand up smoothly. | `audio/en/exercises/KNEE_002/stand_up.m4a` | recorded |
-| `VOICE_STAND_STABLE` | always | Straighten up. Stand steady. | `audio/en/exercises/KNEE_002/stand_stable.m4a` | recorded |
-| `VOICE_SIT_SLOWLY` | always | Now sit down slowly. | `audio/en/exercises/KNEE_002/sit_slowly.m4a` | recorded |
+| `VOICE_LEAN_FORWARD` | movement words mode | Lean forward a little. | `audio/en/exercises/KNEE_002/lean_forward.m4a` | recorded |
+| `VOICE_STAND_UP` | movement words mode | Stand up smoothly. | `audio/en/exercises/KNEE_002/stand_up.m4a` | recorded |
+| `VOICE_STAND_STABLE` | movement words mode | Straighten up. Stand steady. | `audio/en/exercises/KNEE_002/stand_stable.m4a` | recorded |
+| `VOICE_SIT_SLOWLY` | movement words mode | Now sit down slowly. | `audio/en/exercises/KNEE_002/sit_slowly.m4a` | recorded |
 
 ## KNEE_003 — Підтягування п’яти лежачи
 
 | Cue | When | Text | File | State |
 |---|---|---|---|---|
 | `VOICE_PREPARE` | always | Get ready. Lie on your back and straighten your legs. | `audio/en/exercises/KNEE_003/prepare.m4a` | recorded |
-| `VOICE_SLIDE_IN` | always | Slowly slide your heel toward you. | `audio/en/exercises/KNEE_003/slide_in.m4a` | recorded |
-| `VOICE_KNEE_UP` | always | Keep your knee pointing up. | `audio/en/exercises/KNEE_003/knee_up.m4a` | recorded |
-| `VOICE_SLIDE_OUT` | always | Now slowly straighten your leg. | `audio/en/exercises/KNEE_003/slide_out.m4a` | recorded |
+| `VOICE_SLIDE_IN` | movement words mode | Slowly slide your heel toward you. | `audio/en/exercises/KNEE_003/slide_in.m4a` | recorded |
+| `VOICE_KNEE_UP` | movement words mode | Keep your knee pointing up. | `audio/en/exercises/KNEE_003/knee_up.m4a` | recorded |
+| `VOICE_SLIDE_OUT` | movement words mode | Now slowly straighten your leg. | `audio/en/exercises/KNEE_003/slide_out.m4a` | recorded |
 
 ## ELBOW_001 — Зігнути — розігнути руки
 

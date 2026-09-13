@@ -78,20 +78,17 @@ class RecordedVoiceAudioService implements AudioService {
   }
 
   @override
-  Future<void> playVoice(AudioEvent event) async {
+  Future<Duration?> playVoice(AudioEvent event) async {
     final String? path = localizedAssetPath(event.assetFile);
     if (path == null || !await isBundled(path)) {
-      await fallback.playVoice(event);
-      return;
+      return fallback.playVoice(event);
     }
     try {
-      await _voice.stop();
-      await _voice.setAsset(path);
-      await _voice.play();
+      return await _playAsset(path);
     } on Object catch (error) {
       // A bundled but unplayable file must not end the session silently.
       debugPrint('[audio] $path failed: $error');
-      await fallback.playVoice(event);
+      return fallback.playVoice(event);
     }
   }
 
@@ -103,13 +100,22 @@ class RecordedVoiceAudioService implements AudioService {
       return;
     }
     try {
-      await _voice.stop();
-      await _voice.setAsset(path);
-      await _voice.play();
+      await _playAsset(path);
     } on Object catch (error) {
       debugPrint('[audio] $path failed: $error');
       await fallback.playCountdownTick(secondsLeft);
     }
+  }
+
+  /// Plays a bundled line and reports its length, which is what tells the
+  /// caller when a cue that may not be spoken over has finished. `setAsset`
+  /// answers null when the platform will not say; the caller then treats the
+  /// voice as free, which is better than a session that goes quiet.
+  Future<Duration?> _playAsset(String path) async {
+    await _voice.stop();
+    final Duration? length = await _voice.setAsset(path);
+    await _voice.play();
+    return length;
   }
 
   @override

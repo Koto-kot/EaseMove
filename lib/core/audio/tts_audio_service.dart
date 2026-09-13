@@ -49,22 +49,45 @@ class TtsAudioService implements AudioService {
     }
   }
 
-  Future<void> _speak(String? text) async {
-    if (text == null || text.trim().isEmpty) return;
+  Future<Duration?> _speak(String? text) async {
+    if (text == null || text.trim().isEmpty) return null;
     await _configure();
     try {
       await _tts.stop();
       await _tts.speak(text);
     } on Object catch (error) {
       debugPrint('[tts] speak failed: $error');
+      return null;
     }
+    return estimate(text);
+  }
+
+  /// Roughly how long [text] takes to say at [_speechRate].
+  ///
+  /// An estimate, because completion awaiting is off: the engine is asked not
+  /// to report back so that a higher-priority cue can cut in mid-sentence. The
+  /// caller still has to know when the voice is free, and a figure derived
+  /// from the line itself is closer than any constant would be. Ukrainian and
+  /// English both land near 150 words a minute at a normal rate, and
+  /// flutter_tts treats 0.5 as normal.
+  @visibleForTesting
+  Duration estimate(String text) {
+    final int words = text
+        .split(RegExp(r'[\s]+'))
+        .where((String word) => word.isNotEmpty)
+        .length;
+    const double perWordMs = 400 * (0.5 / _speechRate);
+    // A short tail, so the next cue does not start on the last syllable.
+    return Duration(milliseconds: (words * perWordMs).round() + 300);
   }
 
   @override
-  Future<void> playVoice(AudioEvent event) => _speak(event.text);
+  Future<Duration?> playVoice(AudioEvent event) => _speak(event.text);
 
   @override
-  Future<void> playCountdownTick(int secondsLeft) => _speak('$secondsLeft');
+  Future<void> playCountdownTick(int secondsLeft) async {
+    await _speak('$secondsLeft');
+  }
 
   @override
   Future<void> playMusic(String trackId) async {

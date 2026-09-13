@@ -21,11 +21,12 @@ SessionMachine machineFor(
   bool skipCountdowns = false,
   String? collectionId,
   bool hasNextExercise = true,
+  VoiceMode voiceMode = VoiceMode.minimal,
 }) {
   final Exercise exercise = loadExerciseFromDisk(id);
   return SessionMachine(
     exercise: exercise,
-    timeline: ExerciseTimeline.build(exercise),
+    timeline: ExerciseTimeline.build(exercise, voiceMode: voiceMode),
     collectionId: collectionId,
     skipCountdowns: skipCountdowns,
     hasNextExercise: hasNextExercise,
@@ -211,9 +212,12 @@ void main() {
     test(
       'voice cues fire once, in priority order, as the timeline crosses them',
       () {
+        // The phase words belong to the rhythm mode, so that is the mode
+        // this ordering is asserted in (docs/AUDIO_SPEC.md, "Режими голосу").
         final SessionMachine machine = machineFor(
           'KNEE_001',
           skipCountdowns: true,
+          voiceMode: VoiceMode.phaseWords,
         );
         final List<String> played = <String>[
           for (final SessionEffect effect in machine.handle(

@@ -12,6 +12,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../app/providers.dart';
 import '../../core/audio/audio_service.dart';
 import '../../core/storage/local_store.dart';
+import '../../data/content_bundle.dart';
 import '../../data/exercise_repository.dart';
 import '../../data/tracking_repository.dart';
 import '../../domain/exercise/exercise.dart';
@@ -113,6 +114,10 @@ class PlayerController extends StateNotifier<PlayerState> {
   late final TrackingRepository _tracking;
   SessionMachine? _machine;
   SessionAudioController? _audio;
+
+  /// Resolved once per exercise, so a session keeps the track it started with
+  /// even if the choice changes in another tab.
+  MusicTrack? _musicTrack;
   Timer? _timer;
   String? _currentExerciseId;
   String? _collectionId;
@@ -170,7 +175,9 @@ class PlayerController extends StateNotifier<PlayerState> {
       mix: exercise.audioMix,
       voiceEnabled: settings.voiceEnabled,
       musicEnabled: settings.musicEnabled,
+      musicVolume: settings.musicVolume,
     );
+    _musicTrack = repository.bundle.resolveMusicTrack(settings.musicTrackId);
 
     state = state.copyWith(
       loading: false,
@@ -243,6 +250,7 @@ class PlayerController extends StateNotifier<PlayerState> {
               trigger: const AudioTrigger(
                 event: 'user_requested',
                 phase: null,
+                stepIds: <String>[],
                 side: null,
                 percent: null,
                 repetitionNumber: null,
@@ -323,9 +331,10 @@ class PlayerController extends StateNotifier<PlayerState> {
           unawaited(_audio?.countdown(secondsLeft) ?? Future<void>.value());
 
         case StartMusic():
-          unawaited(
-            _audio?.startMusic('gentle_rhythm_01') ?? Future<void>.value(),
-          );
+          final MusicTrack? track = _musicTrack;
+          if (track != null) {
+            unawaited(_audio?.startMusic(track.id) ?? Future<void>.value());
+          }
 
         case PauseAudio():
           unawaited(_audio?.pause() ?? Future<void>.value());

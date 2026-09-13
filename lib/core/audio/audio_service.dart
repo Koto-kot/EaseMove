@@ -1,9 +1,7 @@
 /// Audio abstraction from docs/FLUTTER_ARCHITECTURE.md.
 ///
-/// Voice packs are not recorded yet (`recording_spec.current_status:
-/// not_recorded`), so the default implementation resolves cues, respects the
-/// mix and the collision policy, and simply reports what it would have played.
-/// Swapping in just_audio later touches only [JustAudioService].
+/// The player behind this is swappable: recorded lines where the pack has
+/// them, text-to-speech where it does not, and a logging stub in tests.
 library;
 
 import 'package:flutter/foundation.dart';
@@ -11,7 +9,13 @@ import 'package:flutter/foundation.dart';
 import '../../domain/exercise/exercise.dart';
 
 abstract interface class AudioService {
-  Future<void> playVoice(AudioEvent event);
+  /// Starts the line and answers how long it will take.
+  ///
+  /// The answer is what lets [SessionAudioController] know when the voice is
+  /// free again. `null` means the player cannot say — a stub that plays
+  /// nothing, or a file whose length the platform did not report — and is
+  /// read as "nothing is holding the voice".
+  Future<Duration?> playVoice(AudioEvent event);
   Future<void> playCountdownTick(int secondsLeft);
   Future<void> playMusic(String trackId);
   Future<void> pauseAll();
@@ -28,30 +32,65 @@ class SessionAudioController {
     required this.mix,
     required this.voiceEnabled,
     required this.musicEnabled,
-  });
+    this.musicVolume = 0.4,
+    DateTime Function()? clock,
+  }) : _now = clock ?? DateTime.now;
 
   final AudioService service;
   final AudioMix mix;
   final bool voiceEnabled;
   final bool musicEnabled;
 
-  AudioEvent? _playing;
-  int _playingPriority = 0;
+  /// How loud the background music is, as the listener set it in Settings.
+  /// The exercise files also carry a relative level, but a preference the
+  /// listener can hear themselves change outranks a number in the data
+  /// (docs/DECISIONS.md 76).
+  final double musicVolume;
 
-  /// A non-interruptible cue in flight wins over a lower-priority newcomer,
-  /// which is the collision policy the exercise files describe.
+  /// Injectable so a test can move time without waiting for it.
+  final DateTime Function() _now;
+
+  /// The priority a cue that may not be spoken over is holding, and the moment
+  /// it stops holding it.
+  ///
+  /// The deadline is the whole point. Nothing reports back when a line ends —
+  /// text-to-speech is asked not to await completion so a cue can cut in — so
+  /// a floor with no expiry would be permanent: the first non-interruptible
+  /// cue of an exercise silenced the rhythm words, the counting and the
+  /// halfway cue for the rest of the session (docs/DECISIONS.md 75).
+  int _floorPriority = 0;
+  DateTime? _floorUntil;
+
+  /// A non-interruptible cue still being spoken wins over a lower-priority
+  /// newcomer, which is the collision policy the exercise files describe.
   Future<void> play(AudioEvent event) async {
     if (!voiceEnabled) return;
-    final AudioEvent? current = _playing;
-    if (current != null &&
-        !current.interruptible &&
-        event.priority <= _playingPriority) {
+    if (_floorHolds(event)) return;
+
+    await service.setVoiceVolume(mix.voiceLevel);
+    final Duration? length = await service.playVoice(event);
+
+    if (event.interruptible || length == null) {
+      _releaseFloor();
       return;
     }
-    _playing = event;
-    _playingPriority = event.priority;
-    await service.setVoiceVolume(mix.voiceLevel);
-    await service.playVoice(event);
+    _floorPriority = event.priority;
+    _floorUntil = _now().add(length);
+  }
+
+  bool _floorHolds(AudioEvent event) {
+    final DateTime? until = _floorUntil;
+    if (until == null) return false;
+    if (!_now().isBefore(until)) {
+      _releaseFloor();
+      return false;
+    }
+    return event.priority <= _floorPriority;
+  }
+
+  void _releaseFloor() {
+    _floorPriority = 0;
+    _floorUntil = null;
   }
 
   Future<void> countdown(int secondsLeft) async {
@@ -62,7 +101,7 @@ class SessionAudioController {
   Future<void> startMusic(String trackId) async {
     if (!musicEnabled) return;
     // No dynamic ducking by default (docs/TECHNICAL_SPEC.md 10).
-    await service.setMusicVolume(mix.musicLevel * mix.voiceLevel);
+    await service.setMusicVolume(musicVolume);
     await service.playMusic(trackId);
   }
 
@@ -71,25 +110,32 @@ class SessionAudioController {
   Future<void> resume() => service.resumeAll();
 
   Future<void> stop() async {
-    _playing = null;
-    _playingPriority = 0;
+    _releaseFloor();
     await service.stopAll();
   }
 }
 
-/// Records what was requested. Used until voice packs exist, and asserted
-/// against in tests.
+/// Records what was requested. Used in tests, and as the provider's default so
+/// no test reaches a platform channel by accident.
 class LoggingAudioService implements AudioService {
+  LoggingAudioService({this.voiceLength});
+
+  /// What [playVoice] reports back. `null` — the default — plays nothing and
+  /// so holds the voice for no time at all; a test that exercises the
+  /// collision policy sets a length.
+  final Duration? voiceLength;
+
   final List<String> log = <String>[];
 
   @override
-  Future<void> playVoice(AudioEvent event) async {
+  Future<Duration?> playVoice(AudioEvent event) async {
     log.add('voice:${event.id}');
     if (kDebugMode) {
       debugPrint(
         '[audio] voice ${event.id} — "${event.text ?? event.assetKey}"',
       );
     }
+    return voiceLength;
   }
 
   @override
